@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, Navigate, Outlet } from 'react-router-dom';
 import { hasCompletedOnboarding, migrateToSubjectNamespaces } from './lib/storage';
 import { SubjectProvider } from './contexts/SubjectContext';
 import ErrorBoundary from './components/ErrorBoundary';
@@ -31,33 +31,45 @@ function PageLoader() {
   );
 }
 
-function ProtectedRoute({ children }) {
+function ProtectedLayout() {
   if (!hasCompletedOnboarding()) {
     return <Navigate to="/onboarding" replace />;
   }
-  return <Layout>{children}</Layout>;
+  return (
+    <Layout>
+      <Suspense fallback={<PageLoader />}>
+        <Outlet />
+      </Suspense>
+    </Layout>
+  );
 }
+
+const router = createBrowserRouter([
+  {
+    path: '/onboarding',
+    element: <Suspense fallback={<PageLoader />}><Onboarding /></Suspense>,
+  },
+  {
+    element: <ProtectedLayout />,
+    children: [
+      { path: '/', element: <Home /> },
+      { path: '/topics', element: <Topics /> },
+      { path: '/battle/:topicId', element: <Battle /> },
+      { path: '/drill/:topicId', element: <Drill /> },
+      { path: '/study-guide/:topicId', element: <StudyGuide /> },
+      { path: '/exam', element: <Exam /> },
+      { path: '/history', element: <History /> },
+      { path: '/settings', element: <Settings /> },
+      { path: '*', element: <NotFound /> },
+    ],
+  },
+]);
 
 export default function App() {
   return (
     <ErrorBoundary>
       <SubjectProvider>
-        <BrowserRouter>
-          <Suspense fallback={<PageLoader />}>
-            <Routes>
-              <Route path="/onboarding" element={<Onboarding />} />
-              <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
-              <Route path="/topics" element={<ProtectedRoute><Topics /></ProtectedRoute>} />
-              <Route path="/battle/:topicId" element={<ProtectedRoute><Battle /></ProtectedRoute>} />
-              <Route path="/drill/:topicId" element={<ProtectedRoute><Drill /></ProtectedRoute>} />
-              <Route path="/study-guide/:topicId" element={<ProtectedRoute><StudyGuide /></ProtectedRoute>} />
-              <Route path="/exam" element={<ProtectedRoute><Exam /></ProtectedRoute>} />
-              <Route path="/history" element={<ProtectedRoute><History /></ProtectedRoute>} />
-              <Route path="/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
-              <Route path="*" element={<ProtectedRoute><NotFound /></ProtectedRoute>} />
-            </Routes>
-          </Suspense>
-        </BrowserRouter>
+        <RouterProvider router={router} />
       </SubjectProvider>
     </ErrorBoundary>
   );
