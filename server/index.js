@@ -20,8 +20,11 @@ const MODEL = 'claude-sonnet-4-20250514';
 
 // ─── System Prompts ───
 
-function getGenerateQuestionPrompt(examBoard) {
-  return `You are an expert A-level Biology examiner creating exam-style questions. You create questions aligned to UK A-level Biology standards (AQA, OCR, Edexcel).
+const SUBJECT_NAMES = { biology: 'Biology', chemistry: 'Chemistry', mathematics: 'Mathematics' };
+
+function getGenerateQuestionPrompt(examBoard, subjectId) {
+  const subject = SUBJECT_NAMES[subjectId] || 'Biology';
+  return `You are an expert A-level ${subject} examiner creating exam-style questions. You create questions aligned to UK A-level ${subject} standards (AQA, OCR, Edexcel).
 
 EXAM BOARD CONTEXT:
 ${examBoard === 'aqa' ? '- AQA (7402): Straightforward, concept-focused. "Explain why…", "Describe…" style. More 2-4 mark questions.' :
@@ -41,8 +44,9 @@ RULES:
 You MUST respond with valid JSON only. No markdown, no explanation outside the JSON.`;
 }
 
-function getMarkAnswerPrompt(examBoard) {
-  return `You are an expert A-level Biology examiner marking student answers. You mark strictly according to exam-board rubric conventions.
+function getMarkAnswerPrompt(examBoard, subjectId) {
+  const subject = SUBJECT_NAMES[subjectId] || 'Biology';
+  return `You are an expert A-level ${subject} examiner marking student answers. You mark strictly according to exam-board rubric conventions.
 
 EXAM BOARD: ${examBoard?.toUpperCase() || 'Generic UK A-level'}
 
@@ -74,7 +78,7 @@ app.get('/api/health', (req, res) => {
 
 app.post('/api/claude/generateQuestion', async (req, res) => {
   try {
-    const { topicId, topicName, phase, difficulty, examBoard, subskills, misconceptions } = req.body;
+    const { topicId, topicName, phase, difficulty, examBoard, subskills, misconceptions, subjectId } = req.body;
 
     if (!topicId || !phase) {
       return res.status(400).json({ success: false, error: 'Missing topicId or phase' });
@@ -92,7 +96,7 @@ Example: "Describe and explain the relationship between the structure of protein
     const message = await anthropic.messages.create({
       model: MODEL,
       max_tokens: 1024,
-      system: getGenerateQuestionPrompt(examBoard),
+      system: getGenerateQuestionPrompt(examBoard, subjectId),
       messages: [{
         role: 'user',
         content: `Generate a ${phase} question for the topic "${topicName || topicId}".
@@ -158,7 +162,7 @@ Respond with this exact JSON structure:
 
 app.post('/api/claude/markAnswer', async (req, res) => {
   try {
-    const { questionId, questionPrompt, studentAnswer, phase, difficulty, rubric, examBoard, topicId } = req.body;
+    const { questionId, questionPrompt, studentAnswer, phase, difficulty, rubric, examBoard, topicId, subjectId } = req.body;
 
     if (!studentAnswer && studentAnswer !== '') {
       return res.status(400).json({ success: false, error: 'Missing studentAnswer' });
@@ -167,10 +171,10 @@ app.post('/api/claude/markAnswer', async (req, res) => {
     const message = await anthropic.messages.create({
       model: MODEL,
       max_tokens: 1024,
-      system: getMarkAnswerPrompt(examBoard),
+      system: getMarkAnswerPrompt(examBoard, subjectId),
       messages: [{
         role: 'user',
-        content: `Mark this student's answer to an A-level Biology ${phase} question.
+        content: `Mark this student's answer to an A-level ${SUBJECT_NAMES[subjectId] || 'Biology'} ${phase} question.
 
 QUESTION: ${questionPrompt}
 MAX SCORE: ${rubric?.maxScore || 6}

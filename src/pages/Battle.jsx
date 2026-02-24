@@ -1,7 +1,6 @@
 import { useState, useRef, useCallback } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import topics from '../content/topics.json';
-import bosses from '../content/bosses.json';
+import { useSubject } from '../contexts/SubjectContext';
 import { generateQuestion, markAnswer } from '../lib/claudeClient';
 import { getSettings, saveSession, saveAttempt, updateProgress, getTopicMastery } from '../lib/storage';
 import { generateId } from '../lib/utils';
@@ -24,6 +23,7 @@ const PHASE_ORDER = ['recall', 'application', 'extended'];
 export default function Battle() {
   const { topicId } = useParams();
   const navigate = useNavigate();
+  const { topics, bosses } = useSubject();
   const topic = topics.find(t => t.id === topicId);
   const boss = bosses.find(b => b.topicId === topicId);
   const settings = getSettings();
@@ -75,6 +75,7 @@ export default function Battle() {
         phase,
         difficulty: 3,
         examBoard: settings?.examBoard || 'generic',
+        topics,
       });
 
       if (result.success) {
@@ -244,7 +245,7 @@ export default function Battle() {
     updateProgress(totalXP);
 
     // Update mastery after saving attempts
-    const newMastery = updateTopicMastery(topicId);
+    const newMastery = updateTopicMastery(topicId, topics);
     setMasteryAfter(newMastery.topicMastery);
 
     setCompletedSession(session);

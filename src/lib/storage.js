@@ -21,7 +21,36 @@ function removeKey(key) {
   localStorage.removeItem(getKey(key));
 }
 
-// --- User Settings ---
+// ─── Subject Helper ───
+// Returns current subject from localStorage (default: biology)
+
+export function getCurrentSubject() {
+  return localStorage.getItem(`${PREFIX}:currentSubject`) || 'biology';
+}
+
+// ─── Data Migration ───
+// On first multi-subject load, move unnamespaced data into biology namespace.
+
+let _migrated = false;
+
+export function migrateToSubjectNamespaces() {
+  if (_migrated) return;
+  _migrated = true;
+
+  const subjectKeys = ['sessions', 'attempts', 'masteryCache'];
+  for (const key of subjectKeys) {
+    const oldData = readJSON(key);
+    const newKey = `biology:${key}`;
+    const alreadyMigrated = readJSON(newKey);
+
+    if (oldData && !alreadyMigrated) {
+      writeJSON(newKey, oldData);
+      removeKey(key);
+    }
+  }
+}
+
+// --- User Settings (GLOBAL — shared across subjects) ---
 
 export function getSettings() {
   return readJSON('userSettings', null);
@@ -38,63 +67,69 @@ export function hasCompletedOnboarding() {
   return getSettings() !== null;
 }
 
-// --- Sessions ---
+// --- Sessions (PER-SUBJECT) ---
 
-export function getSessions() {
-  return readJSON('sessions', []);
+export function getSessions(subject) {
+  const s = subject || getCurrentSubject();
+  return readJSON(`${s}:sessions`, []);
 }
 
-export function saveSession(session) {
-  const sessions = getSessions();
+export function saveSession(session, subject) {
+  const s = subject || getCurrentSubject();
+  const sessions = getSessions(s);
   sessions.unshift(session);
-  writeJSON('sessions', sessions);
+  writeJSON(`${s}:sessions`, sessions);
 }
 
-export function getRecentSessions(count = 5) {
-  return getSessions().slice(0, count);
+export function getRecentSessions(count = 5, subject) {
+  return getSessions(subject).slice(0, count);
 }
 
-// --- Attempts ---
+// --- Attempts (PER-SUBJECT) ---
 
-export function getAttempts() {
-  return readJSON('attempts', []);
+export function getAttempts(subject) {
+  const s = subject || getCurrentSubject();
+  return readJSON(`${s}:attempts`, []);
 }
 
-export function saveAttempt(attempt) {
-  const attempts = getAttempts();
+export function saveAttempt(attempt, subject) {
+  const s = subject || getCurrentSubject();
+  const attempts = getAttempts(s);
   attempts.push(attempt);
-  writeJSON('attempts', attempts);
+  writeJSON(`${s}:attempts`, attempts);
 }
 
-export function getAttemptsByTopic(topicId) {
-  return getAttempts().filter(a => a.topicId === topicId);
+export function getAttemptsByTopic(topicId, subject) {
+  return getAttempts(subject).filter(a => a.topicId === topicId);
 }
 
-export function getAttemptsBySubskill(subskillId) {
-  return getAttempts().filter(a => a.subskillIds?.includes(subskillId));
+export function getAttemptsBySubskill(subskillId, subject) {
+  return getAttempts(subject).filter(a => a.subskillIds?.includes(subskillId));
 }
 
-// --- Mastery Cache ---
+// --- Mastery Cache (PER-SUBJECT) ---
 
-export function getMasteryCache() {
-  return readJSON('masteryCache', {});
+export function getMasteryCache(subject) {
+  const s = subject || getCurrentSubject();
+  return readJSON(`${s}:masteryCache`, {});
 }
 
-export function updateMasteryCache(topicId, masteryData) {
-  const cache = getMasteryCache();
+export function updateMasteryCache(topicId, masteryData, subject) {
+  const s = subject || getCurrentSubject();
+  const cache = getMasteryCache(s);
   cache[topicId] = {
     ...masteryData,
     lastUpdated: new Date().toISOString(),
   };
-  writeJSON('masteryCache', cache);
+  writeJSON(`${s}:masteryCache`, cache);
 }
 
-export function getTopicMastery(topicId) {
-  const cache = getMasteryCache();
+export function getTopicMastery(topicId, subject) {
+  const cache = getMasteryCache(subject);
   return cache[topicId]?.topicMastery ?? 0;
 }
 
-// --- Progress Tracking ---
+// --- Progress Tracking (GLOBAL — XP/level/streak shared) ---
 
 export function getProgress() {
   return readJSON('progressTracking', {
@@ -133,8 +168,6 @@ export function updateProgress(xpEarned) {
 }
 
 function calculateLevel(totalXP) {
-  // Each level requires progressively more XP
-  // Level 1: 0, Level 2: 500, Level 3: 1200, Level 4: 2100, etc.
   const thresholds = [0, 500, 1200, 2100, 3200, 4500, 6000, 7700, 9600, 11700, 14000];
   for (let i = thresholds.length - 1; i >= 0; i--) {
     if (totalXP >= thresholds[i]) return i + 1;
@@ -163,19 +196,34 @@ export function getLevelProgress() {
 // --- Data Management ---
 
 export function exportAllData() {
+  const s = getCurrentSubject();
   return {
     userSettings: readJSON('userSettings'),
-    sessions: readJSON('sessions', []),
-    attempts: readJSON('attempts', []),
-    masteryCache: readJSON('masteryCache', {}),
+    sessions: readJSON(`${s}:sessions`, []),
+    attempts: readJSON(`${s}:attempts`, []),
+    masteryCache: readJSON(`${s}:masteryCache`, {}),
     progressTracking: readJSON('progressTracking'),
+    currentSubject: s,
     exportedAt: new Date().toISOString(),
   };
 }
 
 export function clearAllData() {
-  const keys = ['userSettings', 'sessions', 'attempts', 'masteryCache', 'progressTracking'];
-  keys.forEach(k => removeKey(k));
+  // Clear global keys
+  removeKey('userSettings');
+  removeKey('progressTracking');
+  // Clear all subject-namespaced keys
+  const subjects = ['biology', 'chemistry', 'mathematics'];
+  const perSubjectKeys = ['sessions', 'attempts', 'masteryCache'];
+  for (const subj of subjects) {
+    for (const k of perSubjectKeys) {
+      removeKey(`${subj}:${k}`);
+    }
+  }
+  // Also clear any old unnamespaced keys (pre-migration)
+  for (const k of perSubjectKeys) {
+    removeKey(k);
+  }
 }
 
 export function getStorageSize() {
@@ -190,7 +238,6 @@ export function getStorageSize() {
 
 /**
  * Check localStorage usage and return a warning if over 50%.
- * localStorage limit is typically ~5MB (5242880 bytes).
  */
 const STORAGE_LIMIT = 5 * 1024 * 1024; // 5MB
 

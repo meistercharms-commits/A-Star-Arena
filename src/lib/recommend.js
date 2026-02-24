@@ -1,19 +1,9 @@
 import { getMasteryCache, getSessions } from './storage';
 import { detectConfidenceMismatch } from './mastery';
-import topics from '../content/topics.json';
-import bosses from '../content/bosses.json';
 
 // ─── Priority Score ───
 // Higher score = more urgent to practise
-// Formula: (1 - mastery) * e^(-0.1 * daysAgo) * highYieldWeight * categoryBoost
-//
-// - mastery 0 → high priority (lots to learn)
-// - mastery 1 → low priority (already strong)
-// - daysAgo 0 → full recency weight (just practised = lower urgency... handled by the decay)
-//   Actually: daysAgo large → e^(-0.1 * daysAgo) → small → LOWER priority
-//   We WANT: topics not practised recently to be higher priority
-//   So we invert: recencyBoost = 1 - e^(-0.1 * daysAgo), capped at 1
-//   → daysAgo 0 → boost 0 (just did it), daysAgo 7 → ~0.5, daysAgo 30 → ~0.95
+// Formula: (1 - mastery) * recencyBoost * highYieldWeight * penalties
 
 function recencyBoost(daysAgo) {
   if (daysAgo === Infinity || daysAgo === null || daysAgo === undefined) return 0.6; // untested — moderate
@@ -52,9 +42,9 @@ function getDaysSinceLastPractice(topicId, sessions) {
 
 /**
  * Get ranked list of all topics with priority scores.
- * Returns array sorted by priority (highest first).
+ * topics & bosses come from SubjectContext.
  */
-export function getRankedTopics() {
+export function getRankedTopics(topics = [], bosses = []) {
   const masteryCache = getMasteryCache();
   const sessions = getSessions();
 
@@ -83,13 +73,13 @@ export function getRankedTopics() {
 
 /**
  * Get the single best recommendation for "Today's Mission".
- * Returns an object with topicId, reason, action type, etc.
+ * topics & bosses come from SubjectContext.
  */
-export function getTodaysMission() {
-  const ranked = getRankedTopics();
+export function getTodaysMission(topics = [], bosses = []) {
+  const ranked = getRankedTopics(topics, bosses);
 
   if (ranked.length === 0) {
-    return fallbackMission();
+    return fallbackMission(topics, bosses);
   }
 
   const top = ranked[0];
@@ -147,11 +137,11 @@ export function getTodaysMission() {
 
 /**
  * Get post-battle recommendation based on the session results.
+ * topics & bosses come from SubjectContext.
  */
-export function getPostBattleRecommendation({ topicId, score, maxScore, errorTypes, subskillIds }) {
+export function getPostBattleRecommendation({ topicId, score, maxScore, errorTypes, subskillIds }, topics = [], bosses = []) {
   const masteryCache = getMasteryCache();
-  const sessions = getSessions();
-  const ranked = getRankedTopics();
+  const ranked = getRankedTopics(topics, bosses);
 
   const currentMastery = masteryCache[topicId]?.topicMastery ?? 0;
   const currentTopic = topics.find(t => t.id === topicId);
@@ -161,7 +151,7 @@ export function getPostBattleRecommendation({ topicId, score, maxScore, errorTyp
   const mismatch = detectConfidenceMismatch(currentMastery, performance);
 
   // Check for weak subskills within this topic
-  const weakSubskills = findWeakSubskills(topicId, masteryCache);
+  const weakSubskills = findWeakSubskills(topicId, masteryCache, topics);
 
   // Case 0: Overconfident — mastery says strong but score says otherwise → targeted drill
   if (mismatch.type === 'overconfident') {
@@ -236,15 +226,15 @@ export function getPostBattleRecommendation({ topicId, score, maxScore, errorTyp
 
 /**
  * Get targeted drill questions for specific weak subskills.
- * Returns a drill config for 3 focused questions.
+ * topics come from SubjectContext.
  */
-export function getTargetedDrillConfig(topicId, focusSubskillIds) {
+export function getTargetedDrillConfig(topicId, focusSubskillIds, topics = []) {
   const topic = topics.find(t => t.id === topicId);
   if (!topic) return null;
 
   const subskills = focusSubskillIds.length > 0
     ? topic.subskills.filter(s => focusSubskillIds.includes(s.id))
-    : findWeakSubskills(topicId, getMasteryCache());
+    : findWeakSubskills(topicId, getMasteryCache(), topics);
 
   if (subskills.length === 0) {
     // No specific weak subskills — drill all
@@ -270,7 +260,7 @@ export function getTargetedDrillConfig(topicId, focusSubskillIds) {
 
 // ─── Helpers ───
 
-function findWeakSubskills(topicId, masteryCache) {
+function findWeakSubskills(topicId, masteryCache, topics = []) {
   const topic = topics.find(t => t.id === topicId);
   if (!topic) return [];
 
@@ -299,8 +289,20 @@ function formatDaysAgo(days) {
   return `${Math.floor(days / 30)} months ago`;
 }
 
-function fallbackMission() {
+function fallbackMission(topics = [], bosses = []) {
   const first = topics[0];
+  if (!first) {
+    return {
+      topicId: null,
+      topicName: 'No topics',
+      emoji: '📘',
+      mastery: 0,
+      category: 'untested',
+      action: 'start_new_topic',
+      reason: 'No topics available yet.',
+      difficulty: 2,
+    };
+  }
   const boss = bosses.find(b => b.topicId === first.id);
   return {
     topicId: first.id,
@@ -309,7 +311,7 @@ function fallbackMission() {
     mastery: 0,
     category: 'untested',
     action: 'start_new_topic',
-    reason: 'Welcome! Start with Biological Molecules — it\'s a high-yield foundation topic.',
+    reason: `Welcome! Start with ${first.name} — it's a great foundation topic.`,
     difficulty: 2,
   };
 }

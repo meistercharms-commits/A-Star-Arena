@@ -32,7 +32,7 @@ export default function Onboarding() {
               A<span className="text-accent">*</span> Arena
             </h1>
             <p className="text-text-secondary text-lg">
-              Your A-level Biology revision companion
+              Your A-level revision companion
             </p>
           </div>
 

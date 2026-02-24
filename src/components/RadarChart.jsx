@@ -8,6 +8,7 @@ import {
   Tooltip,
 } from 'recharts';
 import { getAllTopicMasteries } from '../lib/mastery';
+import { useSubject } from '../contexts/SubjectContext';
 
 const CATEGORY_COLOURS = {
   strong: '#22c55e',
@@ -29,7 +30,8 @@ function CustomTooltip({ active, payload }) {
 }
 
 export default function TopicRadar({ onTopicClick, className = '' }) {
-  const topicData = getAllTopicMasteries();
+  const { topics } = useSubject();
+  const topicData = getAllTopicMasteries(topics);
 
   const chartData = topicData.map(t => ({
     ...t,

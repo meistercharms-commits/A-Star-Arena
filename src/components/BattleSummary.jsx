@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { getPostBattleRecommendation } from '../lib/recommend';
+import { useSubject } from '../contexts/SubjectContext';
 
 const PHASE_CONFIG = {
   recall: { label: 'Rapid Recall', xpPer: 20 },
@@ -8,6 +9,7 @@ const PHASE_CONFIG = {
 };
 
 export default function BattleSummary({ session, boss, topic, masteryBefore, masteryAfter, onBattleAgain }) {
+  const { topics, bosses } = useSubject();
   const phases = session.phases;
   const recallCorrect = phases.recall.correct;
   const appCorrect = phases.application.correct;
@@ -27,7 +29,7 @@ export default function BattleSummary({ session, boss, topic, masteryBefore, mas
     maxScore: extMax,
     errorTypes: [],
     subskillIds: [],
-  });
+  }, topics, bosses);
 
   // Phase score bars
   const recallPct = Math.round((recallCorrect / phases.recall.total) * 100);

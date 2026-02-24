@@ -6,8 +6,11 @@ const anthropic = new Anthropic({
 
 const MODEL = 'claude-sonnet-4-20250514';
 
-function getSystemPrompt(examBoard) {
-  return `You are an expert A-level Biology examiner marking student answers. You mark strictly according to exam-board rubric conventions.
+const SUBJECT_NAMES = { biology: 'Biology', chemistry: 'Chemistry', mathematics: 'Mathematics' };
+
+function getSystemPrompt(examBoard, subjectId) {
+  const subject = SUBJECT_NAMES[subjectId] || 'Biology';
+  return `You are an expert A-level ${subject} examiner marking student answers. You mark strictly according to exam-board rubric conventions.
 
 EXAM BOARD: ${examBoard?.toUpperCase() || 'Generic UK A-level'}
 
@@ -34,7 +37,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { questionId, questionPrompt, studentAnswer, phase, difficulty, rubric, examBoard, topicId } = req.body;
+    const { questionId, questionPrompt, studentAnswer, phase, difficulty, rubric, examBoard, topicId, subjectId } = req.body;
 
     if (!studentAnswer && studentAnswer !== '') {
       return res.status(400).json({ success: false, error: 'Missing studentAnswer' });
@@ -43,10 +46,10 @@ export default async function handler(req, res) {
     const message = await anthropic.messages.create({
       model: MODEL,
       max_tokens: 1024,
-      system: getSystemPrompt(examBoard),
+      system: getSystemPrompt(examBoard, subjectId),
       messages: [{
         role: 'user',
-        content: `Mark this student's answer to an A-level Biology ${phase} question.
+        content: `Mark this student's answer to an A-level ${SUBJECT_NAMES[subjectId] || 'Biology'} ${phase} question.
 
 QUESTION: ${questionPrompt}
 MAX SCORE: ${rubric?.maxScore || 6}

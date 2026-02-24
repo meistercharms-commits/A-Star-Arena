@@ -6,7 +6,7 @@
  */
 
 import { mockGenerateQuestion, mockMarkAnswer } from './mockClaude';
-import topics from '../content/topics.json';
+import { getCurrentSubject } from './storage';
 
 // In production (Vercel), API routes are at /api/* on the same origin.
 // In dev, Vite's proxy forwards /api/* to localhost:3001.
@@ -58,7 +58,7 @@ export function resetApiCache() {
 
 // ─── Generate Question ───
 
-export async function generateQuestion({ topicId, phase, difficulty = 3, examBoard = 'generic' }) {
+export async function generateQuestion({ topicId, phase, difficulty = 3, examBoard = 'generic', topics = [] }) {
   // Try real API first
   const available = await isApiAvailable();
   if (available) {
@@ -73,6 +73,7 @@ export async function generateQuestion({ topicId, phase, difficulty = 3, examBoa
           phase,
           difficulty,
           examBoard,
+          subjectId: getCurrentSubject(),
           subskills: topic?.subskills?.map(s => s.name) || [],
           misconceptions: topic?.commonMisconceptions || [],
         }),
@@ -112,6 +113,7 @@ export async function markAnswer({ questionId, questionPrompt, studentAnswer, ph
           rubric,
           examBoard,
           topicId,
+          subjectId: getCurrentSubject(),
         }),
       });
 

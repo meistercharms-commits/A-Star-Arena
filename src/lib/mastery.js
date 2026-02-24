@@ -1,5 +1,4 @@
 import { getAttemptsByTopic, getAttemptsBySubskill, updateMasteryCache, getMasteryCache } from './storage';
-import topics from '../content/topics.json';
 
 // Phase weights: extended answers count more than recall
 const PHASE_WEIGHTS = {
@@ -62,7 +61,8 @@ function calculateSubskillMastery(subskillId) {
 }
 
 // Calculate full topic mastery with critical subskill penalty
-export function calculateTopicMastery(topicId) {
+// topics: array from SubjectContext (or getSubjectContent)
+export function calculateTopicMastery(topicId, topics = []) {
   const topic = topics.find(t => t.id === topicId);
   if (!topic) return { topicMastery: 0, subskillMasteries: {}, category: 'untested' };
 
@@ -120,17 +120,17 @@ export function calculateTopicMastery(topicId) {
 }
 
 // Recalculate and save mastery for a topic after a battle
-export function updateTopicMastery(topicId) {
-  const result = calculateTopicMastery(topicId);
+export function updateTopicMastery(topicId, topics = []) {
+  const result = calculateTopicMastery(topicId, topics);
   updateMasteryCache(topicId, result);
   return result;
 }
 
 // Recalculate all topic masteries
-export function recalculateAllMasteries() {
+export function recalculateAllMasteries(topics = []) {
   const results = {};
   for (const topic of topics) {
-    results[topic.id] = updateTopicMastery(topic.id);
+    results[topic.id] = updateTopicMastery(topic.id, topics);
   }
   return results;
 }
@@ -149,7 +149,8 @@ export function detectConfidenceMismatch(confidence, performance) {
 }
 
 // Get mastery summary for all topics (for radar chart)
-export function getAllTopicMasteries() {
+// topics: array from SubjectContext
+export function getAllTopicMasteries(topics = []) {
   const cache = getMasteryCache();
   return topics.map(topic => ({
     topicId: topic.id,

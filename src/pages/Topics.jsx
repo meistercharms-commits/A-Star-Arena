@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import topics from '../content/topics.json';
-import bosses from '../content/bosses.json';
+import { useSubject } from '../contexts/SubjectContext';
 import { getTopicMastery, getMasteryCache, getSessions } from '../lib/storage';
 import { getMasteryCategory, getDaysSince } from '../lib/utils';
 
@@ -27,6 +26,7 @@ function getLastPractised(topicId) {
 }
 
 export default function Topics() {
+  const { topics, bosses } = useSubject();
   const [filter, setFilter] = useState('all');
   const [sort, setSort] = useState('default');
 

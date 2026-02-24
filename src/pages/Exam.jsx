@@ -5,8 +5,7 @@ import { getSettings, saveSession, saveAttempt, updateProgress, getMasteryCache 
 import { updateTopicMastery } from '../lib/mastery';
 import { getRankedTopics } from '../lib/recommend';
 import { generateId, getMasteryCategory, formatDuration } from '../lib/utils';
-import topics from '../content/topics.json';
-import bosses from '../content/bosses.json';
+import { useSubject } from '../contexts/SubjectContext';
 import QuestionCard from '../components/QuestionCard';
 import FeedbackPanel from '../components/FeedbackPanel';
 
@@ -20,8 +19,8 @@ const QUESTION_PLAN = [
 const TOTAL_QUESTIONS = QUESTION_PLAN.reduce((sum, p) => sum + p.count, 0);
 
 // ─── Helper: select topics for exam ───
-function selectExamTopics() {
-  const ranked = getRankedTopics();
+function selectExamTopics(topics, bosses) {
+  const ranked = getRankedTopics(topics, bosses);
   // Pick the 3-4 weakest/most-urgent topics
   const weakTopics = ranked.slice(0, 4).map(r => r.topicId);
   // If fewer than 4 practised, fill with random untested
@@ -36,7 +35,7 @@ function selectExamTopics() {
 }
 
 // ─── Helper: generate all exam questions up front (async) ───
-async function generateExamQuestions(examTopics, examBoard) {
+async function generateExamQuestions(examTopics, examBoard, topics) {
   const questions = [];
   let topicIdx = 0;
 
@@ -49,6 +48,7 @@ async function generateExamQuestions(examTopics, examBoard) {
         phase,
         difficulty: phase === 'extended' ? 4 : 3,
         examBoard,
+        topics,
       });
       if (result.success) {
         questions.push({ ...result.data, examPhase: phase });
@@ -70,6 +70,7 @@ function estimateGrade(percentage) {
 
 export default function Exam() {
   const navigate = useNavigate();
+  const { topics, bosses } = useSubject();
   const settings = getSettings() || {};
 
   const [stage, setStage] = useState('setup'); // setup | loading | exam | marking | review | results
@@ -89,8 +90,8 @@ export default function Exam() {
 
   // Initialise exam topics on mount
   useEffect(() => {
-    setExamTopics(selectExamTopics());
-  }, []);
+    setExamTopics(selectExamTopics(topics, bosses));
+  }, [topics, bosses]);
 
   // Timer
   useEffect(() => {
@@ -205,10 +206,10 @@ export default function Exam() {
 
     // Update mastery for each tested topic
     const testedTopics = [...new Set(questions.map(q => q.topicId))];
-    testedTopics.forEach(tid => updateTopicMastery(tid));
+    testedTopics.forEach(tid => updateTopicMastery(tid, topics));
 
     setStage('results');
-  }, [questions, answers, timeLeft]);
+  }, [questions, answers, timeLeft, topics]);
 
   // Auto-submit on time expiry
   useEffect(() => {
@@ -221,7 +222,7 @@ export default function Exam() {
   async function startExam() {
     setStage('loading'); // show loading screen while generating questions
     try {
-      const qs = await generateExamQuestions(examTopics, settings.examBoard || 'generic');
+      const qs = await generateExamQuestions(examTopics, settings.examBoard || 'generic', topics);
       setQuestions(qs);
       setCurrentIdx(0);
       setAnswers({});
@@ -748,7 +749,7 @@ export default function Exam() {
               setMarkResults({});
               setTimeLeft(EXAM_DURATION);
               hasSubmittedRef.current = false;
-              setExamTopics(selectExamTopics());
+              setExamTopics(selectExamTopics(topics, bosses));
             }}
             className="flex-1 bg-accent hover:bg-accent-hover text-bg-primary font-semibold py-2.5 rounded-lg transition-colors cursor-pointer"
           >

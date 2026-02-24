@@ -1,5 +1,4 @@
 import { v4 as uuidv4 } from 'uuid';
-import topics from '../content/topics.json';
 
 // ─── Question Banks (per topic, per phase) ───
 
@@ -213,21 +212,21 @@ function getTopicQuestions(topicId, phase) {
   return bank[phase] || [];
 }
 
-function getSubskillsForTopic(topicId) {
+function getSubskillsForTopic(topicId, topics = []) {
   const topic = topics.find(t => t.id === topicId);
   return topic?.subskills?.map(s => s.id) || [];
 }
 
 // ─── Mock API: Generate Question ───
 
-export function mockGenerateQuestion({ topicId, phase, difficulty = 3, examBoard = 'generic' }) {
+export function mockGenerateQuestion({ topicId, phase, difficulty = 3, examBoard = 'generic', topics = [] }) {
   const questions = getTopicQuestions(topicId, phase);
   if (questions.length === 0) {
     return { success: false, error: `No questions for topic '${topicId}' phase '${phase}'` };
   }
 
   const q = pickRandom(questions);
-  const subskillIds = q.subskillIds || [getSubskillsForTopic(topicId)[0] || topicId];
+  const subskillIds = q.subskillIds || [getSubskillsForTopic(topicId, topics)[0] || topicId];
 
   return {
     success: true,
@@ -327,16 +326,17 @@ export function mockMarkAnswer({ questionId, studentAnswer, phase, difficulty = 
 
 // ─── Mock API: Recommend Next Action ───
 
-export function mockRecommendNextAction({ lastBattleResult, masteryData, recentHistory }) {
+export function mockRecommendNextAction({ lastBattleResult, masteryData, recentHistory, topics = [] }) {
   const topicMasteries = Object.entries(masteryData || {});
 
   if (topicMasteries.length === 0) {
+    const firstTopic = topics[0];
     return {
       success: true,
       data: {
         nextAction: 'start_new_topic',
-        topic: { id: 'biological_molecules', name: 'Biological Molecules' },
-        reason: 'Welcome! Start with Biological Molecules — it\'s a high-yield foundation topic.',
+        topic: { id: firstTopic?.id || 'biological_molecules', name: firstTopic?.name || 'Biological Molecules' },
+        reason: `Welcome! Start with ${firstTopic?.name || 'Biological Molecules'} — it's a high-yield foundation topic.`,
         difficulty: 2,
         focusSubskills: [],
         drillLength: null,

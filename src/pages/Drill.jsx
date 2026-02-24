@@ -1,7 +1,6 @@
 import { useState, useRef } from 'react';
 import { useParams, useSearchParams, Link, useNavigate } from 'react-router-dom';
-import topics from '../content/topics.json';
-import bosses from '../content/bosses.json';
+import { useSubject } from '../contexts/SubjectContext';
 import { generateQuestion, markAnswer } from '../lib/claudeClient';
 import { getSettings, saveAttempt, updateProgress } from '../lib/storage';
 import { updateTopicMastery } from '../lib/mastery';
@@ -15,6 +14,7 @@ export default function Drill() {
   const { topicId } = useParams();
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
+  const { topics, bosses } = useSubject();
   const topic = topics.find(t => t.id === topicId);
   const boss = bosses.find(b => b.topicId === topicId);
   const settings = getSettings();
@@ -22,7 +22,7 @@ export default function Drill() {
   const skillsParam = searchParams.get('skills');
   const focusSkillIds = skillsParam ? skillsParam.split(',') : [];
 
-  const drillConfig = getTargetedDrillConfig(topicId, focusSkillIds);
+  const drillConfig = getTargetedDrillConfig(topicId, focusSkillIds, topics);
 
   const [stage, setStage] = useState('intro'); // intro | drilling | feedback | complete
   const [questionIndex, setQuestionIndex] = useState(0);
@@ -59,6 +59,7 @@ export default function Drill() {
         phase,
         difficulty: drillConfig.difficulty,
         examBoard: settings?.examBoard || 'generic',
+        topics,
       });
 
       if (result.success) {
@@ -151,7 +152,7 @@ export default function Drill() {
     const correctCount = results.filter(r => r.correct).length;
     const xpEarned = correctCount * 15; // Drill XP: 15 per correct
     updateProgress(xpEarned);
-    updateTopicMastery(topicId);
+    updateTopicMastery(topicId, topics);
   }
 
   // ─── Intro Screen ───

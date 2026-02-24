@@ -6,8 +6,11 @@ const anthropic = new Anthropic({
 
 const MODEL = 'claude-sonnet-4-20250514';
 
-function getSystemPrompt(examBoard) {
-  return `You are an expert A-level Biology examiner creating exam-style questions. You create questions aligned to UK A-level Biology standards (AQA, OCR, Edexcel).
+const SUBJECT_NAMES = { biology: 'Biology', chemistry: 'Chemistry', mathematics: 'Mathematics' };
+
+function getSystemPrompt(examBoard, subjectId) {
+  const subject = SUBJECT_NAMES[subjectId] || 'Biology';
+  return `You are an expert A-level ${subject} examiner creating exam-style questions. You create questions aligned to UK A-level ${subject} standards (AQA, OCR, Edexcel).
 
 EXAM BOARD CONTEXT:
 ${examBoard === 'aqa' ? '- AQA (7402): Straightforward, concept-focused. "Explain why...", "Describe..." style. More 2-4 mark questions.' :
@@ -33,7 +36,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { topicId, topicName, phase, difficulty, examBoard, subskills, misconceptions } = req.body;
+    const { topicId, topicName, phase, difficulty, examBoard, subskills, misconceptions, subjectId } = req.body;
 
     if (!topicId || !phase) {
       return res.status(400).json({ success: false, error: 'Missing topicId or phase' });
@@ -51,7 +54,7 @@ Example: "Describe and explain the relationship between the structure of protein
     const message = await anthropic.messages.create({
       model: MODEL,
       max_tokens: 1024,
-      system: getSystemPrompt(examBoard),
+      system: getSystemPrompt(examBoard, subjectId),
       messages: [{
         role: 'user',
         content: `Generate a ${phase} question for the topic "${topicName || topicId}".

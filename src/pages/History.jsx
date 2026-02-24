@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useSubject } from '../contexts/SubjectContext';
 import { getSessions } from '../lib/storage';
 import { formatDate } from '../lib/utils';
-import topics from '../content/topics.json';
-import bosses from '../content/bosses.json';
 
 const TIME_FILTERS = [
   { key: 'all', label: 'All Time' },
@@ -31,6 +30,7 @@ function formatDuration(seconds) {
 }
 
 export default function History() {
+  const { topics, bosses } = useSubject();
   const sessions = getSessions();
   const [timeFilter, setTimeFilter] = useState('all');
   const [sort, setSort] = useState('newest');

@@ -2,12 +2,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import { getSettings, getProgress, getLevelProgress, getRecentSessions, getStorageWarning } from '../lib/storage';
 import { getMasteryCategory, formatDate } from '../lib/utils';
 import { getTodaysMission } from '../lib/recommend';
+import { useSubject } from '../contexts/SubjectContext';
 import TopicRadar from '../components/RadarChart';
-import topics from '../content/topics.json';
-import bosses from '../content/bosses.json';
 
 export default function Home() {
   const navigate = useNavigate();
+  const { topics, bosses } = useSubject();
   const settings = getSettings() || {};
   const progress = getProgress();
   const levelInfo = getLevelProgress();
@@ -19,7 +19,7 @@ export default function Home() {
     : 'Welcome back';
 
   // Today's Mission — powered by the recommendation engine
-  const missionRaw = getTodaysMission();
+  const missionRaw = getTodaysMission(topics, bosses);
   const mission = {
     ...missionRaw,
     category: getMasteryCategory(missionRaw.mastery),
