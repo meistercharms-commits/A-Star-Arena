@@ -17,6 +17,7 @@ const Drill = lazy(() => import('./pages/Drill'));
 const Exam = lazy(() => import('./pages/Exam'));
 const History = lazy(() => import('./pages/History'));
 const Settings = lazy(() => import('./pages/Settings'));
+const StudyGuide = lazy(() => import('./pages/StudyGuide'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
 function PageLoader() {
@@ -49,6 +50,7 @@ export default function App() {
               <Route path="/topics" element={<ProtectedRoute><Topics /></ProtectedRoute>} />
               <Route path="/battle/:topicId" element={<ProtectedRoute><Battle /></ProtectedRoute>} />
               <Route path="/drill/:topicId" element={<ProtectedRoute><Drill /></ProtectedRoute>} />
+              <Route path="/study-guide/:topicId" element={<ProtectedRoute><StudyGuide /></ProtectedRoute>} />
               <Route path="/exam" element={<ProtectedRoute><Exam /></ProtectedRoute>} />
               <Route path="/history" element={<ProtectedRoute><History /></ProtectedRoute>} />
               <Route path="/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />

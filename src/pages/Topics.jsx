@@ -153,12 +153,21 @@ export default function Topics() {
                     : `${topic.daysSince}d ago`
                 }
               </span>
-              <Link
-                to={`/battle/${topic.id}`}
-                className="text-xs bg-accent/10 text-accent hover:bg-accent/20 px-3 py-1.5 rounded-lg no-underline transition-colors font-medium"
-              >
-                Battle
-              </Link>
+              <div className="flex gap-2">
+                <Link
+                  to={`/study-guide/${topic.id}`}
+                  className="text-xs bg-bg-tertiary text-text-secondary hover:text-accent px-2.5 py-1.5 rounded-lg no-underline transition-colors"
+                  title="Study Guide"
+                >
+                  📖
+                </Link>
+                <Link
+                  to={`/battle/${topic.id}`}
+                  className="text-xs bg-accent/10 text-accent hover:bg-accent/20 px-3 py-1.5 rounded-lg no-underline transition-colors font-medium"
+                >
+                  Battle
+                </Link>
+              </div>
             </div>
           </div>
         ))}

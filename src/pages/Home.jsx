@@ -275,6 +275,12 @@ export default function Home() {
           🎓 Exam Simulator
         </Link>
         <Link
+          to={`/study-guide/${mission.topicId}`}
+          className="bg-bg-secondary border border-border hover:border-accent rounded-lg px-4 py-2.5 text-sm no-underline text-text-primary transition-colors"
+        >
+          📖 Study Guide
+        </Link>
+        <Link
           to="/history"
           className="bg-bg-secondary border border-border hover:border-accent rounded-lg px-4 py-2.5 text-sm no-underline text-text-primary transition-colors"
         >

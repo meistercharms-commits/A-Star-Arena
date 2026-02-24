@@ -5,7 +5,7 @@
  * These have the SAME return shape as mockGenerateQuestion / mockMarkAnswer.
  */
 
-import { mockGenerateQuestion, mockMarkAnswer } from './mockClaude';
+import { mockGenerateQuestion, mockMarkAnswer, mockGenerateStudyGuide } from './mockClaude';
 import { getCurrentSubject } from './storage';
 
 // In production (Vercel), API routes are at /api/* on the same origin.
@@ -129,5 +129,41 @@ export async function markAnswer({ questionId, questionPrompt, studentAnswer, ph
 
   // Fallback to mock
   const result = mockMarkAnswer({ questionId, studentAnswer, phase, difficulty, rubric });
+  return { ...result, source: 'mock' };
+}
+
+// ─── Generate Study Guide ───
+
+export async function generateStudyGuide({ topicId, topicName, subskills = [], examBoard = 'generic', masteryScore, weakSubskills = [], errorPatterns = [] }) {
+  const available = await isApiAvailable();
+  if (available) {
+    try {
+      const res = await fetchWithTimeout(`${API_BASE}/claude/generateStudyGuide`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          topicId,
+          topicName,
+          subskills,
+          examBoard,
+          subjectId: getCurrentSubject(),
+          masteryScore,
+          weakSubskills,
+          errorPatterns,
+        }),
+      }, 25000); // Higher timeout — study guides take longer
+
+      const data = await res.json();
+      if (data.success) {
+        return { success: true, data: data.data, source: 'claude' };
+      }
+      console.warn('Claude generateStudyGuide failed, using mock:', data.error);
+    } catch (err) {
+      console.warn('Claude generateStudyGuide error, using mock:', err.message);
+    }
+  }
+
+  // Fallback to mock
+  const result = mockGenerateStudyGuide({ topicId, topicName, subskills, examBoard, masteryScore, weakSubskills, errorPatterns });
   return { ...result, source: 'mock' };
 }

@@ -374,6 +374,100 @@ Mark this answer and respond with this exact JSON structure:
   }
 });
 
+// ─── Generate Study Guide ───
+
+function getStudyGuidePrompt(examBoard, subjectId) {
+  const subjectName = SUBJECT_NAMES[subjectId] || 'Biology';
+  return `You are an expert A-level ${subjectName} tutor creating personalised study guides. You create targeted revision material aligned to UK A-level standards.
+
+EXAM BOARD: ${examBoard?.toUpperCase() || 'Generic UK A-level'}
+
+Your study guides are personalised based on the student's mastery data, weak subskills, and recurring error patterns. Focus on areas where the student needs the most help.
+
+GUIDE STRUCTURE:
+1. Summary: 2-3 sentence overview of the topic and the student's current position
+2. Key Concept Cards: Core concepts the student must understand (title, explanation, exam tip for each)
+3. Worked Examples: Exam-style questions with model answers showing mark-worthy points
+4. Exam Tips: Practical advice for answering questions on this topic
+5. Weak Spot Focus: Personalised advice targeting the student's specific weaknesses
+
+RULES:
+- Use precise ${subjectName} terminology throughout
+- Keep explanations clear and concise — suitable for A-level students
+- Exam tips should reference mark scheme conventions
+- Worked examples should show the level of detail expected for full marks
+- Weak spot advice should be actionable and specific
+
+You MUST respond with valid JSON only. No markdown, no explanation outside the JSON.`;
+}
+
+app.post('/api/claude/generateStudyGuide', async (req, res) => {
+  try {
+    const { topicId, topicName, subskills, examBoard, subjectId, masteryScore, weakSubskills, errorPatterns } = req.body;
+
+    if (!topicId || !topicName) {
+      return res.status(400).json({ success: false, error: 'Missing topicId or topicName' });
+    }
+
+    const message = await anthropic.messages.create({
+      model: MODEL,
+      max_tokens: 2048,
+      system: getStudyGuidePrompt(examBoard, subjectId),
+      messages: [{
+        role: 'user',
+        content: `Generate a personalised study guide for "${topicName}".
+
+STUDENT CONTEXT:
+- Overall mastery for this topic: ${masteryScore != null ? `${Math.round(masteryScore * 100)}%` : 'Unknown'}
+- Weak subskills: ${weakSubskills?.length ? weakSubskills.join(', ') : 'None identified'}
+- Recurring error patterns: ${errorPatterns?.length ? errorPatterns.join('; ') : 'None identified'}
+- All subskills in topic: ${subskills?.join(', ') || 'Not specified'}
+
+Respond with this exact JSON structure:
+{
+  "summary": "2-3 sentence overview",
+  "keyConceptCards": [
+    { "title": "Concept name", "explanation": "Clear explanation", "examTip": "Mark scheme advice" }
+  ],
+  "workedExamples": [
+    { "question": "Exam-style question", "answer": "Full model answer", "marks": 4 }
+  ],
+  "examTips": ["Tip 1", "Tip 2"],
+  "weakSpotFocus": [
+    { "subskill": "Weak area name", "issue": "What the student struggles with", "howToFix": "Specific actionable advice" }
+  ]
+}`
+      }],
+    });
+
+    const text = message.content[0]?.text || '';
+    let parsed;
+    try {
+      const jsonMatch = text.match(/\{[\s\S]*\}/);
+      parsed = JSON.parse(jsonMatch ? jsonMatch[0] : text);
+    } catch {
+      return res.status(500).json({ success: false, error: 'Failed to parse Claude response', raw: text });
+    }
+
+    res.json({
+      success: true,
+      data: {
+        topicId,
+        topicName,
+        summary: parsed.summary || '',
+        keyConceptCards: parsed.keyConceptCards || [],
+        workedExamples: parsed.workedExamples || [],
+        examTips: parsed.examTips || [],
+        weakSpotFocus: parsed.weakSpotFocus || [],
+        generatedAt: new Date().toISOString(),
+      },
+    });
+  } catch (err) {
+    console.error('generateStudyGuide error:', err.message);
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`A* Arena server running on port ${PORT}`);
 });

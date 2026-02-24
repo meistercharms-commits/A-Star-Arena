@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getPostBattleRecommendation } from '../lib/recommend';
 import { formatNextReview, getSRSStageLabel } from '../lib/srs';
+import { getCurrentSubject } from '../lib/storage';
 import { useSubject } from '../contexts/SubjectContext';
 
 const PHASE_CONFIG = {
@@ -11,6 +13,25 @@ const PHASE_CONFIG = {
 
 export default function BattleSummary({ session, boss, topic, masteryBefore, masteryAfter, srsResult, onBattleAgain }) {
   const { topics, bosses } = useSubject();
+  const [feedbackDifficulty, setFeedbackDifficulty] = useState(null);
+  const [feedbackFairness, setFeedbackFairness] = useState(null);
+  const [feedbackComment, setFeedbackComment] = useState('');
+  const [feedbackSaved, setFeedbackSaved] = useState(false);
+
+  const saveFeedback = () => {
+    const existing = JSON.parse(localStorage.getItem('astarena:sessionFeedback') || '[]');
+    existing.push({
+      sessionId: session.id,
+      topicId: session.topicId,
+      subjectId: getCurrentSubject(),
+      difficulty: feedbackDifficulty,
+      fairness: feedbackFairness,
+      comment: feedbackComment || null,
+      timestamp: new Date().toISOString(),
+    });
+    localStorage.setItem('astarena:sessionFeedback', JSON.stringify(existing));
+    setFeedbackSaved(true);
+  };
   const phases = session.phases;
   const recallCorrect = phases.recall.correct;
   const appCorrect = phases.application.correct;
@@ -184,6 +205,87 @@ export default function BattleSummary({ session, boss, topic, masteryBefore, mas
               </div>
             </div>
           </div>
+        </div>
+      )}
+
+      {/* Study Guide — show when score is low */}
+      {(extPct < 70 || appPct < 50) && (
+        <div className="bg-bg-secondary border border-developing/30 rounded-xl p-4 flex items-center justify-between">
+          <div>
+            <p className="text-sm font-medium">Need help with {topic?.name}?</p>
+            <p className="text-xs text-text-muted">Get a personalised study guide based on your weak spots.</p>
+          </div>
+          <Link
+            to={`/study-guide/${session.topicId}`}
+            className="text-xs bg-developing/10 text-developing hover:bg-developing/20 px-3 py-1.5 rounded-lg no-underline transition-colors font-medium shrink-0"
+          >
+            📖 Study Guide
+          </Link>
+        </div>
+      )}
+
+      {/* Session Feedback */}
+      {!feedbackSaved ? (
+        <div className="bg-bg-secondary border border-border rounded-xl p-5 space-y-4">
+          <h3 className="font-semibold text-sm text-text-secondary uppercase tracking-wide">Quick Feedback</h3>
+
+          <div>
+            <p className="text-xs text-text-muted mb-2">How did the difficulty feel?</p>
+            <div className="flex gap-2">
+              {[{ key: 'easy', label: 'Too Easy' }, { key: 'right', label: 'Just Right' }, { key: 'hard', label: 'Too Hard' }].map(opt => (
+                <button
+                  key={opt.key}
+                  onClick={() => setFeedbackDifficulty(opt.key)}
+                  className={`flex-1 text-xs py-2 rounded-lg cursor-pointer transition-colors border ${
+                    feedbackDifficulty === opt.key
+                      ? 'bg-accent/20 border-accent text-accent'
+                      : 'bg-bg-tertiary border-border text-text-secondary hover:text-text-primary'
+                  }`}
+                >
+                  {opt.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <p className="text-xs text-text-muted mb-2">How was the marking?</p>
+            <div className="flex gap-2">
+              {[{ key: 'harsh', label: 'Too Harsh' }, { key: 'fair', label: 'Fair' }, { key: 'lenient', label: 'Too Lenient' }].map(opt => (
+                <button
+                  key={opt.key}
+                  onClick={() => setFeedbackFairness(opt.key)}
+                  className={`flex-1 text-xs py-2 rounded-lg cursor-pointer transition-colors border ${
+                    feedbackFairness === opt.key
+                      ? 'bg-accent/20 border-accent text-accent'
+                      : 'bg-bg-tertiary border-border text-text-secondary hover:text-text-primary'
+                  }`}
+                >
+                  {opt.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <textarea
+            placeholder="Any other feedback? (optional)"
+            value={feedbackComment}
+            onChange={e => setFeedbackComment(e.target.value)}
+            className="w-full bg-bg-tertiary border border-border rounded-lg p-2 text-sm text-text-primary resize-none h-16 outline-none focus:border-accent placeholder:text-text-muted"
+          />
+
+          {(feedbackDifficulty || feedbackFairness) && (
+            <button
+              onClick={saveFeedback}
+              className="text-xs bg-accent/10 text-accent hover:bg-accent/20 px-4 py-2 rounded-lg cursor-pointer transition-colors font-medium"
+            >
+              Save Feedback
+            </button>
+          )}
+        </div>
+      ) : (
+        <div className="bg-bg-secondary border border-strong/30 rounded-xl p-4 text-center">
+          <p className="text-sm text-strong">Thanks for your feedback!</p>
         </div>
       )}
 

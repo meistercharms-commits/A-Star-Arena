@@ -679,3 +679,62 @@ export function mockRecommendNextAction({ lastBattleResult, masteryData, recentH
     },
   };
 }
+
+// ─── Mock API: Generate Study Guide ───
+
+export function mockGenerateStudyGuide({ topicId, topicName, subskills = [], masteryScore, weakSubskills = [], errorPatterns = [] }) {
+  const subskillNames = subskills.map(s => typeof s === 'string' ? s : s.name || 'Key concept');
+
+  const weakFocus = weakSubskills.length > 0
+    ? weakSubskills.map(s => ({
+        subskill: s,
+        issue: `You have been consistently losing marks on questions involving ${s}.`,
+        howToFix: `Review the core definitions and practise with short recall questions on ${s} before attempting application questions.`,
+      }))
+    : [{ subskill: topicName, issue: 'No specific weak spots identified yet.', howToFix: 'Keep practising across all subskills to build a strong foundation.' }];
+
+  if (errorPatterns.length > 0) {
+    errorPatterns.slice(0, 2).forEach(ep => {
+      weakFocus.push({
+        subskill: ep,
+        issue: `Recurring error: "${ep}" has appeared multiple times in your answers.`,
+        howToFix: `Focus on understanding the distinction around "${ep}". Write out definitions from memory and compare with a textbook.`,
+      });
+    });
+  }
+
+  return {
+    success: true,
+    data: {
+      topicId,
+      topicName,
+      summary: `This study guide covers ${topicName} for your A-level revision. ${masteryScore != null ? `Your current mastery is ${Math.round(masteryScore * 100)}%. ` : ''}Focus on the key concepts below and use the worked examples to test your understanding.`,
+      keyConceptCards: subskillNames.slice(0, 4).map(name => ({
+        title: name,
+        explanation: `This is a core concept within ${topicName}. Make sure you understand the definitions, can explain the processes involved, and can apply your knowledge to unfamiliar scenarios. Practise writing concise definitions from memory.`,
+        examTip: 'Always use precise scientific terminology in your answers. Examiners award marks for specific keywords from the mark scheme.',
+      })),
+      workedExamples: [
+        {
+          question: `Explain one key process in ${topicName}. (4 marks)`,
+          answer: `A strong answer would include: correct terminology, a clear cause-and-effect chain, reference to specific structures or molecules involved, and a concluding statement linking back to the question. Each mark typically corresponds to one key point from the mark scheme.`,
+          marks: 4,
+        },
+        {
+          question: `Describe and explain a concept related to ${subskillNames[0] || topicName}. (6 marks)`,
+          answer: `For 6-mark questions, plan your answer first. Include: an introduction stating the key idea, 4-5 detailed points with scientific terminology, cause-and-effect reasoning, and a brief conclusion. Use paragraphs and logical flow to demonstrate understanding.`,
+          marks: 6,
+        },
+      ],
+      examTips: [
+        'Use diagrams to support your written answers where relevant.',
+        'Read the question carefully — "describe" means state what happens; "explain" means state what happens AND why.',
+        `For ${topicName}, examiners commonly look for precise use of key terms.`,
+        'In extended response questions, plan your answer before writing to ensure a logical structure.',
+        'Show all working in calculation questions — you can earn method marks even if the final answer is wrong.',
+      ],
+      weakSpotFocus: weakFocus,
+      generatedAt: new Date().toISOString(),
+    },
+  };
+}
