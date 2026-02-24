@@ -10,6 +10,7 @@ import { generateId, getMasteryCategory, formatDuration } from '../lib/utils';
 import { useSubject } from '../contexts/SubjectContext';
 import QuestionCard from '../components/QuestionCard';
 import FeedbackPanel from '../components/FeedbackPanel';
+import { useNavigationWarning, NavigationWarningModal } from '../components/NavigationWarning';
 
 // ─── Exam Config ───
 const EXAM_DURATION = 15 * 60; // 15 minutes in seconds
@@ -39,6 +40,7 @@ function selectExamTopics(topics, bosses) {
 // ─── Helper: generate all exam questions up front (async) ───
 async function generateExamQuestions(examTopics, examBoard, topics) {
   const questions = [];
+  const previousPrompts = [];
   let topicIdx = 0;
 
   for (const { phase, count } of QUESTION_PLAN) {
@@ -51,8 +53,10 @@ async function generateExamQuestions(examTopics, examBoard, topics) {
         difficulty: phase === 'extended' ? 4 : 3,
         examBoard,
         topics,
+        previousPrompts,
       });
       if (result.success) {
+        previousPrompts.push(result.data.prompt);
         questions.push({ ...result.data, examPhase: phase });
       }
     }
@@ -89,6 +93,9 @@ export default function Exam() {
   const startTimeRef = useRef(null);
   const timerRef = useRef(null);
   const hasSubmittedRef = useRef(false);
+
+  const isInActiveSession = stage === 'exam' || stage === 'marking';
+  const navBlocker = useNavigationWarning(isInActiveSession);
 
   // Initialise exam topics on mount
   useEffect(() => {
@@ -396,6 +403,7 @@ export default function Exam() {
 
     return (
       <div className="space-y-4 max-w-2xl mx-auto">
+        <NavigationWarningModal blocker={navBlocker} />
         {/* Exam Header */}
         <div className="flex items-center justify-between bg-bg-secondary border border-border rounded-xl px-4 py-3">
           <div className="flex items-center gap-2">

@@ -2,14 +2,68 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import Anthropic from '@anthropic-ai/sdk';
+import rateLimit from 'express-rate-limit';
 
 dotenv.config({ path: '.env.local', override: true });
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-app.use(cors());
-app.use(express.json({ limit: '1mb' }));
+// ─── Security Hardening ───
+
+// Hide Express fingerprint
+app.disable('x-powered-by');
+
+// CORS — restrict to allowed origins only
+const ALLOWED_ORIGINS = (process.env.ALLOWED_ORIGINS || 'http://localhost:5173,http://localhost:3001,http://127.0.0.1:5173,https://a-star-arena.vercel.app').split(',').map(s => s.trim());
+app.use(cors({
+  origin: (origin, callback) => {
+    // Allow same-origin requests (no origin header) in dev
+    if (!origin || ALLOWED_ORIGINS.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: ['GET', 'POST'],
+  credentials: true,
+}));
+
+// Rate limiting — 30 requests per minute per IP on Claude endpoints
+const claudeLimiter = rateLimit({
+  windowMs: 60 * 1000,
+  max: 30,
+  message: { success: false, error: 'Too many requests. Please try again later.' },
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+app.use('/api/claude/', claudeLimiter);
+
+// Reduce body size limit (no reason to accept 1MB for quiz answers)
+app.use(express.json({ limit: '50kb' }));
+
+// ─── Input Validation Helpers ───
+
+const MAX_STRING = 500;
+const MAX_ANSWER = 5000; // Extended answers can be longer
+const MAX_ARRAY = 20;
+const VALID_PHASES = ['recall', 'application', 'extended'];
+const VALID_SUBJECTS = ['biology', 'chemistry', 'mathematics'];
+const VALID_BOARDS = ['generic', 'aqa', 'ocr', 'edexcel'];
+
+function sanitize(str, maxLen = MAX_STRING) {
+  if (typeof str !== 'string') return '';
+  return str.slice(0, maxLen);
+}
+
+function sanitizeArray(arr, maxItems = MAX_ARRAY, maxItemLen = MAX_STRING) {
+  if (!Array.isArray(arr)) return [];
+  return arr.slice(0, maxItems).map(item => sanitize(String(item), maxItemLen));
+}
+
+function validateEnum(value, allowed, fallback) {
+  return allowed.includes(value) ? value : fallback;
+}
 
 // ─── Anthropic Client ───
 const anthropic = new Anthropic({
@@ -205,14 +259,32 @@ function getMarkAnswerPrompt(examBoard, subjectId) {
 
 app.get('/api/health', (req, res) => {
   const hasKey = !!process.env.ANTHROPIC_API_KEY && process.env.ANTHROPIC_API_KEY !== 'your-api-key-here';
-  res.json({ status: 'ok', claudeEnabled: hasKey, timestamp: new Date().toISOString() });
+  // Only reveal claudeEnabled to allowed origins
+  const origin = req.get('origin') || '';
+  const isTrusted = !origin || ALLOWED_ORIGINS.includes(origin);
+  res.json({
+    status: 'ok',
+    ...(isTrusted && { claudeEnabled: hasKey }),
+    timestamp: new Date().toISOString(),
+  });
 });
 
 // ─── Generate Question ───
 
 app.post('/api/claude/generateQuestion', async (req, res) => {
   try {
-    const { topicId, topicName, phase, difficulty, examBoard, subskills, misconceptions, subjectId } = req.body;
+    const rawBody = req.body;
+
+    // Validate & sanitize inputs
+    const topicId = sanitize(rawBody.topicId, 100);
+    const topicName = sanitize(rawBody.topicName, 200);
+    const phase = validateEnum(rawBody.phase, VALID_PHASES, null);
+    const difficulty = Math.min(5, Math.max(1, Number(rawBody.difficulty) || 3));
+    const examBoard = validateEnum(rawBody.examBoard, VALID_BOARDS, 'generic');
+    const subjectId = validateEnum(rawBody.subjectId, VALID_SUBJECTS, 'biology');
+    const subskills = sanitizeArray(rawBody.subskills, 10, 100);
+    const misconceptions = sanitizeArray(rawBody.misconceptions, 10, 200);
+    const previousPrompts = sanitizeArray(rawBody.previousPrompts, 10, 500);
 
     if (!topicId || !phase) {
       return res.status(400).json({ success: false, error: 'Missing topicId or phase' });
@@ -234,9 +306,10 @@ Example: "Describe and explain the relationship between the structure of protein
       messages: [{
         role: 'user',
         content: `Generate a ${phase} question for the topic "${topicName || topicId}".
-Difficulty: ${difficulty || 3}/5
-${subskills?.length ? `Focus on these subskills: ${subskills.join(', ')}` : ''}
-${misconceptions?.length ? `Common misconceptions to potentially test: ${misconceptions.join('; ')}` : ''}
+Difficulty: ${difficulty}/5
+${subskills.length ? `Focus on these subskills: ${subskills.join(', ')}` : ''}
+${misconceptions.length ? `Common misconceptions to potentially test: ${misconceptions.join('; ')}` : ''}
+${previousPrompts.length ? `\nIMPORTANT: Do NOT repeat or closely rephrase any of these previously asked questions:\n${previousPrompts.map((p, i) => `${i + 1}. "${p}"`).join('\n')}\nGenerate a DIFFERENT question on a different aspect of the topic.` : ''}
 
 ${phaseInstructions[phase] || phaseInstructions.recall}
 
@@ -256,11 +329,10 @@ Respond with this exact JSON structure:
     const text = message.content[0]?.text || '';
     let parsed;
     try {
-      // Extract JSON from response (handle potential markdown wrapping)
       const jsonMatch = text.match(/\{[\s\S]*\}/);
       parsed = JSON.parse(jsonMatch ? jsonMatch[0] : text);
     } catch {
-      return res.status(500).json({ success: false, error: 'Failed to parse Claude response', raw: text });
+      return res.status(500).json({ success: false, error: 'Failed to generate question' });
     }
 
     res.json({
@@ -270,8 +342,8 @@ Respond with this exact JSON structure:
         topicId,
         subskillIds: parsed.subskillIds || [],
         phase,
-        difficulty: difficulty || 3,
-        examBoard: examBoard || 'generic',
+        difficulty,
+        examBoard,
         format: phase === 'extended' ? 'extended' : 'short',
         prompt: parsed.prompt,
         dataIncluded: null,
@@ -288,7 +360,7 @@ Respond with this exact JSON structure:
     });
   } catch (err) {
     console.error('generateQuestion error:', err.message);
-    res.status(500).json({ success: false, error: err.message });
+    res.status(500).json({ success: false, error: 'Failed to generate question' });
   }
 });
 
@@ -296,7 +368,20 @@ Respond with this exact JSON structure:
 
 app.post('/api/claude/markAnswer', async (req, res) => {
   try {
-    const { questionId, questionPrompt, studentAnswer, phase, difficulty, rubric, examBoard, topicId, subjectId } = req.body;
+    const rawBody = req.body;
+
+    // Validate & sanitize inputs
+    const questionId = sanitize(rawBody.questionId, 100);
+    const questionPrompt = sanitize(rawBody.questionPrompt, 2000);
+    const studentAnswer = sanitize(rawBody.studentAnswer ?? '', MAX_ANSWER);
+    const phase = validateEnum(rawBody.phase, VALID_PHASES, 'recall');
+    const examBoard = validateEnum(rawBody.examBoard, VALID_BOARDS, 'generic');
+    const topicId = sanitize(rawBody.topicId, 100);
+    const subjectId = validateEnum(rawBody.subjectId, VALID_SUBJECTS, 'biology');
+    const rubric = rawBody.rubric || {};
+    const maxScore = Math.min(10, Math.max(1, Number(rubric.maxScore) || 6));
+    const keywords = sanitizeArray(rubric.keywords, 10, 100);
+    const rubricPoints = sanitizeArray(rubric.rubricPoints, 10, 300);
 
     if (!studentAnswer && studentAnswer !== '') {
       return res.status(400).json({ success: false, error: 'Missing studentAnswer' });
@@ -311,16 +396,16 @@ app.post('/api/claude/markAnswer', async (req, res) => {
         content: `Mark this student's answer to an A-level ${SUBJECT_NAMES[subjectId] || 'Biology'} ${phase} question.
 
 QUESTION: ${questionPrompt}
-MAX SCORE: ${rubric?.maxScore || 6}
-${rubric?.keywords?.length ? `EXPECTED KEYWORDS: ${rubric.keywords.join(', ')}` : ''}
-${rubric?.rubricPoints?.length ? `RUBRIC POINTS:\n${rubric.rubricPoints.map((p, i) => `${i + 1}. ${p}`).join('\n')}` : ''}
+MAX SCORE: ${maxScore}
+${keywords.length ? `EXPECTED KEYWORDS: ${keywords.join(', ')}` : ''}
+${rubricPoints.length ? `RUBRIC POINTS:\n${rubricPoints.map((p, i) => `${i + 1}. ${p}`).join('\n')}` : ''}
 
 STUDENT'S ANSWER: "${studentAnswer || '(no answer given)'}"
 
 Mark this answer and respond with this exact JSON structure:
 {
-  "score": <number 0 to ${rubric?.maxScore || 6}>,
-  "maxScore": ${rubric?.maxScore || 6},
+  "score": <number 0 to ${maxScore}>,
+  "maxScore": ${maxScore},
   "correct": <true if score >= 70% of maxScore>,
   "rationale": "Brief examiner's rationale for the mark",
   "feedback": {
@@ -342,7 +427,7 @@ Mark this answer and respond with this exact JSON structure:
       const jsonMatch = text.match(/\{[\s\S]*\}/);
       parsed = JSON.parse(jsonMatch ? jsonMatch[0] : text);
     } catch {
-      return res.status(500).json({ success: false, error: 'Failed to parse Claude response', raw: text });
+      return res.status(500).json({ success: false, error: 'Failed to mark answer' });
     }
 
     res.json({
@@ -370,7 +455,7 @@ Mark this answer and respond with this exact JSON structure:
     });
   } catch (err) {
     console.error('markAnswer error:', err.message);
-    res.status(500).json({ success: false, error: err.message });
+    res.status(500).json({ success: false, error: 'Failed to mark answer' });
   }
 });
 
@@ -403,7 +488,17 @@ You MUST respond with valid JSON only. No markdown, no explanation outside the J
 
 app.post('/api/claude/generateStudyGuide', async (req, res) => {
   try {
-    const { topicId, topicName, subskills, examBoard, subjectId, masteryScore, weakSubskills, errorPatterns } = req.body;
+    const rawBody = req.body;
+
+    // Validate & sanitize inputs
+    const topicId = sanitize(rawBody.topicId, 100);
+    const topicName = sanitize(rawBody.topicName, 200);
+    const subskills = sanitizeArray(rawBody.subskills, 20, 100);
+    const examBoard = validateEnum(rawBody.examBoard, VALID_BOARDS, 'generic');
+    const subjectId = validateEnum(rawBody.subjectId, VALID_SUBJECTS, 'biology');
+    const masteryScore = rawBody.masteryScore != null ? Math.min(1, Math.max(0, Number(rawBody.masteryScore) || 0)) : null;
+    const weakSubskills = sanitizeArray(rawBody.weakSubskills, 10, 100);
+    const errorPatterns = sanitizeArray(rawBody.errorPatterns, 10, 200);
 
     if (!topicId || !topicName) {
       return res.status(400).json({ success: false, error: 'Missing topicId or topicName' });
@@ -419,9 +514,9 @@ app.post('/api/claude/generateStudyGuide', async (req, res) => {
 
 STUDENT CONTEXT:
 - Overall mastery for this topic: ${masteryScore != null ? `${Math.round(masteryScore * 100)}%` : 'Unknown'}
-- Weak subskills: ${weakSubskills?.length ? weakSubskills.join(', ') : 'None identified'}
-- Recurring error patterns: ${errorPatterns?.length ? errorPatterns.join('; ') : 'None identified'}
-- All subskills in topic: ${subskills?.join(', ') || 'Not specified'}
+- Weak subskills: ${weakSubskills.length ? weakSubskills.join(', ') : 'None identified'}
+- Recurring error patterns: ${errorPatterns.length ? errorPatterns.join('; ') : 'None identified'}
+- All subskills in topic: ${subskills.length ? subskills.join(', ') : 'Not specified'}
 
 Respond with this exact JSON structure:
 {
@@ -446,7 +541,7 @@ Respond with this exact JSON structure:
       const jsonMatch = text.match(/\{[\s\S]*\}/);
       parsed = JSON.parse(jsonMatch ? jsonMatch[0] : text);
     } catch {
-      return res.status(500).json({ success: false, error: 'Failed to parse Claude response', raw: text });
+      return res.status(500).json({ success: false, error: 'Failed to generate study guide' });
     }
 
     res.json({
@@ -464,8 +559,15 @@ Respond with this exact JSON structure:
     });
   } catch (err) {
     console.error('generateStudyGuide error:', err.message);
-    res.status(500).json({ success: false, error: err.message });
+    res.status(500).json({ success: false, error: 'Failed to generate study guide' });
   }
+});
+
+// ─── Global Error Handler — hide stack traces ───
+app.use((err, req, res, next) => {
+  // CORS errors or any unhandled errors — return clean JSON, no stack trace
+  const status = err.status || 500;
+  res.status(status).json({ success: false, error: 'Request failed' });
 });
 
 app.listen(PORT, () => {

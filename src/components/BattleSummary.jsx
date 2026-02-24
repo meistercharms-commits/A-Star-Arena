@@ -32,15 +32,15 @@ export default function BattleSummary({ session, boss, topic, masteryBefore, mas
     localStorage.setItem('astarena:sessionFeedback', JSON.stringify(existing));
     setFeedbackSaved(true);
   };
-  const phases = session.phases;
-  const recallCorrect = phases.recall.correct;
-  const appCorrect = phases.application.correct;
-  const extScore = phases.extended.score;
-  const extMax = phases.extended.maxScore;
+  const phases = session.phases || {};
+  const recallCorrect = phases.recall?.correct || 0;
+  const appCorrect = phases.application?.correct || 0;
+  const extScore = phases.extended?.score || 0;
+  const extMax = phases.extended?.maxScore || 6;
 
   const recallXP = recallCorrect * PHASE_CONFIG.recall.xpPer;
   const appXP = appCorrect * PHASE_CONFIG.application.xpPer;
-  const extXP = Math.round((extScore / extMax) * PHASE_CONFIG.extended.xpTotal);
+  const extXP = extMax > 0 ? Math.round((extScore / extMax) * PHASE_CONFIG.extended.xpTotal) : 0;
   const totalXP = session.xpEarned;
   const defeated = session.bossDefeated;
 
@@ -54,9 +54,9 @@ export default function BattleSummary({ session, boss, topic, masteryBefore, mas
   }, topics, bosses);
 
   // Phase score bars
-  const recallPct = Math.round((recallCorrect / phases.recall.total) * 100);
-  const appPct = Math.round((appCorrect / phases.application.total) * 100);
-  const extPct = Math.round((extScore / extMax) * 100);
+  const recallPct = phases.recall?.total ? Math.round((recallCorrect / phases.recall.total) * 100) : 0;
+  const appPct = phases.application?.total ? Math.round((appCorrect / phases.application.total) * 100) : 0;
+  const extPct = extMax > 0 ? Math.round((extScore / extMax) * 100) : 0;
 
   return (
     <div className="space-y-5 max-w-2xl mx-auto">

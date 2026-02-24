@@ -11,6 +11,7 @@ import { generateId } from '../lib/utils';
 import QuestionCard from '../components/QuestionCard';
 import AnswerInput from '../components/AnswerInput';
 import FeedbackPanel from '../components/FeedbackPanel';
+import NavigationWarning from '../components/NavigationWarning';
 
 export default function Drill() {
   const { topicId } = useParams();
@@ -33,6 +34,7 @@ export default function Drill() {
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
   const attemptsRef = useRef([]);
+  const previousPromptsRef = useRef([]);
 
   if (!topic || !drillConfig) {
     return (
@@ -49,6 +51,7 @@ export default function Drill() {
     setQuestionIndex(0);
     setResults([]);
     attemptsRef.current = [];
+    previousPromptsRef.current = [];
     await loadQuestion(0);
   }
 
@@ -62,9 +65,11 @@ export default function Drill() {
         difficulty: drillConfig.difficulty,
         examBoard: settings?.examBoard || 'generic',
         topics,
+        previousPrompts: previousPromptsRef.current,
       });
 
       if (result.success) {
+        previousPromptsRef.current.push(result.data.prompt);
         setCurrentQuestion(result.data);
         setCurrentResult(null);
         setStage('drilling');
@@ -278,10 +283,12 @@ export default function Drill() {
   }
 
   // ─── Active Drill (drilling | feedback) ───
+  const isInActiveSession = stage === 'drilling' || stage === 'feedback';
   const phase = drillConfig.phases[questionIndex] || 'recall';
 
   return (
     <div className="space-y-4 max-w-2xl mx-auto">
+      <NavigationWarning when={isInActiveSession} />
       {/* Progress bar */}
       <div className="flex items-center gap-3">
         <span className="text-sm text-text-muted font-mono">{questionIndex + 1}/{totalQuestions}</span>

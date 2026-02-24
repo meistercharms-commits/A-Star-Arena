@@ -58,7 +58,7 @@ export function resetApiCache() {
 
 // ─── Generate Question ───
 
-export async function generateQuestion({ topicId, phase, difficulty = 3, examBoard = 'generic', topics = [] }) {
+export async function generateQuestion({ topicId, phase, difficulty = 3, examBoard = 'generic', topics = [], previousPrompts = [] }) {
   // Try real API first
   const available = await isApiAvailable();
   if (available) {
@@ -76,6 +76,7 @@ export async function generateQuestion({ topicId, phase, difficulty = 3, examBoa
           subjectId: getCurrentSubject(),
           subskills: topic?.subskills?.map(s => s.name) || [],
           misconceptions: topic?.commonMisconceptions || [],
+          previousPrompts: previousPrompts.slice(-10), // Send last 10 to avoid huge payloads
         }),
       });
 
@@ -91,7 +92,7 @@ export async function generateQuestion({ topicId, phase, difficulty = 3, examBoa
   }
 
   // Fallback to mock
-  const result = mockGenerateQuestion({ topicId, phase, difficulty, examBoard });
+  const result = mockGenerateQuestion({ topicId, phase, difficulty, examBoard, previousPrompts });
   return { ...result, source: 'mock' };
 }
 

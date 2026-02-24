@@ -14,6 +14,9 @@ export default function Layout({ children }) {
   const location = useLocation();
   const { subjectId, setSubjectId } = useSubject();
 
+  // Disable subject switching on active battle/drill/exam pages
+  const isInSession = /^\/(battle|drill|exam)/.test(location.pathname);
+
   return (
     <div className="min-h-screen flex flex-col bg-bg-primary text-text-primary">
       {/* Skip to content — keyboard accessibility */}
@@ -51,8 +54,8 @@ export default function Layout({ children }) {
             return (
               <button
                 key={subject.id}
-                onClick={() => available && setSubjectId(subject.id)}
-                disabled={!available}
+                onClick={() => available && !isInSession && setSubjectId(subject.id)}
+                disabled={!available || isInSession}
                 className={`text-xs px-3 py-1.5 rounded-lg transition-colors ${
                   isActive
                     ? 'bg-accent text-bg-primary font-semibold'

@@ -13,6 +13,7 @@ import AnswerInput from '../components/AnswerInput';
 import FeedbackPanel from '../components/FeedbackPanel';
 import BattleSummary from '../components/BattleSummary';
 import Timer from '../components/Timer';
+import NavigationWarning from '../components/NavigationWarning';
 
 const PHASE_CONFIG = {
   recall: { label: 'Rapid Recall', questionCount: 5, timerSeconds: 120, damage: 15, xp: 20 },
@@ -49,6 +50,7 @@ export default function Battle() {
   // Track results across entire battle
   const resultsRef = useRef({ recall: [], application: [], extended: [] });
   const attemptsRef = useRef([]);
+  const previousPromptsRef = useRef([]);
   const sessionIdRef = useRef(generateId());
   const startTimeRef = useRef(null);
 
@@ -66,6 +68,7 @@ export default function Battle() {
     setHp(boss?.hp || 100);
     resultsRef.current = { recall: [], application: [], extended: [] };
     attemptsRef.current = [];
+    previousPromptsRef.current = [];
     sessionIdRef.current = generateId();
     await loadQuestion('recall', 0);
   }
@@ -79,9 +82,11 @@ export default function Battle() {
         difficulty: 3,
         examBoard: settings?.examBoard || 'generic',
         topics,
+        previousPrompts: previousPromptsRef.current,
       });
 
       if (result.success) {
+        previousPromptsRef.current.push(result.data.prompt);
         setCurrentQuestion(result.data);
         setCurrentResult(null);
         setStage('fighting');
@@ -96,7 +101,7 @@ export default function Battle() {
   }
 
   async function handleSubmit(answer) {
-    if (!currentQuestion) return;
+    if (!currentQuestion || loading) return;
     setTimerRunning(false);
     setLoading(true);
 
@@ -158,6 +163,7 @@ export default function Battle() {
   }
 
   function handleSkip() {
+    if (loading || stage === 'feedback') return;
     setTimerRunning(false);
 
     const skipResult = {
@@ -362,8 +368,11 @@ export default function Battle() {
   }
 
   // ─── Active Battle (fighting / feedback) ───
+  const isInActiveSession = stage === 'fighting' || stage === 'feedback';
+
   return (
     <div className="space-y-4 max-w-2xl mx-auto">
+      <NavigationWarning when={isInActiveSession} />
       {/* Boss HUD */}
       <BossHUD
         boss={boss}

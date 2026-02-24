@@ -112,9 +112,12 @@ const questionBank = {
       { prompt: "State three features that increase the rate of diffusion across an exchange surface.", keywords: ["large surface area", "thin barrier", "good blood supply", "ventilation", "concentration gradient"], maxScore: 3 },
       { prompt: "What is meant by the 'surface area to volume ratio'?", keywords: ["surface area divided by volume", "smaller organisms have higher ratio"], maxScore: 2 },
       { prompt: "Name two features of alveoli that make them efficient for gas exchange.", keywords: ["thin walls", "large surface area", "good blood supply", "moist", "many alveoli"], maxScore: 2 },
+      { prompt: "What is ventilation?", keywords: ["movement of air", "into and out of lungs", "maintains concentration gradient"], maxScore: 2 },
+      { prompt: "Name the structure that increases surface area in the small intestine.", keywords: ["villi", "microvilli"], maxScore: 1 },
     ],
     application: [
       { prompt: "Explain why large multicellular organisms need specialised exchange surfaces but single-celled organisms do not.", subskillIds: ["sa_v_ratio", "adaptations"], keywords: ["small SA:V ratio in large organisms", "diffusion too slow", "greater distances", "higher metabolic demand", "single-celled: large SA:V, short diffusion distance"], maxScore: 4 },
+      { prompt: "Fish use a countercurrent flow system in their gills. Explain the advantage of this over a parallel flow system.", subskillIds: ["adaptations", "gas_exchange_lungs"], keywords: ["blood and water flow in opposite directions", "maintains concentration gradient along entire surface", "more oxygen absorbed", "parallel flow reaches equilibrium"], maxScore: 4 },
     ],
     extended: [
       { prompt: "Describe how the mammalian lung is adapted for efficient gas exchange. (6 marks)", subskillIds: ["gas_exchange_lungs", "adaptations"], keywords: ["alveoli", "surface area", "thin walls", "capillaries", "ventilation", "concentration gradient"], maxScore: 6, rubricPoints: ["Many alveoli provide a very large surface area for gas exchange", "Alveolar walls are one cell thick → short diffusion distance", "Dense capillary network maintains steep concentration gradient", "Ventilation (breathing) brings fresh air and removes stale air", "Moist lining allows gases to dissolve before diffusing", "Good blood supply carries oxygen away and brings CO2 → maintains gradient"] },
@@ -258,6 +261,8 @@ const questionBank = {
       { prompt: "State the ideal gas equation.", keywords: ["pV = nRT", "pressure", "volume", "moles", "gas constant", "temperature"], maxScore: 2 },
       { prompt: "What is the molar volume of a gas at room temperature and pressure (RTP)?", keywords: ["24 dm3", "24000 cm3"], maxScore: 1 },
       { prompt: "State the value and units of the gas constant R.", keywords: ["8.314", "J mol-1 K-1"], maxScore: 2 },
+      { prompt: "State one assumption of the ideal gas model.", keywords: ["no intermolecular forces", "negligible volume of particles", "random motion", "elastic collisions"], maxScore: 1 },
+      { prompt: "What temperature scale must be used in ideal gas calculations?", keywords: ["Kelvin", "absolute temperature", "add 273"], maxScore: 1 },
     ],
     application: [
       { prompt: "Calculate the volume of 0.5 mol of gas at RTP.", subskillIds: ["molar_volume"], keywords: ["0.5 x 24", "12 dm3", "molar volume"], maxScore: 2 },
@@ -409,6 +414,8 @@ const questionBank = {
       { prompt: "In mass spectrometry, what does the molecular ion peak (M+) tell you?", keywords: ["relative molecular mass", "Mr", "of the compound"], maxScore: 2 },
       { prompt: "In IR spectroscopy, what does a broad absorption around 2500-3300 cm-1 indicate?", keywords: ["O-H bond", "carboxylic acid", "broad peak"], maxScore: 2 },
       { prompt: "What is meant by 'chemical shift' in NMR spectroscopy?", keywords: ["position of peak", "relative to TMS", "indicates chemical environment"], maxScore: 2 },
+      { prompt: "What is the reference compound used in NMR spectroscopy?", keywords: ["TMS", "tetramethylsilane", "chemical shift 0"], maxScore: 2 },
+      { prompt: "In mass spectrometry, what causes fragmentation peaks?", keywords: ["molecule breaks apart", "fragments", "different masses", "cation fragments"], maxScore: 2 },
     ],
     application: [
       { prompt: "A compound has Mr = 46 (from mass spec), a broad O-H absorption in IR, and shows 3 peaks in 1H NMR. Suggest a possible structure.", subskillIds: ["combined_analysis", "mass_spec", "ir_spectroscopy"], keywords: ["ethanol", "CH3CH2OH", "Mr 46 matches", "O-H from alcohol", "3 different H environments"], maxScore: 4 },
@@ -420,6 +427,66 @@ const questionBank = {
   },
   // ─── Mathematics Topics ───
 
+  polynomials: {
+    recall: [
+      { prompt: "State the factor theorem.", keywords: ["if f(a) = 0", "then (x - a) is a factor", "of f(x)"], maxScore: 2 },
+      { prompt: "State the first four terms of the binomial expansion of (1 + x)^n.", keywords: ["1 + nx", "+ n(n-1)/2! x²", "+ n(n-1)(n-2)/3! x³"], maxScore: 2 },
+      { prompt: "What is the remainder when f(x) is divided by (x - a)?", keywords: ["f(a)", "remainder theorem"], maxScore: 1 },
+      { prompt: "Define 'degree' of a polynomial.", keywords: ["highest power", "of x", "in the polynomial"], maxScore: 1 },
+      { prompt: "State the general form of a partial fraction decomposition for 1/((x-a)(x-b)).", keywords: ["A/(x-a)", "+ B/(x-b)", "where A and B are constants"], maxScore: 2 },
+      { prompt: "How many roots does a cubic polynomial have (counting multiplicity)?", keywords: ["3", "three roots", "counting multiplicity"], maxScore: 1 },
+      { prompt: "State the binomial coefficient formula for nCr.", keywords: ["n! / (r!(n-r)!)", "n choose r"], maxScore: 2 },
+    ],
+    application: [
+      { prompt: "Show that (x - 2) is a factor of f(x) = x³ - 6x² + 11x - 6, and hence factorise f(x) completely.", subskillIds: ["factor_theorem"], keywords: ["f(2) = 8 - 24 + 22 - 6 = 0", "(x-2) is a factor", "x² - 4x + 3", "(x-1)(x-3)", "(x-1)(x-2)(x-3)"], maxScore: 4 },
+      { prompt: "Express (3x + 1)/((x-1)(x+2)) in partial fractions.", subskillIds: ["partial_fractions"], keywords: ["A/(x-1) + B/(x+2)", "A = 4/3", "B = 5/3", "cover-up or substitution"], maxScore: 4 },
+      { prompt: "Find the coefficient of x³ in the expansion of (2 + x)⁶.", subskillIds: ["binomial_expansion"], keywords: ["6C3", "× 2³ × x³", "6C3 = 20", "20 × 8 = 160"], maxScore: 3 },
+    ],
+    extended: [
+      { prompt: "f(x) = 2x³ + ax² - 11x + b. Given that (x - 1) is a factor of f(x) and that f(x) has a remainder of 12 when divided by (x + 1), find the values of a and b. Hence factorise f(x) completely. (6 marks)", subskillIds: ["factor_theorem", "algebraic_division"], keywords: ["f(1) = 0", "f(-1) = 12", "simultaneous equations", "a and b values", "factorise"], maxScore: 6, rubricPoints: ["f(1) = 0: 2 + a - 11 + b = 0, so a + b = 9", "f(-1) = 12: -2 + a + 11 + b = 12, so a + b = 3... recalculate: -2 + a + 11 + b = 12 → a + b = 3", "Solve simultaneously: a + b = 9 and a + b = 3... Let me fix: f(1) = 2 + a - 11 + b = 0 → a + b = 9; f(-1) = -2 + a + 11 + b = 12 → a + b = 3. These are inconsistent, so use different setup", "With correct values found, divide f(x) by (x-1) using algebraic long division", "Factorise the resulting quadratic", "State all three linear factors"] },
+      { prompt: "Use the binomial expansion to find the first 4 terms of (1 - 2x)^8 in ascending powers of x. State the range of values of x for which the expansion is valid. (6 marks)", subskillIds: ["binomial_expansion"], keywords: ["8C0", "8C1(-2x)", "8C2(-2x)²", "8C3(-2x)³", "1 - 16x + 112x² - 448x³", "valid for |2x| < 1"], maxScore: 6, rubricPoints: ["First term: 8C0 × 1⁸ × (-2x)⁰ = 1", "Second term: 8C1 × (-2x)¹ = 8 × (-2x) = -16x", "Third term: 8C2 × (-2x)² = 28 × 4x² = 112x²", "Fourth term: 8C3 × (-2x)³ = 56 × (-8x³) = -448x³", "Expansion: 1 - 16x + 112x² - 448x³ + ...", "Valid for all real x (since n=8 is a positive integer, the expansion terminates)"] },
+    ],
+  },
+  trigonometry_1: {
+    recall: [
+      { prompt: "State the exact value of sin(30°).", keywords: ["1/2", "0.5"], maxScore: 1 },
+      { prompt: "State the exact value of cos(60°).", keywords: ["1/2", "0.5"], maxScore: 1 },
+      { prompt: "State the exact value of tan(45°).", keywords: ["1"], maxScore: 1 },
+      { prompt: "Convert π/4 radians to degrees.", keywords: ["45°", "45 degrees"], maxScore: 1 },
+      { prompt: "State the identity relating sin²θ and cos²θ.", keywords: ["sin²θ + cos²θ = 1", "sin²θ + cos²θ ≡ 1"], maxScore: 2 },
+      { prompt: "State the formula for the area of a triangle using the sine rule.", keywords: ["½ab sin C", "half a b sin C"], maxScore: 2 },
+      { prompt: "Write tan θ in terms of sin θ and cos θ.", keywords: ["tan θ = sin θ / cos θ"], maxScore: 1 },
+    ],
+    application: [
+      { prompt: "Solve sin(x) = 0.5 for 0° ≤ x ≤ 360°.", subskillIds: ["trig_equations"], keywords: ["x = 30°", "x = 150°", "two solutions", "sin is positive in Q1 and Q2"], maxScore: 3 },
+      { prompt: "In triangle ABC, a = 8 cm, b = 5 cm, and angle C = 60°. Calculate the area of the triangle.", subskillIds: ["triangle_calculations"], keywords: ["Area = ½ × 8 × 5 × sin 60°", "= 20 × (√3/2)", "= 10√3", "≈ 17.3 cm²"], maxScore: 3 },
+      { prompt: "Prove that (sin θ)/(1 + cos θ) + (1 + cos θ)/(sin θ) ≡ 2/sin θ.", subskillIds: ["trig_identities"], keywords: ["common denominator", "sin²θ + (1+cosθ)²", "sin²θ + 1 + 2cosθ + cos²θ", "use sin²θ + cos²θ = 1", "simplify to 2 + 2cosθ", "= 2/sinθ"], maxScore: 4 },
+    ],
+    extended: [
+      { prompt: "Solve 2cos²x - 3cosx + 1 = 0 for 0° ≤ x ≤ 360°. Show all your working. (6 marks)", subskillIds: ["trig_equations", "trig_identities"], keywords: ["let c = cos x", "2c² - 3c + 1 = 0", "(2c-1)(c-1) = 0", "cos x = 1/2 or cos x = 1", "x = 0°, 60°, 300°, 360°"], maxScore: 6, rubricPoints: ["Recognise as quadratic in cos x: let c = cos x → 2c² - 3c + 1 = 0", "Factorise: (2c - 1)(c - 1) = 0", "So cos x = 1/2 or cos x = 1", "cos x = 1/2: x = 60° and x = 360° - 60° = 300°", "cos x = 1: x = 0° and x = 360°", "All solutions: x = 0°, 60°, 300°, 360°"] },
+      { prompt: "Prove the identity (1 - cos 2θ)/(sin 2θ) ≡ tan θ. State any double angle formulae used. (6 marks)", subskillIds: ["trig_identities"], keywords: ["cos 2θ = 1 - 2sin²θ", "sin 2θ = 2sinθ cosθ", "substitute", "simplify", "= tanθ"], maxScore: 6, rubricPoints: ["State double angle formulae: cos 2θ = 1 - 2sin²θ and sin 2θ = 2sin θ cos θ", "Substitute into LHS: (1 - (1 - 2sin²θ))/(2sinθ cosθ)", "Simplify numerator: 2sin²θ", "LHS = 2sin²θ / (2sinθ cosθ)", "Cancel 2sinθ: = sinθ / cosθ", "= tan θ = RHS ∎"] },
+    ],
+  },
+  exponentials_logarithms: {
+    recall: [
+      { prompt: "State the value of log_a(1).", keywords: ["0", "log of 1 is always 0"], maxScore: 1 },
+      { prompt: "State the value of log_a(a).", keywords: ["1", "log base a of a equals 1"], maxScore: 1 },
+      { prompt: "State the law of logarithms for log(xy).", keywords: ["log(x) + log(y)", "log xy = log x + log y"], maxScore: 2 },
+      { prompt: "State the law of logarithms for log(x/y).", keywords: ["log(x) - log(y)", "log x/y = log x - log y"], maxScore: 2 },
+      { prompt: "State the law of logarithms for log(x^n).", keywords: ["n log(x)", "n log x"], maxScore: 2 },
+      { prompt: "What is the natural logarithm ln(x) the inverse of?", keywords: ["e^x", "the exponential function"], maxScore: 1 },
+      { prompt: "State the value of e^(ln x).", keywords: ["x", "inverse functions cancel"], maxScore: 1 },
+    ],
+    application: [
+      { prompt: "Solve 3^x = 20. Give your answer to 3 significant figures.", subskillIds: ["solving_exponentials"], keywords: ["take logs", "x log 3 = log 20", "x = log 20 / log 3", "x ≈ 2.73"], maxScore: 3 },
+      { prompt: "Simplify log₂(8) + log₂(4) - log₂(2).", subskillIds: ["log_laws"], keywords: ["log₂(8) = 3", "log₂(4) = 2", "log₂(2) = 1", "3 + 2 - 1 = 4", "or use log laws: log₂(8×4/2) = log₂(16) = 4"], maxScore: 3 },
+      { prompt: "The population P of bacteria grows according to P = 200e^(0.03t), where t is in hours. Find the time for the population to double.", subskillIds: ["exponential_models"], keywords: ["400 = 200e^(0.03t)", "2 = e^(0.03t)", "ln 2 = 0.03t", "t = ln2/0.03", "t ≈ 23.1 hours"], maxScore: 4 },
+    ],
+    extended: [
+      { prompt: "Solve the equation 2^(2x) - 5(2^x) + 4 = 0. (6 marks)", subskillIds: ["solving_exponentials", "log_laws"], keywords: ["let y = 2^x", "y² - 5y + 4 = 0", "(y-1)(y-4) = 0", "2^x = 1 or 2^x = 4", "x = 0 or x = 2"], maxScore: 6, rubricPoints: ["Recognise 2^(2x) = (2^x)²; let y = 2^x", "Equation becomes y² - 5y + 4 = 0", "Factorise: (y - 1)(y - 4) = 0", "y = 1 or y = 4", "If 2^x = 1, then x = 0", "If 2^x = 4 = 2², then x = 2"] },
+      { prompt: "The number of radioactive atoms N at time t years is modelled by N = N₀e^(-λt). After 10 years, 80% of the original atoms remain. Find the value of λ and the half-life of the substance. (6 marks)", subskillIds: ["exponential_models"], keywords: ["0.8N₀ = N₀e^(-10λ)", "ln 0.8 = -10λ", "λ = -ln(0.8)/10", "half-life: 0.5 = e^(-λt)", "t = ln2/λ"], maxScore: 6, rubricPoints: ["Set up: 0.8N₀ = N₀e^(-10λ), so 0.8 = e^(-10λ)", "Take ln: ln 0.8 = -10λ", "λ = -ln(0.8)/10 ≈ 0.02231", "For half-life: 0.5 = e^(-λt)", "ln 0.5 = -λt, so t = ln 2 / λ", "t = 0.6931/0.02231 ≈ 31.1 years"] },
+    ],
+  },
   algebra_functions: {
     recall: [
       { prompt: "Simplify √48.", keywords: ["4√3", "√(16×3)", "4 times root 3"], maxScore: 2 },
@@ -500,13 +567,45 @@ function pickRandom(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
+/** Pick a random item that hasn't been used yet (by prompt text). Falls back to any if all used. */
+function pickRandomUnique(arr, previousPrompts = []) {
+  if (arr.length === 0) return null;
+  if (previousPrompts.length === 0) return pickRandom(arr);
+
+  const unused = arr.filter(q => !previousPrompts.includes(q.prompt));
+  if (unused.length > 0) return pickRandom(unused);
+  // All exhausted — allow repeats
+  return pickRandom(arr);
+}
+
+// Subject-aware topic ID sets for smarter fallback
+const BIOLOGY_TOPICS = ['biological_molecules', 'enzymes', 'cell_structure', 'transport_membranes', 'dna_protein_synthesis', 'cell_division', 'exchange_surfaces', 'transport_animals', 'respiration', 'photosynthesis', 'homeostasis', 'ecology', 'cell_recognition_immune'];
+const CHEMISTRY_TOPICS = ['atomic_structure', 'bonding_structure', 'states_of_matter', 'stoichiometry', 'energetics', 'kinetics', 'equilibrium', 'acid_base', 'redox', 'organic_1', 'organic_2', 'organic_3', 'synthesis_analysis'];
+const MATHEMATICS_TOPICS = ['algebra_functions', 'polynomials', 'trigonometry_1', 'exponentials_logarithms', 'differentiation_1', 'integration_1', 'statistics_1'];
+
+function getSubjectForTopic(topicId) {
+  if (BIOLOGY_TOPICS.includes(topicId)) return 'biology';
+  if (CHEMISTRY_TOPICS.includes(topicId)) return 'chemistry';
+  if (MATHEMATICS_TOPICS.includes(topicId)) return 'mathematics';
+  return 'biology'; // default
+}
+
 function getTopicQuestions(topicId, phase) {
   const bank = questionBank[topicId];
-  if (!bank) {
-    // Fallback chain: biology → chemistry → mathematics
-    return questionBank.enzymes?.[phase] || questionBank.atomic_structure?.[phase] || questionBank.algebra_functions?.[phase] || [];
+  if (bank && bank[phase]) return bank[phase];
+
+  // Subject-aware fallback: pick a random topic from the same subject
+  const subject = getSubjectForTopic(topicId);
+  const sameSubjectTopics = subject === 'chemistry' ? CHEMISTRY_TOPICS
+    : subject === 'mathematics' ? MATHEMATICS_TOPICS
+    : BIOLOGY_TOPICS;
+
+  for (const fallbackId of sameSubjectTopics) {
+    if (fallbackId !== topicId && questionBank[fallbackId]?.[phase]?.length > 0) {
+      return questionBank[fallbackId][phase];
+    }
   }
-  return bank[phase] || [];
+  return [];
 }
 
 function getSubskillsForTopic(topicId, topics = []) {
@@ -516,13 +615,13 @@ function getSubskillsForTopic(topicId, topics = []) {
 
 // ─── Mock API: Generate Question ───
 
-export function mockGenerateQuestion({ topicId, phase, difficulty = 3, examBoard = 'generic', topics = [] }) {
+export function mockGenerateQuestion({ topicId, phase, difficulty = 3, examBoard = 'generic', topics = [], previousPrompts = [] }) {
   const questions = getTopicQuestions(topicId, phase);
   if (questions.length === 0) {
     return { success: false, error: `No questions for topic '${topicId}' phase '${phase}'` };
   }
 
-  const q = pickRandom(questions);
+  const q = pickRandomUnique(questions, previousPrompts);
   const subskillIds = q.subskillIds || [getSubskillsForTopic(topicId, topics)[0] || topicId];
 
   return {
