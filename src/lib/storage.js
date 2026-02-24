@@ -244,6 +244,7 @@ export function exportAllData() {
     attempts: readJSON(`${s}:attempts`, []),
     masteryCache: readJSON(`${s}:masteryCache`, {}),
     srsData: readJSON(`${s}:srsData`, {}),
+    errorPatterns: readJSON(`${s}:errorPatterns`, {}),
     progressTracking: readJSON('progressTracking'),
     currentSubject: s,
     exportedAt: new Date().toISOString(),
@@ -256,7 +257,7 @@ export function clearAllData() {
   removeKey('progressTracking');
   // Clear all subject-namespaced keys
   const subjects = ['biology', 'chemistry', 'mathematics'];
-  const perSubjectKeys = ['sessions', 'attempts', 'masteryCache', 'srsData'];
+  const perSubjectKeys = ['sessions', 'attempts', 'masteryCache', 'srsData', 'errorPatterns'];
   for (const subj of subjects) {
     for (const k of perSubjectKeys) {
       removeKey(`${subj}:${k}`);

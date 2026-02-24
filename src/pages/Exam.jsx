@@ -5,6 +5,7 @@ import { getSettings, saveSession, saveAttempt, updateProgress, getMasteryCache,
 import { updateTopicMastery } from '../lib/mastery';
 import { calculateNextReview } from '../lib/srs';
 import { getRankedTopics } from '../lib/recommend';
+import { trackErrorPatterns, getPatternWarningsForAttempt } from '../lib/errorPatterns';
 import { generateId, getMasteryCategory, formatDuration } from '../lib/utils';
 import { useSubject } from '../contexts/SubjectContext';
 import QuestionCard from '../components/QuestionCard';
@@ -140,11 +141,11 @@ export default function Exam() {
     }
     setMarkResults(results);
 
-    // Save attempts
+    // Save attempts and track error patterns
     questions.forEach((q, idx) => {
       const r = results[idx];
       if (r) {
-        saveAttempt({
+        const attempt = {
           id: generateId(),
           topicId: q.topicId,
           subskillIds: q.subskillIds,
@@ -156,7 +157,14 @@ export default function Exam() {
           maxScore: r.maxScore,
           correct: r.correct,
           timestamp: new Date().toISOString(),
-        });
+          // Capture error data for pattern detection
+          ...(r.tags?.errorKeywords?.length > 0 && {
+            errorTypes: r.tags.errorTypes || [],
+            errorKeywords: r.tags.errorKeywords,
+          }),
+        };
+        saveAttempt(attempt);
+        if (attempt.errorKeywords?.length > 0) trackErrorPatterns(attempt);
       }
     });
 
@@ -558,7 +566,11 @@ export default function Exam() {
         {r && <FeedbackPanel result={r} phase={q?.examPhase} onNext={() => {
           if (reviewIdx < questions.length - 1) setReviewIdx(reviewIdx + 1);
           else setStage('results');
-        }} />}
+        }} patternWarnings={
+          !r.correct && r.tags?.errorKeywords
+            ? getPatternWarningsForAttempt(r.tags.errorKeywords)
+            : []
+        } />}
 
         <div className="flex gap-3">
           <button

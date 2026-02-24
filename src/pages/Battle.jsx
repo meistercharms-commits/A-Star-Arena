@@ -6,6 +6,7 @@ import { getSettings, saveSession, saveAttempt, updateProgress, getTopicMastery,
 import { generateId } from '../lib/utils';
 import { updateTopicMastery } from '../lib/mastery';
 import { calculateNextReview, getSessionScorePercentage } from '../lib/srs';
+import { trackErrorPatterns, getPatternWarningsForAttempt } from '../lib/errorPatterns';
 import BossHUD from '../components/BossHUD';
 import QuestionCard from '../components/QuestionCard';
 import AnswerInput from '../components/AnswerInput';
@@ -144,6 +145,11 @@ export default function Battle() {
           maxScore: result.maxScore,
           correct: result.correct,
           timestamp: new Date().toISOString(),
+          // Capture error data for pattern detection
+          ...(result.tags?.errorKeywords?.length > 0 && {
+            errorTypes: result.tags.errorTypes || [],
+            errorKeywords: result.tags.errorKeywords,
+          }),
         });
       }
     } finally {
@@ -244,6 +250,10 @@ export default function Battle() {
 
     saveSession(session);
     attemptsRef.current.forEach(a => saveAttempt(a));
+    // Track error patterns for incorrect answers
+    attemptsRef.current.forEach(a => {
+      if (a.errorKeywords?.length > 0) trackErrorPatterns(a);
+    });
     updateProgress(totalXP);
 
     // Update mastery after saving attempts
@@ -409,6 +419,11 @@ export default function Battle() {
           result={currentResult}
           phase={currentPhase}
           onNext={handleNext}
+          patternWarnings={
+            currentResult && !currentResult.correct && currentResult.tags?.errorKeywords
+              ? getPatternWarningsForAttempt(currentResult.tags.errorKeywords)
+              : []
+          }
         />
       ) : null}
     </div>

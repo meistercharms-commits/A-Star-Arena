@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-export default function FeedbackPanel({ result, phase, onNext }) {
+export default function FeedbackPanel({ result, phase, onNext, patternWarnings = [] }) {
   if (!result) return null;
   const nextBtnRef = useRef(null);
 
@@ -55,6 +55,24 @@ export default function FeedbackPanel({ result, phase, onNext }) {
           {phase === 'extended' && score >= 5 && 'Critical hit! Boss takes massive damage.'}
           {phase === 'extended' && score < 5 && `Boss takes ${score * 5} damage.`}
         </p>
+      )}
+
+      {/* Recurring pattern warning */}
+      {!correct && patternWarnings.length > 0 && (
+        <div className="bg-developing/10 border border-developing/30 rounded-lg p-3 space-y-1">
+          <h4 className="text-xs font-medium text-developing uppercase tracking-wide">
+            Recurring Pattern
+          </h4>
+          {patternWarnings.map((w, i) => (
+            <p key={i} className="text-sm text-text-secondary">
+              <span className={w.severity === 'critical' ? 'text-weak font-semibold' : 'text-developing font-semibold'}>
+                {w.severity === 'critical' ? '!!' : '!'}
+              </span>{' '}
+              You've missed "<strong className="text-text-primary">{w.keyword}</strong>" {w.occurrences} time{w.occurrences !== 1 ? 's' : ''}
+              {w.topicIds.length > 1 && ' across multiple topics'}.
+            </p>
+          ))}
+        </div>
       )}
 
       {/* What you did well */}

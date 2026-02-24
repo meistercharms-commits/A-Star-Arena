@@ -6,6 +6,7 @@ import { getSettings, saveAttempt, updateProgress, updateTopicSRS, getCurrentSub
 import { updateTopicMastery } from '../lib/mastery';
 import { calculateNextReview } from '../lib/srs';
 import { getTargetedDrillConfig } from '../lib/recommend';
+import { trackErrorPatterns, getPatternWarningsForAttempt } from '../lib/errorPatterns';
 import { generateId } from '../lib/utils';
 import QuestionCard from '../components/QuestionCard';
 import AnswerInput from '../components/AnswerInput';
@@ -109,6 +110,11 @@ export default function Drill() {
           maxScore: result.maxScore,
           correct: result.correct,
           timestamp: new Date().toISOString(),
+          // Capture error data for pattern detection
+          ...(result.tags?.errorKeywords?.length > 0 && {
+            errorTypes: result.tags.errorTypes || [],
+            errorKeywords: result.tags.errorKeywords,
+          }),
         });
       }
     } finally {
@@ -149,6 +155,10 @@ export default function Drill() {
 
     // Save attempts and update mastery
     attemptsRef.current.forEach(a => saveAttempt(a));
+    // Track error patterns for incorrect answers
+    attemptsRef.current.forEach(a => {
+      if (a.errorKeywords?.length > 0) trackErrorPatterns(a);
+    });
 
     const correctCount = results.filter(r => r.correct).length;
     const totalMax = results.reduce((sum, r) => sum + r.maxScore, 0);
@@ -314,6 +324,11 @@ export default function Drill() {
           result={currentResult}
           phase={phase}
           onNext={handleNext}
+          patternWarnings={
+            currentResult && !currentResult.correct && currentResult.tags?.errorKeywords
+              ? getPatternWarningsForAttempt(currentResult.tags.errorKeywords)
+              : []
+          }
         />
       ) : null}
     </div>

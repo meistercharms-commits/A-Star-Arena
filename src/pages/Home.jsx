@@ -2,6 +2,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { getSettings, getProgress, getLevelProgress, getRecentSessions, getStorageWarning } from '../lib/storage';
 import { getMasteryCategory, formatDate } from '../lib/utils';
 import { getTodaysMission, getReviewSummary } from '../lib/recommend';
+import { getRecurringMistakes } from '../lib/errorPatterns';
 import { useSubject } from '../contexts/SubjectContext';
 import TopicRadar from '../components/RadarChart';
 
@@ -27,6 +28,9 @@ export default function Home() {
 
   // SRS review summary
   const reviewSummary = getReviewSummary(topics, bosses);
+
+  // Recurring mistake patterns
+  const recurringMistakes = getRecurringMistakes();
 
   return (
     <div className="space-y-6">
@@ -105,6 +109,53 @@ export default function Home() {
                   ? 'Stay on schedule — complete your reviews today.'
                   : 'Upcoming reviews in the next 2 days.'}
             </p>
+          </div>
+        </div>
+      )}
+
+      {/* Recurring Mistakes */}
+      {recurringMistakes.length > 0 && (
+        <div className="bg-bg-secondary border border-developing/30 rounded-xl p-5">
+          <div className="flex items-center gap-2 mb-3">
+            <span className="text-lg">🔄</span>
+            <h2 className="font-semibold">Recurring Mistakes</h2>
+            {recurringMistakes.filter(m => m.severity === 'critical').length > 0 && (
+              <span className="text-xs bg-weak/10 text-weak px-2 py-0.5 rounded-full ml-auto">
+                {recurringMistakes.filter(m => m.severity === 'critical').length} critical
+              </span>
+            )}
+          </div>
+          <div className="space-y-2">
+            {recurringMistakes.slice(0, 5).map((mistake, i) => {
+              const topicNames = mistake.topicIds
+                .map(id => topics.find(t => t.id === id)?.name || id)
+                .join(', ');
+              const drillTopicId = mistake.topicIds[0];
+              const drillSkills = mistake.topicBreakdown[drillTopicId]?.subskillIds?.join(',') || '';
+              return (
+                <div key={i} className="flex items-start gap-3 py-2 border-b border-border last:border-0">
+                  <span className={`text-xs font-mono mt-0.5 ${
+                    mistake.severity === 'critical' ? 'text-weak' : 'text-developing'
+                  }`}>
+                    {mistake.severity === 'critical' ? '!!' : '!'}
+                  </span>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-sm font-medium truncate">
+                      Missing: {mistake.keyword}
+                    </p>
+                    <p className="text-xs text-text-muted">
+                      {mistake.occurrences}x in {topicNames}
+                    </p>
+                  </div>
+                  <Link
+                    to={`/drill/${drillTopicId}${drillSkills ? `?skills=${drillSkills}` : ''}`}
+                    className="text-xs text-accent hover:underline no-underline shrink-0"
+                  >
+                    Drill →
+                  </Link>
+                </div>
+              );
+            })}
           </div>
         </div>
       )}
