@@ -198,6 +198,206 @@ const questionBank = {
       { prompt: "Describe the process of ecological succession from bare rock to a climax community. (6 marks)", subskillIds: ["succession"], keywords: ["pioneer species", "lichens", "soil formation", "new species", "biodiversity increases", "climax community"], maxScore: 6, rubricPoints: ["Pioneer species (e.g., lichens, mosses) colonise bare rock", "They weather the rock and add organic matter when they die → soil begins to form", "Soil allows new species (grasses, small plants) to grow → outcompete pioneers", "Each stage (seral stage) changes the environment, making it suitable for next species", "Biodiversity and biomass increase at each stage", "Climax community reached: stable community (e.g., oak woodland in UK) — no further change unless disturbed"] },
     ],
   },
+
+  // ─── Chemistry Topics ───
+
+  atomic_structure: {
+    recall: [
+      { prompt: "Define the term 'isotope'.", keywords: ["same number of protons", "different number of neutrons", "same element"], maxScore: 2 },
+      { prompt: "State the relative charge and relative mass of a proton.", keywords: ["+1", "1"], maxScore: 2 },
+      { prompt: "Write the electron configuration of a sodium atom (Na, atomic number 11).", keywords: ["1s2", "2s2", "2p6", "3s1"], maxScore: 2 },
+      { prompt: "Define first ionisation energy.", keywords: ["energy required", "remove one electron", "one mole", "gaseous atoms", "gaseous ions"], maxScore: 2 },
+      { prompt: "State the number of protons, neutrons and electrons in an atom of carbon-14.", keywords: ["6 protons", "8 neutrons", "6 electrons"], maxScore: 2 },
+    ],
+    application: [
+      { prompt: "Explain why the first ionisation energy of magnesium is higher than that of sodium.", subskillIds: ["ionisation_energy"], keywords: ["more protons", "greater nuclear charge", "same shielding", "stronger attraction", "outer electron harder to remove"], maxScore: 4 },
+      { prompt: "The relative atomic mass of chlorine is 35.5, not a whole number. Explain why.", subskillIds: ["isotopes"], keywords: ["two isotopes", "Cl-35 and Cl-37", "weighted average", "natural abundance", "75% Cl-35 and 25% Cl-37"], maxScore: 3 },
+    ],
+    extended: [
+      { prompt: "Describe and explain the trend in first ionisation energies across Period 3 (Na to Ar). Account for any exceptions. (6 marks)", subskillIds: ["ionisation_energy", "electron_configuration"], keywords: ["increase across period", "nuclear charge increases", "shielding similar", "dip at aluminium", "3p electron easier to remove", "dip at sulfur", "paired electrons repel"], maxScore: 6, rubricPoints: ["General trend: IE increases across Period 3 due to increasing nuclear charge", "Electrons added to same shell, so shielding effect is similar", "Greater nuclear charge means outer electrons held more tightly", "Exception at Al (lower than Mg): 3p electron is in a higher energy subshell than 3s, easier to remove", "Exception at S (lower than P): 3p4 has paired electrons that repel, easier to remove one", "Ar has highest IE: greatest nuclear charge with electrons in same shell"] },
+    ],
+  },
+  bonding_structure: {
+    recall: [
+      { prompt: "Define ionic bonding.", keywords: ["electrostatic attraction", "oppositely charged ions", "electron transfer"], maxScore: 2 },
+      { prompt: "State two properties of giant ionic compounds.", keywords: ["high melting point", "conduct electricity when molten/dissolved", "strong electrostatic forces", "brittle"], maxScore: 2 },
+      { prompt: "What is a hydrogen bond?", keywords: ["intermolecular force", "between H bonded to N/O/F", "lone pair", "electronegativity difference"], maxScore: 2 },
+      { prompt: "Name the shape of a molecule with four bonding pairs and no lone pairs around the central atom.", keywords: ["tetrahedral", "109.5 degrees"], maxScore: 2 },
+      { prompt: "State what is meant by a 'covalent bond'.", keywords: ["shared pair of electrons", "between two atoms"], maxScore: 2 },
+    ],
+    application: [
+      { prompt: "Explain why the boiling point of water (100C) is much higher than expected for a molecule of its size.", subskillIds: ["intermolecular_forces"], keywords: ["hydrogen bonds", "O-H bond polar", "high electronegativity of oxygen", "more energy to overcome", "stronger than van der Waals"], maxScore: 4 },
+      { prompt: "Diamond and graphite are both forms of carbon. Explain why graphite conducts electricity but diamond does not.", subskillIds: ["giant_structures"], keywords: ["graphite has delocalised electrons", "free to move", "carry charge", "diamond: all four electrons in covalent bonds", "no free electrons"], maxScore: 4 },
+    ],
+    extended: [
+      { prompt: "Compare and contrast ionic, covalent, and metallic bonding in terms of structure, bonding, and properties. (6 marks)", subskillIds: ["ionic_bonding", "covalent_bonding", "metallic_bonding"], keywords: ["electron transfer", "shared pair", "delocalised electrons", "high melting point", "conductivity", "lattice"], maxScore: 6, rubricPoints: ["Ionic: transfer of electrons forming ions; electrostatic attraction in a giant lattice", "Covalent: shared pair(s) of electrons between non-metal atoms; can be simple molecular or giant covalent", "Metallic: delocalised electrons in a sea around positive metal ions; electrostatic attraction", "Ionic compounds: high mp, conduct when molten/dissolved, brittle", "Simple covalent: low mp (weak intermolecular forces), don't conduct; Giant covalent: very high mp", "Metallic: conduct electricity (delocalised electrons), malleable, variable mp depending on charge/radius"] },
+    ],
+  },
+  states_of_matter: {
+    recall: [
+      { prompt: "State the ideal gas equation.", keywords: ["pV = nRT", "pressure", "volume", "moles", "gas constant", "temperature"], maxScore: 2 },
+      { prompt: "What is the molar volume of a gas at room temperature and pressure (RTP)?", keywords: ["24 dm3", "24000 cm3"], maxScore: 1 },
+      { prompt: "State the value and units of the gas constant R.", keywords: ["8.314", "J mol-1 K-1"], maxScore: 2 },
+    ],
+    application: [
+      { prompt: "Calculate the volume of 0.5 mol of gas at RTP.", subskillIds: ["molar_volume"], keywords: ["0.5 x 24", "12 dm3", "molar volume"], maxScore: 2 },
+      { prompt: "A gas occupies 2.0 dm3 at 300 K and 100 kPa. Calculate the number of moles. (R = 8.314 J mol-1 K-1)", subskillIds: ["ideal_gas"], keywords: ["pV = nRT", "n = pV/RT", "100000 x 0.002 / (8.314 x 300)", "0.080 mol"], maxScore: 3 },
+    ],
+    extended: [
+      { prompt: "Explain why real gases deviate from ideal gas behaviour at high pressures and low temperatures, and describe the assumptions of the ideal gas model. (6 marks)", subskillIds: ["real_vs_ideal", "ideal_gas"], keywords: ["no intermolecular forces", "negligible volume", "high pressure", "low temperature", "molecules closer", "forces significant"], maxScore: 6, rubricPoints: ["Ideal gas assumptions: molecules have negligible volume; no intermolecular forces between molecules", "At high pressure: molecules forced closer together, volume of molecules becomes significant compared to container", "Intermolecular forces become significant when molecules are close together", "At low temperature: molecules have less kinetic energy, intermolecular forces have greater effect", "Molecules attract each other, reducing pressure exerted on container walls", "Real gases behave most like ideal gases at high temperature and low pressure"] },
+    ],
+  },
+  stoichiometry: {
+    recall: [
+      { prompt: "Calculate the relative formula mass (Mr) of calcium carbonate, CaCO3. (Ar: Ca=40, C=12, O=16)", keywords: ["40 + 12 + 48", "100"], maxScore: 2 },
+      { prompt: "Define the term 'limiting reagent'.", keywords: ["reactant", "completely used up", "determines amount of product"], maxScore: 2 },
+      { prompt: "State the formula used to calculate moles from mass.", keywords: ["n = m / M", "moles = mass / molar mass"], maxScore: 1 },
+      { prompt: "What is meant by 'percentage yield'?", keywords: ["actual yield / theoretical yield", "x 100"], maxScore: 2 },
+      { prompt: "Balance this equation: Fe + O2 -> Fe2O3", keywords: ["4Fe", "3O2", "2Fe2O3"], maxScore: 2 },
+    ],
+    application: [
+      { prompt: "5.00 g of calcium carbonate (CaCO3) is decomposed by heating: CaCO3 -> CaO + CO2. Calculate the mass of CaO produced. (Ar: Ca=40, C=12, O=16)", subskillIds: ["mole_calculations", "stoichiometric_ratio"], keywords: ["Mr CaCO3 = 100", "moles = 5/100 = 0.05", "1:1 ratio", "Mr CaO = 56", "mass = 0.05 x 56 = 2.80 g"], maxScore: 4 },
+      { prompt: "A student reacts 2.43 g of magnesium with excess hydrochloric acid. Mg + 2HCl -> MgCl2 + H2. Calculate the volume of hydrogen gas produced at RTP. (Ar: Mg=24)", subskillIds: ["mole_calculations", "stoichiometric_ratio"], keywords: ["moles Mg = 2.43/24 = 0.10125", "1:1 ratio with H2", "volume = 0.10125 x 24", "2.43 dm3"], maxScore: 4 },
+    ],
+    extended: [
+      { prompt: "A student adds 0.50 g of magnesium to 50 cm3 of 0.40 mol/dm3 hydrochloric acid. Mg + 2HCl -> MgCl2 + H2. Determine which reagent is in excess, calculate the volume of H2 produced at RTP, and explain why the actual yield might be less than expected. (6 marks)", subskillIds: ["mole_calculations", "stoichiometric_ratio", "limiting_reagent", "percentage_yield"], keywords: ["moles Mg", "moles HCl", "ratio", "limiting reagent", "volume", "percentage yield"], maxScore: 6, rubricPoints: ["Moles Mg = 0.50/24 = 0.0208 mol", "Moles HCl = 0.40 x 0.050 = 0.020 mol", "Ratio requires 2 mol HCl per mol Mg; 0.0208 mol Mg needs 0.0417 mol HCl; only 0.020 available so HCl is limiting", "Moles H2 = 0.020/2 = 0.010 mol (from HCl ratio)", "Volume H2 = 0.010 x 24 = 0.24 dm3", "Actual yield lower because: gas escapes, incomplete reaction, side reactions, measurement errors"] },
+    ],
+  },
+  energetics: {
+    recall: [
+      { prompt: "Define the term 'exothermic reaction'.", keywords: ["releases energy", "to surroundings", "negative delta H", "temperature increase"], maxScore: 2 },
+      { prompt: "State whether bond breaking is exothermic or endothermic.", keywords: ["endothermic", "requires energy"], maxScore: 1 },
+      { prompt: "Write the equation used in calorimetry to calculate energy change.", keywords: ["q = mcDT", "mass", "specific heat capacity", "temperature change"], maxScore: 2 },
+      { prompt: "State Hess's law.", keywords: ["total enthalpy change", "independent of route", "same start and end", "constant"], maxScore: 2 },
+    ],
+    application: [
+      { prompt: "Use the following bond energies to calculate the enthalpy change for: H2 + Cl2 -> 2HCl. Bond energies: H-H = 436 kJ/mol, Cl-Cl = 242 kJ/mol, H-Cl = 431 kJ/mol.", subskillIds: ["bond_energies"], keywords: ["bonds broken = 436 + 242 = 678", "bonds formed = 2 x 431 = 862", "delta H = 678 - 862 = -184 kJ/mol", "exothermic"], maxScore: 4 },
+      { prompt: "50 cm3 of 1.0 mol/dm3 HCl was mixed with 50 cm3 of 1.0 mol/dm3 NaOH. The temperature rose by 6.8C. Calculate the enthalpy of neutralisation. (c = 4.18 J/g/K, density = 1 g/cm3)", subskillIds: ["calorimetry"], keywords: ["q = 100 x 4.18 x 6.8", "q = 2842.4 J", "moles = 0.05", "delta H = -2842.4/0.05 = -56848 J/mol", "-56.8 kJ/mol"], maxScore: 4 },
+    ],
+    extended: [
+      { prompt: "Describe how Hess's law can be used to calculate the enthalpy of formation of methane, given that the enthalpies of combustion of carbon, hydrogen and methane are known. Include a Hess's law cycle. (6 marks)", subskillIds: ["hess_law", "enthalpy_changes"], keywords: ["Hess's law", "enthalpy cycle", "combustion data", "alternative route", "formation", "calculation"], maxScore: 6, rubricPoints: ["State Hess's law: total enthalpy change is independent of route taken", "Write formation equation: C(s) + 2H2(g) -> CH4(g)", "Draw Hess cycle: formation route vs combustion route (both ending at CO2 + H2O)", "Route 1: direct formation (unknown)", "Route 2: combustion of elements minus combustion of product", "DeltaHf = sum of combustion of elements - combustion of CH4; calculation with given values"] },
+    ],
+  },
+  kinetics: {
+    recall: [
+      { prompt: "State two conditions needed for a successful collision.", keywords: ["sufficient energy", "activation energy", "correct orientation"], maxScore: 2 },
+      { prompt: "Define the term 'activation energy'.", keywords: ["minimum energy", "required", "for a reaction to occur", "successful collision"], maxScore: 2 },
+      { prompt: "How does a catalyst increase the rate of reaction?", keywords: ["alternative pathway", "lower activation energy", "not consumed", "unchanged"], maxScore: 2 },
+      { prompt: "State the effect of increasing temperature on the rate of reaction.", keywords: ["increases rate", "more kinetic energy", "more successful collisions"], maxScore: 2 },
+    ],
+    application: [
+      { prompt: "Using the Boltzmann distribution, explain why a small increase in temperature causes a large increase in reaction rate.", subskillIds: ["boltzmann", "activation_energy"], keywords: ["distribution shifts right", "more molecules exceed Ea", "greater proportion", "more successful collisions", "exponential increase"], maxScore: 4 },
+      { prompt: "Explain why increasing the concentration of a reactant in solution increases the rate of reaction.", subskillIds: ["collision_theory", "factors_rate"], keywords: ["more particles per unit volume", "more frequent collisions", "more successful collisions per unit time", "rate increases"], maxScore: 3 },
+    ],
+    extended: [
+      { prompt: "Describe and explain how temperature and the use of a catalyst affect the rate of a chemical reaction. Include references to the Boltzmann distribution and activation energy in your answer. (6 marks)", subskillIds: ["boltzmann", "activation_energy", "catalysts"], keywords: ["Boltzmann distribution", "activation energy", "proportion of molecules", "catalyst", "alternative pathway", "lower Ea"], maxScore: 6, rubricPoints: ["At higher temperature, molecules have more kinetic energy on average", "Boltzmann distribution shifts right; more molecules exceed activation energy Ea", "Greater proportion of successful collisions per unit time, so rate increases", "A catalyst provides an alternative reaction pathway with a lower activation energy", "On the Boltzmann distribution, a lower Ea means more molecules have energy >= Ea", "Catalyst speeds up both forward and reverse reactions equally; does not change equilibrium position"] },
+    ],
+  },
+  equilibrium: {
+    recall: [
+      { prompt: "State two conditions needed for dynamic equilibrium.", keywords: ["closed system", "forward rate equals reverse rate", "concentrations constant"], maxScore: 2 },
+      { prompt: "Write the Kc expression for: N2(g) + 3H2(g) <=> 2NH3(g).", keywords: ["[NH3]^2 / ([N2][H2]^3)", "products over reactants", "stoichiometric powers"], maxScore: 2 },
+      { prompt: "State Le Chatelier's principle.", keywords: ["system opposes", "change", "counteract", "restore equilibrium"], maxScore: 2 },
+      { prompt: "What happens to Kc when temperature increases for an exothermic reaction?", keywords: ["Kc decreases", "equilibrium shifts left", "favours endothermic direction"], maxScore: 2 },
+    ],
+    application: [
+      { prompt: "For the reaction N2O4(g) <=> 2NO2(g), at equilibrium [N2O4] = 0.10 mol/dm3 and [NO2] = 0.40 mol/dm3. Calculate Kc and state its units.", subskillIds: ["kc_calculation", "kc_units"], keywords: ["Kc = [NO2]^2 / [N2O4]", "0.40^2 / 0.10", "0.16 / 0.10", "1.6", "mol/dm3"], maxScore: 4 },
+      { prompt: "The Haber process (N2 + 3H2 <=> 2NH3) is exothermic. Explain the effect of increasing pressure on the equilibrium position and yield of ammonia.", subskillIds: ["le_chatelier"], keywords: ["increased pressure", "shifts to fewer moles", "4 moles to 2 moles", "shifts right", "more ammonia", "yield increases"], maxScore: 3 },
+    ],
+    extended: [
+      { prompt: "The industrial production of sulfuric acid uses the Contact Process: 2SO2(g) + O2(g) <=> 2SO3(g), DeltaH = -196 kJ/mol. Discuss the conditions used (temperature, pressure, catalyst) and explain the compromises made between rate and yield. (6 marks)", subskillIds: ["le_chatelier", "kc_calculation"], keywords: ["exothermic", "low temperature favours yield", "high temperature needed for rate", "compromise 450C", "high pressure favours fewer moles", "V2O5 catalyst"], maxScore: 6, rubricPoints: ["Exothermic reaction: lower temperature shifts equilibrium right (more SO3), increasing yield", "But low temperature gives slow rate, so compromise of ~450C used", "3 moles gas on left, 2 on right: high pressure shifts equilibrium right, increasing yield", "But high pressure is expensive and dangerous, so moderate pressure (~2 atm) used", "V2O5 catalyst used to increase rate without affecting equilibrium position", "Catalyst allows acceptable rate at lower temperature, improving both rate and yield"] },
+    ],
+  },
+  acid_base: {
+    recall: [
+      { prompt: "Define a strong acid.", keywords: ["fully dissociates", "in water", "all molecules ionise"], maxScore: 2 },
+      { prompt: "Calculate the pH of a 0.01 mol/dm3 HCl solution.", keywords: ["pH = -log[H+]", "-log(0.01)", "pH = 2"], maxScore: 2 },
+      { prompt: "What is a buffer solution?", keywords: ["resists change in pH", "when small amounts of acid or base added", "weak acid and conjugate base"], maxScore: 2 },
+      { prompt: "State what is measured in a titration.", keywords: ["volume", "of one solution", "to react exactly", "with known volume of another"], maxScore: 2 },
+    ],
+    application: [
+      { prompt: "25.0 cm3 of 0.10 mol/dm3 NaOH required 20.0 cm3 of HCl to reach the endpoint. Calculate the concentration of HCl.", subskillIds: ["titrations"], keywords: ["moles NaOH = 0.10 x 0.025 = 0.0025", "1:1 ratio", "moles HCl = 0.0025", "conc = 0.0025/0.020", "0.125 mol/dm3"], maxScore: 4 },
+      { prompt: "Explain why ethanoic acid (CH3COOH) has a higher pH than hydrochloric acid of the same concentration.", subskillIds: ["weak_acids"], keywords: ["ethanoic acid is a weak acid", "partially dissociates", "fewer H+ ions in solution", "HCl fully dissociates", "lower [H+] means higher pH"], maxScore: 3 },
+    ],
+    extended: [
+      { prompt: "Explain how an ethanoic acid/sodium ethanoate buffer solution maintains a relatively constant pH when small amounts of acid or alkali are added. (6 marks)", subskillIds: ["buffers", "weak_acids"], keywords: ["weak acid", "conjugate base", "equilibrium", "H+ ions", "OH- ions", "Le Chatelier"], maxScore: 6, rubricPoints: ["Buffer contains weak acid (CH3COOH) and its conjugate base (CH3COO-) from sodium ethanoate", "When acid (H+) added: CH3COO- + H+ -> CH3COOH; excess H+ removed by conjugate base", "Equilibrium shifts to left, removing added H+, so pH barely changes", "When alkali (OH-) added: CH3COOH + OH- -> CH3COO- + H2O; weak acid neutralises OH-", "Equilibrium shifts to right to replace used acid", "Effective because large reservoir of both weak acid and conjugate base to absorb changes"] },
+    ],
+  },
+  redox: {
+    recall: [
+      { prompt: "Define oxidation in terms of electron transfer.", keywords: ["loss of electrons", "OIL", "oxidation is loss"], maxScore: 2 },
+      { prompt: "State the oxidation state of sulfur in H2SO4.", keywords: ["+6"], maxScore: 1 },
+      { prompt: "What is a half-equation?", keywords: ["shows either oxidation or reduction", "separately", "electrons shown"], maxScore: 2 },
+      { prompt: "State the oxidation state of iron in Fe2O3.", keywords: ["+3"], maxScore: 1 },
+    ],
+    application: [
+      { prompt: "In the reaction: Zn + CuSO4 -> ZnSO4 + Cu, identify the species being oxidised and the species being reduced. Explain your reasoning.", subskillIds: ["redox_identification", "oxidation_states"], keywords: ["Zn is oxidised", "loses electrons", "0 to +2", "Cu2+ is reduced", "gains electrons", "+2 to 0"], maxScore: 4 },
+      { prompt: "Write a balanced ionic equation for the reaction between zinc and copper(II) sulfate. Include state symbols.", subskillIds: ["half_equations"], keywords: ["Zn(s) + Cu2+(aq) -> Zn2+(aq) + Cu(s)", "spectator ions removed", "SO42- not included"], maxScore: 3 },
+    ],
+    extended: [
+      { prompt: "Describe and explain redox reactions using the examples of rusting of iron and the displacement of copper by zinc. Include half-equations in your answer. (6 marks)", subskillIds: ["half_equations", "redox_identification", "oxidation_states"], keywords: ["oxidation", "reduction", "electron transfer", "half-equations", "oxidation states change"], maxScore: 6, rubricPoints: ["Rusting: iron loses electrons (Fe -> Fe2+ + 2e-); iron is oxidised", "Oxygen gains electrons (O2 + 4e- -> 2O2-); oxygen is reduced", "Overall: iron reacts with oxygen and water to form hydrated iron(III) oxide", "Displacement: Zn -> Zn2+ + 2e- (oxidation); zinc is more reactive, loses electrons", "Cu2+ + 2e- -> Cu (reduction); copper ions gain electrons and form copper metal", "In both cases: oxidation and reduction occur simultaneously (redox); electron transfer from more reactive to less reactive species"] },
+    ],
+  },
+  organic_1: {
+    recall: [
+      { prompt: "What is meant by a 'functional group'?", keywords: ["group of atoms", "determines chemical properties", "reactive part of molecule"], maxScore: 2 },
+      { prompt: "Name the functional group present in alkenes.", keywords: ["C=C", "carbon-carbon double bond"], maxScore: 1 },
+      { prompt: "What is the general formula of an alkane?", keywords: ["CnH2n+2"], maxScore: 1 },
+      { prompt: "Define the term 'structural isomers'.", keywords: ["same molecular formula", "different structural formula", "different arrangement of atoms"], maxScore: 2 },
+      { prompt: "What type of reaction occurs between an alkene and bromine water?", keywords: ["electrophilic addition", "addition reaction"], maxScore: 2 },
+    ],
+    application: [
+      { prompt: "Explain why alkenes are more reactive than alkanes.", subskillIds: ["alkenes", "alkanes"], keywords: ["C=C double bond", "pi bond", "high electron density", "attracts electrophiles", "alkanes only have sigma bonds", "less reactive"], maxScore: 3 },
+      { prompt: "Draw and name two structural isomers of C4H10.", subskillIds: ["isomerism"], keywords: ["butane", "methylpropane", "straight chain", "branched"], maxScore: 3 },
+    ],
+    extended: [
+      { prompt: "Describe the mechanism of free radical substitution of methane with chlorine, including initiation, propagation and termination steps. Explain why a mixture of products is formed. (6 marks)", subskillIds: ["free_radical", "alkanes"], keywords: ["initiation", "UV light", "homolytic fission", "Cl radicals", "propagation", "chain reaction", "termination"], maxScore: 6, rubricPoints: ["Initiation: Cl2 -> 2Cl* (UV light causes homolytic fission of Cl-Cl bond)", "Propagation step 1: CH4 + Cl* -> CH3* + HCl (H abstracted from methane)", "Propagation step 2: CH3* + Cl2 -> CH3Cl + Cl* (regenerates Cl radical)", "Termination: two radicals combine (Cl* + Cl* -> Cl2, or CH3* + Cl* -> CH3Cl)", "Mixture of products because CH3Cl can undergo further substitution to form CH2Cl2, CHCl3, CCl4", "This is because the propagation steps can repeat with the chlorinated products (further H substitution)"] },
+    ],
+  },
+  organic_2: {
+    recall: [
+      { prompt: "What is a nucleophile?", keywords: ["electron pair donor", "lone pair", "attacks positive/electron-deficient centre"], maxScore: 2 },
+      { prompt: "Name the type of reaction that converts a halogenoalkane to an alcohol using aqueous NaOH.", keywords: ["nucleophilic substitution"], maxScore: 1 },
+      { prompt: "State the conditions needed to oxidise a primary alcohol to an aldehyde.", keywords: ["acidified potassium dichromate", "distillation", "heat"], maxScore: 2 },
+      { prompt: "What is the role of a curly arrow in a mechanism?", keywords: ["shows movement", "of electron pair", "from nucleophile to electrophile"], maxScore: 2 },
+    ],
+    application: [
+      { prompt: "Explain why the rate of hydrolysis of halogenoalkanes decreases in the order C-I > C-Br > C-Cl.", subskillIds: ["halogenoalkanes"], keywords: ["bond enthalpy", "C-I weakest bond", "C-Cl strongest bond", "weaker bond breaks more easily", "lower activation energy"], maxScore: 3 },
+      { prompt: "A primary alcohol can be oxidised to an aldehyde or a carboxylic acid. Explain how you would control which product is formed.", subskillIds: ["alcohols"], keywords: ["distillation for aldehyde", "removes aldehyde as formed", "reflux for carboxylic acid", "keeps aldehyde in mixture", "further oxidation"], maxScore: 4 },
+    ],
+    extended: [
+      { prompt: "Compare nucleophilic substitution and elimination reactions of halogenoalkanes. Explain the conditions that favour each reaction and the products formed. (6 marks)", subskillIds: ["nucleophilic_sub", "elimination"], keywords: ["nucleophilic substitution", "elimination", "aqueous NaOH", "ethanolic NaOH", "alcohol product", "alkene product"], maxScore: 6, rubricPoints: ["Nucleophilic substitution: halogen replaced by nucleophile (e.g., OH-)", "Conditions: aqueous NaOH, warm; NaOH acts as nucleophile", "Product: alcohol (halogen replaced by OH group)", "Elimination: HX removed from halogenoalkane to form C=C double bond", "Conditions: ethanolic NaOH, hot; NaOH acts as base", "Product: alkene; the choice of solvent (aqueous vs ethanolic) determines which reaction dominates"] },
+    ],
+  },
+  organic_3: {
+    recall: [
+      { prompt: "Name the reagent used to test for an aldehyde.", keywords: ["Tollens reagent", "silver mirror", "ammoniacal silver nitrate"], maxScore: 2 },
+      { prompt: "What type of reaction produces an ester?", keywords: ["esterification", "condensation", "acid + alcohol"], maxScore: 2 },
+      { prompt: "State one use of esters.", keywords: ["perfumes", "flavourings", "solvents", "plasticisers"], maxScore: 1 },
+      { prompt: "What is meant by a 'condensation polymer'?", keywords: ["monomers join", "losing small molecule", "water or HCl"], maxScore: 2 },
+    ],
+    application: [
+      { prompt: "Explain how you would distinguish between an aldehyde and a ketone using a simple chemical test.", subskillIds: ["aldehydes_ketones", "analytical_tests"], keywords: ["Tollens reagent", "aldehyde gives silver mirror", "ketone gives no reaction", "aldehyde is more easily oxidised"], maxScore: 3 },
+      { prompt: "Write the equation for the formation of an ester from ethanol and ethanoic acid. Name the ester and state the catalyst.", subskillIds: ["esters", "carboxylic_acids"], keywords: ["CH3COOH + CH3CH2OH", "CH3COOCH2CH3 + H2O", "ethyl ethanoate", "concentrated sulfuric acid catalyst"], maxScore: 4 },
+    ],
+    extended: [
+      { prompt: "Compare addition polymerisation and condensation polymerisation, giving examples of each. Explain why condensation polymers are biodegradable but addition polymers are not. (6 marks)", subskillIds: ["polymers", "esters"], keywords: ["addition polymer", "condensation polymer", "alkene monomer", "bifunctional", "small molecule lost", "biodegradable"], maxScore: 6, rubricPoints: ["Addition polymerisation: alkene monomers join by opening C=C double bond; no small molecule lost", "Example: poly(ethene) from ethene; poly(chloroethene) from chloroethene", "Condensation polymerisation: bifunctional monomers (e.g., diol + dicarboxylic acid); water lost", "Example: polyester (e.g., Terylene); polyamide (e.g., nylon)", "Addition polymers have strong C-C backbone with no easily hydrolysable bonds; non-biodegradable", "Condensation polymers have ester/amide links that can be hydrolysed by water/enzymes; biodegradable"] },
+    ],
+  },
+  synthesis_analysis: {
+    recall: [
+      { prompt: "In mass spectrometry, what does the molecular ion peak (M+) tell you?", keywords: ["relative molecular mass", "Mr", "of the compound"], maxScore: 2 },
+      { prompt: "In IR spectroscopy, what does a broad absorption around 2500-3300 cm-1 indicate?", keywords: ["O-H bond", "carboxylic acid", "broad peak"], maxScore: 2 },
+      { prompt: "What is meant by 'chemical shift' in NMR spectroscopy?", keywords: ["position of peak", "relative to TMS", "indicates chemical environment"], maxScore: 2 },
+    ],
+    application: [
+      { prompt: "A compound has Mr = 46 (from mass spec), a broad O-H absorption in IR, and shows 3 peaks in 1H NMR. Suggest a possible structure.", subskillIds: ["combined_analysis", "mass_spec", "ir_spectroscopy"], keywords: ["ethanol", "CH3CH2OH", "Mr 46 matches", "O-H from alcohol", "3 different H environments"], maxScore: 4 },
+      { prompt: "Describe the reagents and conditions needed to convert ethanol to ethanoic acid in two steps.", subskillIds: ["synthesis_routes"], keywords: ["step 1: oxidise to ethanal", "acidified dichromate and distil", "step 2: oxidise to ethanoic acid", "acidified dichromate and reflux"], maxScore: 3 },
+    ],
+    extended: [
+      { prompt: "Describe how you would use mass spectrometry, IR spectroscopy, and NMR to identify an unknown organic compound. Explain what information each technique provides. (6 marks)", subskillIds: ["mass_spec", "ir_spectroscopy", "nmr_basics", "combined_analysis"], keywords: ["mass spec", "molecular ion", "Mr", "fragmentation", "IR", "functional groups", "NMR", "chemical environments"], maxScore: 6, rubricPoints: ["Mass spectrometry: molecular ion peak gives Mr; fragmentation pattern shows structural fragments", "Use Mr to determine molecular formula (with composition data)", "IR spectroscopy: identifies functional groups present (e.g., O-H, C=O, N-H absorptions)", "Can distinguish between carboxylic acid (broad O-H ~2500-3300) and alcohol (broad O-H ~3200-3550)", "NMR: number of peaks shows different hydrogen environments; integration gives ratio of H atoms", "Splitting pattern shows number of H on adjacent carbons; combine all data to determine full structure"] },
+    ],
+  },
 };
 
 // ─── Helpers ───
@@ -208,7 +408,10 @@ function pickRandom(arr) {
 
 function getTopicQuestions(topicId, phase) {
   const bank = questionBank[topicId];
-  if (!bank) return questionBank.enzymes[phase] || [];
+  if (!bank) {
+    // Fallback: try enzymes for biology, atomic_structure for chemistry
+    return questionBank.enzymes?.[phase] || questionBank.atomic_structure?.[phase] || [];
+  }
   return bank[phase] || [];
 }
 
@@ -297,7 +500,7 @@ export function mockMarkAnswer({ questionId, studentAnswer, phase, difficulty = 
       maxScore,
       correct,
       rationale: score >= maxScore * 0.8
-        ? 'Strong answer with good use of biological terminology.'
+        ? 'Strong answer with good use of scientific terminology.'
         : score >= maxScore * 0.5
           ? 'Partial answer — some key points covered but missing detail.'
           : 'Weak answer — key concepts and terminology missing.',

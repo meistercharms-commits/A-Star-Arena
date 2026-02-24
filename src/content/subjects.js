@@ -4,6 +4,8 @@
 
 import biologyTopics from './biology/topics.json';
 import biologyBosses from './biology/bosses.json';
+import chemistryTopics from './chemistry/topics.json';
+import chemistryBosses from './chemistry/bosses.json';
 
 // ─── Subject Definitions ───
 
@@ -14,11 +16,10 @@ export const SUBJECTS = [
 ];
 
 // ─── Content Store ───
-// Pre-loaded content per subject. Chemistry & Maths will be added in later stages.
 
 const contentStore = {
   biology: { topics: biologyTopics, bosses: biologyBosses },
-  chemistry: { topics: [], bosses: [] },
+  chemistry: { topics: chemistryTopics, bosses: chemistryBosses },
   mathematics: { topics: [], bosses: [] },
 };
 

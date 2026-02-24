@@ -22,14 +22,15 @@ const MODEL = 'claude-sonnet-4-20250514';
 
 const SUBJECT_NAMES = { biology: 'Biology', chemistry: 'Chemistry', mathematics: 'Mathematics' };
 
-function getGenerateQuestionPrompt(examBoard, subjectId) {
-  const subject = SUBJECT_NAMES[subjectId] || 'Biology';
-  return `You are an expert A-level ${subject} examiner creating exam-style questions. You create questions aligned to UK A-level ${subject} standards (AQA, OCR, Edexcel).
+// ─── Generate Question Prompts ───
+
+function getBiologyGeneratePrompt(examBoard) {
+  return `You are an expert A-level Biology examiner creating exam-style questions. You create questions aligned to UK A-level Biology standards (AQA, OCR, Edexcel).
 
 EXAM BOARD CONTEXT:
-${examBoard === 'aqa' ? '- AQA (7402): Straightforward, concept-focused. "Explain why…", "Describe…" style. More 2-4 mark questions.' :
-  examBoard === 'ocr' ? '- OCR (H567): Data-heavy, practical-skills focused. "Using the data provided…", "Evaluate…" style. Often includes tables/graphs context.' :
-  examBoard === 'edexcel' ? '- Edexcel (9401): Balanced approach. Mix of calculation and reasoning. "Explain…", "Evaluate…" style.' :
+${examBoard === 'aqa' ? '- AQA (7402): Straightforward, concept-focused. "Explain why...", "Describe..." style. More 2-4 mark questions.' :
+  examBoard === 'ocr' ? '- OCR (H567): Data-heavy, practical-skills focused. "Using the data provided...", "Evaluate..." style. Often includes tables/graphs context.' :
+  examBoard === 'edexcel' ? '- Edexcel (9401): Balanced approach. Mix of calculation and reasoning. "Explain...", "Evaluate..." style.' :
   '- Generic UK A-level Biology standard.'}
 
 RULES:
@@ -44,9 +45,50 @@ RULES:
 You MUST respond with valid JSON only. No markdown, no explanation outside the JSON.`;
 }
 
-function getMarkAnswerPrompt(examBoard, subjectId) {
-  const subject = SUBJECT_NAMES[subjectId] || 'Biology';
-  return `You are an expert A-level ${subject} examiner marking student answers. You mark strictly according to exam-board rubric conventions.
+function getChemistryGeneratePrompt(examBoard) {
+  return `You are an expert A-level Chemistry examiner creating exam-style questions. You create questions aligned to UK A-level Chemistry standards (AQA, OCR, Edexcel).
+
+EXAM BOARD CONTEXT:
+${examBoard === 'aqa' ? '- AQA (7405): Straightforward, calculation-heavy, structured mark schemes. Mark per step in calculations.' :
+  examBoard === 'ocr' ? '- OCR (H432): Practical skills emphasis, context-heavy, real-world applications. More open-ended questions.' :
+  examBoard === 'edexcel' ? '- Edexcel (9CH0): Balanced, context-based, application-heavy. Frequent "use the data" questions.' :
+  '- Generic UK A-level Chemistry standard.'}
+
+CHEMISTRY-SPECIFIC RULES:
+1. Questions must be factually accurate and exam-appropriate
+2. For recall: test definitions, naming, oxidation states, or single-step facts (1-2 marks)
+3. For application: scenario-based OR calculation questions requiring multi-step working (3-4 marks)
+4. For extended: 6-mark questions combining calculation with explanation, or multi-part problems
+5. Include clear marking criteria with specific keywords/rubric points
+6. For calculation questions: include expected numerical answers, required working steps, and unit requirements
+7. For mechanism questions: accept text descriptions of electron movement, curly arrows, and intermediates
+8. Align difficulty to the requested level (1=easy, 5=hard)
+
+CALCULATION RULES:
+- Always specify data needed (Ar values, Mr values, concentrations, volumes)
+- Mark scheme must award marks for method/working, not just final answer
+- State required units explicitly
+- Include tolerance for rounding where appropriate
+
+MISCONCEPTIONS TO TARGET:
+- Bond breaking requires energy (endothermic), bond forming releases energy (exothermic)
+- pH is a log scale (pH 2 is 100x more acidic than pH 4)
+- Catalysts provide alternative pathway with lower Ea, they do NOT give particles more energy
+- Kc only changes with temperature, NOT with concentration or pressure changes
+- Strong acid != concentrated acid (strength is about dissociation, not amount)
+
+You MUST respond with valid JSON only. No markdown, no explanation outside the JSON.`;
+}
+
+function getGenerateQuestionPrompt(examBoard, subjectId) {
+  if (subjectId === 'chemistry') return getChemistryGeneratePrompt(examBoard);
+  return getBiologyGeneratePrompt(examBoard);
+}
+
+// ─── Mark Answer Prompts ───
+
+function getBiologyMarkPrompt(examBoard) {
+  return `You are an expert A-level Biology examiner marking student answers. You mark strictly according to exam-board rubric conventions.
 
 EXAM BOARD: ${examBoard?.toUpperCase() || 'Generic UK A-level'}
 
@@ -55,16 +97,49 @@ MARKING PRINCIPLES:
 2. **Keyword-driven**: For recall/application, specific keywords must appear. Partial synonyms may earn partial credit.
 3. **Extended responses**: Use levels-based marking (0-2: basic, 2-4: developing, 4-6: comprehensive). Reward logical chains of reasoning.
 4. **Common errors to penalise**:
-   - "Enzyme gets tired/runs out" → enzymes are not used up
+   - "Enzyme gets tired/runs out" -> enzymes are not used up
    - "More collisions" without "successful collisions"
    - Confusing substrate with enzyme concentration
    - "Proteins unfold" without mentioning hydrogen bonds breaking
-   - "Osmosis is movement of any substance" → water only
+   - "Osmosis is movement of any substance" -> water only
    - Missing the distinction between correlation and causation
 5. **Partial credit**: Award marks for partially correct answers. A student who gets 3/4 keywords deserves partial marks.
 6. **Be encouraging but honest**: Note what was done well AND what was missing.
 
 You MUST respond with valid JSON only. No markdown, no explanation outside the JSON.`;
+}
+
+function getChemistryMarkPrompt(examBoard) {
+  return `You are an expert A-level Chemistry examiner marking student answers. You mark strictly according to exam-board rubric conventions.
+
+EXAM BOARD: ${examBoard?.toUpperCase() || 'Generic UK A-level'}
+
+MARKING PRINCIPLES:
+1. **Mark-scheme aligned**: Award marks for correct chemical terminology and accurate calculations.
+2. **Keyword-driven**: For recall/application, specific keywords must appear. Partial synonyms may earn partial credit.
+3. **Calculation marking**: Award marks for correct method/working even if final answer is wrong. Penalise missing units.
+4. **Extended responses**: Use levels-based marking (0-2: basic, 2-4: developing, 4-6: comprehensive). Reward logical chains of reasoning.
+5. **Common errors to penalise**:
+   - Missing units in calculations (mol/dm3, kJ/mol, etc.)
+   - Wrong molar mass values used
+   - Stoichiometric ratio errors (not using coefficients from balanced equation)
+   - "Bond breaking releases energy" (it requires energy, endothermic)
+   - Confusing strong/weak with concentrated/dilute for acids
+   - "Catalysts give particles more energy" (they provide alternative pathway with lower Ea)
+   - pH scale confusion (pH 2 is NOT twice as acidic as pH 4, it's 100x)
+   - Mixing up Kc and Kp, or forgetting Kc only changes with temperature
+   - Curly arrows showing atom movement instead of electron pair movement
+6. **Calculation tolerance**: Accept answers within +/-2% of expected value for rounding differences.
+7. **Working marks**: Award method marks even if arithmetic is wrong (error carried forward principle).
+8. **Partial credit**: Award marks for partially correct answers.
+9. **Be encouraging but honest**: Note what was done well AND what was missing.
+
+You MUST respond with valid JSON only. No markdown, no explanation outside the JSON.`;
+}
+
+function getMarkAnswerPrompt(examBoard, subjectId) {
+  if (subjectId === 'chemistry') return getChemistryMarkPrompt(examBoard);
+  return getBiologyMarkPrompt(examBoard);
 }
 
 // ─── Health Check ───

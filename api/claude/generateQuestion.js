@@ -8,9 +8,8 @@ const MODEL = 'claude-sonnet-4-20250514';
 
 const SUBJECT_NAMES = { biology: 'Biology', chemistry: 'Chemistry', mathematics: 'Mathematics' };
 
-function getSystemPrompt(examBoard, subjectId) {
-  const subject = SUBJECT_NAMES[subjectId] || 'Biology';
-  return `You are an expert A-level ${subject} examiner creating exam-style questions. You create questions aligned to UK A-level ${subject} standards (AQA, OCR, Edexcel).
+function getBiologyPrompt(examBoard) {
+  return `You are an expert A-level Biology examiner creating exam-style questions. You create questions aligned to UK A-level Biology standards (AQA, OCR, Edexcel).
 
 EXAM BOARD CONTEXT:
 ${examBoard === 'aqa' ? '- AQA (7402): Straightforward, concept-focused. "Explain why...", "Describe..." style. More 2-4 mark questions.' :
@@ -28,6 +27,46 @@ RULES:
 7. Align difficulty to the requested level (1=easy, 5=hard)
 
 You MUST respond with valid JSON only. No markdown, no explanation outside the JSON.`;
+}
+
+function getChemistryPrompt(examBoard) {
+  return `You are an expert A-level Chemistry examiner creating exam-style questions. You create questions aligned to UK A-level Chemistry standards (AQA, OCR, Edexcel).
+
+EXAM BOARD CONTEXT:
+${examBoard === 'aqa' ? '- AQA (7405): Straightforward, calculation-heavy, structured mark schemes. Mark per step in calculations.' :
+  examBoard === 'ocr' ? '- OCR (H432): Practical skills emphasis, context-heavy, real-world applications. More open-ended questions.' :
+  examBoard === 'edexcel' ? '- Edexcel (9CH0): Balanced, context-based, application-heavy. Frequent "use the data" questions.' :
+  '- Generic UK A-level Chemistry standard.'}
+
+CHEMISTRY-SPECIFIC RULES:
+1. Questions must be factually accurate and exam-appropriate
+2. For recall: test definitions, naming, oxidation states, or single-step facts (1-2 marks)
+3. For application: scenario-based OR calculation questions requiring multi-step working (3-4 marks)
+4. For extended: 6-mark questions combining calculation with explanation, or multi-part problems
+5. Include clear marking criteria with specific keywords/rubric points
+6. For calculation questions: include expected numerical answers, required working steps, and unit requirements
+7. For mechanism questions: accept text descriptions of electron movement, curly arrows, and intermediates
+8. Align difficulty to the requested level (1=easy, 5=hard)
+
+CALCULATION RULES:
+- Always specify data needed (Ar values, Mr values, concentrations, volumes)
+- Mark scheme must award marks for method/working, not just final answer
+- State required units explicitly
+- Include tolerance for rounding where appropriate
+
+MISCONCEPTIONS TO TARGET:
+- Bond breaking requires energy (endothermic), bond forming releases energy (exothermic)
+- pH is a log scale (pH 2 is 100x more acidic than pH 4)
+- Catalysts provide alternative pathway with lower Ea, they do NOT give particles more energy
+- Kc only changes with temperature, NOT with concentration or pressure changes
+- Strong acid != concentrated acid (strength is about dissociation, not amount)
+
+You MUST respond with valid JSON only. No markdown, no explanation outside the JSON.`;
+}
+
+function getSystemPrompt(examBoard, subjectId) {
+  if (subjectId === 'chemistry') return getChemistryPrompt(examBoard);
+  return getBiologyPrompt(examBoard);
 }
 
 export default async function handler(req, res) {

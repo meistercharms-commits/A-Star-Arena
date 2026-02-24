@@ -1,0 +1,106 @@
+[
+  {
+    "topicId": "atomic_structure",
+    "bossName": "The Nucleus Warden",
+    "flavourText": "Guards the secrets of the atom. Crack its electron shell to reveal the truth within.",
+    "emoji": "⚛️",
+    "hp": 100,
+    "hpBarColour": "#8b5cf6"
+  },
+  {
+    "topicId": "bonding_structure",
+    "bossName": "The Bond Breaker",
+    "flavourText": "Forged from ionic lattices and covalent chains. Only true understanding of forces can shatter it.",
+    "emoji": "🔗",
+    "hp": 100,
+    "hpBarColour": "#3b82f6"
+  },
+  {
+    "topicId": "states_of_matter",
+    "bossName": "The Phase Shifter",
+    "flavourText": "Morphs between solid, liquid, and gas at will. Master the ideal gas law to trap it.",
+    "emoji": "💨",
+    "hp": 100,
+    "hpBarColour": "#64748b"
+  },
+  {
+    "topicId": "stoichiometry",
+    "bossName": "The Mole King",
+    "flavourText": "Wields Avogadro's number as a weapon. Balance every equation or be overwhelmed.",
+    "emoji": "⚖️",
+    "hp": 100,
+    "hpBarColour": "#f97316"
+  },
+  {
+    "topicId": "energetics",
+    "bossName": "Enthalpy Inferno",
+    "flavourText": "Burns with exothermic fury. Calculate its energy to extinguish the flames.",
+    "emoji": "🔥",
+    "hp": 100,
+    "hpBarColour": "#ef4444"
+  },
+  {
+    "topicId": "kinetics",
+    "bossName": "The Catalyst Phantom",
+    "flavourText": "Moves faster than any reaction. Lower its activation energy to slow it down.",
+    "emoji": "⚡",
+    "hp": 100,
+    "hpBarColour": "#eab308"
+  },
+  {
+    "topicId": "equilibrium",
+    "bossName": "Le Chatelier's Shadow",
+    "flavourText": "Shifts and adapts to every challenge. Disturb its balance to gain the upper hand.",
+    "emoji": "🔄",
+    "hp": 100,
+    "hpBarColour": "#14b8a6"
+  },
+  {
+    "topicId": "acid_base",
+    "bossName": "The pH Spectre",
+    "flavourText": "Lurks across the pH scale from acid to alkali. Neutralise it with precision.",
+    "emoji": "🧪",
+    "hp": 100,
+    "hpBarColour": "#a855f7"
+  },
+  {
+    "topicId": "redox",
+    "bossName": "The Electron Thief",
+    "flavourText": "Steals and gives electrons in equal measure. Track every oxidation state to prevail.",
+    "emoji": "🔋",
+    "hp": 100,
+    "hpBarColour": "#22c55e"
+  },
+  {
+    "topicId": "organic_1",
+    "bossName": "The Carbon Architect",
+    "flavourText": "Builds endless molecular chains. Name every structure to dismantle its creations.",
+    "emoji": "🏗️",
+    "hp": 100,
+    "hpBarColour": "#06b6d4"
+  },
+  {
+    "topicId": "organic_2",
+    "bossName": "The Mechanism Master",
+    "flavourText": "Commands curly arrows with deadly precision. Trace every electron pair to survive.",
+    "emoji": "🎯",
+    "hp": 100,
+    "hpBarColour": "#ec4899"
+  },
+  {
+    "topicId": "organic_3",
+    "bossName": "The Carbonyl Sentinel",
+    "flavourText": "Guards the gateway to advanced organic chemistry. Test every functional group to pass.",
+    "emoji": "🛡️",
+    "hp": 100,
+    "hpBarColour": "#d946ef"
+  },
+  {
+    "topicId": "synthesis_analysis",
+    "bossName": "The Spectral Alchemist",
+    "flavourText": "Decodes molecular secrets from spectra and synthesis. Combine all your knowledge to defeat it.",
+    "emoji": "🔬",
+    "hp": 100,
+    "hpBarColour": "#f59e0b"
+  }
+]
