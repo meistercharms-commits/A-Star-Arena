@@ -1,0 +1,98 @@
+[
+  {
+    "topicId": "biological_molecules",
+    "bossName": "Macromolecule Titan",
+    "flavourText": "A colossal being woven from polysaccharides and peptide chains. Break its bonds to defeat it.",
+    "emoji": "🧬",
+    "hp": 100,
+    "hpBarColour": "#a855f7"
+  },
+  {
+    "topicId": "cell_structure",
+    "bossName": "Organelle Overlord",
+    "flavourText": "Rules the cell with an iron membrane. Each organelle obeys its command.",
+    "emoji": "🔬",
+    "hp": 100,
+    "hpBarColour": "#3b82f6"
+  },
+  {
+    "topicId": "transport_membranes",
+    "bossName": "Membrane Guardian",
+    "flavourText": "Controls what enters and exits. Nothing passes without its approval.",
+    "emoji": "🛡️",
+    "hp": 100,
+    "hpBarColour": "#14b8a6"
+  },
+  {
+    "topicId": "enzymes",
+    "bossName": "Catalyst Warden",
+    "flavourText": "An ancient guardian of the active site, armed with knowledge of saturation.",
+    "emoji": "⚙️",
+    "hp": 100,
+    "hpBarColour": "#06b6d4"
+  },
+  {
+    "topicId": "dna_protein_synthesis",
+    "bossName": "Helix Phantom",
+    "flavourText": "Unwinds the double helix and rewrites the code. Decode its message to win.",
+    "emoji": "🧪",
+    "hp": 100,
+    "hpBarColour": "#8b5cf6"
+  },
+  {
+    "topicId": "cell_division",
+    "bossName": "Spindle Wraith",
+    "flavourText": "Pulls chromosomes apart with spectral spindle fibres. Divide and conquer.",
+    "emoji": "🕸️",
+    "hp": 100,
+    "hpBarColour": "#ec4899"
+  },
+  {
+    "topicId": "exchange_surfaces",
+    "bossName": "Diffusion Drifter",
+    "flavourText": "Moves silently across every surface. Thin, efficient, relentless.",
+    "emoji": "💨",
+    "hp": 100,
+    "hpBarColour": "#64748b"
+  },
+  {
+    "topicId": "transport_animals",
+    "bossName": "Cardiac Colossus",
+    "flavourText": "Pumps with unstoppable force. Feel the pressure of every heartbeat.",
+    "emoji": "❤️",
+    "hp": 100,
+    "hpBarColour": "#ef4444"
+  },
+  {
+    "topicId": "respiration",
+    "bossName": "ATP Reaper",
+    "flavourText": "Harvests energy from glucose with ruthless efficiency.",
+    "emoji": "💀",
+    "hp": 100,
+    "hpBarColour": "#f97316"
+  },
+  {
+    "topicId": "photosynthesis",
+    "bossName": "Chlorophyll Sentinel",
+    "flavourText": "Absorbs light and converts it to power. Outshine it or be consumed.",
+    "emoji": "☀️",
+    "hp": 100,
+    "hpBarColour": "#22c55e"
+  },
+  {
+    "topicId": "homeostasis",
+    "bossName": "Equilibrium Enforcer",
+    "flavourText": "Maintains perfect balance. Any deviation triggers its wrath.",
+    "emoji": "⚖️",
+    "hp": 100,
+    "hpBarColour": "#eab308"
+  },
+  {
+    "topicId": "ecology",
+    "bossName": "Ecosystem Archon",
+    "flavourText": "Commands all trophic levels. Disrupt its food web to claim victory.",
+    "emoji": "🌿",
+    "hp": 100,
+    "hpBarColour": "#10b981"
+  }
+]

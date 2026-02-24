@@ -1,0 +1,276 @@
+[
+  {
+    "id": "biological_molecules",
+    "name": "Biological Molecules",
+    "description": "Monosaccharides, polysaccharides, amino acids, proteins, lipids, nucleotides",
+    "subskills": [
+      { "id": "monosaccharides", "name": "Monosaccharides & Disaccharides", "critical": true, "keywords": ["glucose", "fructose", "glycosidic bond", "condensation", "hydrolysis"] },
+      { "id": "polysaccharides", "name": "Polysaccharides", "critical": true, "keywords": ["starch", "glycogen", "cellulose", "amylose", "amylopectin", "1-4 glycosidic"] },
+      { "id": "amino_acids", "name": "Amino Acids & Peptide Bonds", "critical": true, "keywords": ["peptide bond", "condensation", "primary structure", "R group", "dipeptide"] },
+      { "id": "protein_structure", "name": "Protein Structure", "critical": true, "keywords": ["primary", "secondary", "tertiary", "quaternary", "hydrogen bonds", "disulfide bridges"] },
+      { "id": "lipids", "name": "Lipids", "critical": false, "keywords": ["triglyceride", "ester bond", "glycerol", "fatty acid", "saturated", "unsaturated", "phospholipid"] },
+      { "id": "nucleotides", "name": "Nucleotides & DNA/RNA", "critical": false, "keywords": ["phosphate", "sugar", "base", "phosphodiester bond", "polynucleotide"] }
+    ],
+    "commonMisconceptions": [
+      "Starch and cellulose are the same because they're both made of glucose",
+      "Proteins are made of lipids",
+      "All proteins are enzymes",
+      "Condensation adds water; hydrolysis removes water (reversed)"
+    ],
+    "highYield": true,
+    "aqaRef": "3.1",
+    "ocrRef": "H567/01",
+    "edexcelRef": "3.1"
+  },
+  {
+    "id": "cell_structure",
+    "name": "Cell Structure",
+    "description": "Eukaryotic, prokaryotic, organelles, ultrastructure",
+    "subskills": [
+      { "id": "eukaryotic_cells", "name": "Eukaryotic Cell Structure", "critical": true, "keywords": ["nucleus", "mitochondria", "endoplasmic reticulum", "Golgi apparatus", "ribosome"] },
+      { "id": "prokaryotic_cells", "name": "Prokaryotic Cell Structure", "critical": true, "keywords": ["no nucleus", "plasmid", "cell wall", "flagellum", "70S ribosomes"] },
+      { "id": "organelle_function", "name": "Organelle Functions", "critical": true, "keywords": ["mitochondria ATP", "rough ER protein", "smooth ER lipid", "Golgi modification"] },
+      { "id": "ultrastructure", "name": "Ultrastructure & Microscopy", "critical": false, "keywords": ["electron microscope", "magnification", "resolution", "light microscope"] },
+      { "id": "cell_fractionation", "name": "Cell Fractionation", "critical": false, "keywords": ["homogenisation", "filtration", "ultracentrifugation", "differential centrifugation"] }
+    ],
+    "commonMisconceptions": [
+      "Prokaryotes have a nucleus",
+      "All cells have mitochondria",
+      "Ribosomes are only in eukaryotes",
+      "Cell membrane and cell wall are the same thing"
+    ],
+    "highYield": true,
+    "aqaRef": "3.2",
+    "ocrRef": "H567/01",
+    "edexcelRef": "3.2"
+  },
+  {
+    "id": "transport_membranes",
+    "name": "Transport Across Membranes",
+    "description": "Diffusion, osmosis, active transport, ion pumps, carrier proteins",
+    "subskills": [
+      { "id": "diffusion", "name": "Diffusion", "critical": true, "keywords": ["concentration gradient", "passive", "kinetic energy", "net movement"] },
+      { "id": "facilitated_diffusion", "name": "Facilitated Diffusion", "critical": true, "keywords": ["channel protein", "carrier protein", "passive", "specific"] },
+      { "id": "osmosis", "name": "Osmosis", "critical": true, "keywords": ["water potential", "partially permeable membrane", "net movement of water", "solute concentration"] },
+      { "id": "active_transport", "name": "Active Transport", "critical": true, "keywords": ["ATP", "against concentration gradient", "carrier protein", "energy"] },
+      { "id": "endocytosis_exocytosis", "name": "Endocytosis & Exocytosis", "critical": false, "keywords": ["vesicle", "membrane fusion", "bulk transport", "phagocytosis"] }
+    ],
+    "commonMisconceptions": [
+      "Osmosis is the movement of any substance, not just water",
+      "Active transport does not require energy",
+      "Diffusion only happens in liquids",
+      "Facilitated diffusion requires ATP"
+    ],
+    "highYield": true,
+    "aqaRef": "3.3",
+    "ocrRef": "H567/01",
+    "edexcelRef": "3.3"
+  },
+  {
+    "id": "enzymes",
+    "name": "Enzymes",
+    "description": "Enzyme structure, mechanism, kinetics, inhibition",
+    "subskills": [
+      { "id": "enzyme_structure", "name": "Enzyme Structure", "critical": true, "keywords": ["active site", "tertiary structure", "lock and key", "induced fit"] },
+      { "id": "induced_fit", "name": "Induced Fit Model", "critical": true, "keywords": ["substrate binding", "shape change", "enzyme-substrate complex", "complementary"] },
+      { "id": "cofactors", "name": "Cofactors & Coenzymes", "critical": false, "keywords": ["non-protein", "metal ion", "coenzyme", "vitamin", "prosthetic group"] },
+      { "id": "competitive_inhibition", "name": "Competitive Inhibition", "critical": true, "keywords": ["inhibitor", "active site", "competition", "reversible", "increase substrate"] },
+      { "id": "noncompetitive_inhibition", "name": "Non-Competitive Inhibition", "critical": true, "keywords": ["allosteric", "shape change", "cannot be overcome", "different site"] },
+      { "id": "kinetics", "name": "Enzyme Kinetics", "critical": true, "keywords": ["substrate concentration", "saturation", "rate limiting", "Vmax", "Km"] },
+      { "id": "temperature_effects", "name": "Temperature Effects", "critical": false, "keywords": ["optimum", "denaturation", "kinetic energy", "hydrogen bonds break"] },
+      { "id": "pH_effects", "name": "pH Effects", "critical": false, "keywords": ["optimum", "ionisation", "denaturation", "charges", "ionic bonds"] }
+    ],
+    "commonMisconceptions": [
+      "Enzymes are used up in reactions",
+      "More substrate always increases rate indefinitely",
+      "Enzyme gets tired",
+      "All inhibition is competitive",
+      "Denaturation is reversible",
+      "Enzymes work the same at all pH/temperature"
+    ],
+    "highYield": true,
+    "aqaRef": "3.4",
+    "ocrRef": "H567/01",
+    "edexcelRef": "3.4"
+  },
+  {
+    "id": "dna_protein_synthesis",
+    "name": "DNA & Protein Synthesis",
+    "description": "Replication, transcription, translation, genetic code, mutations",
+    "subskills": [
+      { "id": "dna_structure", "name": "DNA Structure", "critical": true, "keywords": ["deoxyribose", "phosphate", "bases", "double helix", "complementary base pairing", "antiparallel"] },
+      { "id": "replication", "name": "Semi-Conservative Replication", "critical": true, "keywords": ["helicase", "DNA polymerase", "leading strand", "lagging strand", "Okazaki fragments"] },
+      { "id": "transcription", "name": "Transcription", "critical": true, "keywords": ["RNA polymerase", "promoter", "mRNA", "template strand", "coding strand"] },
+      { "id": "genetic_code", "name": "Genetic Code", "critical": true, "keywords": ["codon", "amino acid", "degenerate", "non-overlapping", "universal", "triplet"] },
+      { "id": "translation", "name": "Translation", "critical": true, "keywords": ["ribosome", "tRNA", "anticodon", "peptide bond", "start codon", "stop codon"] },
+      { "id": "mutations", "name": "Mutations", "critical": false, "keywords": ["point mutation", "insertion", "deletion", "frameshift", "substitution"] },
+      { "id": "gene_expression", "name": "Gene Expression", "critical": false, "keywords": ["genotype", "phenotype", "gene switching", "epigenetics"] }
+    ],
+    "commonMisconceptions": [
+      "Mutations are always harmful",
+      "Codon and anticodon are the same",
+      "mRNA has thymine instead of uracil",
+      "Transcription happens in the cytoplasm",
+      "Translation is the same as transcription"
+    ],
+    "highYield": true,
+    "aqaRef": "3.5",
+    "ocrRef": "H567/01",
+    "edexcelRef": "3.5"
+  },
+  {
+    "id": "cell_division",
+    "name": "Cell Division & Genetics",
+    "description": "Mitosis, meiosis, chromosome behaviour, independent assortment",
+    "subskills": [
+      { "id": "mitosis", "name": "Mitosis", "critical": true, "keywords": ["prophase", "metaphase", "anaphase", "telophase", "cytokinesis", "identical"] },
+      { "id": "meiosis", "name": "Meiosis", "critical": true, "keywords": ["homologous pairs", "crossing over", "independent assortment", "haploid", "genetic variation"] },
+      { "id": "chromosome_behaviour", "name": "Chromosome Behaviour", "critical": true, "keywords": ["chromatid", "centromere", "spindle fibres", "bivalent", "chiasma"] },
+      { "id": "cell_cycle", "name": "Cell Cycle", "critical": false, "keywords": ["interphase", "S phase", "G1", "G2", "DNA replication", "checkpoints"] },
+      { "id": "genetic_variation", "name": "Sources of Genetic Variation", "critical": false, "keywords": ["crossing over", "independent assortment", "random fertilisation", "mutation"] }
+    ],
+    "commonMisconceptions": [
+      "Mitosis produces 4 cells",
+      "Meiosis produces identical cells",
+      "Crossing over happens in mitosis",
+      "Chromosome number doubles in meiosis"
+    ],
+    "highYield": true,
+    "aqaRef": "3.6",
+    "ocrRef": "H567/01",
+    "edexcelRef": "3.6"
+  },
+  {
+    "id": "exchange_surfaces",
+    "name": "Exchange Surfaces",
+    "description": "Alveoli, villi, capillaries, SA:V ratio, adaptation",
+    "subskills": [
+      { "id": "sa_v_ratio", "name": "Surface Area to Volume Ratio", "critical": true, "keywords": ["surface area", "volume", "diffusion distance", "size"] },
+      { "id": "gas_exchange_lungs", "name": "Gas Exchange in Lungs", "critical": true, "keywords": ["alveoli", "thin walls", "capillary network", "moist surface", "ventilation"] },
+      { "id": "intestinal_absorption", "name": "Intestinal Absorption", "critical": false, "keywords": ["villi", "microvilli", "blood supply", "thin epithelium", "large surface area"] },
+      { "id": "adaptations", "name": "Adaptations for Exchange", "critical": false, "keywords": ["thin", "large surface area", "good blood supply", "ventilation", "concentration gradient"] }
+    ],
+    "commonMisconceptions": [
+      "Bigger organisms have bigger surface area to volume ratios",
+      "Gas exchange only happens in lungs",
+      "Oxygen is actively transported across alveoli"
+    ],
+    "highYield": false,
+    "aqaRef": "3.7",
+    "ocrRef": "H567/02",
+    "edexcelRef": "3.7"
+  },
+  {
+    "id": "transport_animals",
+    "name": "Transport in Animals",
+    "description": "Circulation, heart, blood pressure, blood vessels",
+    "subskills": [
+      { "id": "heart_structure", "name": "Heart Structure & Function", "critical": true, "keywords": ["atria", "ventricles", "valves", "septum", "cardiac cycle", "SAN"] },
+      { "id": "blood_vessels", "name": "Blood Vessels", "critical": true, "keywords": ["artery", "vein", "capillary", "elastic tissue", "smooth muscle", "lumen"] },
+      { "id": "cardiac_cycle", "name": "Cardiac Cycle", "critical": true, "keywords": ["systole", "diastole", "pressure changes", "valve opening", "SAN", "AVN"] },
+      { "id": "blood_composition", "name": "Blood Composition", "critical": false, "keywords": ["plasma", "red blood cells", "white blood cells", "platelets", "haemoglobin"] },
+      { "id": "haemoglobin", "name": "Haemoglobin & Oxygen Transport", "critical": false, "keywords": ["oxygen dissociation curve", "partial pressure", "Bohr effect", "cooperative binding"] }
+    ],
+    "commonMisconceptions": [
+      "Veins carry deoxygenated blood (not always — pulmonary vein)",
+      "Heart is on the left side of the body",
+      "Blood pressure is the same in arteries and veins",
+      "SAN is controlled by the brain"
+    ],
+    "highYield": false,
+    "aqaRef": "3.8",
+    "ocrRef": "H567/02",
+    "edexcelRef": "3.8"
+  },
+  {
+    "id": "respiration",
+    "name": "Gas Exchange & Respiration",
+    "description": "Breathing mechanics, aerobic respiration, anaerobic respiration, ATP",
+    "subskills": [
+      { "id": "glycolysis", "name": "Glycolysis", "critical": true, "keywords": ["glucose", "pyruvate", "ATP", "cytoplasm", "phosphorylation", "oxidation"] },
+      { "id": "link_reaction", "name": "Link Reaction", "critical": true, "keywords": ["pyruvate", "acetyl CoA", "CO2", "NAD", "mitochondrial matrix"] },
+      { "id": "krebs_cycle", "name": "Krebs Cycle", "critical": true, "keywords": ["acetyl CoA", "oxaloacetate", "citrate", "NAD", "FAD", "ATP", "CO2"] },
+      { "id": "oxidative_phosphorylation", "name": "Oxidative Phosphorylation", "critical": true, "keywords": ["electron transport chain", "chemiosmosis", "ATP synthase", "oxygen", "inner membrane"] },
+      { "id": "anaerobic_respiration", "name": "Anaerobic Respiration", "critical": false, "keywords": ["lactate", "ethanol", "no oxygen", "fermentation", "oxygen debt"] },
+      { "id": "atp_structure", "name": "ATP Structure & Role", "critical": false, "keywords": ["adenine", "ribose", "phosphate", "immediate energy", "hydrolysis"] }
+    ],
+    "commonMisconceptions": [
+      "Respiration is the same as breathing",
+      "Anaerobic respiration produces no ATP",
+      "Oxygen is used in glycolysis",
+      "The Krebs cycle produces most of the ATP directly",
+      "Plants don't respire, they only photosynthesise"
+    ],
+    "highYield": true,
+    "aqaRef": "3.9",
+    "ocrRef": "H567/02",
+    "edexcelRef": "3.9"
+  },
+  {
+    "id": "photosynthesis",
+    "name": "Photosynthesis",
+    "description": "Light-dependent, light-independent, limiting factors, RuBP, Calvin cycle",
+    "subskills": [
+      { "id": "light_dependent", "name": "Light-Dependent Reactions", "critical": true, "keywords": ["photolysis", "thylakoid", "photosystem", "electron transport", "NADP", "ATP"] },
+      { "id": "light_independent", "name": "Light-Independent Reactions (Calvin Cycle)", "critical": true, "keywords": ["RuBP", "RuBisCO", "GP", "TP", "carbon fixation", "stroma"] },
+      { "id": "limiting_factors", "name": "Limiting Factors", "critical": true, "keywords": ["light intensity", "CO2 concentration", "temperature", "plateau", "rate"] },
+      { "id": "chloroplast_structure", "name": "Chloroplast Structure", "critical": false, "keywords": ["thylakoid", "granum", "stroma", "lamellae", "double membrane"] },
+      { "id": "photosynthesis_experiments", "name": "Practical Investigations", "critical": false, "keywords": ["pondweed", "bubble count", "light distance", "temperature control"] }
+    ],
+    "commonMisconceptions": [
+      "Photosynthesis only happens in leaves",
+      "Plants get food from the soil",
+      "Light-independent reactions happen in the dark",
+      "More CO2 always means faster photosynthesis (ignoring other limiting factors)",
+      "Oxygen is produced in the Calvin cycle"
+    ],
+    "highYield": true,
+    "aqaRef": "3.10",
+    "ocrRef": "H567/02",
+    "edexcelRef": "3.10"
+  },
+  {
+    "id": "homeostasis",
+    "name": "Homeostasis",
+    "description": "Glucose regulation (insulin/glucagon), thermoregulation, kidney function",
+    "subskills": [
+      { "id": "negative_feedback", "name": "Negative Feedback", "critical": true, "keywords": ["receptor", "effector", "set point", "deviation", "corrective response"] },
+      { "id": "blood_glucose", "name": "Blood Glucose Regulation", "critical": true, "keywords": ["insulin", "glucagon", "glycogenesis", "glycogenolysis", "beta cells", "alpha cells"] },
+      { "id": "thermoregulation", "name": "Thermoregulation", "critical": false, "keywords": ["hypothalamus", "vasoconstriction", "vasodilation", "shivering", "sweating"] },
+      { "id": "kidney_function", "name": "Kidney Function", "critical": true, "keywords": ["ultrafiltration", "selective reabsorption", "nephron", "loop of Henle", "ADH"] },
+      { "id": "osmoregulation", "name": "Osmoregulation", "critical": false, "keywords": ["water potential", "ADH", "collecting duct", "hypothalamus", "osmoreceptors"] }
+    ],
+    "commonMisconceptions": [
+      "Insulin and glucagon do the same thing",
+      "Homeostasis keeps conditions constant (it maintains a range)",
+      "The kidney makes urine from blood",
+      "ADH makes you produce more urine (opposite: it reduces urine)"
+    ],
+    "highYield": true,
+    "aqaRef": "3.11",
+    "ocrRef": "H567/03",
+    "edexcelRef": "3.11"
+  },
+  {
+    "id": "ecology",
+    "name": "Ecology & Populations",
+    "description": "Population growth, carrying capacity, succession, ecosystem dynamics",
+    "subskills": [
+      { "id": "population_growth", "name": "Population Growth", "critical": true, "keywords": ["exponential", "logistic", "carrying capacity", "birth rate", "death rate"] },
+      { "id": "density_dependent", "name": "Density-Dependent Factors", "critical": true, "keywords": ["competition", "disease", "predation", "intraspecific", "interspecific"] },
+      { "id": "succession", "name": "Succession", "critical": false, "keywords": ["pioneer species", "climax community", "colonisation", "biodiversity", "soil development"] },
+      { "id": "ecosystems", "name": "Ecosystem Dynamics", "critical": false, "keywords": ["food web", "trophic level", "energy transfer", "biomass", "productivity"] },
+      { "id": "sampling", "name": "Sampling & Fieldwork", "critical": false, "keywords": ["quadrat", "transect", "random sampling", "mark-release-recapture", "Simpson's index"] }
+    ],
+    "commonMisconceptions": [
+      "Populations grow indefinitely",
+      "Weather is a density-dependent factor (it's density-independent)",
+      "Succession always ends the same way",
+      "Energy is recycled in ecosystems (only nutrients are recycled; energy flows)"
+    ],
+    "highYield": false,
+    "aqaRef": "3.12",
+    "ocrRef": "H567/03",
+    "edexcelRef": "3.12"
+  }
+]
