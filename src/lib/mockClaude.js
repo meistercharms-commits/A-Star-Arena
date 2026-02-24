@@ -198,6 +198,26 @@ const questionBank = {
       { prompt: "Describe the process of ecological succession from bare rock to a climax community. (6 marks)", subskillIds: ["succession"], keywords: ["pioneer species", "lichens", "soil formation", "new species", "biodiversity increases", "climax community"], maxScore: 6, rubricPoints: ["Pioneer species (e.g., lichens, mosses) colonise bare rock", "They weather the rock and add organic matter when they die → soil begins to form", "Soil allows new species (grasses, small plants) to grow → outcompete pioneers", "Each stage (seral stage) changes the environment, making it suitable for next species", "Biodiversity and biomass increase at each stage", "Climax community reached: stable community (e.g., oak woodland in UK) — no further change unless disturbed"] },
     ],
   },
+  cell_recognition_immune: {
+    recall: [
+      { prompt: "What is an antigen?", keywords: ["molecule", "cell surface", "triggers immune response", "foreign", "non-self"], maxScore: 2 },
+      { prompt: "Name the two main types of lymphocyte.", keywords: ["B lymphocyte", "T lymphocyte"], maxScore: 1 },
+      { prompt: "State the function of a plasma cell.", keywords: ["produces antibodies", "secretes", "large amounts", "specific antibody"], maxScore: 2 },
+      { prompt: "Define the term 'phagocytosis'.", keywords: ["engulfing", "pathogen", "phagocyte", "lysosome", "digestion"], maxScore: 2 },
+      { prompt: "What is the difference between active and passive immunity?", keywords: ["active produces own antibodies", "passive receives antibodies from another source", "active is long-lasting", "passive is temporary"], maxScore: 2 },
+      { prompt: "Name the type of cell that HIV targets.", keywords: ["T helper cell", "CD4", "T lymphocyte"], maxScore: 1 },
+      { prompt: "State what is meant by 'herd immunity'.", keywords: ["large proportion", "population vaccinated", "protects unvaccinated", "transmission reduced"], maxScore: 2 },
+    ],
+    application: [
+      { prompt: "Explain why the secondary immune response produces more antibodies more quickly than the primary response.", subskillIds: ["primary_secondary_response", "b_lymphocytes"], keywords: ["memory cells", "remain in body", "recognise antigen faster", "clonal expansion quicker", "more plasma cells produced", "faster antibody production"], maxScore: 4 },
+      { prompt: "A patient receives an injection of antibodies against tetanus. Explain why this provides only short-term protection.", subskillIds: ["active_passive_immunity"], keywords: ["passive immunity", "antibodies not made by patient", "no memory cells produced", "antibodies break down", "no immunological memory", "cannot respond to future infection"], maxScore: 4 },
+      { prompt: "Explain how vaccination prevents disease.", subskillIds: ["vaccination", "primary_secondary_response"], keywords: ["attenuated/dead pathogen", "antigens present", "immune response triggered", "B cells produce antibodies", "memory cells formed", "secondary response if exposed"], maxScore: 4 },
+    ],
+    extended: [
+      { prompt: "Describe the immune response to a bacterial infection, including the roles of phagocytes, T lymphocytes, and B lymphocytes. (6 marks)", subskillIds: ["phagocytes", "t_lymphocytes", "b_lymphocytes", "antibody_structure"], keywords: ["phagocyte", "engulf", "antigen presentation", "T helper", "cytokines", "B cell", "plasma cell", "antibodies", "memory cells"], maxScore: 6, rubricPoints: ["Phagocytes (e.g., macrophages) engulf the pathogen by endocytosis and digest it with lysosomes", "Phagocyte presents antigens from the pathogen on its surface (antigen-presenting cell)", "T helper cells with complementary receptors bind to the presented antigen and become activated", "Activated T helper cells release cytokines that stimulate B cells and T killer cells", "B cells with complementary antibodies are selected (clonal selection) and divide (clonal expansion)", "B cells differentiate into plasma cells (secrete antibodies) and memory cells (long-term immunity)"] },
+      { prompt: "Explain how HIV leads to AIDS and why individuals with AIDS are susceptible to opportunistic infections. (6 marks)", subskillIds: ["hiv_aids", "t_lymphocytes"], keywords: ["HIV", "T helper cells", "CD4", "replication", "destroys", "immune system weakened", "opportunistic infections"], maxScore: 6, rubricPoints: ["HIV is a retrovirus that infects T helper cells (CD4+ cells)", "HIV attaches to CD4 receptors and injects its RNA into the T helper cell", "Reverse transcriptase produces DNA from viral RNA; integrates into host DNA", "Host cell produces new HIV particles which bud off, destroying the T helper cell", "Over time, T helper cell numbers decline significantly", "Without T helper cells: B cells are not activated, antibody production fails, cell-mediated responses fail → opportunistic infections (e.g., TB, pneumonia) cause AIDS"] },
+    ],
+  },
 
   // ─── Chemistry Topics ───
 

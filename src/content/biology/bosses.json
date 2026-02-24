@@ -94,5 +94,13 @@
     "emoji": "🌿",
     "hp": 100,
     "hpBarColour": "#10b981"
+  },
+  {
+    "topicId": "cell_recognition_immune",
+    "bossName": "Antibody Assassin",
+    "flavourText": "Evades every immune defence. Identify its antigens and mount a response before it overwhelms you.",
+    "emoji": "🦠",
+    "hp": 100,
+    "hpBarColour": "#f43f5e"
   }
 ]

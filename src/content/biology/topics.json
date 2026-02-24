@@ -272,5 +272,32 @@
     "aqaRef": "3.12",
     "ocrRef": "H567/03",
     "edexcelRef": "3.12"
+  },
+  {
+    "id": "cell_recognition_immune",
+    "name": "Cell Recognition & Immune System",
+    "description": "Antigens, lymphocytes, antibodies, immune response, vaccination, HIV",
+    "subskills": [
+      { "id": "antigen_recognition", "name": "Antigen Recognition", "critical": true, "keywords": ["antigen", "self", "non-self", "cell surface molecules", "glycoprotein"] },
+      { "id": "phagocytes", "name": "Phagocytosis", "critical": true, "keywords": ["phagocyte", "neutrophil", "macrophage", "engulf", "lysosome", "antigen presentation"] },
+      { "id": "b_lymphocytes", "name": "B Lymphocytes & Antibodies", "critical": true, "keywords": ["B cell", "plasma cell", "antibody", "clonal selection", "clonal expansion", "memory cell"] },
+      { "id": "t_lymphocytes", "name": "T Lymphocytes", "critical": true, "keywords": ["T helper cell", "T killer cell", "cytokines", "cell-mediated", "MHC", "receptor"] },
+      { "id": "antibody_structure", "name": "Antibody Structure & Function", "critical": true, "keywords": ["variable region", "constant region", "heavy chain", "light chain", "antigen-antibody complex", "agglutination"] },
+      { "id": "primary_secondary_response", "name": "Primary & Secondary Immune Response", "critical": true, "keywords": ["primary response", "secondary response", "faster", "more antibodies", "memory cells", "immunological memory"] },
+      { "id": "vaccination", "name": "Vaccination", "critical": true, "keywords": ["attenuated pathogen", "antigen", "memory cells", "herd immunity", "booster"] },
+      { "id": "active_passive_immunity", "name": "Active & Passive Immunity", "critical": false, "keywords": ["active", "passive", "natural", "artificial", "antibodies from mother", "long-lasting vs short-lived"] },
+      { "id": "hiv_aids", "name": "HIV & AIDS", "critical": false, "keywords": ["HIV", "T helper cells", "CD4", "immunodeficiency", "opportunistic infections", "retrovirus"] }
+    ],
+    "commonMisconceptions": [
+      "Antibiotics can treat viral infections (they only work on bacteria)",
+      "Antibodies kill pathogens directly (they mark them for destruction or cause agglutination)",
+      "Vaccination gives you the disease (attenuated or dead pathogens can't cause disease)",
+      "Memory cells produce antibodies (plasma cells produce antibodies; memory cells respond faster on re-exposure)",
+      "Passive immunity is permanent (it's temporary because no memory cells are formed)"
+    ],
+    "highYield": true,
+    "aqaRef": "3.4",
+    "ocrRef": "H567/02",
+    "edexcelRef": "3.4"
   }
 ]
