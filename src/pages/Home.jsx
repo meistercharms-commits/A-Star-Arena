@@ -2,7 +2,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import { getSettings, getProgress, getLevelProgress, getRecentSessions, getStorageWarning } from '../lib/storage';
 import { getMasteryCategory, formatDate } from '../lib/utils';
 import { getTodaysMission, getReviewSummary } from '../lib/recommend';
-import { formatNextReview } from '../lib/srs';
 import { useSubject } from '../contexts/SubjectContext';
 import TopicRadar from '../components/RadarChart';
 

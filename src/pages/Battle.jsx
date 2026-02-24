@@ -2,10 +2,10 @@ import { useState, useRef, useCallback } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useSubject } from '../contexts/SubjectContext';
 import { generateQuestion, markAnswer } from '../lib/claudeClient';
-import { getSettings, saveSession, saveAttempt, updateProgress, getTopicMastery, updateTopicSRS, getCurrentSubject } from '../lib/storage';
+import { getSettings, saveSession, saveAttempt, updateProgress, getTopicMastery, updateTopicSRS, getCurrentSubject, getSRSData } from '../lib/storage';
 import { generateId } from '../lib/utils';
 import { updateTopicMastery } from '../lib/mastery';
-import { calculateNextReview, getSessionScorePercentage, formatNextReview } from '../lib/srs';
+import { calculateNextReview, getSessionScorePercentage } from '../lib/srs';
 import BossHUD from '../components/BossHUD';
 import QuestionCard from '../components/QuestionCard';
 import AnswerInput from '../components/AnswerInput';
@@ -252,8 +252,8 @@ export default function Battle() {
 
     // Update SRS scheduling
     const scorePercentage = getSessionScorePercentage(session);
-    const currentSRS = JSON.parse(localStorage.getItem(`astarena:${getCurrentSubject()}:srsData`) || '{}');
-    const currentStage = currentSRS[topicId]?.srsStage || 1;
+    const srsData = getSRSData();
+    const currentStage = srsData[topicId]?.srsStage || 1;
     const topicDifficulty = topic?.difficultyRating || 3;
     const subjectId = getCurrentSubject();
 

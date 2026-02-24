@@ -149,9 +149,14 @@ export function getTodaysMission(topics = [], bosses = []) {
   } else {
     // All topics are strong — pick the one most due for review, or least recently practised
     const sorted = [...ranked].sort((a, b) => {
-      // Prefer topics that are due sooner
-      if (a.daysUntilReview !== b.daysUntilReview) return a.daysUntilReview - b.daysUntilReview;
-      return b.daysAgo - a.daysAgo;
+      // Prefer topics that are due sooner (handle Infinity safely)
+      const aDays = a.daysUntilReview === Infinity ? 9999 : a.daysUntilReview;
+      const bDays = b.daysUntilReview === Infinity ? 9999 : b.daysUntilReview;
+      if (aDays !== bDays) return aDays - bDays;
+      // Fallback: prefer least recently practised
+      const aAgo = a.daysAgo === Infinity ? 9999 : a.daysAgo;
+      const bAgo = b.daysAgo === Infinity ? 9999 : b.daysAgo;
+      return bAgo - aAgo;
     });
     const pick = sorted[0];
     action = 'battle';

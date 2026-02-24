@@ -194,32 +194,30 @@ export function getReviewPriority(nextReviewDate) {
 export function getSessionScorePercentage(session) {
   if (!session) return 0;
 
-  const phases = session.phases;
-  if (!phases) return 0;
-
-  // Battle / session with recall + application + extended
-  let totalScore = 0;
-  let totalMax = 0;
-
-  if (phases.recall) {
-    totalScore += phases.recall.correct || 0;
-    totalMax += phases.recall.total || 5;
-  }
-  if (phases.application) {
-    totalScore += phases.application.correct || 0;
-    totalMax += phases.application.total || 3;
-  }
-  if (phases.extended) {
-    totalScore += phases.extended.score || 0;
-    totalMax += phases.extended.maxScore || 6;
-  }
-
   // For exam sessions that have totalScore/totalMaxScore directly
   if (session.totalScore !== undefined && session.totalMaxScore !== undefined) {
     return session.totalMaxScore > 0 ? session.totalScore / session.totalMaxScore : 0;
   }
 
-  return totalMax > 0 ? totalScore / totalMax : 0;
+  const phases = session.phases;
+  if (!phases) return 0;
+
+  // Battle sessions: average the percentage of each phase equally
+  // This prevents recall (5 questions) from outweighing extended (6 marks)
+  const phaseScores = [];
+
+  if (phases.recall && phases.recall.total > 0) {
+    phaseScores.push(phases.recall.correct / phases.recall.total);
+  }
+  if (phases.application && phases.application.total > 0) {
+    phaseScores.push(phases.application.correct / phases.application.total);
+  }
+  if (phases.extended && phases.extended.maxScore > 0) {
+    phaseScores.push(phases.extended.score / phases.extended.maxScore);
+  }
+
+  if (phaseScores.length === 0) return 0;
+  return phaseScores.reduce((sum, p) => sum + p, 0) / phaseScores.length;
 }
 
 /**
