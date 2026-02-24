@@ -193,6 +193,46 @@ export function getLevelProgress() {
   };
 }
 
+// --- SRS Data (PER-SUBJECT) ---
+// Stores per-topic: { nextReviewDate, srsStage, reviewHistory[] }
+
+export function getSRSData(subject) {
+  const s = subject || getCurrentSubject();
+  return readJSON(`${s}:srsData`, {});
+}
+
+export function getTopicSRS(topicId, subject) {
+  const data = getSRSData(subject);
+  return data[topicId] || null;
+}
+
+export function updateTopicSRS(topicId, srsUpdate, subject) {
+  const s = subject || getCurrentSubject();
+  const data = getSRSData(s);
+
+  const existing = data[topicId] || { srsStage: 0, reviewHistory: [] };
+
+  data[topicId] = {
+    srsStage: srsUpdate.newStage,
+    nextReviewDate: srsUpdate.nextReviewDate,
+    intervalDays: srsUpdate.intervalDays,
+    lastReviewDate: new Date().toISOString(),
+    reviewHistory: [
+      ...existing.reviewHistory.slice(-19), // Keep last 20 reviews
+      {
+        date: new Date().toISOString(),
+        scorePercentage: srsUpdate.scorePercentage,
+        outcome: srsUpdate.outcome,
+        oldStage: existing.srsStage || 1,
+        newStage: srsUpdate.newStage,
+      },
+    ],
+  };
+
+  writeJSON(`${s}:srsData`, data);
+  return data[topicId];
+}
+
 // --- Data Management ---
 
 export function exportAllData() {
@@ -202,6 +242,7 @@ export function exportAllData() {
     sessions: readJSON(`${s}:sessions`, []),
     attempts: readJSON(`${s}:attempts`, []),
     masteryCache: readJSON(`${s}:masteryCache`, {}),
+    srsData: readJSON(`${s}:srsData`, {}),
     progressTracking: readJSON('progressTracking'),
     currentSubject: s,
     exportedAt: new Date().toISOString(),
@@ -214,7 +255,7 @@ export function clearAllData() {
   removeKey('progressTracking');
   // Clear all subject-namespaced keys
   const subjects = ['biology', 'chemistry', 'mathematics'];
-  const perSubjectKeys = ['sessions', 'attempts', 'masteryCache'];
+  const perSubjectKeys = ['sessions', 'attempts', 'masteryCache', 'srsData'];
   for (const subj of subjects) {
     for (const k of perSubjectKeys) {
       removeKey(`${subj}:${k}`);

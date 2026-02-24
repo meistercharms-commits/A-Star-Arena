@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { getPostBattleRecommendation } from '../lib/recommend';
+import { formatNextReview, getSRSStageLabel } from '../lib/srs';
 import { useSubject } from '../contexts/SubjectContext';
 
 const PHASE_CONFIG = {
@@ -8,7 +9,7 @@ const PHASE_CONFIG = {
   extended: { label: 'Exam Brain', xpTotal: 60 },
 };
 
-export default function BattleSummary({ session, boss, topic, masteryBefore, masteryAfter, onBattleAgain }) {
+export default function BattleSummary({ session, boss, topic, masteryBefore, masteryAfter, srsResult, onBattleAgain }) {
   const { topics, bosses } = useSubject();
   const phases = session.phases;
   const recallCorrect = phases.recall.correct;
@@ -146,6 +147,41 @@ export default function BattleSummary({ session, boss, topic, masteryBefore, mas
                 const colour = delta > 0 ? 'text-strong' : delta < 0 ? 'text-weak' : 'text-text-muted';
                 return <div className={`text-xl font-bold font-mono ${colour}`}>{deltaStr}%</div>;
               })()}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* SRS Next Review */}
+      {srsResult && (
+        <div className="bg-bg-secondary border border-border rounded-xl p-5">
+          <h3 className="font-semibold text-sm text-text-secondary uppercase tracking-wide mb-3">Spaced Review</h3>
+          <div className="flex items-center justify-between">
+            <div className="text-center flex-1">
+              <div className="text-sm text-text-muted mb-1">Next Review</div>
+              <div className="text-lg font-bold font-mono text-accent">
+                {formatNextReview(srsResult.nextReviewDate)}
+              </div>
+            </div>
+            <div className="text-center flex-1">
+              <div className="text-sm text-text-muted mb-1">SRS Stage</div>
+              <div className="text-lg font-bold font-mono">
+                {getSRSStageLabel(srsResult.newStage)}
+              </div>
+            </div>
+            <div className="text-center flex-1">
+              <div className="text-sm text-text-muted mb-1">Outcome</div>
+              <div className={`text-lg font-bold font-mono ${
+                srsResult.outcome === 'advanced' ? 'text-strong' :
+                srsResult.outcome === 'maintained' ? 'text-strong' :
+                srsResult.outcome === 'stayed' ? 'text-developing' :
+                'text-weak'
+              }`}>
+                {srsResult.outcome === 'advanced' ? '↑ Advanced' :
+                 srsResult.outcome === 'maintained' ? '✓ Maintained' :
+                 srsResult.outcome === 'stayed' ? '— Stayed' :
+                 '↓ Dropped'}
+              </div>
             </div>
           </div>
         </div>

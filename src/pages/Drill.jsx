@@ -2,8 +2,9 @@ import { useState, useRef } from 'react';
 import { useParams, useSearchParams, Link, useNavigate } from 'react-router-dom';
 import { useSubject } from '../contexts/SubjectContext';
 import { generateQuestion, markAnswer } from '../lib/claudeClient';
-import { getSettings, saveAttempt, updateProgress } from '../lib/storage';
+import { getSettings, saveAttempt, updateProgress, updateTopicSRS, getCurrentSubject, getSRSData } from '../lib/storage';
 import { updateTopicMastery } from '../lib/mastery';
+import { calculateNextReview } from '../lib/srs';
 import { getTargetedDrillConfig } from '../lib/recommend';
 import { generateId } from '../lib/utils';
 import QuestionCard from '../components/QuestionCard';
@@ -150,9 +151,21 @@ export default function Drill() {
     attemptsRef.current.forEach(a => saveAttempt(a));
 
     const correctCount = results.filter(r => r.correct).length;
+    const totalMax = results.reduce((sum, r) => sum + r.maxScore, 0);
+    const totalScore = results.reduce((sum, r) => sum + r.score, 0);
     const xpEarned = correctCount * 15; // Drill XP: 15 per correct
     updateProgress(xpEarned);
     updateTopicMastery(topicId, topics);
+
+    // Update SRS scheduling
+    const scorePercentage = totalMax > 0 ? totalScore / totalMax : 0;
+    const srsData = getSRSData();
+    const currentStage = srsData[topicId]?.srsStage || 1;
+    const topicDifficulty = topic?.difficultyRating || 3;
+    const subjectId = getCurrentSubject();
+
+    const srs = calculateNextReview(scorePercentage, currentStage, subjectId, topicDifficulty);
+    updateTopicSRS(topicId, { ...srs, scorePercentage });
   }
 
   // ─── Intro Screen ───

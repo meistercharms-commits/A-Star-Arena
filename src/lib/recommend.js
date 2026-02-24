@@ -1,27 +1,45 @@
-import { getMasteryCache, getSessions } from './storage';
+import { getMasteryCache, getSessions, getSRSData } from './storage';
 import { detectConfidenceMismatch } from './mastery';
+import { getReviewPriority } from './srs';
 
 // ─── Priority Score ───
-// Higher score = more urgent to practise
-// Formula: (1 - mastery) * recencyBoost * highYieldWeight * penalties
+// SRS-driven: overdue > due_today > due_soon > high mastery gap > normal
+// Fallback to mastery-based for topics with no SRS data yet.
+
+const SRS_PRIORITY_WEIGHTS = {
+  overdue: 10,
+  due_today: 8,
+  due_soon: 5,
+  new: 3,      // Never practised — moderate priority
+  normal: 1,   // Not due yet — low priority
+};
 
 function recencyBoost(daysAgo) {
-  if (daysAgo === Infinity || daysAgo === null || daysAgo === undefined) return 0.6; // untested — moderate
+  if (daysAgo === Infinity || daysAgo === null || daysAgo === undefined) return 0.6;
   return 1 - Math.exp(-0.1 * daysAgo);
 }
 
-function computePriorityScore(mastery, daysAgo, highYield) {
+function computePriorityScore(mastery, daysAgo, highYield, srsPriority) {
+  // SRS base score (dominant factor when SRS data exists)
+  const srsWeight = SRS_PRIORITY_WEIGHTS[srsPriority] || 1;
+
+  // Mastery gap (0 = mastered, 1 = no mastery)
   const gap = 1 - mastery;
+
+  // Recency boost (higher = longer since last practice)
   const recency = recencyBoost(daysAgo);
+
+  // High-yield topics get a boost
   const yieldWeight = highYield ? 1.5 : 1.0;
 
-  // Penalise fully untested (encourage practised-weak first)
+  // Penalise fully untested slightly (encourage practised-weak first)
   const untestedPenalty = mastery === 0 ? 0.8 : 1.0;
 
-  // Penalise strong topics heavily (don't keep drilling what you know)
-  const strongPenalty = mastery >= 0.8 ? 0.2 : 1.0;
+  // Penalise strong topics that aren't due for review
+  const strongPenalty = mastery >= 0.8 && srsPriority === 'normal' ? 0.1 : 1.0;
 
-  return gap * recency * yieldWeight * untestedPenalty * strongPenalty;
+  // Combined score: SRS weight is the primary driver
+  return srsWeight * gap * recency * yieldWeight * untestedPenalty * strongPenalty;
 }
 
 // ─── Get Days Since Last Practice ───
@@ -30,7 +48,6 @@ function getDaysSinceLastPractice(topicId, sessions) {
   const topicSessions = sessions.filter(s => s.topicId === topicId);
   if (topicSessions.length === 0) return Infinity;
 
-  // Sessions are stored newest first
   const lastSession = topicSessions[0];
   const lastDate = lastSession.completedAt || lastSession.startedAt;
   if (!lastDate) return Infinity;
@@ -47,6 +64,7 @@ function getDaysSinceLastPractice(topicId, sessions) {
 export function getRankedTopics(topics = [], bosses = []) {
   const masteryCache = getMasteryCache();
   const sessions = getSessions();
+  const srsData = getSRSData();
 
   return topics.map(topic => {
     const mastery = masteryCache[topic.id]?.topicMastery ?? 0;
@@ -55,7 +73,11 @@ export function getRankedTopics(topics = [], bosses = []) {
     const daysAgo = getDaysSinceLastPractice(topic.id, sessions);
     const boss = bosses.find(b => b.topicId === topic.id);
 
-    const priority = computePriorityScore(mastery, daysAgo, topic.highYield);
+    // SRS review status
+    const topicSRS = srsData[topic.id];
+    const reviewInfo = getReviewPriority(topicSRS?.nextReviewDate || null);
+
+    const priority = computePriorityScore(mastery, daysAgo, topic.highYield, reviewInfo.priority);
 
     return {
       topicId: topic.id,
@@ -67,6 +89,11 @@ export function getRankedTopics(topics = [], bosses = []) {
       daysAgo,
       highYield: !!topic.highYield,
       priority,
+      // SRS fields
+      srsStage: topicSRS?.srsStage || 0,
+      nextReviewDate: topicSRS?.nextReviewDate || null,
+      reviewPriority: reviewInfo.priority,
+      daysUntilReview: reviewInfo.daysUntilReview,
     };
   }).sort((a, b) => b.priority - a.priority);
 }
@@ -84,10 +111,24 @@ export function getTodaysMission(topics = [], bosses = []) {
 
   const top = ranked[0];
 
-  // Determine action type and reason
+  // Determine action type and reason — SRS-aware
   let action, reason, difficulty;
 
-  if (top.mastery === 0 && top.attemptCount === 0) {
+  // SRS-driven reasons override mastery-based reasons
+  if (top.reviewPriority === 'overdue') {
+    action = 'battle';
+    difficulty = top.mastery < 0.55 ? 2 : 3;
+    const overdueDays = Math.abs(top.daysUntilReview);
+    reason = `🔴 ${top.topicName} is overdue for review by ${overdueDays} day${overdueDays !== 1 ? 's' : ''}. Don't let it slip!`;
+  } else if (top.reviewPriority === 'due_today') {
+    action = 'battle';
+    difficulty = top.mastery < 0.55 ? 2 : 3;
+    reason = `🟡 ${top.topicName} is due for review today. Keep your streak going!`;
+  } else if (top.reviewPriority === 'due_soon') {
+    action = 'battle';
+    difficulty = top.mastery < 0.55 ? 3 : 4;
+    reason = `${top.topicName} is due for review in ${top.daysUntilReview} day${top.daysUntilReview !== 1 ? 's' : ''}. Get ahead of the schedule.`;
+  } else if (top.mastery === 0 && top.attemptCount === 0) {
     action = 'start_new_topic';
     difficulty = 2;
     reason = top.highYield
@@ -106,20 +147,28 @@ export function getTodaysMission(topics = [], bosses = []) {
     difficulty = 4;
     reason = `At ${pct(top.mastery)}% mastery, there's still room to push ${top.topicName} to A* level.`;
   } else {
-    // All topics are strong — pick least recently practised
-    const leastRecent = ranked.sort((a, b) => b.daysAgo - a.daysAgo)[0];
+    // All topics are strong — pick the one most due for review, or least recently practised
+    const sorted = [...ranked].sort((a, b) => {
+      // Prefer topics that are due sooner
+      if (a.daysUntilReview !== b.daysUntilReview) return a.daysUntilReview - b.daysUntilReview;
+      return b.daysAgo - a.daysAgo;
+    });
+    const pick = sorted[0];
     action = 'battle';
     difficulty = 4;
-    reason = `All topics are strong! Revisit ${leastRecent.topicName} to keep it fresh (last practised ${formatDaysAgo(leastRecent.daysAgo)}).`;
+    reason = pick.nextReviewDate
+      ? `All topics are strong! ${pick.topicName} is next for review (${formatDaysAgo(pick.daysAgo)}).`
+      : `All topics are strong! Revisit ${pick.topicName} to keep it fresh (last practised ${formatDaysAgo(pick.daysAgo)}).`;
     return {
-      topicId: leastRecent.topicId,
-      topicName: leastRecent.topicName,
-      emoji: leastRecent.emoji,
-      mastery: leastRecent.mastery,
-      category: leastRecent.category,
+      topicId: pick.topicId,
+      topicName: pick.topicName,
+      emoji: pick.emoji,
+      mastery: pick.mastery,
+      category: pick.category,
       action,
       reason,
       difficulty,
+      reviewPriority: pick.reviewPriority,
     };
   }
 
@@ -132,7 +181,28 @@ export function getTodaysMission(topics = [], bosses = []) {
     action,
     reason,
     difficulty,
+    reviewPriority: top.reviewPriority,
   };
+}
+
+/**
+ * Get review summary counts for the dashboard.
+ * Returns: { overdue, dueToday, dueSoon, total }
+ */
+export function getReviewSummary(topics = [], bosses = []) {
+  const ranked = getRankedTopics(topics, bosses);
+
+  let overdue = 0;
+  let dueToday = 0;
+  let dueSoon = 0;
+
+  for (const t of ranked) {
+    if (t.reviewPriority === 'overdue') overdue++;
+    else if (t.reviewPriority === 'due_today') dueToday++;
+    else if (t.reviewPriority === 'due_soon') dueSoon++;
+  }
+
+  return { overdue, dueToday, dueSoon, total: overdue + dueToday + dueSoon };
 }
 
 /**

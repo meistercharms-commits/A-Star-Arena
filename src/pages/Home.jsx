@@ -1,7 +1,8 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { getSettings, getProgress, getLevelProgress, getRecentSessions, getStorageWarning } from '../lib/storage';
 import { getMasteryCategory, formatDate } from '../lib/utils';
-import { getTodaysMission } from '../lib/recommend';
+import { getTodaysMission, getReviewSummary } from '../lib/recommend';
+import { formatNextReview } from '../lib/srs';
 import { useSubject } from '../contexts/SubjectContext';
 import TopicRadar from '../components/RadarChart';
 
@@ -18,12 +19,15 @@ export default function Home() {
     ? `Welcome back, ${settings.studentName}`
     : 'Welcome back';
 
-  // Today's Mission — powered by the recommendation engine
+  // Today's Mission — powered by the SRS-enhanced recommendation engine
   const missionRaw = getTodaysMission(topics, bosses);
   const mission = {
     ...missionRaw,
     category: getMasteryCategory(missionRaw.mastery),
   };
+
+  // SRS review summary
+  const reviewSummary = getReviewSummary(topics, bosses);
 
   return (
     <div className="space-y-6">
@@ -68,6 +72,43 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      {/* SRS Review Summary — only show when there are topics due */}
+      {reviewSummary.total > 0 && (
+        <div className={`border rounded-xl p-4 flex items-start gap-3 ${
+          reviewSummary.overdue > 0
+            ? 'bg-weak/5 border-weak/30'
+            : reviewSummary.dueToday > 0
+              ? 'bg-developing/5 border-developing/30'
+              : 'bg-accent/5 border-accent/30'
+        }`}>
+          <span className="text-lg">
+            {reviewSummary.overdue > 0 ? '🔴' : reviewSummary.dueToday > 0 ? '🟡' : '📅'}
+          </span>
+          <div className="flex-1">
+            <p className="text-sm font-medium">
+              {reviewSummary.overdue > 0 && (
+                <span className="text-weak">{reviewSummary.overdue} overdue</span>
+              )}
+              {reviewSummary.overdue > 0 && reviewSummary.dueToday > 0 && <span className="text-text-muted"> · </span>}
+              {reviewSummary.dueToday > 0 && (
+                <span className="text-developing">{reviewSummary.dueToday} due today</span>
+              )}
+              {(reviewSummary.overdue > 0 || reviewSummary.dueToday > 0) && reviewSummary.dueSoon > 0 && <span className="text-text-muted"> · </span>}
+              {reviewSummary.dueSoon > 0 && (
+                <span className="text-accent">{reviewSummary.dueSoon} due soon</span>
+              )}
+            </p>
+            <p className="text-xs text-text-muted mt-0.5">
+              {reviewSummary.overdue > 0
+                ? 'Review overdue topics to prevent knowledge decay.'
+                : reviewSummary.dueToday > 0
+                  ? 'Stay on schedule — complete your reviews today.'
+                  : 'Upcoming reviews in the next 2 days.'}
+            </p>
+          </div>
+        </div>
+      )}
 
       {/* Progress + Streak row */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">

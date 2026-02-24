@@ -2,9 +2,10 @@ import { useState, useRef, useCallback } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useSubject } from '../contexts/SubjectContext';
 import { generateQuestion, markAnswer } from '../lib/claudeClient';
-import { getSettings, saveSession, saveAttempt, updateProgress, getTopicMastery } from '../lib/storage';
+import { getSettings, saveSession, saveAttempt, updateProgress, getTopicMastery, updateTopicSRS, getCurrentSubject } from '../lib/storage';
 import { generateId } from '../lib/utils';
 import { updateTopicMastery } from '../lib/mastery';
+import { calculateNextReview, getSessionScorePercentage, formatNextReview } from '../lib/srs';
 import BossHUD from '../components/BossHUD';
 import QuestionCard from '../components/QuestionCard';
 import AnswerInput from '../components/AnswerInput';
@@ -42,6 +43,7 @@ export default function Battle() {
   const [masteryAfter, setMasteryAfter] = useState(null);
   const [loading, setLoading] = useState(false);
   const [apiSource, setApiSource] = useState(null); // 'claude' | 'mock'
+  const [srsResult, setSrsResult] = useState(null);
 
   // Track results across entire battle
   const resultsRef = useRef({ recall: [], application: [], extended: [] });
@@ -248,6 +250,17 @@ export default function Battle() {
     const newMastery = updateTopicMastery(topicId, topics);
     setMasteryAfter(newMastery.topicMastery);
 
+    // Update SRS scheduling
+    const scorePercentage = getSessionScorePercentage(session);
+    const currentSRS = JSON.parse(localStorage.getItem(`astarena:${getCurrentSubject()}:srsData`) || '{}');
+    const currentStage = currentSRS[topicId]?.srsStage || 1;
+    const topicDifficulty = topic?.difficultyRating || 3;
+    const subjectId = getCurrentSubject();
+
+    const srs = calculateNextReview(scorePercentage, currentStage, subjectId, topicDifficulty);
+    updateTopicSRS(topicId, { ...srs, scorePercentage });
+    setSrsResult(srs);
+
     setCompletedSession(session);
   }
 
@@ -332,7 +345,8 @@ export default function Battle() {
         topic={topic}
         masteryBefore={masteryBefore}
         masteryAfter={masteryAfter}
-        onBattleAgain={() => { setStage('idle'); setHp(boss?.hp || 100); setCompletedSession(null); }}
+        srsResult={srsResult}
+        onBattleAgain={() => { setStage('idle'); setHp(boss?.hp || 100); setCompletedSession(null); setSrsResult(null); }}
       />
     );
   }

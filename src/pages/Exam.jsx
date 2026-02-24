@@ -1,8 +1,9 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { generateQuestion as claudeGenerateQuestion, markAnswer as claudeMarkAnswer } from '../lib/claudeClient';
-import { getSettings, saveSession, saveAttempt, updateProgress, getMasteryCache } from '../lib/storage';
+import { getSettings, saveSession, saveAttempt, updateProgress, getMasteryCache, updateTopicSRS, getCurrentSubject, getSRSData } from '../lib/storage';
 import { updateTopicMastery } from '../lib/mastery';
+import { calculateNextReview } from '../lib/srs';
 import { getRankedTopics } from '../lib/recommend';
 import { generateId, getMasteryCategory, formatDuration } from '../lib/utils';
 import { useSubject } from '../contexts/SubjectContext';
@@ -207,6 +208,24 @@ export default function Exam() {
     // Update mastery for each tested topic
     const testedTopics = [...new Set(questions.map(q => q.topicId))];
     testedTopics.forEach(tid => updateTopicMastery(tid, topics));
+
+    // Update SRS scheduling for each tested topic
+    const srsData = getSRSData();
+    const subjectId = getCurrentSubject();
+    testedTopics.forEach(tid => {
+      // Calculate per-topic score from this exam
+      const topicQs = questions.map((q, i) => ({ q, r: results[i] })).filter(x => x.q.topicId === tid && x.r);
+      const topicScore = topicQs.reduce((s, x) => s + x.r.score, 0);
+      const topicMax = topicQs.reduce((s, x) => s + x.r.maxScore, 0);
+      const scorePercentage = topicMax > 0 ? topicScore / topicMax : 0;
+
+      const currentStage = srsData[tid]?.srsStage || 1;
+      const topicData = topics.find(t => t.id === tid);
+      const topicDifficulty = topicData?.difficultyRating || 3;
+
+      const srs = calculateNextReview(scorePercentage, currentStage, subjectId, topicDifficulty);
+      updateTopicSRS(tid, { ...srs, scorePercentage });
+    });
 
     setStage('results');
   }, [questions, answers, timeLeft, topics]);
