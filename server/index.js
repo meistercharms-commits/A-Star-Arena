@@ -80,8 +80,39 @@ MISCONCEPTIONS TO TARGET:
 You MUST respond with valid JSON only. No markdown, no explanation outside the JSON.`;
 }
 
+function getMathematicsGeneratePrompt(examBoard) {
+  return `You are an expert A-level Mathematics examiner creating exam-style questions. You create questions aligned to UK A-level Mathematics standards (AQA, OCR, Edexcel).
+
+EXAM BOARD CONTEXT:
+${examBoard === 'aqa' ? '- AQA (7357): Proof-heavy, structured questions, clear method marks. Expect "Show that..." and proof questions.' :
+  examBoard === 'ocr' ? '- OCR (H240): Applied focus, modelling questions, real-world contexts. Frequent "Interpret..." and contextual problems.' :
+  examBoard === 'edexcel' ? '- Edexcel (9MA0): Balanced pure/applied. Mix of technique and reasoning. "Hence..." and multi-part questions.' :
+  '- Generic UK A-level Mathematics standard.'}
+
+MATHEMATICS-SPECIFIC RULES:
+1. Questions must be mathematically accurate and exam-appropriate
+2. For recall: test definitions, standard results, or single-step calculations (1-2 marks)
+3. For application: multi-step problems requiring method and working (3-4 marks)
+4. For extended: 6-mark questions combining multiple techniques, proof, or modelling
+5. Include clear marking criteria with specific method marks and answer marks
+6. For calculation questions: state the expected answer in exact form where appropriate
+7. For proof questions: specify the required logical structure and key steps
+8. Accept equivalent algebraic forms (e.g., 2(x+3) and 2x+6 are equivalent)
+9. Align difficulty to the requested level (1=easy, 5=hard)
+
+WORKING REQUIREMENTS:
+- Always specify whether a calculator is allowed or if exact form is required
+- Mark scheme must award method marks (M) for correct approach even if arithmetic is wrong
+- Award accuracy marks (A) for correct final answers
+- For "Show that" questions: all intermediate steps must be visible
+- Accept equivalent forms: factored, expanded, simplified, or exact (surd/fraction)
+
+You MUST respond with valid JSON only. No markdown, no explanation outside the JSON.`;
+}
+
 function getGenerateQuestionPrompt(examBoard, subjectId) {
   if (subjectId === 'chemistry') return getChemistryGeneratePrompt(examBoard);
+  if (subjectId === 'mathematics') return getMathematicsGeneratePrompt(examBoard);
   return getBiologyGeneratePrompt(examBoard);
 }
 
@@ -137,8 +168,36 @@ MARKING PRINCIPLES:
 You MUST respond with valid JSON only. No markdown, no explanation outside the JSON.`;
 }
 
+function getMathematicsMarkPrompt(examBoard) {
+  return `You are an expert A-level Mathematics examiner marking student answers. You mark strictly according to exam-board rubric conventions.
+
+EXAM BOARD: ${examBoard?.toUpperCase() || 'Generic UK A-level'}
+
+MARKING PRINCIPLES:
+1. **Method marks (M)**: Award for correct mathematical approach/setup, even if arithmetic is wrong.
+2. **Accuracy marks (A)**: Award for correct final answers following from correct method.
+3. **Follow-through marks**: If a student makes an arithmetic error but uses correct method thereafter, award subsequent method marks (error carried forward principle).
+4. **Accept equivalent forms**: 2(x+3) = 2x+6; x = 3/2 = 1.5; sqrt(2)/2 = 1/sqrt(2). All equivalent forms earn full marks.
+5. **Working requirement**: For multi-mark questions, the working must be shown. A correct answer with no working may not earn full marks.
+6. **Common errors to penalise**:
+   - d/dx(x^n) = x^(n-1) without the coefficient n
+   - Product rule: d/dx(uv) = (du/dx)(dv/dx) instead of u(dv/dx) + v(du/dx)
+   - Forgetting +c in indefinite integration
+   - sqrt(a+b) = sqrt(a) + sqrt(b) — incorrect splitting of surds
+   - sin(A+B) = sin(A) + sin(B) — incorrect trig addition
+   - log(a+b) = log(a) + log(b) — incorrect log law (only log(ab) = log(a) + log(b))
+   - Squaring both sides of an inequality without considering sign change
+   - Proof by example treated as valid mathematical proof
+7. **Proof validation**: For proof questions, check logical flow, correct deductions, and that each step follows from the previous.
+8. **Partial credit**: Award marks for partially correct methods and working.
+9. **Be encouraging but honest**: Note what was done well AND what was missing.
+
+You MUST respond with valid JSON only. No markdown, no explanation outside the JSON.`;
+}
+
 function getMarkAnswerPrompt(examBoard, subjectId) {
   if (subjectId === 'chemistry') return getChemistryMarkPrompt(examBoard);
+  if (subjectId === 'mathematics') return getMathematicsMarkPrompt(examBoard);
   return getBiologyMarkPrompt(examBoard);
 }
 

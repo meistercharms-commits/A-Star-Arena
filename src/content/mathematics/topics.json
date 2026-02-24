@@ -1,0 +1,150 @@
+[
+  {
+    "id": "algebra_functions",
+    "name": "Algebra & Functions",
+    "description": "Surds, indices, quadratics, inequalities, simultaneous equations, proof by deduction and contradiction",
+    "subskills": [
+      { "id": "surds_indices", "name": "Surds & Indices", "critical": true, "keywords": ["rationalise", "surd", "index laws", "fractional exponent", "negative exponent"] },
+      { "id": "quadratics", "name": "Quadratic Equations & Graphs", "critical": true, "keywords": ["discriminant", "completing the square", "quadratic formula", "vertex", "roots"] },
+      { "id": "inequalities", "name": "Inequalities", "critical": true, "keywords": ["linear inequality", "quadratic inequality", "number line", "critical values", "sign change"] },
+      { "id": "simultaneous_equations", "name": "Simultaneous Equations", "critical": false, "keywords": ["substitution", "elimination", "linear", "non-linear", "intersection"] },
+      { "id": "proof", "name": "Proof", "critical": false, "keywords": ["proof by deduction", "proof by exhaustion", "proof by contradiction", "disproof by counter-example"] }
+    ],
+    "commonMisconceptions": [
+      "Squaring both sides of an inequality always preserves the direction",
+      "The discriminant b^2 - 4ac > 0 means exactly two roots (ignoring repeated roots when = 0)",
+      "sqrt(a + b) = sqrt(a) + sqrt(b)",
+      "x^0 = 0 instead of x^0 = 1",
+      "Proof by example is a valid form of mathematical proof"
+    ],
+    "highYield": true,
+    "calculationHeavy": true,
+    "difficultyRating": 2
+  },
+  {
+    "id": "polynomials",
+    "name": "Polynomials",
+    "description": "Factor theorem, algebraic division, partial fractions, binomial expansion",
+    "subskills": [
+      { "id": "factor_remainder", "name": "Factor & Remainder Theorems", "critical": true, "keywords": ["factor theorem", "remainder theorem", "f(a) = 0", "polynomial division"] },
+      { "id": "algebraic_division", "name": "Algebraic Division", "critical": true, "keywords": ["long division", "quotient", "remainder", "dividend", "divisor"] },
+      { "id": "partial_fractions", "name": "Partial Fractions", "critical": true, "keywords": ["partial fractions", "linear factors", "repeated factor", "improper fraction", "cover-up method"] },
+      { "id": "binomial_expansion", "name": "Binomial Expansion", "critical": true, "keywords": ["binomial theorem", "nCr", "Pascal's triangle", "expansion", "coefficient", "validity"] }
+    ],
+    "commonMisconceptions": [
+      "The factor theorem says f(a) = 0 means (x + a) is a factor (should be (x - a))",
+      "Forgetting to check for improper fractions before decomposing into partial fractions",
+      "The binomial expansion of (1 + x)^n is valid for all x when n is not a positive integer",
+      "Ignoring the remainder when dividing polynomials"
+    ],
+    "highYield": false,
+    "calculationHeavy": true,
+    "difficultyRating": 3
+  },
+  {
+    "id": "trigonometry_1",
+    "name": "Trigonometry",
+    "description": "Trig ratios, identities, equations, graphs, radians, arc length and sector area",
+    "subskills": [
+      { "id": "trig_ratios_graphs", "name": "Trig Ratios & Graphs", "critical": true, "keywords": ["sine", "cosine", "tangent", "period", "amplitude", "transformation"] },
+      { "id": "trig_identities", "name": "Trig Identities", "critical": true, "keywords": ["sin^2 + cos^2 = 1", "tan = sin/cos", "double angle", "addition formula"] },
+      { "id": "trig_equations", "name": "Solving Trig Equations", "critical": true, "keywords": ["principal value", "general solution", "CAST diagram", "range of solutions"] },
+      { "id": "radians", "name": "Radians, Arc Length & Sector Area", "critical": true, "keywords": ["radian", "arc length", "sector area", "s = r theta", "A = 0.5 r^2 theta"] }
+    ],
+    "commonMisconceptions": [
+      "sin(A + B) = sin(A) + sin(B)",
+      "The inverse of sin is 1/sin rather than arcsin",
+      "Forgetting to find all solutions in the given range (missing quadrants)",
+      "Using degrees in formulas that require radians (arc length, sector area)",
+      "tan(90) = 0 instead of undefined"
+    ],
+    "highYield": true,
+    "calculationHeavy": true,
+    "difficultyRating": 3
+  },
+  {
+    "id": "exponentials_logarithms",
+    "name": "Exponentials & Logarithms",
+    "description": "Laws of logarithms, exponential functions, natural logarithm, solving exponential equations",
+    "subskills": [
+      { "id": "log_laws", "name": "Laws of Logarithms", "critical": true, "keywords": ["log laws", "log(ab)", "log(a/b)", "log(a^n)", "change of base"] },
+      { "id": "exponential_functions", "name": "Exponential Functions & Graphs", "critical": true, "keywords": ["exponential growth", "exponential decay", "asymptote", "e^x", "a^x"] },
+      { "id": "natural_log", "name": "Natural Logarithm & e", "critical": true, "keywords": ["ln", "e", "natural logarithm", "inverse of e^x", "ln(e) = 1"] },
+      { "id": "solving_equations", "name": "Solving Exponential & Log Equations", "critical": true, "keywords": ["take logs", "change of base", "exact form", "trial and improvement"] }
+    ],
+    "commonMisconceptions": [
+      "log(a + b) = log(a) + log(b) — this is wrong; only log(ab) = log(a) + log(b)",
+      "ln(0) = 0 instead of being undefined",
+      "e is exactly 2.7 rather than an irrational constant approximately 2.71828",
+      "log_a(0) = 0 instead of being undefined",
+      "Confusing ln(x^2) with (ln x)^2"
+    ],
+    "highYield": false,
+    "calculationHeavy": true,
+    "difficultyRating": 3
+  },
+  {
+    "id": "differentiation_1",
+    "name": "Differentiation",
+    "description": "First principles, power rule, chain/product/quotient rules, tangents, normals, stationary points",
+    "subskills": [
+      { "id": "first_principles", "name": "Differentiation from First Principles", "critical": false, "keywords": ["limit", "first principles", "h tends to 0", "gradient function", "delta x"] },
+      { "id": "power_rule", "name": "Power Rule & Standard Results", "critical": true, "keywords": ["power rule", "nx^(n-1)", "constant", "sum rule", "derivative"] },
+      { "id": "chain_product_quotient", "name": "Chain, Product & Quotient Rules", "critical": true, "keywords": ["chain rule", "product rule", "quotient rule", "composite function", "uv differentiation"] },
+      { "id": "tangents_normals", "name": "Tangents & Normals", "critical": true, "keywords": ["tangent", "normal", "gradient", "perpendicular", "equation of line", "point of contact"] },
+      { "id": "stationary_points", "name": "Stationary Points & Optimisation", "critical": true, "keywords": ["stationary point", "maximum", "minimum", "second derivative test", "point of inflection", "optimisation"] }
+    ],
+    "commonMisconceptions": [
+      "d/dx(x^n) = x^(n-1) — forgetting the coefficient n",
+      "The product rule is d/dx(uv) = (du/dx)(dv/dx) instead of u(dv/dx) + v(du/dx)",
+      "A stationary point where f''(x) = 0 must be a point of inflection",
+      "The normal has the same gradient as the tangent",
+      "Forgetting to use the chain rule for composite functions like sin(3x)"
+    ],
+    "highYield": true,
+    "calculationHeavy": true,
+    "difficultyRating": 3
+  },
+  {
+    "id": "integration_1",
+    "name": "Integration",
+    "description": "Reverse of differentiation, definite integrals, area under a curve, trapezium rule",
+    "subskills": [
+      { "id": "indefinite_integrals", "name": "Indefinite Integration", "critical": true, "keywords": ["integral", "antiderivative", "constant of integration", "power rule reverse", "+ c"] },
+      { "id": "definite_integrals", "name": "Definite Integrals", "critical": true, "keywords": ["definite integral", "limits", "evaluate", "upper limit", "lower limit", "F(b) - F(a)"] },
+      { "id": "area_under_curve", "name": "Area Under a Curve", "critical": true, "keywords": ["area under curve", "area between curves", "negative area", "absolute value", "x-axis"] },
+      { "id": "trapezium_rule", "name": "Trapezium Rule", "critical": false, "keywords": ["trapezium rule", "approximation", "strip width", "h", "overestimate", "underestimate"] }
+    ],
+    "commonMisconceptions": [
+      "Forgetting the + c constant in indefinite integration",
+      "Integrating x^n gives x^(n+1) without dividing by (n+1)",
+      "Area below the x-axis is automatically positive when calculated by integration",
+      "The trapezium rule gives an exact answer rather than an approximation",
+      "Integrating 1/x gives ln|x| but forgetting the absolute value"
+    ],
+    "highYield": false,
+    "calculationHeavy": true,
+    "difficultyRating": 4
+  },
+  {
+    "id": "statistics_1",
+    "name": "Statistics",
+    "description": "Data presentation, measures of central tendency and spread, probability, binomial distribution, hypothesis testing",
+    "subskills": [
+      { "id": "data_presentation", "name": "Data Presentation & Interpretation", "critical": false, "keywords": ["histogram", "box plot", "cumulative frequency", "outlier", "skewness", "interquartile range"] },
+      { "id": "probability", "name": "Probability", "critical": true, "keywords": ["independent events", "mutually exclusive", "conditional probability", "tree diagram", "P(A|B)"] },
+      { "id": "binomial_distribution", "name": "Binomial Distribution", "critical": true, "keywords": ["binomial", "n trials", "probability p", "X ~ B(n,p)", "nCr", "cumulative"] },
+      { "id": "hypothesis_testing", "name": "Hypothesis Testing", "critical": true, "keywords": ["null hypothesis", "alternative hypothesis", "significance level", "critical region", "p-value", "reject H0"] }
+    ],
+    "commonMisconceptions": [
+      "P(A and B) = P(A) x P(B) is always true — only for independent events",
+      "The significance level is the probability the null hypothesis is true",
+      "A result in the critical region 'proves' the alternative hypothesis",
+      "The mean of a binomial distribution is n x p + 1",
+      "Confusing one-tailed and two-tailed tests when determining the critical region"
+    ],
+    "highYield": false,
+    "calculationHeavy": true,
+    "difficultyRating": 2
+  }
+]

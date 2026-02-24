@@ -6,6 +6,8 @@ import biologyTopics from './biology/topics.json';
 import biologyBosses from './biology/bosses.json';
 import chemistryTopics from './chemistry/topics.json';
 import chemistryBosses from './chemistry/bosses.json';
+import mathematicsTopics from './mathematics/topics.json';
+import mathematicsBosses from './mathematics/bosses.json';
 
 // ─── Subject Definitions ───
 
@@ -20,7 +22,7 @@ export const SUBJECTS = [
 const contentStore = {
   biology: { topics: biologyTopics, bosses: biologyBosses },
   chemistry: { topics: chemistryTopics, bosses: chemistryBosses },
-  mathematics: { topics: [], bosses: [] },
+  mathematics: { topics: mathematicsTopics, bosses: mathematicsBosses },
 };
 
 /**

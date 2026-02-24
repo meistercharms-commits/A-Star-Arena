@@ -1,0 +1,58 @@
+[
+  {
+    "topicId": "algebra_functions",
+    "bossName": "The Variable Phantom",
+    "flavourText": "Lurks in every equation, shifting forms with every operation. Solve for x before it solves for you.",
+    "emoji": "🔣",
+    "hp": 100,
+    "hpBarColour": "#3b82f6"
+  },
+  {
+    "topicId": "polynomials",
+    "bossName": "The Degree Titan",
+    "flavourText": "A towering polynomial monstrosity. Factor it down piece by piece or be crushed by its complexity.",
+    "emoji": "🗿",
+    "hp": 100,
+    "hpBarColour": "#8b5cf6"
+  },
+  {
+    "topicId": "trigonometry_1",
+    "bossName": "The Sine Serpent",
+    "flavourText": "Coils through all four quadrants. Only those who master every identity can break its cycle.",
+    "emoji": "🐍",
+    "hp": 100,
+    "hpBarColour": "#06b6d4"
+  },
+  {
+    "topicId": "exponentials_logarithms",
+    "bossName": "The Growth Golem",
+    "flavourText": "Grows exponentially stronger each turn. Use logarithms to cut it down to size.",
+    "emoji": "📈",
+    "hp": 100,
+    "hpBarColour": "#10b981"
+  },
+  {
+    "topicId": "differentiation_1",
+    "bossName": "The Gradient Wraith",
+    "flavourText": "Haunts every curve, hiding at stationary points. Find its rate of change before it vanishes.",
+    "emoji": "📉",
+    "hp": 100,
+    "hpBarColour": "#f59e0b"
+  },
+  {
+    "topicId": "integration_1",
+    "bossName": "The Area Leviathan",
+    "flavourText": "Vast and formless, it fills the space beneath every curve. Sum its parts to reveal its weakness.",
+    "emoji": "🌊",
+    "hp": 100,
+    "hpBarColour": "#ef4444"
+  },
+  {
+    "topicId": "statistics_1",
+    "bossName": "The Probability Oracle",
+    "flavourText": "Claims to know every outcome. Test its hypotheses and prove it wrong.",
+    "emoji": "🎲",
+    "hp": 100,
+    "hpBarColour": "#ec4899"
+  }
+]

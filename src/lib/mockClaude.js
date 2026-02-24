@@ -418,6 +418,80 @@ const questionBank = {
       { prompt: "Describe how you would use mass spectrometry, IR spectroscopy, and NMR to identify an unknown organic compound. Explain what information each technique provides. (6 marks)", subskillIds: ["mass_spec", "ir_spectroscopy", "nmr_basics", "combined_analysis"], keywords: ["mass spec", "molecular ion", "Mr", "fragmentation", "IR", "functional groups", "NMR", "chemical environments"], maxScore: 6, rubricPoints: ["Mass spectrometry: molecular ion peak gives Mr; fragmentation pattern shows structural fragments", "Use Mr to determine molecular formula (with composition data)", "IR spectroscopy: identifies functional groups present (e.g., O-H, C=O, N-H absorptions)", "Can distinguish between carboxylic acid (broad O-H ~2500-3300) and alcohol (broad O-H ~3200-3550)", "NMR: number of peaks shows different hydrogen environments; integration gives ratio of H atoms", "Splitting pattern shows number of H on adjacent carbons; combine all data to determine full structure"] },
     ],
   },
+  // ─── Mathematics Topics ───
+
+  algebra_functions: {
+    recall: [
+      { prompt: "Simplify √48.", keywords: ["4√3", "√(16×3)", "4 times root 3"], maxScore: 2 },
+      { prompt: "State the value of 8^(2/3).", keywords: ["4", "cube root of 8 is 2", "2 squared is 4"], maxScore: 1 },
+      { prompt: "State the condition on the discriminant for a quadratic equation to have two distinct real roots.", keywords: ["b^2 - 4ac > 0", "discriminant greater than zero"], maxScore: 2 },
+      { prompt: "What does x^0 equal for any non-zero x?", keywords: ["1", "x^0 = 1"], maxScore: 1 },
+      { prompt: "State the quadratic formula.", keywords: ["x = (-b ± √(b²-4ac)) / 2a", "negative b", "plus or minus", "square root", "2a"], maxScore: 2 },
+    ],
+    application: [
+      { prompt: "Solve x² - 5x + 6 = 0 by factorising.", subskillIds: ["quadratics"], keywords: ["(x-2)(x-3) = 0", "x = 2", "x = 3", "factorise"], maxScore: 3 },
+      { prompt: "Find the set of values of x for which x² - 4x - 5 < 0.", subskillIds: ["inequalities"], keywords: ["(x-5)(x+1) < 0", "critical values -1 and 5", "-1 < x < 5"], maxScore: 4 },
+      { prompt: "Rationalise the denominator of 3/(2 + √5).", subskillIds: ["surds_indices"], keywords: ["multiply by conjugate", "2 - √5", "3(2-√5)/(4-5)", "-3(2-√5)", "or equivalent", "-6 + 3√5"], maxScore: 3 },
+    ],
+    extended: [
+      { prompt: "Prove by contradiction that √2 is irrational. (6 marks)", subskillIds: ["proof"], keywords: ["assume rational", "p/q in lowest terms", "2q² = p²", "p is even", "q is even", "contradiction"], maxScore: 6, rubricPoints: ["Assume √2 is rational, so √2 = p/q where p and q are integers with no common factors", "Then 2 = p²/q², so p² = 2q²", "Therefore p² is even, which means p must be even (since odd² is odd)", "Let p = 2k, then (2k)² = 2q², so 4k² = 2q², giving q² = 2k²", "Therefore q² is even, so q is also even", "Both p and q are even — contradicts the assumption they share no common factors, so √2 is irrational"] },
+      { prompt: "Complete the square for 2x² - 12x + 7 and hence state the minimum value and the value of x at which it occurs. (6 marks)", subskillIds: ["quadratics"], keywords: ["2(x² - 6x) + 7", "2(x-3)² - 18 + 7", "2(x-3)² - 11", "minimum -11", "at x = 3"], maxScore: 6, rubricPoints: ["Factor out 2: 2(x² - 6x) + 7", "Complete the square inside: 2(x - 3)² - 9) + 7", "Expand: 2(x-3)² - 18 + 7", "Simplify: 2(x-3)² - 11", "Minimum value is -11 (since (x-3)² ≥ 0)", "Occurs when x = 3"] },
+    ],
+  },
+  differentiation_1: {
+    recall: [
+      { prompt: "Differentiate y = x⁵ with respect to x.", keywords: ["5x⁴", "5x^4", "power rule"], maxScore: 1 },
+      { prompt: "What is the derivative of sin(x)?", keywords: ["cos(x)", "cos x"], maxScore: 1 },
+      { prompt: "State the product rule for differentiation.", keywords: ["d/dx(uv) = u(dv/dx) + v(du/dx)", "u'v + uv'"], maxScore: 2 },
+      { prompt: "What is the derivative of e^x?", keywords: ["e^x", "same function"], maxScore: 1 },
+      { prompt: "State the chain rule.", keywords: ["dy/dx = dy/du × du/dx", "f'(g(x)) × g'(x)", "composite function"], maxScore: 2 },
+    ],
+    application: [
+      { prompt: "Find dy/dx when y = 3x⁴ - 2x² + 7x - 1.", subskillIds: ["power_rule"], keywords: ["12x³", "- 4x", "+ 7", "12x^3 - 4x + 7"], maxScore: 3 },
+      { prompt: "Find the gradient of the curve y = x³ - 6x + 2 at the point where x = 2.", subskillIds: ["tangents_normals"], keywords: ["dy/dx = 3x² - 6", "substitute x = 2", "3(4) - 6 = 6", "gradient = 6"], maxScore: 4 },
+      { prompt: "Differentiate y = (3x + 1)⁵ using the chain rule.", subskillIds: ["chain_product_quotient"], keywords: ["5(3x+1)⁴", "× 3", "15(3x+1)⁴"], maxScore: 3 },
+    ],
+    extended: [
+      { prompt: "Find the stationary points of y = 2x³ - 9x² + 12x - 4 and determine their nature using the second derivative test. (6 marks)", subskillIds: ["stationary_points", "power_rule"], keywords: ["dy/dx = 6x² - 18x + 12", "6(x² - 3x + 2)", "x = 1, x = 2", "d²y/dx² = 12x - 18", "maximum at x = 1", "minimum at x = 2"], maxScore: 6, rubricPoints: ["Differentiate: dy/dx = 6x² - 18x + 12", "Set equal to 0: 6(x² - 3x + 2) = 0, so (x-1)(x-2) = 0", "Stationary points at x = 1 and x = 2", "Second derivative: d²y/dx² = 12x - 18", "At x = 1: d²y/dx² = -6 < 0, so maximum; y = 2-9+12-4 = 1 → maximum at (1, 1)", "At x = 2: d²y/dx² = 6 > 0, so minimum; y = 16-36+24-4 = 0 → minimum at (2, 0)"] },
+      { prompt: "The curve y = x² - 4x + 3 has a tangent at the point P(1, 0). Find the equation of the tangent and the equation of the normal at P. (6 marks)", subskillIds: ["tangents_normals", "power_rule"], keywords: ["dy/dx = 2x - 4", "at x=1: gradient = -2", "tangent: y = -2x + 2", "normal gradient = 1/2", "normal: y = (1/2)x - 1/2"], maxScore: 6, rubricPoints: ["Differentiate: dy/dx = 2x - 4", "At P(1,0): gradient = 2(1) - 4 = -2", "Tangent: y - 0 = -2(x - 1), so y = -2x + 2", "Normal gradient = negative reciprocal = 1/2", "Normal: y - 0 = (1/2)(x - 1), so y = (1/2)x - 1/2", "Both equations pass through P(1, 0) — verify by substitution"] },
+    ],
+  },
+  integration_1: {
+    recall: [
+      { prompt: "Integrate x³ with respect to x.", keywords: ["x⁴/4 + c", "x^4/4 + c", "divide by new power", "add constant"], maxScore: 2 },
+      { prompt: "What is the integral of cos(x)?", keywords: ["sin(x) + c", "sin x + c"], maxScore: 1 },
+      { prompt: "What is the integral of 1/x?", keywords: ["ln|x| + c", "natural log of x", "absolute value"], maxScore: 2 },
+      { prompt: "State the integral of e^x.", keywords: ["e^x + c", "same function plus c"], maxScore: 1 },
+      { prompt: "Why must you include '+ c' in indefinite integration?", keywords: ["constant of integration", "family of curves", "derivative of constant is 0", "unknown constant"], maxScore: 2 },
+    ],
+    application: [
+      { prompt: "Evaluate the definite integral ∫₁³ (2x + 1) dx.", subskillIds: ["definite_integrals"], keywords: ["x² + x", "from 1 to 3", "(9+3) - (1+1)", "12 - 2 = 10"], maxScore: 3 },
+      { prompt: "Find ∫(4x³ - 6x + 2) dx.", subskillIds: ["indefinite_integrals"], keywords: ["x⁴ - 3x² + 2x + c", "x^4", "- 3x^2", "+ 2x", "+ c"], maxScore: 3 },
+      { prompt: "Find the area between the curve y = x² and the x-axis from x = 0 to x = 3.", subskillIds: ["area_under_curve"], keywords: ["∫₀³ x² dx", "x³/3", "from 0 to 3", "27/3 - 0 = 9", "area = 9"], maxScore: 4 },
+    ],
+    extended: [
+      { prompt: "Find the area enclosed between the curve y = x² - 4 and the x-axis. (6 marks)", subskillIds: ["area_under_curve", "definite_integrals"], keywords: ["find where y = 0", "x = -2, x = 2", "∫₋₂² (x²-4) dx", "negative area", "take absolute value", "area = 32/3"], maxScore: 6, rubricPoints: ["Find x-intercepts: x² - 4 = 0 → x = ±2", "Set up integral: ∫₋₂² (x² - 4) dx", "Integrate: [x³/3 - 4x] from -2 to 2", "Evaluate: (8/3 - 8) - (-8/3 + 8) = -32/3", "Area is below x-axis so take absolute value", "Area = 32/3 ≈ 10.67 square units"] },
+      { prompt: "Use the trapezium rule with 4 strips to estimate ∫₀² √(1 + x²) dx. Give your answer to 3 decimal places. (6 marks)", subskillIds: ["trapezium_rule"], keywords: ["h = 0.5", "y₀ = 1", "y₁, y₂, y₃, y₄", "trapezium rule formula", "h/2[y₀ + 2(y₁+y₂+y₃) + y₄]"], maxScore: 6, rubricPoints: ["Strip width h = (2-0)/4 = 0.5", "Calculate y-values: y₀ = √1 = 1, y₁ = √1.25 ≈ 1.118, y₂ = √2 ≈ 1.414, y₃ = √3.25 ≈ 1.803, y₄ = √5 ≈ 2.236", "Apply formula: (0.5/2)[1 + 2(1.118 + 1.414 + 1.803) + 2.236]", "= 0.25[1 + 2(4.335) + 2.236]", "= 0.25[1 + 8.670 + 2.236] = 0.25 × 11.906", "≈ 2.977 (to 3 d.p.)"] },
+    ],
+  },
+  statistics_1: {
+    recall: [
+      { prompt: "State the formula for the mean of a data set.", keywords: ["sum of values", "divided by", "number of values", "Σx / n"], maxScore: 1 },
+      { prompt: "What is the condition for events A and B to be independent?", keywords: ["P(A∩B) = P(A) × P(B)", "P(A|B) = P(A)", "occurrence of one does not affect the other"], maxScore: 2 },
+      { prompt: "State the mean of the binomial distribution X ~ B(n, p).", keywords: ["np", "n times p"], maxScore: 1 },
+      { prompt: "What is a null hypothesis?", keywords: ["statement assumed true", "no effect", "no difference", "to be tested", "H₀"], maxScore: 2 },
+      { prompt: "State two conditions for a binomial distribution to be a suitable model.", keywords: ["fixed number of trials", "two outcomes", "constant probability", "independent trials"], maxScore: 2 },
+    ],
+    application: [
+      { prompt: "A fair die is rolled 60 times. Let X be the number of sixes. State the distribution of X and find P(X = 10).", subskillIds: ["binomial_distribution"], keywords: ["X ~ B(60, 1/6)", "P(X=10) = 60C10 × (1/6)^10 × (5/6)^50", "binomial formula"], maxScore: 4 },
+      { prompt: "Two events A and B are mutually exclusive with P(A) = 0.3 and P(B) = 0.4. Find P(A ∪ B).", subskillIds: ["probability"], keywords: ["P(A∪B) = P(A) + P(B)", "0.3 + 0.4 = 0.7", "mutually exclusive so P(A∩B) = 0"], maxScore: 3 },
+      { prompt: "A manufacturer claims that 5% of items are defective. A sample of 20 is tested and 3 are found defective. State suitable hypotheses and test at the 5% significance level whether the defect rate has increased.", subskillIds: ["hypothesis_testing"], keywords: ["H₀: p = 0.05", "H₁: p > 0.05", "X ~ B(20, 0.05)", "P(X ≥ 3)", "compare with 0.05", "one-tailed"], maxScore: 4 },
+    ],
+    extended: [
+      { prompt: "A student is taking a multiple choice test with 20 questions, each having 4 options. The student guesses every answer randomly. (a) State the distribution for the number of correct answers. (b) Find the probability of getting exactly 5 correct. (c) Find the probability of passing if the pass mark is 10. Comment on the student's chances. (6 marks)", subskillIds: ["binomial_distribution", "probability"], keywords: ["X ~ B(20, 0.25)", "P(X=5) = 20C5 × 0.25^5 × 0.75^15", "P(X ≥ 10)", "very low probability", "unlikely to pass by guessing"], maxScore: 6, rubricPoints: ["X ~ B(20, 0.25) where n = 20, p = 1/4 = 0.25", "P(X = 5) = 20C5 × 0.25⁵ × 0.75¹⁵ ≈ 0.2023", "For pass: need P(X ≥ 10) = 1 - P(X ≤ 9)", "Using cumulative binomial tables or calculation", "P(X ≥ 10) ≈ 0.0139 (very small)", "The student is very unlikely to pass by guessing alone — only ~1.4% chance"] },
+      { prompt: "Explain the process of hypothesis testing for a binomial distribution. Include the concepts of null hypothesis, alternative hypothesis, significance level, and critical region. Give an example. (6 marks)", subskillIds: ["hypothesis_testing"], keywords: ["H₀", "H₁", "significance level", "critical region", "p-value", "reject or fail to reject"], maxScore: 6, rubricPoints: ["State null hypothesis H₀ (the default claim about parameter p) and alternative H₁", "Choose significance level (e.g., 5% or 1%) — probability of incorrectly rejecting H₀", "Under H₀, X follows B(n, p₀); calculate probability of observed or more extreme result", "Critical region: set of values that lead to rejecting H₀", "If observed value falls in critical region (or p-value < significance level), reject H₀", "Example: testing if a coin is biased — H₀: p=0.5, H₁: p≠0.5, observe 18 heads in 20 tosses, likely reject H₀"] },
+    ],
+  },
 };
 
 // ─── Helpers ───
@@ -429,8 +503,8 @@ function pickRandom(arr) {
 function getTopicQuestions(topicId, phase) {
   const bank = questionBank[topicId];
   if (!bank) {
-    // Fallback: try enzymes for biology, atomic_structure for chemistry
-    return questionBank.enzymes?.[phase] || questionBank.atomic_structure?.[phase] || [];
+    // Fallback chain: biology → chemistry → mathematics
+    return questionBank.enzymes?.[phase] || questionBank.atomic_structure?.[phase] || questionBank.algebra_functions?.[phase] || [];
   }
   return bank[phase] || [];
 }
