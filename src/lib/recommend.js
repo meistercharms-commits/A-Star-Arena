@@ -20,23 +20,34 @@ function recencyBoost(daysAgo) {
 }
 
 function computePriorityScore(mastery, daysAgo, highYield, srsPriority) {
+  // Guard against NaN mastery (corrupted data)
+  const safeMastery = Number.isFinite(mastery) ? mastery : 0;
+
   // SRS base score (dominant factor when SRS data exists)
   const srsWeight = SRS_PRIORITY_WEIGHTS[srsPriority] || 1;
 
-  // Mastery gap (0 = mastered, 1 = no mastery)
-  const gap = 1 - mastery;
+  // For SRS-urgent topics (overdue/due_today/due_soon), ensure a minimum gap
+  // so even mastered topics still get recommended when their review is due.
+  // Without this, mastery=1.0 → gap=0 → score=0 → never recommended.
+  const isUrgent = srsPriority === 'overdue' || srsPriority === 'due_today' || srsPriority === 'due_soon';
+  const gap = isUrgent
+    ? Math.max(0.15, 1 - safeMastery) // Floor of 0.15 for SRS-urgent topics
+    : 1 - safeMastery;
 
   // Recency boost (higher = longer since last practice)
-  const recency = recencyBoost(daysAgo);
+  // For SRS-urgent topics, ensure a minimum so just-practised overdue topics
+  // still get priority (recencyBoost(0) = 0 would kill the score otherwise).
+  const rawRecency = recencyBoost(daysAgo);
+  const recency = isUrgent ? Math.max(0.3, rawRecency) : rawRecency;
 
   // High-yield topics get a boost
   const yieldWeight = highYield ? 1.5 : 1.0;
 
   // Penalise fully untested slightly (encourage practised-weak first)
-  const untestedPenalty = mastery === 0 ? 0.8 : 1.0;
+  const untestedPenalty = safeMastery === 0 ? 0.8 : 1.0;
 
   // Penalise strong topics that aren't due for review
-  const strongPenalty = mastery >= 0.8 && srsPriority === 'normal' ? 0.1 : 1.0;
+  const strongPenalty = safeMastery >= 0.8 && srsPriority === 'normal' ? 0.1 : 1.0;
 
   // Combined score: SRS weight is the primary driver
   return srsWeight * gap * recency * yieldWeight * untestedPenalty * strongPenalty;

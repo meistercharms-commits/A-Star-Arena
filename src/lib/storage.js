@@ -211,6 +211,7 @@ export function updateTopicSRS(topicId, srsUpdate, subject) {
   const data = getSRSData(s);
 
   const existing = data[topicId] || { srsStage: 0, reviewHistory: [] };
+  const prevHistory = Array.isArray(existing.reviewHistory) ? existing.reviewHistory : [];
 
   data[topicId] = {
     srsStage: srsUpdate.newStage,
@@ -218,7 +219,7 @@ export function updateTopicSRS(topicId, srsUpdate, subject) {
     intervalDays: srsUpdate.intervalDays,
     lastReviewDate: new Date().toISOString(),
     reviewHistory: [
-      ...existing.reviewHistory.slice(-19), // Keep last 20 reviews
+      ...prevHistory.slice(-19), // Keep last 20 reviews
       {
         date: new Date().toISOString(),
         scorePercentage: srsUpdate.scorePercentage,
