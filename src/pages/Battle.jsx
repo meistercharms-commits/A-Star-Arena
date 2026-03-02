@@ -2,7 +2,7 @@ import { useState, useRef, useCallback } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useSubject } from '../contexts/SubjectContext';
 import { generateQuestion, markAnswer } from '../lib/claudeClient';
-import { getSettings, saveSession, saveAttempt, updateProgress, getTopicMastery, updateTopicSRS, getCurrentSubject, getSRSData } from '../lib/storage';
+import { getSettings, saveSession, saveAttempt, updateProgress, getTopicMastery, updateTopicSRS, getCurrentSubject, getSRSData, getExamBoard } from '../lib/storage';
 import { generateId } from '../lib/utils';
 import { updateTopicMastery } from '../lib/mastery';
 import { calculateNextReview, getSessionScorePercentage } from '../lib/srs';
@@ -80,7 +80,7 @@ export default function Battle() {
         topicId,
         phase,
         difficulty: 3,
-        examBoard: settings?.examBoard || 'generic',
+        examBoard: getExamBoard(getCurrentSubject()),
         topics,
         previousPrompts: previousPromptsRef.current,
       });
@@ -113,7 +113,7 @@ export default function Battle() {
         phase: currentPhase,
         difficulty: currentQuestion.difficulty,
         rubric: currentQuestion.marking,
-        examBoard: settings?.examBoard || 'generic',
+        examBoard: getExamBoard(getCurrentSubject()),
         topicId,
       });
 

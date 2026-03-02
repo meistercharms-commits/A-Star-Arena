@@ -9,7 +9,7 @@ export default function Onboarding() {
   const [step, setStep] = useState('welcome');
   const [form, setForm] = useState({
     studentName: '',
-    examBoard: 'generic',
+    examBoards: { biology: 'generic', chemistry: 'generic', mathematics: 'generic' },
     targetGrade: 'A*',
     timePerDayMins: 30,
   });
@@ -96,28 +96,39 @@ export default function Onboarding() {
             />
           </div>
 
-          {/* Exam Board */}
+          {/* Exam Boards */}
           <div>
-            <label className="block text-sm font-medium mb-1.5">Exam Board</label>
-            <div className="grid grid-cols-2 gap-2">
+            <label className="block text-sm font-medium mb-2">Exam Boards</label>
+            <div className="space-y-3">
               {[
-                { value: 'generic', label: 'Generic' },
-                { value: 'aqa', label: 'AQA' },
-                { value: 'ocr', label: 'OCR' },
-                { value: 'edexcel', label: 'Edexcel' },
-              ].map(opt => (
-                <button
-                  key={opt.value}
-                  type="button"
-                  onClick={() => setForm({ ...form, examBoard: opt.value })}
-                  className={`py-2.5 px-3 rounded-lg text-sm font-medium transition-colors cursor-pointer border ${
-                    form.examBoard === opt.value
-                      ? 'bg-accent/15 border-accent text-accent'
-                      : 'bg-bg-tertiary border-border text-text-secondary hover:border-text-muted'
-                  }`}
-                >
-                  {opt.label}
-                </button>
+                { subject: 'biology', label: 'Biology' },
+                { subject: 'chemistry', label: 'Chemistry' },
+                { subject: 'mathematics', label: 'Mathematics' },
+              ].map(({ subject, label }) => (
+                <div key={subject}>
+                  <span className="block text-xs text-text-muted mb-1">{label}</span>
+                  <div className="grid grid-cols-4 gap-1.5">
+                    {[
+                      { value: 'generic', label: 'Generic' },
+                      { value: 'aqa', label: 'AQA' },
+                      { value: 'ocr', label: 'OCR' },
+                      { value: 'edexcel', label: 'Edexcel' },
+                    ].map(opt => (
+                      <button
+                        key={opt.value}
+                        type="button"
+                        onClick={() => setForm({ ...form, examBoards: { ...form.examBoards, [subject]: opt.value } })}
+                        className={`py-2 px-2 rounded-lg text-xs font-medium transition-colors cursor-pointer border ${
+                          form.examBoards[subject] === opt.value
+                            ? 'bg-accent/15 border-accent text-accent'
+                            : 'bg-bg-tertiary border-border text-text-secondary hover:border-text-muted'
+                        }`}
+                      >
+                        {opt.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
               ))}
             </div>
           </div>

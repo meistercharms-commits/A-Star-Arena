@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { generateQuestion as claudeGenerateQuestion, markAnswer as claudeMarkAnswer } from '../lib/claudeClient';
-import { getSettings, saveSession, saveAttempt, updateProgress, getMasteryCache, updateTopicSRS, getCurrentSubject, getSRSData } from '../lib/storage';
+import { getSettings, saveSession, saveAttempt, updateProgress, getMasteryCache, updateTopicSRS, getCurrentSubject, getSRSData, getExamBoard } from '../lib/storage';
 import { updateTopicMastery } from '../lib/mastery';
 import { calculateNextReview } from '../lib/srs';
 import { getRankedTopics } from '../lib/recommend';
@@ -139,7 +139,7 @@ export default function Exam() {
         phase: q.examPhase,
         difficulty: q.difficulty,
         rubric: q.marking,
-        examBoard: settings.examBoard || 'generic',
+        examBoard: getExamBoard(getCurrentSubject()),
         topicId: q.topicId,
       });
       if (markResult.success) {
@@ -256,7 +256,7 @@ export default function Exam() {
   async function startExam() {
     setStage('loading'); // show loading screen while generating questions
     try {
-      const qs = await generateExamQuestions(examTopics, settings.examBoard || 'generic', topics);
+      const qs = await generateExamQuestions(examTopics, getExamBoard(getCurrentSubject()), topics);
       setQuestions(qs);
       setCurrentIdx(0);
       setAnswers({});

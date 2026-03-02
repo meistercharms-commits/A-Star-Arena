@@ -11,9 +11,15 @@ export default function Settings() {
   const storageStats = getStorageStats();
 
   const initial = getSettings() || {};
+  const initBoards = initial.examBoards || {};
+  const fallbackBoard = initial.examBoard || 'generic';
   const [form, setForm] = useState({
     studentName: initial.studentName || '',
-    examBoard: initial.examBoard || 'generic',
+    examBoards: {
+      biology: initBoards.biology || fallbackBoard,
+      chemistry: initBoards.chemistry || fallbackBoard,
+      mathematics: initBoards.mathematics || fallbackBoard,
+    },
     targetGrade: initial.targetGrade || 'A*',
     timePerDayMins: initial.timePerDayMins || 30,
     bossHp: initial.bossHp || 100,
@@ -68,21 +74,32 @@ export default function Settings() {
             />
           </Field>
 
-          <Field label="Exam Board">
-            <div className="grid grid-cols-2 gap-2">
+          <Field label="Exam Boards">
+            <div className="space-y-3">
               {[
-                { value: 'generic', label: 'Generic' },
-                { value: 'aqa', label: 'AQA' },
-                { value: 'ocr', label: 'OCR' },
-                { value: 'edexcel', label: 'Edexcel' },
-              ].map(opt => (
-                <OptionButton
-                  key={opt.value}
-                  selected={form.examBoard === opt.value}
-                  onClick={() => setForm({ ...form, examBoard: opt.value })}
-                >
-                  {opt.label}
-                </OptionButton>
+                { subject: 'biology', label: 'Biology' },
+                { subject: 'chemistry', label: 'Chemistry' },
+                { subject: 'mathematics', label: 'Mathematics' },
+              ].map(({ subject, label }) => (
+                <div key={subject}>
+                  <span className="block text-xs text-text-muted mb-1">{label}</span>
+                  <div className="grid grid-cols-4 gap-1.5">
+                    {[
+                      { value: 'generic', label: 'Generic' },
+                      { value: 'aqa', label: 'AQA' },
+                      { value: 'ocr', label: 'OCR' },
+                      { value: 'edexcel', label: 'Edexcel' },
+                    ].map(opt => (
+                      <OptionButton
+                        key={opt.value}
+                        selected={form.examBoards[subject] === opt.value}
+                        onClick={() => setForm({ ...form, examBoards: { ...form.examBoards, [subject]: opt.value } })}
+                      >
+                        {opt.label}
+                      </OptionButton>
+                    ))}
+                  </div>
+                </div>
               ))}
             </div>
           </Field>

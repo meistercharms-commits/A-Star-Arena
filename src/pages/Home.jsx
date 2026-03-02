@@ -1,5 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { getSettings, getProgress, getLevelProgress, getRecentSessions, getStorageWarning } from '../lib/storage';
+import { getSettings, getProgress, getLevelProgress, getRecentSessions, getStorageWarning, getExamBoard } from '../lib/storage';
 import { getMasteryCategory, formatDate } from '../lib/utils';
 import { getTodaysMission, getReviewSummary } from '../lib/recommend';
 import { getRecurringMistakes } from '../lib/errorPatterns';
@@ -8,7 +8,7 @@ import TopicRadar from '../components/RadarChart';
 
 export default function Home() {
   const navigate = useNavigate();
-  const { topics, bosses } = useSubject();
+  const { subjectId, topics, bosses } = useSubject();
   const settings = getSettings() || {};
   const progress = getProgress();
   const levelInfo = getLevelProgress();
@@ -37,7 +37,7 @@ export default function Home() {
       <div>
         <h1 className="text-2xl font-bold">{greeting}</h1>
         <p className="text-text-muted text-sm">
-          {settings.examBoard !== 'generic' ? settings.examBoard.toUpperCase() + ' · ' : ''}
+          {getExamBoard(subjectId) !== 'generic' ? getExamBoard(subjectId).toUpperCase() + ' · ' : ''}
           Target: {settings.targetGrade}
         </p>
       </div>

@@ -67,6 +67,17 @@ export function hasCompletedOnboarding() {
   return getSettings() !== null;
 }
 
+// --- Per-Subject Exam Board ---
+
+export function getExamBoard(subjectId) {
+  const settings = getSettings();
+  if (!settings) return 'generic';
+  const boards = settings.examBoards;
+  if (boards && boards[subjectId]) return boards[subjectId];
+  // Fallback to old global examBoard for migration
+  return settings.examBoard || 'generic';
+}
+
 // --- Sessions (PER-SUBJECT) ---
 
 export function getSessions(subject) {

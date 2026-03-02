@@ -4,7 +4,7 @@ import { useSubject } from '../contexts/SubjectContext';
 import { generateStudyGuide } from '../lib/claudeClient';
 import { calculateTopicMastery } from '../lib/mastery';
 import { getRecurringMistakes } from '../lib/errorPatterns';
-import { getSettings } from '../lib/storage';
+import { getSettings, getExamBoard, getCurrentSubject } from '../lib/storage';
 import { getMasteryCategory } from '../lib/utils';
 
 export default function StudyGuide() {
@@ -43,7 +43,7 @@ export default function StudyGuide() {
       topicId,
       topicName: topic.name,
       subskills: topic.subskills?.map(s => s.name) || [],
-      examBoard: settings.examBoard || 'generic',
+      examBoard: getExamBoard(getCurrentSubject()),
       masteryScore: mastery.topicMastery,
       weakSubskills,
       errorPatterns: errorPatternStrings,

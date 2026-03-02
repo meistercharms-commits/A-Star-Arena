@@ -2,7 +2,7 @@ import { useState, useRef } from 'react';
 import { useParams, useSearchParams, Link, useNavigate } from 'react-router-dom';
 import { useSubject } from '../contexts/SubjectContext';
 import { generateQuestion, markAnswer } from '../lib/claudeClient';
-import { getSettings, saveAttempt, updateProgress, updateTopicSRS, getCurrentSubject, getSRSData } from '../lib/storage';
+import { getSettings, saveAttempt, updateProgress, updateTopicSRS, getCurrentSubject, getSRSData, getExamBoard } from '../lib/storage';
 import { updateTopicMastery } from '../lib/mastery';
 import { calculateNextReview } from '../lib/srs';
 import { getTargetedDrillConfig } from '../lib/recommend';
@@ -63,7 +63,7 @@ export default function Drill() {
         topicId,
         phase,
         difficulty: drillConfig.difficulty,
-        examBoard: settings?.examBoard || 'generic',
+        examBoard: getExamBoard(getCurrentSubject()),
         topics,
         previousPrompts: previousPromptsRef.current,
       });
@@ -93,7 +93,7 @@ export default function Drill() {
         phase,
         difficulty: currentQuestion.difficulty,
         rubric: currentQuestion.marking,
-        examBoard: settings?.examBoard || 'generic',
+        examBoard: getExamBoard(getCurrentSubject()),
         topicId,
       });
 
