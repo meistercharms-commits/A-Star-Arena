@@ -157,6 +157,11 @@ export default function Home() {
               );
             })}
           </div>
+          {recurringMistakes.length > 3 && (
+            <Link to="/mistakes" className="text-xs text-accent hover:text-accent-hover no-underline font-medium mt-3 inline-block">
+              View All →
+            </Link>
+          )}
         </div>
       )}
 

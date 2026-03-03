@@ -6,7 +6,7 @@ const PHASES = [
   { key: 'extended', label: 'Phase 3: Exam Brain' },
 ];
 
-export default function BossHUD({ boss, hp, maxHp, currentPhase, questionNum, totalQuestions }) {
+export default function BossHUD({ boss, hp, maxHp, currentPhase, questionNum, totalQuestions, isStudyMode = false, streak = 0 }) {
   const hpPercent = Math.max(0, (hp / maxHp) * 100);
   const hpColour = hpPercent > 50 ? boss?.hpBarColour || '#06b6d4' : hpPercent > 25 ? '#eab308' : '#ef4444';
   const prevHpRef = useRef(hp);
@@ -27,7 +27,9 @@ export default function BossHUD({ boss, hp, maxHp, currentPhase, questionNum, to
   }, [hp]);
 
   return (
-    <div className={`bg-bg-secondary border border-border rounded-xl p-4 space-y-3 ${showDamage ? 'animate-shake' : ''}`}>
+    <div className={`bg-bg-secondary border border-border rounded-xl p-4 space-y-3 ${
+      showDamage ? (hpPercent < 50 ? 'animate-shake-intense' : 'animate-shake') : ''
+    } ${streak >= 3 ? 'animate-golden-glow' : ''}`}>
       {/* Boss info */}
       <div className="flex items-center gap-3">
         <span className={`text-3xl transition-transform ${showDamage ? 'animate-damage-flash' : ''}`}>
@@ -37,6 +39,11 @@ export default function BossHUD({ boss, hp, maxHp, currentPhase, questionNum, to
           <h2 className="font-bold text-lg truncate">{boss?.bossName || 'Unknown Boss'}</h2>
           <p className="text-text-muted text-xs italic truncate">{boss?.flavourText}</p>
         </div>
+        {isStudyMode && (
+          <span className="text-xs bg-developing/10 text-developing border border-developing/30 px-2 py-0.5 rounded-lg font-medium shrink-0">
+            Study Mode
+          </span>
+        )}
         {/* Floating damage number */}
         {showDamage && damageAmount > 0 && (
           <span className="text-weak font-bold text-lg font-mono animate-score-pop">

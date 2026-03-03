@@ -1,0 +1,322 @@
+{
+  "elements_of_life": [
+    {
+      "q": "Which sub-atomic particle determines the chemical properties of an element?",
+      "options": ["Proton", "Neutron", "Electron", "Nucleus"],
+      "answer": 2,
+      "explanation": "Electrons, specifically valence electrons, determine how an element bonds and reacts chemically."
+    },
+    {
+      "q": "What type of bond holds amino acids together in a polypeptide chain?",
+      "options": ["Ionic bond", "Peptide bond", "Hydrogen bond", "Glycosidic bond"],
+      "answer": 1,
+      "explanation": "Peptide bonds form between the carboxyl group of one amino acid and the amino group of the next via a condensation reaction."
+    },
+    {
+      "q": "Which element is the most abundant in the human body by mass?",
+      "options": ["Carbon", "Hydrogen", "Oxygen", "Nitrogen"],
+      "answer": 2,
+      "explanation": "Oxygen makes up about 65% of body mass, mainly because the body is approximately 60% water."
+    },
+    {
+      "q": "What is the electron configuration of a carbon atom?",
+      "options": ["2,2", "2,4", "2,6", "2,3"],
+      "answer": 1,
+      "explanation": "Carbon (atomic number 6) has 6 electrons: 2 in the first shell and 4 in the second shell (2,4)."
+    },
+    {
+      "q": "Which type of bonding is found in a water molecule?",
+      "options": ["Ionic bonding", "Metallic bonding", "Covalent bonding", "Dative covalent bonding"],
+      "answer": 2,
+      "explanation": "Water (H₂O) has covalent bonds — shared pairs of electrons between oxygen and hydrogen atoms."
+    }
+  ],
+  "developing_fuels": [
+    {
+      "q": "What is the general formula for an alkane?",
+      "options": ["CₙH₂ₙ", "CₙH₂ₙ₊₂", "CₙH₂ₙ₋₂", "CₙHₙ"],
+      "answer": 1,
+      "explanation": "Alkanes are saturated hydrocarbons with the general formula CₙH₂ₙ₊₂, e.g. methane CH₄, ethane C₂H₆."
+    },
+    {
+      "q": "Which gas is the main contributor to the greenhouse effect from burning fossil fuels?",
+      "options": ["Nitrogen", "Carbon dioxide", "Oxygen", "Argon"],
+      "answer": 1,
+      "explanation": "CO₂ is released during combustion of fossil fuels and is the primary greenhouse gas driving climate change."
+    },
+    {
+      "q": "What type of reaction occurs during complete combustion of a hydrocarbon?",
+      "options": ["Reduction", "Oxidation", "Neutralisation", "Hydrolysis"],
+      "answer": 1,
+      "explanation": "Complete combustion is an oxidation reaction where the hydrocarbon reacts with excess oxygen to produce CO₂ and H₂O."
+    },
+    {
+      "q": "What is the bond angle in a tetrahedral molecule like methane?",
+      "options": ["90°", "104.5°", "109.5°", "120°"],
+      "answer": 2,
+      "explanation": "Methane has 4 bonding pairs arranged tetrahedrally, giving bond angles of 109.5°."
+    },
+    {
+      "q": "Which of these is a renewable fuel?",
+      "options": ["Coal", "Natural gas", "Bioethanol", "Crude oil"],
+      "answer": 2,
+      "explanation": "Bioethanol is made from fermenting plant sugars and is renewable because crops can be regrown."
+    }
+  ],
+  "elements_from_sea": [
+    {
+      "q": "What type of bonding is present in sodium chloride?",
+      "options": ["Covalent", "Metallic", "Ionic", "Van der Waals"],
+      "answer": 2,
+      "explanation": "NaCl is an ionic compound — sodium transfers an electron to chlorine, forming Na⁺ and Cl⁻ ions held by electrostatic attraction."
+    },
+    {
+      "q": "What is the charge on a chloride ion?",
+      "options": ["+1", "-1", "+2", "-2"],
+      "answer": 1,
+      "explanation": "Chlorine gains one electron to achieve a full outer shell, giving it a 1- charge (Cl⁻)."
+    },
+    {
+      "q": "Which halogen is the most reactive?",
+      "options": ["Iodine", "Bromine", "Chlorine", "Fluorine"],
+      "answer": 3,
+      "explanation": "Fluorine is the most reactive halogen because it has the smallest atomic radius and highest electronegativity, making it easiest to gain an electron."
+    },
+    {
+      "q": "What is electrolysis?",
+      "options": ["Heating a compound to break it down", "Using electricity to decompose a compound", "Dissolving a substance in water", "Mixing two solutions together"],
+      "answer": 1,
+      "explanation": "Electrolysis uses electrical energy to break down ionic compounds (in solution or molten) into their elements."
+    },
+    {
+      "q": "Halogens go down the group. What happens to their boiling points?",
+      "options": ["Decrease", "Stay the same", "Increase", "Fluctuate randomly"],
+      "answer": 2,
+      "explanation": "Boiling points increase down Group 17 because the molecules get larger, increasing London dispersion forces between them."
+    }
+  ],
+  "ozone_story": [
+    {
+      "q": "What is the chemical formula of ozone?",
+      "options": ["O", "O₂", "O₃", "O₄"],
+      "answer": 2,
+      "explanation": "Ozone is a triatomic molecule made of three oxygen atoms: O₃."
+    },
+    {
+      "q": "Which type of radiation does ozone absorb in the stratosphere?",
+      "options": ["Infrared", "Visible light", "Ultraviolet", "Microwaves"],
+      "answer": 2,
+      "explanation": "The ozone layer absorbs harmful UV radiation from the Sun, protecting living organisms from DNA damage."
+    },
+    {
+      "q": "What type of mechanism describes how CFCs destroy ozone?",
+      "options": ["Free radical chain reaction", "Nucleophilic substitution", "Electrophilic addition", "Elimination"],
+      "answer": 0,
+      "explanation": "CFCs release chlorine free radicals (Cl·) in the stratosphere which catalytically destroy ozone in a chain reaction."
+    },
+    {
+      "q": "What happens to the C-Cl bond in a CFC when exposed to UV light?",
+      "options": ["It gets stronger", "It undergoes homolytic fission", "It undergoes heterolytic fission", "Nothing happens"],
+      "answer": 1,
+      "explanation": "UV light causes homolytic fission of the C-Cl bond, producing two free radicals (each atom takes one electron from the shared pair)."
+    },
+    {
+      "q": "Why are chlorine radicals described as catalysts in ozone destruction?",
+      "options": ["They are used up in the reaction", "They speed up the reaction and are regenerated", "They lower the activation energy but are consumed", "They only work at high temperatures"],
+      "answer": 1,
+      "explanation": "Cl· radicals are regenerated at the end of the cycle, so one chlorine radical can destroy thousands of ozone molecules."
+    }
+  ],
+  "whats_in_medicine": [
+    {
+      "q": "What functional group defines an alcohol?",
+      "options": ["-COOH", "-OH", "-CHO", "-NH₂"],
+      "answer": 1,
+      "explanation": "Alcohols contain the hydroxyl group (-OH) bonded to a carbon atom."
+    },
+    {
+      "q": "What type of reaction converts an alcohol to a carboxylic acid?",
+      "options": ["Reduction", "Oxidation", "Hydrolysis", "Esterification"],
+      "answer": 1,
+      "explanation": "Oxidation of a primary alcohol first produces an aldehyde, then further oxidation produces a carboxylic acid."
+    },
+    {
+      "q": "Aspirin is an example of which type of compound?",
+      "options": ["Alkene", "Ester", "Ketone", "Amine"],
+      "answer": 1,
+      "explanation": "Aspirin (acetylsalicylic acid) contains an ester functional group, formed from a reaction between a carboxylic acid and an alcohol."
+    },
+    {
+      "q": "What does a mass spectrometer measure?",
+      "options": ["Boiling point of molecules", "Mass-to-charge ratio of ions", "Wavelength of light absorbed", "Rate of reaction"],
+      "answer": 1,
+      "explanation": "A mass spectrometer ionises molecules and separates them by their mass-to-charge (m/z) ratio to determine molecular mass and structure."
+    },
+    {
+      "q": "What is the purpose of a thin-layer chromatography (TLC) plate?",
+      "options": ["To measure pH", "To separate and identify components of a mixture", "To determine boiling point", "To measure concentration"],
+      "answer": 1,
+      "explanation": "TLC separates components based on their affinity for the stationary phase vs the mobile solvent, used to identify substances in a mixture."
+    }
+  ],
+  "chemical_industry": [
+    {
+      "q": "What does 'atom economy' measure?",
+      "options": ["Speed of a reaction", "Mass of reactants used", "Proportion of atoms that end up in the desired product", "Number of atoms in a molecule"],
+      "answer": 2,
+      "explanation": "Atom economy = (mass of desired product / total mass of all products) × 100%. It measures how efficiently atoms are used."
+    },
+    {
+      "q": "What is a catalyst?",
+      "options": ["A substance that increases the yield of a reaction", "A substance that speeds up a reaction without being consumed", "A substance that provides energy for a reaction", "A substance that prevents side reactions"],
+      "answer": 1,
+      "explanation": "A catalyst increases the rate of reaction by providing an alternative pathway with a lower activation energy, and is regenerated."
+    },
+    {
+      "q": "In a reversible reaction at equilibrium, what happens if you increase the pressure?",
+      "options": ["Equilibrium shifts to the side with more moles of gas", "Equilibrium shifts to the side with fewer moles of gas", "Equilibrium is unaffected", "The reaction stops"],
+      "answer": 1,
+      "explanation": "Le Chatelier's principle: increasing pressure favours the side with fewer moles of gas to reduce the pressure."
+    },
+    {
+      "q": "What is the Haber process used to manufacture?",
+      "options": ["Sulfuric acid", "Ethanol", "Ammonia", "Chlorine"],
+      "answer": 2,
+      "explanation": "The Haber process combines nitrogen and hydrogen at high temperature and pressure with an iron catalyst to produce ammonia (NH₃)."
+    },
+    {
+      "q": "Why is a compromise temperature used in industrial processes?",
+      "options": ["To save money on heating", "To balance yield and rate of reaction", "To prevent explosions", "To reduce pollution"],
+      "answer": 1,
+      "explanation": "A compromise temperature balances a reasonable rate of reaction (higher temp) with an acceptable yield (lower temp favours exothermic direction)."
+    }
+  ],
+  "polymers_and_life": [
+    {
+      "q": "What type of polymerisation involves monomers with C=C double bonds?",
+      "options": ["Condensation polymerisation", "Addition polymerisation", "Cross-link polymerisation", "Radical polymerisation"],
+      "answer": 1,
+      "explanation": "Addition polymerisation occurs when alkene monomers open their double bonds and join together, with no by-product formed."
+    },
+    {
+      "q": "What small molecule is released during condensation polymerisation?",
+      "options": ["Oxygen", "Carbon dioxide", "Water", "Hydrogen"],
+      "answer": 2,
+      "explanation": "Condensation polymerisation releases a small molecule (usually water) each time two monomers join together."
+    },
+    {
+      "q": "Which of these is a natural polymer?",
+      "options": ["Poly(ethene)", "PVC", "Protein", "Nylon"],
+      "answer": 2,
+      "explanation": "Proteins are natural condensation polymers made of amino acid monomers joined by peptide bonds."
+    },
+    {
+      "q": "What makes a polymer biodegradable?",
+      "options": ["It dissolves in water", "Microorganisms can break it down", "It melts at low temperatures", "It contains chlorine atoms"],
+      "answer": 1,
+      "explanation": "Biodegradable polymers can be broken down by microorganisms into simpler substances like CO₂ and water."
+    },
+    {
+      "q": "What is the repeating unit of poly(ethene)?",
+      "options": ["-CH₂-CH₂-", "-CH₂-CHCl-", "-CH₂-CH(CH₃)-", "-CF₂-CF₂-"],
+      "answer": 0,
+      "explanation": "Poly(ethene) is made from ethene (CH₂=CH₂) monomers. When the double bond opens, the repeating unit is -CH₂-CH₂-."
+    }
+  ],
+  "oceans": [
+    {
+      "q": "What causes ocean acidification?",
+      "options": ["Increased nitrogen in the atmosphere", "Increased CO₂ dissolving in seawater", "Volcanic eruptions under the sea", "Decreased salinity"],
+      "answer": 1,
+      "explanation": "CO₂ dissolves in seawater to form carbonic acid (H₂CO₃), lowering the pH and threatening marine organisms that build calcium carbonate shells."
+    },
+    {
+      "q": "What is the pH of a neutral solution?",
+      "options": ["0", "1", "7", "14"],
+      "answer": 2,
+      "explanation": "pH 7 is neutral. Below 7 is acidic (more H⁺ ions) and above 7 is alkaline (more OH⁻ ions)."
+    },
+    {
+      "q": "Which ion makes a solution acidic?",
+      "options": ["OH⁻", "Na⁺", "H⁺", "Cl⁻"],
+      "answer": 2,
+      "explanation": "H⁺ (hydrogen) ions make a solution acidic. The higher the concentration of H⁺, the lower the pH."
+    },
+    {
+      "q": "What type of reaction occurs between an acid and a base?",
+      "options": ["Oxidation", "Combustion", "Neutralisation", "Displacement"],
+      "answer": 2,
+      "explanation": "Neutralisation: acid + base → salt + water. H⁺ ions from the acid combine with OH⁻ ions from the base."
+    },
+    {
+      "q": "Why is carbonate buffering important in the oceans?",
+      "options": ["It makes the ocean taste salty", "It helps regulate ocean pH", "It increases the temperature", "It provides food for fish"],
+      "answer": 1,
+      "explanation": "The carbonate buffer system (CO₂/HCO₃⁻/CO₃²⁻) helps resist changes in ocean pH, though increased CO₂ is overwhelming this system."
+    }
+  ],
+  "developing_metals": [
+    {
+      "q": "What type of bonding is found in metals?",
+      "options": ["Covalent bonding", "Ionic bonding", "Metallic bonding", "Hydrogen bonding"],
+      "answer": 2,
+      "explanation": "Metallic bonding involves a lattice of positive ions surrounded by a 'sea' of delocalised electrons."
+    },
+    {
+      "q": "Why are transition metals good catalysts?",
+      "options": ["They are very cheap", "They have variable oxidation states", "They are always liquids", "They are non-toxic"],
+      "answer": 1,
+      "explanation": "Transition metals can change oxidation state, allowing them to form temporary bonds with reactants and provide alternative reaction pathways."
+    },
+    {
+      "q": "What is an alloy?",
+      "options": ["A pure metal", "A mixture of two or more metals (or a metal and non-metal)", "A metal oxide", "A metallic compound"],
+      "answer": 1,
+      "explanation": "An alloy is a mixture of metals (e.g., steel = iron + carbon). Different-sized atoms disrupt the regular lattice, making it harder and stronger."
+    },
+    {
+      "q": "In the reactivity series, which metal is more reactive?",
+      "options": ["Copper", "Gold", "Iron", "Potassium"],
+      "answer": 3,
+      "explanation": "Potassium is the most reactive of these metals — it's in Group 1 and readily loses its single outer electron."
+    },
+    {
+      "q": "What is recycling metals an example of?",
+      "options": ["Increasing entropy", "Sustainable chemistry", "Endothermic processing", "Nuclear chemistry"],
+      "answer": 1,
+      "explanation": "Recycling metals conserves finite ore resources, uses less energy than extraction, and reduces waste — key principles of sustainable chemistry."
+    }
+  ],
+  "colour_by_design": [
+    {
+      "q": "What causes a substance to appear coloured?",
+      "options": ["It emits light", "It absorbs certain wavelengths of visible light", "It reflects all wavelengths equally", "It is radioactive"],
+      "answer": 1,
+      "explanation": "Coloured substances absorb specific wavelengths of visible light. The colour we see is the complementary colour to what is absorbed."
+    },
+    {
+      "q": "What structural feature is needed for a molecule to absorb visible light?",
+      "options": ["Long carbon chains", "An extended conjugated system", "Ionic bonds", "Hydrogen bonds"],
+      "answer": 1,
+      "explanation": "An extended conjugated system (alternating single and double bonds) has delocalised electrons that can absorb photons in the visible range."
+    },
+    {
+      "q": "What is a chromophore?",
+      "options": ["A type of chromosome", "The part of a molecule responsible for its colour", "A photographic chemical", "A type of catalyst"],
+      "answer": 1,
+      "explanation": "A chromophore is the region of a molecule where the energy difference between electron orbitals falls within the visible spectrum."
+    },
+    {
+      "q": "Why do transition metal compounds often appear coloured?",
+      "options": ["They contain delocalised electrons", "d-d electron transitions absorb visible light", "They reflect UV light", "They are always dissolved in water"],
+      "answer": 1,
+      "explanation": "In transition metal ions, d electrons can be excited to higher energy d orbitals. The energy gap corresponds to visible light wavelengths."
+    },
+    {
+      "q": "What is a dye?",
+      "options": ["Any coloured substance", "A coloured substance that bonds to a material", "A chemical that removes colour", "A pigment suspended in oil"],
+      "answer": 1,
+      "explanation": "A dye is a coloured substance that bonds (chemically or physically) to a substrate like fabric, unlike a pigment which sits on the surface."
+    }
+  ]
+}

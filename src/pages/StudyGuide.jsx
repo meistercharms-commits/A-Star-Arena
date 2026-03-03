@@ -7,6 +7,33 @@ import { getRecurringMistakes } from '../lib/errorPatterns';
 import { getSettings, getExamBoard, getCurrentSubject } from '../lib/storage';
 import { getMasteryCategory } from '../lib/utils';
 
+const ANSWER_TEMPLATES = [
+  {
+    type: 'Define',
+    marks: '1-2 marks',
+    when: 'When asked "State..." or "Define..."',
+    structure: 'A [term] is [precise definition].\nInclude the key scientific term and one identifying detail.',
+  },
+  {
+    type: 'Explain',
+    marks: '3-4 marks',
+    when: 'When asked "Explain..." or "Describe..."',
+    structure: '1. State the key fact\n2. Give the reason/mechanism\n3. Link cause to effect\n4. Use correct terminology',
+  },
+  {
+    type: 'Compare',
+    marks: '4-6 marks',
+    when: 'When asked "Compare..." or "Distinguish..."',
+    structure: '1. Name both things being compared\n2. State similarity with evidence\n3. State difference with evidence\n4. Use comparative language (whereas, however, both)',
+  },
+  {
+    type: 'Evaluate',
+    marks: '6 marks',
+    when: 'When asked "Evaluate..." or "Discuss..."',
+    structure: '1. State your position clearly\n2. Give evidence FOR (with data/examples)\n3. Give evidence AGAINST\n4. Consider limitations of evidence\n5. Reach a justified conclusion',
+  },
+];
+
 export default function StudyGuide() {
   const { topicId } = useParams();
   const { topics } = useSubject();
@@ -235,6 +262,25 @@ export default function StudyGuide() {
               </ul>
             </div>
           )}
+
+          {/* How to Structure Answers */}
+          <div className="space-y-3">
+            <h2 className="font-semibold text-sm text-text-secondary uppercase tracking-wide">How to Structure Answers</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {ANSWER_TEMPLATES.map((t, i) => (
+                <div key={i} className="bg-bg-secondary border border-border rounded-xl p-4 space-y-2">
+                  <div className="flex items-center justify-between">
+                    <h3 className="font-semibold text-sm">{t.type}</h3>
+                    <span className="text-xs text-text-muted font-mono">{t.marks}</span>
+                  </div>
+                  <p className="text-xs text-text-muted">{t.when}</p>
+                  <div className="text-xs text-text-secondary bg-bg-tertiary rounded-lg p-2.5 space-y-1 whitespace-pre-line">
+                    {t.structure}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
 
           {/* Weak Spot Focus */}
           {guide.weakSpotFocus?.length > 0 && (

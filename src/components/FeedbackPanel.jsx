@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-export default function FeedbackPanel({ result, phase, onNext, patternWarnings = [] }) {
+export default function FeedbackPanel({ result, phase, onNext, isStudyMode = false, patternWarnings = [] }) {
   if (!result) return null;
   const nextBtnRef = useRef(null);
 
@@ -25,7 +25,7 @@ export default function FeedbackPanel({ result, phase, onNext, patternWarnings =
   return (
     <div className={`rounded-xl p-5 space-y-4 border animate-slide-up ${
       correct
-        ? 'bg-strong/5 border-strong/30'
+        ? 'bg-strong/5 border-strong/30 animate-correct-pulse'
         : 'bg-weak/5 border-weak/30'
     }`}>
       {/* Score header */}
@@ -47,8 +47,8 @@ export default function FeedbackPanel({ result, phase, onNext, patternWarnings =
         )}
       </div>
 
-      {/* Boss damage */}
-      {correct && (
+      {/* Boss damage (hidden in study mode) */}
+      {correct && !isStudyMode && (
         <p className="text-sm text-text-secondary">
           {phase === 'recall' && 'Boss takes 15 damage.'}
           {phase === 'application' && 'Boss takes 20 damage.'}
@@ -122,12 +122,15 @@ export default function FeedbackPanel({ result, phase, onNext, patternWarnings =
 
       {/* Model answer */}
       {feedback?.modelAnswer && (
-        <div>
-          <h4 className="text-xs font-medium text-text-muted uppercase tracking-wide mb-1">Model answer</h4>
-          <p className="text-sm text-text-secondary bg-bg-tertiary rounded-lg p-3">
+        <details open={isStudyMode || undefined} className="group">
+          <summary className="text-xs font-medium text-text-muted uppercase tracking-wide mb-1 cursor-pointer select-none list-none flex items-center gap-1">
+            <span className="text-text-muted group-open:rotate-90 transition-transform text-[10px]">▶</span>
+            Model answer
+          </summary>
+          <div className="text-sm text-text-secondary bg-bg-tertiary rounded-lg p-3 mt-1 whitespace-pre-line">
             {feedback.modelAnswer}
-          </p>
-        </div>
+          </div>
+        </details>
       )}
 
       {/* Next button */}

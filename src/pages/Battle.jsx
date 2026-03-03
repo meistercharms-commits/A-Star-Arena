@@ -31,6 +31,10 @@ export default function Battle() {
   const boss = bosses.find(b => b.topicId === topicId);
   const settings = getSettings();
 
+  // Battle mode: 'challenge' (timed, full XP) or 'study' (relaxed, model answers)
+  const [battleMode, setBattleMode] = useState('challenge');
+  const isStudyMode = battleMode === 'study';
+
   // Battle state
   const [stage, setStage] = useState('idle'); // idle | fighting | feedback | complete
   const [phaseIndex, setPhaseIndex] = useState(0);
@@ -46,6 +50,8 @@ export default function Battle() {
   const [loading, setLoading] = useState(false);
   const [apiSource, setApiSource] = useState(null); // 'claude' | 'mock'
   const [srsResult, setSrsResult] = useState(null);
+  const [streak, setStreak] = useState(0);
+  const [showToast, setShowToast] = useState(null); // null | string
 
   // Track results across entire battle
   const resultsRef = useRef({ recall: [], application: [], extended: [] });
@@ -56,6 +62,7 @@ export default function Battle() {
 
   const currentPhase = PHASE_ORDER[phaseIndex];
   const phaseConfig = PHASE_CONFIG[currentPhase];
+  const timerSeconds = isStudyMode ? phaseConfig?.timerSeconds * 3 : phaseConfig?.timerSeconds;
 
   // Count total questions across all phases
   const totalQuestionsInPhase = phaseConfig?.questionCount || 0;
@@ -134,6 +141,21 @@ export default function Battle() {
         setCurrentResult(result);
         setStage('feedback');
         setApiSource(markResult.source || null);
+
+        // Track streak
+        if (result.correct) {
+          setStreak(prev => {
+            const newStreak = prev + 1;
+            // Perfect recall: 5/5 correct in recall phase
+            if (currentPhase === 'recall' && newStreak === 5) {
+              setShowToast('Perfect Recall!');
+              setTimeout(() => setShowToast(null), 2500);
+            }
+            return newStreak;
+          });
+        } else {
+          setStreak(0);
+        }
 
         // Track results
         resultsRef.current[currentPhase].push(result);
@@ -220,16 +242,17 @@ export default function Battle() {
     const extendedScore = extendedResult?.score || 0;
     const extendedMax = extendedResult?.maxScore || 6;
 
+    const xpMultiplier = isStudyMode ? 0.5 : 1;
     const recallXP = recallCorrect * PHASE_CONFIG.recall.xp;
     const appXP = appCorrect * PHASE_CONFIG.application.xp;
     const extXP = Math.round((extendedScore / extendedMax) * PHASE_CONFIG.extended.xp);
-    const totalXP = recallXP + appXP + extXP;
+    const totalXP = Math.round((recallXP + appXP + extXP) * xpMultiplier);
 
     // Save session
     const session = {
       id: sessionIdRef.current,
       topicId,
-      type: 'battle',
+      type: isStudyMode ? 'study-battle' : 'battle',
       startedAt: new Date(startTimeRef.current).toISOString(),
       completedAt: new Date().toISOString(),
       durationSeconds: Math.round((Date.now() - startTimeRef.current) / 1000),
@@ -304,20 +327,54 @@ export default function Battle() {
           <p className="text-text-secondary text-sm">Topic: {topic.name}</p>
         </div>
 
+        {/* Mode Selector */}
+        <div className="bg-bg-secondary border border-border rounded-xl p-5 space-y-3">
+          <h3 className="font-semibold text-sm text-text-secondary uppercase tracking-wide">Battle Mode</h3>
+          <div className="grid grid-cols-2 gap-3">
+            <button
+              onClick={() => setBattleMode('challenge')}
+              className={`rounded-xl p-4 border text-left transition-colors cursor-pointer ${
+                battleMode === 'challenge'
+                  ? 'border-accent bg-accent/10'
+                  : 'border-border bg-bg-tertiary hover:border-text-muted'
+              }`}
+            >
+              <span className="text-lg block mb-1">⚔️</span>
+              <p className="font-semibold text-sm">Challenge</p>
+              <p className="text-xs text-text-muted mt-1">Timed, full XP, boss damage</p>
+            </button>
+            <button
+              onClick={() => setBattleMode('study')}
+              className={`rounded-xl p-4 border text-left transition-colors cursor-pointer ${
+                battleMode === 'study'
+                  ? 'border-accent bg-accent/10'
+                  : 'border-border bg-bg-tertiary hover:border-text-muted'
+              }`}
+            >
+              <span className="text-lg block mb-1">📖</span>
+              <p className="font-semibold text-sm">Study</p>
+              <p className="text-xs text-text-muted mt-1">Relaxed timer, model answers</p>
+            </button>
+          </div>
+        </div>
+
         <div className="bg-bg-secondary border border-border rounded-xl p-5 space-y-3">
           <h3 className="font-semibold text-sm text-text-secondary uppercase tracking-wide">Battle Phases</h3>
           {PHASE_ORDER.map((phase, i) => {
             const cfg = PHASE_CONFIG[phase];
+            const displayTimer = isStudyMode ? cfg.timerSeconds * 3 : cfg.timerSeconds;
             return (
               <div key={phase} className="flex items-center justify-between bg-bg-tertiary rounded-lg px-4 py-3">
                 <div>
                   <p className="font-medium text-sm">Phase {i + 1}: {cfg.label}</p>
                   <p className="text-xs text-text-muted">
-                    {cfg.questionCount} question{cfg.questionCount > 1 ? 's' : ''} &middot; {Math.floor(cfg.timerSeconds / 60)} min each
+                    {cfg.questionCount} question{cfg.questionCount > 1 ? 's' : ''} &middot; {Math.floor(displayTimer / 60)} min each
                   </p>
                 </div>
                 <span className="text-xs text-text-muted font-mono">
-                  {phase === 'extended' ? 'Up to 30 dmg' : `-${cfg.damage} HP each`}
+                  {isStudyMode
+                    ? 'No pressure'
+                    : phase === 'extended' ? 'Up to 30 dmg' : `-${cfg.damage} HP each`}
                 </span>
               </div>
             );
@@ -362,6 +419,7 @@ export default function Battle() {
         masteryBefore={masteryBefore}
         masteryAfter={masteryAfter}
         srsResult={srsResult}
+        battleMode={battleMode}
         onBattleAgain={() => { setStage('idle'); setHp(boss?.hp || 100); setCompletedSession(null); setSrsResult(null); }}
       />
     );
@@ -381,15 +439,25 @@ export default function Battle() {
         currentPhase={currentPhase}
         questionNum={questionNum}
         totalQuestions={totalQuestionsInPhase}
+        isStudyMode={isStudyMode}
+        streak={streak}
       />
+
+      {/* Perfect toast */}
+      {showToast && (
+        <div className="fixed top-20 left-1/2 -translate-x-1/2 z-50 bg-strong text-bg-primary font-bold px-5 py-2.5 rounded-xl shadow-lg animate-toast">
+          {showToast}
+        </div>
+      )}
 
       {/* Timer */}
       <div className="flex justify-end">
         <Timer
           key={timerKey}
-          seconds={phaseConfig.timerSeconds}
-          onExpire={handleTimerExpire}
+          seconds={timerSeconds}
+          onExpire={isStudyMode ? undefined : handleTimerExpire}
           running={timerRunning}
+          softExpire={isStudyMode}
         />
       </div>
 
@@ -428,6 +496,7 @@ export default function Battle() {
           result={currentResult}
           phase={currentPhase}
           onNext={handleNext}
+          isStudyMode={isStudyMode}
           patternWarnings={
             currentResult && !currentResult.correct && currentResult.tags?.errorKeywords
               ? getPatternWarningsForAttempt(currentResult.tags.errorKeywords)

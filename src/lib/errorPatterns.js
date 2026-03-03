@@ -138,6 +138,24 @@ export function getPatternWarningsForAttempt(errorKeywords = [], subject) {
   return warnings.sort((a, b) => b.occurrences - a.occurrences);
 }
 
+/**
+ * Get recurring mistakes grouped by topic.
+ * Returns { topicId: { topicId, mistakes: [...] } } sorted by mistake count.
+ */
+export function getMistakesByTopic(subject) {
+  const mistakes = getRecurringMistakes(subject);
+  const byTopic = {};
+
+  for (const m of mistakes) {
+    for (const tid of m.topicIds) {
+      if (!byTopic[tid]) byTopic[tid] = { topicId: tid, mistakes: [] };
+      byTopic[tid].mistakes.push(m);
+    }
+  }
+
+  return Object.values(byTopic).sort((a, b) => b.mistakes.length - a.mistakes.length);
+}
+
 // ─── Management Functions ───
 
 /**

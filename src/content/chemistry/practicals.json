@@ -1,0 +1,156 @@
+[
+  {
+    "id": "p1_enthalpy_combustion",
+    "title": "Enthalpy of Combustion of Alcohols",
+    "linkedTopic": "developing_fuels",
+    "method": [
+      "Weigh the spirit burner containing the alcohol",
+      "Measure a known volume of water into a copper calorimeter",
+      "Record the initial temperature of the water",
+      "Light the spirit burner and heat the water",
+      "Extinguish the flame after a suitable temperature rise (~20°C)",
+      "Record the final temperature and reweigh the spirit burner"
+    ],
+    "variables": {
+      "independent": "Type of alcohol (methanol, ethanol, propan-1-ol, etc.)",
+      "dependent": "Temperature change of water",
+      "controlled": ["Volume of water", "Starting temperature", "Distance of burner from calorimeter"]
+    },
+    "equipment": ["Spirit burner", "Copper calorimeter", "Thermometer (±0.5°C)", "Balance (±0.01g)", "Measuring cylinder", "Draught shield"],
+    "safety": ["Flammable alcohols — keep away from open flames when not in use", "Tie back hair", "Use a heat mat under the burner"],
+    "calculations": "q = mcΔT where m = mass of water (g), c = 4.18 J/g/°C, ΔT = temperature change. Divide by moles of alcohol burned to get enthalpy of combustion.",
+    "examTips": [
+      "Explain why experimental values are lower than data book values (heat loss, incomplete combustion)",
+      "Suggest improvements: use a bomb calorimeter, add a lid, use draught shield"
+    ]
+  },
+  {
+    "id": "p2_titration",
+    "title": "Acid-Base Titration",
+    "linkedTopic": "oceans",
+    "method": [
+      "Rinse the burette with the acid, then fill and record the initial reading",
+      "Use a pipette to transfer 25.0 cm³ of alkali into a conical flask",
+      "Add 2-3 drops of indicator (e.g., phenolphthalein)",
+      "Add acid from the burette slowly, swirling the flask",
+      "Add dropwise near the endpoint until the colour changes permanently",
+      "Record the final burette reading and calculate the titre",
+      "Repeat until concordant results (within 0.10 cm³)"
+    ],
+    "variables": {
+      "independent": "Volume of acid added",
+      "dependent": "Endpoint (colour change of indicator)",
+      "controlled": ["Volume of alkali (25.0 cm³)", "Concentration of one solution", "Indicator used"]
+    },
+    "equipment": ["Burette (±0.05 cm³)", "Pipette (25.0 cm³)", "Pipette filler", "Conical flask", "White tile", "Indicator"],
+    "safety": ["Wear goggles — acids and alkalis are corrosive", "Use a pipette filler, never pipette by mouth"],
+    "calculations": "Use concordant titres (mean of values within 0.10 cm³). n = cV/1000. Use mole ratios from balanced equation to find unknown concentration.",
+    "examTips": [
+      "Always read the meniscus at eye level for the burette",
+      "Concordant means within 0.10 cm³ — discard anomalous results",
+      "Explain why you use a white tile (to see the colour change clearly)"
+    ]
+  },
+  {
+    "id": "p3_testing_halide_ions",
+    "title": "Testing for Halide Ions",
+    "linkedTopic": "elements_from_sea",
+    "method": [
+      "Dissolve the sample in deionised water",
+      "Add dilute nitric acid (to remove carbonate/sulfate ions that interfere)",
+      "Add silver nitrate solution (AgNO₃)",
+      "Observe the precipitate colour",
+      "To confirm, add dilute then concentrated ammonia"
+    ],
+    "variables": {
+      "independent": "Halide ion present (Cl⁻, Br⁻, I⁻)",
+      "dependent": "Colour of precipitate formed",
+      "controlled": ["Volume of silver nitrate", "Concentration of silver nitrate"]
+    },
+    "equipment": ["Test tubes", "Dropping pipettes", "Silver nitrate solution", "Dilute nitric acid", "Dilute and concentrated ammonia"],
+    "safety": ["Silver nitrate stains skin — wear gloves", "Nitric acid is corrosive — wear goggles", "Work in a fume cupboard with concentrated ammonia"],
+    "calculations": "No calculation — qualitative test. Cl⁻ = white precipitate (soluble in dilute NH₃), Br⁻ = cream precipitate (soluble in conc. NH₃), I⁻ = yellow precipitate (insoluble in NH₃).",
+    "examTips": [
+      "Always add nitric acid FIRST to remove interfering ions",
+      "Know the ammonia solubility test to distinguish between halides",
+      "Ionic equation: Ag⁺(aq) + X⁻(aq) → AgX(s)"
+    ]
+  },
+  {
+    "id": "p4_measuring_rate",
+    "title": "Measuring Rate of Reaction",
+    "linkedTopic": "chemical_industry",
+    "method": [
+      "Set up the apparatus (gas syringe method or disappearing cross)",
+      "Measure and record volumes/masses of reactants",
+      "Mix reactants and start timing immediately",
+      "Record volume of gas produced (or time for cross to disappear) at regular intervals",
+      "Plot a graph of volume/time or 1/time against the variable"
+    ],
+    "variables": {
+      "independent": "Concentration of acid (or temperature, surface area, catalyst)",
+      "dependent": "Volume of gas produced per unit time (or time for cross to disappear)",
+      "controlled": ["Volume of acid", "Mass/size of marble chips", "Temperature (if not the IV)"]
+    },
+    "equipment": ["Conical flask", "Gas syringe or inverted burette", "Stopwatch", "Balance", "Measuring cylinder", "Thermometer"],
+    "safety": ["Wear goggles — acids used", "Ensure gas syringe is clamped securely", "If using HCl with marble chips, ensure good ventilation (CO₂)"],
+    "calculations": "Rate = volume of gas / time. Initial rate from gradient of tangent at t=0. Mean rate = total gas / total time.",
+    "examTips": [
+      "A steeper initial gradient means a faster rate",
+      "The total volume of gas at the end is the same if the limiting reagent amount is unchanged",
+      "Draw a tangent to find the initial rate — examiners check your tangent technique"
+    ]
+  },
+  {
+    "id": "p5_preparation_organic",
+    "title": "Preparation of an Organic Liquid (Ester)",
+    "linkedTopic": "whats_in_medicine",
+    "method": [
+      "Mix the alcohol and carboxylic acid in a pear-shaped flask",
+      "Add a few drops of concentrated sulfuric acid as catalyst",
+      "Set up reflux apparatus and heat gently for 15-20 minutes",
+      "Allow to cool, then distil to collect the ester",
+      "Wash the distillate with sodium carbonate solution to remove excess acid",
+      "Dry with anhydrous calcium chloride, then redistil for purity"
+    ],
+    "variables": {
+      "independent": "Type of alcohol / carboxylic acid used",
+      "dependent": "Yield and boiling point of ester produced",
+      "controlled": ["Volume of reactants", "Catalyst amount", "Reflux time and temperature"]
+    },
+    "equipment": ["Pear-shaped flask", "Reflux condenser", "Distillation apparatus", "Anti-bumping granules", "Separating funnel", "Drying agent (anhydrous CaCl₂)"],
+    "safety": ["Concentrated sulfuric acid is very corrosive — add carefully", "Esters and alcohols are flammable — no naked flames near apparatus", "Use anti-bumping granules to prevent bumping during reflux"],
+    "calculations": "Theoretical yield from moles of limiting reagent. Actual yield from mass of product collected. Percentage yield = (actual / theoretical) × 100%.",
+    "examTips": [
+      "Explain why reflux is used (to prevent loss of volatile reactants while maintaining reaction temperature)",
+      "Know the difference between reflux and distillation",
+      "Explain each purification step: washing removes water-soluble impurities, drying removes water, redistilling improves purity"
+    ]
+  },
+  {
+    "id": "p6_colorimetry",
+    "title": "Colorimetry and Calibration Curves",
+    "linkedTopic": "colour_by_design",
+    "method": [
+      "Prepare a series of standard solutions of known concentration",
+      "Set the colorimeter to the appropriate filter (complementary colour)",
+      "Calibrate with a blank (deionised water) to zero absorbance",
+      "Measure the absorbance of each standard solution",
+      "Plot a calibration curve (absorbance vs concentration)",
+      "Measure the absorbance of the unknown solution and read off the concentration"
+    ],
+    "variables": {
+      "independent": "Concentration of standard solutions",
+      "dependent": "Absorbance (arbitrary units)",
+      "controlled": ["Filter wavelength", "Cuvette path length", "Temperature"]
+    },
+    "equipment": ["Colorimeter", "Cuvettes", "Volumetric flasks", "Pipettes", "Standard solutions"],
+    "safety": ["Some coloured solutions may be irritants — wear gloves", "Handle cuvettes by the frosted sides only (fingerprints affect readings)"],
+    "calculations": "Use Beer-Lambert law: A = εcl. Read unknown concentration from calibration graph. Ensure readings are within the linear range.",
+    "examTips": [
+      "Choose a filter that gives the complementary colour to the solution",
+      "Always calibrate with a blank first",
+      "If the unknown has a higher absorbance than your standards, dilute and multiply the result"
+    ]
+  }
+]

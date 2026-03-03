@@ -1,11 +1,13 @@
 import { useState, useEffect, useRef } from 'react';
 
-export default function Timer({ seconds, onExpire, running = true, className = '' }) {
+export default function Timer({ seconds, onExpire, running = true, softExpire = false, className = '' }) {
   const [remaining, setRemaining] = useState(seconds);
+  const [expired, setExpired] = useState(false);
   const intervalRef = useRef(null);
 
   useEffect(() => {
     setRemaining(seconds);
+    setExpired(false);
   }, [seconds]);
 
   useEffect(() => {
@@ -18,7 +20,11 @@ export default function Timer({ seconds, onExpire, running = true, className = '
       setRemaining(prev => {
         if (prev <= 1) {
           clearInterval(intervalRef.current);
-          onExpire?.();
+          if (softExpire) {
+            setExpired(true);
+          } else {
+            onExpire?.();
+          }
           return 0;
         }
         return prev - 1;
@@ -26,7 +32,15 @@ export default function Timer({ seconds, onExpire, running = true, className = '
     }, 1000);
 
     return () => clearInterval(intervalRef.current);
-  }, [running, onExpire]);
+  }, [running, onExpire, softExpire]);
+
+  if (expired) {
+    return (
+      <span className={`text-developing text-sm font-medium animate-pulse ${className}`}>
+        Time's up — take your time
+      </span>
+    );
+  }
 
   const mins = Math.floor(remaining / 60);
   const secs = remaining % 60;

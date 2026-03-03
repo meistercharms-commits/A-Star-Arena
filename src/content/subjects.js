@@ -8,6 +8,8 @@ import chemistryTopics from './chemistry/topics.json';
 import chemistryBosses from './chemistry/bosses.json';
 import mathematicsTopics from './mathematics/topics.json';
 import mathematicsBosses from './mathematics/bosses.json';
+import chemistryMCQ from './chemistry/mcq.json';
+import chemistryPracticals from './chemistry/practicals.json';
 
 // ─── Subject Definitions ───
 
@@ -18,6 +20,14 @@ export const SUBJECTS = [
 ];
 
 // ─── Content Store ───
+
+const mcqStore = {
+  chemistry: chemistryMCQ,
+};
+
+const practicalsStore = {
+  chemistry: chemistryPracticals,
+};
 
 const contentStore = {
   biology: { topics: biologyTopics, bosses: biologyBosses },
@@ -49,4 +59,33 @@ export function getSubjectInfo(subjectId) {
 export function isSubjectAvailable(subjectId) {
   const content = contentStore[subjectId];
   return content && content.topics.length > 0;
+}
+
+/**
+ * Check if a topic has MCQ content available.
+ */
+export function hasMCQ(subjectId, topicId) {
+  const mcq = mcqStore[subjectId];
+  return mcq && mcq[topicId] && mcq[topicId].length > 0;
+}
+
+/**
+ * Get MCQ questions for a topic.
+ */
+export function getMCQQuestions(subjectId, topicId) {
+  return mcqStore[subjectId]?.[topicId] || [];
+}
+
+/**
+ * Check if a subject has required practicals.
+ */
+export function hasPracticals(subjectId) {
+  return practicalsStore[subjectId]?.length > 0;
+}
+
+/**
+ * Get required practicals for a subject.
+ */
+export function getPracticals(subjectId) {
+  return practicalsStore[subjectId] || [];
 }

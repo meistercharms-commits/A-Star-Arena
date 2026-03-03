@@ -608,6 +608,36 @@ export function mockGenerateQuestion({ topicId, phase, difficulty = 3, examBoard
   };
 }
 
+// ─── Model Answer Builder ───
+
+function buildModelAnswer(rubric, phase) {
+  const points = rubric?.rubricPoints || [];
+  const keywords = rubric?.keywords || [];
+
+  if (phase === 'extended' && points.length > 0) {
+    // Numbered exam-style answer for extended responses
+    return points.map((p, i) => `${i + 1}. ${p}`).join('\n');
+  }
+
+  if (phase === 'application' && points.length > 0) {
+    // Structured paragraph with cause-effect linking
+    return points.join('. ') + '.';
+  }
+
+  // Recall: concise sentence
+  if (points.length > 0) {
+    return points.length === 1
+      ? points[0] + '.'
+      : points.slice(0, 2).join('; ') + '.';
+  }
+
+  // Fallback to keywords
+  if (keywords.length <= 3) {
+    return keywords.join('; ') + '.';
+  }
+  return keywords.slice(0, 4).join('; ') + '.';
+}
+
 // ─── Mock API: Mark Answer ───
 
 export function mockMarkAnswer({ questionId, studentAnswer, phase, difficulty = 3, rubric }) {
@@ -665,9 +695,7 @@ export function mockMarkAnswer({ questionId, studentAnswer, phase, difficulty = 
         howToImprove: missedKeywords.length > 0
           ? [`Focus on these terms: ${missedKeywords.slice(0, 3).join(', ')}`, 'Use cause → effect chains in your explanations.']
           : ['Well done — try to add more detail next time.'],
-        modelAnswer: rubric?.rubricPoints
-          ? rubric.rubricPoints.join('. ') + '.'
-          : `Key points: ${keywords.join(', ')}.`,
+        modelAnswer: buildModelAnswer(rubric, phase),
       },
       tags: {
         topicId: questionId.split('_')[1] || 'unknown',

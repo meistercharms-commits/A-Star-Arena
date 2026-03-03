@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { useSubject } from '../contexts/SubjectContext';
 import { getTopicMastery, getMasteryCache, getSessions } from '../lib/storage';
 import { getMasteryCategory, getDaysSince } from '../lib/utils';
+import { hasMCQ, hasPracticals } from '../content/subjects';
+import { getCurrentSubject } from '../lib/storage';
 
 const FILTERS = [
   { key: 'all', label: 'All' },
@@ -65,9 +67,19 @@ export default function Topics() {
 
   return (
     <div className="space-y-5">
-      <div>
-        <h1 className="text-2xl font-bold">Topics</h1>
-        <p className="text-text-secondary text-sm mt-1">Choose a topic to battle. Defeat the boss to prove your mastery.</p>
+      <div className="flex items-start justify-between gap-3">
+        <div>
+          <h1 className="text-2xl font-bold">Topics</h1>
+          <p className="text-text-secondary text-sm mt-1">Choose a topic to battle. Defeat the boss to prove your mastery.</p>
+        </div>
+        {hasPracticals(getCurrentSubject()) && (
+          <Link
+            to="/practicals"
+            className="text-xs bg-developing/10 text-developing hover:bg-developing/20 px-3 py-1.5 rounded-lg no-underline transition-colors font-medium shrink-0"
+          >
+            Required Practicals
+          </Link>
+        )}
       </div>
 
       {/* Filter pills */}
@@ -161,6 +173,15 @@ export default function Topics() {
                 >
                   📖
                 </Link>
+                {hasMCQ(getCurrentSubject(), topic.id) && (
+                  <Link
+                    to={`/mcq/${topic.id}`}
+                    className="text-xs bg-developing/10 text-developing hover:bg-developing/20 px-2.5 py-1.5 rounded-lg no-underline transition-colors font-medium"
+                    title="MCQ Drill"
+                  >
+                    MCQ
+                  </Link>
+                )}
                 <Link
                   to={`/battle/${topic.id}`}
                   className="text-xs bg-accent/10 text-accent hover:bg-accent/20 px-3 py-1.5 rounded-lg no-underline transition-colors font-medium"

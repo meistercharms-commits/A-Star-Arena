@@ -11,7 +11,7 @@ const PHASE_CONFIG = {
   extended: { label: 'Exam Brain', xpTotal: 60 },
 };
 
-export default function BattleSummary({ session, boss, topic, masteryBefore, masteryAfter, srsResult, onBattleAgain }) {
+export default function BattleSummary({ session, boss, topic, masteryBefore, masteryAfter, srsResult, battleMode = 'challenge', onBattleAgain }) {
   const { topics, bosses } = useSubject();
   const [feedbackDifficulty, setFeedbackDifficulty] = useState(null);
   const [feedbackFairness, setFeedbackFairness] = useState(null);
@@ -43,6 +43,7 @@ export default function BattleSummary({ session, boss, topic, masteryBefore, mas
   const extXP = extMax > 0 ? Math.round((extScore / extMax) * PHASE_CONFIG.extended.xpTotal) : 0;
   const totalXP = session.xpEarned;
   const defeated = session.bossDefeated;
+  const isStudyMode = battleMode === 'study';
 
   // Get recommendation from the real engine
   const rec = getPostBattleRecommendation({
@@ -60,18 +61,21 @@ export default function BattleSummary({ session, boss, topic, masteryBefore, mas
 
   return (
     <div className="space-y-5 max-w-2xl mx-auto">
-      {/* Victory / Defeat Banner */}
+      {/* Victory / Defeat / Session Complete Banner */}
       <div className={`rounded-xl p-6 text-center border ${
-        defeated ? 'bg-strong/5 border-strong/30' : 'bg-weak/5 border-weak/30'
+        isStudyMode ? 'bg-accent/5 border-accent/30' :
+        defeated ? 'bg-strong/5 border-strong/30 animate-starburst' : 'bg-weak/5 border-weak/30'
       }`}>
-        <span className="text-5xl block mb-2">{defeated ? '🏆' : '💀'}</span>
+        <span className="text-5xl block mb-2">{isStudyMode ? '📖' : defeated ? '🏆' : '💀'}</span>
         <h1 className="text-2xl font-bold mb-1">
-          {defeated ? 'Boss Defeated!' : 'Boss Survived'}
+          {isStudyMode ? 'Session Complete' : defeated ? 'Boss Defeated!' : 'Boss Survived'}
         </h1>
         <p className="text-text-secondary text-sm">
-          {defeated
-            ? `You defeated ${boss?.bossName}!`
-            : `${boss?.bossName} survived with ${100 - (session.phases.recall.correct * 15 + session.phases.application.correct * 20 + (extScore >= 5 ? 30 : extScore * 5))} HP remaining.`
+          {isStudyMode
+            ? `Study session on ${topic?.name} complete.`
+            : defeated
+              ? `You defeated ${boss?.bossName}!`
+              : `${boss?.bossName} survived with ${100 - (session.phases.recall.correct * 15 + session.phases.application.correct * 20 + (extScore >= 5 ? 30 : extScore * 5))} HP remaining.`
           }
         </p>
       </div>
@@ -117,7 +121,7 @@ export default function BattleSummary({ session, boss, topic, masteryBefore, mas
             <span className="text-accent font-mono">+{extXP} XP</span>
           </div>
           <div className="border-t border-border pt-2 flex justify-between font-semibold">
-            <span>Total</span>
+            <span>Total{isStudyMode ? ' (50% Study Mode)' : ''}</span>
             <span className="text-accent font-mono">+{totalXP} XP</span>
           </div>
         </div>
@@ -138,8 +142,10 @@ export default function BattleSummary({ session, boss, topic, masteryBefore, mas
             <div className="text-xs text-text-muted">Correct</div>
           </div>
           <div>
-            <div className={`text-lg font-bold font-mono ${defeated ? 'text-strong' : 'text-weak'}`}>
-              {defeated ? 'WIN' : 'LOSS'}
+            <div className={`text-lg font-bold font-mono ${
+              isStudyMode ? 'text-accent' : defeated ? 'text-strong' : 'text-weak'
+            }`}>
+              {isStudyMode ? 'STUDY' : defeated ? 'WIN' : 'LOSS'}
             </div>
             <div className="text-xs text-text-muted">Result</div>
           </div>

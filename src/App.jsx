@@ -18,6 +18,9 @@ const Exam = lazy(() => import('./pages/Exam'));
 const History = lazy(() => import('./pages/History'));
 const Settings = lazy(() => import('./pages/Settings'));
 const StudyGuide = lazy(() => import('./pages/StudyGuide'));
+const MistakeJournal = lazy(() => import('./pages/MistakeJournal'));
+const MCQ = lazy(() => import('./pages/MCQ'));
+const Practicals = lazy(() => import('./pages/Practicals'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
 function PageLoader() {
@@ -59,6 +62,9 @@ const router = createBrowserRouter([
       { path: '/study-guide/:topicId', element: <StudyGuide /> },
       { path: '/exam', element: <Exam /> },
       { path: '/history', element: <History /> },
+      { path: '/mistakes', element: <MistakeJournal /> },
+      { path: '/mcq/:topicId', element: <MCQ /> },
+      { path: '/practicals', element: <Practicals /> },
       { path: '/settings', element: <Settings /> },
       { path: '*', element: <NotFound /> },
     ],
