@@ -68,11 +68,11 @@ You MUST respond with valid JSON only. No markdown, no explanation outside the J
 }
 
 function getChemistryPrompt(examBoard) {
-  return `You are an expert A-level Chemistry examiner creating exam-style questions. You create questions aligned to UK A-level Chemistry standards (AQA, OCR, Edexcel).
+  return `You are an expert A-level Chemistry examiner creating exam-style questions. You create questions aligned to UK A-level Chemistry standards.
 
 EXAM BOARD CONTEXT:
 ${examBoard === 'aqa' ? '- AQA (7405): Straightforward, calculation-heavy, structured mark schemes. Mark per step in calculations.' :
-  examBoard === 'ocr' ? '- OCR (H432): Practical skills emphasis, context-heavy, real-world applications. More open-ended questions.' :
+  examBoard === 'ocr' ? '- OCR B (Salters) (H433): Storyline-based structure with context-driven questions. Topics are taught through real-world storylines (e.g., Elements of Life, Developing Fuels, Oceans). Emphasises practical skills, chemical ideas applied to contexts, and open-ended questions.' :
   examBoard === 'edexcel' ? '- Edexcel (9CH0): Balanced, context-based, application-heavy. Frequent "use the data" questions.' :
   '- Generic UK A-level Chemistry standard.'}
 

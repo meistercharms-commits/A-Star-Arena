@@ -1,106 +1,82 @@
 [
   {
-    "topicId": "atomic_structure",
-    "bossName": "The Nucleus Warden",
-    "flavourText": "Guards the secrets of the atom. Crack its electron shell to reveal the truth within.",
+    "topicId": "elements_of_life",
+    "bossName": "The Periodic Titan",
+    "flavourText": "Born from the building blocks of the universe. Only by mastering atoms and bonds can you topple this elemental giant.",
     "emoji": "⚛️",
     "hp": 100,
     "hpBarColour": "#8b5cf6"
   },
   {
-    "topicId": "bonding_structure",
-    "bossName": "The Bond Breaker",
-    "flavourText": "Forged from ionic lattices and covalent chains. Only true understanding of forces can shatter it.",
-    "emoji": "🔗",
-    "hp": 100,
-    "hpBarColour": "#3b82f6"
-  },
-  {
-    "topicId": "states_of_matter",
-    "bossName": "The Phase Shifter",
-    "flavourText": "Morphs between solid, liquid, and gas at will. Master the ideal gas law to trap it.",
-    "emoji": "💨",
-    "hp": 100,
-    "hpBarColour": "#64748b"
-  },
-  {
-    "topicId": "stoichiometry",
-    "bossName": "The Mole King",
-    "flavourText": "Wields Avogadro's number as a weapon. Balance every equation or be overwhelmed.",
-    "emoji": "⚖️",
+    "topicId": "developing_fuels",
+    "bossName": "The Combustion Engine",
+    "flavourText": "Fuelled by hydrocarbons and enthalpy. Break its bonds and extinguish its flames with Hess's law.",
+    "emoji": "🔥",
     "hp": 100,
     "hpBarColour": "#f97316"
   },
   {
-    "topicId": "energetics",
-    "bossName": "Enthalpy Inferno",
-    "flavourText": "Burns with exothermic fury. Calculate its energy to extinguish the flames.",
-    "emoji": "🔥",
-    "hp": 100,
-    "hpBarColour": "#ef4444"
-  },
-  {
-    "topicId": "kinetics",
-    "bossName": "The Catalyst Phantom",
-    "flavourText": "Moves faster than any reaction. Lower its activation energy to slow it down.",
-    "emoji": "⚡",
-    "hp": 100,
-    "hpBarColour": "#eab308"
-  },
-  {
-    "topicId": "equilibrium",
-    "bossName": "Le Chatelier's Shadow",
-    "flavourText": "Shifts and adapts to every challenge. Disturb its balance to gain the upper hand.",
-    "emoji": "🔄",
-    "hp": 100,
-    "hpBarColour": "#14b8a6"
-  },
-  {
-    "topicId": "acid_base",
-    "bossName": "The pH Spectre",
-    "flavourText": "Lurks across the pH scale from acid to alkali. Neutralise it with precision.",
-    "emoji": "🧪",
-    "hp": 100,
-    "hpBarColour": "#a855f7"
-  },
-  {
-    "topicId": "redox",
-    "bossName": "The Electron Thief",
-    "flavourText": "Steals and gives electrons in equal measure. Track every oxidation state to prevail.",
-    "emoji": "🔋",
-    "hp": 100,
-    "hpBarColour": "#22c55e"
-  },
-  {
-    "topicId": "organic_1",
-    "bossName": "The Carbon Architect",
-    "flavourText": "Builds endless molecular chains. Name every structure to dismantle its creations.",
-    "emoji": "🏗️",
+    "topicId": "elements_from_sea",
+    "bossName": "The Halogen Kraken",
+    "flavourText": "Rises from the brine, armed with oxidation and displacement. Balance the redox to drag it down.",
+    "emoji": "🌊",
     "hp": 100,
     "hpBarColour": "#06b6d4"
   },
   {
-    "topicId": "organic_2",
-    "bossName": "The Mechanism Master",
-    "flavourText": "Commands curly arrows with deadly precision. Trace every electron pair to survive.",
-    "emoji": "🎯",
+    "topicId": "ozone_story",
+    "bossName": "The Radical Storm",
+    "flavourText": "A chain reaction of destruction in the stratosphere. Terminate its radicals before the ozone falls.",
+    "emoji": "🌀",
+    "hp": 100,
+    "hpBarColour": "#22c55e"
+  },
+  {
+    "topicId": "whats_in_medicine",
+    "bossName": "The Spectral Apothecary",
+    "flavourText": "Hides functional groups behind spectral disguises. Use IR and mass spec to reveal the cure.",
+    "emoji": "💊",
     "hp": 100,
     "hpBarColour": "#ec4899"
   },
   {
-    "topicId": "organic_3",
-    "bossName": "The Carbonyl Sentinel",
-    "flavourText": "Guards the gateway to advanced organic chemistry. Test every functional group to pass.",
-    "emoji": "🛡️",
+    "topicId": "chemical_industry",
+    "bossName": "The Rate Controller",
+    "flavourText": "Commands reaction kinetics and equilibrium at industrial scale. Master Kc and rate equations to outpace it.",
+    "emoji": "🏭",
     "hp": 100,
-    "hpBarColour": "#d946ef"
+    "hpBarColour": "#64748b"
   },
   {
-    "topicId": "synthesis_analysis",
-    "bossName": "The Spectral Alchemist",
-    "flavourText": "Decodes molecular secrets from spectra and synthesis. Combine all your knowledge to defeat it.",
-    "emoji": "🔬",
+    "topicId": "polymers_and_life",
+    "bossName": "The Peptide Weaver",
+    "flavourText": "Weaves amino acids into chains of protein armour. Hydrolyse its bonds to unravel its defences.",
+    "emoji": "🧬",
     "hp": 100,
-    "hpBarColour": "#f59e0b"
+    "hpBarColour": "#14b8a6"
+  },
+  {
+    "topicId": "oceans",
+    "bossName": "The Entropy Leviathan",
+    "flavourText": "Lurks in the deep, shielded by buffer solutions and Born-Haber cycles. Only thermodynamic mastery prevails.",
+    "emoji": "🐋",
+    "hp": 100,
+    "hpBarColour": "#3b82f6"
+  },
+  {
+    "topicId": "developing_metals",
+    "bossName": "The Transition Golem",
+    "flavourText": "Forged from d-block metals and complex ions. Measure its electrode potential to find its weakness.",
+    "emoji": "🗿",
+    "hp": 100,
+    "hpBarColour": "#eab308"
+  },
+  {
+    "topicId": "colour_by_design",
+    "bossName": "The Chromatic Phantom",
+    "flavourText": "Shifts colour through conjugation and delocalisation. Only Friedel-Crafts and organic synthesis can pin it down.",
+    "emoji": "🎨",
+    "hp": 100,
+    "hpBarColour": "#d946ef"
   }
 ]

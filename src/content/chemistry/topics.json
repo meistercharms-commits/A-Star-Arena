@@ -1,293 +1,220 @@
 [
   {
-    "id": "atomic_structure",
-    "name": "Atomic Structure",
-    "description": "Protons, neutrons, electrons, mass number, isotopes, electron configuration",
+    "id": "elements_of_life",
+    "name": "Elements of Life",
+    "description": "Atomic structure, electron configuration, bonding, moles & equations, group 2, periodicity, analytical techniques",
     "subskills": [
-      { "id": "subatomic_particles", "name": "Subatomic Particles", "critical": true, "keywords": ["proton", "neutron", "electron", "mass number", "atomic number"] },
-      { "id": "isotopes", "name": "Isotopes & Relative Atomic Mass", "critical": true, "keywords": ["isotope", "relative atomic mass", "mass spectrometry", "abundance"] },
-      { "id": "electron_configuration", "name": "Electron Configuration", "critical": true, "keywords": ["1s", "2s", "2p", "3s", "3p", "3d", "4s", "orbital", "subshell"] },
-      { "id": "ionisation_energy", "name": "Ionisation Energy", "critical": true, "keywords": ["first ionisation energy", "nuclear charge", "shielding", "atomic radius", "endothermic"] },
-      { "id": "emission_spectra", "name": "Emission Spectra", "critical": false, "keywords": ["energy levels", "photon", "frequency", "wavelength", "excited state"] }
+      { "id": "atomic_structure_el", "name": "Atomic Structure & Isotopes", "critical": true, "keywords": ["proton", "neutron", "electron", "mass number", "isotope", "mass spectrometry"] },
+      { "id": "electron_config_el", "name": "Electron Configuration & Ionisation Energy", "critical": true, "keywords": ["orbital", "subshell", "1s", "2p", "3d", "ionisation energy", "shielding"] },
+      { "id": "bonding_el", "name": "Bonding & Structure", "critical": true, "keywords": ["ionic", "covalent", "metallic", "electronegativity", "lattice", "intermolecular"] },
+      { "id": "moles_equations_el", "name": "Moles, Formulae & Equations", "critical": true, "keywords": ["mole", "Avogadro", "molar mass", "empirical formula", "balanced equation"] },
+      { "id": "shapes_molecules_el", "name": "Shapes of Molecules & Ions", "critical": true, "keywords": ["VSEPR", "electron pair repulsion", "tetrahedral", "trigonal planar", "bond angle"] },
+      { "id": "group2_el", "name": "Group 2 & Periodicity", "critical": false, "keywords": ["alkaline earth", "reactivity trend", "flame test", "period 3", "atomic radius"] },
+      { "id": "analytical_el", "name": "Analytical Techniques", "critical": false, "keywords": ["mass spectrum", "relative atomic mass", "abundance", "fragmentation"] }
     ],
     "commonMisconceptions": [
       "Mass number and relative atomic mass are the same thing",
-      "Electrons orbit the nucleus in fixed paths like planets",
-      "Ionisation energy always increases across a period (ignoring dips at Group 3 and 6)",
-      "Neutrons have a charge"
+      "Electrons orbit in fixed paths like planets",
+      "Ionisation energy always increases across a period without dips",
+      "Ionic bonding involves electron sharing"
     ],
     "highYield": true,
-    "calculationHeavy": false,
-    "difficultyRating": 2
+    "calculationHeavy": true,
+    "difficultyRating": 3
   },
   {
-    "id": "bonding_structure",
-    "name": "Bonding & Structure",
-    "description": "Ionic, covalent, metallic bonding, giant structures, intermolecular forces, properties",
+    "id": "developing_fuels",
+    "name": "Developing Fuels",
+    "description": "Alkanes, alkenes, enthalpy, Hess's law, calorimetry, kinetics, isomerism, polymers",
     "subskills": [
-      { "id": "ionic_bonding", "name": "Ionic Bonding", "critical": true, "keywords": ["electrostatic attraction", "electron transfer", "oppositely charged ions", "lattice"] },
-      { "id": "covalent_bonding", "name": "Covalent Bonding", "critical": true, "keywords": ["shared pair", "electrons", "overlap", "sigma bond", "pi bond"] },
-      { "id": "metallic_bonding", "name": "Metallic Bonding", "critical": true, "keywords": ["delocalised electrons", "sea of electrons", "positive ions", "electrostatic attraction"] },
-      { "id": "intermolecular_forces", "name": "Intermolecular Forces", "critical": true, "keywords": ["van der Waals", "dipole-dipole", "hydrogen bonding", "London forces", "electronegativity"] },
-      { "id": "shapes_molecules", "name": "Shapes of Molecules (VSEPR)", "critical": true, "keywords": ["electron pair repulsion", "tetrahedral", "trigonal planar", "linear", "bond angle"] },
-      { "id": "giant_structures", "name": "Giant Structures", "critical": false, "keywords": ["giant ionic", "giant covalent", "diamond", "graphite", "silicon dioxide"] }
+      { "id": "alkanes_df", "name": "Alkanes & Combustion", "critical": true, "keywords": ["hydrocarbon", "combustion", "cracking", "fractional distillation", "fossil fuel"] },
+      { "id": "alkenes_df", "name": "Alkenes & Addition Reactions", "critical": true, "keywords": ["double bond", "electrophilic addition", "bromine water", "Markovnikov", "polymerisation"] },
+      { "id": "enthalpy_df", "name": "Enthalpy Changes & Calorimetry", "critical": true, "keywords": ["enthalpy", "exothermic", "endothermic", "calorimetry", "specific heat capacity", "q=mcDeltaT"] },
+      { "id": "hess_law_df", "name": "Hess's Law & Bond Energies", "critical": true, "keywords": ["Hess's law", "enthalpy cycle", "bond enthalpy", "formation", "combustion"] },
+      { "id": "kinetics_df", "name": "Kinetics & Collision Theory", "critical": true, "keywords": ["rate", "collision theory", "activation energy", "Boltzmann distribution", "catalyst"] },
+      { "id": "isomerism_df", "name": "Isomerism", "critical": true, "keywords": ["structural isomer", "E/Z isomer", "stereoisomer", "cis-trans", "geometric"] },
+      { "id": "polymers_df", "name": "Polymers & Sustainability", "critical": false, "keywords": ["addition polymer", "monomer", "repeat unit", "recycling", "biodegradable"] }
     ],
     "commonMisconceptions": [
-      "Ionic bonding is electron sharing (it's electron transfer)",
-      "Hydrogen bonds are actual chemical bonds (they're intermolecular forces)",
-      "Van der Waals forces only exist in non-polar molecules",
-      "All covalent compounds are gases at room temperature",
-      "Metallic bonding involves electron transfer between metal atoms"
+      "Breaking bonds releases energy (it requires energy)",
+      "Catalysts provide energy to start reactions (they lower activation energy)",
+      "All isomers have different molecular formulae",
+      "Cracking only produces alkenes"
+    ],
+    "highYield": true,
+    "calculationHeavy": true,
+    "difficultyRating": 3
+  },
+  {
+    "id": "elements_from_sea",
+    "name": "Elements from the Sea",
+    "description": "Chemical equilibrium, halogens, halogenoalkanes, redox, oxidation numbers, nucleophilic substitution",
+    "subskills": [
+      { "id": "equilibrium_es", "name": "Chemical Equilibrium", "critical": true, "keywords": ["dynamic equilibrium", "Le Chatelier", "position of equilibrium", "reversible reaction"] },
+      { "id": "halogens_es", "name": "Halogens (Group 7)", "critical": true, "keywords": ["halogen", "halide ion", "displacement", "electronegativity", "oxidising agent"] },
+      { "id": "redox_es", "name": "Redox & Oxidation Numbers", "critical": true, "keywords": ["oxidation", "reduction", "oxidation state", "half equation", "electron transfer"] },
+      { "id": "halogenoalkanes_es", "name": "Halogenoalkanes", "critical": true, "keywords": ["nucleophilic substitution", "SN1", "SN2", "elimination", "hydroxide ion"] },
+      { "id": "industrial_es", "name": "Industrial Chemistry & Electrolysis", "critical": false, "keywords": ["brine", "electrolysis", "chlor-alkali", "industrial process"] }
+    ],
+    "commonMisconceptions": [
+      "Equilibrium means concentrations of products and reactants are equal",
+      "Catalysts shift the position of equilibrium",
+      "Oxidation always involves oxygen",
+      "SN1 and SN2 always give the same products"
     ],
     "highYield": true,
     "calculationHeavy": false,
     "difficultyRating": 3
   },
   {
-    "id": "states_of_matter",
-    "name": "States of Matter",
-    "description": "Gases, liquids, solids, ideal gas equation, molar volume, pV=nRT",
+    "id": "ozone_story",
+    "name": "The Ozone Story",
+    "description": "Bonding & structure, kinetics, collision theory, CFCs, radical reactions, reaction mechanisms",
     "subskills": [
-      { "id": "ideal_gas", "name": "Ideal Gas Equation (pV=nRT)", "critical": true, "keywords": ["pressure", "volume", "moles", "temperature", "gas constant", "Kelvin"] },
-      { "id": "molar_volume", "name": "Molar Volume", "critical": true, "keywords": ["24 dm3", "room temperature", "pressure", "Avogadro"] },
-      { "id": "gas_calculations", "name": "Gas Calculations", "critical": true, "keywords": ["volume", "moles", "concentration", "dm3", "cm3"] },
-      { "id": "state_changes", "name": "State Changes & Energy", "critical": false, "keywords": ["melting", "boiling", "evaporation", "intermolecular forces", "kinetic energy"] },
-      { "id": "real_vs_ideal", "name": "Real vs Ideal Gases", "critical": false, "keywords": ["high pressure", "low temperature", "intermolecular forces", "volume of molecules"] }
+      { "id": "bonding_oz", "name": "Bonding & Electronegativity", "critical": true, "keywords": ["ionic", "covalent", "electronegativity", "polar bond", "dipole"] },
+      { "id": "structure_oz", "name": "Structure & Properties", "critical": true, "keywords": ["giant covalent", "simple molecular", "boiling point", "intermolecular forces", "hydrogen bonding"] },
+      { "id": "kinetics_oz", "name": "Rates & Collision Theory", "critical": true, "keywords": ["rate of reaction", "collision theory", "activation energy", "catalyst", "temperature"] },
+      { "id": "radicals_oz", "name": "Radical Reactions & CFCs", "critical": true, "keywords": ["free radical", "initiation", "propagation", "termination", "CFC", "ozone depletion"] },
+      { "id": "mechanisms_oz", "name": "Reaction Mechanisms", "critical": true, "keywords": ["curly arrow", "homolytic fission", "heterolytic fission", "nucleophile", "electrophile"] },
+      { "id": "sustainability_oz", "name": "Sustainability & Atmosphere", "critical": false, "keywords": ["greenhouse effect", "carbon footprint", "ozone layer", "Montreal Protocol"] }
     ],
     "commonMisconceptions": [
-      "Temperature in gas calculations can be in Celsius (must be Kelvin)",
-      "Molar volume is always 24 dm3 regardless of conditions",
-      "Ideal gas equation works perfectly for all gases at all conditions",
-      "Volume units don't matter in calculations (dm3 vs cm3 conversion needed)"
+      "CFCs directly react with ozone (they release Cl radicals which act as catalysts)",
+      "Hydrogen bonding is a type of covalent bond",
+      "Higher boiling point always means stronger covalent bonds",
+      "Curly arrows show the movement of atoms, not electron pairs"
     ],
-    "highYield": false,
-    "calculationHeavy": true,
+    "highYield": true,
+    "calculationHeavy": false,
     "difficultyRating": 3
   },
   {
-    "id": "stoichiometry",
-    "name": "Chemical Equations & Stoichiometry",
-    "description": "Balancing equations, mole calculations, limiting reagents, percentage yield, atom economy",
+    "id": "whats_in_medicine",
+    "name": "What's in a Medicine?",
+    "description": "Alcohols, carboxylic acids, esters, mass spectrometry, IR spectroscopy, chromatography, isomerism",
     "subskills": [
-      { "id": "balancing_equations", "name": "Balancing Equations", "critical": true, "keywords": ["coefficients", "conservation of mass", "balanced", "atoms"] },
-      { "id": "mole_calculations", "name": "Mole Calculations", "critical": true, "keywords": ["molar mass", "n = m/M", "moles", "grams", "relative formula mass"] },
-      { "id": "stoichiometric_ratio", "name": "Stoichiometric Ratios", "critical": true, "keywords": ["mole ratio", "coefficients", "products", "reactants"] },
-      { "id": "limiting_reagent", "name": "Limiting Reagent", "critical": true, "keywords": ["smallest mole ratio", "excess reagent", "restricts yield"] },
-      { "id": "percentage_yield", "name": "Percentage Yield", "critical": true, "keywords": ["actual yield", "theoretical yield", "% = actual/theoretical x 100"] },
-      { "id": "atom_economy", "name": "Atom Economy", "critical": false, "keywords": ["desired product", "total products", "% atom economy", "waste"] },
-      { "id": "concentration_volume", "name": "Concentration & Volume Calculations", "critical": true, "keywords": ["mol/dm3", "concentration", "volume", "n = c x v", "titration"] }
+      { "id": "alcohols_wm", "name": "Alcohols & Oxidation", "critical": true, "keywords": ["primary alcohol", "secondary alcohol", "tertiary alcohol", "oxidation", "dehydration"] },
+      { "id": "carboxylic_acids_wm", "name": "Carboxylic Acids & Esters", "critical": true, "keywords": ["carboxylic acid", "ester", "esterification", "condensation", "hydrolysis"] },
+      { "id": "mass_spec_wm", "name": "Mass Spectrometry", "critical": true, "keywords": ["molecular ion", "m/z", "fragmentation", "base peak", "relative abundance"] },
+      { "id": "ir_spec_wm", "name": "IR Spectroscopy", "critical": true, "keywords": ["infrared", "absorption", "wavenumber", "O-H", "C=O", "fingerprint region"] },
+      { "id": "chromatography_wm", "name": "Chromatography", "critical": false, "keywords": ["Rf value", "TLC", "gas chromatography", "GC-MS", "stationary phase", "mobile phase"] },
+      { "id": "optical_isomerism_wm", "name": "Optical Isomerism", "critical": false, "keywords": ["chiral centre", "enantiomer", "optical activity", "racemic mixture", "polarised light"] }
     ],
     "commonMisconceptions": [
-      "Stoichiometry is just dividing by molar mass (must use mole ratio from equation)",
-      "The reagent with the largest mass is always in excess",
-      "Percentage yield can be greater than 100%",
-      "Coefficients don't affect the mole ratio",
-      "Atom economy and percentage yield are the same thing"
+      "Tertiary alcohols can be oxidised by acidified dichromate",
+      "The molecular ion peak is always the tallest peak in a mass spectrum",
+      "IR spectroscopy can identify the exact compound (it confirms functional groups)",
+      "All alcohols undergo elimination easily"
+    ],
+    "highYield": true,
+    "calculationHeavy": false,
+    "difficultyRating": 4
+  },
+  {
+    "id": "chemical_industry",
+    "name": "The Chemical Industry",
+    "description": "Rate equations, reaction order, equilibrium constants (Kc, Kp), amines, amino acids, NMR spectroscopy",
+    "subskills": [
+      { "id": "rate_equations_ci", "name": "Rate Equations & Order", "critical": true, "keywords": ["rate equation", "order", "rate constant", "initial rates", "rate-determining step"] },
+      { "id": "arrhenius_ci", "name": "Arrhenius Equation", "critical": true, "keywords": ["Arrhenius", "activation energy", "rate constant", "temperature", "ln k"] },
+      { "id": "kc_kp_ci", "name": "Equilibrium Constants (Kc & Kp)", "critical": true, "keywords": ["Kc", "Kp", "mole fraction", "partial pressure", "equilibrium expression"] },
+      { "id": "amines_ci", "name": "Amines & Amino Acids", "critical": true, "keywords": ["amine", "amino acid", "peptide bond", "condensation", "zwitterion"] },
+      { "id": "nmr_ci", "name": "NMR Spectroscopy", "critical": true, "keywords": ["chemical shift", "integration", "splitting", "TMS", "carbon-13 NMR", "proton NMR"] },
+      { "id": "industrial_ci", "name": "Industrial Processes & Sustainability", "critical": false, "keywords": ["Haber process", "Contact process", "atom economy", "green chemistry"] }
+    ],
+    "commonMisconceptions": [
+      "The order of a reaction can be determined from the balanced equation",
+      "Increasing temperature always increases Kc",
+      "NMR chemical shift tells you the number of hydrogen atoms",
+      "Kp and Kc always have the same value"
     ],
     "highYield": true,
     "calculationHeavy": true,
     "difficultyRating": 4
   },
   {
-    "id": "energetics",
-    "name": "Energetics",
-    "description": "Exothermic, endothermic, enthalpy changes, Hess's law, bond energies, calorimetry",
+    "id": "polymers_and_life",
+    "name": "Polymers and Life",
+    "description": "Amino acids, proteins, condensation polymers, polyesters, polyamides, optical isomerism, peptides",
     "subskills": [
-      { "id": "enthalpy_changes", "name": "Enthalpy Changes", "critical": true, "keywords": ["exothermic", "endothermic", "delta H", "negative", "positive", "surroundings"] },
-      { "id": "calorimetry", "name": "Calorimetry Calculations", "critical": true, "keywords": ["q = mcDT", "specific heat capacity", "temperature change", "energy"] },
-      { "id": "bond_energies", "name": "Bond Energy Calculations", "critical": true, "keywords": ["bonds broken", "bonds formed", "endothermic breaking", "exothermic forming"] },
-      { "id": "hess_law", "name": "Hess's Law", "critical": true, "keywords": ["enthalpy cycle", "alternative route", "state function", "formation", "combustion"] },
-      { "id": "standard_conditions", "name": "Standard Conditions", "critical": false, "keywords": ["298 K", "100 kPa", "1 mol/dm3", "standard state"] },
-      { "id": "born_haber", "name": "Born-Haber Cycles", "critical": false, "keywords": ["lattice enthalpy", "electron affinity", "ionisation energy", "atomisation"] }
+      { "id": "amino_acids_pl", "name": "Amino Acids & Peptides", "critical": true, "keywords": ["amino acid", "peptide bond", "dipeptide", "polypeptide", "protein"] },
+      { "id": "condensation_pl", "name": "Condensation Polymers", "critical": true, "keywords": ["condensation", "polyester", "polyamide", "dicarboxylic acid", "diamine", "diol"] },
+      { "id": "proteins_pl", "name": "Protein Structure & Function", "critical": true, "keywords": ["primary structure", "secondary structure", "tertiary structure", "hydrogen bond", "disulfide bridge"] },
+      { "id": "optical_pl", "name": "Optical Isomerism", "critical": true, "keywords": ["chiral centre", "enantiomer", "racemic mixture", "optical activity", "plane-polarised light"] },
+      { "id": "hydrolysis_pl", "name": "Hydrolysis of Polymers", "critical": false, "keywords": ["hydrolysis", "acid hydrolysis", "base hydrolysis", "biodegradable", "enzyme"] },
+      { "id": "polymer_types_pl", "name": "Addition vs Condensation Polymers", "critical": false, "keywords": ["addition polymer", "condensation polymer", "monomer", "repeat unit", "small molecule lost"] }
     ],
     "commonMisconceptions": [
-      "Exothermic means the reaction feels hot to touch (it releases energy to surroundings)",
-      "Bond breaking releases energy (it requires energy, endothermic)",
-      "Delta H for bond energies is always accurate (they're mean values)",
-      "Hess's law means all routes give the same enthalpy (same START and END states)",
-      "Confusing delta H sign: negative = exothermic, positive = endothermic"
+      "Addition and condensation polymers form by the same mechanism",
+      "All amino acids are chiral (glycine is not)",
+      "Peptide bonds only form between two amino acids",
+      "Proteins are always made of a single polypeptide chain"
     ],
     "highYield": true,
-    "calculationHeavy": true,
+    "calculationHeavy": false,
     "difficultyRating": 4
   },
   {
-    "id": "kinetics",
-    "name": "Kinetics",
-    "description": "Rate of reaction, collision theory, activation energy, catalysts, rate equations",
+    "id": "oceans",
+    "name": "Oceans",
+    "description": "Acids, bases, pH, buffer solutions, entropy, lattice enthalpy, Born-Haber cycles, enthalpy of hydration",
     "subskills": [
-      { "id": "collision_theory", "name": "Collision Theory", "critical": true, "keywords": ["successful collisions", "activation energy", "frequency", "orientation"] },
-      { "id": "factors_rate", "name": "Factors Affecting Rate", "critical": true, "keywords": ["temperature", "concentration", "surface area", "catalyst", "pressure"] },
-      { "id": "activation_energy", "name": "Activation Energy", "critical": true, "keywords": ["energy barrier", "Ea", "Boltzmann distribution", "catalyst lowers Ea"] },
-      { "id": "boltzmann", "name": "Boltzmann Distribution", "critical": true, "keywords": ["distribution curve", "most probable energy", "proportion exceeding Ea", "temperature shift"] },
-      { "id": "rate_equations", "name": "Rate Equations", "critical": false, "keywords": ["rate = k[A]^m[B]^n", "order", "rate constant", "initial rates method"] },
-      { "id": "catalysts", "name": "Catalysts", "critical": true, "keywords": ["alternative pathway", "lower activation energy", "unchanged", "not consumed"] }
+      { "id": "acids_bases_oc", "name": "Acids, Bases & pH", "critical": true, "keywords": ["pH", "strong acid", "weak acid", "Ka", "Bronsted-Lowry", "conjugate pair"] },
+      { "id": "buffers_oc", "name": "Buffer Solutions", "critical": true, "keywords": ["buffer", "weak acid", "conjugate base", "Henderson-Hasselbalch", "equilibrium shift"] },
+      { "id": "entropy_oc", "name": "Entropy & Free Energy", "critical": true, "keywords": ["entropy", "Gibbs free energy", "delta G", "delta S", "spontaneous", "feasibility"] },
+      { "id": "lattice_enthalpy_oc", "name": "Lattice Enthalpy & Born-Haber Cycles", "critical": true, "keywords": ["lattice enthalpy", "Born-Haber cycle", "enthalpy of formation", "electron affinity", "ionisation energy"] },
+      { "id": "hydration_oc", "name": "Enthalpies of Hydration & Solution", "critical": true, "keywords": ["enthalpy of hydration", "enthalpy of solution", "ion-dipole", "dissolving", "exothermic"] },
+      { "id": "titrations_oc", "name": "Titration Curves & Indicators", "critical": false, "keywords": ["equivalence point", "half-equivalence point", "indicator", "strong-weak", "pH curve"] }
     ],
     "commonMisconceptions": [
-      "More collisions always means faster rate (must be SUCCESSFUL collisions)",
-      "Catalysts give particles more energy (they provide an alternative pathway with lower Ea)",
-      "Rate is the same as time (rate is inversely proportional to time)",
-      "Temperature increases activation energy (it doesn't change Ea, more molecules exceed it)",
-      "Catalysts shift equilibrium position (they speed up both forward and reverse equally)"
+      "A low pH always means a strong acid (it could be concentrated weak acid)",
+      "Buffers maintain a constant pH (they resist changes but pH does shift slightly)",
+      "Negative delta G means a reaction will happen quickly (it means thermodynamically feasible)",
+      "Lattice enthalpy is always exothermic"
     ],
     "highYield": true,
     "calculationHeavy": true,
     "difficultyRating": 5
   },
   {
-    "id": "equilibrium",
-    "name": "Chemical Equilibrium",
-    "description": "Reversible reactions, Kc expressions, calculations, Le Chatelier's principle",
+    "id": "developing_metals",
+    "name": "Developing Metals",
+    "description": "Transition metals, electrode potentials, redox equilibria, ligands, complex ions, colorimetry",
     "subskills": [
-      { "id": "dynamic_equilibrium", "name": "Dynamic Equilibrium", "critical": true, "keywords": ["forward rate equals reverse rate", "closed system", "concentrations constant", "dynamic"] },
-      { "id": "kc_expression", "name": "Kc Expressions", "critical": true, "keywords": ["products over reactants", "stoichiometric powers", "Kc expression", "equilibrium constant"] },
-      { "id": "kc_calculation", "name": "Calculating Kc", "critical": true, "keywords": ["concentration", "mol/dm3", "substitute", "equilibrium concentrations"] },
-      { "id": "kc_units", "name": "Kc Units", "critical": true, "keywords": ["mol/dm3", "powers", "no units if powers cancel", "dimensions"] },
-      { "id": "le_chatelier", "name": "Le Chatelier's Principle", "critical": true, "keywords": ["equilibrium shift", "oppose change", "concentration", "pressure", "temperature"] },
-      { "id": "kp_calculations", "name": "Kp Calculations", "critical": false, "keywords": ["partial pressure", "mole fraction", "total pressure", "Kp"] }
+      { "id": "transition_metals_dm", "name": "Transition Metal Properties", "critical": true, "keywords": ["d-block", "variable oxidation state", "coloured ion", "catalyst", "complex ion"] },
+      { "id": "electrode_potentials_dm", "name": "Electrode Potentials", "critical": true, "keywords": ["standard electrode potential", "electrochemical cell", "EMF", "half cell", "hydrogen electrode"] },
+      { "id": "ligands_dm", "name": "Ligands & Complex Ions", "critical": true, "keywords": ["ligand", "coordination number", "bidentate", "monodentate", "octahedral", "square planar"] },
+      { "id": "redox_dm", "name": "Redox Titrations", "critical": true, "keywords": ["manganate", "dichromate", "titration", "oxidising agent", "reducing agent", "colour change"] },
+      { "id": "coloured_ions_dm", "name": "Coloured Ions & Colorimetry", "critical": false, "keywords": ["d-d transition", "split d orbitals", "absorption", "complementary colour", "colorimetry"] },
+      { "id": "ligand_substitution_dm", "name": "Ligand Substitution", "critical": false, "keywords": ["ligand substitution", "stability constant", "chelate effect", "EDTA", "haemoglobin"] }
     ],
     "commonMisconceptions": [
-      "Higher temperature always shifts equilibrium to the right (depends on exo/endothermic)",
-      "Kc changes when concentration changes (Kc only changes with temperature)",
-      "A catalyst shifts the equilibrium position (it doesn't, it speeds up both directions equally)",
-      "Equilibrium means equal concentrations of products and reactants",
-      "Kc units are always the same (they depend on stoichiometric powers)"
+      "All d-block elements are transition metals (Sc and Zn are not)",
+      "A more positive electrode potential means the reaction is faster",
+      "All transition metal compounds are coloured",
+      "Ligand substitution always changes the coordination number"
     ],
     "highYield": true,
     "calculationHeavy": true,
     "difficultyRating": 5
   },
   {
-    "id": "acid_base",
-    "name": "Acids, Bases & pH",
-    "description": "pH calculations, Ka, buffers, titrations, indicators, neutralisation",
+    "id": "colour_by_design",
+    "name": "Colour by Design",
+    "description": "Benzene, arenes, aldehydes & ketones, phenol, organic synthesis, Friedel-Crafts, dyes & pigments",
     "subskills": [
-      { "id": "ph_calculations", "name": "pH Calculations", "critical": true, "keywords": ["pH = -log[H+]", "strong acid", "concentration", "hydrogen ions"] },
-      { "id": "weak_acids", "name": "Weak Acids & Ka", "critical": true, "keywords": ["Ka", "partial dissociation", "equilibrium", "Ka expression"] },
-      { "id": "buffers", "name": "Buffer Solutions", "critical": true, "keywords": ["weak acid", "conjugate base", "resist pH change", "Henderson-Hasselbalch"] },
-      { "id": "titrations", "name": "Titration Calculations", "critical": true, "keywords": ["end point", "equivalence point", "indicator", "concordant titres"] },
-      { "id": "titration_curves", "name": "Titration Curves", "critical": false, "keywords": ["strong-strong", "strong-weak", "equivalence point", "half-equivalence"] },
-      { "id": "neutralisation", "name": "Neutralisation Reactions", "critical": false, "keywords": ["acid + base", "salt + water", "exothermic", "ionic equation"] }
+      { "id": "benzene_cd", "name": "Benzene & Arenes", "critical": true, "keywords": ["benzene", "delocalised electrons", "electrophilic substitution", "nitration", "Kekule"] },
+      { "id": "friedel_crafts_cd", "name": "Friedel-Crafts Reactions", "critical": true, "keywords": ["Friedel-Crafts", "alkylation", "acylation", "AlCl3 catalyst", "electrophile"] },
+      { "id": "carbonyls_cd", "name": "Aldehydes & Ketones", "critical": true, "keywords": ["aldehyde", "ketone", "nucleophilic addition", "2,4-DNP", "Tollens", "reduction"] },
+      { "id": "phenol_cd", "name": "Phenol & Reactions", "critical": true, "keywords": ["phenol", "acidic", "bromination", "activated ring", "nitration"] },
+      { "id": "organic_synthesis_cd", "name": "Organic Synthesis Routes", "critical": true, "keywords": ["multi-step synthesis", "functional group interconversion", "reagents", "conditions", "yield"] },
+      { "id": "colour_cd", "name": "Colour, Dyes & Chromophores", "critical": false, "keywords": ["chromophore", "conjugation", "delocalisation", "azo dye", "diazonium", "wavelength"] }
     ],
     "commonMisconceptions": [
-      "pH 2 is twice as acidic as pH 4 (it's 100 times more, log scale)",
-      "Strong acids are more concentrated than weak acids (strength != concentration)",
-      "Buffers prevent any pH change (they resist/minimise change)",
-      "All titrations have an end point at pH 7 (depends on acid/base strength)",
-      "Ka and concentration are the same thing"
-    ],
-    "highYield": true,
-    "calculationHeavy": true,
-    "difficultyRating": 5
-  },
-  {
-    "id": "redox",
-    "name": "Redox Reactions",
-    "description": "Oxidation states, half-equations, electron transfer, electrochemical cells",
-    "subskills": [
-      { "id": "oxidation_states", "name": "Oxidation States", "critical": true, "keywords": ["oxidation number", "rules", "Roman numerals", "change in state"] },
-      { "id": "half_equations", "name": "Half-Equations", "critical": true, "keywords": ["oxidation", "reduction", "electrons", "balance", "combine"] },
-      { "id": "redox_identification", "name": "Identifying Redox", "critical": true, "keywords": ["OIL RIG", "oxidation is loss", "reduction is gain", "electron transfer"] },
-      { "id": "displacement", "name": "Displacement Reactions", "critical": false, "keywords": ["reactivity", "more reactive displaces", "metal ions", "electron transfer"] },
-      { "id": "electrochemical_cells", "name": "Electrochemical Cells", "critical": false, "keywords": ["electrode potential", "standard cell potential", "salt bridge", "EMF"] }
-    ],
-    "commonMisconceptions": [
-      "Oxidation always involves oxygen (it's loss of electrons)",
-      "Reduction means getting smaller",
-      "Oxidation states and charges are always the same",
-      "In electrolysis, oxidation happens at the cathode (it happens at the anode)",
-      "Half-equations must always have the same number of atoms on each side (also electrons)"
-    ],
-    "highYield": true,
-    "calculationHeavy": false,
-    "difficultyRating": 3
-  },
-  {
-    "id": "organic_1",
-    "name": "Organic Chemistry 1: Basics",
-    "description": "Alkanes, alkenes, functional groups, nomenclature, isomerism",
-    "subskills": [
-      { "id": "nomenclature", "name": "IUPAC Nomenclature", "critical": true, "keywords": ["prefix", "suffix", "functional group", "longest chain", "substituent"] },
-      { "id": "functional_groups", "name": "Functional Groups", "critical": true, "keywords": ["alkane", "alkene", "alcohol", "halogenoalkane", "carboxylic acid", "ester"] },
-      { "id": "alkanes", "name": "Alkanes & Combustion", "critical": true, "keywords": ["saturated", "single bonds", "combustion", "free radical substitution", "homolytic fission"] },
-      { "id": "alkenes", "name": "Alkenes & Addition Reactions", "critical": true, "keywords": ["unsaturated", "double bond", "electrophilic addition", "Markownikoff", "bromine water"] },
-      { "id": "isomerism", "name": "Structural & Stereoisomerism", "critical": true, "keywords": ["structural isomers", "E/Z isomerism", "cis/trans", "optical isomerism", "chiral centre"] },
-      { "id": "free_radical", "name": "Free Radical Substitution", "critical": false, "keywords": ["initiation", "propagation", "termination", "UV light", "homolytic fission"] }
-    ],
-    "commonMisconceptions": [
-      "Alkenes and alkanes are the same thing (alkenes have C=C double bonds)",
-      "All isomers have different molecular formulae (same formula, different structure)",
-      "E/Z isomerism is the same as optical isomerism",
-      "Free radical substitution only produces one product",
-      "Organic molecules can't be ionic"
-    ],
-    "highYield": true,
-    "calculationHeavy": false,
-    "difficultyRating": 3
-  },
-  {
-    "id": "organic_2",
-    "name": "Organic Chemistry 2: Mechanisms",
-    "description": "Nucleophilic substitution, electrophilic addition, elimination, reaction pathways",
-    "subskills": [
-      { "id": "nucleophilic_sub", "name": "Nucleophilic Substitution (SN1/SN2)", "critical": true, "keywords": ["nucleophile", "lone pair", "curly arrow", "halogenoalkane", "leaving group"] },
-      { "id": "electrophilic_add", "name": "Electrophilic Addition", "critical": true, "keywords": ["electrophile", "carbocation", "double bond", "pi electrons", "intermediate"] },
-      { "id": "elimination", "name": "Elimination Reactions", "critical": true, "keywords": ["strong base", "hot", "alkene formed", "dehydration", "HX removed"] },
-      { "id": "alcohols", "name": "Alcohol Reactions", "critical": true, "keywords": ["oxidation", "primary", "secondary", "tertiary", "acidified dichromate", "distillation"] },
-      { "id": "halogenoalkanes", "name": "Halogenoalkane Reactions", "critical": true, "keywords": ["hydrolysis", "nucleophilic substitution", "bond polarity", "leaving group ability"] },
-      { "id": "curly_arrows", "name": "Curly Arrow Mechanisms", "critical": false, "keywords": ["electron pair movement", "from nucleophile", "to electrophile", "bond breaking"] }
-    ],
-    "commonMisconceptions": [
-      "Curly arrows show atom movement (they show electron pair movement)",
-      "SN1 and SN2 always give the same products",
-      "Elimination and substitution never compete",
-      "Primary alcohols can't be oxidised further than aldehydes (they can become carboxylic acids)",
-      "All halogenoalkanes react at the same rate (bond strength differs: C-I weakest)"
-    ],
-    "highYield": true,
-    "calculationHeavy": false,
-    "difficultyRating": 4
-  },
-  {
-    "id": "organic_3",
-    "name": "Organic Chemistry 3: Carbonyls & More",
-    "description": "Carbonyl compounds, carboxylic acids, esters, amines, polymers",
-    "subskills": [
-      { "id": "aldehydes_ketones", "name": "Aldehydes & Ketones", "critical": true, "keywords": ["carbonyl group", "nucleophilic addition", "Tollens", "Fehling's", "reduction"] },
-      { "id": "carboxylic_acids", "name": "Carboxylic Acids", "critical": true, "keywords": ["COOH", "weak acid", "esterification", "neutralisation", "acyl chlorides"] },
-      { "id": "esters", "name": "Esters", "critical": true, "keywords": ["esterification", "acid catalyst", "hydrolysis", "condensation", "fruity smell"] },
-      { "id": "amines", "name": "Amines & Amides", "critical": false, "keywords": ["primary amine", "base", "lone pair", "nucleophile", "peptide bond"] },
-      { "id": "polymers", "name": "Polymers", "critical": false, "keywords": ["addition polymer", "condensation polymer", "monomer", "repeat unit", "polyester", "polyamide"] },
-      { "id": "analytical_tests", "name": "Analytical Tests", "critical": true, "keywords": ["Tollens reagent", "Fehling's solution", "Brady's reagent", "iodoform test"] }
-    ],
-    "commonMisconceptions": [
-      "Aldehydes and ketones react the same way with all reagents (aldehydes are more easily oxidised)",
-      "Esterification is irreversible (it's an equilibrium reaction)",
-      "All carboxylic acids are strong acids (they're weak acids)",
-      "Addition and condensation polymers are made the same way",
-      "The iodoform test works on all carbonyl compounds (only methyl ketones/secondary alcohols)"
-    ],
-    "highYield": true,
-    "calculationHeavy": false,
-    "difficultyRating": 4
-  },
-  {
-    "id": "synthesis_analysis",
-    "name": "Synthesis & Analysis",
-    "description": "Multi-step organic synthesis, mass spectrometry, IR spectroscopy, NMR basics",
-    "subskills": [
-      { "id": "synthesis_routes", "name": "Multi-Step Synthesis", "critical": true, "keywords": ["reaction pathway", "reagents", "conditions", "functional group interconversion"] },
-      { "id": "mass_spec", "name": "Mass Spectrometry", "critical": true, "keywords": ["molecular ion peak", "m/z", "fragmentation", "relative molecular mass"] },
-      { "id": "ir_spectroscopy", "name": "IR Spectroscopy", "critical": true, "keywords": ["absorption", "wavenumber", "O-H broad", "C=O sharp", "fingerprint region"] },
-      { "id": "nmr_basics", "name": "NMR Spectroscopy Basics", "critical": false, "keywords": ["chemical shift", "chemical environment", "integration", "splitting pattern", "TMS"] },
-      { "id": "combined_analysis", "name": "Combined Techniques", "critical": false, "keywords": ["identify unknown", "molecular formula", "functional groups", "structure determination"] }
-    ],
-    "commonMisconceptions": [
-      "The molecular ion peak is always the tallest peak in mass spec (it's often not the base peak)",
-      "IR spectroscopy identifies specific compounds (it identifies functional groups)",
-      "All O-H absorptions look the same in IR (carboxylic acid O-H is very broad vs alcohol O-H)",
-      "NMR tells you the exact structure immediately (it shows environments, needs interpretation)",
-      "Synthesis routes only go one way (many functional group conversions are reversible)"
+      "Benzene undergoes addition reactions like alkenes (it prefers substitution)",
+      "Tollens' reagent gives a silver mirror with ketones (only aldehydes)",
+      "Friedel-Crafts can be done without a catalyst",
+      "Phenol is a strong acid like carboxylic acids (it's weakly acidic)"
     ],
     "highYield": true,
     "calculationHeavy": false,
