@@ -57,7 +57,7 @@ export default function Onboarding() {
       <div className="min-h-screen flex items-center justify-center bg-bg-primary p-4">
         <div className="max-w-lg w-full text-center space-y-8">
           <div className="space-y-3">
-            <h1 className="text-5xl font-bold tracking-tight">
+            <h1 className="font-display text-display tracking-tight">
               A<span className="text-accent">*</span> Arena
             </h1>
             <p className="text-text-secondary text-lg">
@@ -85,7 +85,7 @@ export default function Onboarding() {
 
           <button
             onClick={() => setStep('form')}
-            className="w-full bg-accent hover:bg-accent-hover text-bg-primary font-semibold py-3 px-6 rounded-lg transition-colors cursor-pointer text-lg"
+            className="w-full bg-accent hover:bg-accent-hover text-bg-primary font-ui text-button py-3 px-6 rounded-lg transition-colors cursor-pointer text-lg"
           >
             Get Started
           </button>
@@ -101,7 +101,7 @@ export default function Onboarding() {
     <div className="min-h-screen flex items-center justify-center bg-bg-primary p-4">
       <div className="max-w-lg w-full space-y-6">
         <div className="text-center">
-          <h1 className="text-3xl font-bold">
+          <h1 className="font-display text-display">
             A<span className="text-accent">*</span> Arena
           </h1>
           <p className="text-text-secondary text-sm mt-1">
@@ -217,7 +217,7 @@ export default function Onboarding() {
             </button>
             <button
               type="submit"
-              className="flex-1 bg-accent hover:bg-accent-hover text-bg-primary font-semibold py-2.5 px-4 rounded-lg transition-colors cursor-pointer"
+              className="flex-1 bg-accent hover:bg-accent-hover text-bg-primary font-ui text-button py-2.5 px-4 rounded-lg transition-colors cursor-pointer"
             >
               Start Revising
             </button>
@@ -233,7 +233,7 @@ function FeatureItem({ icon, title, description }) {
     <div className="flex items-start gap-3">
       <span className="text-2xl mt-0.5">{icon}</span>
       <div>
-        <h3 className="font-semibold text-sm">{title}</h3>
+        <h3 className="font-display text-sm">{title}</h3>
         <p className="text-text-muted text-xs">{description}</p>
       </div>
     </div>

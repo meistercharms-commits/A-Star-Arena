@@ -21,7 +21,7 @@ export default function LevelSelect() {
     <div className="min-h-screen flex items-center justify-center bg-bg-primary p-4">
       <div className="max-w-2xl w-full space-y-8">
         <div className="text-center space-y-3">
-          <h1 className="text-5xl font-bold tracking-tight">
+          <h1 className="font-display text-display tracking-tight">
             A<span className="text-accent">*</span> Arena
           </h1>
           <p className="text-text-secondary text-lg">
@@ -38,7 +38,7 @@ export default function LevelSelect() {
             <div className="space-y-4">
               <div className="flex items-center gap-3">
                 <span className="text-3xl">🎓</span>
-                <h2 className="text-xl font-bold">A-Level</h2>
+                <h2 className="font-display text-title">A-Level</h2>
               </div>
               <p className="text-text-secondary text-sm">
                 For A-Level students aiming for top marks. Rigorous, exam-focused revision across Biology, Chemistry, and Mathematics.
@@ -52,7 +52,7 @@ export default function LevelSelect() {
                 Target grades: A* and A
               </div>
             </div>
-            <div className="mt-4 w-full py-2.5 rounded-lg text-sm font-semibold text-center transition-colors bg-bg-tertiary text-text-secondary group-hover:bg-accent group-hover:text-bg-primary group-hover:shadow-button">
+            <div className="mt-4 w-full py-2.5 rounded-lg font-ui text-button text-center transition-colors bg-bg-tertiary text-text-secondary group-hover:bg-accent group-hover:text-bg-primary group-hover:shadow-button">
               Select A-Level
             </div>
           </button>
@@ -65,7 +65,7 @@ export default function LevelSelect() {
             <div className="space-y-4">
               <div className="flex items-center gap-3">
                 <span className="text-3xl">📚</span>
-                <h2 className="text-xl font-bold">GCSE</h2>
+                <h2 className="font-display text-title">GCSE</h2>
               </div>
               <p className="text-text-secondary text-sm">
                 Your GCSE revision companion. Supportive, clear, and built to help you achieve the grades you deserve.
@@ -80,7 +80,7 @@ export default function LevelSelect() {
                 12 subjects &middot; Target grades: 9, 8, 7
               </div>
             </div>
-            <div className="mt-4 w-full py-2.5 rounded-lg text-sm font-semibold text-center transition-colors bg-bg-tertiary text-text-secondary group-hover:bg-accent group-hover:text-bg-primary group-hover:shadow-button">
+            <div className="mt-4 w-full py-2.5 rounded-lg font-ui text-button text-center transition-colors bg-bg-tertiary text-text-secondary group-hover:bg-accent group-hover:text-bg-primary group-hover:shadow-button">
               Select GCSE
             </div>
           </button>

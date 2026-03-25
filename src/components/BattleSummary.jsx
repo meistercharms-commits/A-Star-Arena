@@ -46,7 +46,7 @@ export default function BattleSummary({ session, boss, topic, masteryBefore, mas
         defeated ? 'bg-strong/5 border-strong/30 animate-starburst' : 'bg-weak/5 border-weak/30'
       }`}>
         <span className="text-5xl block mb-2">{isStudyMode ? '📖' : defeated ? '🏆' : '💀'}</span>
-        <h1 className="text-2xl font-bold mb-1">
+        <h1 className="font-display text-display mb-1">
           {isStudyMode ? 'Session Complete' : defeated ? 'Boss Defeated!' : 'Boss Survived'}
         </h1>
         <p className="text-text-secondary text-sm">
@@ -61,7 +61,7 @@ export default function BattleSummary({ session, boss, topic, masteryBefore, mas
 
       {/* Phase Breakdown with bars */}
       <div className="bg-bg-secondary border border-border rounded-xl p-5 space-y-4 shadow-card">
-        <h3 className="font-semibold text-sm text-text-secondary uppercase tracking-wide">Phase Breakdown</h3>
+        <h3 className="font-ui text-label">Phase Breakdown</h3>
 
         <PhaseBar
           label="Rapid Recall"
@@ -85,7 +85,7 @@ export default function BattleSummary({ session, boss, topic, masteryBefore, mas
 
       {/* XP Breakdown */}
       <div className="bg-bg-secondary border border-border rounded-xl p-5 space-y-3 shadow-card">
-        <h3 className="font-semibold text-sm text-text-secondary uppercase tracking-wide">XP Earned</h3>
+        <h3 className="font-ui text-label">XP Earned</h3>
         <div className="space-y-2 text-sm">
           <div className="flex justify-between">
             <span className="text-text-secondary">Recall ({recallCorrect} correct)</span>
@@ -108,25 +108,25 @@ export default function BattleSummary({ session, boss, topic, masteryBefore, mas
 
       {/* Session Stats */}
       <div className="bg-bg-secondary border border-border rounded-xl p-5 shadow-card">
-        <h3 className="font-semibold text-sm text-text-secondary uppercase tracking-wide mb-3">Session Stats</h3>
+        <h3 className="font-ui text-label mb-3">Session Stats</h3>
         <div className="grid grid-cols-3 gap-3 text-center">
           <div>
-            <div className="text-lg font-bold font-mono">{formatDuration(session.durationSeconds)}</div>
-            <div className="text-xs text-text-muted">Duration</div>
+            <div className="font-display text-stat">{formatDuration(session.durationSeconds)}</div>
+            <div className="font-ui text-label">Duration</div>
           </div>
           <div>
-            <div className="text-lg font-bold font-mono">
+            <div className="font-display text-stat">
               {recallCorrect + appCorrect + (extScore >= Math.ceil(extMax * 0.7) ? 1 : 0)}/9
             </div>
-            <div className="text-xs text-text-muted">Correct</div>
+            <div className="font-ui text-label">Correct</div>
           </div>
           <div>
-            <div className={`text-lg font-bold font-mono ${
+            <div className={`font-display text-stat ${
               isStudyMode ? 'text-accent' : defeated ? 'text-strong' : 'text-weak'
             }`}>
               {isStudyMode ? 'STUDY' : defeated ? 'WIN' : 'LOSS'}
             </div>
-            <div className="text-xs text-text-muted">Result</div>
+            <div className="font-ui text-label">Result</div>
           </div>
         </div>
       </div>
@@ -134,16 +134,16 @@ export default function BattleSummary({ session, boss, topic, masteryBefore, mas
       {/* Mastery Change */}
       {masteryAfter != null && (
         <div className="bg-bg-secondary border border-border rounded-xl p-5 shadow-card">
-          <h3 className="font-semibold text-sm text-text-secondary uppercase tracking-wide mb-3">Mastery Change</h3>
+          <h3 className="font-ui text-label mb-3">Mastery Change</h3>
           <div className="flex items-center justify-between">
             <div className="text-center flex-1">
               <div className="text-sm text-text-muted mb-1">Before</div>
-              <div className="text-xl font-bold font-mono">{Math.round((masteryBefore || 0) * 100)}%</div>
+              <div className="font-display text-stat">{Math.round((masteryBefore || 0) * 100)}%</div>
             </div>
             <div className="text-2xl text-text-muted px-3">→</div>
             <div className="text-center flex-1">
               <div className="text-sm text-text-muted mb-1">After</div>
-              <div className="text-xl font-bold font-mono">{Math.round(masteryAfter * 100)}%</div>
+              <div className="font-display text-stat">{Math.round(masteryAfter * 100)}%</div>
             </div>
             <div className="text-center flex-1">
               <div className="text-sm text-text-muted mb-1">Change</div>
@@ -151,7 +151,7 @@ export default function BattleSummary({ session, boss, topic, masteryBefore, mas
                 const delta = masteryAfter - (masteryBefore || 0);
                 const deltaStr = delta >= 0 ? `+${Math.round(delta * 100)}` : `${Math.round(delta * 100)}`;
                 const colour = delta > 0 ? 'text-strong' : delta < 0 ? 'text-weak' : 'text-text-muted';
-                return <div className={`text-xl font-bold font-mono ${colour}`}>{deltaStr}%</div>;
+                return <div className={`font-display text-stat ${colour}`}>{deltaStr}%</div>;
               })()}
             </div>
           </div>
@@ -161,7 +161,7 @@ export default function BattleSummary({ session, boss, topic, masteryBefore, mas
       {/* SRS Next Review */}
       {srsResult && (
         <div className="bg-bg-secondary border border-border rounded-xl p-5 shadow-card">
-          <h3 className="font-semibold text-sm text-text-secondary uppercase tracking-wide mb-3">Spaced Review</h3>
+          <h3 className="font-ui text-label mb-3">Spaced Review</h3>
           <div className="flex items-center justify-between">
             <div className="text-center flex-1">
               <div className="text-sm text-text-muted mb-1">Next Review</div>
@@ -272,7 +272,7 @@ export default function BattleSummary({ session, boss, topic, masteryBefore, mas
       <div className="flex gap-3">
         <button
           onClick={onBattleAgain}
-          className="flex-1 bg-accent hover:bg-accent-hover text-bg-primary font-semibold py-2.5 rounded-lg transition-colors cursor-pointer"
+          className="flex-1 bg-accent hover:bg-accent-hover text-bg-primary font-ui text-button py-2.5 rounded-lg transition-colors cursor-pointer"
         >
           Battle Again
         </button>

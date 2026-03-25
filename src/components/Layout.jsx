@@ -4,6 +4,7 @@ import { useLevel } from '../contexts/LevelContext';
 import { useTheme } from '../contexts/ThemeContext';
 import { getSubjectsForLevel, isSubjectAvailable } from '../content/subjects';
 import { getLevelMeta } from '../lib/qualificationLevel';
+import { LogoLockup, ShieldIcon } from './Logo';
 
 const navItems = [
   { path: '/', label: 'Home', icon: '⚡' },
@@ -35,8 +36,8 @@ export default function Layout({ children }) {
       <header className="border-b border-border px-4 py-3 bg-bg-secondary shadow-subtle">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Link to="/" className="text-xl font-bold tracking-tight no-underline text-text-primary">
-              A<span className="text-accent">*</span> Arena
+            <Link to="/" className="no-underline">
+              <LogoLockup theme={theme} />
             </Link>
             <Link
               to="/level-select"
@@ -52,7 +53,7 @@ export default function Layout({ children }) {
                   key={item.path}
                   to={item.path}
                   aria-current={location.pathname === item.path ? 'page' : undefined}
-                  className={`px-3 py-1.5 rounded-lg text-sm no-underline transition-colors ${
+                  className={`px-3 py-1.5 rounded-lg text-nav no-underline transition-colors ${
                     location.pathname === item.path
                       ? 'bg-bg-tertiary text-accent shadow-subtle'
                       : 'text-text-secondary hover:text-text-primary hover:bg-bg-tertiary'
@@ -100,7 +101,7 @@ export default function Layout({ children }) {
                 key={subject.id}
                 onClick={() => available && !isInSession && setSubjectId(subject.id)}
                 disabled={!available || isInSession}
-                className={`text-xs px-3 py-1.5 rounded-lg transition-colors whitespace-nowrap ${
+                className={`text-button px-3 py-1.5 rounded-lg transition-colors whitespace-nowrap ${
                   isActive
                     ? 'bg-accent text-bg-primary font-semibold shadow-button'
                     : available
@@ -128,14 +129,14 @@ export default function Layout({ children }) {
             key={item.path}
             to={item.path}
             aria-current={location.pathname === item.path ? 'page' : undefined}
-            className={`flex flex-col items-center gap-0.5 text-xs no-underline transition-colors ${
+            className={`flex flex-col items-center gap-0.5 no-underline transition-colors ${
               location.pathname === item.path
                 ? 'text-accent'
                 : 'text-text-secondary'
             }`}
           >
             <span className="text-lg">{item.icon}</span>
-            {item.label}
+            <span className="text-label">{item.label}</span>
           </Link>
         ))}
       </nav>

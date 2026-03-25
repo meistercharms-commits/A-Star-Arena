@@ -62,23 +62,23 @@ export default function History() {
   return (
     <div className="space-y-5">
       <div>
-        <h1 className="text-2xl font-bold">Session History</h1>
+        <h1 className="font-display text-display">Session History</h1>
         <p className="text-text-secondary text-sm mt-1">Review past battles and track your improvement.</p>
       </div>
 
       {/* Summary stats */}
       <div className="grid grid-cols-3 gap-3">
         <div className="bg-bg-secondary border border-border rounded-xl p-3 text-center">
-          <div className="text-lg font-bold">{totalSessions}</div>
-          <div className="text-xs text-text-muted">Sessions</div>
+          <div className="font-display text-stat">{totalSessions}</div>
+          <div className="font-ui text-label">Sessions</div>
         </div>
         <div className="bg-bg-secondary border border-border rounded-xl p-3 text-center">
-          <div className="text-lg font-bold text-accent">{totalXP}</div>
-          <div className="text-xs text-text-muted">Total XP</div>
+          <div className="font-display text-stat text-accent">{totalXP}</div>
+          <div className="font-ui text-label">Total XP</div>
         </div>
         <div className="bg-bg-secondary border border-border rounded-xl p-3 text-center">
-          <div className="text-lg font-bold text-strong">{bossesDefeated}</div>
-          <div className="text-xs text-text-muted">Bosses Defeated</div>
+          <div className="font-display text-stat text-strong">{bossesDefeated}</div>
+          <div className="font-ui text-label">Bosses Defeated</div>
         </div>
       </div>
 
@@ -163,7 +163,7 @@ export default function History() {
                       </div>
                     </div>
                     <div className="text-right shrink-0">
-                      <div className="text-xs text-accent font-mono font-semibold">+{session.xpEarned || 0} XP</div>
+                      <div className="font-display text-xs text-accent font-semibold">+{session.xpEarned || 0} XP</div>
                       <div className="text-xs text-text-muted">{formatDate(session.startedAt)}</div>
                     </div>
                     <span className={`text-text-muted text-xs transition-transform ${isExpanded ? 'rotate-180' : ''}`}>

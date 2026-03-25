@@ -16,9 +16,14 @@
   --color-weak: #c4856a;
   --color-untested: rgba(228,237,224,0.25);
   --color-border: rgba(255,255,255,0.07);
-  --font-heading: "Inter", system-ui, sans-serif;
-  --font-body: "Inter", system-ui, sans-serif;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-ui: 'Space Grotesk', system-ui, sans-serif;
   --font-mono: "Fira Code", ui-monospace, monospace;
+  --color-border-accent: rgba(163,192,148,0.22);
+  --color-bg-hero: rgba(163,192,148,0.09);
+  --color-accent-blue: #9bb8c4;
+  --color-accent-sand: #d4b896;
+  --color-accent-danger-txt: #c4856a;
 }
 
 /* ─── Dark Mode: Slate & Sage (default) ─── */
@@ -39,6 +44,14 @@
   --color-untested: rgba(228,237,224,0.25);
   --color-border: rgba(255,255,255,0.07);
   --color-border-accent: rgba(163,192,148,0.22);
+  --color-accent-blue: #9bb8c4;
+  --color-accent-sand: #d4b896;
+  --color-accent-danger-txt: #c4856a;
+  --color-btn-primary-bg: #a3c094;
+  --color-btn-primary-text: #181f2c;
+  --color-btn-ghost-bg: rgba(255,255,255,0.06);
+  --color-btn-ghost-text: rgba(228,237,224,0.50);
+  --color-btn-ghost-border: rgba(255,255,255,0.10);
   --shadow-card: 0 2px 8px rgba(0,0,0,0.25), 0 1px 3px rgba(0,0,0,0.15);
   --shadow-elevated: 0 8px 24px rgba(0,0,0,0.35), 0 2px 8px rgba(0,0,0,0.2);
   --shadow-subtle: 0 1px 4px rgba(0,0,0,0.18);
@@ -49,12 +62,12 @@
 /* ─── Light Mode: Morning Study ─── */
 [data-theme="light"] {
   --color-bg-primary: #f4f2ed;
-  --color-bg-secondary: #ffffff;
+  --color-bg-secondary: #ece9e2;
   --color-bg-tertiary: #ece9e2;
   --color-bg-hero: rgba(90,110,160,0.07);
   --color-text-primary: #2c2a38;
   --color-text-secondary: rgba(44,42,56,0.55);
-  --color-text-muted: rgba(44,42,56,0.38);
+  --color-text-muted: rgba(44,42,56,0.32);
   --color-accent: #5a6ea0;
   --color-accent-hover: #4a5e90;
   --color-strong: #5a9080;
@@ -63,6 +76,14 @@
   --color-untested: rgba(44,42,56,0.25);
   --color-border: rgba(44,42,56,0.10);
   --color-border-accent: rgba(90,110,160,0.18);
+  --color-accent-blue: #5a9080;
+  --color-accent-sand: #b07a50;
+  --color-accent-danger-txt: #a0613a;
+  --color-btn-primary-bg: #3d5080;
+  --color-btn-primary-text: #ffffff;
+  --color-btn-ghost-bg: #f4f2ed;
+  --color-btn-ghost-text: rgba(44,42,56,0.55);
+  --color-btn-ghost-border: rgba(44,42,56,0.18);
   --shadow-card: 0 2px 8px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04);
   --shadow-elevated: 0 8px 24px rgba(0,0,0,0.1), 0 2px 8px rgba(0,0,0,0.06);
   --shadow-subtle: 0 1px 4px rgba(0,0,0,0.06);
@@ -77,8 +98,8 @@ body {
   min-height: 100vh;
   background-color: var(--color-bg-primary);
   color: var(--color-text-primary);
-  font-family: var(--font-body);
-  line-height: 1.6;
+  font-family: var(--font-ui);
+  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: background-color 0.2s ease, color 0.2s ease;
@@ -106,6 +127,100 @@ body {
 
 .shadow-button {
   box-shadow: var(--shadow-button);
+}
+
+/* ─── Typography Utilities ─── */
+
+.font-display {
+  font-family: var(--font-display);
+  line-height: 1.1;
+}
+
+.font-ui {
+  font-family: var(--font-ui);
+  line-height: 1.5;
+}
+
+.text-wordmark {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+}
+
+.text-display {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1.1;
+}
+
+.text-title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.1;
+}
+
+.text-stat {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.1;
+}
+
+.text-italic {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.1;
+}
+
+.text-nav {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.5;
+}
+
+.text-body {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.5;
+}
+
+.text-label {
+  font-family: var(--font-ui);
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1.5;
+}
+
+.text-sub-brand {
+  font-family: var(--font-ui);
+  font-size: 8px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  line-height: 1.5;
+}
+
+.text-button {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.5;
 }
 
 /* ─── Form Fields ─── */
@@ -142,7 +257,7 @@ body {
   border-radius: 0.5rem;
   padding: 0.75rem;
   font-size: 0.875rem;
-  font-family: var(--font-body);
+  font-family: var(--font-ui);
   color: var(--color-text-primary);
   outline: none;
   resize: vertical;

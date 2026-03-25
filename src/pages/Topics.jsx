@@ -69,7 +69,7 @@ export default function Topics() {
     <div className="space-y-5">
       <div className="flex items-start justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-bold">Topics</h1>
+          <h1 className="font-display text-display">Topics</h1>
           <p className="text-text-secondary text-sm mt-1">Choose a topic to battle. Defeat the boss to prove your mastery.</p>
         </div>
         {hasPracticals(getCurrentSubject()) && (
@@ -101,7 +101,7 @@ export default function Topics() {
 
       {/* Sort dropdown */}
       <div className="flex items-center gap-2">
-        <span className="text-xs text-text-muted">Sort:</span>
+        <span className="font-ui text-label">Sort:</span>
         <select
           value={sort}
           onChange={e => setSort(e.target.value)}
@@ -125,7 +125,7 @@ export default function Topics() {
               <div className="flex items-center gap-2 min-w-0">
                 <span className="text-xl shrink-0">{topic.boss?.emoji || '⚔️'}</span>
                 <div className="min-w-0">
-                  <h3 className="font-semibold text-sm truncate">{topic.name}</h3>
+                  <h3 className="font-display text-lg truncate">{topic.name}</h3>
                   <p className="text-xs text-text-muted truncate">{topic.boss?.bossName}</p>
                 </div>
               </div>

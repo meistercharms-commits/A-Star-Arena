@@ -36,7 +36,7 @@ export default function BossHUD({ boss, hp, maxHp, currentPhase, questionNum, to
           {boss?.emoji || '⚔️'}
         </span>
         <div className="flex-1 min-w-0">
-          <h2 className="font-bold text-lg truncate">{boss?.bossName || 'Unknown Boss'}</h2>
+          <h2 className="font-display text-xl truncate">{boss?.bossName || 'Unknown Boss'}</h2>
           <p className="text-text-muted text-xs italic truncate">{boss?.flavourText}</p>
         </div>
         {isStudyMode && (
@@ -56,7 +56,7 @@ export default function BossHUD({ boss, hp, maxHp, currentPhase, questionNum, to
       <div>
         <div className="flex justify-between text-sm mb-1">
           <span className="text-text-secondary">Boss HP</span>
-          <span className={`font-mono ${showDamage ? 'text-weak' : ''}`}>
+          <span className={`text-stat ${showDamage ? 'text-weak' : ''}`}>
             {Math.max(0, hp)} / {maxHp}
           </span>
         </div>

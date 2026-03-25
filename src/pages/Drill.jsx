@@ -191,12 +191,12 @@ export default function Drill() {
 
         <div className="bg-bg-secondary border border-accent/30 rounded-xl p-6 text-center space-y-3">
           <span className="text-4xl block">{boss?.emoji || '📘'}</span>
-          <h1 className="text-xl font-bold">Targeted Drill</h1>
+          <h1 className="font-display text-display">Targeted Drill</h1>
           <p className="text-text-secondary text-sm">{topic.name}</p>
         </div>
 
         <div className="bg-bg-secondary border border-border rounded-xl p-5 space-y-3">
-          <h3 className="font-semibold text-sm text-text-secondary uppercase tracking-wide">Focus Areas</h3>
+          <h3 className="font-ui text-label">Focus Areas</h3>
           <div className="flex flex-wrap gap-2">
             {drillConfig.focusSubskills.map(s => (
               <span key={s.id} className="text-xs bg-accent/10 text-accent px-2 py-1 rounded">
@@ -211,7 +211,7 @@ export default function Drill() {
 
         <button
           onClick={startDrill}
-          className="w-full bg-accent hover:bg-accent-hover text-bg-primary font-bold py-3 rounded-xl text-lg transition-colors cursor-pointer"
+          className="w-full bg-accent hover:bg-accent-hover text-bg-primary font-ui text-button py-3 rounded-xl text-lg transition-colors cursor-pointer"
         >
           Start Drill
         </button>
@@ -233,15 +233,15 @@ export default function Drill() {
           pct >= 70 ? 'bg-strong/5 border-strong/30' : 'bg-developing/5 border-developing/30'
         }`}>
           <span className="text-4xl block mb-2">{pct >= 70 ? '🎯' : '📝'}</span>
-          <h1 className="text-2xl font-bold mb-1">Drill Complete!</h1>
+          <h1 className="font-display text-display mb-1">Drill Complete!</h1>
           <p className="text-text-secondary text-sm">
             {correctCount}/{totalQuestions} correct ({pct}%)
           </p>
-          <p className="text-xl font-bold text-accent mt-2">+{xpEarned} XP</p>
+          <p className="font-display text-stat text-accent mt-2">+{xpEarned} XP</p>
         </div>
 
         <div className="bg-bg-secondary border border-border rounded-xl p-5 space-y-2">
-          <h3 className="font-semibold text-sm text-text-secondary uppercase tracking-wide mb-3">Results</h3>
+          <h3 className="font-ui text-label mb-3">Results</h3>
           {results.map((r, i) => (
             <div key={i} className="flex items-center justify-between py-2 border-b border-border last:border-0">
               <div className="flex items-center gap-2">
@@ -262,7 +262,7 @@ export default function Drill() {
         <div className="flex gap-3">
           <button
             onClick={() => { setStage('intro'); setResults([]); }}
-            className="flex-1 bg-accent hover:bg-accent-hover text-bg-primary font-semibold py-2.5 rounded-lg transition-colors cursor-pointer"
+            className="flex-1 bg-accent hover:bg-accent-hover text-bg-primary font-ui text-button py-2.5 rounded-lg transition-colors cursor-pointer"
           >
             Drill Again
           </button>

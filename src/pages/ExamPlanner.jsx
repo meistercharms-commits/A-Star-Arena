@@ -81,12 +81,12 @@ export default function ExamPlanner() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold">My Exams</h1>
+          <h1 className="font-display text-display">My Exams</h1>
           <p className="text-text-muted text-sm">Track your exams and get targeted revision plans</p>
         </div>
         <button
           onClick={() => setShowForm(!showForm)}
-          className="bg-accent hover:bg-accent-hover text-bg-primary font-semibold py-2 px-4 rounded-lg text-sm transition-colors cursor-pointer"
+          className="bg-accent hover:bg-accent-hover text-bg-primary font-ui text-button py-2 px-4 rounded-lg transition-colors cursor-pointer"
         >
           {showForm ? 'Cancel' : '+ Add Exam'}
         </button>
@@ -207,7 +207,7 @@ export default function ExamPlanner() {
 
       {upcomingExams.length > 0 && (
         <div className="space-y-3">
-          <h2 className="text-sm font-semibold text-text-muted uppercase tracking-wide">Upcoming</h2>
+          <h2 className="font-ui text-label">Upcoming</h2>
           {upcomingExams.map(exam => {
             const badge = getCountdownBadge(exam.date);
             const subjectInfo = getExamSubjectInfo(exam);
@@ -229,7 +229,7 @@ export default function ExamPlanner() {
                     <span className="text-2xl">{subjectInfo?.emoji || '📘'}</span>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2">
-                        <span className="font-semibold text-sm truncate">{exam.title}</span>
+                        <span className="font-display text-sm truncate">{exam.title}</span>
                         <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded-full ${badge.colour}`}>
                           {badge.text}
                         </span>
@@ -241,7 +241,7 @@ export default function ExamPlanner() {
                       </p>
                     </div>
                     <div className="text-right shrink-0">
-                      <div className="text-lg font-bold text-accent">{coverage.percentage}%</div>
+                      <div className="font-display text-stat text-accent">{coverage.percentage}%</div>
                       <div className="text-[10px] text-text-muted">covered</div>
                     </div>
                   </div>
@@ -253,16 +253,16 @@ export default function ExamPlanner() {
                     {/* Coverage breakdown */}
                     <div className="grid grid-cols-3 gap-2 text-center">
                       <div className="bg-strong/10 rounded-lg p-2">
-                        <div className="text-lg font-bold text-strong">{coverage.covered}</div>
-                        <div className="text-[10px] text-text-muted">Covered</div>
+                        <div className="font-display text-stat text-strong">{coverage.covered}</div>
+                        <div className="font-ui text-label">Covered</div>
                       </div>
                       <div className="bg-developing/10 rounded-lg p-2">
-                        <div className="text-lg font-bold text-developing">{coverage.partial}</div>
-                        <div className="text-[10px] text-text-muted">Partial</div>
+                        <div className="font-display text-stat text-developing">{coverage.partial}</div>
+                        <div className="font-ui text-label">Partial</div>
                       </div>
                       <div className="bg-weak/10 rounded-lg p-2">
-                        <div className="text-lg font-bold text-weak">{coverage.notCovered}</div>
-                        <div className="text-[10px] text-text-muted">Not covered</div>
+                        <div className="font-display text-stat text-weak">{coverage.notCovered}</div>
+                        <div className="font-ui text-label">Not covered</div>
                       </div>
                     </div>
 
@@ -370,7 +370,7 @@ export default function ExamPlanner() {
       {/* Past Exams */}
       {pastExams.length > 0 && (
         <div className="space-y-3">
-          <h2 className="text-sm font-semibold text-text-muted uppercase tracking-wide">Past</h2>
+          <h2 className="font-ui text-label">Past</h2>
           {pastExams.map(exam => {
             const subjectInfo = getExamSubjectInfo(exam);
             return (

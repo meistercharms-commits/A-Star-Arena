@@ -50,7 +50,7 @@ export default function Home() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold">{greeting}</h1>
+        <h1 className="font-display text-display">{greeting}</h1>
         <p className="text-text-muted text-sm">
           {getExamBoard(subjectId) !== 'generic' ? getExamBoard(subjectId).toUpperCase() + ' · ' : ''}
           {levelMeta.shortLabel} · Target: {level === 'gcse' ? `Grade ${targetGrade}` : targetGrade}
@@ -63,7 +63,7 @@ export default function Home() {
           <div className={`rounded-xl p-4 border flex items-center gap-4 transition-colors hover:bg-bg-secondary/80 ${
             nearestCountdown.urgent ? 'bg-weak/5 border-weak/30' : nearestCountdown.days <= 28 ? 'bg-developing/5 border-developing/30' : 'bg-accent/5 border-accent/30'
           }`}>
-            <div className={`text-3xl font-bold font-mono ${
+            <div className={`text-stat ${
               nearestCountdown.urgent ? 'text-weak' : nearestCountdown.days <= 28 ? 'text-developing' : 'text-accent'
             }`}>
               {nearestCountdown.days}d
@@ -79,7 +79,7 @@ export default function Home() {
               </p>
             </div>
             <div className="text-right shrink-0">
-              <div className="text-sm font-bold text-accent">{examCoverage.percentage}%</div>
+              <div className="font-display text-stat text-accent">{examCoverage.percentage}%</div>
               <div className="text-[10px] text-text-muted">ready</div>
             </div>
           </div>
@@ -90,13 +90,13 @@ export default function Home() {
       <div className="bg-bg-secondary border border-accent/30 rounded-xl p-5 shadow-card">
         <div className="flex items-center gap-2 mb-3">
           <span className="text-lg">🎯</span>
-          <h2 className="font-semibold">Today's Mission</h2>
+          <h2 className="font-display text-title">Today's Mission</h2>
         </div>
         <div className="flex items-start gap-4">
           <div className="flex-1">
             <div className="flex items-center gap-2 mb-1">
               <span className="text-xl">{mission.emoji}</span>
-              <h3 className="font-semibold">{mission.topicName}</h3>
+              <h3 className="font-display text-lg">{mission.topicName}</h3>
               <span className={`text-xs font-mono text-${mission.category.colour}`}>
                 {mission.category.emoji} {mission.mastery.toFixed(2)}
               </span>
@@ -105,7 +105,7 @@ export default function Home() {
             <div className="flex gap-2">
               <Link
                 to={`/battle/${mission.topicId}`}
-                className="bg-accent hover:bg-accent-hover text-bg-primary font-semibold py-2 px-4 rounded-lg text-sm transition-colors no-underline shadow-button"
+                className="bg-accent hover:bg-accent-hover text-bg-primary font-ui text-button py-2 px-4 rounded-lg transition-colors no-underline shadow-button"
               >
                 Start Battle
               </Link>
@@ -162,7 +162,7 @@ export default function Home() {
         <div className="bg-bg-secondary border border-developing/30 rounded-xl p-5 shadow-card">
           <div className="flex items-center gap-2 mb-3">
             <span className="text-lg">🔄</span>
-            <h2 className="font-semibold">Recurring Mistakes</h2>
+            <h2 className="font-display text-title">Recurring Mistakes</h2>
             {recurringMistakes.filter(m => m.severity === 'critical').length > 0 && (
               <span className="text-xs bg-weak/10 text-weak px-2 py-0.5 rounded-full ml-auto">
                 {recurringMistakes.filter(m => m.severity === 'critical').length} critical
@@ -234,7 +234,7 @@ export default function Home() {
 
       {/* Weak Spot Radar */}
       <div className="bg-bg-secondary border border-border rounded-xl p-5 shadow-card">
-        <h2 className="font-semibold mb-3">Weak Spot Radar</h2>
+        <h2 className="font-display text-title mb-3">Weak Spot Radar</h2>
         <TopicRadar
           onTopicClick={(topicId) => navigate(`/battle/${topicId}`)}
         />
@@ -245,7 +245,7 @@ export default function Home() {
 
       {/* Recent Sessions */}
       <div className="bg-bg-secondary border border-border rounded-xl p-5 shadow-card">
-        <h2 className="font-semibold mb-3">Recent Sessions</h2>
+        <h2 className="font-display text-title mb-3">Recent Sessions</h2>
         {recentSessions.length === 0 ? (
           <div className="text-center py-6">
             <span className="text-3xl block mb-2">📝</span>
@@ -376,9 +376,9 @@ function StatCard({ icon, label, value, sub, bar }) {
     <div className="bg-bg-secondary border border-border rounded-xl p-4 shadow-subtle">
       <div className="flex items-center gap-2 mb-1">
         <span>{icon}</span>
-        <span className="text-xs text-text-muted uppercase tracking-wide">{label}</span>
+        <span className="font-ui text-label">{label}</span>
       </div>
-      <div className="text-xl font-bold">{value}</div>
+      <div className="font-display text-stat">{value}</div>
       {bar !== undefined && (
         <div className="w-full bg-bg-tertiary rounded-full h-1.5 mt-2">
           <div

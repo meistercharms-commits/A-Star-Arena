@@ -94,7 +94,7 @@ export default function Settings() {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-2xl font-bold">Settings</h1>
+      <h1 className="font-display text-display">Settings</h1>
 
       <form onSubmit={handleSave} className="space-y-6">
         {/* Qualification Level */}
@@ -322,7 +322,7 @@ export default function Settings() {
         <div className="flex gap-3">
           <button
             type="submit"
-            className={`flex-1 font-semibold py-2.5 px-4 rounded-lg transition-colors cursor-pointer ${
+            className={`flex-1 font-ui text-button py-2.5 px-4 rounded-lg transition-colors cursor-pointer ${
               saved
                 ? 'bg-strong/20 text-strong border border-strong'
                 : 'bg-accent hover:bg-accent-hover text-bg-primary'
@@ -341,7 +341,7 @@ export default function Settings() {
 function Section({ title, children }) {
   return (
     <div className="bg-bg-secondary border border-border rounded-xl p-5 space-y-4 shadow-card">
-      <h2 className="font-semibold text-base">{title}</h2>
+      <h2 className="font-display text-title">{title}</h2>
       {children}
     </div>
   );
