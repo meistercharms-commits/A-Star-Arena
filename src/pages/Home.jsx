@@ -309,8 +309,8 @@ export default function Home() {
         </details>
       )}
 
-      {/* Weak Spot Radar — collapsible */}
-      <details open={false}>
+      {/* Weak Spot Radar — collapsible, default open */}
+      <details open>
         <summary className="text-label cursor-pointer select-none py-2">Weak Spot Radar</summary>
         <div className="bg-bg-secondary border border-border rounded-xl p-5 shadow-card">
           <h2 className="font-display text-title mb-3">Weak Spot Radar</h2>

@@ -22,6 +22,7 @@ export default function Onboarding() {
   const [tryFeedback, setTryFeedback] = useState(null);
   const [tryLoading, setTryLoading] = useState(false);
   const [trySubmitted, setTrySubmitted] = useState(false);
+  const [selectedSubjects, setSelectedSubjects] = useState(subjects.map(s => s.id));
 
   // Redirect to level select if no level chosen
   if (!hasSelectedLevel()) {
@@ -56,6 +57,10 @@ export default function Onboarding() {
       examBoards: {
         ...(existing.examBoards || {}),
         [level]: examBoards,
+      },
+      activeSubjects: {
+        ...(existing.activeSubjects || {}),
+        [level]: selectedSubjects,
       },
       [`targetGrade_${level}`]: form.targetGrade,
       targetGrade: form.targetGrade,
@@ -206,16 +211,16 @@ export default function Onboarding() {
                       That's how A* Arena works. AI-powered questions, instant feedback, real exam practice.
                     </p>
                     <button
-                      onClick={() => setStep('form')}
+                      onClick={() => setStep('subjects')}
                       className="text-button bg-accent text-bg-primary px-5 py-2.5 rounded-lg cursor-pointer border-0 transition-opacity hover:opacity-90 w-full"
                     >
-                      Set Up Your Profile
+                      Choose Your Subjects
                     </button>
                     <button
                       onClick={() => setStep('form')}
                       className="text-xs text-text-muted block mx-auto bg-transparent border-0 cursor-pointer hover:text-text-secondary"
                     >
-                      Skip to setup →
+                      Skip →
                     </button>
                   </div>
                 </div>
@@ -226,6 +231,65 @@ export default function Onboarding() {
           {/* Back link */}
           <button
             onClick={() => setStep('welcome')}
+            className="text-xs text-text-muted block mx-auto bg-transparent border-0 cursor-pointer hover:text-text-secondary"
+          >
+            ← Back
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  if (step === 'subjects') {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-bg-primary p-4">
+        <div className="max-w-lg w-full space-y-6 animate-fade-in">
+          <div className="text-center">
+            <h2 className="font-display text-display">Which subjects are you studying?</h2>
+            <p className="text-text-secondary text-sm mt-1">
+              Pick the subjects you're revising for. You can change this later in Settings.
+            </p>
+          </div>
+
+          <div className="bg-bg-secondary border border-border rounded-xl p-6 shadow-card space-y-4">
+            <div className="flex flex-wrap gap-2">
+              {subjects.map(subject => {
+                const isActive = selectedSubjects.includes(subject.id);
+                return (
+                  <button
+                    key={subject.id}
+                    type="button"
+                    onClick={() => {
+                      const updated = isActive
+                        ? selectedSubjects.filter(id => id !== subject.id)
+                        : [...selectedSubjects, subject.id];
+                      if (updated.length === 0) return;
+                      setSelectedSubjects(updated);
+                    }}
+                    className={`text-sm px-3.5 py-2 rounded-xl cursor-pointer border transition-colors ${
+                      isActive
+                        ? 'bg-accent/15 text-accent border-accent/30 font-medium'
+                        : 'bg-bg-tertiary text-text-muted border-border opacity-60'
+                    }`}
+                  >
+                    {subject.emoji} {subject.name}
+                  </button>
+                );
+              })}
+            </div>
+            <p className="text-xs text-text-muted">{selectedSubjects.length} of {subjects.length} selected</p>
+
+            <button
+              onClick={() => setStep('form')}
+              disabled={selectedSubjects.length === 0}
+              className="text-button bg-accent text-bg-primary px-5 py-2.5 rounded-lg cursor-pointer border-0 transition-opacity hover:opacity-90 w-full disabled:opacity-40"
+            >
+              Continue
+            </button>
+          </div>
+
+          <button
+            onClick={() => setStep('tryit')}
             className="text-xs text-text-muted block mx-auto bg-transparent border-0 cursor-pointer hover:text-text-secondary"
           >
             ← Back

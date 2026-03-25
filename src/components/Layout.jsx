@@ -6,6 +6,7 @@ import { useTheme } from '../contexts/ThemeContext';
 import { useAuth } from '../contexts/AuthContext';
 import { getSubjectsForLevel, isSubjectAvailable } from '../content/subjects';
 import { getLevelMeta } from '../lib/qualificationLevel';
+import { getSettings } from '../lib/storage';
 import { LogoLockup, ShieldIcon } from './Logo';
 import CreditBadge from './CreditBadge';
 
@@ -133,28 +134,36 @@ export default function Layout({ children }) {
         </div>
 
         {/* Subject switcher */}
-        <div className="flex gap-1.5 mt-2 overflow-x-auto">
-          {subjects.map(subject => {
-            const available = isSubjectAvailable(subject.id, level);
-            const isActive = subjectId === subject.id;
-            return (
-              <button
-                key={subject.id}
-                onClick={() => available && !isInSession && setSubjectId(subject.id)}
-                disabled={!available || isInSession}
-                className={`text-button px-3 py-1.5 rounded-lg transition-colors whitespace-nowrap ${
-                  isActive
-                    ? 'bg-accent text-bg-primary font-semibold shadow-button'
-                    : available
-                      ? 'bg-bg-tertiary text-text-secondary hover:text-text-primary cursor-pointer'
-                      : 'bg-bg-tertiary text-text-muted opacity-50 cursor-not-allowed'
-                }`}
-              >
-                {subject.emoji} {subject.name}
-                {!available && <span className="ml-1 text-[10px]">Soon</span>}
-              </button>
-            );
-          })}
+        <div className="flex gap-1.5 mt-2 overflow-x-auto items-center">
+          {(() => {
+            const settings = getSettings();
+            const activeSubjectIds = settings?.activeSubjects?.[level] || subjects.map(s => s.id);
+            const visibleSubjects = subjects.filter(s => activeSubjectIds.includes(s.id));
+            return visibleSubjects.map(subject => {
+              const available = isSubjectAvailable(subject.id, level);
+              const isActive = subjectId === subject.id;
+              return (
+                <button
+                  key={subject.id}
+                  onClick={() => available && !isInSession && setSubjectId(subject.id)}
+                  disabled={!available || isInSession}
+                  className={`text-button px-3 py-1.5 rounded-lg transition-colors whitespace-nowrap ${
+                    isActive
+                      ? 'bg-accent text-bg-primary font-semibold shadow-button'
+                      : available
+                        ? 'bg-bg-tertiary text-text-secondary hover:text-text-primary cursor-pointer'
+                        : 'bg-bg-tertiary text-text-muted opacity-50 cursor-not-allowed'
+                  }`}
+                >
+                  {subject.emoji} {subject.name}
+                  {!available && <span className="ml-1 text-[10px]">Soon</span>}
+                </button>
+              );
+            });
+          })()}
+          <Link to="/settings" className="text-xs text-text-muted shrink-0 no-underline hover:text-accent px-2 py-1.5">
+            Edit
+          </Link>
         </div>
       </header>
 

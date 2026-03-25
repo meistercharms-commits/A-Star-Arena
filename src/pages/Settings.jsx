@@ -50,6 +50,8 @@ export default function Settings() {
     strictness: initial.strictness || 'examiner',
     explanationDepth: initial.explanationDepth || 'brief',
   });
+  const allSubjects = getSubjectsForLevel(level);
+  const [activeSubjects, setActiveSubjects] = useState(initial.activeSubjects?.[level] || allSubjects.map(s => s.id));
   const [saved, setSaved] = useState(false);
   const [confirmClear, setConfirmClear] = useState(false);
 
@@ -165,6 +167,39 @@ export default function Settings() {
               Switch Level
             </Link>
           </div>
+        </Section>
+
+        {/* My Subjects */}
+        <Section title="My Subjects">
+          <p className="text-sm text-text-secondary mb-3">Choose the subjects you're studying. Only selected subjects will appear in your dashboard.</p>
+          <div className="flex flex-wrap gap-2">
+            {allSubjects.map(subject => {
+              const isActive = activeSubjects.includes(subject.id);
+              return (
+                <button
+                  key={subject.id}
+                  type="button"
+                  onClick={() => {
+                    const updated = isActive
+                      ? activeSubjects.filter(id => id !== subject.id)
+                      : [...activeSubjects, subject.id];
+                    if (updated.length === 0) return;
+                    setActiveSubjects(updated);
+                    const newSettings = { ...getSettings(), activeSubjects: { ...(getSettings()?.activeSubjects || {}), [level]: updated } };
+                    saveSettings(newSettings);
+                  }}
+                  className={`text-xs px-3 py-1.5 rounded-full cursor-pointer border transition-colors ${
+                    isActive
+                      ? 'bg-accent/15 text-accent border-accent/30'
+                      : 'bg-bg-tertiary text-text-muted border-border opacity-50'
+                  }`}
+                >
+                  {subject.emoji} {subject.name}
+                </button>
+              );
+            })}
+          </div>
+          <p className="text-xs text-text-muted mt-2">At least one subject must be selected.</p>
         </Section>
 
         {/* Profile */}
