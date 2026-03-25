@@ -33,6 +33,7 @@ const SignUp = lazy(() => import('./pages/SignUp'));
 const ResetPassword = lazy(() => import('./pages/ResetPassword'));
 const VideoLesson = lazy(() => import('./pages/VideoLesson'));
 const PastPaper = lazy(() => import('./pages/PastPaper'));
+const PastPaperHub = lazy(() => import('./pages/PastPaperHub'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 const Admin = lazy(() => import('./pages/Admin'));
 const ParentLayout = lazy(() => import('./pages/parent/ParentLayout'));
@@ -113,6 +114,7 @@ const router = createBrowserRouter([
       { path: '/exams', element: <ExamPlanner /> },
       { path: '/final-push', element: <FinalPush /> },
       { path: '/past-papers', element: <PastPaper /> },
+      { path: '/past-paper-hub', element: <PastPaperHub /> },
       { path: '/video-lesson', element: <VideoLesson /> },
       { path: '/credits', element: <Credits /> },
       { path: '/settings', element: <Settings /> },

@@ -1,0 +1,109 @@
+{
+  "board": "aqa",
+  "subject": "biology",
+  "level": "alevel",
+  "spec": "7402",
+  "specName": "AQA A-Level Biology",
+  "resourcesUrl": "https://www.aqa.org.uk/subjects/science/as-and-a-level/biology-7401-7402/assessment-resources",
+  "sittings": [
+    {
+      "year": 2024,
+      "session": "June",
+      "papers": [
+        {
+          "id": "aqa-bio-7402-2024-p1",
+          "paper": 1,
+          "title": "Paper 1: Any Topic in Biology",
+          "pdfUrl": "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2024/june/AQA-74021-QP-JUN24.PDF",
+          "markSchemeUrl": "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2024/june/AQA-74021-W-MS-JUN24.PDF",
+          "duration": "2 hours",
+          "totalMarks": 91
+        },
+        {
+          "id": "aqa-bio-7402-2024-p2",
+          "paper": 2,
+          "title": "Paper 2: Any Topic in Biology",
+          "pdfUrl": "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2024/june/AQA-74022-QP-JUN24.PDF",
+          "markSchemeUrl": "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2024/june/AQA-74022-W-MS-JUN24.PDF",
+          "duration": "2 hours",
+          "totalMarks": 91
+        },
+        {
+          "id": "aqa-bio-7402-2024-p3",
+          "paper": 3,
+          "title": "Paper 3: Any Topic in Biology",
+          "pdfUrl": "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2024/june/AQA-74023-QP-JUN24.PDF",
+          "markSchemeUrl": "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2024/june/AQA-74023-W-MS-JUN24.PDF",
+          "duration": "2 hours",
+          "totalMarks": 78
+        }
+      ]
+    },
+    {
+      "year": 2023,
+      "session": "June",
+      "papers": [
+        {
+          "id": "aqa-bio-7402-2023-p1",
+          "paper": 1,
+          "title": "Paper 1: Any Topic in Biology",
+          "pdfUrl": "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2023/june/AQA-74021-QP-JUN23.PDF",
+          "markSchemeUrl": "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2023/june/AQA-74021-W-MS-JUN23.PDF",
+          "duration": "2 hours",
+          "totalMarks": 91
+        },
+        {
+          "id": "aqa-bio-7402-2023-p2",
+          "paper": 2,
+          "title": "Paper 2: Any Topic in Biology",
+          "pdfUrl": "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2023/june/AQA-74022-QP-JUN23.PDF",
+          "markSchemeUrl": "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2023/june/AQA-74022-W-MS-JUN23.PDF",
+          "duration": "2 hours",
+          "totalMarks": 91
+        },
+        {
+          "id": "aqa-bio-7402-2023-p3",
+          "paper": 3,
+          "title": "Paper 3: Any Topic in Biology",
+          "pdfUrl": "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2023/june/AQA-74023-QP-JUN23.PDF",
+          "markSchemeUrl": "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2023/june/AQA-74023-W-MS-JUN23.PDF",
+          "duration": "2 hours",
+          "totalMarks": 78
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "session": "June",
+      "papers": [
+        {
+          "id": "aqa-bio-7402-2022-p1",
+          "paper": 1,
+          "title": "Paper 1: Any Topic in Biology",
+          "pdfUrl": "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-74021-QP-JUN22.PDF",
+          "markSchemeUrl": "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-74021-W-MS-JUN22.PDF",
+          "duration": "2 hours",
+          "totalMarks": 91
+        },
+        {
+          "id": "aqa-bio-7402-2022-p2",
+          "paper": 2,
+          "title": "Paper 2: Any Topic in Biology",
+          "pdfUrl": "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-74022-QP-JUN22.PDF",
+          "markSchemeUrl": "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-74022-W-MS-JUN22.PDF",
+          "duration": "2 hours",
+          "totalMarks": 91
+        },
+        {
+          "id": "aqa-bio-7402-2022-p3",
+          "paper": 3,
+          "title": "Paper 3: Any Topic in Biology",
+          "pdfUrl": "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-74023-QP-JUN22.PDF",
+          "markSchemeUrl": "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-74023-W-MS-JUN22.PDF",
+          "duration": "2 hours",
+          "totalMarks": 78
+        }
+      ]
+    }
+  ]
+}
