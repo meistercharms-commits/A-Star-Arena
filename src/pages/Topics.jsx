@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { useSubject } from '../contexts/SubjectContext';
+import { useLevel } from '../contexts/LevelContext';
 import { getTopicMastery, getMasteryCache, getSessions } from '../lib/storage';
 import { getMasteryCategory, getDaysSince } from '../lib/utils';
 import { hasMCQ, hasPracticals } from '../content/subjects';
@@ -22,6 +23,13 @@ const SORTS = [
   { key: 'stale', label: 'Needs Review' },
 ];
 
+const STRANDS = [
+  { key: 'all', label: 'All', icon: '📐' },
+  { key: 'pure', label: 'Pure', icon: '∫' },
+  { key: 'statistics', label: 'Statistics', icon: '📊' },
+  { key: 'mechanics', label: 'Mechanics', icon: '⚙️' },
+];
+
 function getLastPractised(topicId) {
   const cache = getMasteryCache();
   return cache[topicId]?.lastUpdated || null;
@@ -29,8 +37,13 @@ function getLastPractised(topicId) {
 
 export default function Topics() {
   const { topics, bosses } = useSubject();
+  const { level } = useLevel();
   const [filter, setFilter] = useState('all');
   const [sort, setSort] = useState('default');
+  const [strand, setStrand] = useState('all');
+
+  const subjectId = getCurrentSubject();
+  const isMaths = subjectId === 'mathematics' && level === 'alevel';
 
   const enrichedTopics = useMemo(() => topics.map(topic => {
     const mastery = getTopicMastery(topic.id);
@@ -43,8 +56,9 @@ export default function Topics() {
 
   // Filter
   const filtered = enrichedTopics.filter(t => {
-    if (filter === 'all') return true;
-    return t.cat.label.toLowerCase() === filter;
+    if (filter !== 'all' && t.cat.label.toLowerCase() !== filter) return false;
+    if (isMaths && strand !== 'all' && t.strand !== strand) return false;
+    return true;
   });
 
   // Sort
@@ -59,10 +73,13 @@ export default function Topics() {
   });
 
   const filterCounts = {};
+  const strandFiltered = isMaths && strand !== 'all'
+    ? enrichedTopics.filter(t => t.strand === strand)
+    : enrichedTopics;
   FILTERS.forEach(f => {
     filterCounts[f.key] = f.key === 'all'
-      ? enrichedTopics.length
-      : enrichedTopics.filter(t => t.cat.label.toLowerCase() === f.key).length;
+      ? strandFiltered.length
+      : strandFiltered.filter(t => t.cat.label.toLowerCase() === f.key).length;
   });
 
   return (
@@ -99,6 +116,26 @@ export default function Topics() {
         ))}
       </div>
 
+      {/* Strand filter (maths only) */}
+      {isMaths && (
+        <div className="flex flex-wrap gap-2">
+          {STRANDS.map(s => (
+            <button
+              key={s.key}
+              onClick={() => setStrand(s.key)}
+              className={`text-button px-3 py-1.5 rounded-lg transition-colors cursor-pointer ${
+                strand === s.key
+                  ? 'bg-accent-sand text-bg-primary font-medium'
+                  : 'bg-bg-tertiary text-text-secondary hover:text-text-primary'
+              }`}
+            >
+              {s.icon} {s.label}
+              {s.key !== 'all' && ` (${enrichedTopics.filter(t => t.strand === s.key).length})`}
+            </button>
+          ))}
+        </div>
+      )}
+
       {/* Sort dropdown */}
       <div className="flex items-center gap-2">
         <span className="font-ui text-label">Sort:</span>
@@ -125,7 +162,7 @@ export default function Topics() {
               <div className="flex items-center gap-2 min-w-0">
                 <span className="text-xl shrink-0">{topic.boss?.emoji || '⚔️'}</span>
                 <div className="min-w-0">
-                  <h3 className="font-display text-lg truncate">{topic.name}</h3>
+                  <h3 className="font-display text-lg line-clamp-2">{topic.name}</h3>
                   <p className="text-xs text-text-muted truncate">{topic.boss?.bossName}</p>
                 </div>
               </div>

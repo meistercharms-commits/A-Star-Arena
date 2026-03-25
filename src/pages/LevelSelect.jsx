@@ -1,10 +1,13 @@
 import { useNavigate } from 'react-router-dom';
 import { useLevel } from '../contexts/LevelContext';
+import { useTheme } from '../contexts/ThemeContext';
 import { hasCompletedOnboarding } from '../lib/storage';
+import { ShieldIcon } from '../components/Logo';
 
 export default function LevelSelect() {
   const navigate = useNavigate();
   const { setLevel } = useLevel();
+  const { theme } = useTheme();
 
   function handleSelect(level) {
     setLevel(level);
@@ -20,13 +23,19 @@ export default function LevelSelect() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-bg-primary p-4">
       <div className="max-w-2xl w-full space-y-8">
-        <div className="text-center space-y-3">
-          <h1 className="font-display text-display tracking-tight">
-            A<span className="text-accent">*</span> Arena
-          </h1>
-          <p className="text-text-secondary text-lg">
-            Choose your qualification level to get started
-          </p>
+        <div className="text-center space-y-4">
+          <div className="flex justify-center">
+            <ShieldIcon size={64} theme={theme} />
+          </div>
+          <div className="space-y-2">
+            <p className="text-text-secondary text-lg">Welcome to</p>
+            <h1 className="font-display text-display tracking-tight">
+              A<span className="text-accent">*</span> Arena
+            </h1>
+            <p className="text-text-secondary">
+              Choose your qualification level to get started
+            </p>
+          </div>
         </div>
 
         <div className="grid md:grid-cols-2 gap-4">

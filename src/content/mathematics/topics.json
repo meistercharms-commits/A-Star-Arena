@@ -1,6 +1,7 @@
 [
   {
     "id": "algebra_functions",
+    "strand": "pure",
     "name": "Algebra & Functions",
     "description": "Surds, indices, quadratics, inequalities, simultaneous equations, proof by deduction and contradiction",
     "subskills": [
@@ -26,6 +27,7 @@
   },
   {
     "id": "polynomials",
+    "strand": "pure",
     "name": "Polynomials",
     "description": "Factor theorem, algebraic division, partial fractions, binomial expansion",
     "subskills": [
@@ -49,6 +51,7 @@
   },
   {
     "id": "coordinate_geometry",
+    "strand": "pure",
     "name": "Coordinate Geometry",
     "description": "Equations of lines and circles, parametric equations, converting between Cartesian and parametric forms",
     "subskills": [
@@ -73,6 +76,7 @@
   },
   {
     "id": "sequences_series",
+    "strand": "pure",
     "name": "Sequences & Series",
     "description": "Arithmetic and geometric sequences and series, sigma notation, convergence, and the binomial expansion for rational n",
     "subskills": [
@@ -98,6 +102,7 @@
   },
   {
     "id": "trigonometry_1",
+    "strand": "pure",
     "name": "Trigonometry",
     "description": "Trig ratios, identities, equations, graphs, radians, arc length and sector area",
     "subskills": [
@@ -122,6 +127,7 @@
   },
   {
     "id": "exponentials_logarithms",
+    "strand": "pure",
     "name": "Exponentials & Logarithms",
     "description": "Laws of logarithms, exponential functions, natural logarithm, solving exponential equations",
     "subskills": [
@@ -146,6 +152,7 @@
   },
   {
     "id": "differentiation_1",
+    "strand": "pure",
     "name": "Differentiation",
     "description": "First principles, power rule, chain/product/quotient rules, tangents, normals, stationary points",
     "subskills": [
@@ -171,6 +178,7 @@
   },
   {
     "id": "integration_1",
+    "strand": "pure",
     "name": "Integration",
     "description": "Reverse of differentiation, definite integrals, area under a curve, integration by substitution and by parts",
     "subskills": [
@@ -195,6 +203,7 @@
   },
   {
     "id": "numerical_methods",
+    "strand": "pure",
     "name": "Numerical Methods",
     "description": "Location of roots, iterative methods, Newton-Raphson, numerical integration using the trapezium rule",
     "subskills": [
@@ -219,6 +228,7 @@
   },
   {
     "id": "vectors",
+    "strand": "pure",
     "name": "Vectors",
     "description": "2D and 3D vectors, position vectors, magnitude and direction, geometric proofs using vectors",
     "subskills": [
@@ -242,6 +252,7 @@
   },
   {
     "id": "statistical_sampling",
+    "strand": "statistics",
     "name": "Statistical Sampling",
     "description": "Sampling methods including random, systematic, stratified, quota and opportunity; understanding bias and generalisability",
     "subskills": [
@@ -264,6 +275,7 @@
   },
   {
     "id": "data_presentation",
+    "strand": "statistics",
     "name": "Data Presentation & Interpretation",
     "description": "Histograms, box plots, cumulative frequency, scatter diagrams, measures of central tendency and spread, correlation and regression",
     "subskills": [
@@ -289,6 +301,7 @@
   },
   {
     "id": "probability",
+    "strand": "statistics",
     "name": "Probability",
     "description": "Conditional probability, tree diagrams, Venn diagrams, mutually exclusive and independent events, set notation",
     "subskills": [
@@ -314,6 +327,7 @@
   },
   {
     "id": "statistical_distributions",
+    "strand": "statistics",
     "name": "Statistical Distributions",
     "description": "Binomial distribution, normal distribution, using distribution tables and calculators, approximations",
     "subskills": [
@@ -339,6 +353,7 @@
   },
   {
     "id": "hypothesis_testing",
+    "strand": "statistics",
     "name": "Statistical Hypothesis Testing",
     "description": "Hypothesis tests for binomial and normal distributions, critical values, critical regions, p-values, significance levels",
     "subskills": [
@@ -363,6 +378,7 @@
   },
   {
     "id": "kinematics",
+    "strand": "mechanics",
     "name": "Kinematics",
     "description": "Constant acceleration (suvat), velocity-time and displacement-time graphs, variable acceleration using calculus, projectiles",
     "subskills": [
@@ -387,6 +403,7 @@
   },
   {
     "id": "forces_newtons_laws",
+    "strand": "mechanics",
     "name": "Forces & Newton's Laws",
     "description": "Force diagrams, equilibrium, Newton's three laws, F = ma, connected particles, friction, inclined planes",
     "subskills": [
@@ -412,6 +429,7 @@
   },
   {
     "id": "moments",
+    "strand": "mechanics",
     "name": "Moments",
     "description": "Turning effects, principle of moments, equilibrium of rigid bodies, centre of mass, tilting and toppling",
     "subskills": [
