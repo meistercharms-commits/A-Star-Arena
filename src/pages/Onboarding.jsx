@@ -2,12 +2,15 @@ import { useState } from 'react';
 import { useNavigate, Link, Navigate } from 'react-router-dom';
 import { saveSettings, getSettings, hasSelectedLevel } from '../lib/storage';
 import { useLevel } from '../contexts/LevelContext';
+import { useTheme } from '../contexts/ThemeContext';
+import { ShieldIcon } from '../components/Logo';
 import { getSubjectsForLevel } from '../content/subjects';
 import { getLevelMeta } from '../lib/qualificationLevel';
 
 export default function Onboarding() {
   const navigate = useNavigate();
   const { level } = useLevel();
+  const { theme } = useTheme();
   const levelMeta = getLevelMeta(level);
   const subjects = getSubjectsForLevel(level);
   const isGCSE = level === 'gcse';
@@ -56,7 +59,10 @@ export default function Onboarding() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-bg-primary p-4">
         <div className="max-w-lg w-full text-center space-y-8">
-          <div className="space-y-3">
+          <div className="space-y-4">
+            <div className="flex justify-center">
+              <ShieldIcon size={64} theme={theme} />
+            </div>
             <h1 className="font-display text-display tracking-tight">
               A<span className="text-accent">*</span> Arena
             </h1>
