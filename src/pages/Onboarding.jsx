@@ -7,6 +7,7 @@ import { ShieldIcon } from '../components/Logo';
 import { getSubjectsForLevel } from '../content/subjects';
 import { getLevelMeta } from '../lib/qualificationLevel';
 import { mockGenerateQuestion, mockMarkAnswer } from '../lib/mockClaude';
+import { Swords, BarChart3, Target, Check, X, Plus, Minus } from 'lucide-react';
 
 export default function Onboarding() {
   const navigate = useNavigate();
@@ -92,15 +93,15 @@ export default function Onboarding() {
           <div className="bg-bg-secondary border border-border rounded-xl p-6 text-left space-y-4 shadow-card">
             {isGCSE ? (
               <>
-                <FeatureItem icon="⚔️" title="Topic Battles" description="Structured practice across recall, application, and longer responses" />
-                <FeatureItem icon="📊" title="Track Your Progress" description="See exactly where you are strong and where to focus next" />
-                <FeatureItem icon="🎯" title="Exam-Style Questions" description="Practise with questions aligned to AQA, Edexcel, and OCR" />
+                <FeatureItem icon={<Swords size={18} />} title="Topic Battles" description="Structured practice across recall, application, and longer responses" />
+                <FeatureItem icon={<BarChart3 size={18} />} title="Track Your Progress" description="See exactly where you are strong and where to focus next" />
+                <FeatureItem icon={<Target size={18} />} title="Exam-Style Questions" description="Practise with questions aligned to AQA, Edexcel, and OCR" />
               </>
             ) : (
               <>
-                <FeatureItem icon="⚔️" title="Boss Battles" description="Three-phase battles: recall, application, and 6-mark extended responses" />
-                <FeatureItem icon="📊" title="Adaptive Mastery" description="Tracks your strengths and weaknesses across core topics" />
-                <FeatureItem icon="🎯" title="Exam-Aligned Marking" description="Marked against AQA, OCR, and Edexcel rubrics — like a real examiner" />
+                <FeatureItem icon={<Swords size={18} />} title="Boss Battles" description="Three-phase battles: recall, application, and 6-mark extended responses" />
+                <FeatureItem icon={<BarChart3 size={18} />} title="Adaptive Mastery" description="Tracks your strengths and weaknesses across core topics" />
+                <FeatureItem icon={<Target size={18} />} title="Exam-Aligned Marking" description="Marked against AQA, OCR, and Edexcel rubrics, like a real examiner" />
               </>
             )}
           </div>
@@ -181,19 +182,19 @@ export default function Onboarding() {
                 <div className="space-y-3 animate-slide-up">
                   {/* Result indicator */}
                   <div className={`flex items-center gap-2 text-lg font-medium ${tryFeedback.correct ? 'text-strong' : 'text-developing'}`}>
-                    <span>{tryFeedback.correct ? '✓' : '✗'}</span>
+                    <span>{tryFeedback.correct ? <Check size={18} /> : <X size={18} />}</span>
                     <span>{tryFeedback.correct ? 'Nice work!' : 'Good attempt!'}</span>
                   </div>
 
                   {/* Brief feedback */}
                   {tryFeedback.feedback?.whatYouDidWell?.[0] && (
                     <p className="text-sm text-text-secondary">
-                      <span className="text-strong">+</span> {tryFeedback.feedback.whatYouDidWell[0]}
+                      <Plus size={14} className="inline-block text-strong" /> {tryFeedback.feedback.whatYouDidWell[0]}
                     </p>
                   )}
                   {tryFeedback.feedback?.missingPoints?.[0] && (
                     <p className="text-sm text-text-secondary">
-                      <span className="text-weak">-</span> {tryFeedback.feedback.missingPoints[0]}
+                      <Minus size={14} className="inline-block text-weak" /> {tryFeedback.feedback.missingPoints[0]}
                     </p>
                   )}
 
@@ -369,10 +370,10 @@ export default function Onboarding() {
             </div>
             <p className="text-xs text-text-muted mt-1">
               {form.timePerDayMins <= 15
-                ? 'Quick sessions — perfect for busy days'
+                ? 'Quick sessions, perfect for busy days'
                 : form.timePerDayMins <= 30
-                  ? 'Solid revision — 1-2 battles per session'
-                  : 'Deep revision — multiple battles and drills'}
+                  ? 'Solid revision: 1-2 battles per session'
+                  : 'Deep revision: multiple battles and drills'}
             </p>
           </div>
 

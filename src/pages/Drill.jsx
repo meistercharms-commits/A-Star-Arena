@@ -3,6 +3,7 @@ import { useParams, useSearchParams, Link, useNavigate } from 'react-router-dom'
 import { useSubject } from '../contexts/SubjectContext';
 import { generateQuestion, markAnswer } from '../lib/claudeClient';
 import { getSettings, saveAttempt, updateProgress, updateTopicSRS, getCurrentSubject, getSRSData, getExamBoard } from '../lib/storage';
+import { Target, BookOpen } from 'lucide-react';
 import { updateTopicMastery } from '../lib/mastery';
 import { calculateNextReview } from '../lib/srs';
 import { getTargetedDrillConfig } from '../lib/recommend';
@@ -232,7 +233,7 @@ export default function Drill() {
         <div className={`rounded-xl p-6 text-center border ${
           pct >= 70 ? 'bg-strong/5 border-strong/30' : 'bg-developing/5 border-developing/30'
         }`}>
-          <span className="text-4xl block mb-2">{pct >= 70 ? '🎯' : '📝'}</span>
+          <span className="block mb-2 flex justify-center">{pct >= 70 ? <Target size={36} className="text-strong" /> : <BookOpen size={36} className="text-developing" />}</span>
           <h1 className="font-display text-display mb-1">Drill Complete!</h1>
           <p className="text-text-secondary text-sm">
             {correctCount}/{totalQuestions} correct ({pct}%)

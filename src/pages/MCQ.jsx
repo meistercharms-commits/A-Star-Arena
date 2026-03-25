@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { useSubject } from '../contexts/SubjectContext';
 import { getCurrentSubject, saveAttempt, updateProgress } from '../lib/storage';
 import { updateTopicMastery } from '../lib/mastery';
+import { Target, BookOpen } from 'lucide-react';
 import { getMCQQuestions } from '../content/subjects';
 import { generateId } from '../lib/utils';
 
@@ -91,7 +92,7 @@ export default function MCQ() {
         <div className={`rounded-xl p-6 text-center border ${
           pct >= 80 ? 'bg-strong/5 border-strong/30' : pct >= 50 ? 'bg-developing/5 border-developing/30' : 'bg-weak/5 border-weak/30'
         }`}>
-          <span className="text-5xl block mb-2">{pct >= 80 ? '🎯' : pct >= 50 ? '📝' : '📖'}</span>
+          <span className="block mb-2 flex justify-center">{pct >= 80 ? <Target size={40} className="text-strong" /> : pct >= 50 ? <BookOpen size={40} className="text-developing" /> : <BookOpen size={40} className="text-weak" />}</span>
           <h1 className="text-2xl font-bold mb-1">MCQ Complete</h1>
           <p className="text-text-secondary text-sm">{topic.name}</p>
           <div className={`text-4xl font-bold font-mono mt-3 ${

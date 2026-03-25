@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useSubject } from '../contexts/SubjectContext';
 import { getCurrentSubject } from '../lib/storage';
 import { getPracticals, hasPracticals, getSubjectInfo } from '../content/subjects';
+import { FlaskConical } from 'lucide-react';
 
 function getCompletedIds(subjectId) {
   try {
@@ -37,7 +38,7 @@ export default function Practicals() {
       <div className="space-y-4 max-w-3xl mx-auto">
         <h1 className="text-2xl font-bold">Required Practicals</h1>
         <div className="bg-bg-secondary border border-border rounded-xl p-8 text-center">
-          <span className="text-4xl block mb-3">🔬</span>
+          <span className="block mb-3 flex justify-center"><FlaskConical size={36} className="text-text-muted" /></span>
           <p className="text-text-secondary text-sm">
             Required practicals for {subject?.name || 'this subject'} are coming soon.
           </p>
@@ -54,7 +55,7 @@ export default function Practicals() {
       <div>
         <h1 className="text-2xl font-bold">Required Practicals</h1>
         <p className="text-text-secondary text-sm mt-1">
-          {subject?.emoji} {subject?.name} — {practicals.length} practical{practicals.length !== 1 ? 's' : ''}
+          {subject?.emoji} {subject?.name}, {practicals.length} practical{practicals.length !== 1 ? 's' : ''}
         </p>
         <p className="text-xs text-text-muted mt-1">
           {completedIds.length} of {practicals.length} practicals reviewed

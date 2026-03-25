@@ -3,13 +3,14 @@ import { useSubject } from '../contexts/SubjectContext';
 import { useLevel } from '../contexts/LevelContext';
 import { getExamBoard } from '../lib/storage';
 import { auth, hasConfig } from '../lib/firebase';
+import { FileText } from 'lucide-react';
 
 // Import available past paper data
 import aqaBioAlevel from '../content/pastPapers/aqa-biology-alevel.json';
 
 const PAPER_DATA = [aqaBioAlevel];
 
-const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+const API_BASE = import.meta.env.VITE_API_URL || '';
 
 export default function PastPaper() {
   const { subjectId } = useSubject();
@@ -208,7 +209,7 @@ export default function PastPaper() {
     return (
       <div className="flex items-center justify-center py-20">
         <div className="text-center">
-          <div className="text-3xl mb-3">📝</div>
+          <div className="mb-3 flex justify-center"><FileText size={28} className="text-text-muted" /></div>
           <p className="text-text-secondary">Marking your answers against the mark scheme...</p>
           <p className="text-xs text-text-muted mt-1">This may take a moment.</p>
         </div>

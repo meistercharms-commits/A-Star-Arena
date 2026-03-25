@@ -1,9 +1,10 @@
 import { useState } from 'react';
+import { AlertTriangle, ThumbsUp, Flame } from 'lucide-react';
 
 const OPTIONS = [
-  { id: 'struggle', label: "I'll struggle", emoji: '\u{1F630}', value: 30 },
-  { id: 'okay', label: "I'll be okay", emoji: '\u{1F60A}', value: 60 },
-  { id: 'ace', label: "I'll ace it", emoji: '\u{1F525}', value: 90 },
+  { id: 'struggle', label: "I'll struggle", Icon: AlertTriangle, value: 30 },
+  { id: 'okay', label: "I'll be okay", Icon: ThumbsUp, value: 60 },
+  { id: 'ace', label: "I'll ace it", Icon: Flame, value: 90 },
 ];
 
 export default function ConfidencePredictor({ onPredict, onSkip }) {
@@ -26,7 +27,7 @@ export default function ConfidencePredictor({ onPredict, onSkip }) {
                 : 'bg-bg-tertiary border-border text-text-secondary hover:border-accent/30'
             }`}
           >
-            <div className="text-xl mb-1">{opt.emoji}</div>
+            <div className="flex justify-center mb-1"><opt.Icon size={20} /></div>
             <div className="text-xs font-medium">{opt.label}</div>
           </button>
         ))}

@@ -71,6 +71,12 @@ router.post('/api/claude/videoLesson', verifyToken, checkCredits(5), async (req,
 
 ${examBoard && examBoard !== 'generic' ? `Align questions to ${examBoard.toUpperCase()} exam style where possible.` : ''}
 
+IMPORTANT LANGUAGE RULES:
+- Use British English spelling throughout (e.g. colour, analyse, organise, favour, defence, centre, programme, practise as a verb).
+- Never use American English spelling (no color, analyze, organize, favor, defense, center, program, practice as a verb).
+- Never use em-dashes in any response. Use commas, full stops, colons, or semicolons instead.
+- Use "whilst" not "while" where appropriate. Use "amongst" not "among" where appropriate.
+
 You MUST respond with valid JSON only. No markdown, no explanation outside the JSON.`,
       messages: [{
         role: 'user',

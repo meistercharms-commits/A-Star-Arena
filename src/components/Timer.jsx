@@ -37,7 +37,7 @@ export default function Timer({ seconds, onExpire, running = true, softExpire = 
   if (expired) {
     return (
       <span className={`text-developing text-sm font-medium animate-pulse ${className}`}>
-        Time's up — take your time
+        Time's up. Take your time
       </span>
     );
   }

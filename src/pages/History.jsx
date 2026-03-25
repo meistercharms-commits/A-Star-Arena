@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useSubject } from '../contexts/SubjectContext';
 import { getSessions } from '../lib/storage';
 import { formatDate } from '../lib/utils';
+import { BarChart3 } from 'lucide-react';
 
 const TIME_FILTERS = [
   { key: 'all', label: 'All Time' },
@@ -23,7 +24,7 @@ function daysAgo(isoString) {
 }
 
 function formatDuration(seconds) {
-  if (!seconds) return '—';
+  if (!seconds) return '-';
   const mins = Math.floor(seconds / 60);
   const secs = seconds % 60;
   return `${mins}:${secs.toString().padStart(2, '0')}`;
@@ -84,7 +85,7 @@ export default function History() {
 
       {sessions.length === 0 ? (
         <div className="bg-bg-secondary border border-border rounded-xl p-8 text-center">
-          <span className="text-4xl mb-3 block">📊</span>
+          <span className="mb-3 block flex justify-center"><BarChart3 size={36} className="text-text-muted" /></span>
           <p className="text-text-secondary text-sm mb-3">
             No sessions yet. Complete a battle to see your history here.
           </p>

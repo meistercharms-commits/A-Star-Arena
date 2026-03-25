@@ -8,6 +8,7 @@ import { getRankedTopics } from '../lib/recommend';
 import { trackErrorPatterns, getPatternWarningsForAttempt } from '../lib/errorPatterns';
 import { generateId, getMasteryCategory, formatDuration } from '../lib/utils';
 import { useSubject } from '../contexts/SubjectContext';
+import { GraduationCap } from 'lucide-react';
 import QuestionCard from '../components/QuestionCard';
 import FeedbackPanel from '../components/FeedbackPanel';
 import { useNavigationWarning, NavigationWarningModal } from '../components/NavigationWarning';
@@ -351,7 +352,7 @@ export default function Exam() {
 
         <div className="bg-bg-secondary border border-accent/30 rounded-xl p-5 space-y-4">
           <div className="flex items-center gap-2">
-            <span className="text-lg">🎓</span>
+            <GraduationCap size={18} />
             <h2 className="font-semibold">Exam Overview</h2>
           </div>
 
@@ -402,7 +403,7 @@ export default function Exam() {
         <div className="bg-bg-secondary border border-border rounded-xl p-5">
           <h3 className="text-sm font-semibold text-text-secondary uppercase tracking-wide mb-2">Exam Conditions</h3>
           <ul className="text-xs text-text-muted space-y-1">
-            <li>• Global 15-minute timer — manage your time wisely</li>
+            <li>• Global 15-minute timer: manage your time wisely</li>
             <li>• Navigate between questions freely</li>
             <li>• Auto-submit when time runs out</li>
             <li>• Unanswered questions score 0</li>
@@ -443,7 +444,7 @@ export default function Exam() {
         {/* Exam Header */}
         <div className="flex items-center justify-between bg-bg-secondary border border-border rounded-xl px-4 py-3">
           <div className="flex items-center gap-2">
-            <span className="text-sm">🎓</span>
+            <GraduationCap size={16} />
             <span className="text-sm font-semibold">Exam</span>
           </div>
           <div className={`font-mono text-lg font-bold tabular-nums ${
@@ -737,7 +738,7 @@ export default function Exam() {
         <div className={`rounded-xl p-6 text-center border ${
           pct >= 70 ? 'bg-strong/5 border-strong/30' : pct >= 50 ? 'bg-developing/5 border-developing/30' : 'bg-weak/5 border-weak/30'
         }`}>
-          <span className="text-5xl block mb-2">🎓</span>
+          <span className="block mb-2 flex justify-center"><GraduationCap size={40} /></span>
           <h1 className="text-2xl font-bold mb-1">Exam Complete</h1>
           <div className="flex items-center justify-center gap-4 mt-3">
             <div>

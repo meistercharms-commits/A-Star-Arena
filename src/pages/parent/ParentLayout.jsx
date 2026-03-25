@@ -2,10 +2,11 @@ import { Link, useLocation, Outlet } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { useTheme } from '../../contexts/ThemeContext';
 import { ShieldIcon } from '../../components/Logo';
+import { BarChart3, LinkIcon, Sun, Moon } from 'lucide-react';
 
 const parentNav = [
-  { path: '/parent', label: 'Dashboard', icon: '📊' },
-  { path: '/parent/link', label: 'Link Student', icon: '🔗' },
+  { path: '/parent', label: 'Dashboard', Icon: BarChart3 },
+  { path: '/parent/link', label: 'Link Student', Icon: LinkIcon },
 ];
 
 export default function ParentLayout() {
@@ -36,7 +37,7 @@ export default function ParentLayout() {
                       : 'text-text-secondary hover:text-text-primary hover:bg-bg-tertiary'
                   }`}
                 >
-                  {item.icon} {item.label}
+                  <item.Icon size={16} className="inline-block" /> {item.label}
                 </Link>
               ))}
             </nav>
@@ -45,7 +46,7 @@ export default function ParentLayout() {
               className="w-8 h-8 rounded-lg flex items-center justify-center bg-bg-tertiary text-text-secondary hover:text-text-primary transition-colors cursor-pointer border-0"
               aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
             >
-              {theme === 'dark' ? '☀️' : '🌙'}
+              {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
             </button>
             <button
               onClick={signOut}

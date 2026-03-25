@@ -10,6 +10,7 @@ import { getLevelMeta } from '../lib/qualificationLevel';
 import { getNearestExamForSubject, getExamCoverage } from '../lib/examPlanner';
 import TopicRadar from '../components/RadarChart';
 import ReadinessScore from '../components/ReadinessScore';
+import { Target, Zap, Trophy, Flame, BookOpen, GraduationCap, BarChart3, RefreshCw, Calendar, AlertCircle, FileText, Video, FlaskConical, ListChecks, Swords } from 'lucide-react';
 
 export default function Home() {
   const navigate = useNavigate();
@@ -61,7 +62,7 @@ export default function Home() {
         {/* Today's Mission — prominent for new users */}
         <div className="bg-bg-secondary border border-accent/30 rounded-xl p-8 shadow-card">
           <div className="flex items-center gap-2 mb-3">
-            <span className="text-lg">🎯</span>
+            <Target size={18} className="inline-block text-accent" />
             <h2 className="font-display text-title">Today's Mission</h2>
           </div>
           <div className="flex items-start gap-4">
@@ -155,7 +156,7 @@ export default function Home() {
       {/* Today's Mission */}
       <div className="bg-bg-secondary border border-accent/30 rounded-xl p-5 shadow-card">
         <div className="flex items-center gap-2 mb-3">
-          <span className="text-lg">🎯</span>
+          <Target size={18} className="inline-block text-accent" />
           <h2 className="font-display text-title">Today's Mission</h2>
         </div>
         <div className="flex items-start gap-4">
@@ -203,7 +204,7 @@ export default function Home() {
                 : 'bg-accent/5 border-accent/30'
           }`}>
             <span className="text-lg">
-              {reviewSummary.overdue > 0 ? '🔴' : reviewSummary.dueToday > 0 ? '🟡' : '📅'}
+              {reviewSummary.overdue > 0 ? <AlertCircle size={18} className="inline-block text-weak" /> : reviewSummary.dueToday > 0 ? <AlertCircle size={18} className="inline-block text-developing" /> : <Calendar size={18} className="inline-block text-accent" />}
             </span>
             <div className="flex-1">
               <p className="text-sm font-medium">
@@ -223,7 +224,7 @@ export default function Home() {
                 {reviewSummary.overdue > 0
                   ? 'Review overdue topics to prevent knowledge decay.'
                   : reviewSummary.dueToday > 0
-                    ? 'Stay on schedule — complete your reviews today.'
+                    ? 'Stay on schedule: complete your reviews today.'
                     : 'Upcoming reviews in the next 2 days.'}
               </p>
             </div>
@@ -234,20 +235,20 @@ export default function Home() {
       {/* Progress + Streak row */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <StatCard
-          icon="⚡"
+          icon={<Zap size={16} className="inline-block" />}
           label="Level"
           value={levelInfo.level}
           sub={`${levelInfo.xpInLevel} / ${levelInfo.xpNeeded} XP`}
           bar={levelInfo.percentage}
         />
         <StatCard
-          icon="🏆"
+          icon={<Trophy size={16} className="inline-block" />}
           label="Total XP"
           value={progress.totalXP.toLocaleString()}
           sub={`${progress.totalSessions} sessions`}
         />
         <StatCard
-          icon="🔥"
+          icon={<Flame size={16} className="inline-block" />}
           label="Streak"
           value={progress.streak > 0 ? `${progress.streak} day${progress.streak !== 1 ? 's' : ''}` : 'None'}
           sub={progress.lastSessionDate ? `Last: ${formatDate(progress.lastSessionDate + 'T12:00:00')}` : 'Start today!'}
@@ -260,7 +261,7 @@ export default function Home() {
           <summary className="text-label cursor-pointer select-none py-2">Recurring Mistakes</summary>
           <div className="bg-bg-secondary border border-developing/30 rounded-xl p-5 shadow-card">
             <div className="flex items-center gap-2 mb-3">
-              <span className="text-lg">🔄</span>
+              <RefreshCw size={18} className="inline-block text-developing" />
               <h2 className="font-display text-title">Recurring Mistakes</h2>
               {recurringMistakes.filter(m => m.severity === 'critical').length > 0 && (
                 <span className="text-xs bg-weak/10 text-weak px-2 py-0.5 rounded-full ml-auto">
@@ -309,98 +310,85 @@ export default function Home() {
         </details>
       )}
 
-      {/* Weak Spot Radar — collapsible, default open */}
-      <details open>
-        <summary className="text-label cursor-pointer select-none py-2">Weak Spot Radar</summary>
-        <div className="bg-bg-secondary border border-border rounded-xl p-5 shadow-card">
-          <h2 className="font-display text-title mb-3">Weak Spot Radar</h2>
-          <TopicRadar
-            onTopicClick={(topicId) => navigate(`/battle/${topicId}`)}
-          />
-          <p className="text-xs text-text-muted mt-2 text-center">
-            Click a topic below to start a battle.
-          </p>
-        </div>
-      </details>
+      {/* Weak Spot Radar */}
+      <div className="bg-bg-secondary border border-border rounded-xl p-5 shadow-card">
+        <h2 className="font-display text-title mb-3">Weak Spot Radar</h2>
+        <TopicRadar
+          onTopicClick={(topicId) => navigate(`/battle/${topicId}`)}
+        />
+        <p className="text-xs text-text-muted mt-2 text-center">
+          Click a topic below to start a battle.
+        </p>
+      </div>
 
-      {/* Recent Sessions — collapsible, open if sessions exist */}
+      {/* Recent Sessions */}
       {recentSessions.length > 0 && (
-      <details open>
-        <summary className="text-label cursor-pointer select-none py-2">Recent Sessions</summary>
         <div className="bg-bg-secondary border border-border rounded-xl p-5 shadow-card">
-          <h2 className="font-display text-title mb-3">Recent Sessions</h2>
-          {recentSessions.length === 0 ? (
-            <div className="text-center py-6">
-              <span className="text-3xl block mb-2">📝</span>
-              <p className="text-text-secondary text-sm">
-                No sessions yet. Complete your first battle to see your history.
-              </p>
-            </div>
-          ) : (
-            <div className="space-y-2">
-              {recentSessions.map((session, i) => {
-                const topic = topics.find(t => t.id === session.topicId);
-                const boss = bosses.find(b => b.topicId === session.topicId);
-                const phases = session.phases;
-                const phaseDetail = phases
-                  ? `${phases.recall?.correct ?? 0}/${phases.recall?.total ?? 5} recall · ${phases.application?.correct ?? 0}/${phases.application?.total ?? 3} app · ${phases.extended?.score ?? 0}/${phases.extended?.maxScore ?? 6} ext`
-                  : 'No details';
-                return (
-                  <div
-                    key={session.id || i}
-                    className="flex items-center gap-3 py-2 border-b border-border last:border-0"
-                  >
-                    <span className="text-lg">{boss?.emoji || '📘'}</span>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2">
-                        <span className="text-sm font-medium truncate">
-                          {topic?.name || session.topicId}
-                        </span>
-                        {session.bossDefeated && (
-                          <span className="text-xs text-strong">✓</span>
-                        )}
-                      </div>
-                      <div className="text-xs text-text-muted">{phaseDetail}</div>
+          <div className="flex items-center justify-between mb-3">
+            <h2 className="font-display text-title">Recent Sessions</h2>
+            <Link to="/history" className="text-xs text-accent hover:text-accent-hover no-underline font-medium">View all</Link>
+          </div>
+          <div className="space-y-2">
+            {recentSessions.map((session, i) => {
+              const topic = topics.find(t => t.id === session.topicId);
+              const boss = bosses.find(b => b.topicId === session.topicId);
+              const phases = session.phases;
+              const phaseDetail = phases
+                ? `${phases.recall?.correct ?? 0}/${phases.recall?.total ?? 5} recall · ${phases.application?.correct ?? 0}/${phases.application?.total ?? 3} app · ${phases.extended?.score ?? 0}/${phases.extended?.maxScore ?? 6} ext`
+                : 'No details';
+              return (
+                <div
+                  key={session.id || i}
+                  className="flex items-center gap-3 py-2 border-b border-border last:border-0"
+                >
+                  <span className="text-lg">{boss?.emoji || '📘'}</span>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2">
+                      <span className="text-sm font-medium truncate">
+                        {topic?.name || session.topicId}
+                      </span>
+                      {session.bossDefeated && (
+                        <span className="text-xs text-strong">✓</span>
+                      )}
                     </div>
-                    <div className="text-right">
-                      <div className="text-xs text-accent font-mono">+{session.xpEarned || 0} XP</div>
-                      <div className="text-xs text-text-muted">{formatDate(session.startedAt)}</div>
-                    </div>
+                    <div className="text-xs text-text-muted">{phaseDetail}</div>
                   </div>
-                );
-              })}
-            </div>
-          )}
+                  <div className="text-right">
+                    <div className="text-xs text-accent font-mono">+{session.xpEarned || 0} XP</div>
+                    <div className="text-xs text-text-muted">{formatDate(session.startedAt)}</div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
-      </details>
       )}
 
-      {/* Quick Actions */}
-      <div className="flex gap-3 flex-wrap">
-        <Link
-          to="/topics"
-          className="bg-bg-secondary border border-border hover:border-accent rounded-lg px-4 py-2.5 text-sm no-underline text-text-primary transition-colors"
-        >
-          📚 Browse Topics
-        </Link>
-        <Link
-          to="/exam"
-          className="bg-bg-secondary border border-border hover:border-accent rounded-lg px-4 py-2.5 text-sm no-underline text-text-primary transition-colors"
-        >
-          🎓 Exam Simulator
-        </Link>
-        <Link
-          to={`/study-guide/${mission.topicId}`}
-          className="bg-bg-secondary border border-border hover:border-accent rounded-lg px-4 py-2.5 text-sm no-underline text-text-primary transition-colors"
-        >
-          📖 Study Guide
-        </Link>
-        <Link
-          to="/history"
-          className="bg-bg-secondary border border-border hover:border-accent rounded-lg px-4 py-2.5 text-sm no-underline text-text-primary transition-colors"
-        >
-          📊 Full History
-        </Link>
+      {/* Practice Modes */}
+      <div>
+        <h2 className="text-label mb-3">Practice Modes</h2>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2.5">
+          {[
+            { to: '/topics', Icon: Swords, label: 'Boss Battle', desc: 'Full 3-phase battle' },
+            { to: `/drill/${mission.topicId}`, Icon: ListChecks, label: 'MCQ Drill', desc: 'Quick-fire multiple choice' },
+            { to: '/past-papers', Icon: FileText, label: 'Past Papers', desc: 'Real mark scheme marking' },
+            { to: '/exam', Icon: GraduationCap, label: 'Timed Exam', desc: 'Exam simulator' },
+            { to: '/video-lesson', Icon: Video, label: 'Video Lesson', desc: 'YouTube to quiz' },
+            { to: '/practicals', Icon: FlaskConical, label: 'Practicals', desc: 'Required practical review' },
+            { to: `/study-guide/${mission.topicId}`, Icon: BookOpen, label: 'Study Guide', desc: 'AI revision notes' },
+            { to: '/history', Icon: BarChart3, label: 'Full History', desc: 'All sessions and stats' },
+          ].map(item => (
+            <Link
+              key={item.to}
+              to={item.to}
+              className="bg-bg-secondary border border-border hover:border-accent/50 rounded-xl p-3.5 no-underline transition-colors flex flex-col gap-1.5"
+            >
+              <item.Icon size={18} className="text-accent" />
+              <span className="text-sm font-medium text-text-primary">{item.label}</span>
+              <span className="text-xs text-text-muted">{item.desc}</span>
+            </Link>
+          ))}
+        </div>
       </div>
     </div>
   );

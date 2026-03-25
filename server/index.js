@@ -107,6 +107,12 @@ RULES:
 6. Note common misconceptions students might have
 7. Align difficulty to the requested level (1=easy, 5=hard)
 
+IMPORTANT LANGUAGE RULES:
+- Use British English spelling throughout (e.g. colour, analyse, organise, favour, defence, centre, programme, practise as a verb).
+- Never use American English spelling (no color, analyze, organize, favor, defense, center, program, practice as a verb).
+- Never use em-dashes in any response. Use commas, full stops, colons, or semicolons instead.
+- Use "whilst" not "while" where appropriate. Use "amongst" not "among" where appropriate.
+
 You MUST respond with valid JSON only. No markdown, no explanation outside the JSON.`;
 }
 
@@ -142,6 +148,12 @@ MISCONCEPTIONS TO TARGET:
 - Kc only changes with temperature, NOT with concentration or pressure changes
 - Strong acid != concentrated acid (strength is about dissociation, not amount)
 
+IMPORTANT LANGUAGE RULES:
+- Use British English spelling throughout (e.g. colour, analyse, organise, favour, defence, centre, programme, practise as a verb).
+- Never use American English spelling (no color, analyze, organize, favor, defense, center, program, practice as a verb).
+- Never use em-dashes in any response. Use commas, full stops, colons, or semicolons instead.
+- Use "whilst" not "while" where appropriate. Use "amongst" not "among" where appropriate.
+
 You MUST respond with valid JSON only. No markdown, no explanation outside the JSON.`;
 }
 
@@ -172,6 +184,12 @@ WORKING REQUIREMENTS:
 - For "Show that" questions: all intermediate steps must be visible
 - Accept equivalent forms: factored, expanded, simplified, or exact (surd/fraction)
 
+IMPORTANT LANGUAGE RULES:
+- Use British English spelling throughout (e.g. colour, analyse, organise, favour, defence, centre, programme, practise as a verb).
+- Never use American English spelling (no color, analyze, organize, favor, defense, center, program, practice as a verb).
+- Never use em-dashes in any response. Use commas, full stops, colons, or semicolons instead.
+- Use "whilst" not "while" where appropriate. Use "amongst" not "among" where appropriate.
+
 You MUST respond with valid JSON only. No markdown, no explanation outside the JSON.`;
 }
 
@@ -197,6 +215,12 @@ GRADE BOUNDARY GUIDANCE:
 - Grade 7-8: Confident multi-step work, clear reasoning, accurate technique
 - Grade 5-6: Solid standard techniques, some reasoning
 - Grade 4: Core skills, one-step problems, basic recall
+
+IMPORTANT LANGUAGE RULES:
+- Use British English spelling throughout (e.g. colour, analyse, organise, favour, defence, centre, programme, practise as a verb).
+- Never use American English spelling (no color, analyze, organize, favor, defense, center, program, practice as a verb).
+- Never use em-dashes in any response. Use commas, full stops, colons, or semicolons instead.
+- Use "whilst" not "while" where appropriate. Use "amongst" not "among" where appropriate.
 
 You MUST respond with valid JSON only. No markdown, no explanation outside the JSON.`;
 }
@@ -229,6 +253,12 @@ MARKING PRINCIPLES:
 5. **Partial credit**: Award marks for partially correct answers. A student who gets 3/4 keywords deserves partial marks.
 6. **Be encouraging but honest**: Note what was done well AND what was missing.
 
+IMPORTANT LANGUAGE RULES:
+- Use British English spelling throughout (e.g. colour, analyse, organise, favour, defence, centre, programme, practise as a verb).
+- Never use American English spelling (no color, analyze, organize, favor, defense, center, program, practice as a verb).
+- Never use em-dashes in any response. Use commas, full stops, colons, or semicolons instead.
+- Use "whilst" not "while" where appropriate. Use "amongst" not "among" where appropriate.
+
 You MUST respond with valid JSON only. No markdown, no explanation outside the JSON.`;
 }
 
@@ -257,6 +287,12 @@ MARKING PRINCIPLES:
 8. **Partial credit**: Award marks for partially correct answers.
 9. **Be encouraging but honest**: Note what was done well AND what was missing.
 
+IMPORTANT LANGUAGE RULES:
+- Use British English spelling throughout (e.g. colour, analyse, organise, favour, defence, centre, programme, practise as a verb).
+- Never use American English spelling (no color, analyze, organize, favor, defense, center, program, practice as a verb).
+- Never use em-dashes in any response. Use commas, full stops, colons, or semicolons instead.
+- Use "whilst" not "while" where appropriate. Use "amongst" not "among" where appropriate.
+
 You MUST respond with valid JSON only. No markdown, no explanation outside the JSON.`;
 }
 
@@ -275,14 +311,20 @@ MARKING PRINCIPLES:
    - d/dx(x^n) = x^(n-1) without the coefficient n
    - Product rule: d/dx(uv) = (du/dx)(dv/dx) instead of u(dv/dx) + v(du/dx)
    - Forgetting +c in indefinite integration
-   - sqrt(a+b) = sqrt(a) + sqrt(b) — incorrect splitting of surds
-   - sin(A+B) = sin(A) + sin(B) — incorrect trig addition
-   - log(a+b) = log(a) + log(b) — incorrect log law (only log(ab) = log(a) + log(b))
+   - sqrt(a+b) = sqrt(a) + sqrt(b), incorrect splitting of surds
+   - sin(A+B) = sin(A) + sin(B), incorrect trig addition
+   - log(a+b) = log(a) + log(b), incorrect log law (only log(ab) = log(a) + log(b))
    - Squaring both sides of an inequality without considering sign change
    - Proof by example treated as valid mathematical proof
 7. **Proof validation**: For proof questions, check logical flow, correct deductions, and that each step follows from the previous.
 8. **Partial credit**: Award marks for partially correct methods and working.
 9. **Be encouraging but honest**: Note what was done well AND what was missing.
+
+IMPORTANT LANGUAGE RULES:
+- Use British English spelling throughout (e.g. colour, analyse, organise, favour, defence, centre, programme, practise as a verb).
+- Never use American English spelling (no color, analyze, organize, favor, defense, center, program, practice as a verb).
+- Never use em-dashes in any response. Use commas, full stops, colons, or semicolons instead.
+- Use "whilst" not "while" where appropriate. Use "amongst" not "among" where appropriate.
 
 You MUST respond with valid JSON only. No markdown, no explanation outside the JSON.`;
 }
@@ -301,6 +343,12 @@ MARKING PRINCIPLES:
 5. **Partial credit**: Always award marks for partially correct answers. A student showing understanding deserves credit.
 6. **GCSE-appropriate expectations**: Do not expect A-Level depth. GCSE answers should be clear and accurate but not exhaustive.
 7. **Constructive feedback**: Give specific, actionable advice on how to improve. Frame suggestions positively.
+
+IMPORTANT LANGUAGE RULES:
+- Use British English spelling throughout (e.g. colour, analyse, organise, favour, defence, centre, programme, practise as a verb).
+- Never use American English spelling (no color, analyze, organize, favor, defense, center, program, practice as a verb).
+- Never use em-dashes in any response. Use commas, full stops, colons, or semicolons instead.
+- Use "whilst" not "while" where appropriate. Use "amongst" not "among" where appropriate.
 
 You MUST respond with valid JSON only. No markdown, no explanation outside the JSON.`;
 }
@@ -558,7 +606,7 @@ function getStudyGuidePrompt(examBoard, subjectId, level = 'alevel') {
   const levelLabel = level === 'gcse' ? 'GCSE' : 'A-level';
   const toneGuide = level === 'gcse'
     ? 'Use clear, supportive language suitable for 14-16 year olds. Avoid jargon where possible and explain any technical terms.'
-    : `Keep explanations clear and concise — suitable for A-level students.`;
+    : `Keep explanations clear and concise, suitable for A-level students.`;
 
   return `You are an expert ${levelLabel} ${subjectName} tutor creating personalised study guides. You create targeted revision material aligned to UK ${levelLabel} standards.
 
@@ -579,6 +627,12 @@ RULES:
 - Exam tips should reference mark scheme conventions
 - Worked examples should show the level of detail expected for full marks
 - Weak spot advice should be actionable and specific
+
+IMPORTANT LANGUAGE RULES:
+- Use British English spelling throughout (e.g. colour, analyse, organise, favour, defence, centre, programme, practise as a verb).
+- Never use American English spelling (no color, analyze, organize, favor, defense, center, program, practice as a verb).
+- Never use em-dashes in any response. Use commas, full stops, colons, or semicolons instead.
+- Use "whilst" not "while" where appropriate. Use "amongst" not "among" where appropriate.
 
 You MUST respond with valid JSON only. No markdown, no explanation outside the JSON.`;
 }

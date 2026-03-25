@@ -3,6 +3,7 @@ import { getPostBattleRecommendation } from '../lib/recommend';
 import { formatNextReview, getSRSStageLabel } from '../lib/srs';
 import { useSubject } from '../contexts/SubjectContext';
 import BattleReportCard from './BattleReportCard';
+import { Trophy, Skull, BookOpen } from 'lucide-react';
 
 const PHASE_CONFIG = {
   recall: { label: 'Rapid Recall', xpPer: 20 },
@@ -46,7 +47,7 @@ export default function BattleSummary({ session, boss, topic, masteryBefore, mas
         isStudyMode ? 'bg-accent/5 border-accent/30' :
         defeated ? 'bg-strong/5 border-strong/30 animate-starburst' : 'bg-weak/5 border-weak/30'
       }`}>
-        <span className="text-5xl block mb-2">{isStudyMode ? '📖' : defeated ? '🏆' : '💀'}</span>
+        <span className="block mb-2 flex justify-center">{isStudyMode ? <BookOpen size={40} /> : defeated ? <Trophy size={40} className="text-strong" /> : <Skull size={40} className="text-weak" />}</span>
         <h1 className="font-display text-display mb-1">
           {isStudyMode ? 'Session Complete' : defeated ? 'Boss Defeated!' : 'Boss Survived'}
         </h1>
@@ -222,10 +223,10 @@ export default function BattleSummary({ session, boss, topic, masteryBefore, mas
                 {getSRSStageLabel(srsResult.newStage)}
               </div>
               <p className="text-xs text-text-muted mt-1">
-                {srsResult.newStage === 1 && 'Just getting started — review again tomorrow'}
-                {srsResult.newStage === 2 && 'Building short-term memory — review in a few days'}
-                {srsResult.newStage === 3 && 'Moving to medium-term memory — review next week'}
-                {srsResult.newStage >= 4 && 'Locked in long-term memory — just maintain it'}
+                {srsResult.newStage === 1 && 'Just getting started: review again tomorrow'}
+                {srsResult.newStage === 2 && 'Building short-term memory: review in a few days'}
+                {srsResult.newStage === 3 && 'Moving to medium-term memory: review next week'}
+                {srsResult.newStage >= 4 && 'Locked in long-term memory. Just maintain it'}
               </p>
               {srsResult.nextReviewDate && (
                 <p className="text-xs text-accent mt-1">
@@ -243,7 +244,7 @@ export default function BattleSummary({ session, boss, topic, masteryBefore, mas
               }`}>
                 {srsResult.outcome === 'advanced' ? '↑ Advanced' :
                  srsResult.outcome === 'maintained' ? '✓ Maintained' :
-                 srsResult.outcome === 'stayed' ? '— Stayed' :
+                 srsResult.outcome === 'stayed' ? '~ Stayed' :
                  '↓ Dropped'}
               </div>
             </div>
@@ -262,7 +263,7 @@ export default function BattleSummary({ session, boss, topic, masteryBefore, mas
             to={`/study-guide/${session.topicId}`}
             className="text-xs bg-developing/10 text-developing hover:bg-developing/20 px-3 py-1.5 rounded-lg no-underline transition-colors font-medium shrink-0"
           >
-            📖 Study Guide
+            <BookOpen size={14} className="inline-block" /> Study Guide
           </Link>
         </div>
       )}

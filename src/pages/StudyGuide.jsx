@@ -6,6 +6,7 @@ import { calculateTopicMastery } from '../lib/mastery';
 import { getRecurringMistakes } from '../lib/errorPatterns';
 import { getSettings, getExamBoard, getCurrentSubject } from '../lib/storage';
 import { getMasteryCategory } from '../lib/utils';
+import { Check, X, Clipboard, RefreshCw } from 'lucide-react';
 
 const ANSWER_TEMPLATES = [
   {
@@ -206,7 +207,7 @@ export default function StudyGuide() {
           </span>
           {source && (
             <span className="text-xs text-text-muted">
-              {source === 'claude' ? '✨ AI Generated' : '📋 Template'}
+              {source === 'claude' ? 'AI Generated' : 'Template'}
             </span>
           )}
         </div>
@@ -340,13 +341,13 @@ export default function StudyGuide() {
               onClick={handleCopy}
               className="bg-bg-secondary border border-border hover:border-accent rounded-lg px-4 py-2.5 text-sm transition-colors cursor-pointer text-text-primary"
             >
-              {copied ? '✓ Copied!' : copyFailed ? '✗ Copy failed' : '📋 Copy to Clipboard'}
+              {copied ? <><Check size={14} className="inline-block" /> Copied!</> : copyFailed ? <><X size={14} className="inline-block" /> Copy failed</> : <><Clipboard size={14} className="inline-block" /> Copy to Clipboard</>}
             </button>
             <button
               onClick={handleRegenerate}
               className="bg-bg-secondary border border-border hover:border-accent rounded-lg px-4 py-2.5 text-sm transition-colors cursor-pointer text-text-primary"
             >
-              🔄 Regenerate
+              <RefreshCw size={14} className="inline-block" /> Regenerate
             </button>
             <Link
               to={`/battle/${topicId}`}

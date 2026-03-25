@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { Check, X, Plus, Minus, ArrowRight } from 'lucide-react';
 
 export default function FeedbackPanel({ result, phase, onNext, isStudyMode = false, apiSource, patternWarnings = [], studentAnswer }) {
   if (!result) return null;
@@ -34,7 +35,7 @@ export default function FeedbackPanel({ result, phase, onNext, isStudyMode = fal
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <span className={`text-xl animate-score-pop ${correct ? 'text-strong' : 'text-weak'}`}>
-            {correct ? '✓' : '✗'}
+            {correct ? <Check size={20} /> : <X size={20} />}
           </span>
           <span className={`font-semibold ${correct ? 'text-strong' : 'text-weak'}`}>
             {correct ? 'Correct!' : 'Not quite'}
@@ -82,14 +83,14 @@ export default function FeedbackPanel({ result, phase, onNext, isStudyMode = fal
           {/* Show only the first item from whatYouDidWell */}
           {feedback?.whatYouDidWell?.length > 0 && (
             <p className="text-sm text-text-secondary">
-              <span className="text-strong">+</span> {feedback.whatYouDidWell[0]}
+              <Plus size={14} className="inline-block text-strong" /> {feedback.whatYouDidWell[0]}
             </p>
           )}
 
           {/* Show only the first item from missingPoints */}
           {feedback?.missingPoints?.length > 0 && (
             <p className="text-sm text-text-secondary">
-              <span className="text-weak">-</span> {feedback.missingPoints[0]}
+              <Minus size={14} className="inline-block text-weak" /> {feedback.missingPoints[0]}
             </p>
           )}
 
@@ -129,7 +130,7 @@ export default function FeedbackPanel({ result, phase, onNext, isStudyMode = fal
               <ul className="space-y-1 stagger-children">
                 {feedback.whatYouDidWell.map((point, i) => (
                   <li key={i} className="text-sm text-text-secondary flex gap-2">
-                    <span className="text-strong shrink-0">+</span>
+                    <Plus size={14} className="text-strong shrink-0" />
                     {point}
                   </li>
                 ))}
@@ -144,7 +145,7 @@ export default function FeedbackPanel({ result, phase, onNext, isStudyMode = fal
               <ul className="space-y-1 stagger-children">
                 {feedback.missingPoints.map((point, i) => (
                   <li key={i} className="text-sm text-text-secondary flex gap-2">
-                    <span className="text-weak shrink-0">-</span>
+                    <Minus size={14} className="text-weak shrink-0" />
                     {point}
                   </li>
                 ))}
@@ -159,7 +160,7 @@ export default function FeedbackPanel({ result, phase, onNext, isStudyMode = fal
               <ul className="space-y-1 stagger-children">
                 {feedback.howToImprove.map((tip, i) => (
                   <li key={i} className="text-sm text-text-secondary flex gap-2">
-                    <span className="text-accent shrink-0">→</span>
+                    <ArrowRight size={14} className="text-accent shrink-0" />
                     {tip}
                   </li>
                 ))}
@@ -179,7 +180,7 @@ export default function FeedbackPanel({ result, phase, onNext, isStudyMode = fal
               <ul className="space-y-1 stagger-children">
                 {feedback.whatYouDidWell.map((point, i) => (
                   <li key={i} className="text-sm text-text-secondary flex gap-2">
-                    <span className="text-strong shrink-0">+</span>
+                    <Plus size={14} className="text-strong shrink-0" />
                     {point}
                   </li>
                 ))}
@@ -194,7 +195,7 @@ export default function FeedbackPanel({ result, phase, onNext, isStudyMode = fal
               <ul className="space-y-1 stagger-children">
                 {feedback.missingPoints.map((point, i) => (
                   <li key={i} className="text-sm text-text-secondary flex gap-2">
-                    <span className="text-weak shrink-0">-</span>
+                    <Minus size={14} className="text-weak shrink-0" />
                     {point}
                   </li>
                 ))}
@@ -209,7 +210,7 @@ export default function FeedbackPanel({ result, phase, onNext, isStudyMode = fal
               <ul className="space-y-1 stagger-children">
                 {feedback.howToImprove.map((tip, i) => (
                   <li key={i} className="text-sm text-text-secondary flex gap-2">
-                    <span className="text-accent shrink-0">→</span>
+                    <ArrowRight size={14} className="text-accent shrink-0" />
                     {tip}
                   </li>
                 ))}

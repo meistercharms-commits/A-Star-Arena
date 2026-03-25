@@ -1,20 +1,21 @@
 import { useEffect, useRef, useState } from 'react';
+import { Zap, FlaskConical, Target } from 'lucide-react';
 
 const PHASE_INFO = {
   recall: {
     name: 'Phase 1: Recall',
     description: 'Show what you know. Quick-fire questions testing your foundations.',
-    icon: '⚡',
+    Icon: Zap,
   },
   application: {
     name: 'Phase 2: Application',
     description: 'Apply your knowledge. Deeper questions that test understanding.',
-    icon: '🔬',
+    Icon: FlaskConical,
   },
   extended: {
     name: 'Phase 3: Extended Response',
     description: 'The final challenge. Show the examiner everything you\'ve got.',
-    icon: '🎯',
+    Icon: Target,
   },
 };
 
@@ -40,7 +41,7 @@ export default function PhaseTransition({ phase, bossTaunt, onComplete }) {
       style={{ background: 'rgba(24,31,44,0.92)' }}
     >
       <div className="text-center space-y-4 animate-slide-up max-w-sm px-6">
-        <div className="text-5xl">{info.icon}</div>
+        <div className="flex justify-center"><info.Icon size={40} className="text-accent" /></div>
         <h2 className="font-display text-[28px] font-semibold text-text-primary">{info.name}</h2>
         <p className="text-sm text-text-secondary leading-relaxed">{info.description}</p>
         {bossTaunt && (

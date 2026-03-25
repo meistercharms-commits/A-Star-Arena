@@ -9,21 +9,23 @@ import { getLevelMeta } from '../lib/qualificationLevel';
 import { getSettings } from '../lib/storage';
 import { LogoLockup, ShieldIcon } from './Logo';
 import CreditBadge from './CreditBadge';
+import { Home, BookOpen, BarChart3, Calendar, Video, GraduationCap, FileText, Gem, Settings, MoreHorizontal, Pencil, FlaskConical } from 'lucide-react';
 
 const coreNavItems = [
-  { path: '/', label: 'Home', icon: '⚡' },
-  { path: '/topics', label: 'Topics', icon: '📚' },
-  { path: '/history', label: 'Progress', icon: '📊' },
-  { path: '/exams', label: 'Exams', icon: '📅' },
+  { path: '/', label: 'Home', Icon: Home },
+  { path: '/topics', label: 'Topics', Icon: BookOpen },
+  { path: '/history', label: 'Progress', Icon: BarChart3 },
+  { path: '/exams', label: 'Exams', Icon: Calendar },
 ];
 
 const moreNavItems = [
-  { path: '/video-lesson', label: 'Video', icon: '🎬' },
-  { path: '/exam', label: 'Timed', icon: '🎓' },
-  { path: '/past-papers', label: 'Papers', icon: '📄' },
-  { path: '/mistakes', label: 'Mistakes', icon: '📝' },
-  { path: '/credits', label: 'Credits', icon: '💎' },
-  { path: '/settings', label: 'Settings', icon: '⚙️' },
+  { path: '/video-lesson', label: 'Video', Icon: Video },
+  { path: '/exam', label: 'Timed', Icon: GraduationCap },
+  { path: '/past-papers', label: 'Papers', Icon: FileText },
+  { path: '/practicals', label: 'Practicals', Icon: FlaskConical },
+  { path: '/mistakes', label: 'Mistakes', Icon: Pencil },
+  { path: '/credits', label: 'Credits', Icon: Gem },
+  { path: '/settings', label: 'Settings', Icon: Settings },
 ];
 
 export default function Layout({ children }) {
@@ -82,14 +84,14 @@ export default function Layout({ children }) {
                       : 'text-text-secondary hover:text-text-primary hover:bg-bg-tertiary'
                   }`}
                 >
-                  {item.icon} {item.label}
+                  <item.Icon size={16} className="inline-block" /> {item.label}
                 </Link>
               ))}
               <button
                 onClick={() => setMoreOpen(true)}
-                className="px-3 py-1.5 rounded-lg text-nav text-text-secondary hover:text-text-primary hover:bg-bg-tertiary transition-colors cursor-pointer bg-transparent border-0"
+                className="px-3 py-1.5 rounded-lg text-nav text-text-secondary hover:text-text-primary hover:bg-bg-tertiary transition-colors cursor-pointer bg-transparent border-0 flex items-center gap-1"
               >
-                ••• More
+                <MoreHorizontal size={16} /> More
               </button>
             </nav>
             {/* Theme toggle */}
@@ -181,12 +183,12 @@ export default function Layout({ children }) {
               to={item.path}
               className={`flex flex-col items-center gap-0.5 px-3 py-1 ${location.pathname === item.path ? 'text-accent' : 'text-text-muted'}`}
             >
-              <span>{item.icon}</span>
+              <item.Icon size={20} />
               <span className="text-label">{item.label}</span>
             </Link>
           ))}
           <button onClick={() => setMoreOpen(true)} className="flex flex-col items-center gap-0.5 px-3 py-1 text-text-muted bg-transparent border-0 cursor-pointer">
-            <span>•••</span>
+            <MoreHorizontal size={20} />
             <span className="text-label">More</span>
           </button>
         </div>
@@ -210,7 +212,7 @@ export default function Layout({ children }) {
                     location.pathname === item.path ? 'bg-accent/10 text-accent' : 'text-text-secondary hover:bg-bg-tertiary'
                   }`}
                 >
-                  <span className="text-xl">{item.icon}</span>
+                  <item.Icon size={20} />
                   <span className="text-xs">{item.label}</span>
                 </Link>
               ))}

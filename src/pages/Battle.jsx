@@ -8,6 +8,7 @@ import { updateTopicMastery } from '../lib/mastery';
 import { calculateNextReview, getSessionScorePercentage } from '../lib/srs';
 import { trackErrorPatterns, getPatternWarningsForAttempt } from '../lib/errorPatterns';
 import { getInterleavedTopics } from '../lib/recommend';
+import { Flame, Swords, BookOpen, RefreshCw } from 'lucide-react';
 import BossHUD from '../components/BossHUD';
 import PhaseTransition from '../components/PhaseTransition';
 import QuestionCard from '../components/QuestionCard';
@@ -184,9 +185,9 @@ export default function Battle() {
               setTimeout(() => setShowToast(null), 2500);
             }
             // Streak celebrations
-            if (newStreak === 3) { setStreakToast('🔥 Hot Streak!'); setTimeout(() => setStreakToast(null), 2000); }
-            else if (newStreak === 5) { setStreakToast('🔥🔥 On Fire!'); setTimeout(() => setStreakToast(null), 2000); }
-            else if (newStreak === 7) { setStreakToast('🔥🔥🔥 Unstoppable!'); setTimeout(() => setStreakToast(null), 2000); }
+            if (newStreak === 3) { setStreakToast('Hot Streak!'); setTimeout(() => setStreakToast(null), 2000); }
+            else if (newStreak === 5) { setStreakToast('On Fire!'); setTimeout(() => setStreakToast(null), 2000); }
+            else if (newStreak === 7) { setStreakToast('Unstoppable!'); setTimeout(() => setStreakToast(null), 2000); }
             return newStreak;
           });
         } else {
@@ -375,7 +376,7 @@ export default function Battle() {
                   : 'border-border bg-bg-tertiary hover:border-text-muted'
               }`}
             >
-              <span className="text-lg block mb-1">⚔️</span>
+              <span className="block mb-1"><Swords size={18} /></span>
               <p className="font-semibold text-sm">Challenge</p>
               <p className="text-xs text-text-muted mt-1">Timed, full XP, boss damage</p>
             </button>
@@ -387,7 +388,7 @@ export default function Battle() {
                   : 'border-border bg-bg-tertiary hover:border-text-muted'
               }`}
             >
-              <span className="text-lg block mb-1">📖</span>
+              <span className="block mb-1"><BookOpen size={18} /></span>
               <p className="font-semibold text-sm">Study</p>
               <p className="text-xs text-text-muted mt-1">Relaxed timer, model answers</p>
             </button>
@@ -399,7 +400,7 @@ export default function Battle() {
                   : 'border-border bg-bg-tertiary hover:border-text-muted'
               }`}
             >
-              <span className="text-lg block mb-1">🔀</span>
+              <span className="block mb-1"><RefreshCw size={18} /></span>
               <p className="font-semibold text-sm">Mixed</p>
               <p className="text-xs text-text-muted mt-1">Interleaved topics, spaced practice</p>
             </button>
@@ -511,7 +512,7 @@ export default function Battle() {
       {battleMode === 'mixed' && currentQuestion?.mixedTopicId && (
         <div className="bg-developing/10 border border-developing/30 rounded-lg px-3 py-2 text-center">
           <span className="text-xs text-developing font-medium">
-            🔀 Topic: {topics.find(t => t.id === currentQuestion.mixedTopicId)?.name || currentQuestion.mixedTopicId}
+            <RefreshCw size={12} className="inline-block" /> Topic: {topics.find(t => t.id === currentQuestion.mixedTopicId)?.name || currentQuestion.mixedTopicId}
           </span>
         </div>
       )}
@@ -538,8 +539,8 @@ export default function Battle() {
 
       {/* Streak toast */}
       {streakToast && (
-        <div className="fixed top-20 left-1/2 -translate-x-1/2 z-50 bg-accent/20 border border-accent/40 text-accent px-4 py-2 rounded-xl text-sm font-medium animate-score-pop">
-          {streakToast}
+        <div className="fixed top-20 left-1/2 -translate-x-1/2 z-50 bg-accent/20 border border-accent/40 text-accent px-4 py-2 rounded-xl text-sm font-medium animate-score-pop flex items-center gap-1.5">
+          <Flame size={16} /> {streakToast}
         </div>
       )}
 

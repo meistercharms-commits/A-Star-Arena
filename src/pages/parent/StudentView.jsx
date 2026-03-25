@@ -202,7 +202,7 @@ export default function StudentView() {
         </div>
         <p className="text-sm text-text-secondary mb-4">
           Credits let {student?.displayName || 'your child'} use AI-powered revision battles and video lessons.
-          They get 5 free AI battles each week — credits are for when they want to do more.
+          They get 5 free AI battles each week; credits are for when they want to do more.
         </p>
         <div className="grid grid-cols-3 gap-3">
           {CREDIT_PACKS.map(pack => (

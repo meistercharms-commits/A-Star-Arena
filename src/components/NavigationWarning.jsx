@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useBlocker } from 'react-router-dom';
+import { AlertTriangle } from 'lucide-react';
 
 /**
  * Hook: handles beforeunload + React Router blocking.
@@ -36,7 +37,7 @@ export function NavigationWarningModal({ blocker }) {
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 animate-fade-in">
       <div className="bg-bg-secondary border border-border rounded-xl p-6 max-w-sm mx-4 space-y-4 shadow-lg">
         <div className="text-center">
-          <span className="text-3xl block mb-2">⚠️</span>
+          <span className="block mb-2 flex justify-center"><AlertTriangle size={28} className="text-developing" /></span>
           <h2 className="text-lg font-bold">Leave Session?</h2>
           <p className="text-sm text-text-secondary mt-2">
             Your progress won't be saved. Are you sure you want to leave?

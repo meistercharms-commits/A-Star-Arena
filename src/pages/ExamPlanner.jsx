@@ -6,6 +6,7 @@ import { getLevelMeta } from '../lib/qualificationLevel';
 import { getExamCoverage, generateRevisionPlan } from '../lib/examPlanner';
 import { useLevel } from '../contexts/LevelContext';
 import { generateId } from '../lib/utils';
+import { Calendar } from 'lucide-react';
 
 export default function ExamPlanner() {
   const { level } = useLevel();
@@ -193,7 +194,7 @@ export default function ExamPlanner() {
       {/* Upcoming Exams */}
       {upcomingExams.length === 0 && !showForm && (
         <div className="bg-bg-secondary border border-border rounded-xl p-8 text-center shadow-card">
-          <span className="text-4xl block mb-3">📅</span>
+          <span className="block mb-3 flex justify-center"><Calendar size={36} className="text-text-muted" /></span>
           <h2 className="font-semibold mb-1">No exams added yet</h2>
           <p className="text-text-muted text-sm mb-4">Add your upcoming exams to get targeted revision plans and countdown reminders.</p>
           <button

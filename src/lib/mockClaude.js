@@ -19,7 +19,7 @@ const questionBank = {
       { prompt: "A food sample was tested with Benedict's reagent and remained blue. Suggest why this does not prove the absence of sugar.", subskillIds: ["monosaccharides"], keywords: ["non-reducing sugar", "sucrose", "need hydrolysis first", "only tests reducing sugars"], maxScore: 3 },
     ],
     extended: [
-      { prompt: "Describe and explain the relationship between the structure of proteins and their function, using named examples. (6 marks)", subskillIds: ["protein_structure", "amino_acids"], keywords: ["primary sequence", "hydrogen bonds", "tertiary structure", "active site", "haemoglobin", "collagen", "fibrous vs globular"], maxScore: 6, rubricPoints: ["Primary structure is the sequence of amino acids", "Determines tertiary/3D shape via hydrogen bonds, disulfide bridges, ionic bonds, hydrophobic interactions", "Globular proteins (e.g., enzymes, haemoglobin) are soluble and have specific 3D shapes for function", "Fibrous proteins (e.g., collagen) have repeating structures for strength", "Shape determines function — e.g., enzyme active site is complementary to substrate", "Changes to primary structure (mutations) can alter shape and function"] },
+      { prompt: "Describe and explain the relationship between the structure of proteins and their function, using named examples. (6 marks)", subskillIds: ["protein_structure", "amino_acids"], keywords: ["primary sequence", "hydrogen bonds", "tertiary structure", "active site", "haemoglobin", "collagen", "fibrous vs globular"], maxScore: 6, rubricPoints: ["Primary structure is the sequence of amino acids", "Determines tertiary/3D shape via hydrogen bonds, disulfide bridges, ionic bonds, hydrophobic interactions", "Globular proteins (e.g., enzymes, haemoglobin) are soluble and have specific 3D shapes for function", "Fibrous proteins (e.g., collagen) have repeating structures for strength", "Shape determines function, e.g. enzyme active site is complementary to substrate", "Changes to primary structure (mutations) can alter shape and function"] },
       { prompt: "Compare and contrast the structure and function of starch and cellulose. (6 marks)", subskillIds: ["polysaccharides"], keywords: ["alpha glucose", "beta glucose", "1-4 glycosidic", "branched/unbranched", "energy storage", "structural"], maxScore: 6, rubricPoints: ["Both polymers of glucose linked by glycosidic bonds", "Starch: alpha-glucose; cellulose: beta-glucose", "Starch: coiled (amylose) and branched (amylopectin); cellulose: straight chains", "Cellulose chains form hydrogen bonds between molecules → microfibrils → strong", "Starch is compact and insoluble → good energy store", "Cellulose provides structural support in plant cell walls"] },
     ],
   },
@@ -35,7 +35,7 @@ const questionBank = {
     ],
     application: [
       { prompt: "A scientist added substrate to an enzyme solution at 30°C. The rate of reaction increased rapidly at first, then plateaued. Explain why the reaction rate did not continue to increase linearly.", subskillIds: ["kinetics", "induced_fit"], keywords: ["saturation", "active sites occupied", "enzyme concentration limiting", "no free active sites"], maxScore: 4 },
-      { prompt: "Enzyme A is inhibited by drug X — rate drops 50%. Enzyme B is inhibited by drug Y — rate drops to zero regardless of substrate concentration. Explain the difference.", subskillIds: ["competitive_inhibition", "noncompetitive_inhibition"], keywords: ["competitive: binds active site", "can be overcome by more substrate", "non-competitive: binds allosteric site", "changes active site shape", "cannot be overcome"], maxScore: 4 },
+      { prompt: "Enzyme A is inhibited by drug X; rate drops 50%. Enzyme B is inhibited by drug Y; rate drops to zero regardless of substrate concentration. Explain the difference.", subskillIds: ["competitive_inhibition", "noncompetitive_inhibition"], keywords: ["competitive: binds active site", "can be overcome by more substrate", "non-competitive: binds allosteric site", "changes active site shape", "cannot be overcome"], maxScore: 4 },
       { prompt: "Two enzymes have different optimal temperatures (37°C vs 80°C). The second is from a thermophilic bacterium. Explain why.", subskillIds: ["temperature_effects"], keywords: ["more hydrogen bonds", "stronger ionic interactions", "tertiary structure more heat-stable", "adapted to hot environment", "denaturation at higher temperature"], maxScore: 3 },
     ],
     extended: [
@@ -183,7 +183,7 @@ const questionBank = {
       { prompt: "Explain why a person who drinks a large volume of water produces dilute urine.", subskillIds: ["osmoregulation", "kidney_function"], keywords: ["blood water potential rises", "osmoreceptors detect change", "less ADH released", "collecting duct less permeable", "less water reabsorbed", "dilute urine"], maxScore: 4 },
     ],
     extended: [
-      { prompt: "Describe and explain how blood glucose concentration is regulated by insulin and glucagon. (6 marks)", subskillIds: ["blood_glucose", "negative_feedback"], keywords: ["insulin", "glucagon", "beta cells", "alpha cells", "glycogenesis", "glycogenolysis", "negative feedback"], maxScore: 6, rubricPoints: ["High blood glucose detected by beta cells in islets of Langerhans", "Beta cells secrete insulin → promotes glucose uptake by cells + glycogenesis (glucose → glycogen)", "Blood glucose falls back to normal (negative feedback)", "Low blood glucose detected by alpha cells", "Alpha cells secrete glucagon → promotes glycogenolysis (glycogen → glucose) + gluconeogenesis", "Blood glucose rises back to normal (negative feedback) — antagonistic hormones maintain balance"] },
+      { prompt: "Describe and explain how blood glucose concentration is regulated by insulin and glucagon. (6 marks)", subskillIds: ["blood_glucose", "negative_feedback"], keywords: ["insulin", "glucagon", "beta cells", "alpha cells", "glycogenesis", "glycogenolysis", "negative feedback"], maxScore: 6, rubricPoints: ["High blood glucose detected by beta cells in islets of Langerhans", "Beta cells secrete insulin → promotes glucose uptake by cells + glycogenesis (glucose → glycogen)", "Blood glucose falls back to normal (negative feedback)", "Low blood glucose detected by alpha cells", "Alpha cells secrete glucagon → promotes glycogenolysis (glycogen → glucose) + gluconeogenesis", "Blood glucose rises back to normal (negative feedback); antagonistic hormones maintain balance"] },
     ],
   },
   ecology: {
@@ -198,7 +198,7 @@ const questionBank = {
       { prompt: "Explain why only about 10% of energy is transferred between trophic levels.", subskillIds: ["ecosystems"], keywords: ["respiration", "heat loss", "not all organisms eaten", "not all parts digested", "faeces", "excretion"], maxScore: 3 },
     ],
     extended: [
-      { prompt: "Describe the process of ecological succession from bare rock to a climax community. (6 marks)", subskillIds: ["succession"], keywords: ["pioneer species", "lichens", "soil formation", "new species", "biodiversity increases", "climax community"], maxScore: 6, rubricPoints: ["Pioneer species (e.g., lichens, mosses) colonise bare rock", "They weather the rock and add organic matter when they die → soil begins to form", "Soil allows new species (grasses, small plants) to grow → outcompete pioneers", "Each stage (seral stage) changes the environment, making it suitable for next species", "Biodiversity and biomass increase at each stage", "Climax community reached: stable community (e.g., oak woodland in UK) — no further change unless disturbed"] },
+      { prompt: "Describe the process of ecological succession from bare rock to a climax community. (6 marks)", subskillIds: ["succession"], keywords: ["pioneer species", "lichens", "soil formation", "new species", "biodiversity increases", "climax community"], maxScore: 6, rubricPoints: ["Pioneer species (e.g., lichens, mosses) colonise bare rock", "They weather the rock and add organic matter when they die → soil begins to form", "Soil allows new species (grasses, small plants) to grow → outcompete pioneers", "Each stage (seral stage) changes the environment, making it suitable for next species", "Biodiversity and biomass increase at each stage", "Climax community reached: stable community (e.g., oak woodland in UK); no further change unless disturbed"] },
     ],
   },
   cell_recognition_immune: {
@@ -253,7 +253,7 @@ const questionBank = {
       { prompt: "Explain why the Boltzmann distribution curve changes shape when temperature increases and how this affects reaction rate.", subskillIds: ["kinetics_df"], keywords: ["curve shifts right", "flatter", "peak lower", "more particles exceed activation energy", "greater proportion", "rate increases"], maxScore: 3 },
     ],
     extended: [
-      { prompt: "Discuss the advantages and disadvantages of using hydrogen as a fuel compared to petrol, considering enthalpy, sustainability, and practical issues. (6 marks)", subskillIds: ["enthalpy_df", "alkanes_df", "polymers_df"], keywords: ["hydrogen combustion", "water only product", "no CO2", "renewable", "high energy per gram", "storage difficult", "flammable", "infrastructure"], maxScore: 6, rubricPoints: ["Hydrogen combustion produces only water — no CO2 or pollutants", "Higher energy per gram than petrol (enthalpy of combustion comparison)", "Can be produced from water by electrolysis using renewable electricity", "Storage is problematic: low density gas requires high pressure tanks or cryogenic cooling", "Hydrogen is highly flammable and explosive in air — safety concern", "Infrastructure for hydrogen refuelling is currently very limited compared to petrol stations"] },
+      { prompt: "Discuss the advantages and disadvantages of using hydrogen as a fuel compared to petrol, considering enthalpy, sustainability, and practical issues. (6 marks)", subskillIds: ["enthalpy_df", "alkanes_df", "polymers_df"], keywords: ["hydrogen combustion", "water only product", "no CO2", "renewable", "high energy per gram", "storage difficult", "flammable", "infrastructure"], maxScore: 6, rubricPoints: ["Hydrogen combustion produces only water, no CO2 or pollutants", "Higher energy per gram than petrol (enthalpy of combustion comparison)", "Can be produced from water by electrolysis using renewable electricity", "Storage is problematic: low density gas requires high pressure tanks or cryogenic cooling", "Hydrogen is highly flammable and explosive in air, a safety concern", "Infrastructure for hydrogen refuelling is currently very limited compared to petrol stations"] },
     ],
   },
   elements_from_sea: {
@@ -269,7 +269,7 @@ const questionBank = {
       { prompt: "Write the overall equation and two half-equations for the reaction of chlorine with potassium iodide solution.", subskillIds: ["redox_es", "halogens_es"], keywords: ["Cl₂ + 2KI → 2KCl + I₂", "Cl₂ + 2e⁻ → 2Cl⁻", "2I⁻ → I₂ + 2e⁻", "reduction", "oxidation"], maxScore: 4 },
     ],
     extended: [
-      { prompt: "Explain why chlorine is a stronger oxidising agent than iodine. Discuss in terms of atomic structure and electron affinity. (6 marks)", subskillIds: ["halogens_es", "redox_es"], keywords: ["chlorine smaller atom", "fewer electron shells", "less shielding", "greater nuclear attraction", "gains electrons more easily", "higher electron affinity"], maxScore: 6, rubricPoints: ["Chlorine has fewer electron shells than iodine (3 vs 5)", "Smaller atomic radius means outer shell is closer to nucleus", "Less shielding from inner electrons", "Greater effective nuclear charge experienced by incoming electron", "Chlorine gains electrons more readily — higher electron affinity", "Therefore chlorine is a stronger oxidising agent — more readily reduced from Cl₂ to Cl⁻"] },
+      { prompt: "Explain why chlorine is a stronger oxidising agent than iodine. Discuss in terms of atomic structure and electron affinity. (6 marks)", subskillIds: ["halogens_es", "redox_es"], keywords: ["chlorine smaller atom", "fewer electron shells", "less shielding", "greater nuclear attraction", "gains electrons more easily", "higher electron affinity"], maxScore: 6, rubricPoints: ["Chlorine has fewer electron shells than iodine (3 vs 5)", "Smaller atomic radius means outer shell is closer to nucleus", "Less shielding from inner electrons", "Greater effective nuclear charge experienced by incoming electron", "Chlorine gains electrons more readily, with higher electron affinity", "Therefore chlorine is a stronger oxidising agent, more readily reduced from Cl₂ to Cl⁻"] },
     ],
   },
   ozone_story: {
@@ -285,7 +285,7 @@ const questionBank = {
       { prompt: "Explain why diamond has a very high melting point but methane has a very low melting point.", subskillIds: ["bonding_oz", "structure_oz"], keywords: ["diamond: giant covalent", "many strong C-C bonds", "lots of energy to break", "methane: simple molecular", "weak London forces", "little energy to overcome"], maxScore: 3 },
     ],
     extended: [
-      { prompt: "Compare and contrast the bonding and structure in diamond, graphite, and ice, and explain how their structures relate to their physical properties. (6 marks)", subskillIds: ["bonding_oz", "structure_oz"], keywords: ["diamond giant covalent", "tetrahedral", "hard", "graphite layers", "delocalised electrons", "conducts", "ice hydrogen bonding", "lower density"], maxScore: 6, rubricPoints: ["Diamond: giant covalent, each C bonded to 4 others tetrahedrally — very hard, high mp", "Graphite: giant covalent layers, each C bonded to 3 others, delocalised electrons between layers", "Graphite conducts electricity (delocalised electrons) and is slippery (weak forces between layers)", "Ice: simple molecular structure, molecules held by hydrogen bonds", "Ice has relatively low melting point compared to giant structures due to weaker intermolecular forces", "Ice is less dense than water because hydrogen bonds hold molecules in an open lattice structure"] },
+      { prompt: "Compare and contrast the bonding and structure in diamond, graphite, and ice, and explain how their structures relate to their physical properties. (6 marks)", subskillIds: ["bonding_oz", "structure_oz"], keywords: ["diamond giant covalent", "tetrahedral", "hard", "graphite layers", "delocalised electrons", "conducts", "ice hydrogen bonding", "lower density"], maxScore: 6, rubricPoints: ["Diamond: giant covalent, each C bonded to 4 others tetrahedrally; very hard, high mp", "Graphite: giant covalent layers, each C bonded to 3 others, delocalised electrons between layers", "Graphite conducts electricity (delocalised electrons) and is slippery (weak forces between layers)", "Ice: simple molecular structure, molecules held by hydrogen bonds", "Ice has relatively low melting point compared to giant structures due to weaker intermolecular forces", "Ice is less dense than water because hydrogen bonds hold molecules in an open lattice structure"] },
     ],
   },
   whats_in_medicine: {
@@ -301,7 +301,7 @@ const questionBank = {
       { prompt: "A compound has Mr = 58 and an IR absorption at 1710 cm⁻¹. Its mass spectrum shows peaks at m/z = 58, 43, and 15. Suggest the structure.", subskillIds: ["mass_spec_wm", "ir_spec_wm"], keywords: ["propanone", "CH₃COCH₃", "1710 = C=O", "43 = CH₃CO⁺", "15 = CH₃⁺", "Mr 58 matches"], maxScore: 4 },
     ],
     extended: [
-      { prompt: "Describe how mass spectrometry, IR spectroscopy, and chromatography can be used together to identify an unknown organic compound. Explain the information each technique provides. (6 marks)", subskillIds: ["mass_spec_wm", "ir_spec_wm", "chromatography_wm"], keywords: ["mass spec", "molecular ion", "Mr", "fragmentation", "IR", "functional groups", "chromatography", "purity", "Rf value"], maxScore: 6, rubricPoints: ["Mass spectrometry: molecular ion peak gives the relative molecular mass (Mr) of the compound", "Fragmentation pattern helps identify structural units within the molecule", "IR spectroscopy: absorptions at specific wavenumbers identify functional groups (e.g., O-H, C=O, N-H)", "Can distinguish between similar compounds (e.g., alcohol vs carboxylic acid from O-H shape)", "Chromatography (TLC or GC): checks purity — single spot/peak suggests pure compound", "GC-MS combines separation with mass spec identification of individual components in a mixture"] },
+      { prompt: "Describe how mass spectrometry, IR spectroscopy, and chromatography can be used together to identify an unknown organic compound. Explain the information each technique provides. (6 marks)", subskillIds: ["mass_spec_wm", "ir_spec_wm", "chromatography_wm"], keywords: ["mass spec", "molecular ion", "Mr", "fragmentation", "IR", "functional groups", "chromatography", "purity", "Rf value"], maxScore: 6, rubricPoints: ["Mass spectrometry: molecular ion peak gives the relative molecular mass (Mr) of the compound", "Fragmentation pattern helps identify structural units within the molecule", "IR spectroscopy: absorptions at specific wavenumbers identify functional groups (e.g., O-H, C=O, N-H)", "Can distinguish between similar compounds (e.g., alcohol vs carboxylic acid from O-H shape)", "Chromatography (TLC or GC): checks purity; single spot/peak suggests pure compound", "GC-MS combines separation with mass spec identification of individual components in a mixture"] },
     ],
   },
   chemical_industry: {
@@ -333,7 +333,7 @@ const questionBank = {
       { prompt: "Explain why glycine does not exhibit optical isomerism but alanine does.", subskillIds: ["optical_pl", "amino_acids_pl"], keywords: ["glycine R group is H", "two H atoms on central carbon", "not four different groups", "alanine R = CH₃", "four different groups", "chiral centre"], maxScore: 3 },
     ],
     extended: [
-      { prompt: "Compare and contrast the formation, structure, and properties of addition polymers and condensation polymers. Give examples. (6 marks)", subskillIds: ["polymer_types_pl", "condensation_pl"], keywords: ["addition from alkenes", "condensation from bifunctional monomers", "no small molecule vs water lost", "polyethene vs nylon/PET"], maxScore: 6, rubricPoints: ["Addition polymers form from unsaturated monomers (alkenes) by opening the C=C double bond", "No atoms are lost — all atoms from the monomer are in the polymer (e.g., poly(ethene) from ethene)", "Condensation polymers form from monomers with two functional groups (bifunctional)", "A small molecule (usually water) is eliminated at each link (e.g., polyesters, polyamides)", "Addition polymers are generally non-biodegradable (C-C backbone resistant to hydrolysis)", "Condensation polymers can be hydrolysed (broken down by water/acid/base) as they contain ester or amide links"] },
+      { prompt: "Compare and contrast the formation, structure, and properties of addition polymers and condensation polymers. Give examples. (6 marks)", subskillIds: ["polymer_types_pl", "condensation_pl"], keywords: ["addition from alkenes", "condensation from bifunctional monomers", "no small molecule vs water lost", "polyethene vs nylon/PET"], maxScore: 6, rubricPoints: ["Addition polymers form from unsaturated monomers (alkenes) by opening the C=C double bond", "No atoms are lost, all atoms from the monomer are in the polymer (e.g., poly(ethene) from ethene)", "Condensation polymers form from monomers with two functional groups (bifunctional)", "A small molecule (usually water) is eliminated at each link (e.g., polyesters, polyamides)", "Addition polymers are generally non-biodegradable (C-C backbone resistant to hydrolysis)", "Condensation polymers can be hydrolysed (broken down by water/acid/base) as they contain ester or amide links"] },
     ],
   },
   oceans: {
@@ -365,7 +365,7 @@ const questionBank = {
       { prompt: "Explain why [Cu(NH₃)₄(H₂O)₂]²⁺ is a different colour from [Cu(H₂O)₆]²⁺.", subskillIds: ["coloured_ions_dm", "ligand_substitution_dm"], keywords: ["different ligands", "different splitting of d orbitals", "different energy gap", "absorb different wavelength", "different complementary colour"], maxScore: 4 },
     ],
     extended: [
-      { prompt: "Explain why transition metal ions form coloured compounds, and describe how the colour observed depends on the ligand, oxidation state, and coordination number. (6 marks)", subskillIds: ["transition_metals_dm", "coloured_ions_dm", "ligands_dm"], keywords: ["partially filled d orbitals", "d-d transition", "split energy levels", "absorb visible light", "complementary colour", "ligand field"], maxScore: 6, rubricPoints: ["Transition metal ions have partially filled d orbitals", "In a complex, ligands cause the d orbitals to split into two energy levels", "Electrons can be promoted from lower to higher d orbitals by absorbing visible light", "The wavelength absorbed depends on the energy gap between split d levels", "The colour observed is the complementary colour to that absorbed", "Changing the ligand, oxidation state, or coordination number changes the energy gap — therefore changes the colour"] },
+      { prompt: "Explain why transition metal ions form coloured compounds, and describe how the colour observed depends on the ligand, oxidation state, and coordination number. (6 marks)", subskillIds: ["transition_metals_dm", "coloured_ions_dm", "ligands_dm"], keywords: ["partially filled d orbitals", "d-d transition", "split energy levels", "absorb visible light", "complementary colour", "ligand field"], maxScore: 6, rubricPoints: ["Transition metal ions have partially filled d orbitals", "In a complex, ligands cause the d orbitals to split into two energy levels", "Electrons can be promoted from lower to higher d orbitals by absorbing visible light", "The wavelength absorbed depends on the energy gap between split d levels", "The colour observed is the complementary colour to that absorbed", "Changing the ligand, oxidation state, or coordination number changes the energy gap, therefore changes the colour"] },
     ],
   },
   colour_by_design: {
@@ -381,7 +381,7 @@ const questionBank = {
       { prompt: "Outline a one-step synthesis of phenylethanone from benzene, giving reagents and conditions for each step.", subskillIds: ["friedel_crafts_cd", "organic_synthesis_cd"], keywords: ["Friedel-Crafts acylation", "CH₃COCl", "AlCl₃ catalyst", "reflux", "anhydrous conditions"], maxScore: 4 },
     ],
     extended: [
-      { prompt: "Discuss the evidence that supports the delocalised model of benzene over the Kekulé structure, including thermodynamic, structural, and chemical evidence. (6 marks)", subskillIds: ["benzene_cd", "phenol_cd"], keywords: ["Kekulé", "alternating double bonds", "delocalised", "hydrogenation enthalpy", "bond lengths equal", "substitution not addition"], maxScore: 6, rubricPoints: ["Kekulé structure predicts alternating C=C and C-C with different bond lengths", "X-ray crystallography shows all C-C bonds in benzene are the same length (0.140 nm)", "Kekulé structure predicts enthalpy of hydrogenation = 3 × cyclohexene = -360 kJ mol⁻¹", "Actual enthalpy of hydrogenation is -208 kJ mol⁻¹ — benzene is 152 kJ mol⁻¹ more stable than predicted", "This extra stability is due to delocalisation of pi electrons across the ring", "Benzene resists addition reactions (which would destroy delocalisation) and prefers substitution"] },
+      { prompt: "Discuss the evidence that supports the delocalised model of benzene over the Kekulé structure, including thermodynamic, structural, and chemical evidence. (6 marks)", subskillIds: ["benzene_cd", "phenol_cd"], keywords: ["Kekulé", "alternating double bonds", "delocalised", "hydrogenation enthalpy", "bond lengths equal", "substitution not addition"], maxScore: 6, rubricPoints: ["Kekulé structure predicts alternating C=C and C-C with different bond lengths", "X-ray crystallography shows all C-C bonds in benzene are the same length (0.140 nm)", "Kekulé structure predicts enthalpy of hydrogenation = 3 × cyclohexene = -360 kJ mol⁻¹", "Actual enthalpy of hydrogenation is -208 kJ mol⁻¹, benzene is 152 kJ mol⁻¹ more stable than predicted", "This extra stability is due to delocalisation of pi electrons across the ring", "Benzene resists addition reactions (which would destroy delocalisation) and prefers substitution"] },
     ],
   },
   // ─── Mathematics Topics ───
@@ -460,7 +460,7 @@ const questionBank = {
       { prompt: "Rationalise the denominator of 3/(2 + √5).", subskillIds: ["surds_indices"], keywords: ["multiply by conjugate", "2 - √5", "3(2-√5)/(4-5)", "-3(2-√5)", "or equivalent", "-6 + 3√5"], maxScore: 3 },
     ],
     extended: [
-      { prompt: "Prove by contradiction that √2 is irrational. (6 marks)", subskillIds: ["proof"], keywords: ["assume rational", "p/q in lowest terms", "2q² = p²", "p is even", "q is even", "contradiction"], maxScore: 6, rubricPoints: ["Assume √2 is rational, so √2 = p/q where p and q are integers with no common factors", "Then 2 = p²/q², so p² = 2q²", "Therefore p² is even, which means p must be even (since odd² is odd)", "Let p = 2k, then (2k)² = 2q², so 4k² = 2q², giving q² = 2k²", "Therefore q² is even, so q is also even", "Both p and q are even — contradicts the assumption they share no common factors, so √2 is irrational"] },
+      { prompt: "Prove by contradiction that √2 is irrational. (6 marks)", subskillIds: ["proof"], keywords: ["assume rational", "p/q in lowest terms", "2q² = p²", "p is even", "q is even", "contradiction"], maxScore: 6, rubricPoints: ["Assume √2 is rational, so √2 = p/q where p and q are integers with no common factors", "Then 2 = p²/q², so p² = 2q²", "Therefore p² is even, which means p must be even (since odd² is odd)", "Let p = 2k, then (2k)² = 2q², so 4k² = 2q², giving q² = 2k²", "Therefore q² is even, so q is also even", "Both p and q are even, which contradicts the assumption they share no common factors, so √2 is irrational"] },
       { prompt: "Complete the square for 2x² - 12x + 7 and hence state the minimum value and the value of x at which it occurs. (6 marks)", subskillIds: ["quadratics"], keywords: ["2(x² - 6x) + 7", "2(x-3)² - 18 + 7", "2(x-3)² - 11", "minimum -11", "at x = 3"], maxScore: 6, rubricPoints: ["Factor out 2: 2(x² - 6x) + 7", "Complete the square inside: 2(x - 3)² - 9) + 7", "Expand: 2(x-3)² - 18 + 7", "Simplify: 2(x-3)² - 11", "Minimum value is -11 (since (x-3)² ≥ 0)", "Occurs when x = 3"] },
     ],
   },
@@ -479,7 +479,7 @@ const questionBank = {
     ],
     extended: [
       { prompt: "Find the stationary points of y = 2x³ - 9x² + 12x - 4 and determine their nature using the second derivative test. (6 marks)", subskillIds: ["stationary_points", "power_rule"], keywords: ["dy/dx = 6x² - 18x + 12", "6(x² - 3x + 2)", "x = 1, x = 2", "d²y/dx² = 12x - 18", "maximum at x = 1", "minimum at x = 2"], maxScore: 6, rubricPoints: ["Differentiate: dy/dx = 6x² - 18x + 12", "Set equal to 0: 6(x² - 3x + 2) = 0, so (x-1)(x-2) = 0", "Stationary points at x = 1 and x = 2", "Second derivative: d²y/dx² = 12x - 18", "At x = 1: d²y/dx² = -6 < 0, so maximum; y = 2-9+12-4 = 1 → maximum at (1, 1)", "At x = 2: d²y/dx² = 6 > 0, so minimum; y = 16-36+24-4 = 0 → minimum at (2, 0)"] },
-      { prompt: "The curve y = x² - 4x + 3 has a tangent at the point P(1, 0). Find the equation of the tangent and the equation of the normal at P. (6 marks)", subskillIds: ["tangents_normals", "power_rule"], keywords: ["dy/dx = 2x - 4", "at x=1: gradient = -2", "tangent: y = -2x + 2", "normal gradient = 1/2", "normal: y = (1/2)x - 1/2"], maxScore: 6, rubricPoints: ["Differentiate: dy/dx = 2x - 4", "At P(1,0): gradient = 2(1) - 4 = -2", "Tangent: y - 0 = -2(x - 1), so y = -2x + 2", "Normal gradient = negative reciprocal = 1/2", "Normal: y - 0 = (1/2)(x - 1), so y = (1/2)x - 1/2", "Both equations pass through P(1, 0) — verify by substitution"] },
+      { prompt: "The curve y = x² - 4x + 3 has a tangent at the point P(1, 0). Find the equation of the tangent and the equation of the normal at P. (6 marks)", subskillIds: ["tangents_normals", "power_rule"], keywords: ["dy/dx = 2x - 4", "at x=1: gradient = -2", "tangent: y = -2x + 2", "normal gradient = 1/2", "normal: y = (1/2)x - 1/2"], maxScore: 6, rubricPoints: ["Differentiate: dy/dx = 2x - 4", "At P(1,0): gradient = 2(1) - 4 = -2", "Tangent: y - 0 = -2(x - 1), so y = -2x + 2", "Normal gradient = negative reciprocal = 1/2", "Normal: y - 0 = (1/2)(x - 1), so y = (1/2)x - 1/2", "Both equations pass through P(1, 0); verify by substitution"] },
     ],
   },
   integration_1: {
@@ -514,8 +514,8 @@ const questionBank = {
       { prompt: "A manufacturer claims that 5% of items are defective. A sample of 20 is tested and 3 are found defective. State suitable hypotheses and test at the 5% significance level whether the defect rate has increased.", subskillIds: ["hypothesis_testing"], keywords: ["H₀: p = 0.05", "H₁: p > 0.05", "X ~ B(20, 0.05)", "P(X ≥ 3)", "compare with 0.05", "one-tailed"], maxScore: 4 },
     ],
     extended: [
-      { prompt: "A student is taking a multiple choice test with 20 questions, each having 4 options. The student guesses every answer randomly. (a) State the distribution for the number of correct answers. (b) Find the probability of getting exactly 5 correct. (c) Find the probability of passing if the pass mark is 10. Comment on the student's chances. (6 marks)", subskillIds: ["binomial_distribution", "probability"], keywords: ["X ~ B(20, 0.25)", "P(X=5) = 20C5 × 0.25^5 × 0.75^15", "P(X ≥ 10)", "very low probability", "unlikely to pass by guessing"], maxScore: 6, rubricPoints: ["X ~ B(20, 0.25) where n = 20, p = 1/4 = 0.25", "P(X = 5) = 20C5 × 0.25⁵ × 0.75¹⁵ ≈ 0.2023", "For pass: need P(X ≥ 10) = 1 - P(X ≤ 9)", "Using cumulative binomial tables or calculation", "P(X ≥ 10) ≈ 0.0139 (very small)", "The student is very unlikely to pass by guessing alone — only ~1.4% chance"] },
-      { prompt: "Explain the process of hypothesis testing for a binomial distribution. Include the concepts of null hypothesis, alternative hypothesis, significance level, and critical region. Give an example. (6 marks)", subskillIds: ["hypothesis_testing"], keywords: ["H₀", "H₁", "significance level", "critical region", "p-value", "reject or fail to reject"], maxScore: 6, rubricPoints: ["State null hypothesis H₀ (the default claim about parameter p) and alternative H₁", "Choose significance level (e.g., 5% or 1%) — probability of incorrectly rejecting H₀", "Under H₀, X follows B(n, p₀); calculate probability of observed or more extreme result", "Critical region: set of values that lead to rejecting H₀", "If observed value falls in critical region (or p-value < significance level), reject H₀", "Example: testing if a coin is biased — H₀: p=0.5, H₁: p≠0.5, observe 18 heads in 20 tosses, likely reject H₀"] },
+      { prompt: "A student is taking a multiple choice test with 20 questions, each having 4 options. The student guesses every answer randomly. (a) State the distribution for the number of correct answers. (b) Find the probability of getting exactly 5 correct. (c) Find the probability of passing if the pass mark is 10. Comment on the student's chances. (6 marks)", subskillIds: ["binomial_distribution", "probability"], keywords: ["X ~ B(20, 0.25)", "P(X=5) = 20C5 × 0.25^5 × 0.75^15", "P(X ≥ 10)", "very low probability", "unlikely to pass by guessing"], maxScore: 6, rubricPoints: ["X ~ B(20, 0.25) where n = 20, p = 1/4 = 0.25", "P(X = 5) = 20C5 × 0.25⁵ × 0.75¹⁵ ≈ 0.2023", "For pass: need P(X ≥ 10) = 1 - P(X ≤ 9)", "Using cumulative binomial tables or calculation", "P(X ≥ 10) ≈ 0.0139 (very small)", "The student is very unlikely to pass by guessing alone; only ~1.4% chance"] },
+      { prompt: "Explain the process of hypothesis testing for a binomial distribution. Include the concepts of null hypothesis, alternative hypothesis, significance level, and critical region. Give an example. (6 marks)", subskillIds: ["hypothesis_testing"], keywords: ["H₀", "H₁", "significance level", "critical region", "p-value", "reject or fail to reject"], maxScore: 6, rubricPoints: ["State null hypothesis H₀ (the default claim about parameter p) and alternative H₁", "Choose significance level (e.g., 5% or 1%); probability of incorrectly rejecting H₀", "Under H₀, X follows B(n, p₀); calculate probability of observed or more extreme result", "Critical region: set of values that lead to rejecting H₀", "If observed value falls in critical region (or p-value < significance level), reject H₀", "Example: testing if a coin is biased; H₀: p=0.5, H₁: p≠0.5, observe 18 heads in 20 tosses, likely reject H₀"] },
     ],
   },
 
@@ -725,7 +725,7 @@ const questionBank = {
       { prompt: "Explain how the properties of a material influence the manufacturing process chosen to shape it.", subskillIds: ["material_properties"], keywords: ["melting point", "malleability", "hardness", "casting", "moulding", "cutting", "forming", "material dictates process"], maxScore: 3 },
     ],
     extended: [
-      { prompt: "Compare the properties, uses, and environmental impact of natural and manufactured materials. Give named examples. (6 marks)", subskillIds: ["material_selection", "material_properties"], keywords: ["natural", "manufactured", "properties", "uses", "environmental impact", "sustainability", "examples", "lifecycle"], maxScore: 6, rubricPoints: ["Natural materials: e.g. timber, cotton, wool — sourced from nature, often renewable", "Natural materials may biodegrade but sourcing can cause deforestation or land use issues", "Manufactured materials: e.g. MDF, acrylic, polyester — processed or synthetic", "Manufactured materials offer consistency and specific properties but use energy and chemicals to produce", "Compare specific properties: e.g. timber is strong but can warp; acrylic is weather-resistant but from oil", "Evaluate environmental impact across the lifecycle: extraction, processing, use, and disposal/recycling"] },
+      { prompt: "Compare the properties, uses, and environmental impact of natural and manufactured materials. Give named examples. (6 marks)", subskillIds: ["material_selection", "material_properties"], keywords: ["natural", "manufactured", "properties", "uses", "environmental impact", "sustainability", "examples", "lifecycle"], maxScore: 6, rubricPoints: ["Natural materials: e.g. timber, cotton, wool, sourced from nature, often renewable", "Natural materials may biodegrade but sourcing can cause deforestation or land use issues", "Manufactured materials: e.g. MDF, acrylic, polyester, processed or synthetic", "Manufactured materials offer consistency and specific properties but use energy and chemicals to produce", "Compare specific properties: e.g. timber is strong but can warp; acrylic is weather-resistant but from oil", "Evaluate environmental impact across the lifecycle: extraction, processing, use, and disposal/recycling"] },
     ],
   },
   manufacturing_processes: {
@@ -757,7 +757,7 @@ function pickRandomUnique(arr, previousPrompts = []) {
 
   const unused = arr.filter(q => !previousPrompts.includes(q.prompt));
   if (unused.length > 0) return pickRandom(unused);
-  // All exhausted — allow repeats
+  // All exhausted, allow repeats
   return pickRandom(arr);
 }
 
@@ -931,17 +931,17 @@ export function mockMarkAnswer({ questionId, studentAnswer, phase, difficulty = 
       rationale: score >= maxScore * 0.8
         ? 'Strong answer with good use of scientific terminology.'
         : score >= maxScore * 0.5
-          ? 'Partial answer — some key points covered but missing detail.'
-          : 'Weak answer — key concepts and terminology missing.',
+          ? 'Partial answer: some key points covered but missing detail.'
+          : 'Weak answer: key concepts and terminology missing.',
       feedback: {
         whatYouDidWell: matchedKeywords.length > 0
           ? matchedKeywords.map(k => `Correctly identified: ${k}`)
-          : ['You attempted the question — keep going!'],
+          : ['You attempted the question. Keep going!'],
         missingPoints: missedKeywords.map(k => `Missing concept: ${k}`),
         incorrectPoints: [],
         howToImprove: missedKeywords.length > 0
           ? [`Focus on these terms: ${missedKeywords.slice(0, 3).join(', ')}`, 'Use cause → effect chains in your explanations.']
-          : ['Well done — try to add more detail next time.'],
+          : ['Well done. Try to add more detail next time.'],
         modelAnswer: buildModelAnswer(rubric, phase),
       },
       tags: {
@@ -966,7 +966,7 @@ export function mockRecommendNextAction({ lastBattleResult, masteryData, recentH
       data: {
         nextAction: 'start_new_topic',
         topic: { id: firstTopic?.id || 'biological_molecules', name: firstTopic?.name || 'Biological Molecules' },
-        reason: `Welcome! Start with ${firstTopic?.name || 'Biological Molecules'} — it's a high-yield foundation topic.`,
+        reason: `Welcome! Start with ${firstTopic?.name || 'Biological Molecules'}. It's a high-yield foundation topic.`,
         difficulty: 2,
         focusSubskills: [],
         drillLength: null,
@@ -975,7 +975,7 @@ export function mockRecommendNextAction({ lastBattleResult, masteryData, recentH
     };
   }
 
-  // Find weakest topic — mastery value may be a number or an object with .topicMastery
+  // Find weakest topic, mastery value may be a number or an object with .topicMastery
   const getMasteryValue = (v) => typeof v === 'number' ? v : (v?.topicMastery ?? 0);
   const weakest = topicMasteries.sort((a, b) => getMasteryValue(a[1]) - getMasteryValue(b[1]))[0];
   const weakTopicId = weakest[0];
@@ -1061,10 +1061,10 @@ export function mockGenerateStudyGuide({ topicId, topicName, subskills = [], mas
       ],
       examTips: [
         'Use diagrams to support your written answers where relevant.',
-        'Read the question carefully — "describe" means state what happens; "explain" means state what happens AND why.',
+        'Read the question carefully: "describe" means state what happens; "explain" means state what happens AND why.',
         `For ${topicName}, examiners commonly look for precise use of key terms.`,
         'In extended response questions, plan your answer before writing to ensure a logical structure.',
-        'Show all working in calculation questions — you can earn method marks even if the final answer is wrong.',
+        'Show all working in calculation questions. You can earn method marks even if the final answer is wrong.',
       ],
       weakSpotFocus: weakFocus,
       generatedAt: new Date().toISOString(),

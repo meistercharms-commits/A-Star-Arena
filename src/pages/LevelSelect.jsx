@@ -3,6 +3,7 @@ import { useLevel } from '../contexts/LevelContext';
 import { useTheme } from '../contexts/ThemeContext';
 import { hasCompletedOnboarding } from '../lib/storage';
 import { ShieldIcon } from '../components/Logo';
+import { GraduationCap, BookOpen } from 'lucide-react';
 
 export default function LevelSelect() {
   const navigate = useNavigate();
@@ -46,7 +47,7 @@ export default function LevelSelect() {
           >
             <div className="space-y-4">
               <div className="flex items-center gap-3">
-                <span className="text-3xl">🎓</span>
+                <GraduationCap size={28} />
                 <h2 className="font-display text-title">A-Level</h2>
               </div>
               <p className="text-text-secondary text-sm">
@@ -73,7 +74,7 @@ export default function LevelSelect() {
           >
             <div className="space-y-4">
               <div className="flex items-center gap-3">
-                <span className="text-3xl">📚</span>
+                <BookOpen size={28} />
                 <h2 className="font-display text-title">GCSE</h2>
               </div>
               <p className="text-text-secondary text-sm">

@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSubject } from '../contexts/SubjectContext';
 import { getMistakesByTopic, getRecurringMistakes, dismissPattern } from '../lib/errorPatterns';
+import { Target } from 'lucide-react';
 
 export default function MistakeJournal() {
   const { topics } = useSubject();
@@ -47,7 +48,7 @@ export default function MistakeJournal() {
     <div className="space-y-5 max-w-3xl mx-auto" key={refreshKey}>
       <div>
         <h1 className="text-2xl font-bold">Mistake Journal</h1>
-        <p className="text-text-secondary text-sm mt-1">Recurring errors across your sessions — tackle these to level up.</p>
+        <p className="text-text-secondary text-sm mt-1">Recurring errors across your sessions. Tackle these to level up.</p>
       </div>
 
       {/* Summary stats */}
@@ -65,7 +66,7 @@ export default function MistakeJournal() {
               <div className="text-xs text-text-muted">Critical</div>
             </div>
             <div className="bg-bg-secondary border border-border rounded-xl p-4 text-center">
-              <div className="text-lg font-bold font-mono text-accent truncate">{worstTopicName || '—'}</div>
+              <div className="text-lg font-bold font-mono text-accent truncate">{worstTopicName || '-'}</div>
               <div className="text-xs text-text-muted">Worst Topic</div>
             </div>
           </div>
@@ -115,8 +116,8 @@ export default function MistakeJournal() {
         </>
       ) : (
         <div className="bg-bg-secondary border border-border rounded-xl p-8 text-center">
-          <span className="text-4xl block mb-3">🎯</span>
-          <p className="text-text-secondary text-sm">No recurring mistakes yet — keep battling to build your journal.</p>
+          <span className="block mb-3 flex justify-center"><Target size={36} className="text-text-muted" /></span>
+          <p className="text-text-secondary text-sm">No recurring mistakes yet. Keep battling to build your journal.</p>
           <Link to="/topics" className="text-accent hover:text-accent-hover no-underline text-sm font-medium mt-2 inline-block">
             Go to Topics
           </Link>

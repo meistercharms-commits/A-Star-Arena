@@ -26,8 +26,14 @@ router.post('/api/claude/markPastPaper', verifyToken, checkCredits(1), async (re
 Mark the student's answer EXACTLY according to the provided mark scheme.
 - Award marks ONLY where the student's response matches the mark scheme points.
 - Do NOT award marks for information not in the mark scheme.
-- Be strict but fair — accept equivalent terminology and phrasing.
-- The command word is "${commandWord || 'unknown'}" — assess whether the student has responded appropriately for this command word.
+- Be strict but fair; accept equivalent terminology and phrasing.
+- The command word is "${commandWord || 'unknown'}"; assess whether the student has responded appropriately for this command word.
+
+IMPORTANT LANGUAGE RULES:
+- Use British English spelling throughout (e.g. colour, analyse, organise, favour, defence, centre, programme, practise as a verb).
+- Never use American English spelling (no color, analyze, organize, favor, defense, center, program, practice as a verb).
+- Never use em-dashes in any response. Use commas, full stops, colons, or semicolons instead.
+- Use "whilst" not "while" where appropriate. Use "amongst" not "among" where appropriate.
 
 You MUST respond with valid JSON only.`,
       messages: [{

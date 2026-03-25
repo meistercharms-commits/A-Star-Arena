@@ -6,6 +6,7 @@ import { getTopicMastery, getMasteryCache, getSessions } from '../lib/storage';
 import { getMasteryCategory, getDaysSince } from '../lib/utils';
 import { hasMCQ, hasPracticals } from '../content/subjects';
 import { getCurrentSubject } from '../lib/storage';
+import { BookOpen, Ruler, BarChart3, Settings as SettingsIcon } from 'lucide-react';
 
 const FILTERS = [
   { key: 'all', label: 'All' },
@@ -24,10 +25,10 @@ const SORTS = [
 ];
 
 const STRANDS = [
-  { key: 'all', label: 'All', icon: '📐' },
+  { key: 'all', label: 'All', Icon: Ruler },
   { key: 'pure', label: 'Pure', icon: '∫' },
-  { key: 'statistics', label: 'Statistics', icon: '📊' },
-  { key: 'mechanics', label: 'Mechanics', icon: '⚙️' },
+  { key: 'statistics', label: 'Statistics', Icon: BarChart3 },
+  { key: 'mechanics', label: 'Mechanics', Icon: SettingsIcon },
 ];
 
 function getLastPractised(topicId) {
@@ -129,7 +130,7 @@ export default function Topics() {
                   : 'bg-bg-tertiary text-text-secondary hover:text-text-primary'
               }`}
             >
-              {s.icon} {s.label}
+              {s.Icon ? <s.Icon size={14} className="inline-block" /> : s.icon} {s.label}
               {s.key !== 'all' && ` (${enrichedTopics.filter(t => t.strand === s.key).length})`}
             </button>
           ))}
@@ -208,7 +209,7 @@ export default function Topics() {
                   className="text-xs bg-bg-tertiary text-text-secondary hover:text-accent px-2.5 py-1.5 rounded-lg no-underline transition-colors"
                   title="Study Guide"
                 >
-                  📖
+                  <BookOpen size={14} />
                 </Link>
                 {hasMCQ(getCurrentSubject(), topic.id) && (
                   <Link

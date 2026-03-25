@@ -165,7 +165,7 @@ export function getTodaysMission(topics = [], bosses = []) {
   } else if (top.mastery < 0.30) {
     action = 'battle';
     difficulty = 2;
-    reason = `${top.topicName} needs attention — you're at ${pct(top.mastery)}% mastery. Let's build a foundation.`;
+    reason = `${top.topicName} needs attention: you're at ${pct(top.mastery)}% mastery. Let's build a foundation.`;
   } else if (top.mastery < 0.55) {
     action = 'battle';
     difficulty = 3;
@@ -263,7 +263,7 @@ export function getPostBattleRecommendation({ topicId, score, maxScore, errorTyp
     return {
       nextAction: 'targeted_drill',
       topic: { id: topicId, name: currentTopic?.name || topicId },
-      reason: `Your mastery was ${pct(currentMastery)}% but you scored ${pct(performance)}%. Confidence gap detected — let's reinforce ${currentTopic?.name} with a focused drill.`,
+      reason: `Your mastery was ${pct(currentMastery)}% but you scored ${pct(performance)}%. Confidence gap detected. Let's reinforce ${currentTopic?.name} with a focused drill.`,
       difficulty: 2,
       focusSubskills: weakSubskills.map(s => s.id),
       drillLength: 3,
@@ -276,7 +276,7 @@ export function getPostBattleRecommendation({ topicId, score, maxScore, errorTyp
     return {
       nextAction: 'targeted_drill',
       topic: { id: topicId, name: currentTopic?.name || topicId },
-      reason: `You scored ${pct(performance)}% — focus on your weakest subskills: ${weakSubskills.map(s => s.name).join(', ')}.`,
+      reason: `You scored ${pct(performance)}%. Focus on your weakest subskills: ${weakSubskills.map(s => s.name).join(', ')}.`,
       difficulty: 2,
       focusSubskills: weakSubskills.map(s => s.id),
       drillLength: 3,
@@ -299,7 +299,7 @@ export function getPostBattleRecommendation({ topicId, score, maxScore, errorTyp
 
   // Case 3: Good performance → move to next weakest topic
   const underconfidentNote = mismatch.type === 'underconfident'
-    ? ' You did better than expected — trust your knowledge!'
+    ? ' You did better than expected. Trust your knowledge!'
     : '';
   const nextTopic = ranked.find(r => r.topicId !== topicId);
   if (nextTopic) {
@@ -308,7 +308,7 @@ export function getPostBattleRecommendation({ topicId, score, maxScore, errorTyp
       nextAction: action,
       topic: { id: nextTopic.topicId, name: nextTopic.topicName },
       reason: nextTopic.mastery === 0
-        ? `Great work!${underconfidentNote} Try ${nextTopic.topicName} next — it's a ${nextTopic.highYield ? 'high-yield ' : ''}topic you haven't explored yet.`
+        ? `Great work!${underconfidentNote} Try ${nextTopic.topicName} next. It's a ${nextTopic.highYield ? 'high-yield ' : ''}topic you haven't explored yet.`
         : `Nice job!${underconfidentNote} ${nextTopic.topicName} is your next weakest area at ${pct(nextTopic.mastery)}% mastery.`,
       difficulty: nextTopic.mastery < 0.4 ? 2 : 3,
       focusSubskills: [],
@@ -430,7 +430,7 @@ function fallbackMission(topics = [], bosses = []) {
     mastery: 0,
     category: 'untested',
     action: 'start_new_topic',
-    reason: `Welcome! Start with ${first.name} — it's a great foundation topic.`,
+    reason: `Welcome! Start with ${first.name}. It's a great foundation topic.`,
     difficulty: 2,
   };
 }

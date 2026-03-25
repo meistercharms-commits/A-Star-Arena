@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A* Arena — Tier Badge Designs</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Space Grotesk', sans-serif; background: #0f1520; min-height: 100vh; padding: 60px 20px; display: flex; flex-direction: column; align-items: center; gap: 48px; }
+h1 { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 600; color: #e4ede0; letter-spacing: 0.02em; }
+p.sub { font-size: 13px; color: rgba(228,237,224,0.35); margin-top: -32px; }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; max-width: 900px; width: 100%; }
+.card { display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 32px 20px; border-radius: 16px; background: rgba(255,255,255,0.02); border: 0.5px solid rgba(255,255,255,0.06); }
+.card h2 { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; }
+.card .desc { font-size: 11px; color: rgba(228,237,224,0.35); text-align: center; line-height: 1.5; }
+.sizes { display: flex; gap: 20px; align-items: center; margin-top: 8px; }
+.sizes span { font-size: 9px; color: rgba(228,237,224,0.25); text-transform: uppercase; letter-spacing: 0.1em; }
+@media (max-width: 680px) { .grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 420px) { .grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<h1>Tier Badges</h1>
+<p class="sub">Foundation &rarr; Scholar &rarr; Distinction &rarr; A* Elite &rarr; Honours &rarr; Fellow</p>
+
+<div class="grid">
+
+<!-- SCHOLAR -->
+<div class="card">
+  <h2 style="color:#9bb8c4;">Scholar</h2>
+  <svg width="160" height="44" viewBox="0 0 160 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="0.5" y="0.5" width="159" height="43" rx="21.5" fill="rgba(155,184,196,0.08)" stroke="rgba(155,184,196,0.25)"/>
+    <!-- Open book icon -->
+    <g transform="translate(16,12)">
+      <path d="M10,2 C7,2 4,3.5 2,5 L2,18 C4,16.5 7,15 10,15 C13,15 16,16.5 18,18 L18,5 C16,3.5 13,2 10,2Z" stroke="#9bb8c4" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <line x1="10" y1="2" x2="10" y2="15" stroke="#9bb8c4" stroke-width="1" opacity="0.4"/>
+    </g>
+    <text x="46" y="27" font-family="'Cormorant Garamond', serif" font-size="17" font-weight="600" fill="#9bb8c4" letter-spacing="0.5">Scholar</text>
+  </svg>
+  <div class="desc">20 credits. The first step on the path.</div>
+  <!-- Compact version -->
+  <div class="sizes">
+    <span>Compact</span>
+    <svg width="90" height="28" viewBox="0 0 90 28" fill="none">
+      <rect x="0.5" y="0.5" width="89" height="27" rx="13.5" fill="rgba(155,184,196,0.08)" stroke="rgba(155,184,196,0.2)"/>
+      <g transform="translate(10,6)">
+        <path d="M7,1.5 C5,1.5 3,2.5 1.5,3.5 L1.5,13 C3,12 5,11 7,11 C9,11 11,12 12.5,13 L12.5,3.5 C11,2.5 9,1.5 7,1.5Z" stroke="#9bb8c4" stroke-width="1" fill="none" stroke-linecap="round"/>
+        <line x1="7" y1="1.5" x2="7" y2="11" stroke="#9bb8c4" stroke-width="0.8" opacity="0.35"/>
+      </g>
+      <text x="28" y="18" font-family="'Cormorant Garamond', serif" font-size="12" font-weight="600" fill="#9bb8c4">Scholar</text>
+    </svg>
+  </div>
+</div>
+
+<!-- DISTINCTION -->
+<div class="card">
+  <h2 style="color:#a3c094;">Distinction</h2>
+  <svg width="180" height="44" viewBox="0 0 180 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="0.5" y="0.5" width="179" height="43" rx="21.5" fill="rgba(163,192,148,0.08)" stroke="rgba(163,192,148,0.28)"/>
+    <!-- Laurel branch icon -->
+    <g transform="translate(14,10)">
+      <path d="M10,22 C10,22 4,18 2,12 C0,6 3,2 6,4 C9,6 10,10 10,10" stroke="#a3c094" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+      <path d="M10,22 C10,22 16,18 18,12 C20,6 17,2 14,4 C11,6 10,10 10,10" stroke="#a3c094" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+      <circle cx="10" cy="4" r="2" fill="#a3c094" opacity="0.3"/>
+      <!-- Small leaves -->
+      <path d="M5,14 C4,12 5,10 7,11" stroke="#a3c094" stroke-width="0.8" fill="none" opacity="0.5"/>
+      <path d="M15,14 C16,12 15,10 13,11" stroke="#a3c094" stroke-width="0.8" fill="none" opacity="0.5"/>
+    </g>
+    <text x="42" y="27" font-family="'Cormorant Garamond', serif" font-size="17" font-weight="600" fill="#a3c094" letter-spacing="0.5">Distinction</text>
+  </svg>
+  <div class="desc">50 credits. Recognised for commitment.</div>
+  <div class="sizes">
+    <span>Compact</span>
+    <svg width="110" height="28" viewBox="0 0 110 28" fill="none">
+      <rect x="0.5" y="0.5" width="109" height="27" rx="13.5" fill="rgba(163,192,148,0.08)" stroke="rgba(163,192,148,0.22)"/>
+      <g transform="translate(8,5)">
+        <path d="M7,16 C7,16 3,13 1.5,9 C0,5 2,2 4.5,3 C7,4 7,7 7,7" stroke="#a3c094" stroke-width="1" fill="none" stroke-linecap="round"/>
+        <path d="M7,16 C7,16 11,13 12.5,9 C14,5 12,2 9.5,3 C7,4 7,7 7,7" stroke="#a3c094" stroke-width="1" fill="none" stroke-linecap="round"/>
+      </g>
+      <text x="26" y="18" font-family="'Cormorant Garamond', serif" font-size="12" font-weight="600" fill="#a3c094">Distinction</text>
+    </svg>
+  </div>
+</div>
+
+<!-- A* ELITE -->
+<div class="card">
+  <h2 style="color:#d4b896;">A* Elite</h2>
+  <svg width="170" height="44" viewBox="0 0 170 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="0.5" y="0.5" width="169" height="43" rx="21.5" fill="rgba(212,184,150,0.08)" stroke="rgba(212,184,150,0.3)"/>
+    <!-- 5-point star icon -->
+    <g transform="translate(14,8)">
+      <polygon points="10,1 12.5,8.5 20,8.5 14,13.5 16,21 10,16.5 4,21 6,13.5 0,8.5 7.5,8.5" fill="none" stroke="#d4b896" stroke-width="1.2" stroke-linejoin="round"/>
+      <polygon points="10,4 11.5,9.5 17,9.5 12.5,13 14,18 10,14.8 6,18 7.5,13 3,9.5 8.5,9.5" fill="#d4b896" opacity="0.15"/>
+    </g>
+    <text x="42" y="22" font-family="'Cormorant Garamond', serif" font-size="17" font-weight="600" fill="#d4b896" letter-spacing="0.3">A</text>
+    <text x="54" y="20" font-family="'Cormorant Garamond', serif" font-size="14" font-weight="600" fill="#d4b896">*</text>
+    <text x="62" y="22" font-family="'Space Grotesk', sans-serif" font-size="9" font-weight="500" fill="rgba(212,184,150,0.5)" letter-spacing="0.1em" text-transform="uppercase"> </text>
+    <text x="62" y="27" font-family="'Cormorant Garamond', serif" font-size="17" font-weight="600" fill="#d4b896" letter-spacing="0.3">Elite</text>
+  </svg>
+  <div class="desc">100 credits. Among the best.</div>
+  <div class="sizes">
+    <span>Compact</span>
+    <svg width="100" height="28" viewBox="0 0 100 28" fill="none">
+      <rect x="0.5" y="0.5" width="99" height="27" rx="13.5" fill="rgba(212,184,150,0.08)" stroke="rgba(212,184,150,0.25)"/>
+      <g transform="translate(8,5)">
+        <polygon points="7,1 8.8,6 14,6 9.8,9.5 11.2,14.5 7,11.2 2.8,14.5 4.2,9.5 0,6 5.2,6" fill="none" stroke="#d4b896" stroke-width="0.9" stroke-linejoin="round"/>
+        <polygon points="7,3 8.2,6.8 12,6.8 9,9 10,12.5 7,10 4,12.5 5,9 2,6.8 5.8,6.8" fill="#d4b896" opacity="0.15"/>
+      </g>
+      <text x="26" y="18" font-family="'Cormorant Garamond', serif" font-size="12" font-weight="600" fill="#d4b896">A* Elite</text>
+    </svg>
+  </div>
+</div>
+
+<!-- HONOURS -->
+<div class="card">
+  <h2 style="color:#e4ede0;">Honours</h2>
+  <svg width="170" height="44" viewBox="0 0 170 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="0.5" y="0.5" width="169" height="43" rx="21.5" fill="rgba(228,237,224,0.05)" stroke="rgba(228,237,224,0.18)"/>
+    <!-- Shield with checkmark -->
+    <g transform="translate(14,7)">
+      <path d="M10,2 L18,5.5 L18,16 Q18,24 10,28 Q2,24 2,16 L2,5.5 Z" stroke="#e4ede0" stroke-width="1.1" fill="none" stroke-linejoin="round" opacity="0.6"/>
+      <path d="M10,4 L16.5,7 L16.5,15.5 Q16.5,22 10,25.5 Q3.5,22 3.5,15.5 L3.5,7 Z" stroke="#e4ede0" stroke-width="0.6" fill="rgba(228,237,224,0.04)" opacity="0.3"/>
+      <polyline points="6,14 9,17.5 14.5,11" stroke="#e4ede0" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+    </g>
+    <text x="42" y="27" font-family="'Cormorant Garamond', serif" font-size="17" font-weight="600" fill="#e4ede0" letter-spacing="0.5" opacity="0.85">Honours</text>
+  </svg>
+  <div class="desc">250 credits. A mark of dedication.</div>
+  <div class="sizes">
+    <span>Compact</span>
+    <svg width="100" height="28" viewBox="0 0 100 28" fill="none">
+      <rect x="0.5" y="0.5" width="99" height="27" rx="13.5" fill="rgba(228,237,224,0.04)" stroke="rgba(228,237,224,0.15)"/>
+      <g transform="translate(8,4)">
+        <path d="M7,1.5 L13,3.8 L13,11 Q13,16.5 7,19.5 Q1,16.5 1,11 L1,3.8 Z" stroke="#e4ede0" stroke-width="0.9" fill="none" opacity="0.5"/>
+        <polyline points="4,10 6.2,12.5 10,8" stroke="#e4ede0" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+      </g>
+      <text x="26" y="18" font-family="'Cormorant Garamond', serif" font-size="12" font-weight="600" fill="#e4ede0" opacity="0.85">Honours</text>
+    </svg>
+  </div>
+</div>
+
+<!-- FELLOW -->
+<div class="card" style="grid-column: span 2; background: rgba(255,255,255,0.03); border-color: rgba(228,237,224,0.12);">
+  <h2 style="color:#e4ede0; font-size: 24px;">Fellow</h2>
+  <svg width="200" height="52" viewBox="0 0 200 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Outer pill with subtle glow -->
+    <defs>
+      <linearGradient id="fellowGrad" x1="0" y1="0" x2="200" y2="0" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="rgba(228,237,224,0.06)"/>
+        <stop offset="0.5" stop-color="rgba(228,237,224,0.10)"/>
+        <stop offset="1" stop-color="rgba(228,237,224,0.06)"/>
+      </linearGradient>
+      <filter id="fellowGlow">
+        <feGaussianBlur stdDeviation="2" result="blur"/>
+        <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+    </defs>
+    <rect x="0.5" y="0.5" width="199" height="51" rx="25.5" fill="url(#fellowGrad)" stroke="rgba(228,237,224,0.2)"/>
+    <!-- Inner decorative line -->
+    <rect x="4" y="4" width="192" height="44" rx="22" fill="none" stroke="rgba(228,237,224,0.06)" stroke-dasharray="2 4"/>
+    <!-- Four-pointed star / compass rose -->
+    <g transform="translate(22,10)" filter="url(#fellowGlow)">
+      <path d="M14,0 L16.5,10 L14,8 L11.5,10 Z" fill="#e4ede0" opacity="0.7"/>
+      <path d="M14,28 L16.5,18 L14,20 L11.5,18 Z" fill="#e4ede0" opacity="0.7"/>
+      <path d="M0,14 L10,11.5 L8,14 L10,16.5 Z" fill="#e4ede0" opacity="0.7"/>
+      <path d="M28,14 L18,11.5 L20,14 L18,16.5 Z" fill="#e4ede0" opacity="0.7"/>
+      <!-- Centre jewel -->
+      <circle cx="14" cy="14" r="3" fill="none" stroke="#e4ede0" stroke-width="0.8" opacity="0.5"/>
+      <circle cx="14" cy="14" r="1.2" fill="#e4ede0" opacity="0.6"/>
+      <!-- Subtle diagonal rays -->
+      <line x1="6" y1="6" x2="9" y2="9" stroke="#e4ede0" stroke-width="0.5" opacity="0.25"/>
+      <line x1="22" y1="6" x2="19" y2="9" stroke="#e4ede0" stroke-width="0.5" opacity="0.25"/>
+      <line x1="6" y1="22" x2="9" y2="19" stroke="#e4ede0" stroke-width="0.5" opacity="0.25"/>
+      <line x1="22" y1="22" x2="19" y2="19" stroke="#e4ede0" stroke-width="0.5" opacity="0.25"/>
+    </g>
+    <text x="62" y="31" font-family="'Cormorant Garamond', serif" font-size="20" font-weight="600" font-style="italic" fill="#e4ede0" letter-spacing="1" opacity="0.9">Fellow</text>
+  </svg>
+  <div class="desc" style="max-width: 300px;">Unlimited. Personally invited. The highest honour in A* Arena.</div>
+  <div class="sizes">
+    <span>Compact</span>
+    <svg width="100" height="28" viewBox="0 0 100 28" fill="none">
+      <defs>
+        <linearGradient id="fellowGradSm" x1="0" y1="0" x2="100" y2="0" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="rgba(228,237,224,0.06)"/>
+          <stop offset="0.5" stop-color="rgba(228,237,224,0.10)"/>
+          <stop offset="1" stop-color="rgba(228,237,224,0.06)"/>
+        </linearGradient>
+      </defs>
+      <rect x="0.5" y="0.5" width="99" height="27" rx="13.5" fill="url(#fellowGradSm)" stroke="rgba(228,237,224,0.18)"/>
+      <!-- Mini 4-point star -->
+      <g transform="translate(8,5)">
+        <path d="M8,0 L9.5,6 L8,5 L6.5,6 Z" fill="#e4ede0" opacity="0.6"/>
+        <path d="M8,16 L9.5,10 L8,11 L6.5,10 Z" fill="#e4ede0" opacity="0.6"/>
+        <path d="M0,8 L6,6.5 L5,8 L6,9.5 Z" fill="#e4ede0" opacity="0.6"/>
+        <path d="M16,8 L10,6.5 L11,8 L10,9.5 Z" fill="#e4ede0" opacity="0.6"/>
+        <circle cx="8" cy="8" r="1" fill="#e4ede0" opacity="0.5"/>
+      </g>
+      <text x="30" y="18.5" font-family="'Cormorant Garamond', serif" font-size="12" font-weight="600" font-style="italic" fill="#e4ede0" opacity="0.9">Fellow</text>
+    </svg>
+    <span>Header</span>
+    <svg width="76" height="22" viewBox="0 0 76 22" fill="none">
+      <rect x="0.5" y="0.5" width="75" height="21" rx="10.5" fill="rgba(228,237,224,0.08)" stroke="rgba(228,237,224,0.15)"/>
+      <text x="10" y="15" font-family="'Cormorant Garamond', serif" font-size="11" font-weight="500" fill="#e4ede0" opacity="0.8">&#x2726; Fellow</text>
+    </svg>
+  </div>
+</div>
+
+</div>
+
+<!-- Download buttons -->
+<div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center;">
+  <button onclick="downloadAllSVGs()" style="font-family:'Space Grotesk',sans-serif; font-size:13px; font-weight:500; background:#a3c094; color:#181f2c; border:none; padding:10px 24px; border-radius:8px; cursor:pointer;">Download All Badges (ZIP)</button>
+  <button onclick="downloadIndividual()" style="font-family:'Space Grotesk',sans-serif; font-size:13px; font-weight:500; background:rgba(255,255,255,0.08); color:#e4ede0; border:0.5px solid rgba(255,255,255,0.12); padding:10px 24px; border-radius:8px; cursor:pointer;">Download Individual SVGs</button>
+</div>
+
+<script>
+function svgToBlob(svgEl) {
+  const serializer = new XMLSerializer();
+  const str = serializer.serializeToString(svgEl);
+  const full = `<?xml version="1.0" encoding="UTF-8"?>\n${str}`;
+  return new Blob([full], { type: 'image/svg+xml' });
+}
+
+function downloadSVG(svgEl, filename) {
+  const blob = svgToBlob(svgEl);
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function downloadIndividual() {
+  const cards = document.querySelectorAll('.card');
+  const names = ['scholar', 'distinction', 'a-star-elite', 'honours', 'fellow'];
+  cards.forEach((card, i) => {
+    const svgs = card.querySelectorAll('svg');
+    const name = names[i] || `badge-${i}`;
+    svgs.forEach((svg, j) => {
+      const suffix = j === 0 ? 'full' : j === 1 ? 'compact' : 'header';
+      setTimeout(() => downloadSVG(svg, `${name}-${suffix}.svg`), (i * svgs.length + j) * 200);
+    });
+  });
+}
+
+async function downloadAllSVGs() {
+  // Use JSZip from CDN
+  if (!window.JSZip) {
+    const script = document.createElement('script');
+    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js';
+    document.head.appendChild(script);
+    await new Promise(r => script.onload = r);
+  }
+
+  const zip = new JSZip();
+  const cards = document.querySelectorAll('.card');
+  const names = ['scholar', 'distinction', 'a-star-elite', 'honours', 'fellow'];
+
+  cards.forEach((card, i) => {
+    const svgs = card.querySelectorAll('svg');
+    const name = names[i] || `badge-${i}`;
+    svgs.forEach((svg, j) => {
+      const suffix = j === 0 ? 'full' : j === 1 ? 'compact' : 'header';
+      const serializer = new XMLSerializer();
+      const str = `<?xml version="1.0" encoding="UTF-8"?>\n${serializer.serializeToString(svg)}`;
+      zip.file(`${name}-${suffix}.svg`, str);
+    });
+  });
+
+  const blob = await zip.generateAsync({ type: 'blob' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'astar-arena-tier-badges.zip';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+</script>
+
+</body>
+</html>

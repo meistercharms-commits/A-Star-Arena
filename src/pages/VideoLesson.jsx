@@ -6,7 +6,7 @@ import { useLevel } from '../contexts/LevelContext';
 import { getExamBoard } from '../lib/storage';
 import { auth, hasConfig } from '../lib/firebase';
 
-const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+const API_BASE = import.meta.env.VITE_API_URL || '';
 
 export default function VideoLesson() {
   const { isGuest } = useAuth();

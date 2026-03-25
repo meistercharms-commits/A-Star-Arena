@@ -97,7 +97,7 @@ export default function Credits() {
         </h1>
         <p className="text-[13px] text-text-muted leading-relaxed">
           No subscriptions. No resets. Credits stay in your wallet until you use them.
-          <br />Start free — buy more when you need them.
+          <br />Start free. Buy more when you need them.
         </p>
       </div>
 
@@ -163,8 +163,8 @@ export default function Credits() {
           <div className="font-display text-xl font-semibold text-text-primary">Start for free</div>
           <div className="text-xs text-text-muted mt-0.5">
             {isGuest
-              ? 'Create an account to get 5 credits to explore A* Arena — no card required.'
-              : 'Every account gets 5 free credits per week — no card required.'}
+              ? 'Create an account to get 5 credits to explore A* Arena. No card required.'
+              : 'Every account gets 5 free credits per week. No card required.'}
           </div>
         </div>
         <div className="flex items-center gap-3.5 shrink-0">
@@ -344,7 +344,7 @@ export default function Credits() {
       <p className="text-center text-[11px] leading-relaxed text-text-muted opacity-60">
         Credits never expire. No subscriptions. No hidden fees.
         <br />
-        Gifting a pack? Select "Gift this pack" at checkout — we'll send a code directly to your student.
+        Gifting a pack? Select "Gift this pack" at checkout. We'll send a code directly to your student.
       </p>
     </div>
   );
