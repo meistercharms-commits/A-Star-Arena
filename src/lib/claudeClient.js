@@ -17,13 +17,18 @@ const TIMEOUT_MS = 15000; // 15 second timeout
 // ─── Helpers ───
 
 async function getAuthHeaders() {
-  if (!hasConfig || !auth?.currentUser) return {};
-  try {
-    const token = await auth.currentUser.getIdToken();
-    return { Authorization: `Bearer ${token}` };
-  } catch {
-    return {};
+  if (hasConfig && auth?.currentUser) {
+    try {
+      const token = await auth.currentUser.getIdToken();
+      return { Authorization: `Bearer ${token}` };
+    } catch {}
   }
+  // Guest: send email if stored
+  const guestEmail = localStorage.getItem('astarena:guestEmail');
+  if (guestEmail) {
+    return { 'X-Guest-Email': guestEmail };
+  }
+  return {};
 }
 
 async function fetchWithTimeout(url, options, timeoutMs = TIMEOUT_MS) {

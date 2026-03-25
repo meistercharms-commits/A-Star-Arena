@@ -1,8 +1,6 @@
 import { adminDb } from '../lib/firebaseAdmin.js';
 import admin from 'firebase-admin';
 
-// In-memory guest usage tracking (simple, resets on server restart)
-const guestUsage = new Map(); // IP -> count
 const GUEST_LIMIT = 3;
 const FREE_WEEKLY_LIMIT = 5;
 
@@ -13,24 +11,43 @@ export function checkCredits(cost = 1) {
       return next();
     }
 
-    // Guest mode: track by IP
+    // Guest mode: require email, track in Firestore
     if (req.isGuest) {
-      const ip = req.ip || req.connection?.remoteAddress || 'unknown';
-      const used = guestUsage.get(ip) || 0;
+      const guestEmail = req.headers['x-guest-email'];
 
-      if (used >= GUEST_LIMIT) {
+      if (!guestEmail) {
         return res.status(402).json({
           success: false,
-          error: 'guest_limit_reached',
-          message: 'Create a free account to continue using AI battles',
-          used: used,
-          limit: GUEST_LIMIT,
+          error: 'guest_email_required',
+          message: 'Enter your email to get 3 free AI battles.',
         });
       }
 
-      guestUsage.set(ip, used + 1);
-      req.creditSource = 'guest';
-      return next();
+      const emailKey = guestEmail.trim().toLowerCase();
+      const guestRef = adminDb.collection('guestTrials').doc(emailKey);
+
+      try {
+        const guestDoc = await guestRef.get();
+        const used = guestDoc.exists ? (guestDoc.data().used || 0) : 0;
+
+        if (used >= GUEST_LIMIT) {
+          return res.status(402).json({
+            success: false,
+            error: 'guest_limit_reached',
+            message: 'You have used all 3 free battles. Create a free account to continue.',
+            used,
+            limit: GUEST_LIMIT,
+          });
+        }
+
+        await guestRef.set({ used: used + 1, email: emailKey, lastUsed: new Date().toISOString() }, { merge: true });
+        req.creditSource = 'guest';
+        return next();
+      } catch (err) {
+        console.error('Guest credit check error:', err.message);
+        req.creditSource = 'error_passthrough';
+        return next();
+      }
     }
 
     // Fellow tier: unlimited access

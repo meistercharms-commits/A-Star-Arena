@@ -381,7 +381,7 @@ export default function Onboarding() {
           <div className="flex gap-3 pt-2">
             <button
               type="button"
-              onClick={() => setStep('tryit')}
+              onClick={() => setStep('subjects')}
               className="px-4 py-2.5 rounded-lg text-sm text-text-secondary bg-bg-tertiary border border-border hover:border-text-muted transition-colors cursor-pointer"
             >
               Back

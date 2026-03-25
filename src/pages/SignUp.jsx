@@ -82,14 +82,35 @@ export default function SignUp() {
             </p>
           </div>
           <button
-            onClick={() => navigate(role === 'parent' ? '/parent' : '/onboarding')}
+            onClick={async () => {
+              // Reload auth state to check if email is now verified
+              const { currentUser } = await import('firebase/auth').then(m => ({ currentUser: m.getAuth().currentUser }));
+              if (currentUser) await currentUser.reload();
+              if (currentUser?.emailVerified) {
+                navigate(role === 'parent' ? '/parent' : '/onboarding');
+              } else {
+                setError('Please verify your email first. Check your inbox and click the verification link.');
+              }
+            }}
             className="w-full bg-accent text-bg-primary font-medium px-4 py-2.5 rounded-lg text-button transition-opacity hover:opacity-90 cursor-pointer border-0"
           >
-            Continue to {role === 'parent' ? 'Dashboard' : 'Setup'}
+            I've Verified My Email
           </button>
-          <p className="text-xs text-text-muted">
-            You can use the app while waiting for verification.
-          </p>
+          {error && <p className="text-weak text-xs">{error}</p>}
+          <button
+            onClick={async () => {
+              try {
+                const { getAuth, sendEmailVerification: resend } = await import('firebase/auth');
+                const u = getAuth().currentUser;
+                if (u) await resend(u);
+                setError('');
+                alert('Verification email resent. Check your inbox.');
+              } catch { setError('Could not resend. Please try again in a moment.'); }
+            }}
+            className="text-xs text-accent bg-transparent border-0 cursor-pointer hover:underline"
+          >
+            Resend verification email
+          </button>
         </div>
       </div>
     );
