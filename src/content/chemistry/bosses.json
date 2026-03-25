@@ -3,6 +3,16 @@
     "topicId": "elements_of_life",
     "bossName": "The Periodic Titan",
     "flavourText": "Born from the building blocks of the universe. Only by mastering atoms and bonds can you topple this elemental giant.",
+    "dialogue": {
+      "intro": "I am forged from every element in the periodic table. Can you master my atomic structure?",
+      "recallTaunt": "Name my electron configurations and bonding types. Begin.",
+      "applicationTaunt": "You know the theory. Now explain how structure determines properties.",
+      "extendedTaunt": "The final element. Show me a complete answer worthy of full marks.",
+      "damageTaken": ["My ionic bonds are breaking!", "Strong covalent knowledge!", "You have ionised me!"],
+      "lowHp": "My electron shells are collapsing!",
+      "defeated": "You have mastered every element. The periodic table bows to you.",
+      "survived": "Your atomic knowledge is still in the ground state. Excite yourself and return."
+    },
     "emoji": "⚛️",
     "hp": 100,
     "hpBarColour": "#8b5cf6"
@@ -11,6 +21,16 @@
     "topicId": "developing_fuels",
     "bossName": "The Combustion Engine",
     "flavourText": "Fuelled by hydrocarbons and enthalpy. Break its bonds and extinguish its flames with Hess's law.",
+    "dialogue": {
+      "intro": "I burn with the energy of a thousand hydrocarbons. Can you calculate my enthalpy?",
+      "recallTaunt": "Define enthalpy of combustion. Name the key equations.",
+      "applicationTaunt": "Definitions are just the kindling. Apply Hess's law to put out my flames.",
+      "extendedTaunt": "Final combustion. Write a complete thermochemical analysis.",
+      "damageTaken": ["My exothermic reactions are cooling!", "Precise enthalpy calculation!", "You have broken my C-H bonds!"],
+      "lowHp": "My fuel reserves are almost empty!",
+      "defeated": "You have extinguished every flame. Complete combustion.",
+      "survived": "Your answers were incomplete combustion at best. Too much carbon monoxide."
+    },
     "emoji": "🔥",
     "hp": 100,
     "hpBarColour": "#f97316"
@@ -19,6 +39,16 @@
     "topicId": "elements_from_sea",
     "bossName": "The Halogen Kraken",
     "flavourText": "Rises from the brine, armed with oxidation and displacement. Balance the redox to drag it down.",
+    "dialogue": {
+      "intro": "I rise from the brine pools, armed with halogens. Can you balance my redox equations?",
+      "recallTaunt": "State the trends in Group 7. Electronegativity, boiling points, reactivity.",
+      "applicationTaunt": "Trends are just the surface. Explain the displacement reactions.",
+      "extendedTaunt": "Final displacement. Write a complete redox analysis.",
+      "damageTaken": ["My oxidation state is changing!", "You have displaced my halogens!", "Strong redox knowledge!"],
+      "lowHp": "I am being reduced to nothing!",
+      "defeated": "You have balanced every equation. The Kraken sinks.",
+      "survived": "Your half-equations were unbalanced. Return with better redox skills."
+    },
     "emoji": "🌊",
     "hp": 100,
     "hpBarColour": "#06b6d4"
@@ -27,6 +57,16 @@
     "topicId": "ozone_story",
     "bossName": "The Radical Storm",
     "flavourText": "A chain reaction of destruction in the stratosphere. Terminate its radicals before the ozone falls.",
+    "dialogue": {
+      "intro": "I propagate through the stratosphere, destroying ozone with every radical. Stop my chain reaction.",
+      "recallTaunt": "Define initiation, propagation and termination. What are radicals?",
+      "applicationTaunt": "You know the steps. Now explain how CFCs destroy the ozone layer.",
+      "extendedTaunt": "Final termination step. Write a complete mechanism.",
+      "damageTaken": ["My radical chain is breaking!", "You have terminated my propagation!", "Strong mechanistic understanding!"],
+      "lowHp": "My radicals are running out of ozone to destroy!",
+      "defeated": "Chain reaction terminated. You have saved the ozone layer.",
+      "survived": "Your understanding was only at the initiation step. The chain continues."
+    },
     "emoji": "🌀",
     "hp": 100,
     "hpBarColour": "#22c55e"
@@ -35,6 +75,16 @@
     "topicId": "whats_in_medicine",
     "bossName": "The Spectral Apothecary",
     "flavourText": "Hides functional groups behind spectral disguises. Use IR and mass spec to reveal the cure.",
+    "dialogue": {
+      "intro": "My functional groups are hidden behind spectral peaks. Can you identify them all?",
+      "recallTaunt": "Name the key functional groups and their characteristic absorptions.",
+      "applicationTaunt": "You know the groups. Now interpret the spectra.",
+      "extendedTaunt": "Final spectrum. Deduce the complete structure from the data.",
+      "damageTaken": ["You have identified my carbonyl peak!", "Sharp spectral analysis!", "My molecular ion is exposed!"],
+      "lowHp": "You are piecing together my entire structure!",
+      "defeated": "Structure fully elucidated. The cure is found.",
+      "survived": "You misread my spectra. The functional groups remain hidden."
+    },
     "emoji": "💊",
     "hp": 100,
     "hpBarColour": "#ec4899"
@@ -43,6 +93,16 @@
     "topicId": "chemical_industry",
     "bossName": "The Rate Controller",
     "flavourText": "Commands reaction kinetics and equilibrium at industrial scale. Master Kc and rate equations to outpace it.",
+    "dialogue": {
+      "intro": "I control the rate and yield of every industrial reaction. Can you outpace me?",
+      "recallTaunt": "Define rate of reaction and state the factors that affect it.",
+      "applicationTaunt": "Factors are basic. Apply Le Chatelier's principle to shift my equilibrium.",
+      "extendedTaunt": "Final equilibrium. Write a complete analysis of rate and yield.",
+      "damageTaken": ["My reaction rate is dropping!", "You have shifted my equilibrium!", "Strong kinetic analysis!"],
+      "lowHp": "My activation energy has been lowered too far!",
+      "defeated": "You have optimised every condition. Maximum yield achieved.",
+      "survived": "Your yield was too low. Adjust the conditions and try again."
+    },
     "emoji": "🏭",
     "hp": 100,
     "hpBarColour": "#64748b"
@@ -51,6 +111,16 @@
     "topicId": "polymers_and_life",
     "bossName": "The Peptide Weaver",
     "flavourText": "Weaves amino acids into chains of protein armour. Hydrolyse its bonds to unravel its defences.",
+    "dialogue": {
+      "intro": "I weave amino acids into impenetrable protein armour. Can you unravel my structure?",
+      "recallTaunt": "Name the bond types in proteins. Primary, secondary, tertiary.",
+      "applicationTaunt": "You know the levels. Explain how they determine function.",
+      "extendedTaunt": "Final hydrolysis. Write a complete account of protein structure and function.",
+      "damageTaken": ["My peptide bonds are hydrolysing!", "You understand condensation reactions!", "My disulfide bridges are breaking!"],
+      "lowHp": "My quaternary structure is falling apart!",
+      "defeated": "Completely denatured. You have unravelled every chain.",
+      "survived": "Your understanding barely scratched my primary structure. Dig deeper."
+    },
     "emoji": "🧬",
     "hp": 100,
     "hpBarColour": "#14b8a6"
@@ -59,6 +129,16 @@
     "topicId": "oceans",
     "bossName": "The Entropy Leviathan",
     "flavourText": "Lurks in the deep, shielded by buffer solutions and Born-Haber cycles. Only thermodynamic mastery prevails.",
+    "dialogue": {
+      "intro": "I lurk in the thermodynamic deep. Can you navigate Born-Haber cycles and entropy?",
+      "recallTaunt": "Define lattice enthalpy, entropy and free energy. State the equations.",
+      "applicationTaunt": "Equations are just the surface. Apply them to real systems.",
+      "extendedTaunt": "Final cycle. Construct a complete Born-Haber analysis.",
+      "damageTaken": ["My lattice enthalpy is weakening!", "You have calculated my entropy!", "Strong thermodynamic reasoning!"],
+      "lowHp": "My Gibbs free energy is becoming more negative... for you!",
+      "defeated": "Thermodynamically spontaneous defeat. You have mastered the deep.",
+      "survived": "Your calculations were not energetically favourable. Recalculate and return."
+    },
     "emoji": "🐋",
     "hp": 100,
     "hpBarColour": "#3b82f6"
@@ -67,6 +147,16 @@
     "topicId": "developing_metals",
     "bossName": "The Transition Golem",
     "flavourText": "Forged from d-block metals and complex ions. Measure its electrode potential to find its weakness.",
+    "dialogue": {
+      "intro": "I am forged from d-block metals. Can you determine my electrode potential?",
+      "recallTaunt": "Name the properties of transition metals. Oxidation states, complex ions.",
+      "applicationTaunt": "Properties are basic. Explain how electrode potentials predict feasibility.",
+      "extendedTaunt": "Final electrode. Write a complete electrochemical analysis.",
+      "damageTaken": ["My oxidation state is changing!", "You have measured my electrode potential!", "Strong understanding of complex ions!"],
+      "lowHp": "My ligands are being substituted!",
+      "defeated": "You have reduced me to base metal. Electrochemical mastery.",
+      "survived": "Your electrode potential was not positive enough. Recharge and return."
+    },
     "emoji": "🗿",
     "hp": 100,
     "hpBarColour": "#eab308"
@@ -75,6 +165,16 @@
     "topicId": "colour_by_design",
     "bossName": "The Chromatic Phantom",
     "flavourText": "Shifts colour through conjugation and delocalisation. Only Friedel-Crafts and organic synthesis can pin it down.",
+    "dialogue": {
+      "intro": "I shift between colours through conjugation and delocalisation. Can you pin me down?",
+      "recallTaunt": "Name the types of organic reactions. Define delocalisation.",
+      "applicationTaunt": "You know the reactions. Now plan a multi-step synthesis.",
+      "extendedTaunt": "Final synthesis. Design a complete reaction pathway.",
+      "damageTaken": ["My conjugated system is breaking!", "Excellent Friedel-Crafts mechanism!", "You have cracked my aromatic ring!"],
+      "lowHp": "My chromophore is fading!",
+      "defeated": "You have synthesised my downfall. Organic mastery achieved.",
+      "survived": "Your synthesis had too many side products. Purify your knowledge and return."
+    },
     "emoji": "🎨",
     "hp": 100,
     "hpBarColour": "#d946ef"

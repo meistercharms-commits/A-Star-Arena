@@ -32,6 +32,7 @@ const SignUp = lazy(() => import('./pages/SignUp'));
 const ResetPassword = lazy(() => import('./pages/ResetPassword'));
 const VideoLesson = lazy(() => import('./pages/VideoLesson'));
 const NotFound = lazy(() => import('./pages/NotFound'));
+const Admin = lazy(() => import('./pages/Admin'));
 const ParentLayout = lazy(() => import('./pages/parent/ParentLayout'));
 const ParentDashboard = lazy(() => import('./pages/parent/Dashboard'));
 const LinkStudent = lazy(() => import('./pages/parent/LinkStudent'));
@@ -111,6 +112,7 @@ const router = createBrowserRouter([
       { path: '/video-lesson', element: <VideoLesson /> },
       { path: '/credits', element: <Credits /> },
       { path: '/settings', element: <Settings /> },
+      { path: '/admin', element: <Admin /> },
       { path: '*', element: <NotFound /> },
     ],
   },

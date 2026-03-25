@@ -18,6 +18,16 @@ export default function CreditBadge() {
     );
   }
 
+  // Fellow tier: highest tier, unlimited access
+  if (userProfile?.tier === 'fellow') {
+    return (
+      <Link to="/credits" className="text-xs px-2 py-1 rounded-md font-medium font-display italic no-underline"
+        style={{ background: 'rgba(228,237,224,0.12)', color: '#e4ede0', border: '0.5px solid rgba(228,237,224,0.2)' }}>
+        ✦ Fellow
+      </Link>
+    );
+  }
+
   const freeRemaining = Math.max(0, 5 - (userProfile.freeAiBattlesUsedThisWeek || 0));
   const paidCredits = userProfile.credits || 0;
 

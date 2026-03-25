@@ -6,6 +6,7 @@ import { useTheme } from '../contexts/ThemeContext';
 import { ShieldIcon } from '../components/Logo';
 import { getSubjectsForLevel } from '../content/subjects';
 import { getLevelMeta } from '../lib/qualificationLevel';
+import { mockGenerateQuestion, mockMarkAnswer } from '../lib/mockClaude';
 
 export default function Onboarding() {
   const navigate = useNavigate();
@@ -16,6 +17,11 @@ export default function Onboarding() {
   const isGCSE = level === 'gcse';
 
   const [step, setStep] = useState('welcome');
+  const [tryQuestion, setTryQuestion] = useState(null);
+  const [tryAnswer, setTryAnswer] = useState('');
+  const [tryFeedback, setTryFeedback] = useState(null);
+  const [tryLoading, setTryLoading] = useState(false);
+  const [trySubmitted, setTrySubmitted] = useState(false);
 
   // Redirect to level select if no level chosen
   if (!hasSelectedLevel()) {
@@ -39,12 +45,17 @@ export default function Onboarding() {
     const existing = getSettings() || {};
     const existingOnboarded = existing.onboardedLevels || (existing.createdAt ? ['alevel'] : []);
 
+    // Default all subjects to 'generic' exam board
+    const examBoards = {};
+    const allSubjects = getSubjectsForLevel(level);
+    allSubjects.forEach(s => { examBoards[s.id] = 'generic'; });
+
     saveSettings({
       ...existing,
       studentName: form.studentName,
       examBoards: {
         ...(existing.examBoards || {}),
-        [level]: form.examBoards,
+        [level]: examBoards,
       },
       [`targetGrade_${level}`]: form.targetGrade,
       targetGrade: form.targetGrade,
@@ -90,7 +101,13 @@ export default function Onboarding() {
           </div>
 
           <button
-            onClick={() => setStep('form')}
+            onClick={() => {
+              // Generate a sample question
+              const sampleTopic = level === 'gcse' ? 'fractions_decimals_percentages' : 'biological_molecules';
+              const q = mockGenerateQuestion({ topicId: sampleTopic, phase: 'recall', difficulty: 2 });
+              setTryQuestion(q);
+              setStep('tryit');
+            }}
             className="w-full bg-accent hover:bg-accent-hover text-bg-primary font-ui text-button py-3 px-6 rounded-lg transition-colors cursor-pointer text-lg"
           >
             Get Started
@@ -98,6 +115,113 @@ export default function Onboarding() {
           <Link to="/level-select" className="block text-center text-text-muted text-xs mt-3 no-underline hover:text-text-secondary">
             Change qualification level
           </Link>
+        </div>
+      </div>
+    );
+  }
+
+  if (step === 'tryit') {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-bg-primary p-4">
+        <div className="max-w-lg w-full space-y-6 animate-fade-in">
+          <div className="text-center">
+            <h2 className="font-display text-display">Try a question</h2>
+            <p className="text-text-secondary text-sm mt-1">
+              This is what revision looks like in A* Arena. Give it a go.
+            </p>
+          </div>
+
+          {tryQuestion && (
+            <div className="bg-bg-secondary border border-border rounded-xl p-6 shadow-card space-y-4">
+              <p className="text-text-primary leading-relaxed">{tryQuestion.prompt}</p>
+
+              {!trySubmitted ? (
+                <>
+                  <textarea
+                    value={tryAnswer}
+                    onChange={e => setTryAnswer(e.target.value)}
+                    placeholder="Type your answer..."
+                    className="input-field w-full min-h-[80px] resize-none"
+                    autoFocus
+                  />
+                  <button
+                    onClick={async () => {
+                      if (!tryAnswer.trim()) return;
+                      setTryLoading(true);
+                      const result = mockMarkAnswer({
+                        questionPrompt: tryQuestion.prompt,
+                        studentAnswer: tryAnswer,
+                        phase: 'recall',
+                        rubric: { keywords: tryQuestion.keywords, maxScore: tryQuestion.maxScore },
+                      });
+                      setTryFeedback(result);
+                      setTrySubmitted(true);
+                      setTryLoading(false);
+                    }}
+                    disabled={tryLoading || !tryAnswer.trim()}
+                    className="text-button bg-accent text-bg-primary px-5 py-2.5 rounded-lg cursor-pointer border-0 transition-opacity hover:opacity-90 disabled:opacity-50 w-full"
+                  >
+                    {tryLoading ? 'Checking...' : 'Submit Answer'}
+                  </button>
+                </>
+              ) : tryFeedback && (
+                <div className="space-y-3 animate-slide-up">
+                  {/* Result indicator */}
+                  <div className={`flex items-center gap-2 text-lg font-medium ${tryFeedback.correct ? 'text-strong' : 'text-developing'}`}>
+                    <span>{tryFeedback.correct ? '✓' : '✗'}</span>
+                    <span>{tryFeedback.correct ? 'Nice work!' : 'Good attempt!'}</span>
+                  </div>
+
+                  {/* Brief feedback */}
+                  {tryFeedback.feedback?.whatYouDidWell?.[0] && (
+                    <p className="text-sm text-text-secondary">
+                      <span className="text-strong">+</span> {tryFeedback.feedback.whatYouDidWell[0]}
+                    </p>
+                  )}
+                  {tryFeedback.feedback?.missingPoints?.[0] && (
+                    <p className="text-sm text-text-secondary">
+                      <span className="text-weak">-</span> {tryFeedback.feedback.missingPoints[0]}
+                    </p>
+                  )}
+
+                  {/* Model answer */}
+                  {tryFeedback.feedback?.modelAnswer && (
+                    <div className="bg-bg-tertiary rounded-lg p-3">
+                      <p className="text-label mb-1">Model Answer</p>
+                      <p className="text-sm text-text-secondary">{tryFeedback.feedback.modelAnswer}</p>
+                    </div>
+                  )}
+
+                  {/* CTA */}
+                  <div className="pt-2 space-y-2">
+                    <p className="text-text-secondary text-sm text-center">
+                      That's how A* Arena works. AI-powered questions, instant feedback, real exam practice.
+                    </p>
+                    <button
+                      onClick={() => setStep('form')}
+                      className="text-button bg-accent text-bg-primary px-5 py-2.5 rounded-lg cursor-pointer border-0 transition-opacity hover:opacity-90 w-full"
+                    >
+                      Set Up Your Profile
+                    </button>
+                    <button
+                      onClick={() => setStep('form')}
+                      className="text-xs text-text-muted block mx-auto bg-transparent border-0 cursor-pointer hover:text-text-secondary"
+                    >
+                      Skip to setup →
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Back link */}
+          <button
+            onClick={() => setStep('welcome')}
+            className="text-xs text-text-muted block mx-auto bg-transparent border-0 cursor-pointer hover:text-text-secondary"
+          >
+            ← Back
+          </button>
         </div>
       </div>
     );
@@ -130,39 +254,6 @@ export default function Onboarding() {
             />
           </div>
 
-          {/* Exam Boards */}
-          <div>
-            <label className="block text-sm font-medium mb-2">Exam Boards</label>
-            <div className="space-y-3 max-h-64 overflow-y-auto pr-1">
-              {subjects.map(({ id, name }) => (
-                <div key={id}>
-                  <span className="block text-xs text-text-muted mb-1">{name}</span>
-                  <div className="grid grid-cols-4 gap-1.5">
-                    {[
-                      { value: 'generic', label: 'Generic' },
-                      { value: 'aqa', label: 'AQA' },
-                      { value: 'ocr', label: 'OCR' },
-                      { value: 'edexcel', label: 'Edexcel' },
-                    ].map(opt => (
-                      <button
-                        key={opt.value}
-                        type="button"
-                        onClick={() => setForm({ ...form, examBoards: { ...form.examBoards, [id]: opt.value } })}
-                        className={`py-2 px-2 rounded-lg text-xs font-medium transition-colors cursor-pointer border ${
-                          form.examBoards[id] === opt.value
-                            ? 'bg-accent/15 border-accent text-accent'
-                            : 'bg-bg-tertiary border-border text-text-secondary hover:border-text-muted'
-                        }`}
-                      >
-                        {opt.label}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
           {/* Target Grade */}
           <div>
             <label className="block text-sm font-medium mb-1.5">Target Grade</label>
@@ -182,6 +273,7 @@ export default function Onboarding() {
                 </button>
               ))}
             </div>
+            <p className="text-xs text-text-muted">You can set your exam board for each subject in Settings.</p>
           </div>
 
           {/* Time per day */}
@@ -216,7 +308,7 @@ export default function Onboarding() {
           <div className="flex gap-3 pt-2">
             <button
               type="button"
-              onClick={() => setStep('welcome')}
+              onClick={() => setStep('tryit')}
               className="px-4 py-2.5 rounded-lg text-sm text-text-secondary bg-bg-tertiary border border-border hover:border-text-muted transition-colors cursor-pointer"
             >
               Back

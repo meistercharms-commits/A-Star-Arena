@@ -8,6 +8,7 @@ import { updateTopicMastery } from '../lib/mastery';
 import { calculateNextReview, getSessionScorePercentage } from '../lib/srs';
 import { trackErrorPatterns, getPatternWarningsForAttempt } from '../lib/errorPatterns';
 import BossHUD from '../components/BossHUD';
+import PhaseTransition from '../components/PhaseTransition';
 import QuestionCard from '../components/QuestionCard';
 import AnswerInput from '../components/AnswerInput';
 import FeedbackPanel from '../components/FeedbackPanel';
@@ -52,6 +53,8 @@ export default function Battle() {
   const [srsResult, setSrsResult] = useState(null);
   const [streak, setStreak] = useState(0);
   const [showToast, setShowToast] = useState(null); // null | string
+  const [showPhaseTransition, setShowPhaseTransition] = useState(null); // null | phase name string
+  const [streakToast, setStreakToast] = useState(null);
 
   // Track results across entire battle
   const resultsRef = useRef({ recall: [], application: [], extended: [] });
@@ -154,6 +157,10 @@ export default function Battle() {
               setShowToast('Perfect Recall!');
               setTimeout(() => setShowToast(null), 2500);
             }
+            // Streak celebrations
+            if (newStreak === 3) { setStreakToast('🔥 Hot Streak!'); setTimeout(() => setStreakToast(null), 2000); }
+            else if (newStreak === 5) { setStreakToast('🔥🔥 On Fire!'); setTimeout(() => setStreakToast(null), 2000); }
+            else if (newStreak === 7) { setStreakToast('🔥🔥🔥 Unstoppable!'); setTimeout(() => setStreakToast(null), 2000); }
             return newStreak;
           });
         } else {
@@ -222,12 +229,12 @@ export default function Battle() {
       // More questions in this phase
       await loadQuestion(currentPhase, nextQNum);
     } else if (phaseIndex < PHASE_ORDER.length - 1) {
-      // Move to next phase
+      // Move to next phase — show phase transition overlay
       const nextPhaseIndex = phaseIndex + 1;
       const nextPhase = PHASE_ORDER[nextPhaseIndex];
       setPhaseIndex(nextPhaseIndex);
       setQuestionNum(0);
-      await loadQuestion(nextPhase, 0);
+      setShowPhaseTransition(nextPhase);
     } else {
       // Battle complete
       completeBattle();
@@ -423,6 +430,7 @@ export default function Battle() {
         masteryAfter={masteryAfter}
         srsResult={srsResult}
         battleMode={battleMode}
+        bossDialogue={boss?.dialogue}
         onBattleAgain={() => { setStage('idle'); setHp(boss?.hp || 100); setCompletedSession(null); setSrsResult(null); }}
       />
     );
@@ -445,12 +453,33 @@ export default function Battle() {
         isStudyMode={isStudyMode}
         streak={streak}
         apiSource={apiSource}
+        dialogue={boss?.dialogue}
       />
+
+      {/* Phase transition overlay */}
+      {showPhaseTransition && (
+        <PhaseTransition
+          phase={showPhaseTransition}
+          bossTaunt={boss?.dialogue?.[`${showPhaseTransition}Taunt`]}
+          onComplete={async () => {
+            const nextPhase = showPhaseTransition;
+            setShowPhaseTransition(null);
+            await loadQuestion(nextPhase, 0);
+          }}
+        />
+      )}
 
       {/* Perfect toast */}
       {showToast && (
         <div className="fixed top-20 left-1/2 -translate-x-1/2 z-50 bg-strong text-bg-primary font-bold px-5 py-2.5 rounded-xl shadow-lg animate-toast">
           {showToast}
+        </div>
+      )}
+
+      {/* Streak toast */}
+      {streakToast && (
+        <div className="fixed top-20 left-1/2 -translate-x-1/2 z-50 bg-accent/20 border border-accent/40 text-accent px-4 py-2 rounded-xl text-sm font-medium animate-score-pop">
+          {streakToast}
         </div>
       )}
 

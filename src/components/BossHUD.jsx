@@ -6,12 +6,13 @@ const PHASES = [
   { key: 'extended', label: 'Phase 3: Exam Brain' },
 ];
 
-export default function BossHUD({ boss, hp, maxHp, currentPhase, questionNum, totalQuestions, isStudyMode = false, streak = 0, apiSource }) {
+export default function BossHUD({ boss, hp, maxHp, currentPhase, questionNum, totalQuestions, isStudyMode = false, streak = 0, apiSource, dialogue }) {
   const hpPercent = Math.max(0, (hp / maxHp) * 100);
   const hpColour = hpPercent > 50 ? boss?.hpBarColour || '#06b6d4' : hpPercent > 25 ? '#eab308' : '#ef4444';
   const prevHpRef = useRef(hp);
   const [showDamage, setShowDamage] = useState(false);
   const [damageAmount, setDamageAmount] = useState(0);
+  const [bossSpeech, setBossSpeech] = useState(null);
 
   // Detect HP change and trigger damage animation
   useEffect(() => {
@@ -26,6 +27,25 @@ export default function BossHUD({ boss, hp, maxHp, currentPhase, questionNum, to
     prevHpRef.current = hp;
   }, [hp]);
 
+  // Show a random damageTaken line when damage is dealt
+  useEffect(() => {
+    if (showDamage && dialogue?.damageTaken?.length) {
+      const line = dialogue.damageTaken[Math.floor(Math.random() * dialogue.damageTaken.length)];
+      setBossSpeech(line);
+      const timer = setTimeout(() => setBossSpeech(null), 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [showDamage]);
+
+  // Show lowHp line when HP drops below 25%
+  useEffect(() => {
+    if (hpPercent > 0 && hpPercent <= 25 && dialogue?.lowHp) {
+      setBossSpeech(dialogue.lowHp);
+      const timer = setTimeout(() => setBossSpeech(null), 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [hpPercent]);
+
   return (
     <div className={`bg-bg-secondary border border-border rounded-xl p-4 space-y-3 shadow-elevated ${
       showDamage ? (hpPercent < 50 ? 'animate-shake-intense' : 'animate-shake') : ''
@@ -38,6 +58,9 @@ export default function BossHUD({ boss, hp, maxHp, currentPhase, questionNum, to
         <div className="flex-1 min-w-0">
           <h2 className="font-display text-xl truncate">{boss?.bossName || 'Unknown Boss'}</h2>
           <p className="text-text-muted text-xs italic line-clamp-2">{boss?.flavourText}</p>
+          {bossSpeech && (
+            <p className="font-display italic text-sm text-accent animate-fade-in mt-1">"{bossSpeech}"</p>
+          )}
         </div>
         {isStudyMode && (
           <span className="text-xs bg-developing/10 text-developing border border-developing/30 px-2 py-0.5 rounded-lg font-medium shrink-0">

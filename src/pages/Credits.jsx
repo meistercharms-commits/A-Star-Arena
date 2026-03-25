@@ -60,6 +60,7 @@ const TIERS = [
   { name: 'Distinction', credits: '50 credits', colour: '#a3c094', bg: 'rgba(163,192,148,0.08)', border: 'rgba(163,192,148,0.25)' },
   { name: 'A* Elite', credits: '100 credits', colour: '#d4b896', bg: 'rgba(212,184,150,0.08)', border: 'rgba(212,184,150,0.25)' },
   { name: 'Honours', credits: '250 credits', colour: '#e4ede0', bg: 'rgba(255,255,255,0.04)', border: 'rgba(255,255,255,0.12)' },
+  { name: 'Fellow', credits: 'Unlimited', colour: '#e4ede0', bg: 'rgba(228,237,224,0.08)', border: 'rgba(228,237,224,0.2)' },
 ];
 
 export default function Credits() {
@@ -92,40 +93,50 @@ export default function Credits() {
             border: '0.5px solid rgba(255,255,255,0.08)',
           }}
         >
-          <div className="flex items-center gap-8">
-            <div className="text-center">
-              <div className="font-display text-[38px] font-semibold leading-none" style={{ color: '#a3c094' }}>
-                {freeRemaining}
-              </div>
-              <div className="text-[9px] tracking-[0.1em] uppercase mt-1" style={{ color: 'rgba(163,192,148,0.5)' }}>
-                Free this week
-              </div>
+          {userProfile?.tier === 'fellow' ? (
+            <div className="text-center py-4 w-full">
+              <div className="font-display text-[38px] font-semibold text-text-primary">∞</div>
+              <div className="text-[9px] tracking-[0.1em] uppercase mt-1 text-text-muted">Fellow · Unlimited</div>
+              <p className="text-xs text-text-muted mt-2">You have unlimited access to all features.</p>
             </div>
-            <div className="w-px h-10" style={{ background: 'rgba(255,255,255,0.08)' }} />
-            <div className="text-center">
-              <div className="font-display text-[38px] font-semibold leading-none" style={{ color: '#d4b896' }}>
-                {paidCredits}
+          ) : (
+            <>
+              <div className="flex items-center gap-8">
+                <div className="text-center">
+                  <div className="font-display text-[38px] font-semibold leading-none" style={{ color: '#a3c094' }}>
+                    {freeRemaining}
+                  </div>
+                  <div className="text-[9px] tracking-[0.1em] uppercase mt-1" style={{ color: 'rgba(163,192,148,0.5)' }}>
+                    Free this week
+                  </div>
+                </div>
+                <div className="w-px h-10" style={{ background: 'rgba(255,255,255,0.08)' }} />
+                <div className="text-center">
+                  <div className="font-display text-[38px] font-semibold leading-none" style={{ color: '#d4b896' }}>
+                    {paidCredits}
+                  </div>
+                  <div className="text-[9px] tracking-[0.1em] uppercase mt-1" style={{ color: 'rgba(212,184,150,0.5)' }}>
+                    Paid credits
+                  </div>
+                </div>
               </div>
-              <div className="text-[9px] tracking-[0.1em] uppercase mt-1" style={{ color: 'rgba(212,184,150,0.5)' }}>
-                Paid credits
+              <div className="flex flex-col items-end gap-1">
+                <span
+                  className="text-[11px] font-medium px-3 py-1 rounded-full font-display italic"
+                  style={{
+                    background: `${TIERS.find(t => t.name === highestTier)?.bg || TIERS[0].bg}`,
+                    color: TIERS.find(t => t.name === highestTier)?.colour || TIERS[0].colour,
+                    border: `0.5px solid ${TIERS.find(t => t.name === highestTier)?.border || TIERS[0].border}`,
+                  }}
+                >
+                  {highestTier}
+                </span>
+                <span className="text-[10px]" style={{ color: 'rgba(228,237,224,0.28)' }}>
+                  Free resets Monday
+                </span>
               </div>
-            </div>
-          </div>
-          <div className="flex flex-col items-end gap-1">
-            <span
-              className="text-[11px] font-medium px-3 py-1 rounded-full font-display italic"
-              style={{
-                background: `${TIERS.find(t => t.name === highestTier)?.bg || TIERS[0].bg}`,
-                color: TIERS.find(t => t.name === highestTier)?.colour || TIERS[0].colour,
-                border: `0.5px solid ${TIERS.find(t => t.name === highestTier)?.border || TIERS[0].border}`,
-              }}
-            >
-              {highestTier}
-            </span>
-            <span className="text-[10px]" style={{ color: 'rgba(228,237,224,0.28)' }}>
-              Free resets Monday
-            </span>
-          </div>
+            </>
+          )}
         </div>
       )}
 

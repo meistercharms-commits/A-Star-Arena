@@ -3,6 +3,16 @@
     "topicId": "biological_molecules",
     "bossName": "Macromolecule Titan",
     "flavourText": "A colossal being woven from polysaccharides and peptide chains. Break its bonds to defeat it.",
+    "dialogue": {
+      "intro": "I am held together by hydrogen bonds, glycosidic links and peptide bonds. Think you can break them all?",
+      "recallTaunt": "Let us begin with the basics. Name my monomers, if you can.",
+      "applicationTaunt": "Knowing the names is easy. Can you explain how my polymers form?",
+      "extendedTaunt": "Time to write like an examiner is watching. Show me the full picture.",
+      "damageTaken": ["My peptide bonds are weakening!", "You clearly know your carbohydrates...", "That answer hit like a condensation reaction!"],
+      "lowHp": "My tertiary structure is unravelling... but I am not done yet!",
+      "defeated": "You hydrolysed every last bond. Impressive work.",
+      "survived": "Your knowledge of biological molecules needs more polymerisation. Try again."
+    },
     "emoji": "🧬",
     "hp": 100,
     "hpBarColour": "#a855f7"
@@ -11,6 +21,16 @@
     "topicId": "cell_structure",
     "bossName": "Organelle Overlord",
     "flavourText": "Rules the cell with an iron membrane. Each organelle obeys its command.",
+    "dialogue": {
+      "intro": "Every organelle in this cell answers to me. Let us see if you know their roles.",
+      "recallTaunt": "Name my organelles. Quick, before the cell cycle moves on.",
+      "applicationTaunt": "Identification is one thing. Can you explain how they work together?",
+      "extendedTaunt": "The extended response awaits. Prove you understand the whole cell.",
+      "damageTaken": ["My ribosomes are detaching!", "You know your ultrastructure...", "That was a well-targeted answer!"],
+      "lowHp": "My nuclear envelope is breaking down... this feels like prophase!",
+      "defeated": "You have mastered every organelle. The cell is yours.",
+      "survived": "You need to look more closely under that electron microscope. Return when ready."
+    },
     "emoji": "🔬",
     "hp": 100,
     "hpBarColour": "#3b82f6"
@@ -19,6 +39,16 @@
     "topicId": "transport_membranes",
     "bossName": "Membrane Guardian",
     "flavourText": "Controls what enters and exits. Nothing passes without its approval.",
+    "dialogue": {
+      "intro": "Nothing crosses my phospholipid bilayer without permission. Prove you understand the rules.",
+      "recallTaunt": "Define my transport mechanisms. Passive and active alike.",
+      "applicationTaunt": "Definitions are easy. Can you explain why water potential matters?",
+      "extendedTaunt": "Final phase. Show me you truly understand membrane transport.",
+      "damageTaken": ["My channel proteins are opening!", "You understand osmosis well...", "That answer diffused right through my defences!"],
+      "lowHp": "My fluid mosaic is losing its integrity!",
+      "defeated": "You have breached every barrier. Well transported.",
+      "survived": "My membrane remains intact. Your understanding needs more concentration."
+    },
     "emoji": "🛡️",
     "hp": 100,
     "hpBarColour": "#14b8a6"
@@ -27,6 +57,16 @@
     "topicId": "enzymes",
     "bossName": "Catalyst Warden",
     "flavourText": "An ancient guardian of the active site, armed with knowledge of saturation.",
+    "dialogue": {
+      "intro": "Think you understand my active sites? Let us see...",
+      "recallTaunt": "Let us start with the basics. Name your substrates.",
+      "applicationTaunt": "Knowing terms is one thing. Can you apply them?",
+      "extendedTaunt": "Time for the extended response. Show me everything.",
+      "damageTaken": ["That stung!", "You know your stuff...", "Lucky shot!"],
+      "lowHp": "I will not denature that easily!",
+      "defeated": "You have catalysed my defeat... well played.",
+      "survived": "Not enough to break my bonds. Try again."
+    },
     "emoji": "⚙️",
     "hp": 100,
     "hpBarColour": "#06b6d4"
@@ -35,6 +75,16 @@
     "topicId": "dna_protein_synthesis",
     "bossName": "Helix Phantom",
     "flavourText": "Unwinds the double helix and rewrites the code. Decode its message to win.",
+    "dialogue": {
+      "intro": "I carry the code of life itself. Can you read my base sequences?",
+      "recallTaunt": "Recall the basics. What bonds hold my strands together?",
+      "applicationTaunt": "You know the structure. Now explain how I replicate and transcribe.",
+      "extendedTaunt": "The final codon. Write your extended response before termination.",
+      "damageTaken": ["My hydrogen bonds are splitting!", "You decoded that perfectly...", "Accurate transcription!"],
+      "lowHp": "My helicase cannot keep up with your answers!",
+      "defeated": "You have read my entire genome. Flawless translation.",
+      "survived": "Your answer contained too many mutations. Come back with better proofreading."
+    },
     "emoji": "🧪",
     "hp": 100,
     "hpBarColour": "#8b5cf6"
@@ -43,6 +93,16 @@
     "topicId": "cell_division",
     "bossName": "Spindle Wraith",
     "flavourText": "Pulls chromosomes apart with spectral spindle fibres. Divide and conquer.",
+    "dialogue": {
+      "intro": "I pull chromosomes apart with every division. Can you keep up with my phases?",
+      "recallTaunt": "Name the stages of mitosis. The clock is ticking.",
+      "applicationTaunt": "You know the stages. Now explain why they matter.",
+      "extendedTaunt": "Final division. Show me you understand the whole cycle.",
+      "damageTaken": ["My spindle fibres are snapping!", "Correct separation!", "You have aligned that perfectly!"],
+      "lowHp": "I am stuck in anaphase... my chromatids are pulling apart!",
+      "defeated": "Complete division. You have split me into nothing.",
+      "survived": "Your cell cycle knowledge has stalled in interphase. Revise and return."
+    },
     "emoji": "🕸️",
     "hp": 100,
     "hpBarColour": "#ec4899"
@@ -51,6 +111,16 @@
     "topicId": "exchange_surfaces",
     "bossName": "Diffusion Drifter",
     "flavourText": "Moves silently across every surface. Thin, efficient, relentless.",
+    "dialogue": {
+      "intro": "I move across every exchange surface in the body. Can you explain how?",
+      "recallTaunt": "What makes a good exchange surface? List the features.",
+      "applicationTaunt": "Features are easy to list. Can you explain why they matter?",
+      "extendedTaunt": "Extended response time. Bring together everything you know about gas exchange.",
+      "damageTaken": ["My surface area is shrinking!", "Good understanding of diffusion...", "That answer maintained a steep gradient!"],
+      "lowHp": "My concentration gradient is almost flat!",
+      "defeated": "You have mastered every exchange surface. Nothing left to diffuse.",
+      "survived": "Your answers lacked sufficient surface area. Build up your knowledge and return."
+    },
     "emoji": "💨",
     "hp": 100,
     "hpBarColour": "#64748b"
@@ -59,6 +129,16 @@
     "topicId": "transport_animals",
     "bossName": "Cardiac Colossus",
     "flavourText": "Pumps with unstoppable force. Feel the pressure of every heartbeat.",
+    "dialogue": {
+      "intro": "I pump blood through every vessel. Can you trace the full circulatory pathway?",
+      "recallTaunt": "Name the chambers, the valves, the vessels. Quick.",
+      "applicationTaunt": "Structure is only half the story. Explain the cardiac cycle.",
+      "extendedTaunt": "The final heartbeat. Write your most complete answer yet.",
+      "damageTaken": ["My atrioventricular valves just closed!", "Strong cardiac output!", "That hit me in the left ventricle!"],
+      "lowHp": "My heart rate is dropping... bradycardia setting in!",
+      "defeated": "You have stopped my heart. Clinically precise work.",
+      "survived": "Your understanding is still in diastole. Pump harder next time."
+    },
     "emoji": "❤️",
     "hp": 100,
     "hpBarColour": "#ef4444"
@@ -67,6 +147,16 @@
     "topicId": "respiration",
     "bossName": "ATP Reaper",
     "flavourText": "Harvests energy from glucose with ruthless efficiency.",
+    "dialogue": {
+      "intro": "I harvest every molecule of ATP from glucose. Do you know how?",
+      "recallTaunt": "Name the stages of respiration. Where does each one happen?",
+      "applicationTaunt": "You know the stages. Now explain the biochemistry.",
+      "extendedTaunt": "Final stage. Show me you understand aerobic and anaerobic pathways.",
+      "damageTaken": ["My electron transport chain is faltering!", "You oxidised that question!", "Efficient energy transfer!"],
+      "lowHp": "My ATP synthase is running dry!",
+      "defeated": "You have depleted all my energy reserves. Total oxidation.",
+      "survived": "Your answers were anaerobic at best. Not enough ATP to defeat me."
+    },
     "emoji": "💀",
     "hp": 100,
     "hpBarColour": "#f97316"
@@ -75,6 +165,16 @@
     "topicId": "photosynthesis",
     "bossName": "Chlorophyll Sentinel",
     "flavourText": "Absorbs light and converts it to power. Outshine it or be consumed.",
+    "dialogue": {
+      "intro": "I capture every photon that reaches me. Can you explain how I turn light into sugar?",
+      "recallTaunt": "Name the stages and where they occur. Light and dark.",
+      "applicationTaunt": "You know the reactions. Now explain the limiting factors.",
+      "extendedTaunt": "The final photon. Write your most illuminating answer.",
+      "damageTaken": ["My photosystems are overloading!", "Brilliant understanding of the Calvin cycle!", "You have reduced my NADP!"],
+      "lowHp": "My light-dependent reactions are shutting down!",
+      "defeated": "You have outshone me completely. Photolysis achieved.",
+      "survived": "Your knowledge was light-limited. Increase your intensity and return."
+    },
     "emoji": "☀️",
     "hp": 100,
     "hpBarColour": "#22c55e"
@@ -83,6 +183,16 @@
     "topicId": "homeostasis",
     "bossName": "Equilibrium Enforcer",
     "flavourText": "Maintains perfect balance. Any deviation triggers its wrath.",
+    "dialogue": {
+      "intro": "I keep every variable within its set point. Disturb my balance if you dare.",
+      "recallTaunt": "Define negative feedback. Name the receptors and effectors.",
+      "applicationTaunt": "Definitions are stable. Can you apply them to blood glucose and temperature?",
+      "extendedTaunt": "Final regulation. Show me a complete homeostatic response.",
+      "damageTaken": ["My set point is shifting!", "Precise negative feedback!", "You have disrupted my equilibrium!"],
+      "lowHp": "I cannot maintain homeostasis much longer!",
+      "defeated": "You have thrown me completely off balance. Perfect regulation.",
+      "survived": "Your answers fluctuated too much. Find your set point and try again."
+    },
     "emoji": "⚖️",
     "hp": 100,
     "hpBarColour": "#eab308"
@@ -91,6 +201,16 @@
     "topicId": "ecology",
     "bossName": "Ecosystem Archon",
     "flavourText": "Commands all trophic levels. Disrupt its food web to claim victory.",
+    "dialogue": {
+      "intro": "I command every trophic level in this ecosystem. Can you trace the energy flow?",
+      "recallTaunt": "Define the key ecological terms. Producers, consumers, decomposers.",
+      "applicationTaunt": "You know the terms. Now explain energy transfer and succession.",
+      "extendedTaunt": "The final trophic level. Write about the whole ecosystem.",
+      "damageTaken": ["My food web is unravelling!", "Strong ecological knowledge!", "You have disrupted my energy flow!"],
+      "lowHp": "My population is crashing... carrying capacity breached!",
+      "defeated": "You have collapsed my entire ecosystem. Apex knowledge.",
+      "survived": "Your understanding barely reached the first trophic level. Climb higher."
+    },
     "emoji": "🌿",
     "hp": 100,
     "hpBarColour": "#10b981"
@@ -99,6 +219,16 @@
     "topicId": "cell_recognition_immune",
     "bossName": "Antibody Assassin",
     "flavourText": "Evades every immune defence. Identify its antigens and mount a response before it overwhelms you.",
+    "dialogue": {
+      "intro": "I evade every immune response. Can you identify my antigens before I overwhelm you?",
+      "recallTaunt": "Name the cells of the immune system. B cells, T cells, phagocytes.",
+      "applicationTaunt": "You know the cells. Now explain the full immune response.",
+      "extendedTaunt": "Final antigen. Show me you understand both cellular and humoral immunity.",
+      "damageTaken": ["My antigens have been recognised!", "Strong antibody response!", "Your T cells are attacking!"],
+      "lowHp": "Immunological memory is forming against me!",
+      "defeated": "You have mounted a complete immune response. I am neutralised.",
+      "survived": "Your immune response was too slow. I have mutated and returned stronger."
+    },
     "emoji": "🦠",
     "hp": 100,
     "hpBarColour": "#f43f5e"

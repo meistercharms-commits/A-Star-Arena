@@ -33,6 +33,12 @@ export function checkCredits(cost = 1) {
       return next();
     }
 
+    // Fellow tier: unlimited access
+    if (req.userProfile?.tier === 'fellow') {
+      req.creditSource = 'fellow';
+      return next();
+    }
+
     // Authenticated user
     if (!req.uid || !req.userProfile) {
       return res.status(401).json({ success: false, error: 'Authentication required' });

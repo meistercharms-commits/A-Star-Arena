@@ -3,6 +3,16 @@
     "topicId": "algebra_functions",
     "bossName": "The Variable Phantom",
     "flavourText": "Lurks in every equation, shifting forms with every operation. Solve for x before it solves for you.",
+    "dialogue": {
+      "intro": "I hide in every equation, shifting form with each operation. Can you solve for me?",
+      "recallTaunt": "State the laws of indices and the rules of surds. Begin.",
+      "applicationTaunt": "Rules are just the start. Apply them to composite and inverse functions.",
+      "extendedTaunt": "Final variable. Write a complete algebraic argument.",
+      "damageTaken": ["You have found my value!", "Clean algebraic manipulation!", "That substitution was precise!"],
+      "lowHp": "My domain is shrinking to nothing!",
+      "defeated": "You have solved every equation. The unknown is known.",
+      "survived": "Too many algebraic errors. Simplify your approach and return."
+    },
     "emoji": "🔣",
     "hp": 100,
     "hpBarColour": "#3b82f6"
@@ -11,6 +21,16 @@
     "topicId": "polynomials",
     "bossName": "The Degree Titan",
     "flavourText": "A towering polynomial monstrosity. Factor it down piece by piece or be crushed by its complexity.",
+    "dialogue": {
+      "intro": "I am a polynomial of the highest degree. Can you factor me down to nothing?",
+      "recallTaunt": "State the factor theorem and the remainder theorem.",
+      "applicationTaunt": "Theorems are tools. Use them to find my roots.",
+      "extendedTaunt": "Final factorisation. Fully analyse this polynomial.",
+      "damageTaken": ["You have found one of my roots!", "Clean polynomial division!", "My degree is dropping!"],
+      "lowHp": "I am down to a linear factor!",
+      "defeated": "Fully factorised. Every root exposed.",
+      "survived": "You missed a factor. My roots remain hidden in the complex plane."
+    },
     "emoji": "🗿",
     "hp": 100,
     "hpBarColour": "#8b5cf6"
@@ -19,6 +39,16 @@
     "topicId": "coordinate_geometry",
     "bossName": "The Cartesian Colossus",
     "flavourText": "Roams the plane, drawing circles of destruction. Plot your approach carefully or lose your bearings.",
+    "dialogue": {
+      "intro": "I roam the Cartesian plane freely. Can you pin down my coordinates?",
+      "recallTaunt": "State the equations of lines and circles. Midpoints, gradients, distances.",
+      "applicationTaunt": "Equations are just lines on paper. Apply them to find intersections.",
+      "extendedTaunt": "Final coordinate. Prove your geometric reasoning.",
+      "damageTaken": ["You have found my centre!", "Perpendicular bisector, nicely done!", "That gradient was spot on!"],
+      "lowHp": "My radius is approaching zero!",
+      "defeated": "You have mapped every point. The plane is yours.",
+      "survived": "Your coordinates were off. Recalibrate and plot again."
+    },
     "emoji": "📐",
     "hp": 100,
     "hpBarColour": "#0ea5e9"
@@ -27,6 +57,16 @@
     "topicId": "sequences_series",
     "bossName": "The Infinite Sentinel",
     "flavourText": "Summons an endless army, each soldier stronger than the last. Find the pattern before you are overwhelmed.",
+    "dialogue": {
+      "intro": "My army is infinite, each term larger than the last. Can you find the sum before I overwhelm you?",
+      "recallTaunt": "State the formulae for arithmetic and geometric series.",
+      "applicationTaunt": "Formulae are memorised. Now use them to find sums and prove convergence.",
+      "extendedTaunt": "Final term. Write a complete series analysis with proof.",
+      "damageTaken": ["You have found my common ratio!", "That sum to infinity was correct!", "My sequence is converging on defeat!"],
+      "lowHp": "My series is converging to zero!",
+      "defeated": "Summed to infinity and beyond. You have counted every term.",
+      "survived": "Your series diverged. Find the pattern and try again."
+    },
     "emoji": "♾️",
     "hp": 100,
     "hpBarColour": "#6366f1"
@@ -35,6 +75,16 @@
     "topicId": "trigonometry_1",
     "bossName": "The Sine Serpent",
     "flavourText": "Coils through all four quadrants. Only those who master every identity can break its cycle.",
+    "dialogue": {
+      "intro": "I coil through every quadrant, cycling endlessly. Can you break my periodic pattern?",
+      "recallTaunt": "State the key trigonometric identities and exact values.",
+      "applicationTaunt": "Identities are just the start. Solve equations across all four quadrants.",
+      "extendedTaunt": "Final cycle. Prove a trigonometric identity and solve completely.",
+      "damageTaken": ["You have found all my solutions!", "That identity proof was elegant!", "My amplitude is decreasing!"],
+      "lowHp": "My period is shrinking to nothing!",
+      "defeated": "Every solution found in every quadrant. Trigonometric mastery.",
+      "survived": "You missed solutions in the other quadrants. Think in full cycles."
+    },
     "emoji": "🐍",
     "hp": 100,
     "hpBarColour": "#06b6d4"
@@ -43,6 +93,16 @@
     "topicId": "exponentials_logarithms",
     "bossName": "The Growth Golem",
     "flavourText": "Grows exponentially stronger each turn. Use logarithms to cut it down to size.",
+    "dialogue": {
+      "intro": "I grow exponentially with every turn. Only logarithms can cut me down.",
+      "recallTaunt": "State the laws of logarithms. Define the natural logarithm.",
+      "applicationTaunt": "Laws are just tools. Use them to solve exponential equations.",
+      "extendedTaunt": "Final growth model. Analyse exponential change completely.",
+      "damageTaken": ["You have taken my log!", "That exponential equation fell quickly!", "My growth rate is decaying!"],
+      "lowHp": "I am approaching my asymptote!",
+      "defeated": "Reduced to ln(0). You have logged my defeat.",
+      "survived": "Your logarithmic skills were undefined. Strengthen your base and return."
+    },
     "emoji": "📈",
     "hp": 100,
     "hpBarColour": "#10b981"
@@ -51,6 +111,16 @@
     "topicId": "differentiation_1",
     "bossName": "The Gradient Wraith",
     "flavourText": "Haunts every curve, hiding at stationary points. Find its rate of change before it vanishes.",
+    "dialogue": {
+      "intro": "I haunt every curve, lurking at stationary points. Can you find my gradient?",
+      "recallTaunt": "State the rules of differentiation. Power rule, chain rule, product rule.",
+      "applicationTaunt": "Rules are mechanical. Apply them to find and classify turning points.",
+      "extendedTaunt": "Final derivative. Write a complete optimisation problem.",
+      "damageTaken": ["You have found my stationary point!", "Clean chain rule application!", "My gradient is zero!"],
+      "lowHp": "I am at a point of inflection... nowhere to turn!",
+      "defeated": "Every turning point found and classified. Rate of change mastered.",
+      "survived": "You differentiated incorrectly. Check your chain rule and return."
+    },
     "emoji": "📉",
     "hp": 100,
     "hpBarColour": "#f59e0b"
@@ -59,6 +129,16 @@
     "topicId": "integration_1",
     "bossName": "The Area Leviathan",
     "flavourText": "Vast and formless, it fills the space beneath every curve. Sum its parts to reveal its weakness.",
+    "dialogue": {
+      "intro": "I fill the space beneath every curve. Can you calculate my area?",
+      "recallTaunt": "State the rules of integration. Reverse the differentiation.",
+      "applicationTaunt": "Rules are one thing. Apply definite integration to find areas.",
+      "extendedTaunt": "Final integral. Calculate a complex area between curves.",
+      "damageTaken": ["You have found my area!", "That definite integral was precise!", "My bounds are tightening!"],
+      "lowHp": "My area is approaching zero!",
+      "defeated": "Every area calculated. The space beneath me is claimed.",
+      "survived": "You forgot the constant of integration. A classic mistake. Return prepared."
+    },
     "emoji": "🌊",
     "hp": 100,
     "hpBarColour": "#ef4444"
@@ -67,6 +147,16 @@
     "topicId": "numerical_methods",
     "bossName": "The Iteration Spectre",
     "flavourText": "Never gives an exact answer, only closer and closer approximations. Converge on its weakness before it diverges into chaos.",
+    "dialogue": {
+      "intro": "I never give exact answers, only approximations. Can you converge on my weakness?",
+      "recallTaunt": "Define the Newton-Raphson method and the change of sign rule.",
+      "applicationTaunt": "Definitions are approximate. Apply iterative methods to find roots.",
+      "extendedTaunt": "Final iteration. Compare methods and analyse convergence.",
+      "damageTaken": ["Your iteration is converging!", "That change of sign was decisive!", "My error bound is shrinking!"],
+      "lowHp": "I am converging on defeat!",
+      "defeated": "Converged to the exact solution. Numerical precision achieved.",
+      "survived": "Your iterations diverged. Choose a better starting value and return."
+    },
     "emoji": "🔄",
     "hp": 100,
     "hpBarColour": "#78716c"
@@ -75,6 +165,16 @@
     "topicId": "vectors",
     "bossName": "The Direction Djinn",
     "flavourText": "Strikes from any angle in three dimensions. You must resolve its forces to find the path to victory.",
+    "dialogue": {
+      "intro": "I strike from any direction in three dimensions. Can you resolve my components?",
+      "recallTaunt": "Define position vectors, direction vectors and the scalar product.",
+      "applicationTaunt": "Definitions point the way. Use vectors to find angles and intersections.",
+      "extendedTaunt": "Final dimension. Solve a complete 3D vector problem.",
+      "damageTaken": ["You have found my direction!", "That scalar product was correct!", "My magnitude is decreasing!"],
+      "lowHp": "My resultant is approaching the zero vector!",
+      "defeated": "Every component resolved. You have conquered all three dimensions.",
+      "survived": "Your vectors pointed in the wrong direction. Recalculate and return."
+    },
     "emoji": "🧭",
     "hp": 100,
     "hpBarColour": "#14b8a6"
@@ -83,6 +183,16 @@
     "topicId": "statistical_sampling",
     "bossName": "The Biased Collector",
     "flavourText": "Gathers data from every corner, but its methods are riddled with bias. Expose its flawed sampling to defeat it.",
+    "dialogue": {
+      "intro": "I gather data from everywhere, but my methods are flawed. Can you spot the bias?",
+      "recallTaunt": "Name the types of sampling. Define their advantages and limitations.",
+      "applicationTaunt": "Types are textbook. Identify the bias in real scenarios.",
+      "extendedTaunt": "Final sample. Design and critique a complete sampling strategy.",
+      "damageTaken": ["You have exposed my sampling bias!", "That was a well-stratified response!", "My sample is no longer representative!"],
+      "lowHp": "My entire dataset is compromised!",
+      "defeated": "Every bias exposed. Your sampling is impeccable.",
+      "survived": "Your sample was not representative. Widen your frame and return."
+    },
     "emoji": "📋",
     "hp": 100,
     "hpBarColour": "#a3a3a3"
@@ -91,6 +201,16 @@
     "topicId": "data_presentation",
     "bossName": "The Histogram Hydra",
     "flavourText": "Sprouts a new head for every class interval. Read its frequency density correctly or be lost in the bars.",
+    "dialogue": {
+      "intro": "I sprout a new head for every class interval. Can you read my frequency density?",
+      "recallTaunt": "Define frequency density. Explain how histograms differ from bar charts.",
+      "applicationTaunt": "Definitions are drawn. Interpret real histograms and cumulative frequency diagrams.",
+      "extendedTaunt": "Final class interval. Analyse a complete dataset with appropriate diagrams.",
+      "damageTaken": ["You have read my frequency density!", "That cumulative frequency was spot on!", "My class widths are narrowing!"],
+      "lowHp": "My bars are shrinking to nothing!",
+      "defeated": "Every interval accounted for. Data presentation mastered.",
+      "survived": "You confused frequency with frequency density. A common trap. Return prepared."
+    },
     "emoji": "📊",
     "hp": 100,
     "hpBarColour": "#f472b6"
@@ -99,6 +219,16 @@
     "topicId": "probability",
     "bossName": "The Probability Oracle",
     "flavourText": "Claims to know every outcome. Untangle its conditions and prove that nothing is certain.",
+    "dialogue": {
+      "intro": "I predict every outcome with perfect probability. Can you prove me wrong?",
+      "recallTaunt": "State the addition and multiplication rules. Define independence.",
+      "applicationTaunt": "Rules are just axioms. Apply conditional probability to real problems.",
+      "extendedTaunt": "Final outcome. Write a complete probability analysis with tree diagrams.",
+      "damageTaken": ["You have found the correct probability!", "That conditional probability was exact!", "My outcomes are narrowing!"],
+      "lowHp": "The probability of my survival approaches zero!",
+      "defeated": "Every outcome calculated. Certainty achieved.",
+      "survived": "You confused mutually exclusive with independent. A critical error. Return."
+    },
     "emoji": "🎲",
     "hp": 100,
     "hpBarColour": "#ec4899"
@@ -107,6 +237,16 @@
     "topicId": "statistical_distributions",
     "bossName": "The Bell Curve Basilisk",
     "flavourText": "Hides within the normal distribution, perfectly symmetric and deadly. Standardise your attack to find its z-value weakness.",
+    "dialogue": {
+      "intro": "I hide within the normal curve, perfectly symmetric. Can you standardise your attack?",
+      "recallTaunt": "Define the binomial and normal distributions. State their parameters.",
+      "applicationTaunt": "Parameters are set. Calculate probabilities using the distributions.",
+      "extendedTaunt": "Final z-value. Model a complete statistical scenario.",
+      "damageTaken": ["You have found my z-value!", "That binomial calculation was correct!", "My standard deviation is shrinking!"],
+      "lowHp": "I am three standard deviations from defeat!",
+      "defeated": "Perfectly standardised. The bell curve rings for you.",
+      "survived": "Your z-value was incorrect. Check your standardisation and return."
+    },
     "emoji": "🔔",
     "hp": 100,
     "hpBarColour": "#a855f7"
@@ -115,6 +255,16 @@
     "topicId": "hypothesis_testing",
     "bossName": "The Null Hypothesis Nemesis",
     "flavourText": "Insists there is no effect, no difference, no hope. Gather sufficient evidence to reject its claim.",
+    "dialogue": {
+      "intro": "I insist there is no significant effect. Gather evidence to reject me.",
+      "recallTaunt": "Define the null and alternative hypotheses. What is a significance level?",
+      "applicationTaunt": "Definitions are hypothetical. Conduct a full hypothesis test.",
+      "extendedTaunt": "Final test. Write a complete hypothesis test with full conclusion.",
+      "damageTaken": ["Your evidence is significant!", "That p-value was in the critical region!", "You have rejected my null hypothesis!"],
+      "lowHp": "The evidence against me is overwhelming!",
+      "defeated": "Null hypothesis rejected at all significance levels. Statistical proof.",
+      "survived": "Insufficient evidence to reject me. Your sample size was too small."
+    },
     "emoji": "⚖️",
     "hp": 100,
     "hpBarColour": "#dc2626"
@@ -123,6 +273,16 @@
     "topicId": "kinematics",
     "bossName": "The Suvat Stalker",
     "flavourText": "Accelerates relentlessly, launching projectiles from every direction. Calculate its trajectory before impact.",
+    "dialogue": {
+      "intro": "I accelerate relentlessly towards you. Can you calculate my trajectory?",
+      "recallTaunt": "State the suvat equations. Define displacement, velocity, acceleration.",
+      "applicationTaunt": "Equations are just letters. Apply them to projectile motion.",
+      "extendedTaunt": "Final projectile. Model a complete kinematic scenario.",
+      "damageTaken": ["You have calculated my displacement!", "That velocity was precise!", "My acceleration is decreasing!"],
+      "lowHp": "I am decelerating to a halt!",
+      "defeated": "Trajectory fully calculated. You have stopped me in my tracks.",
+      "survived": "You mixed up your suvat variables. Check your equations of motion."
+    },
     "emoji": "🚀",
     "hp": 100,
     "hpBarColour": "#f97316"
@@ -131,6 +291,16 @@
     "topicId": "forces_newtons_laws",
     "bossName": "The Friction Fiend",
     "flavourText": "Drags you down inclined planes and tangles you in pulleys. Resolve every force or be pulled apart.",
+    "dialogue": {
+      "intro": "I drag everything down inclined planes. Can you resolve my forces?",
+      "recallTaunt": "State Newton's three laws. Define weight, friction, normal reaction.",
+      "applicationTaunt": "Laws are stated. Resolve forces on inclined planes and connected particles.",
+      "extendedTaunt": "Final force diagram. Write a complete mechanics analysis.",
+      "damageTaken": ["You have resolved my components!", "That free body diagram was perfect!", "My resultant force is weakening!"],
+      "lowHp": "I am in equilibrium... I cannot accelerate!",
+      "defeated": "Every force resolved. Newton would be proud.",
+      "survived": "You forgot to resolve perpendicular to the plane. A fundamental error."
+    },
     "emoji": "💪",
     "hp": 100,
     "hpBarColour": "#b91c1c"
@@ -139,6 +309,16 @@
     "topicId": "moments",
     "bossName": "The Torque Titan",
     "flavourText": "Balances on a knife-edge, waiting for you to miscalculate. One wrong pivot and it all comes crashing down.",
+    "dialogue": {
+      "intro": "I balance on a knife-edge. One wrong calculation and everything topples.",
+      "recallTaunt": "Define moments. State the principle of moments and conditions for equilibrium.",
+      "applicationTaunt": "Principles are balanced. Apply them to beams and non-uniform rods.",
+      "extendedTaunt": "Final pivot. Solve a complete equilibrium problem.",
+      "damageTaken": ["You have found my pivot point!", "That moment calculation was precise!", "My equilibrium is breaking!"],
+      "lowHp": "I am tilting... about to topple!",
+      "defeated": "Perfectly balanced, then perfectly toppled. Equilibrium mastered.",
+      "survived": "You took moments about the wrong point. Choose your pivot carefully."
+    },
     "emoji": "⚙️",
     "hp": 100,
     "hpBarColour": "#854d0e"

@@ -9,7 +9,7 @@ const PHASE_CONFIG = {
   extended: { label: 'Exam Brain', xpTotal: 60 },
 };
 
-export default function BattleSummary({ session, boss, topic, masteryBefore, masteryAfter, srsResult, battleMode = 'challenge', onBattleAgain }) {
+export default function BattleSummary({ session, boss, topic, masteryBefore, masteryAfter, srsResult, battleMode = 'challenge', bossDialogue, onBattleAgain }) {
   const { topics, bosses } = useSubject();
   const phases = session.phases || {};
   const recallCorrect = phases.recall?.correct || 0;
@@ -57,6 +57,11 @@ export default function BattleSummary({ session, boss, topic, masteryBefore, mas
               : `${boss?.bossName} survived with ${100 - (session.phases.recall.correct * 15 + session.phases.application.correct * 20 + (extScore >= 5 ? 30 : extScore * 5))} HP remaining.`
           }
         </p>
+        {bossDialogue && !isStudyMode && (
+          <p className="font-display italic text-sm text-text-secondary mt-2">
+            "{defeated ? bossDialogue.defeated : bossDialogue.survived}"
+          </p>
+        )}
       </div>
 
       {/* Phase Breakdown with bars */}
