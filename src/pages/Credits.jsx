@@ -1,10 +1,19 @@
 import { useAuth } from '../contexts/AuthContext';
+import { useTheme } from '../contexts/ThemeContext';
 import { Link } from 'react-router-dom';
+
+// Dark mode colours / light mode colours
+const PACK_COLOURS = {
+  scholar:     { dark: '#9bb8c4', light: '#4a7a8a' },
+  distinction: { dark: '#a3c094', light: '#4a7a50' },
+  elite:       { dark: '#d4b896', light: '#8a6a3a' },
+  honours:     { dark: '#e4ede0', light: '#5a6050' },
+};
 
 const PACKS = [
   {
     id: 'scholar', name: 'Scholar', amount: 20, price: '\u00a31.99', perCredit: '10p / credit',
-    colour: '#9bb8c4', badge: null, topBorder: false,
+    colourKey: 'scholar', badge: null, topBorder: false,
     features: [
       '20 standard battles',
       'Good for a few focused sessions',
@@ -13,7 +22,7 @@ const PACKS = [
   },
   {
     id: 'distinction', name: 'Distinction', amount: 50, price: '\u00a33.99', perCredit: '8p / credit',
-    colour: '#a3c094', badge: 'Best value', topBorder: true,
+    colourKey: 'distinction', badge: 'Best value', topBorder: true,
     features: [
       '50 standard battles',
       '10 video quiz imports',
@@ -23,18 +32,17 @@ const PACKS = [
   },
   {
     id: 'elite', name: 'A* Elite', amount: 100, price: '\u00a36.99', perCredit: '7p / credit',
-    colour: '#d4b896', badge: 'Most popular', topBorder: true,
+    colourKey: 'elite', badge: 'Most popular', topBorder: true,
     features: [
       '100 standard battles',
       '20 video quiz imports',
       'Unlocks A* Elite badge',
-      'Parent dashboard access',
-      'Weekly AI tutor report',
+      'Priority support',
     ],
   },
   {
     id: 'honours', name: 'Honours', amount: 250, price: '\u00a314.99', perCredit: '6p / credit',
-    colour: '#e4ede0', badge: null, topBorder: false,
+    colourKey: 'honours', badge: null, topBorder: false,
     features: [
       '250 standard battles',
       '50 video quiz imports',
@@ -45,24 +53,40 @@ const PACKS = [
   },
 ];
 
+const TIER_COLOURS = {
+  Foundation:  { dark: '#a3c094', light: '#4a7a50' },
+  Scholar:     { dark: '#9bb8c4', light: '#4a7a8a' },
+  Distinction: { dark: '#a3c094', light: '#4a7a50' },
+  'A* Elite':  { dark: '#d4b896', light: '#8a6a3a' },
+  Honours:     { dark: '#e4ede0', light: '#5a6050' },
+};
+
 const TIERS = [
-  { name: 'Foundation', credits: 'Free', colour: '#a3c094' },
-  { name: 'Scholar', credits: '20 credits', colour: '#9bb8c4' },
-  { name: 'Distinction', credits: '50 credits', colour: '#a3c094' },
-  { name: 'A* Elite', credits: '100 credits', colour: '#d4b896' },
-  { name: 'Honours', credits: '250 credits', colour: '#e4ede0' },
-  { name: 'Fellow', credits: 'Unlimited', colour: '#e4ede0' },
+  { name: 'Foundation', credits: 'Free' },
+  { name: 'Scholar', credits: '20 credits' },
+  { name: 'Distinction', credits: '50 credits' },
+  { name: 'A* Elite', credits: '100 credits' },
+  { name: 'Honours', credits: '250 credits' },
 ];
 
 export default function Credits() {
   const { isGuest, userProfile } = useAuth();
+  const { theme } = useTheme();
+  const mode = theme === 'light' ? 'light' : 'dark';
+
+  // Resolve pack colour for current theme
+  const packColour = (pack) => PACK_COLOURS[pack.colourKey]?.[mode] || '#888';
+  // Resolve tier colour for current theme
+  const tierColour = (tierName) => TIER_COLOURS[tierName]?.[mode] || '#888';
+  // Sage accent for the free banner
+  const sage = mode === 'light' ? '#4a7a50' : '#a3c094';
 
   const freeUsed = userProfile?.freeAiBattlesUsedThisWeek || 0;
   const freeRemaining = Math.max(0, 5 - freeUsed);
   const paidCredits = userProfile?.credits || 0;
   const highestTier = userProfile?.highestTier || (paidCredits > 0 ? 'Scholar' : 'Foundation');
 
-  const currentTier = TIERS.find(t => t.name === highestTier) || TIERS[0];
+  const currentTierColour = tierColour(highestTier);
 
   return (
     <div className="flex flex-col gap-7">
@@ -90,19 +114,19 @@ export default function Credits() {
             <>
               <div className="flex items-center gap-8">
                 <div className="text-center">
-                  <div className="font-display text-[38px] font-semibold leading-none" style={{ color: '#a3c094' }}>
+                  <div className="font-display text-[38px] font-semibold leading-none" style={{ color: sage }}>
                     {freeRemaining}
                   </div>
-                  <div className="text-[9px] tracking-[0.1em] uppercase mt-1" style={{ color: `color-mix(in srgb, #a3c094 50%, transparent)` }}>
+                  <div className="text-[9px] tracking-[0.1em] uppercase mt-1" style={{ color: `color-mix(in srgb, ${sage} 50%, transparent)` }}>
                     Free this week
                   </div>
                 </div>
                 <div className="w-px h-10 bg-border" />
                 <div className="text-center">
-                  <div className="font-display text-[38px] font-semibold leading-none" style={{ color: '#d4b896' }}>
+                  <div className="font-display text-[38px] font-semibold leading-none" style={{ color: tierColour('A* Elite') }}>
                     {paidCredits}
                   </div>
-                  <div className="text-[9px] tracking-[0.1em] uppercase mt-1" style={{ color: `color-mix(in srgb, #d4b896 50%, transparent)` }}>
+                  <div className="text-[9px] tracking-[0.1em] uppercase mt-1" style={{ color: `color-mix(in srgb, ${tierColour('A* Elite')} 50%, transparent)` }}>
                     Paid credits
                   </div>
                 </div>
@@ -111,9 +135,9 @@ export default function Credits() {
                 <span
                   className="text-[11px] font-medium px-3 py-1 rounded-full font-display italic"
                   style={{
-                    background: `color-mix(in srgb, ${currentTier.colour} 8%, transparent)`,
-                    color: currentTier.colour,
-                    border: `0.5px solid color-mix(in srgb, ${currentTier.colour} 25%, transparent)`,
+                    background: `color-mix(in srgb, ${currentTierColour} 8%, transparent)`,
+                    color: currentTierColour,
+                    border: `0.5px solid color-mix(in srgb, ${currentTierColour} 25%, transparent)`,
                   }}
                 >
                   {highestTier}
@@ -131,8 +155,8 @@ export default function Credits() {
       <div
         className="rounded-[10px] px-5 py-4 flex items-center justify-between gap-4"
         style={{
-          background: `color-mix(in srgb, #a3c094 8%, transparent)`,
-          border: `0.5px solid color-mix(in srgb, #a3c094 25%, transparent)`,
+          background: `color-mix(in srgb, ${sage} 8%, transparent)`,
+          border: `0.5px solid color-mix(in srgb, ${sage} 25%, transparent)`,
         }}
       >
         <div>
@@ -145,8 +169,8 @@ export default function Credits() {
         </div>
         <div className="flex items-center gap-3.5 shrink-0">
           <div className="text-center">
-            <div className="font-display text-[32px] font-semibold leading-none" style={{ color: '#a3c094' }}>5</div>
-            <div className="text-[9px] font-medium tracking-[0.1em] uppercase" style={{ color: `color-mix(in srgb, #a3c094 50%, transparent)` }}>
+            <div className="font-display text-[32px] font-semibold leading-none" style={{ color: sage }}>5</div>
+            <div className="text-[9px] font-medium tracking-[0.1em] uppercase" style={{ color: `color-mix(in srgb, ${sage} 50%, transparent)` }}>
               free credits
             </div>
           </div>
@@ -155,9 +179,9 @@ export default function Credits() {
               to="/signup"
               className="no-underline text-xs font-medium px-4.5 py-2 rounded-[7px] cursor-pointer"
               style={{
-                background: `color-mix(in srgb, #a3c094 15%, transparent)`,
-                color: '#a3c094',
-                border: `0.5px solid color-mix(in srgb, #a3c094 30%, transparent)`,
+                background: `color-mix(in srgb, ${sage} 15%, transparent)`,
+                color: sage,
+                border: `0.5px solid color-mix(in srgb, ${sage} 30%, transparent)`,
               }}
             >
               Get started
@@ -166,9 +190,9 @@ export default function Credits() {
             <span
               className="text-xs font-medium px-4.5 py-2 rounded-[7px]"
               style={{
-                background: `color-mix(in srgb, #a3c094 15%, transparent)`,
-                color: '#a3c094',
-                border: `0.5px solid color-mix(in srgb, #a3c094 30%, transparent)`,
+                background: `color-mix(in srgb, ${sage} 15%, transparent)`,
+                color: sage,
+                border: `0.5px solid color-mix(in srgb, ${sage} 30%, transparent)`,
               }}
             >
               Foundation
@@ -185,9 +209,9 @@ export default function Credits() {
             key={pack.id}
             className="rounded-xl flex flex-col gap-3 relative cursor-pointer"
             style={{
-              background: `color-mix(in srgb, ${pack.colour} 8%, transparent)`,
-              border: `0.5px solid color-mix(in srgb, ${pack.colour} 25%, transparent)`,
-              borderTop: pack.topBorder ? `2px solid ${pack.colour}` : undefined,
+              background: `color-mix(in srgb, ${packColour(pack)} 8%, transparent)`,
+              border: `0.5px solid color-mix(in srgb, ${packColour(pack)} 25%, transparent)`,
+              borderTop: pack.topBorder ? `2px solid ${packColour(pack)}` : undefined,
               padding: pack.topBorder ? '26px 16px 20px' : '20px 16px',
             }}
           >
@@ -195,7 +219,7 @@ export default function Credits() {
               <span
                 className="absolute -top-px left-1/2 -translate-x-1/2 text-[8px] font-medium tracking-[0.1em] uppercase px-2.5 py-0.5 whitespace-nowrap"
                 style={{
-                  background: pack.colour,
+                  background: packColour(pack),
                   color: '#181f2c',
                   borderRadius: '0 0 6px 6px',
                 }}
@@ -206,19 +230,19 @@ export default function Credits() {
 
             {/* Credits */}
             <div>
-              <div className="font-display text-[44px] font-semibold leading-none" style={{ color: pack.colour }}>
+              <div className="font-display text-[44px] font-semibold leading-none" style={{ color: packColour(pack) }}>
                 {pack.amount}
               </div>
               <div
-                className="text-[9px] tracking-[0.1em] uppercase -mt-1"
-                style={{ color: `color-mix(in srgb, ${pack.colour} 50%, transparent)` }}
+                className="text-[9px] tracking-[0.1em] uppercase mt-0.5"
+                style={{ color: `color-mix(in srgb, ${packColour(pack)} 50%, transparent)` }}
               >
                 credits
               </div>
             </div>
 
             {/* Rule */}
-            <div className="h-px" style={{ background: `color-mix(in srgb, ${pack.colour} 15%, transparent)` }} />
+            <div className="h-px" style={{ background: `color-mix(in srgb, ${packColour(pack)} 15%, transparent)` }} />
 
             {/* Features */}
             <div className="flex flex-col gap-1.5">
@@ -226,7 +250,7 @@ export default function Credits() {
                 <div key={i} className="text-[11px] flex items-start gap-1.5 leading-snug text-text-muted">
                   <div
                     className="w-1 h-1 rounded-full shrink-0 mt-1.5"
-                    style={{ background: pack.colour }}
+                    style={{ background: packColour(pack) }}
                   />
                   {feat}
                 </div>
@@ -235,10 +259,10 @@ export default function Credits() {
 
             {/* Price */}
             <div className="flex items-baseline justify-between mt-auto">
-              <div className="font-display text-[28px] font-semibold" style={{ color: pack.colour }}>
+              <div className="font-display text-[28px] font-semibold" style={{ color: packColour(pack) }}>
                 {pack.price}
               </div>
-              <div className="text-[9px] tracking-[0.06em]" style={{ color: `color-mix(in srgb, ${pack.colour} 40%, transparent)` }}>
+              <div className="text-[9px] tracking-[0.06em]" style={{ color: `color-mix(in srgb, ${packColour(pack)} 40%, transparent)` }}>
                 {pack.perCredit}
               </div>
             </div>
@@ -249,11 +273,11 @@ export default function Credits() {
               style={
                 pack.id === 'honours'
                   ? {
-                      background: `color-mix(in srgb, ${pack.colour} 10%, transparent)`,
-                      color: pack.colour,
-                      border: `0.5px solid color-mix(in srgb, ${pack.colour} 15%, transparent)`,
+                      background: `color-mix(in srgb, ${packColour(pack)} 10%, transparent)`,
+                      color: packColour(pack),
+                      border: `0.5px solid color-mix(in srgb, ${packColour(pack)} 15%, transparent)`,
                     }
-                  : { background: pack.colour, color: '#181f2c' }
+                  : { background: packColour(pack), color: '#181f2c' }
               }
               onClick={() => alert('Stripe payments coming soon!')}
             >
@@ -270,21 +294,21 @@ export default function Credits() {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
           <div>
-            <div className="font-display text-[22px] font-semibold leading-none" style={{ color: '#a3c094' }}>1 credit</div>
+            <div className="font-display text-[22px] font-semibold leading-none" style={{ color: sage }}>1 credit</div>
             <div className="text-[11px] mt-0.5 text-text-muted">
-              Standard question battle — any subject, any topic
+              AI battle (recall + application phases)
             </div>
           </div>
           <div>
-            <div className="font-display text-[22px] font-semibold leading-none" style={{ color: '#9bb8c4' }}>3 credits</div>
+            <div className="font-display text-[22px] font-semibold leading-none" style={{ color: tierColour('Scholar') }}>3 credits</div>
             <div className="text-[11px] mt-0.5 text-text-muted">
-              Extended answer with full AI mark scheme feedback
+              Extended response with full AI mark scheme feedback
             </div>
           </div>
           <div>
-            <div className="font-display text-[22px] font-semibold leading-none" style={{ color: '#d4b896' }}>5 credits</div>
+            <div className="font-display text-[22px] font-semibold leading-none" style={{ color: tierColour('A* Elite') }}>5 credits</div>
             <div className="text-[11px] mt-0.5 text-text-muted">
-              Generate a quiz from a YouTube video or upload
+              Video lesson from a YouTube link (Opus-powered)
             </div>
           </div>
         </div>
@@ -296,20 +320,23 @@ export default function Credits() {
           Your badge level is set by your highest pack purchase
         </div>
         <div className="flex gap-2 flex-wrap">
-          {TIERS.map(tier => (
-            <div
-              key={tier.name}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg"
-              style={{
-                background: `color-mix(in srgb, ${tier.colour} 8%, transparent)`,
-                border: `0.5px solid color-mix(in srgb, ${tier.colour} 25%, transparent)`,
-              }}
-            >
-              <div className="w-1.5 h-1.5 rounded-full" style={{ background: tier.colour }} />
-              <span className="text-[11px] font-medium" style={{ color: tier.colour }}>{tier.name}</span>
-              <span className="text-[10px] opacity-50" style={{ color: tier.colour }}>{tier.credits}</span>
-            </div>
-          ))}
+          {TIERS.map(tier => {
+            const tc = tierColour(tier.name);
+            return (
+              <div
+                key={tier.name}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg"
+                style={{
+                  background: `color-mix(in srgb, ${tc} 8%, transparent)`,
+                  border: `0.5px solid color-mix(in srgb, ${tc} 25%, transparent)`,
+                }}
+              >
+                <div className="w-1.5 h-1.5 rounded-full" style={{ background: tc }} />
+                <span className="text-[11px] font-medium" style={{ color: tc }}>{tier.name}</span>
+                <span className="text-[10px] opacity-50" style={{ color: tc }}>{tier.credits}</span>
+              </div>
+            );
+          })}
         </div>
       </div>
 
