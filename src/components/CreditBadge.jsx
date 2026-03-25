@@ -4,18 +4,16 @@ import { useAuth } from '../contexts/AuthContext';
 export default function CreditBadge() {
   const { isGuest, userProfile, hasFirebase } = useAuth();
 
-  // Don't show if Firebase isn't configured
-  if (!hasFirebase) return null;
-
-  if (isGuest) {
+  // Show Foundation badge for guests (with or without Firebase)
+  if (isGuest || !userProfile) {
     return (
-      <span className="text-xs px-2 py-1 rounded-md bg-bg-tertiary text-text-muted">
-        Guest
-      </span>
+      <Link to={hasFirebase ? '/credits' : '/signin'} className="no-underline">
+        <span className="text-xs px-2 py-1 rounded-md bg-bg-tertiary text-text-secondary">
+          <span className="font-display italic">Foundation</span>
+        </span>
+      </Link>
     );
   }
-
-  if (!userProfile) return null;
 
   const freeRemaining = Math.max(0, 5 - (userProfile.freeAiBattlesUsedThisWeek || 0));
   const paidCredits = userProfile.credits || 0;

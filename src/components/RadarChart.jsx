@@ -11,13 +11,17 @@ const CATEGORY_META = {
 
 /* ── Mini Radar (compact spider chart, pure SVG) ── */
 function MiniRadar({ data }) {
-  const size = 200;
-  const cx = size / 2;
-  const cy = size / 2;
-  const r = 80;
-  const levels = [0.25, 0.5, 0.75, 1.0];
   const n = data.length;
   if (n < 3) return null;
+
+  // Scale radar based on topic count - smaller radius for more topics
+  const r = n > 12 ? 55 : n > 8 ? 65 : 75;
+  const labelOffset = n > 12 ? 22 : 28;
+  const size = (r + labelOffset + 30) * 2; // Enough room for labels
+  const cx = size / 2;
+  const cy = size / 2;
+  const levels = [0.25, 0.5, 0.75, 1.0];
+  const fontSize = n > 12 ? 6.5 : 8;
 
   const angle = (i) => (Math.PI * 2 * i) / n - Math.PI / 2;
   const point = (i, ratio) => ({
@@ -43,9 +47,9 @@ function MiniRadar({ data }) {
   const fillCat = avg >= 0.8 ? 'strong' : avg >= 0.55 ? 'developing' : avg >= 0.3 ? 'weak' : 'untested';
   const fillColour = CATEGORY_META[fillCat].colour;
 
-  // Label positions (pushed slightly further out)
+  // Label positions (pushed outside the radar)
   const labelPts = data.map((d, i) => {
-    const lr = r + 28;
+    const lr = r + labelOffset;
     return {
       x: cx + lr * Math.cos(angle(i)),
       y: cy + lr * Math.sin(angle(i)),
@@ -53,8 +57,11 @@ function MiniRadar({ data }) {
     };
   });
 
+  // Truncate label to fit
+  const truncLabel = (name) => name.length > 10 ? name.slice(0, 9) + '…' : name;
+
   return (
-    <svg viewBox={`0 0 ${size} ${size}`} className="w-full max-w-[220px] mx-auto" style={{ height: 'auto' }}>
+    <svg viewBox={`0 0 ${size} ${size}`} className="w-full max-w-[260px] mx-auto" style={{ height: 'auto' }}>
       {/* Grid */}
       {rings.map((pts, i) => (
         <polygon key={i} points={pts} fill="none" stroke="var(--color-border)" strokeWidth="0.5" opacity="0.6" />
@@ -80,8 +87,8 @@ function MiniRadar({ data }) {
       {/* Labels */}
       {labelPts.map((lp, i) => (
         <text key={i} x={lp.x} y={lp.y} textAnchor={lp.anchor} dominantBaseline="central"
-          fill="var(--color-text-secondary)" fontSize="8" fontFamily="var(--font-ui)">
-          {data[i].shortName}
+          fill="var(--color-text-secondary)" fontSize={fontSize} fontFamily="var(--font-ui)">
+          {truncLabel(data[i].shortName)}
         </text>
       ))}
     </svg>
