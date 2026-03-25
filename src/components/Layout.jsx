@@ -15,6 +15,7 @@ const navItems = [
   { path: '/video-lesson', label: 'Video', icon: '🎬' },
   { path: '/exam', label: 'Timed', icon: '🎓' },
   { path: '/history', label: 'History', icon: '📊' },
+  { path: '/credits', label: 'Credits', icon: '💎' },
   { path: '/settings', label: 'Settings', icon: '⚙️' },
 ];
 
