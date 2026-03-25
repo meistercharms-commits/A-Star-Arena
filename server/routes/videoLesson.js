@@ -9,7 +9,7 @@ const router = Router();
 const anthropic = new Anthropic({
   apiKey: process.env.ANTHROPIC_API_KEY,
 });
-const MODEL = 'claude-sonnet-4-6-20250514';
+const MODEL = 'claude-opus-4-0-20250514';
 
 // Extract YouTube video ID from URL
 function extractVideoId(url) {
