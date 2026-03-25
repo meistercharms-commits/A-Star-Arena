@@ -3,10 +3,8 @@ import { Link } from 'react-router-dom';
 
 const PACKS = [
   {
-    id: 'scholar', name: 'Scholar', amount: 20, price: '£1.99', perCredit: '10p / credit',
-    colour: '#9bb8c4', bgTint: 'rgba(155,184,196,0.07)', borderColour: 'rgba(155,184,196,0.2)',
-    dotColour: '#9bb8c4', labelColour: 'rgba(155,184,196,0.5)', priceSecondary: 'rgba(155,184,196,0.4)',
-    ruleBg: 'rgba(155,184,196,0.12)', badge: null, topBorder: false,
+    id: 'scholar', name: 'Scholar', amount: 20, price: '\u00a31.99', perCredit: '10p / credit',
+    colour: '#9bb8c4', badge: null, topBorder: false,
     features: [
       '20 standard battles',
       'Good for a few focused sessions',
@@ -14,10 +12,8 @@ const PACKS = [
     ],
   },
   {
-    id: 'distinction', name: 'Distinction', amount: 50, price: '£3.99', perCredit: '8p / credit',
-    colour: '#a3c094', bgTint: 'rgba(163,192,148,0.08)', borderColour: 'rgba(163,192,148,0.28)',
-    dotColour: '#a3c094', labelColour: 'rgba(163,192,148,0.5)', priceSecondary: 'rgba(163,192,148,0.4)',
-    ruleBg: 'rgba(163,192,148,0.15)', badge: 'Best value', topBorder: true,
+    id: 'distinction', name: 'Distinction', amount: 50, price: '\u00a33.99', perCredit: '8p / credit',
+    colour: '#a3c094', badge: 'Best value', topBorder: true,
     features: [
       '50 standard battles',
       '10 video quiz imports',
@@ -26,10 +22,8 @@ const PACKS = [
     ],
   },
   {
-    id: 'elite', name: 'A* Elite', amount: 100, price: '£6.99', perCredit: '7p / credit',
-    colour: '#d4b896', bgTint: 'rgba(212,184,150,0.07)', borderColour: 'rgba(212,184,150,0.25)',
-    dotColour: '#d4b896', labelColour: 'rgba(212,184,150,0.5)', priceSecondary: 'rgba(212,184,150,0.4)',
-    ruleBg: 'rgba(212,184,150,0.12)', badge: 'Most popular', topBorder: true,
+    id: 'elite', name: 'A* Elite', amount: 100, price: '\u00a36.99', perCredit: '7p / credit',
+    colour: '#d4b896', badge: 'Most popular', topBorder: true,
     features: [
       '100 standard battles',
       '20 video quiz imports',
@@ -39,11 +33,8 @@ const PACKS = [
     ],
   },
   {
-    id: 'honours', name: 'Honours', amount: 250, price: '£14.99', perCredit: '6p / credit',
-    colour: '#e4ede0', bgTint: 'rgba(255,255,255,0.03)', borderColour: 'rgba(255,255,255,0.1)',
-    dotColour: 'rgba(228,237,224,0.4)', labelColour: 'rgba(228,237,224,0.3)', priceSecondary: 'rgba(228,237,224,0.3)',
-    ruleBg: 'rgba(255,255,255,0.07)', badge: null, topBorder: false,
-    btnStyle: { background: 'rgba(255,255,255,0.08)', color: '#e4ede0', border: '0.5px solid rgba(255,255,255,0.12)' },
+    id: 'honours', name: 'Honours', amount: 250, price: '\u00a314.99', perCredit: '6p / credit',
+    colour: '#e4ede0', badge: null, topBorder: false,
     features: [
       '250 standard battles',
       '50 video quiz imports',
@@ -55,12 +46,12 @@ const PACKS = [
 ];
 
 const TIERS = [
-  { name: 'Foundation', credits: 'Free', colour: '#a3c094', bg: 'rgba(163,192,148,0.08)', border: 'rgba(163,192,148,0.2)' },
-  { name: 'Scholar', credits: '20 credits', colour: '#9bb8c4', bg: 'rgba(155,184,196,0.08)', border: 'rgba(155,184,196,0.2)' },
-  { name: 'Distinction', credits: '50 credits', colour: '#a3c094', bg: 'rgba(163,192,148,0.08)', border: 'rgba(163,192,148,0.25)' },
-  { name: 'A* Elite', credits: '100 credits', colour: '#d4b896', bg: 'rgba(212,184,150,0.08)', border: 'rgba(212,184,150,0.25)' },
-  { name: 'Honours', credits: '250 credits', colour: '#e4ede0', bg: 'rgba(255,255,255,0.04)', border: 'rgba(255,255,255,0.12)' },
-  { name: 'Fellow', credits: 'Unlimited', colour: '#e4ede0', bg: 'rgba(228,237,224,0.08)', border: 'rgba(228,237,224,0.2)' },
+  { name: 'Foundation', credits: 'Free', colour: '#a3c094' },
+  { name: 'Scholar', credits: '20 credits', colour: '#9bb8c4' },
+  { name: 'Distinction', credits: '50 credits', colour: '#a3c094' },
+  { name: 'A* Elite', credits: '100 credits', colour: '#d4b896' },
+  { name: 'Honours', credits: '250 credits', colour: '#e4ede0' },
+  { name: 'Fellow', credits: 'Unlimited', colour: '#e4ede0' },
 ];
 
 export default function Credits() {
@@ -70,6 +61,8 @@ export default function Credits() {
   const freeRemaining = Math.max(0, 5 - freeUsed);
   const paidCredits = userProfile?.credits || 0;
   const highestTier = userProfile?.highestTier || (paidCredits > 0 ? 'Scholar' : 'Foundation');
+
+  const currentTier = TIERS.find(t => t.name === highestTier) || TIERS[0];
 
   return (
     <div className="flex flex-col gap-7">
@@ -86,13 +79,7 @@ export default function Credits() {
 
       {/* Balance card - only for logged-in users */}
       {!isGuest && (
-        <div
-          className="rounded-xl px-6 py-5 flex items-center justify-between"
-          style={{
-            background: 'rgba(255,255,255,0.03)',
-            border: '0.5px solid rgba(255,255,255,0.08)',
-          }}
-        >
+        <div className="rounded-xl px-6 py-5 flex items-center justify-between bg-bg-secondary border border-border">
           {userProfile?.tier === 'fellow' ? (
             <div className="text-center py-4 w-full">
               <div className="font-display text-[38px] font-semibold text-text-primary">∞</div>
@@ -106,16 +93,16 @@ export default function Credits() {
                   <div className="font-display text-[38px] font-semibold leading-none" style={{ color: '#a3c094' }}>
                     {freeRemaining}
                   </div>
-                  <div className="text-[9px] tracking-[0.1em] uppercase mt-1" style={{ color: 'rgba(163,192,148,0.5)' }}>
+                  <div className="text-[9px] tracking-[0.1em] uppercase mt-1" style={{ color: `color-mix(in srgb, #a3c094 50%, transparent)` }}>
                     Free this week
                   </div>
                 </div>
-                <div className="w-px h-10" style={{ background: 'rgba(255,255,255,0.08)' }} />
+                <div className="w-px h-10 bg-border" />
                 <div className="text-center">
                   <div className="font-display text-[38px] font-semibold leading-none" style={{ color: '#d4b896' }}>
                     {paidCredits}
                   </div>
-                  <div className="text-[9px] tracking-[0.1em] uppercase mt-1" style={{ color: 'rgba(212,184,150,0.5)' }}>
+                  <div className="text-[9px] tracking-[0.1em] uppercase mt-1" style={{ color: `color-mix(in srgb, #d4b896 50%, transparent)` }}>
                     Paid credits
                   </div>
                 </div>
@@ -124,14 +111,14 @@ export default function Credits() {
                 <span
                   className="text-[11px] font-medium px-3 py-1 rounded-full font-display italic"
                   style={{
-                    background: `${TIERS.find(t => t.name === highestTier)?.bg || TIERS[0].bg}`,
-                    color: TIERS.find(t => t.name === highestTier)?.colour || TIERS[0].colour,
-                    border: `0.5px solid ${TIERS.find(t => t.name === highestTier)?.border || TIERS[0].border}`,
+                    background: `color-mix(in srgb, ${currentTier.colour} 8%, transparent)`,
+                    color: currentTier.colour,
+                    border: `0.5px solid color-mix(in srgb, ${currentTier.colour} 25%, transparent)`,
                   }}
                 >
                   {highestTier}
                 </span>
-                <span className="text-[10px]" style={{ color: 'rgba(228,237,224,0.28)' }}>
+                <span className="text-[10px] text-text-muted opacity-60">
                   Free resets Monday
                 </span>
               </div>
@@ -144,8 +131,8 @@ export default function Credits() {
       <div
         className="rounded-[10px] px-5 py-4 flex items-center justify-between gap-4"
         style={{
-          background: 'rgba(163,192,148,0.08)',
-          border: '0.5px solid rgba(163,192,148,0.2)',
+          background: `color-mix(in srgb, #a3c094 8%, transparent)`,
+          border: `0.5px solid color-mix(in srgb, #a3c094 25%, transparent)`,
         }}
       >
         <div>
@@ -159,7 +146,7 @@ export default function Credits() {
         <div className="flex items-center gap-3.5 shrink-0">
           <div className="text-center">
             <div className="font-display text-[32px] font-semibold leading-none" style={{ color: '#a3c094' }}>5</div>
-            <div className="text-[9px] font-medium tracking-[0.1em] uppercase" style={{ color: 'rgba(163,192,148,0.5)' }}>
+            <div className="text-[9px] font-medium tracking-[0.1em] uppercase" style={{ color: `color-mix(in srgb, #a3c094 50%, transparent)` }}>
               free credits
             </div>
           </div>
@@ -168,9 +155,9 @@ export default function Credits() {
               to="/signup"
               className="no-underline text-xs font-medium px-4.5 py-2 rounded-[7px] cursor-pointer"
               style={{
-                background: 'rgba(163,192,148,0.15)',
+                background: `color-mix(in srgb, #a3c094 15%, transparent)`,
                 color: '#a3c094',
-                border: '0.5px solid rgba(163,192,148,0.3)',
+                border: `0.5px solid color-mix(in srgb, #a3c094 30%, transparent)`,
               }}
             >
               Get started
@@ -179,9 +166,9 @@ export default function Credits() {
             <span
               className="text-xs font-medium px-4.5 py-2 rounded-[7px]"
               style={{
-                background: 'rgba(163,192,148,0.15)',
+                background: `color-mix(in srgb, #a3c094 15%, transparent)`,
                 color: '#a3c094',
-                border: '0.5px solid rgba(163,192,148,0.3)',
+                border: `0.5px solid color-mix(in srgb, #a3c094 30%, transparent)`,
               }}
             >
               Foundation
@@ -198,8 +185,8 @@ export default function Credits() {
             key={pack.id}
             className="rounded-xl flex flex-col gap-3 relative cursor-pointer"
             style={{
-              background: pack.bgTint,
-              border: `0.5px solid ${pack.borderColour}`,
+              background: `color-mix(in srgb, ${pack.colour} 8%, transparent)`,
+              border: `0.5px solid color-mix(in srgb, ${pack.colour} 25%, transparent)`,
               borderTop: pack.topBorder ? `2px solid ${pack.colour}` : undefined,
               padding: pack.topBorder ? '26px 16px 20px' : '20px 16px',
             }}
@@ -224,22 +211,22 @@ export default function Credits() {
               </div>
               <div
                 className="text-[9px] tracking-[0.1em] uppercase -mt-1"
-                style={{ color: pack.labelColour }}
+                style={{ color: `color-mix(in srgb, ${pack.colour} 50%, transparent)` }}
               >
                 credits
               </div>
             </div>
 
             {/* Rule */}
-            <div className="h-px" style={{ background: pack.ruleBg }} />
+            <div className="h-px" style={{ background: `color-mix(in srgb, ${pack.colour} 15%, transparent)` }} />
 
             {/* Features */}
             <div className="flex flex-col gap-1.5">
               {pack.features.map((feat, i) => (
-                <div key={i} className="text-[11px] flex items-start gap-1.5 leading-snug" style={{ color: 'rgba(228,237,224,0.6)' }}>
+                <div key={i} className="text-[11px] flex items-start gap-1.5 leading-snug text-text-muted">
                   <div
                     className="w-1 h-1 rounded-full shrink-0 mt-1.5"
-                    style={{ background: pack.dotColour }}
+                    style={{ background: pack.colour }}
                   />
                   {feat}
                 </div>
@@ -251,7 +238,7 @@ export default function Credits() {
               <div className="font-display text-[28px] font-semibold" style={{ color: pack.colour }}>
                 {pack.price}
               </div>
-              <div className="text-[9px] tracking-[0.06em]" style={{ color: pack.priceSecondary }}>
+              <div className="text-[9px] tracking-[0.06em]" style={{ color: `color-mix(in srgb, ${pack.colour} 40%, transparent)` }}>
                 {pack.perCredit}
               </div>
             </div>
@@ -259,7 +246,15 @@ export default function Credits() {
             {/* Button */}
             <button
               className="w-full py-2.5 rounded-[7px] text-xs font-medium cursor-pointer border-0 transition-opacity hover:opacity-90"
-              style={pack.btnStyle || { background: pack.colour, color: '#181f2c' }}
+              style={
+                pack.id === 'honours'
+                  ? {
+                      background: `color-mix(in srgb, ${pack.colour} 10%, transparent)`,
+                      color: pack.colour,
+                      border: `0.5px solid color-mix(in srgb, ${pack.colour} 15%, transparent)`,
+                    }
+                  : { background: pack.colour, color: '#181f2c' }
+              }
               onClick={() => alert('Stripe payments coming soon!')}
             >
               Buy {pack.name} pack
@@ -269,32 +264,26 @@ export default function Credits() {
       </div>
 
       {/* How credits work */}
-      <div
-        className="rounded-[10px] px-5 py-4 flex flex-col gap-3"
-        style={{
-          background: 'rgba(255,255,255,0.02)',
-          border: '0.5px solid rgba(255,255,255,0.06)',
-        }}
-      >
+      <div className="rounded-[10px] px-5 py-4 flex flex-col gap-3 bg-bg-secondary border border-border">
         <div className="text-[9px] font-medium tracking-[0.16em] uppercase text-text-muted">
           How credits work
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
           <div>
             <div className="font-display text-[22px] font-semibold leading-none" style={{ color: '#a3c094' }}>1 credit</div>
-            <div className="text-[11px] mt-0.5" style={{ color: 'rgba(228,237,224,0.38)' }}>
+            <div className="text-[11px] mt-0.5 text-text-muted">
               Standard question battle — any subject, any topic
             </div>
           </div>
           <div>
             <div className="font-display text-[22px] font-semibold leading-none" style={{ color: '#9bb8c4' }}>3 credits</div>
-            <div className="text-[11px] mt-0.5" style={{ color: 'rgba(228,237,224,0.38)' }}>
+            <div className="text-[11px] mt-0.5 text-text-muted">
               Extended answer with full AI mark scheme feedback
             </div>
           </div>
           <div>
             <div className="font-display text-[22px] font-semibold leading-none" style={{ color: '#d4b896' }}>5 credits</div>
-            <div className="text-[11px] mt-0.5" style={{ color: 'rgba(228,237,224,0.38)' }}>
+            <div className="text-[11px] mt-0.5 text-text-muted">
               Generate a quiz from a YouTube video or upload
             </div>
           </div>
@@ -311,7 +300,10 @@ export default function Credits() {
             <div
               key={tier.name}
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg"
-              style={{ background: tier.bg, border: `0.5px solid ${tier.border}` }}
+              style={{
+                background: `color-mix(in srgb, ${tier.colour} 8%, transparent)`,
+                border: `0.5px solid color-mix(in srgb, ${tier.colour} 25%, transparent)`,
+              }}
             >
               <div className="w-1.5 h-1.5 rounded-full" style={{ background: tier.colour }} />
               <span className="text-[11px] font-medium" style={{ color: tier.colour }}>{tier.name}</span>
@@ -322,7 +314,7 @@ export default function Credits() {
       </div>
 
       {/* Footer */}
-      <p className="text-center text-[11px] leading-relaxed" style={{ color: 'rgba(228,237,224,0.22)' }}>
+      <p className="text-center text-[11px] leading-relaxed text-text-muted opacity-60">
         Credits never expire. No subscriptions. No hidden fees.
         <br />
         Gifting a pack? Select "Gift this pack" at checkout — we'll send a code directly to your student.

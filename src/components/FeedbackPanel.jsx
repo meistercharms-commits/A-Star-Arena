@@ -1,11 +1,13 @@
 import { useEffect, useRef } from 'react';
 
-export default function FeedbackPanel({ result, phase, onNext, isStudyMode = false, apiSource, patternWarnings = [] }) {
+export default function FeedbackPanel({ result, phase, onNext, isStudyMode = false, apiSource, patternWarnings = [], studentAnswer }) {
   if (!result) return null;
   const nextBtnRef = useRef(null);
 
   const { score, maxScore, correct, feedback } = result;
   const isExtended = phase === 'extended';
+  const isRecall = phase === 'recall';
+  const isApplication = phase === 'application';
   const percentage = maxScore > 0 ? Math.round((score / maxScore) * 100) : 0;
 
   // Auto-focus Next button for keyboard accessibility
@@ -38,7 +40,7 @@ export default function FeedbackPanel({ result, phase, onNext, isStudyMode = fal
             {correct ? 'Correct!' : 'Not quite'}
           </span>
         </div>
-        {isExtended && (
+        {(isExtended || isApplication) && (
           <span className={`font-mono text-lg font-bold animate-score-pop ${
             percentage >= 80 ? 'text-strong' : percentage >= 50 ? 'text-developing' : 'text-weak'
           }`}>
@@ -74,62 +76,160 @@ export default function FeedbackPanel({ result, phase, onNext, isStudyMode = fal
         </div>
       )}
 
-      {/* What you did well */}
-      {feedback?.whatYouDidWell?.length > 0 && (
-        <div>
-          <h4 className="text-xs font-medium text-strong uppercase tracking-wide mb-1">What you did well</h4>
-          <ul className="space-y-1 stagger-children">
-            {feedback.whatYouDidWell.map((point, i) => (
-              <li key={i} className="text-sm text-text-secondary flex gap-2">
-                <span className="text-strong shrink-0">+</span>
-                {point}
-              </li>
-            ))}
-          </ul>
-        </div>
+      {/* ─── RECALL PHASE: compact inline ─── */}
+      {isRecall && (
+        <>
+          {/* Show only the first item from whatYouDidWell */}
+          {feedback?.whatYouDidWell?.length > 0 && (
+            <p className="text-sm text-text-secondary">
+              <span className="text-strong">+</span> {feedback.whatYouDidWell[0]}
+            </p>
+          )}
+
+          {/* Show only the first item from missingPoints */}
+          {feedback?.missingPoints?.length > 0 && (
+            <p className="text-sm text-text-secondary">
+              <span className="text-weak">-</span> {feedback.missingPoints[0]}
+            </p>
+          )}
+
+          {/* If incorrect, show model answer inline */}
+          {!correct && feedback?.modelAnswer && (
+            <p className="text-sm text-text-secondary bg-bg-tertiary rounded-lg p-3 whitespace-pre-line">
+              <span className="text-xs font-medium text-text-muted uppercase tracking-wide">Answer:</span>{' '}
+              {feedback.modelAnswer}
+            </p>
+          )}
+        </>
       )}
 
-      {/* Missing points */}
-      {feedback?.missingPoints?.length > 0 && (
-        <div>
-          <h4 className="text-xs font-medium text-weak uppercase tracking-wide mb-1">Missing points</h4>
-          <ul className="space-y-1 stagger-children">
-            {feedback.missingPoints.map((point, i) => (
-              <li key={i} className="text-sm text-text-secondary flex gap-2">
-                <span className="text-weak shrink-0">-</span>
-                {point}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-
-      {/* How to improve */}
-      {feedback?.howToImprove?.length > 0 && (
-        <div>
-          <h4 className="text-xs font-medium text-accent uppercase tracking-wide mb-1">How to improve</h4>
-          <ul className="space-y-1 stagger-children">
-            {feedback.howToImprove.map((tip, i) => (
-              <li key={i} className="text-sm text-text-secondary flex gap-2">
-                <span className="text-accent shrink-0">→</span>
-                {tip}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-
-      {/* Model answer — always shown so students learn from the feedback */}
-      {feedback?.modelAnswer && (
-        <details open className="group">
-          <summary className="text-xs font-medium text-text-muted uppercase tracking-wide mb-1 cursor-pointer select-none list-none flex items-center gap-1">
-            <span className="text-text-muted group-open:rotate-90 transition-transform text-[10px]">▶</span>
-            Model answer
-          </summary>
-          <div className="text-sm text-text-secondary bg-bg-tertiary rounded-lg p-3 mt-1 whitespace-pre-line">
-            {feedback.modelAnswer}
+      {/* ─── APPLICATION PHASE: side-by-side comparison ─── */}
+      {isApplication && (
+        <>
+          {/* Two-column comparison grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <h4 className="text-xs font-medium text-text-muted uppercase tracking-wide mb-1">Your answer</h4>
+              <div className="text-sm text-text-secondary bg-bg-tertiary rounded-lg p-3 whitespace-pre-line">
+                {studentAnswer || 'No answer provided'}
+              </div>
+            </div>
+            <div>
+              <h4 className="text-xs font-medium text-text-muted uppercase tracking-wide mb-1">Model answer</h4>
+              <div className="text-sm text-text-secondary bg-bg-tertiary rounded-lg p-3 whitespace-pre-line">
+                {feedback?.modelAnswer || 'No model answer available'}
+              </div>
+            </div>
           </div>
-        </details>
+
+          {/* What you did well */}
+          {feedback?.whatYouDidWell?.length > 0 && (
+            <div>
+              <h4 className="text-xs font-medium text-strong uppercase tracking-wide mb-1">What you did well</h4>
+              <ul className="space-y-1 stagger-children">
+                {feedback.whatYouDidWell.map((point, i) => (
+                  <li key={i} className="text-sm text-text-secondary flex gap-2">
+                    <span className="text-strong shrink-0">+</span>
+                    {point}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {/* Missing points */}
+          {feedback?.missingPoints?.length > 0 && (
+            <div>
+              <h4 className="text-xs font-medium text-weak uppercase tracking-wide mb-1">Missing points</h4>
+              <ul className="space-y-1 stagger-children">
+                {feedback.missingPoints.map((point, i) => (
+                  <li key={i} className="text-sm text-text-secondary flex gap-2">
+                    <span className="text-weak shrink-0">-</span>
+                    {point}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {/* How to improve */}
+          {feedback?.howToImprove?.length > 0 && (
+            <div>
+              <h4 className="text-xs font-medium text-accent uppercase tracking-wide mb-1">How to improve</h4>
+              <ul className="space-y-1 stagger-children">
+                {feedback.howToImprove.map((tip, i) => (
+                  <li key={i} className="text-sm text-text-secondary flex gap-2">
+                    <span className="text-accent shrink-0">→</span>
+                    {tip}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </>
+      )}
+
+      {/* ─── EXTENDED PHASE: graduated reveal ─── */}
+      {isExtended && (
+        <>
+          {/* What you did well */}
+          {feedback?.whatYouDidWell?.length > 0 && (
+            <div>
+              <h4 className="text-xs font-medium text-strong uppercase tracking-wide mb-1">What you did well</h4>
+              <ul className="space-y-1 stagger-children">
+                {feedback.whatYouDidWell.map((point, i) => (
+                  <li key={i} className="text-sm text-text-secondary flex gap-2">
+                    <span className="text-strong shrink-0">+</span>
+                    {point}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {/* Missing points */}
+          {feedback?.missingPoints?.length > 0 && (
+            <div>
+              <h4 className="text-xs font-medium text-weak uppercase tracking-wide mb-1">Missing points</h4>
+              <ul className="space-y-1 stagger-children">
+                {feedback.missingPoints.map((point, i) => (
+                  <li key={i} className="text-sm text-text-secondary flex gap-2">
+                    <span className="text-weak shrink-0">-</span>
+                    {point}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {/* How to improve */}
+          {feedback?.howToImprove?.length > 0 && (
+            <div>
+              <h4 className="text-xs font-medium text-accent uppercase tracking-wide mb-1">How to improve</h4>
+              <ul className="space-y-1 stagger-children">
+                {feedback.howToImprove.map((tip, i) => (
+                  <li key={i} className="text-sm text-text-secondary flex gap-2">
+                    <span className="text-accent shrink-0">→</span>
+                    {tip}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {/* Model answer — collapsed by default, student must click to reveal */}
+          {feedback?.modelAnswer && (
+            <details className="group">
+              <summary className="text-xs font-medium text-text-muted uppercase tracking-wide mb-1 cursor-pointer select-none list-none flex items-center gap-1">
+                <span className="text-text-muted group-open:rotate-90 transition-transform text-[10px]">▶</span>
+                Model answer
+              </summary>
+              <div className="text-sm text-text-secondary bg-bg-tertiary rounded-lg p-3 mt-1 whitespace-pre-line">
+                {feedback.modelAnswer}
+              </div>
+            </details>
+          )}
+        </>
       )}
 
       {apiSource === 'mock' && (

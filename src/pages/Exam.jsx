@@ -90,6 +90,9 @@ export default function Exam() {
   const [timerRunning, setTimerRunning] = useState(false);
   const [reviewIdx, setReviewIdx] = useState(0);
   const [showSubmitConfirm, setShowSubmitConfirm] = useState(false);
+  const [flagged, setFlagged] = useState(new Set());
+  const [questionTimes, setQuestionTimes] = useState({});
+  const [lastQuestionStart, setLastQuestionStart] = useState(Date.now());
 
   const sessionIdRef = useRef(null);
   const startTimeRef = useRef(null);
@@ -127,6 +130,13 @@ export default function Exam() {
     if (hasSubmittedRef.current) return;
     hasSubmittedRef.current = true;
     setTimerRunning(false);
+
+    // Record time for the current question before submitting
+    setQuestionTimes(prev => ({
+      ...prev,
+      [currentIdx]: (prev[currentIdx] || 0) + (Date.now() - lastQuestionStart),
+    }));
+
     setStage('marking'); // show marking screen while waiting
 
     // Mark all answers (sequentially to avoid rate limits)
@@ -245,7 +255,7 @@ export default function Exam() {
     });
 
     setStage('results');
-  }, [questions, answers, timeLeft, topics]);
+  }, [questions, answers, timeLeft, topics, currentIdx, lastQuestionStart]);
 
   // Auto-submit on time expiry
   useEffect(() => {
@@ -253,6 +263,20 @@ export default function Exam() {
       submitExam();
     }
   }, [timeLeft, timerRunning, submitExam]);
+
+  // Track time per question
+  useEffect(() => {
+    return () => {
+      setQuestionTimes(prev => ({
+        ...prev,
+        [currentIdx]: (prev[currentIdx] || 0) + (Date.now() - lastQuestionStart),
+      }));
+    };
+  }, [currentIdx]);
+
+  useEffect(() => {
+    setLastQuestionStart(Date.now());
+  }, [currentIdx]);
 
   // ─── Start Exam ───
   async function startExam() {
@@ -437,30 +461,51 @@ export default function Exam() {
           {questions.map((_, idx) => {
             const isActive = idx === currentIdx;
             const isAnswered = answers[idx] !== undefined && answers[idx] !== '';
+            const isFlagged = flagged.has(idx);
             return (
               <button
                 key={idx}
                 onClick={() => setCurrentIdx(idx)}
-                className={`w-8 h-8 rounded text-xs font-mono transition-all cursor-pointer border ${
+                className={`w-9 h-9 rounded-lg text-xs font-medium cursor-pointer border transition-colors relative ${
                   isActive
-                    ? 'bg-accent text-bg-primary border-accent font-bold'
+                    ? 'bg-accent text-bg-primary border-accent'
                     : isAnswered
-                      ? 'bg-strong/20 text-strong border-strong/30'
+                      ? 'bg-strong/15 text-strong border-strong/30'
                       : 'bg-bg-tertiary text-text-muted border-border hover:border-accent/50'
                 }`}
               >
                 {idx + 1}
+                {isFlagged && (
+                  <span className="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full" style={{ background: 'var(--color-developing)' }} />
+                )}
               </button>
             );
           })}
         </div>
 
-        {/* Topic Tag */}
+        {/* Topic Tag + Flag */}
         {q && (
           <div className="flex items-center gap-2 text-xs text-text-muted">
             <span>{bosses.find(b => b.topicId === q.topicId)?.emoji || '📘'}</span>
             <span>{topics.find(t => t.id === q.topicId)?.name || q.topicId}</span>
             <span className="text-accent uppercase font-medium">{q.examPhase}</span>
+            <button
+              onClick={() => {
+                setFlagged(prev => {
+                  const next = new Set(prev);
+                  if (next.has(currentIdx)) next.delete(currentIdx);
+                  else next.add(currentIdx);
+                  return next;
+                });
+              }}
+              className={`ml-auto text-xs px-3 py-1.5 rounded-lg cursor-pointer border transition-colors ${
+                flagged.has(currentIdx)
+                  ? 'bg-developing/15 text-developing border-developing/30'
+                  : 'bg-bg-tertiary text-text-muted border-border'
+              }`}
+            >
+              {flagged.has(currentIdx) ? '\u2691 Flagged' : '\u2690 Flag'}
+            </button>
           </div>
         )}
 
@@ -811,6 +856,30 @@ export default function Exam() {
           })}
         </div>
 
+        {/* Time Analysis */}
+        <div className="bg-bg-secondary border border-border rounded-xl p-5 shadow-card">
+          <h3 className="text-label mb-3">Time Analysis</h3>
+          <div className="space-y-2">
+            {questions.map((q, i) => {
+              const timeMs = questionTimes[i] || 0;
+              const timeSec = Math.round(timeMs / 1000);
+              const mins = Math.floor(timeSec / 60);
+              const secs = timeSec % 60;
+              const suggested = q.examPhase === 'extended' ? 360 : q.examPhase === 'application' ? 180 : 90;
+              const overTime = timeSec > suggested;
+              return (
+                <div key={i} className="flex items-center justify-between text-sm">
+                  <span className="text-text-secondary">Q{i + 1} ({q.examPhase})</span>
+                  <span className={overTime ? 'text-weak font-medium' : 'text-text-primary'}>
+                    {mins > 0 ? `${mins}m ${secs}s` : `${secs}s`}
+                    {overTime && ' \u26a0\ufe0f'}
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
         {/* Actions */}
         <div className="flex gap-3">
           <button
@@ -821,6 +890,9 @@ export default function Exam() {
               setMarkResults({});
               setTimeLeft(EXAM_DURATION);
               hasSubmittedRef.current = false;
+              setFlagged(new Set());
+              setQuestionTimes({});
+              setLastQuestionStart(Date.now());
               setExamTopics(selectExamTopics(topics, bosses));
             }}
             className="flex-1 bg-accent hover:bg-accent-hover text-bg-primary font-semibold py-2.5 rounded-lg transition-colors cursor-pointer"

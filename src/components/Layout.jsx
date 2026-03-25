@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useSubject } from '../contexts/SubjectContext';
 import { useLevel } from '../contexts/LevelContext';
@@ -34,6 +34,14 @@ export default function Layout({ children }) {
 
   const levelMeta = getLevelMeta(level);
   const subjects = getSubjectsForLevel(level);
+
+  // Apply accessibility settings on mount
+  useEffect(() => {
+    const textSize = localStorage.getItem('astarena:textSize') || 'standard';
+    const dyslexia = localStorage.getItem('astarena:dyslexiaFont') === 'true';
+    document.documentElement.setAttribute('data-text-size', textSize);
+    document.documentElement.setAttribute('data-dyslexia', dyslexia ? 'true' : 'false');
+  }, []);
 
   // Disable subject switching on active battle/drill/exam pages
   const isInSession = /^\/(battle|drill|exam)/.test(location.pathname);

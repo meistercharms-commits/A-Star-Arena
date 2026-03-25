@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { getPostBattleRecommendation } from '../lib/recommend';
 import { formatNextReview, getSRSStageLabel } from '../lib/srs';
 import { useSubject } from '../contexts/SubjectContext';
+import BattleReportCard from './BattleReportCard';
 
 const PHASE_CONFIG = {
   recall: { label: 'Rapid Recall', xpPer: 20 },
@@ -287,6 +288,23 @@ export default function BattleSummary({ session, boss, topic, masteryBefore, mas
         >
           Back to Topics
         </Link>
+        <BattleReportCard
+          results={{
+            recallScore: recallCorrect,
+            recallMax: phases.recall?.total || 5,
+            appScore: appCorrect,
+            appMax: phases.application?.total || 3,
+            extScore,
+            extMax,
+            xpEarned: totalXP,
+            masteryAfter: masteryAfter || 0,
+            duration: formatDuration(session.durationSeconds),
+          }}
+          bossName={boss?.bossName}
+          bossEmoji={boss?.emoji}
+          topicName={topic?.name}
+          isVictory={defeated}
+        />
       </div>
     </div>
   );

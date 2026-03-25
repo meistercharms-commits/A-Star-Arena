@@ -55,6 +55,7 @@ export default function Battle() {
   const [showToast, setShowToast] = useState(null); // null | string
   const [showPhaseTransition, setShowPhaseTransition] = useState(null); // null | phase name string
   const [streakToast, setStreakToast] = useState(null);
+  const [currentAnswer, setCurrentAnswer] = useState('');
 
   // Track results across entire battle
   const resultsRef = useRef({ recall: [], application: [], extended: [] });
@@ -113,6 +114,7 @@ export default function Battle() {
 
   async function handleSubmit(answer) {
     if (!currentQuestion || loading || isSubmittingRef.current) return;
+    setCurrentAnswer(answer);
     isSubmittingRef.current = true;
     setTimerRunning(false);
     setLoading(true);
@@ -531,6 +533,7 @@ export default function Battle() {
           onNext={handleNext}
           isStudyMode={isStudyMode}
           apiSource={apiSource}
+          studentAnswer={currentAnswer}
           patternWarnings={
             currentResult && !currentResult.correct && currentResult.tags?.errorKeywords
               ? getPatternWarningsForAttempt(currentResult.tags.errorKeywords)

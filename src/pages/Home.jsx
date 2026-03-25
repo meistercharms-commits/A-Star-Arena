@@ -9,6 +9,7 @@ import { useLevel } from '../contexts/LevelContext';
 import { getLevelMeta } from '../lib/qualificationLevel';
 import { getNearestExamForSubject, getExamCoverage } from '../lib/examPlanner';
 import TopicRadar from '../components/RadarChart';
+import ReadinessScore from '../components/ReadinessScore';
 
 export default function Home() {
   const navigate = useNavigate();
@@ -167,6 +168,11 @@ export default function Home() {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Readiness Score */}
+      <div className="bg-bg-secondary border border-border rounded-xl p-5 shadow-card">
+        <ReadinessScore topics={topics} bosses={bosses} />
       </div>
 
       {/* SRS Review Summary — collapsible */}

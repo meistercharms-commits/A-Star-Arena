@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { getSettings, saveSettings, exportAllData, clearAllData, getStorageSize, getProgress, getStorageWarning, getStorageStats, getCurrentLevel } from '../lib/storage';
 import { useLevel } from '../contexts/LevelContext';
@@ -52,6 +52,28 @@ export default function Settings() {
   });
   const [saved, setSaved] = useState(false);
   const [confirmClear, setConfirmClear] = useState(false);
+
+  // Accessibility state
+  const [textSize, setTextSize] = useState(() => localStorage.getItem('astarena:textSize') || 'standard');
+  const [dyslexiaFont, setDyslexiaFont] = useState(() => localStorage.getItem('astarena:dyslexiaFont') === 'true');
+
+  // Apply accessibility settings on mount
+  useEffect(() => {
+    document.documentElement.setAttribute('data-text-size', textSize);
+    document.documentElement.setAttribute('data-dyslexia', dyslexiaFont ? 'true' : 'false');
+  }, []);
+
+  function handleTextSizeChange(value) {
+    setTextSize(value);
+    localStorage.setItem('astarena:textSize', value);
+    document.documentElement.setAttribute('data-text-size', value);
+  }
+
+  function handleDyslexiaFontChange(value) {
+    setDyslexiaFont(value);
+    localStorage.setItem('astarena:dyslexiaFont', String(value));
+    document.documentElement.setAttribute('data-dyslexia', value ? 'true' : 'false');
+  }
 
   function handleSave(e) {
     e.preventDefault();
@@ -311,6 +333,35 @@ export default function Settings() {
             </div>
           </Section>
         )}
+
+        {/* Accessibility */}
+        <Section title="Accessibility">
+          <Field label="Text Size">
+            <div className="flex gap-2">
+              {[
+                { value: 'standard', label: 'Standard' },
+                { value: 'large', label: 'Large' },
+                { value: 'xlarge', label: 'Extra Large' },
+              ].map(opt => (
+                <OptionButton
+                  key={opt.value}
+                  selected={textSize === opt.value}
+                  onClick={() => handleTextSizeChange(opt.value)}
+                  className="flex-1"
+                >
+                  {opt.label}
+                </OptionButton>
+              ))}
+            </div>
+          </Field>
+
+          <Toggle
+            label="Dyslexia-friendly font"
+            hint="Uses OpenDyslexic for improved readability"
+            checked={dyslexiaFont}
+            onChange={handleDyslexiaFontChange}
+          />
+        </Section>
 
         {/* Data */}
         <Section title="Data">
