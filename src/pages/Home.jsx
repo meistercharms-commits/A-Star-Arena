@@ -307,8 +307,9 @@ export default function Home() {
         </div>
       </details>
 
-      {/* Recent Sessions — collapsible */}
-      <details open={false}>
+      {/* Recent Sessions — collapsible, open if sessions exist */}
+      {recentSessions.length > 0 && (
+      <details open>
         <summary className="text-label cursor-pointer select-none py-2">Recent Sessions</summary>
         <div className="bg-bg-secondary border border-border rounded-xl p-5 shadow-card">
           <h2 className="font-display text-title mb-3">Recent Sessions</h2>
@@ -356,6 +357,7 @@ export default function Home() {
           )}
         </div>
       </details>
+      )}
 
       {/* Quick Actions */}
       <div className="flex gap-3 flex-wrap">

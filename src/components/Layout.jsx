@@ -9,14 +9,14 @@ import { getLevelMeta } from '../lib/qualificationLevel';
 import { LogoLockup, ShieldIcon } from './Logo';
 import CreditBadge from './CreditBadge';
 
-const primaryNavItems = [
+const coreNavItems = [
   { path: '/', label: 'Home', icon: '⚡' },
   { path: '/topics', label: 'Topics', icon: '📚' },
   { path: '/history', label: 'Progress', icon: '📊' },
+  { path: '/exams', label: 'Exams', icon: '📅' },
 ];
 
 const moreNavItems = [
-  { path: '/exams', label: 'Exams', icon: '📅' },
   { path: '/video-lesson', label: 'Video', icon: '🎬' },
   { path: '/exam', label: 'Timed', icon: '🎓' },
   { path: '/mistakes', label: 'Mistakes', icon: '📝' },
@@ -46,7 +46,7 @@ export default function Layout({ children }) {
   // Disable subject switching on active battle/drill/exam pages
   const isInSession = /^\/(battle|drill|exam)/.test(location.pathname);
 
-  const allNavItems = [...primaryNavItems, ...moreNavItems];
+  // No allNavItems needed — desktop uses coreNavItems + More button
 
   return (
     <div className="min-h-screen flex flex-col bg-bg-primary text-text-primary">
@@ -68,8 +68,8 @@ export default function Layout({ children }) {
             </Link>
           </div>
           <div className="flex items-center gap-2">
-            <nav className="hidden md:flex gap-1" aria-label="Main navigation">
-              {allNavItems.map(item => (
+            <nav className="hidden md:flex gap-1 items-center" aria-label="Main navigation">
+              {coreNavItems.map(item => (
                 <Link
                   key={item.path}
                   to={item.path}
@@ -83,6 +83,12 @@ export default function Layout({ children }) {
                   {item.icon} {item.label}
                 </Link>
               ))}
+              <button
+                onClick={() => setMoreOpen(true)}
+                className="px-3 py-1.5 rounded-lg text-nav text-text-secondary hover:text-text-primary hover:bg-bg-tertiary transition-colors cursor-pointer bg-transparent border-0"
+              >
+                ••• More
+              </button>
             </nav>
             {/* Theme toggle */}
             <button
@@ -159,7 +165,7 @@ export default function Layout({ children }) {
       {/* Mobile nav */}
       <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-bg-secondary border-t border-border z-40" style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
         <div className="flex justify-around py-2">
-          {primaryNavItems.map(item => (
+          {coreNavItems.map(item => (
             <Link
               key={item.path}
               to={item.path}
@@ -176,15 +182,15 @@ export default function Layout({ children }) {
         </div>
       </nav>
 
-      {/* More drawer */}
+      {/* More drawer (works on both mobile and desktop) */}
       {moreOpen && (
         <>
           <div className="fixed inset-0 bg-black/40 z-50" onClick={() => setMoreOpen(false)} />
-          <div className="fixed bottom-0 left-0 right-0 bg-bg-secondary border-t border-border rounded-t-2xl z-50 animate-slide-up" style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
-            <div className="flex justify-center py-2">
+          <div className="fixed bottom-0 left-0 right-0 md:bottom-auto md:top-16 md:right-4 md:left-auto md:w-72 bg-bg-secondary border border-border rounded-t-2xl md:rounded-xl z-50 animate-slide-up md:shadow-elevated" style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
+            <div className="flex justify-center py-2 md:hidden">
               <div className="w-10 h-1 rounded-full bg-border" />
             </div>
-            <nav className="grid grid-cols-3 gap-1 p-4 pt-0">
+            <nav className="grid grid-cols-3 md:grid-cols-2 gap-1 p-4 pt-0 md:pt-4">
               {moreNavItems.map(item => (
                 <Link
                   key={item.path}
