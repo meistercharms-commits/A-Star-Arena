@@ -5,9 +5,9 @@ import { db } from '../../lib/firebase';
 import { doc, getDoc, updateDoc, increment, collection, getDocs, serverTimestamp } from 'firebase/firestore';
 
 const CREDIT_PACKS = [
-  { id: '20', amount: 20, price: '£1.99', perCredit: '10p each' },
-  { id: '50', amount: 50, price: '£3.99', perCredit: '8p each', popular: true },
-  { id: '100', amount: 100, price: '£6.99', perCredit: '7p each' },
+  { id: '20', name: 'Scholar', amount: 20, price: '£1.99', perCredit: '10p each', colour: 'var(--color-accent)' },
+  { id: '50', name: 'Distinction', amount: 50, price: '£3.99', perCredit: '8p each', popular: true, colour: 'var(--color-strong)' },
+  { id: '100', name: 'A* Elite', amount: 100, price: '£6.99', perCredit: '7p each', colour: 'var(--color-accent-sand)' },
 ];
 
 export default function StudentView() {
@@ -212,15 +212,17 @@ export default function StudentView() {
                 // Stripe checkout will be wired in Phase 4, targeting the student's UID
                 alert('Stripe payments coming soon!');
               }}
-              className={`relative text-center p-4 rounded-xl cursor-pointer border transition-colors hover:border-accent/50 ${
-                pack.popular ? 'border-accent bg-accent/5' : 'border-border bg-bg-tertiary'
+              className={`relative text-center p-4 rounded-xl cursor-pointer border transition-colors hover:opacity-90 ${
+                pack.popular ? 'border-strong' : 'border-border bg-bg-tertiary'
               }`}
             >
               {pack.popular && (
-                <span className="absolute -top-2 left-1/2 -translate-x-1/2 text-[10px] bg-accent text-bg-primary px-2 py-0.5 rounded-full font-medium">
-                  Best Value
+                <span className="absolute -top-2 left-1/2 -translate-x-1/2 text-[10px] font-medium px-2 py-0.5 rounded-full"
+                  style={{ background: pack.colour, color: 'var(--color-bg-primary)' }}>
+                  Most Popular
                 </span>
               )}
+              <div className="font-display text-base italic mb-1" style={{ color: pack.colour }}>{pack.name}</div>
               <div className="font-display text-2xl font-medium text-text-primary">{pack.amount}</div>
               <div className="text-label text-text-muted">Credits</div>
               <div className="font-display text-base text-text-primary mt-1">{pack.price}</div>

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 
 export default function CreditBadge() {
@@ -19,18 +20,25 @@ export default function CreditBadge() {
   const freeRemaining = Math.max(0, 5 - (userProfile.freeAiBattlesUsedThisWeek || 0));
   const paidCredits = userProfile.credits || 0;
 
-  // Show free tier status or paid credits
+  // Show tier badge with credits
   if (paidCredits > 0) {
+    const tierName = paidCredits > 50 ? 'A* Elite' : 'Scholar';
+    const tierColour = paidCredits > 50 ? 'var(--color-accent-sand)' : 'var(--color-accent)';
     return (
-      <span className="text-xs px-2 py-1 rounded-md bg-accent/15 text-accent font-medium">
-        {paidCredits} credits
-      </span>
+      <Link to="/credits" className="no-underline">
+        <span className="text-xs px-2 py-1 rounded-md font-medium"
+          style={{ background: `color-mix(in srgb, ${tierColour} 15%, transparent)`, color: tierColour }}>
+          {paidCredits} · <span className="font-display italic">{tierName}</span>
+        </span>
+      </Link>
     );
   }
 
   return (
-    <span className="text-xs px-2 py-1 rounded-md bg-bg-tertiary text-text-secondary">
-      {freeRemaining}/5 free
-    </span>
+    <Link to="/credits" className="no-underline">
+      <span className="text-xs px-2 py-1 rounded-md bg-bg-tertiary text-text-secondary">
+        {freeRemaining}/5 · <span className="font-display italic">Foundation</span>
+      </span>
+    </Link>
   );
 }

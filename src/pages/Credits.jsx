@@ -4,9 +4,9 @@ import { useTheme } from '../contexts/ThemeContext';
 import { ShieldIcon } from '../components/Logo';
 
 const PACKS = [
-  { id: '20', amount: 20, price: '\u00a31.99', perCredit: '10p each', popular: false },
-  { id: '50', amount: 50, price: '\u00a33.99', perCredit: '8p each', popular: true },
-  { id: '100', amount: 100, price: '\u00a36.99', perCredit: '7p each', popular: false },
+  { id: '20', name: 'Scholar', amount: 20, price: '£1.99', perCredit: '10p each', popular: false, colour: 'var(--color-accent)' },
+  { id: '50', name: 'Distinction', amount: 50, price: '£3.99', perCredit: '8p each', popular: true, colour: 'var(--color-strong)' },
+  { id: '100', name: 'A* Elite', amount: 100, price: '£6.99', perCredit: '7p each', popular: false, colour: 'var(--color-accent-sand)' },
 ];
 
 export default function Credits() {
@@ -28,12 +28,19 @@ export default function Credits() {
 
       {/* Balance card */}
       <div className="bg-bg-secondary border border-border rounded-xl p-6 shadow-card">
-        <h2 className="text-label mb-4">Your Balance</h2>
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="text-label">Your Balance</h2>
+          {!isGuest && (
+            <span className="text-xs font-medium px-2.5 py-1 rounded-full bg-accent/15 text-accent font-display italic">
+              {paidCredits > 50 ? 'A* Elite' : paidCredits > 0 ? 'Scholar' : 'Foundation'}
+            </span>
+          )}
+        </div>
 
         {isGuest ? (
           <div className="text-center py-4">
             <p className="text-text-secondary mb-3">
-              Create a free account to get 5 AI battles per week
+              Create a free account to unlock the <span className="font-display italic text-accent">Foundation</span> tier — 5 AI battles every week
             </p>
             <Link
               to="/signup"
@@ -46,8 +53,8 @@ export default function Credits() {
           <div className="grid grid-cols-2 gap-4">
             <div className="text-center">
               <div className="font-display text-stat text-accent">{freeRemaining}</div>
-              <div className="text-label text-text-muted">Free This Week</div>
-              <div className="text-xs text-text-muted mt-1">Resets every Monday</div>
+              <div className="text-label text-text-muted">Foundation (Free)</div>
+              <div className="text-xs text-text-muted mt-1">5 per week, resets Monday</div>
             </div>
             <div className="text-center">
               <div className="font-display text-stat" style={{ color: 'var(--color-accent-sand)' }}>{paidCredits}</div>
@@ -89,32 +96,37 @@ export default function Credits() {
       {/* Purchase packs */}
       {!isGuest && (
         <div>
-          <h2 className="text-label mb-3">Buy Credits</h2>
+          <h2 className="text-label mb-3">Credit Packs</h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             {PACKS.map(pack => (
               <div
                 key={pack.id}
                 className={`bg-bg-secondary border rounded-xl p-5 text-center shadow-card relative ${
-                  pack.popular ? 'border-accent' : 'border-border'
+                  pack.popular ? 'border-strong' : 'border-border'
                 }`}
               >
                 {pack.popular && (
-                  <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 text-xs bg-accent text-bg-primary px-2.5 py-0.5 rounded-full font-medium">
-                    Best Value
+                  <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 text-xs font-medium px-2.5 py-0.5 rounded-full"
+                    style={{ background: pack.colour, color: 'var(--color-bg-primary)' }}>
+                    Most Popular
                   </span>
                 )}
+                <div className="font-display text-title italic mb-1" style={{ color: pack.colour }}>
+                  {pack.name}
+                </div>
                 <div className="font-display text-stat text-text-primary">{pack.amount}</div>
-                <div className="text-label text-text-muted mb-1">Credits</div>
+                <div className="text-label text-text-muted mb-2">Credits</div>
                 <div className="font-display text-xl text-text-primary mb-0.5">{pack.price}</div>
-                <div className="text-xs text-text-muted mb-3">{pack.perCredit}</div>
+                <div className="text-xs text-text-muted mb-4">{pack.perCredit}</div>
                 <button
-                  className="text-button bg-accent text-bg-primary px-4 py-2 rounded-lg w-full cursor-pointer border-0 transition-opacity hover:opacity-90"
+                  className="text-button px-4 py-2 rounded-lg w-full cursor-pointer border-0 transition-opacity hover:opacity-90"
+                  style={{ background: pack.colour, color: 'var(--color-bg-primary)' }}
                   onClick={() => {
                     // Stripe checkout will be wired in Phase 4
                     alert('Stripe payments coming soon!');
                   }}
                 >
-                  Buy
+                  Buy {pack.name}
                 </button>
               </div>
             ))}
