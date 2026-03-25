@@ -120,7 +120,7 @@ export default function Onboarding() {
           </button>
           <div className="flex justify-center gap-4 mt-3">
             <button
-              onClick={() => setStep('form')}
+              onClick={() => setStep('subjects')}
               className="text-text-muted text-xs bg-transparent border-0 cursor-pointer hover:text-text-secondary"
             >
               Skip to setup →
@@ -218,7 +218,7 @@ export default function Onboarding() {
                       Choose Your Subjects
                     </button>
                     <button
-                      onClick={() => setStep('form')}
+                      onClick={() => setStep('subjects')}
                       className="text-xs text-text-muted block mx-auto bg-transparent border-0 cursor-pointer hover:text-text-secondary"
                     >
                       Skip →
