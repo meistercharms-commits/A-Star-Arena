@@ -2,21 +2,63 @@ import { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { db } from '../lib/firebase';
 import { collection, query, where, getDocs, doc, updateDoc } from 'firebase/firestore';
-import { Navigate } from 'react-router-dom';
 
-// Only these emails can access the admin page
-const ADMIN_EMAILS = ['chantaldempster@gmail.com'];
+const ADMIN_CODE = import.meta.env.VITE_ADMIN_CODE || '';
 
 export default function Admin() {
-  const { user, userProfile } = useAuth();
+  const { user } = useAuth();
+  const [codeInput, setCodeInput] = useState('');
+  const [unlocked, setUnlocked] = useState(false);
   const [searchEmail, setSearchEmail] = useState('');
   const [searchResult, setSearchResult] = useState(null);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
 
-  // Guard: only admin emails can access
-  if (!user || !ADMIN_EMAILS.includes(user.email)) {
-    return <Navigate to="/" replace />;
+  function handleUnlock(e) {
+    e.preventDefault();
+    if (codeInput === ADMIN_CODE && ADMIN_CODE.length > 0) {
+      setUnlocked(true);
+    } else {
+      setMessage('Invalid access code.');
+    }
+  }
+
+  // Gate: must be logged in and have entered the code
+  if (!user) {
+    return (
+      <div className="max-w-sm mx-auto text-center py-20">
+        <p className="text-text-muted">Sign in to access admin.</p>
+      </div>
+    );
+  }
+
+  if (!unlocked) {
+    return (
+      <div className="max-w-sm mx-auto space-y-6 py-10">
+        <div className="text-center">
+          <h1 className="font-display text-display">Admin Access</h1>
+          <p className="text-text-secondary text-sm mt-1">Enter your admin code to continue.</p>
+        </div>
+        <form onSubmit={handleUnlock} className="bg-bg-secondary border border-border rounded-xl p-5 shadow-card space-y-3">
+          <input
+            type="password"
+            value={codeInput}
+            onChange={e => setCodeInput(e.target.value)}
+            placeholder="Admin code"
+            className="input-field w-full text-center"
+            autoFocus
+          />
+          {message && <p className="text-weak text-sm text-center">{message}</p>}
+          <button
+            type="submit"
+            disabled={!codeInput.trim()}
+            className="text-button bg-accent text-bg-primary px-4 py-2.5 rounded-lg w-full cursor-pointer border-0 disabled:opacity-40"
+          >
+            Unlock
+          </button>
+        </form>
+      </div>
+    );
   }
 
   async function handleSearch(e) {
