@@ -104,17 +104,25 @@ export default function Onboarding() {
             onClick={() => {
               // Generate a sample question
               const sampleTopic = level === 'gcse' ? 'fractions_decimals_percentages' : 'biological_molecules';
-              const q = mockGenerateQuestion({ topicId: sampleTopic, phase: 'recall', difficulty: 2 });
-              setTryQuestion(q);
+              const result = mockGenerateQuestion({ topicId: sampleTopic, phase: 'recall', difficulty: 2 });
+              setTryQuestion(result.success ? result.data : null);
               setStep('tryit');
             }}
             className="w-full bg-accent hover:bg-accent-hover text-bg-primary font-ui text-button py-3 px-6 rounded-lg transition-colors cursor-pointer text-lg"
           >
             Get Started
           </button>
-          <Link to="/level-select" className="block text-center text-text-muted text-xs mt-3 no-underline hover:text-text-secondary">
-            Change qualification level
-          </Link>
+          <div className="flex justify-center gap-4 mt-3">
+            <button
+              onClick={() => setStep('form')}
+              className="text-text-muted text-xs bg-transparent border-0 cursor-pointer hover:text-text-secondary"
+            >
+              Skip to setup →
+            </button>
+            <Link to="/level-select" className="text-text-muted text-xs no-underline hover:text-text-secondary">
+              Change level
+            </Link>
+          </div>
         </div>
       </div>
     );
@@ -148,13 +156,13 @@ export default function Onboarding() {
                     onClick={async () => {
                       if (!tryAnswer.trim()) return;
                       setTryLoading(true);
-                      const result = mockMarkAnswer({
-                        questionPrompt: tryQuestion.prompt,
+                      const markResult = mockMarkAnswer({
+                        questionId: tryQuestion.questionId,
                         studentAnswer: tryAnswer,
                         phase: 'recall',
-                        rubric: { keywords: tryQuestion.keywords, maxScore: tryQuestion.maxScore },
+                        rubric: { keywords: tryQuestion.marking.keywords, maxScore: tryQuestion.marking.maxScore },
                       });
-                      setTryFeedback(result);
+                      setTryFeedback(markResult.success ? markResult.data : null);
                       setTrySubmitted(true);
                       setTryLoading(false);
                     }}

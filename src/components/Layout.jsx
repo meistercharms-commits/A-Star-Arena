@@ -16,7 +16,7 @@ const primaryNavItems = [
 ];
 
 const moreNavItems = [
-  { path: '/exam-planner', label: 'Exams', icon: '📅' },
+  { path: '/exams', label: 'Exams', icon: '📅' },
   { path: '/video-lesson', label: 'Video', icon: '🎬' },
   { path: '/exam', label: 'Timed', icon: '🎓' },
   { path: '/mistakes', label: 'Mistakes', icon: '📝' },

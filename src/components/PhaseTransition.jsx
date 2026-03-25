@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const PHASE_INFO = {
   recall: {
@@ -20,15 +20,17 @@ const PHASE_INFO = {
 
 export default function PhaseTransition({ phase, bossTaunt, onComplete }) {
   const [visible, setVisible] = useState(true);
+  const onCompleteRef = useRef(onComplete);
+  onCompleteRef.current = onComplete;
   const info = PHASE_INFO[phase] || PHASE_INFO.recall;
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setVisible(false);
-      onComplete?.();
+      onCompleteRef.current?.();
     }, 2500);
     return () => clearTimeout(timer);
-  }, [onComplete]);
+  }, []);
 
   if (!visible) return null;
 
