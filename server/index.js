@@ -356,7 +356,10 @@ app.get('/api/credits/balance', verifyToken, async (req, res) => {
 
 // ─── Generate Question ───
 
-app.post('/api/claude/generateQuestion', verifyToken, checkCredits(1), async (req, res) => {
+app.post('/api/claude/generateQuestion', verifyToken, (req, res, next) => {
+  const cost = req.body?.phase === 'extended' ? 3 : 1;
+  return checkCredits(cost)(req, res, next);
+}, async (req, res) => {
   try {
     const rawBody = req.body;
 

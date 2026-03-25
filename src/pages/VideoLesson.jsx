@@ -96,7 +96,7 @@ export default function VideoLesson() {
             disabled={loading || !isValidUrl}
             className="text-button bg-accent text-bg-primary px-5 py-2.5 rounded-lg cursor-pointer border-0 transition-opacity hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap shrink-0"
           >
-            {loading ? 'Generating...' : 'Generate Lesson (3 credits)'}
+            {loading ? 'Generating...' : 'Generate Lesson (5 credits)'}
           </button>
         </div>
         {error && <p className="text-weak text-sm mt-2">{error}</p>}

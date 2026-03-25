@@ -24,7 +24,7 @@ function extractVideoId(url) {
   return null;
 }
 
-router.post('/api/claude/videoLesson', verifyToken, checkCredits(3), async (req, res) => {
+router.post('/api/claude/videoLesson', verifyToken, checkCredits(5), async (req, res) => {
   try {
     const { youtubeUrl, subjectId, level, examBoard } = req.body;
 
