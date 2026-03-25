@@ -12,6 +12,7 @@ const navItems = [
   { path: '/', label: 'Home', icon: '⚡' },
   { path: '/topics', label: 'Topics', icon: '📚' },
   { path: '/exams', label: 'Exams', icon: '📅' },
+  { path: '/video-lesson', label: 'Video', icon: '🎬' },
   { path: '/exam', label: 'Timed', icon: '🎓' },
   { path: '/history', label: 'History', icon: '📊' },
   { path: '/settings', label: 'Settings', icon: '⚙️' },

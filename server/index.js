@@ -5,6 +5,7 @@ import Anthropic from '@anthropic-ai/sdk';
 import rateLimit from 'express-rate-limit';
 import { verifyToken } from './middleware/auth.js';
 import { checkCredits } from './middleware/credits.js';
+import videoLessonRouter from './routes/videoLesson.js';
 
 dotenv.config({ path: '.env.local', override: true });
 
@@ -655,6 +656,8 @@ Respond with this exact JSON structure:
     res.status(500).json({ success: false, error: 'Failed to generate study guide' });
   }
 });
+
+app.use(videoLessonRouter);
 
 // ─── Global Error Handler — hide stack traces ───
 app.use((err, req, res, next) => {

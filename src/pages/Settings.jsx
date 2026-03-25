@@ -2,12 +2,16 @@ import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { getSettings, saveSettings, exportAllData, clearAllData, getStorageSize, getProgress, getStorageWarning, getStorageStats, getCurrentLevel } from '../lib/storage';
 import { useLevel } from '../contexts/LevelContext';
+import { useAuth } from '../contexts/AuthContext';
+import { db } from '../lib/firebase';
+import { doc, updateDoc, setDoc, deleteDoc, serverTimestamp } from 'firebase/firestore';
 import { getSubjectsForLevel } from '../content/subjects';
 import { getLevelMeta } from '../lib/qualificationLevel';
 
 export default function Settings() {
   const navigate = useNavigate();
   const { level } = useLevel();
+  const { user, userProfile, isStudent, isGuest, refreshProfile, hasFirebase } = useAuth();
   const levelMeta = getLevelMeta(level);
   const subjects = getSubjectsForLevel(level);
   const isGCSE = level === 'gcse';
@@ -90,6 +94,34 @@ export default function Settings() {
     clearAllData();
     setConfirmClear(false);
     navigate('/level-select');
+  }
+
+  async function regenerateInviteCode() {
+    if (!user || !isStudent) return;
+
+    // Delete old code if exists
+    if (userProfile?.inviteCode) {
+      try {
+        await deleteDoc(doc(db, 'inviteCodes', userProfile.inviteCode));
+      } catch {}
+    }
+
+    // Generate new code
+    const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+    let newCode = '';
+    for (let i = 0; i < 6; i++) {
+      newCode += chars[Math.floor(Math.random() * chars.length)];
+    }
+
+    // Save to user doc and inviteCodes collection
+    await updateDoc(doc(db, 'users', user.uid), { inviteCode: newCode });
+    await setDoc(doc(db, 'inviteCodes', newCode), {
+      studentUid: user.uid,
+      createdAt: serverTimestamp(),
+      usedBy: [],
+    });
+
+    await refreshProfile();
   }
 
   return (
@@ -252,6 +284,33 @@ export default function Settings() {
             </div>
           </Field>
         </Section>
+
+        {/* Parent Access */}
+        {hasFirebase && isStudent && !isGuest && (
+          <Section title="Parent Access">
+            <div className="space-y-4">
+              <p className="text-sm text-text-secondary">
+                Share this invite code with a parent or guardian so they can monitor your revision progress.
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="flex-1 bg-bg-tertiary border border-border rounded-lg px-4 py-3 text-center">
+                  <span className="font-mono text-2xl tracking-[0.3em] text-accent font-semibold">
+                    {userProfile?.inviteCode || '------'}
+                  </span>
+                </div>
+                <button
+                  onClick={regenerateInviteCode}
+                  className="text-button bg-bg-tertiary text-text-secondary hover:text-text-primary px-3 py-2.5 rounded-lg cursor-pointer border border-border transition-colors"
+                >
+                  New Code
+                </button>
+              </div>
+              <p className="text-xs text-text-muted">
+                Parents can only view your progress. They cannot start battles or change your settings.
+              </p>
+            </div>
+          </Section>
+        )}
 
         {/* Data */}
         <Section title="Data">

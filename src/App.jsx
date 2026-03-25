@@ -30,7 +30,12 @@ const Credits = lazy(() => import('./pages/Credits'));
 const SignIn = lazy(() => import('./pages/SignIn'));
 const SignUp = lazy(() => import('./pages/SignUp'));
 const ResetPassword = lazy(() => import('./pages/ResetPassword'));
+const VideoLesson = lazy(() => import('./pages/VideoLesson'));
 const NotFound = lazy(() => import('./pages/NotFound'));
+const ParentLayout = lazy(() => import('./pages/parent/ParentLayout'));
+const ParentDashboard = lazy(() => import('./pages/parent/Dashboard'));
+const LinkStudent = lazy(() => import('./pages/parent/LinkStudent'));
+const StudentView = lazy(() => import('./pages/parent/StudentView'));
 
 function PageLoader() {
   return (
@@ -81,6 +86,15 @@ const router = createBrowserRouter([
     element: <Suspense fallback={<PageLoader />}><Onboarding /></Suspense>,
   },
   {
+    path: '/parent',
+    element: <Suspense fallback={<PageLoader />}><ParentLayout /></Suspense>,
+    children: [
+      { index: true, element: <ParentDashboard /> },
+      { path: 'link', element: <LinkStudent /> },
+      { path: 'student/:uid', element: <StudentView /> },
+    ],
+  },
+  {
     element: <ProtectedLayout />,
     children: [
       { path: '/', element: <Home /> },
@@ -94,6 +108,7 @@ const router = createBrowserRouter([
       { path: '/mcq/:topicId', element: <MCQ /> },
       { path: '/practicals', element: <Practicals /> },
       { path: '/exams', element: <ExamPlanner /> },
+      { path: '/video-lesson', element: <VideoLesson /> },
       { path: '/credits', element: <Credits /> },
       { path: '/settings', element: <Settings /> },
       { path: '*', element: <NotFound /> },
