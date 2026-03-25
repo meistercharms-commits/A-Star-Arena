@@ -6,6 +6,7 @@ import {
   signInWithEmailAndPassword,
   signOut as firebaseSignOut,
   sendPasswordResetEmail,
+  sendEmailVerification,
 } from 'firebase/auth';
 import { doc, getDoc, setDoc, serverTimestamp } from 'firebase/firestore';
 import { enableSync, disableSync, migrateToFirestore, pullFromFirestore } from '../lib/syncStorage';
@@ -93,6 +94,9 @@ export function AuthProvider({ children }) {
       });
     }
 
+    // Send email verification
+    await sendEmailVerification(credential.user);
+
     setUserProfile(profile);
     return credential.user;
   }, []);
@@ -115,6 +119,11 @@ export function AuthProvider({ children }) {
     await sendPasswordResetEmail(auth, email);
   }, []);
 
+  const resendVerification = useCallback(async () => {
+    if (!user) throw new Error('Not signed in');
+    await sendEmailVerification(user);
+  }, [user]);
+
   const refreshProfile = useCallback(async () => {
     if (!user || !hasConfig) return;
     try {
@@ -131,6 +140,7 @@ export function AuthProvider({ children }) {
   const isGuest = !user;
   const isParent = userProfile?.role === 'parent';
   const isStudent = userProfile?.role === 'student';
+  const emailVerified = user?.emailVerified ?? false;
 
   const value = useMemo(() => ({
     user,
@@ -140,12 +150,14 @@ export function AuthProvider({ children }) {
     isStudent,
     loading,
     hasFirebase: hasConfig,
+    emailVerified,
     signUp,
     signIn,
     signOut: signOutUser,
     resetPassword,
+    resendVerification,
     refreshProfile,
-  }), [user, userProfile, isGuest, isParent, isStudent, loading, signUp, signIn, signOutUser, resetPassword, refreshProfile]);
+  }), [user, userProfile, isGuest, isParent, isStudent, emailVerified, loading, signUp, signIn, signOutUser, resetPassword, resendVerification, refreshProfile]);
 
   return (
     <AuthContext.Provider value={value}>

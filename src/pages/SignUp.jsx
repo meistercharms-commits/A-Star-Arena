@@ -4,6 +4,22 @@ import { useAuth } from '../contexts/AuthContext';
 import { useTheme } from '../contexts/ThemeContext';
 import { ShieldIcon } from '../components/Logo';
 
+// Password strength rules
+const PASSWORD_RULES = [
+  { id: 'length', label: 'At least 8 characters', test: (p) => p.length >= 8 },
+  { id: 'uppercase', label: 'One uppercase letter', test: (p) => /[A-Z]/.test(p) },
+  { id: 'lowercase', label: 'One lowercase letter', test: (p) => /[a-z]/.test(p) },
+  { id: 'number', label: 'One number', test: (p) => /\d/.test(p) },
+];
+
+function getPasswordStrength(password) {
+  const passed = PASSWORD_RULES.filter(r => r.test(password)).length;
+  if (passed === 0) return { level: 0, label: '', colour: '' };
+  if (passed <= 2) return { level: 1, label: 'Weak', colour: 'var(--color-weak)' };
+  if (passed === 3) return { level: 2, label: 'Fair', colour: 'var(--color-developing)' };
+  return { level: 3, label: 'Strong', colour: 'var(--color-strong)' };
+}
+
 export default function SignUp() {
   const [displayName, setDisplayName] = useState('');
   const [email, setEmail] = useState('');
@@ -12,13 +28,22 @@ export default function SignUp() {
   const [role, setRole] = useState('student');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [verificationSent, setVerificationSent] = useState(false);
   const { signUp } = useAuth();
   const { theme } = useTheme();
   const navigate = useNavigate();
 
+  const strength = getPasswordStrength(password);
+  const allRulesPassed = PASSWORD_RULES.every(r => r.test(password));
+
   async function handleSubmit(e) {
     e.preventDefault();
     setError('');
+
+    if (!allRulesPassed) {
+      setError('Please meet all password requirements');
+      return;
+    }
 
     if (password !== confirmPassword) {
       setError('Passwords do not match');
@@ -28,12 +53,46 @@ export default function SignUp() {
     setLoading(true);
     try {
       await signUp(email, password, role, displayName);
-      navigate(role === 'parent' ? '/parent' : '/onboarding');
+      setVerificationSent(true);
     } catch (err) {
-      setError(err.message || 'Failed to create account');
+      const msg = err.code === 'auth/email-already-in-use'
+        ? 'An account with this email already exists'
+        : err.code === 'auth/invalid-email'
+        ? 'Please enter a valid email address'
+        : err.message || 'Failed to create account';
+      setError(msg);
     } finally {
       setLoading(false);
     }
+  }
+
+  // Show verification sent screen
+  if (verificationSent) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-bg-primary p-4">
+        <div className="w-full max-w-sm text-center space-y-6">
+          <ShieldIcon size={48} theme={theme} />
+          <h1 className="font-display text-display text-text-primary">Verify your email</h1>
+          <div className="bg-bg-secondary border border-border rounded-xl p-6 shadow-card space-y-3">
+            <p className="text-text-secondary text-sm">
+              We've sent a verification link to <strong className="text-text-primary">{email}</strong>.
+            </p>
+            <p className="text-text-muted text-sm">
+              Check your inbox (and spam folder) and click the link to verify your account.
+            </p>
+          </div>
+          <button
+            onClick={() => navigate(role === 'parent' ? '/parent' : '/onboarding')}
+            className="w-full bg-accent text-bg-primary font-medium px-4 py-2.5 rounded-lg text-button transition-opacity hover:opacity-90 cursor-pointer border-0"
+          >
+            Continue to {role === 'parent' ? 'Dashboard' : 'Setup'}
+          </button>
+          <p className="text-xs text-text-muted">
+            You can use the app while waiting for verification.
+          </p>
+        </div>
+      </div>
+    );
   }
 
   return (
@@ -81,6 +140,33 @@ export default function SignUp() {
               required
               autoComplete="new-password"
             />
+            {password.length > 0 && (
+              <div className="mt-2 space-y-1.5">
+                {/* Strength bar */}
+                <div className="flex gap-1">
+                  {[1, 2, 3].map(i => (
+                    <div
+                      key={i}
+                      className="h-1 flex-1 rounded-full transition-colors"
+                      style={{
+                        background: strength.level >= i ? strength.colour : 'var(--color-border)',
+                      }}
+                    />
+                  ))}
+                </div>
+                {strength.label && (
+                  <p className="text-xs font-medium" style={{ color: strength.colour }}>{strength.label}</p>
+                )}
+                {/* Rules checklist */}
+                <div className="grid grid-cols-2 gap-x-2 gap-y-0.5">
+                  {PASSWORD_RULES.map(rule => (
+                    <p key={rule.id} className="text-xs" style={{ color: rule.test(password) ? 'var(--color-strong)' : 'var(--color-text-muted)' }}>
+                      {rule.test(password) ? '✓' : '○'} {rule.label}
+                    </p>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
 
           <div>

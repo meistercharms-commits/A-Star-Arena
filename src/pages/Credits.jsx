@@ -72,7 +72,7 @@ export default function Credits() {
           </div>
           <div className="flex justify-between">
             <span>Video Lesson (YouTube)</span>
-            <span className="font-medium text-text-primary">2 credits</span>
+            <span className="font-medium text-text-primary">3 credits</span>
           </div>
           <div className="h-px bg-border my-2" />
           <div className="flex justify-between">
