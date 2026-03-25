@@ -118,7 +118,7 @@ function ProgressBars({ groups, onTopicClick }) {
                     style={{ color: 'var(--color-text-primary)' }}>
                     {t.name}
                   </span>
-                  <div className="w-[80px] sm:w-[120px] shrink-0 h-2 rounded-full overflow-hidden" style={{ background: 'var(--color-border)' }}>
+                  <div className="w-[100px] shrink-0 h-2 rounded-full overflow-hidden" style={{ background: 'var(--color-border)' }}>
                     <div
                       className="h-full rounded-full transition-all duration-500"
                       style={{
