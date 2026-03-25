@@ -1,6 +1,7 @@
 import { lazy, Suspense } from 'react';
 import { createBrowserRouter, RouterProvider, Navigate, Outlet } from 'react-router-dom';
 import { hasCompletedOnboarding, hasSelectedLevel, migrateToSubjectNamespaces } from './lib/storage';
+import { AuthProvider } from './contexts/AuthContext';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { LevelProvider } from './contexts/LevelContext';
 import { SubjectProvider } from './contexts/SubjectContext';
@@ -25,6 +26,9 @@ const MistakeJournal = lazy(() => import('./pages/MistakeJournal'));
 const MCQ = lazy(() => import('./pages/MCQ'));
 const Practicals = lazy(() => import('./pages/Practicals'));
 const ExamPlanner = lazy(() => import('./pages/ExamPlanner'));
+const SignIn = lazy(() => import('./pages/SignIn'));
+const SignUp = lazy(() => import('./pages/SignUp'));
+const ResetPassword = lazy(() => import('./pages/ResetPassword'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
 function PageLoader() {
@@ -56,6 +60,18 @@ function ProtectedLayout() {
 
 const router = createBrowserRouter([
   {
+    path: '/signin',
+    element: <Suspense fallback={<PageLoader />}><SignIn /></Suspense>,
+  },
+  {
+    path: '/signup',
+    element: <Suspense fallback={<PageLoader />}><SignUp /></Suspense>,
+  },
+  {
+    path: '/reset-password',
+    element: <Suspense fallback={<PageLoader />}><ResetPassword /></Suspense>,
+  },
+  {
     path: '/level-select',
     element: <Suspense fallback={<PageLoader />}><LevelSelect /></Suspense>,
   },
@@ -86,13 +102,15 @@ const router = createBrowserRouter([
 export default function App() {
   return (
     <ErrorBoundary>
-      <ThemeProvider>
-        <LevelProvider>
-          <SubjectProvider>
-            <RouterProvider router={router} />
-          </SubjectProvider>
-        </LevelProvider>
-      </ThemeProvider>
+      <AuthProvider>
+        <ThemeProvider>
+          <LevelProvider>
+            <SubjectProvider>
+              <RouterProvider router={router} />
+            </SubjectProvider>
+          </LevelProvider>
+        </ThemeProvider>
+      </AuthProvider>
     </ErrorBoundary>
   );
 }

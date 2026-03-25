@@ -2,6 +2,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { useSubject } from '../contexts/SubjectContext';
 import { useLevel } from '../contexts/LevelContext';
 import { useTheme } from '../contexts/ThemeContext';
+import { useAuth } from '../contexts/AuthContext';
 import { getSubjectsForLevel, isSubjectAvailable } from '../content/subjects';
 import { getLevelMeta } from '../lib/qualificationLevel';
 import { LogoLockup, ShieldIcon } from './Logo';
@@ -20,6 +21,7 @@ export default function Layout({ children }) {
   const { subjectId, setSubjectId } = useSubject();
   const { level } = useLevel();
   const { theme, toggleTheme } = useTheme();
+  const { user, isGuest, signOut: handleSignOut } = useAuth();
 
   const levelMeta = getLevelMeta(level);
   const subjects = getSubjectsForLevel(level);
@@ -88,6 +90,18 @@ export default function Layout({ children }) {
                 </svg>
               )}
             </button>
+            {isGuest ? (
+              <Link to="/signin" className="text-button px-3 py-1.5 rounded-lg bg-accent text-bg-primary no-underline transition-colors hover:opacity-90">
+                Sign In
+              </Link>
+            ) : (
+              <button
+                onClick={handleSignOut}
+                className="text-button px-3 py-1.5 rounded-lg bg-bg-tertiary text-text-secondary hover:text-text-primary transition-colors cursor-pointer border-0"
+              >
+                Sign Out
+              </button>
+            )}
           </div>
         </div>
 
