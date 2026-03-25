@@ -7,12 +7,14 @@ import { generateId } from '../lib/utils';
 import { updateTopicMastery } from '../lib/mastery';
 import { calculateNextReview, getSessionScorePercentage } from '../lib/srs';
 import { trackErrorPatterns, getPatternWarningsForAttempt } from '../lib/errorPatterns';
+import { getInterleavedTopics } from '../lib/recommend';
 import BossHUD from '../components/BossHUD';
 import PhaseTransition from '../components/PhaseTransition';
 import QuestionCard from '../components/QuestionCard';
 import AnswerInput from '../components/AnswerInput';
 import FeedbackPanel from '../components/FeedbackPanel';
 import BattleSummary from '../components/BattleSummary';
+import ConfidencePredictor from '../components/ConfidencePredictor';
 import Timer from '../components/Timer';
 import NavigationWarning from '../components/NavigationWarning';
 
@@ -56,6 +58,12 @@ export default function Battle() {
   const [showPhaseTransition, setShowPhaseTransition] = useState(null); // null | phase name string
   const [streakToast, setStreakToast] = useState(null);
   const [currentAnswer, setCurrentAnswer] = useState('');
+  const [confidencePrediction, setConfidencePrediction] = useState(null);
+  const [showConfidence, setShowConfidence] = useState(true);
+
+  // Mixed practice mode state
+  const [mixedTopics, setMixedTopics] = useState([]);
+  const [totalQuestionsAsked, setTotalQuestionsAsked] = useState(0);
 
   // Track results across entire battle
   const resultsRef = useRef({ recall: [], application: [], extended: [] });
@@ -82,14 +90,29 @@ export default function Battle() {
     attemptsRef.current = [];
     previousPromptsRef.current = [];
     sessionIdRef.current = generateId();
+    setTotalQuestionsAsked(0);
+
+    // Set up mixed topics if in mixed mode
+    if (battleMode === 'mixed') {
+      const interleaved = getInterleavedTopics(topics, bosses, 4);
+      setMixedTopics(interleaved.map(t => t.topicId));
+    } else {
+      setMixedTopics([]);
+    }
+
     await loadQuestion('recall', 0);
   }
 
   async function loadQuestion(phase, qNum) {
     setLoading(true);
     try {
+      // In mixed mode, cycle through topics for each question
+      const effectiveTopicId = battleMode === 'mixed' && mixedTopics.length > 0
+        ? mixedTopics[totalQuestionsAsked % mixedTopics.length]
+        : topicId;
+
       const result = await generateQuestion({
-        topicId,
+        topicId: effectiveTopicId,
         phase,
         difficulty: 3,
         examBoard: getExamBoard(getCurrentSubject()),
@@ -99,12 +122,13 @@ export default function Battle() {
 
       if (result.success) {
         previousPromptsRef.current.push(result.data.prompt);
-        setCurrentQuestion(result.data);
+        setCurrentQuestion({ ...result.data, mixedTopicId: effectiveTopicId });
         setCurrentResult(null);
         setStage('fighting');
         setTimerRunning(true);
         setTimerKey(prev => prev + 1);
         setQuestionNum(qNum + 1);
+        setTotalQuestionsAsked(prev => prev + 1);
         setApiSource(result.source || null);
       }
     } finally {
@@ -342,7 +366,7 @@ export default function Battle() {
         {/* Mode Selector */}
         <div className="bg-bg-secondary border border-border rounded-xl p-5 space-y-3">
           <h3 className="font-semibold text-sm text-text-secondary uppercase tracking-wide">Battle Mode</h3>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-3 gap-3">
             <button
               onClick={() => setBattleMode('challenge')}
               className={`rounded-xl p-4 border text-left transition-colors cursor-pointer ${
@@ -366,6 +390,18 @@ export default function Battle() {
               <span className="text-lg block mb-1">📖</span>
               <p className="font-semibold text-sm">Study</p>
               <p className="text-xs text-text-muted mt-1">Relaxed timer, model answers</p>
+            </button>
+            <button
+              onClick={() => setBattleMode('mixed')}
+              className={`rounded-xl p-4 border text-left transition-colors cursor-pointer ${
+                battleMode === 'mixed'
+                  ? 'border-developing bg-developing/10'
+                  : 'border-border bg-bg-tertiary hover:border-text-muted'
+              }`}
+            >
+              <span className="text-lg block mb-1">🔀</span>
+              <p className="font-semibold text-sm">Mixed</p>
+              <p className="text-xs text-text-muted mt-1">Interleaved topics, spaced practice</p>
             </button>
           </div>
         </div>
@@ -411,6 +447,18 @@ export default function Battle() {
           </div>
         </div>
 
+        {showConfidence && (
+          <div className="bg-bg-secondary border border-border rounded-xl p-5 shadow-card">
+            <ConfidencePredictor
+              onPredict={(value) => {
+                setConfidencePrediction(value);
+                setShowConfidence(false);
+              }}
+              onSkip={() => setShowConfidence(false)}
+            />
+          </div>
+        )}
+
         <button
           onClick={startBattle}
           className="w-full bg-accent hover:bg-accent-hover text-bg-primary font-bold py-3 rounded-xl text-lg transition-colors cursor-pointer"
@@ -433,6 +481,7 @@ export default function Battle() {
         srsResult={srsResult}
         battleMode={battleMode}
         bossDialogue={boss?.dialogue}
+        confidencePrediction={confidencePrediction}
         onBattleAgain={() => { setStage('idle'); setHp(boss?.hp || 100); setCompletedSession(null); setSrsResult(null); }}
       />
     );
@@ -457,6 +506,15 @@ export default function Battle() {
         apiSource={apiSource}
         dialogue={boss?.dialogue}
       />
+
+      {/* Mixed mode topic indicator */}
+      {battleMode === 'mixed' && currentQuestion?.mixedTopicId && (
+        <div className="bg-developing/10 border border-developing/30 rounded-lg px-3 py-2 text-center">
+          <span className="text-xs text-developing font-medium">
+            🔀 Topic: {topics.find(t => t.id === currentQuestion.mixedTopicId)?.name || currentQuestion.mixedTopicId}
+          </span>
+        </div>
+      )}
 
       {/* Phase transition overlay */}
       {showPhaseTransition && (

@@ -26,11 +26,13 @@ const MistakeJournal = lazy(() => import('./pages/MistakeJournal'));
 const MCQ = lazy(() => import('./pages/MCQ'));
 const Practicals = lazy(() => import('./pages/Practicals'));
 const ExamPlanner = lazy(() => import('./pages/ExamPlanner'));
+const FinalPush = lazy(() => import('./pages/FinalPush'));
 const Credits = lazy(() => import('./pages/Credits'));
 const SignIn = lazy(() => import('./pages/SignIn'));
 const SignUp = lazy(() => import('./pages/SignUp'));
 const ResetPassword = lazy(() => import('./pages/ResetPassword'));
 const VideoLesson = lazy(() => import('./pages/VideoLesson'));
+const PastPaper = lazy(() => import('./pages/PastPaper'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 const Admin = lazy(() => import('./pages/Admin'));
 const ParentLayout = lazy(() => import('./pages/parent/ParentLayout'));
@@ -109,6 +111,8 @@ const router = createBrowserRouter([
       { path: '/mcq/:topicId', element: <MCQ /> },
       { path: '/practicals', element: <Practicals /> },
       { path: '/exams', element: <ExamPlanner /> },
+      { path: '/final-push', element: <FinalPush /> },
+      { path: '/past-papers', element: <PastPaper /> },
       { path: '/video-lesson', element: <VideoLesson /> },
       { path: '/credits', element: <Credits /> },
       { path: '/settings', element: <Settings /> },

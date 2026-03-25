@@ -363,6 +363,20 @@ export function getTargetedDrillConfig(topicId, focusSubskillIds, topics = []) {
   };
 }
 
+/**
+ * Get interleaved topics for mixed practice mode.
+ * Picks top N topics by priority, preferring non-strong topics.
+ */
+export function getInterleavedTopics(topics, bosses, count = 4) {
+  const ranked = getRankedTopics(topics, bosses);
+  // Pick the top N topics by priority, excluding strong topics unless nothing else
+  const candidates = ranked.filter(t => t.category !== 'strong');
+  const selected = candidates.length >= count
+    ? candidates.slice(0, count)
+    : [...candidates, ...ranked.filter(t => t.category === 'strong')].slice(0, count);
+  return selected;
+}
+
 // ─── Helpers ───
 
 function findWeakSubskills(topicId, masteryCache, topics = []) {

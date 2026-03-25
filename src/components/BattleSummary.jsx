@@ -10,7 +10,7 @@ const PHASE_CONFIG = {
   extended: { label: 'Exam Brain', xpTotal: 60 },
 };
 
-export default function BattleSummary({ session, boss, topic, masteryBefore, masteryAfter, srsResult, battleMode = 'challenge', bossDialogue, onBattleAgain }) {
+export default function BattleSummary({ session, boss, topic, masteryBefore, masteryAfter, srsResult, battleMode = 'challenge', bossDialogue, confidencePrediction, onBattleAgain }) {
   const { topics, bosses } = useSubject();
   const phases = session.phases || {};
   const recallCorrect = phases.recall?.correct || 0;
@@ -136,6 +136,45 @@ export default function BattleSummary({ session, boss, topic, masteryBefore, mas
           </div>
         </div>
       </div>
+
+      {/* Confidence Check */}
+      {confidencePrediction != null && (() => {
+        // Calculate actual score as percentage
+        const totalScore = (recallCorrect || 0) + (appCorrect || 0) + (extScore || 0);
+        const totalMax = (phases.recall?.total || 10) + (phases.application?.total || 12) + (extMax || 6);
+        const actualPct = totalMax > 0 ? Math.round((totalScore / totalMax) * 100) : 0;
+        const diff = actualPct - confidencePrediction;
+
+        let message, messageColour;
+        if (Math.abs(diff) <= 10) {
+          message = "Spot on! Your self-awareness is excellent.";
+          messageColour = 'var(--color-strong)';
+        } else if (diff > 10) {
+          message = "You did better than you thought! More confidence next time.";
+          messageColour = 'var(--color-accent)';
+        } else {
+          message = "Tougher than expected. That's good to know for revision planning.";
+          messageColour = 'var(--color-developing)';
+        }
+
+        return (
+          <div className="bg-bg-secondary border border-border rounded-xl p-5 shadow-card">
+            <h3 className="text-label mb-3">Confidence Check</h3>
+            <div className="flex items-center justify-around text-center">
+              <div>
+                <div className="font-display text-stat text-text-muted">{confidencePrediction}%</div>
+                <div className="text-label text-text-muted">Predicted</div>
+              </div>
+              <div className="text-xl text-text-muted">&rarr;</div>
+              <div>
+                <div className="font-display text-stat text-accent">{actualPct}%</div>
+                <div className="text-label text-text-muted">Actual</div>
+              </div>
+            </div>
+            <p className="text-sm text-center mt-3" style={{ color: messageColour }}>{message}</p>
+          </div>
+        );
+      })()}
 
       {/* Mastery Change */}
       {masteryAfter != null && (

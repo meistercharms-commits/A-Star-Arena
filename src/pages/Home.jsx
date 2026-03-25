@@ -136,6 +136,22 @@ export default function Home() {
         </Link>
       )}
 
+      {/* Final Push Banner */}
+      {nearestExam && nearestCountdown && nearestCountdown.days <= 14 && (
+        <Link
+          to="/final-push"
+          className="block bg-weak/10 border border-weak/30 rounded-xl p-4 no-underline transition-colors hover:bg-weak/15"
+        >
+          <div className="flex items-center justify-between">
+            <div>
+              <span className="font-display text-base font-medium text-weak">The Final Push</span>
+              <p className="text-xs text-text-muted mt-0.5">{nearestCountdown.days} days left. Focus on what matters most.</p>
+            </div>
+            <span className="text-accent text-xs font-medium">Start &rarr;</span>
+          </div>
+        </Link>
+      )}
+
       {/* Today's Mission */}
       <div className="bg-bg-secondary border border-accent/30 rounded-xl p-5 shadow-card">
         <div className="flex items-center gap-2 mb-3">

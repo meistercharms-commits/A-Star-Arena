@@ -19,6 +19,7 @@ const coreNavItems = [
 const moreNavItems = [
   { path: '/video-lesson', label: 'Video', icon: '🎬' },
   { path: '/exam', label: 'Timed', icon: '🎓' },
+  { path: '/past-papers', label: 'Papers', icon: '📄' },
   { path: '/mistakes', label: 'Mistakes', icon: '📝' },
   { path: '/credits', label: 'Credits', icon: '💎' },
   { path: '/settings', label: 'Settings', icon: '⚙️' },

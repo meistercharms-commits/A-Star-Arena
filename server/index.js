@@ -6,6 +6,7 @@ import rateLimit from 'express-rate-limit';
 import { verifyToken } from './middleware/auth.js';
 import { checkCredits } from './middleware/credits.js';
 import videoLessonRouter from './routes/videoLesson.js';
+import pastPaperRouter from './routes/pastPaper.js';
 
 dotenv.config({ path: '.env.local', override: true });
 
@@ -661,6 +662,7 @@ Respond with this exact JSON structure:
 });
 
 app.use(videoLessonRouter);
+app.use(pastPaperRouter);
 
 // ─── Global Error Handler — hide stack traces ───
 app.use((err, req, res, next) => {
