@@ -1,3 +1,5 @@
+import { syncSettings, syncProgress, syncSession, syncAttempt, syncMasteryCache, syncSRSData, syncErrorPatterns, syncExam } from './syncStorage';
+
 const PREFIX = 'astarena';
 
 function getKey(key) {
@@ -104,10 +106,12 @@ export function getSettings() {
 }
 
 export function saveSettings(settings) {
-  writeJSON('userSettings', {
+  const data = {
     ...settings,
     updatedAt: new Date().toISOString(),
-  });
+  };
+  writeJSON('userSettings', data);
+  syncSettings(data);
 }
 
 export function hasCompletedOnboarding() {
@@ -155,6 +159,7 @@ export function saveSession(session, subject) {
   const sessions = getSessions(subject);
   sessions.unshift(session);
   writeJSON(`${key}:sessions`, sessions);
+  syncSession(session, getSubjectKey(subject));
 }
 
 export function getRecentSessions(count = 5, subject) {
@@ -173,6 +178,7 @@ export function saveAttempt(attempt, subject) {
   const attempts = getAttempts(subject);
   attempts.push(attempt);
   writeJSON(`${key}:attempts`, attempts);
+  syncAttempt(attempt, getSubjectKey(subject));
 }
 
 export function getAttemptsByTopic(topicId, subject) {
@@ -198,6 +204,7 @@ export function updateMasteryCache(topicId, masteryData, subject) {
     lastUpdated: new Date().toISOString(),
   };
   writeJSON(`${key}:masteryCache`, cache);
+  syncMasteryCache(topicId, masteryData, getSubjectKey(subject));
 }
 
 export function getTopicMastery(topicId, subject) {
@@ -240,6 +247,7 @@ export function updateProgress(xpEarned) {
   progress.lastSessionDate = today;
 
   writeJSON('progressTracking', progress);
+  syncProgress(progress);
   return progress;
 }
 
@@ -307,6 +315,7 @@ export function updateTopicSRS(topicId, srsUpdate, subject) {
   };
 
   writeJSON(`${key}:srsData`, data);
+  syncSRSData(topicId, data[topicId], getSubjectKey(subject));
   return data[topicId];
 }
 
@@ -414,6 +423,7 @@ export function saveExam(exam) {
   const exams = getExams();
   exams.push(exam);
   writeJSON('examPlanner', exams);
+  syncExam(exam);
 }
 
 export function updateExam(id, updates) {

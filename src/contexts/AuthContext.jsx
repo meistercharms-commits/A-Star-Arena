@@ -8,6 +8,7 @@ import {
   sendPasswordResetEmail,
 } from 'firebase/auth';
 import { doc, getDoc, setDoc, serverTimestamp } from 'firebase/firestore';
+import { enableSync, disableSync, migrateToFirestore, pullFromFirestore } from '../lib/syncStorage';
 
 const AuthContext = createContext(null);
 
@@ -33,6 +34,14 @@ export function AuthProvider({ children }) {
             setUserProfile(userSnap.data());
             // Update last login
             await setDoc(userRef, { lastLoginAt: serverTimestamp() }, { merge: true });
+
+            // Enable sync and migrate/pull data
+            enableSync(firebaseUser.uid);
+            if (!userSnap.data().migrated) {
+              await migrateToFirestore(firebaseUser.uid);
+            } else {
+              await pullFromFirestore(firebaseUser.uid);
+            }
           } else {
             // Profile will be created during sign-up
             setUserProfile(null);
@@ -43,6 +52,7 @@ export function AuthProvider({ children }) {
         }
       } else {
         setUserProfile(null);
+        disableSync();
       }
 
       setLoading(false);
