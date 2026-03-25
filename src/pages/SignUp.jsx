@@ -252,6 +252,13 @@ export default function SignUp() {
           <Link to="/level-select" className="text-text-muted hover:text-text-secondary transition-colors">
             Continue as guest
           </Link>
+          <button
+            type="button"
+            onClick={() => navigate(-1)}
+            className="text-text-muted hover:text-text-secondary transition-colors text-sm bg-transparent border-0 cursor-pointer"
+          >
+            &larr; Back
+          </button>
         </div>
       </div>
     </div>

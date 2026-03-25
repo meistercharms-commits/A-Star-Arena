@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { getSettings, getProgress, getLevelProgress, getRecentSessions, getExamBoard, getCurrentLevel, getUpcomingExams, getExamCountdown, isNewUser } from '../lib/storage';
+import { getSettings, getProgress, getLevelProgress, getRecentSessions, getExamBoard, getCurrentLevel, getUpcomingExams, getExamCountdown } from '../lib/storage';
 import { getMasteryCategory, formatDate } from '../lib/utils';
 import { getTodaysMission, getReviewSummary } from '../lib/recommend';
 import { getRecurringMistakes } from '../lib/errorPatterns';
@@ -21,8 +21,6 @@ export default function Home() {
   const progress = getProgress();
   const levelInfo = getLevelProgress();
   const recentSessions = getRecentSessions(5);
-  const newUser = isNewUser();
-
   const targetGrade = settings[`targetGrade_${level}`] || settings.targetGrade || levelMeta.defaultTargetGrade;
 
   const greeting = settings.studentName
@@ -47,56 +45,6 @@ export default function Home() {
   const nearestExam = getNearestExamForSubject(upcomingExams, subjectId, level);
   const nearestCountdown = nearestExam ? getExamCountdown(nearestExam.date) : null;
   const examCoverage = nearestExam ? getExamCoverage(topics) : null;
-
-  if (newUser) {
-    return (
-      <div className="space-y-6">
-        <div>
-          <h1 className="font-display text-display">{greeting}</h1>
-          <p className="text-text-muted text-sm">
-            {getExamBoard(subjectId) !== 'generic' ? getExamBoard(subjectId).toUpperCase() + ' · ' : ''}
-            {levelMeta.shortLabel} · Target: {level === 'gcse' ? `Grade ${targetGrade}` : targetGrade}
-          </p>
-        </div>
-
-        {/* Today's Mission — prominent for new users */}
-        <div className="bg-bg-secondary border border-accent/30 rounded-xl p-8 shadow-card">
-          <div className="flex items-center gap-2 mb-3">
-            <Target size={18} className="inline-block text-accent" />
-            <h2 className="font-display text-title">Today's Mission</h2>
-          </div>
-          <div className="flex items-start gap-4">
-            <div className="flex-1">
-              <div className="flex items-center gap-2 mb-1">
-                <span className="text-xl">{mission.emoji}</span>
-                <h3 className="font-display text-lg">{mission.topicName}</h3>
-                <span className={`text-xs font-mono text-${mission.category.colour}`}>
-                  {mission.category.emoji} {mission.mastery.toFixed(2)}
-                </span>
-              </div>
-              <p className="text-text-secondary text-sm mb-3">{mission.reason}</p>
-              <div className="flex gap-2">
-                <Link
-                  to={`/battle/${mission.topicId}`}
-                  className="bg-accent hover:bg-accent-hover text-bg-primary font-ui text-button py-2 px-4 rounded-lg transition-colors no-underline shadow-button"
-                >
-                  Start Battle
-                </Link>
-                <Link
-                  to="/topics"
-                  className="bg-bg-tertiary hover:bg-border text-text-secondary py-2 px-4 rounded-lg text-sm transition-colors no-underline"
-                >
-                  Choose another
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <Link to="/topics" className="text-button bg-bg-tertiary text-text-secondary px-4 py-2.5 rounded-lg no-underline inline-block mt-2">Browse All Topics</Link>
-      </div>
-    );
-  }
 
   return (
     <div className="space-y-6">
