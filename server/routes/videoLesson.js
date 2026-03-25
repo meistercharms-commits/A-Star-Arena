@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { YoutubeTranscript } from 'youtube-transcript';
+import { YoutubeTranscript } from 'youtube-transcript/dist/youtube-transcript.esm.js';
 import Anthropic from '@anthropic-ai/sdk';
 import { verifyToken } from '../middleware/auth.js';
 import { checkCredits } from '../middleware/credits.js';
