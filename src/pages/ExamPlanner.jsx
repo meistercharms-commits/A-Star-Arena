@@ -94,7 +94,7 @@ export default function ExamPlanner() {
 
       {/* Add Exam Form */}
       {showForm && (
-        <form onSubmit={handleAddExam} className="bg-bg-secondary border border-border rounded-xl p-5 space-y-4 animate-slide-up">
+        <form onSubmit={handleAddExam} className="bg-bg-secondary border border-border rounded-xl p-5 space-y-4 animate-slide-up shadow-elevated">
           <div className="grid grid-cols-2 gap-3">
             <div>
               <label className="block text-xs text-text-muted mb-1">Level</label>
@@ -192,7 +192,7 @@ export default function ExamPlanner() {
 
       {/* Upcoming Exams */}
       {upcomingExams.length === 0 && !showForm && (
-        <div className="bg-bg-secondary border border-border rounded-xl p-8 text-center">
+        <div className="bg-bg-secondary border border-border rounded-xl p-8 text-center shadow-card">
           <span className="text-4xl block mb-3">📅</span>
           <h2 className="font-semibold mb-1">No exams added yet</h2>
           <p className="text-text-muted text-sm mb-4">Add your upcoming exams to get targeted revision plans and countdown reminders.</p>
@@ -220,7 +220,7 @@ export default function ExamPlanner() {
             const { days } = getExamCountdown(exam.date);
 
             return (
-              <div key={exam.id} className="bg-bg-secondary border border-border rounded-xl overflow-hidden">
+              <div key={exam.id} className="bg-bg-secondary border border-border rounded-xl overflow-hidden shadow-card">
                 <button
                   onClick={() => setExpandedExam(isExpanded ? null : exam.id)}
                   className="w-full p-4 text-left cursor-pointer hover:bg-bg-tertiary/50 transition-colors"
@@ -374,7 +374,7 @@ export default function ExamPlanner() {
           {pastExams.map(exam => {
             const subjectInfo = getExamSubjectInfo(exam);
             return (
-              <div key={exam.id} className="bg-bg-secondary border border-border rounded-xl p-4 opacity-60">
+              <div key={exam.id} className="bg-bg-secondary border border-border rounded-xl p-4 opacity-60 shadow-card">
                 <div className="flex items-center gap-3">
                   <span className="text-xl">{subjectInfo?.emoji || '📘'}</span>
                   <div className="flex-1">

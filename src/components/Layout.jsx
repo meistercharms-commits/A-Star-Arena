@@ -1,6 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import { useSubject } from '../contexts/SubjectContext';
 import { useLevel } from '../contexts/LevelContext';
+import { useTheme } from '../contexts/ThemeContext';
 import { getSubjectsForLevel, isSubjectAvailable } from '../content/subjects';
 import { getLevelMeta } from '../lib/qualificationLevel';
 
@@ -17,6 +18,7 @@ export default function Layout({ children }) {
   const location = useLocation();
   const { subjectId, setSubjectId } = useSubject();
   const { level } = useLevel();
+  const { theme, toggleTheme } = useTheme();
 
   const levelMeta = getLevelMeta(level);
   const subjects = getSubjectsForLevel(level);
@@ -30,7 +32,7 @@ export default function Layout({ children }) {
       <a href="#main-content" className="skip-link">Skip to content</a>
 
       {/* Header */}
-      <header className="border-b border-border px-4 py-3 bg-bg-secondary">
+      <header className="border-b border-border px-4 py-3 bg-bg-secondary shadow-subtle">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Link to="/" className="text-xl font-bold tracking-tight no-underline text-text-primary">
@@ -43,22 +45,49 @@ export default function Layout({ children }) {
               {levelMeta.shortLabel}
             </Link>
           </div>
-          <nav className="hidden md:flex gap-1" aria-label="Main navigation">
-            {navItems.map(item => (
-              <Link
-                key={item.path}
-                to={item.path}
-                aria-current={location.pathname === item.path ? 'page' : undefined}
-                className={`px-3 py-1.5 rounded-lg text-sm no-underline transition-colors ${
-                  location.pathname === item.path
-                    ? 'bg-bg-tertiary text-accent'
-                    : 'text-text-secondary hover:text-text-primary hover:bg-bg-tertiary'
-                }`}
-              >
-                {item.icon} {item.label}
-              </Link>
-            ))}
-          </nav>
+          <div className="flex items-center gap-2">
+            <nav className="hidden md:flex gap-1" aria-label="Main navigation">
+              {navItems.map(item => (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  aria-current={location.pathname === item.path ? 'page' : undefined}
+                  className={`px-3 py-1.5 rounded-lg text-sm no-underline transition-colors ${
+                    location.pathname === item.path
+                      ? 'bg-bg-tertiary text-accent shadow-subtle'
+                      : 'text-text-secondary hover:text-text-primary hover:bg-bg-tertiary'
+                  }`}
+                >
+                  {item.icon} {item.label}
+                </Link>
+              ))}
+            </nav>
+            {/* Theme toggle */}
+            <button
+              onClick={toggleTheme}
+              className="w-8 h-8 rounded-lg flex items-center justify-center bg-bg-tertiary text-text-secondary hover:text-text-primary hover:bg-border transition-colors cursor-pointer border-0"
+              aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+              title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+            >
+              {theme === 'dark' ? (
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="5"/>
+                  <line x1="12" y1="1" x2="12" y2="3"/>
+                  <line x1="12" y1="21" x2="12" y2="23"/>
+                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                  <line x1="1" y1="12" x2="3" y2="12"/>
+                  <line x1="21" y1="12" x2="23" y2="12"/>
+                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                </svg>
+              ) : (
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+              )}
+            </button>
+          </div>
         </div>
 
         {/* Subject switcher */}
@@ -73,7 +102,7 @@ export default function Layout({ children }) {
                 disabled={!available || isInSession}
                 className={`text-xs px-3 py-1.5 rounded-lg transition-colors whitespace-nowrap ${
                   isActive
-                    ? 'bg-accent text-bg-primary font-semibold'
+                    ? 'bg-accent text-bg-primary font-semibold shadow-button'
                     : available
                       ? 'bg-bg-tertiary text-text-secondary hover:text-text-primary cursor-pointer'
                       : 'bg-bg-tertiary text-text-muted opacity-50 cursor-not-allowed'
@@ -93,7 +122,7 @@ export default function Layout({ children }) {
       </main>
 
       {/* Mobile nav */}
-      <nav className="md:hidden border-t border-border bg-bg-secondary flex justify-around py-2 safe-area-bottom" aria-label="Mobile navigation">
+      <nav className="md:hidden border-t border-border bg-bg-secondary flex justify-around py-2 safe-area-bottom shadow-subtle" aria-label="Mobile navigation">
         {navItems.map(item => (
           <Link
             key={item.path}

@@ -33,7 +33,7 @@ export default function LevelSelect() {
           {/* A-Level Card */}
           <button
             onClick={() => handleSelect('alevel')}
-            className="group bg-bg-secondary border border-border rounded-xl p-6 text-left transition-all hover:border-accent/50 hover:bg-bg-secondary/80 cursor-pointer"
+            className="group bg-bg-secondary border border-border rounded-xl p-6 text-left transition-all hover:border-accent/50 hover:bg-bg-secondary/80 cursor-pointer shadow-card"
           >
             <div className="space-y-4">
               <div className="flex items-center gap-3">
@@ -52,7 +52,7 @@ export default function LevelSelect() {
                 Target grades: A* and A
               </div>
             </div>
-            <div className="mt-4 w-full py-2.5 rounded-lg text-sm font-semibold text-center transition-colors bg-bg-tertiary text-text-secondary group-hover:bg-accent group-hover:text-bg-primary">
+            <div className="mt-4 w-full py-2.5 rounded-lg text-sm font-semibold text-center transition-colors bg-bg-tertiary text-text-secondary group-hover:bg-accent group-hover:text-bg-primary group-hover:shadow-button">
               Select A-Level
             </div>
           </button>
@@ -60,7 +60,7 @@ export default function LevelSelect() {
           {/* GCSE Card */}
           <button
             onClick={() => handleSelect('gcse')}
-            className="group bg-bg-secondary border border-border rounded-xl p-6 text-left transition-all hover:border-accent/50 hover:bg-bg-secondary/80 cursor-pointer"
+            className="group bg-bg-secondary border border-border rounded-xl p-6 text-left transition-all hover:border-accent/50 hover:bg-bg-secondary/80 cursor-pointer shadow-card"
           >
             <div className="space-y-4">
               <div className="flex items-center gap-3">
@@ -80,7 +80,7 @@ export default function LevelSelect() {
                 12 subjects &middot; Target grades: 9, 8, 7
               </div>
             </div>
-            <div className="mt-4 w-full py-2.5 rounded-lg text-sm font-semibold text-center transition-colors bg-bg-tertiary text-text-secondary group-hover:bg-accent group-hover:text-bg-primary">
+            <div className="mt-4 w-full py-2.5 rounded-lg text-sm font-semibold text-center transition-colors bg-bg-tertiary text-text-secondary group-hover:bg-accent group-hover:text-bg-primary group-hover:shadow-button">
               Select GCSE
             </div>
           </button>

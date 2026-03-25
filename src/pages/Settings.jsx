@@ -340,7 +340,7 @@ export default function Settings() {
 
 function Section({ title, children }) {
   return (
-    <div className="bg-bg-secondary border border-border rounded-xl p-5 space-y-4">
+    <div className="bg-bg-secondary border border-border rounded-xl p-5 space-y-4 shadow-card">
       <h2 className="font-semibold text-base">{title}</h2>
       {children}
     </div>

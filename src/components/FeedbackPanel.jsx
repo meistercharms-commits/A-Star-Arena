@@ -23,7 +23,7 @@ export default function FeedbackPanel({ result, phase, onNext, isStudyMode = fal
   }
 
   return (
-    <div className={`rounded-xl p-5 space-y-4 border animate-slide-up ${
+    <div className={`rounded-xl p-5 space-y-4 border animate-slide-up shadow-card ${
       correct
         ? 'bg-strong/5 border-strong/30 animate-correct-pulse'
         : 'bg-weak/5 border-weak/30'

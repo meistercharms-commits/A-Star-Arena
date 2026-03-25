@@ -27,7 +27,7 @@ export default function BossHUD({ boss, hp, maxHp, currentPhase, questionNum, to
   }, [hp]);
 
   return (
-    <div className={`bg-bg-secondary border border-border rounded-xl p-4 space-y-3 ${
+    <div className={`bg-bg-secondary border border-border rounded-xl p-4 space-y-3 shadow-elevated ${
       showDamage ? (hpPercent < 50 ? 'animate-shake-intense' : 'animate-shake') : ''
     } ${streak >= 3 ? 'animate-golden-glow' : ''}`}>
       {/* Boss info */}

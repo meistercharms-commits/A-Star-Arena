@@ -1,6 +1,7 @@
 import { lazy, Suspense } from 'react';
 import { createBrowserRouter, RouterProvider, Navigate, Outlet } from 'react-router-dom';
 import { hasCompletedOnboarding, hasSelectedLevel, migrateToSubjectNamespaces } from './lib/storage';
+import { ThemeProvider } from './contexts/ThemeContext';
 import { LevelProvider } from './contexts/LevelContext';
 import { SubjectProvider } from './contexts/SubjectContext';
 import ErrorBoundary from './components/ErrorBoundary';
@@ -85,11 +86,13 @@ const router = createBrowserRouter([
 export default function App() {
   return (
     <ErrorBoundary>
-      <LevelProvider>
-        <SubjectProvider>
-          <RouterProvider router={router} />
-        </SubjectProvider>
-      </LevelProvider>
+      <ThemeProvider>
+        <LevelProvider>
+          <SubjectProvider>
+            <RouterProvider router={router} />
+          </SubjectProvider>
+        </LevelProvider>
+      </ThemeProvider>
     </ErrorBoundary>
   );
 }

@@ -67,7 +67,7 @@ export default function Onboarding() {
             </p>
           </div>
 
-          <div className="bg-bg-secondary border border-border rounded-xl p-6 text-left space-y-4">
+          <div className="bg-bg-secondary border border-border rounded-xl p-6 text-left space-y-4 shadow-card">
             {isGCSE ? (
               <>
                 <FeatureItem icon="⚔️" title="Topic Battles" description="Structured practice across recall, application, and longer responses" />
@@ -109,7 +109,7 @@ export default function Onboarding() {
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="bg-bg-secondary border border-border rounded-xl p-6 space-y-5">
+        <form onSubmit={handleSubmit} className="bg-bg-secondary border border-border rounded-xl p-6 space-y-5 shadow-card">
           {/* Name */}
           <div>
             <label className="block text-sm font-medium mb-1.5">

@@ -118,7 +118,7 @@ export default function Topics() {
         {sorted.map(topic => (
           <div
             key={topic.id}
-            className="bg-bg-secondary border border-border rounded-xl p-4 hover:border-accent/50 transition-colors group"
+            className="bg-bg-secondary border border-border rounded-xl p-4 hover:border-accent/50 transition-colors group shadow-card"
           >
             {/* Header */}
             <div className="flex items-start justify-between mb-2">

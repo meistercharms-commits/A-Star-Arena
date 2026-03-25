@@ -87,7 +87,7 @@ export default function Home() {
       )}
 
       {/* Today's Mission */}
-      <div className="bg-bg-secondary border border-accent/30 rounded-xl p-5">
+      <div className="bg-bg-secondary border border-accent/30 rounded-xl p-5 shadow-card">
         <div className="flex items-center gap-2 mb-3">
           <span className="text-lg">🎯</span>
           <h2 className="font-semibold">Today's Mission</h2>
@@ -105,7 +105,7 @@ export default function Home() {
             <div className="flex gap-2">
               <Link
                 to={`/battle/${mission.topicId}`}
-                className="bg-accent hover:bg-accent-hover text-bg-primary font-semibold py-2 px-4 rounded-lg text-sm transition-colors no-underline"
+                className="bg-accent hover:bg-accent-hover text-bg-primary font-semibold py-2 px-4 rounded-lg text-sm transition-colors no-underline shadow-button"
               >
                 Start Battle
               </Link>
@@ -122,7 +122,7 @@ export default function Home() {
 
       {/* SRS Review Summary — only show when there are topics due */}
       {reviewSummary.total > 0 && (
-        <div className={`border rounded-xl p-4 flex items-start gap-3 ${
+        <div className={`border rounded-xl p-4 flex items-start gap-3 shadow-card ${
           reviewSummary.overdue > 0
             ? 'bg-weak/5 border-weak/30'
             : reviewSummary.dueToday > 0
@@ -159,7 +159,7 @@ export default function Home() {
 
       {/* Recurring Mistakes */}
       {recurringMistakes.length > 0 && (
-        <div className="bg-bg-secondary border border-developing/30 rounded-xl p-5">
+        <div className="bg-bg-secondary border border-developing/30 rounded-xl p-5 shadow-card">
           <div className="flex items-center gap-2 mb-3">
             <span className="text-lg">🔄</span>
             <h2 className="font-semibold">Recurring Mistakes</h2>
@@ -233,7 +233,7 @@ export default function Home() {
       </div>
 
       {/* Weak Spot Radar */}
-      <div className="bg-bg-secondary border border-border rounded-xl p-5">
+      <div className="bg-bg-secondary border border-border rounded-xl p-5 shadow-card">
         <h2 className="font-semibold mb-3">Weak Spot Radar</h2>
         <TopicRadar
           onTopicClick={(topicId) => navigate(`/battle/${topicId}`)}
@@ -244,7 +244,7 @@ export default function Home() {
       </div>
 
       {/* Recent Sessions */}
-      <div className="bg-bg-secondary border border-border rounded-xl p-5">
+      <div className="bg-bg-secondary border border-border rounded-xl p-5 shadow-card">
         <h2 className="font-semibold mb-3">Recent Sessions</h2>
         {recentSessions.length === 0 ? (
           <div className="text-center py-6">
@@ -373,7 +373,7 @@ export default function Home() {
 
 function StatCard({ icon, label, value, sub, bar }) {
   return (
-    <div className="bg-bg-secondary border border-border rounded-xl p-4">
+    <div className="bg-bg-secondary border border-border rounded-xl p-4 shadow-subtle">
       <div className="flex items-center gap-2 mb-1">
         <span>{icon}</span>
         <span className="text-xs text-text-muted uppercase tracking-wide">{label}</span>

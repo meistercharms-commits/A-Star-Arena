@@ -41,7 +41,7 @@ export default function BattleSummary({ session, boss, topic, masteryBefore, mas
   return (
     <div className="space-y-5 max-w-2xl mx-auto">
       {/* Victory / Defeat / Session Complete Banner */}
-      <div className={`rounded-xl p-6 text-center border ${
+      <div className={`rounded-xl p-6 text-center border shadow-card ${
         isStudyMode ? 'bg-accent/5 border-accent/30' :
         defeated ? 'bg-strong/5 border-strong/30 animate-starburst' : 'bg-weak/5 border-weak/30'
       }`}>
@@ -60,7 +60,7 @@ export default function BattleSummary({ session, boss, topic, masteryBefore, mas
       </div>
 
       {/* Phase Breakdown with bars */}
-      <div className="bg-bg-secondary border border-border rounded-xl p-5 space-y-4">
+      <div className="bg-bg-secondary border border-border rounded-xl p-5 space-y-4 shadow-card">
         <h3 className="font-semibold text-sm text-text-secondary uppercase tracking-wide">Phase Breakdown</h3>
 
         <PhaseBar
@@ -84,7 +84,7 @@ export default function BattleSummary({ session, boss, topic, masteryBefore, mas
       </div>
 
       {/* XP Breakdown */}
-      <div className="bg-bg-secondary border border-border rounded-xl p-5 space-y-3">
+      <div className="bg-bg-secondary border border-border rounded-xl p-5 space-y-3 shadow-card">
         <h3 className="font-semibold text-sm text-text-secondary uppercase tracking-wide">XP Earned</h3>
         <div className="space-y-2 text-sm">
           <div className="flex justify-between">
@@ -107,7 +107,7 @@ export default function BattleSummary({ session, boss, topic, masteryBefore, mas
       </div>
 
       {/* Session Stats */}
-      <div className="bg-bg-secondary border border-border rounded-xl p-5">
+      <div className="bg-bg-secondary border border-border rounded-xl p-5 shadow-card">
         <h3 className="font-semibold text-sm text-text-secondary uppercase tracking-wide mb-3">Session Stats</h3>
         <div className="grid grid-cols-3 gap-3 text-center">
           <div>
@@ -133,7 +133,7 @@ export default function BattleSummary({ session, boss, topic, masteryBefore, mas
 
       {/* Mastery Change */}
       {masteryAfter != null && (
-        <div className="bg-bg-secondary border border-border rounded-xl p-5">
+        <div className="bg-bg-secondary border border-border rounded-xl p-5 shadow-card">
           <h3 className="font-semibold text-sm text-text-secondary uppercase tracking-wide mb-3">Mastery Change</h3>
           <div className="flex items-center justify-between">
             <div className="text-center flex-1">
@@ -160,7 +160,7 @@ export default function BattleSummary({ session, boss, topic, masteryBefore, mas
 
       {/* SRS Next Review */}
       {srsResult && (
-        <div className="bg-bg-secondary border border-border rounded-xl p-5">
+        <div className="bg-bg-secondary border border-border rounded-xl p-5 shadow-card">
           <h3 className="font-semibold text-sm text-text-secondary uppercase tracking-wide mb-3">Spaced Review</h3>
           <div className="flex items-center justify-between">
             <div className="text-center flex-1">
@@ -206,7 +206,7 @@ export default function BattleSummary({ session, boss, topic, masteryBefore, mas
 
       {/* Study Guide — show when score is low */}
       {(extPct < 70 || appPct < 50) && (
-        <div className="bg-bg-secondary border border-developing/30 rounded-xl p-4 flex items-center justify-between">
+        <div className="bg-bg-secondary border border-developing/30 rounded-xl p-4 flex items-center justify-between shadow-card">
           <div>
             <p className="text-sm font-medium">Need help with {topic?.name}?</p>
             <p className="text-xs text-text-muted">Get a personalised study guide based on your weak spots.</p>
@@ -222,7 +222,7 @@ export default function BattleSummary({ session, boss, topic, masteryBefore, mas
 
       {/* Recommendation */}
       {rec && (
-        <div className="bg-bg-secondary border border-accent/30 rounded-xl p-5">
+        <div className="bg-bg-secondary border border-accent/30 rounded-xl p-5 shadow-card">
           <h3 className="font-semibold text-sm text-accent uppercase tracking-wide mb-2">Recommended Next</h3>
           <p className="text-sm text-text-secondary mb-3">{rec.reason}</p>
           <div className="flex gap-2 flex-wrap">
