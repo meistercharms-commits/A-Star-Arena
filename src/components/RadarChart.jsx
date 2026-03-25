@@ -114,11 +114,11 @@ function ProgressBars({ groups, onTopicClick }) {
             <div className="space-y-2">
               {items.map(t => (
                 <div key={t.topicId} className="flex items-center gap-2">
-                  <span className="text-sm flex-1 min-w-0"
+                  <span className="text-sm w-[220px] sm:w-[260px] shrink-0 truncate"
                     style={{ color: 'var(--color-text-primary)' }}>
                     {t.name}
                   </span>
-                  <div className="w-[100px] shrink-0 h-2 rounded-full overflow-hidden" style={{ background: 'var(--color-border)' }}>
+                  <div className="flex-1 h-2 rounded-full overflow-hidden" style={{ background: 'var(--color-border)' }}>
                     <div
                       className="h-full rounded-full transition-all duration-500"
                       style={{
