@@ -21,14 +21,19 @@ const PHASE_INFO = {
 export default function PhaseTransition({ phase, bossTaunt, onComplete }) {
   const [visible, setVisible] = useState(true);
   const onCompleteRef = useRef(onComplete);
+  const firedRef = useRef(false);
   onCompleteRef.current = onComplete;
   const info = PHASE_INFO[phase] || PHASE_INFO.recall;
 
+  const dismiss = () => {
+    if (firedRef.current) return;
+    firedRef.current = true;
+    setVisible(false);
+    onCompleteRef.current?.();
+  };
+
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setVisible(false);
-      onCompleteRef.current?.();
-    }, 2500);
+    const timer = setTimeout(dismiss, 2500);
     return () => clearTimeout(timer);
   }, []);
 
@@ -38,7 +43,7 @@ export default function PhaseTransition({ phase, bossTaunt, onComplete }) {
     <div
       className="fixed inset-0 z-50 flex items-center justify-center"
       style={{ background: 'rgba(24,31,44,0.92)' }}
-      onClick={() => { setVisible(false); onComplete?.(); }}
+      onClick={dismiss}
     >
       <div className="text-center space-y-4 animate-slide-up max-w-sm px-6">
         <div className="text-5xl">{info.icon}</div>

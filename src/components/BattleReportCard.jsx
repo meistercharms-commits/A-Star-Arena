@@ -84,14 +84,15 @@ export default function BattleReportCard({ results, bossName, bossEmoji, topicNa
       // Bar background
       ctx.fillStyle = 'rgba(255,255,255,0.06)';
       ctx.beginPath();
-      ctx.roundRect(24, y + 6, barW, 10, 5);
+      if (ctx.roundRect) { ctx.roundRect(24, y + 6, barW, 10, 5); } else { ctx.rect(24, y + 6, barW, 10); }
       ctx.fill();
 
       // Bar fill
       ctx.fillStyle = p.colour;
       ctx.globalAlpha = 0.8;
       ctx.beginPath();
-      ctx.roundRect(24, y + 6, barW * pct, 10, 5);
+      const fillW = barW * pct;
+      if (ctx.roundRect && fillW > 0) { ctx.roundRect(24, y + 6, fillW, 10, 5); } else if (fillW > 0) { ctx.rect(24, y + 6, fillW, 10); }
       ctx.fill();
       ctx.globalAlpha = 1;
 

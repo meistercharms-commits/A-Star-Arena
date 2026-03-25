@@ -10,7 +10,7 @@ export default function ReadinessScore({ topics, bosses }) {
     : 0;
 
   // Calculate SRS coverage (0-1)
-  const review = getReviewSummary(topics);
+  const review = getReviewSummary(topics, bosses);
   const totalTopics = topics.length || 1;
   const overdueRatio = (review.overdue || 0) / totalTopics;
   const srsCoverage = 1 - overdueRatio;

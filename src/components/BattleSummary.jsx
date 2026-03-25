@@ -35,8 +35,8 @@ export default function BattleSummary({ session, boss, topic, masteryBefore, mas
   }, topics, bosses);
 
   // Phase score bars
-  const recallPct = phases.recall?.total ? Math.round((recallCorrect / phases.recall.total) * 100) : 0;
-  const appPct = phases.application?.total ? Math.round((appCorrect / phases.application.total) * 100) : 0;
+  const recallPct = phases.recall?.total ? Math.round((recallCorrect / phases.recall?.total || 5) * 100) : 0;
+  const appPct = phases.application?.total ? Math.round((appCorrect / phases.application?.total || 3) * 100) : 0;
   const extPct = extMax > 0 ? Math.round((extScore / extMax) * 100) : 0;
 
   return (
@@ -55,7 +55,7 @@ export default function BattleSummary({ session, boss, topic, masteryBefore, mas
             ? `Study session on ${topic?.name} complete.`
             : defeated
               ? `You defeated ${boss?.bossName}!`
-              : `${boss?.bossName} survived with ${100 - (session.phases.recall.correct * 15 + session.phases.application.correct * 20 + (extScore >= 5 ? 30 : extScore * 5))} HP remaining.`
+              : `${boss?.bossName} survived with ${Math.max(0, 100 - (recallCorrect * 15 + appCorrect * 20 + (extScore >= 5 ? 30 : extScore * 5)))} HP remaining.`
           }
         </p>
         {bossDialogue && !isStudyMode && (
@@ -71,13 +71,13 @@ export default function BattleSummary({ session, boss, topic, masteryBefore, mas
 
         <PhaseBar
           label="Rapid Recall"
-          score={`${recallCorrect}/${phases.recall.total}`}
+          score={`${recallCorrect}/${phases.recall?.total || 5}`}
           percentage={recallPct}
           colour={recallPct >= 80 ? 'strong' : recallPct >= 50 ? 'developing' : 'weak'}
         />
         <PhaseBar
           label="Application"
-          score={`${appCorrect}/${phases.application.total}`}
+          score={`${appCorrect}/${phases.application?.total || 3}`}
           percentage={appPct}
           colour={appPct >= 80 ? 'strong' : appPct >= 50 ? 'developing' : 'weak'}
         />
@@ -140,9 +140,11 @@ export default function BattleSummary({ session, boss, topic, masteryBefore, mas
       {/* Confidence Check */}
       {confidencePrediction != null && (() => {
         // Calculate actual score as percentage
-        const totalScore = (recallCorrect || 0) + (appCorrect || 0) + (extScore || 0);
-        const totalMax = (phases.recall?.total || 10) + (phases.application?.total || 12) + (extMax || 6);
-        const actualPct = totalMax > 0 ? Math.round((totalScore / totalMax) * 100) : 0;
+        // Use percentage-based scoring to normalise across phases
+        const recallPctVal = (phases.recall?.total || 5) > 0 ? recallCorrect / (phases.recall?.total || 5) : 0;
+        const appPctVal = (phases.application?.total || 3) > 0 ? appCorrect / (phases.application?.total || 3) : 0;
+        const extPctVal = extMax > 0 ? extScore / extMax : 0;
+        const actualPct = Math.round(((recallPctVal + appPctVal + extPctVal) / 3) * 100);
         const diff = actualPct - confidencePrediction;
 
         let message, messageColour;
