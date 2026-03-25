@@ -725,6 +725,11 @@ app.use((err, req, res, next) => {
   res.status(status).json({ success: false, error: 'Request failed' });
 });
 
-app.listen(PORT, () => {
-  console.log(`A* Arena server running on port ${PORT}`);
-});
+// Only listen when running locally (not on Vercel)
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`A* Arena server running on port ${PORT}`);
+  });
+}
+
+export default app;
