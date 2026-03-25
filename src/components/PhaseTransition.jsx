@@ -32,18 +32,12 @@ export default function PhaseTransition({ phase, bossTaunt, onComplete }) {
     onCompleteRef.current?.();
   };
 
-  useEffect(() => {
-    const timer = setTimeout(dismiss, 2500);
-    return () => clearTimeout(timer);
-  }, []);
-
   if (!visible) return null;
 
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center"
       style={{ background: 'rgba(24,31,44,0.92)' }}
-      onClick={dismiss}
     >
       <div className="text-center space-y-4 animate-slide-up max-w-sm px-6">
         <div className="text-5xl">{info.icon}</div>
@@ -52,7 +46,13 @@ export default function PhaseTransition({ phase, bossTaunt, onComplete }) {
         {bossTaunt && (
           <p className="font-display italic text-accent text-base mt-2">"{bossTaunt}"</p>
         )}
-        <p className="text-xs text-text-muted mt-4">Tap to continue</p>
+        <button
+          onClick={dismiss}
+          className="mt-4 text-button bg-accent text-bg-primary px-6 py-2.5 rounded-lg cursor-pointer border-0 transition-opacity hover:opacity-90"
+          autoFocus
+        >
+          Continue
+        </button>
       </div>
     </div>
   );
