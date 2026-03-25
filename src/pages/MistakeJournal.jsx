@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSubject } from '../contexts/SubjectContext';
 import { getMistakesByTopic, getRecurringMistakes, dismissPattern } from '../lib/errorPatterns';
@@ -6,13 +6,35 @@ import { getMistakesByTopic, getRecurringMistakes, dismissPattern } from '../lib
 export default function MistakeJournal() {
   const { topics } = useSubject();
   const [refreshKey, setRefreshKey] = useState(0);
+  const [pendingDismiss, setPendingDismiss] = useState(null);
+  const timerRef = useRef(null);
 
   const allMistakes = getRecurringMistakes();
   const byTopic = getMistakesByTopic();
 
+  // Clean up timer on unmount
+  useEffect(() => {
+    return () => { if (timerRef.current) clearTimeout(timerRef.current); };
+  }, []);
+
   const handleDismiss = (keyword) => {
-    dismissPattern(keyword);
-    setRefreshKey(k => k + 1);
+    // Cancel any existing pending dismiss
+    if (timerRef.current) clearTimeout(timerRef.current);
+
+    setPendingDismiss(keyword);
+
+    timerRef.current = setTimeout(() => {
+      dismissPattern(keyword);
+      setPendingDismiss(null);
+      timerRef.current = null;
+      setRefreshKey(k => k + 1);
+    }, 5000);
+  };
+
+  const handleUndo = () => {
+    if (timerRef.current) clearTimeout(timerRef.current);
+    timerRef.current = null;
+    setPendingDismiss(null);
   };
 
   // Find worst topic
@@ -59,7 +81,7 @@ export default function MistakeJournal() {
                 </div>
                 <div className="space-y-2">
                   {group.mistakes.map(m => (
-                    <div key={m.keyword} className="flex items-center justify-between gap-3 bg-bg-tertiary rounded-lg px-3 py-2">
+                    <div key={m.keyword} className={`flex items-center justify-between gap-3 bg-bg-tertiary rounded-lg px-3 py-2 transition-opacity ${pendingDismiss === m.keyword ? 'opacity-30' : ''}`}>
                       <div className="flex items-center gap-2 min-w-0">
                         <span className={`text-xs font-bold shrink-0 ${
                           m.severity === 'critical' ? 'text-weak' : 'text-developing'
@@ -107,6 +129,19 @@ export default function MistakeJournal() {
       >
         Back to Dashboard
       </Link>
+
+      {/* Undo toast */}
+      {pendingDismiss && (
+        <div className="fixed bottom-4 left-1/2 -translate-x-1/2 bg-bg-secondary border border-border rounded-lg px-4 py-2.5 shadow-lg flex items-center gap-3 z-50">
+          <span className="text-sm text-text-secondary">Pattern dismissed.</span>
+          <button
+            onClick={handleUndo}
+            className="text-sm text-accent hover:text-accent-hover font-medium cursor-pointer"
+          >
+            Undo
+          </button>
+        </div>
+      )}
     </div>
   );
 }

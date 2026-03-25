@@ -16,6 +16,22 @@
     "hpBarColour": "#8b5cf6"
   },
   {
+    "topicId": "coordinate_geometry",
+    "bossName": "The Cartesian Colossus",
+    "flavourText": "Roams the plane, drawing circles of destruction. Plot your approach carefully or lose your bearings.",
+    "emoji": "📐",
+    "hp": 100,
+    "hpBarColour": "#0ea5e9"
+  },
+  {
+    "topicId": "sequences_series",
+    "bossName": "The Infinite Sentinel",
+    "flavourText": "Summons an endless army, each soldier stronger than the last. Find the pattern before you are overwhelmed.",
+    "emoji": "♾️",
+    "hp": 100,
+    "hpBarColour": "#6366f1"
+  },
+  {
     "topicId": "trigonometry_1",
     "bossName": "The Sine Serpent",
     "flavourText": "Coils through all four quadrants. Only those who master every identity can break its cycle.",
@@ -48,11 +64,83 @@
     "hpBarColour": "#ef4444"
   },
   {
-    "topicId": "statistics_1",
+    "topicId": "numerical_methods",
+    "bossName": "The Iteration Spectre",
+    "flavourText": "Never gives an exact answer, only closer and closer approximations. Converge on its weakness before it diverges into chaos.",
+    "emoji": "🔄",
+    "hp": 100,
+    "hpBarColour": "#78716c"
+  },
+  {
+    "topicId": "vectors",
+    "bossName": "The Direction Djinn",
+    "flavourText": "Strikes from any angle in three dimensions. You must resolve its forces to find the path to victory.",
+    "emoji": "🧭",
+    "hp": 100,
+    "hpBarColour": "#14b8a6"
+  },
+  {
+    "topicId": "statistical_sampling",
+    "bossName": "The Biased Collector",
+    "flavourText": "Gathers data from every corner, but its methods are riddled with bias. Expose its flawed sampling to defeat it.",
+    "emoji": "📋",
+    "hp": 100,
+    "hpBarColour": "#a3a3a3"
+  },
+  {
+    "topicId": "data_presentation",
+    "bossName": "The Histogram Hydra",
+    "flavourText": "Sprouts a new head for every class interval. Read its frequency density correctly or be lost in the bars.",
+    "emoji": "📊",
+    "hp": 100,
+    "hpBarColour": "#f472b6"
+  },
+  {
+    "topicId": "probability",
     "bossName": "The Probability Oracle",
-    "flavourText": "Claims to know every outcome. Test its hypotheses and prove it wrong.",
+    "flavourText": "Claims to know every outcome. Untangle its conditions and prove that nothing is certain.",
     "emoji": "🎲",
     "hp": 100,
     "hpBarColour": "#ec4899"
+  },
+  {
+    "topicId": "statistical_distributions",
+    "bossName": "The Bell Curve Basilisk",
+    "flavourText": "Hides within the normal distribution, perfectly symmetric and deadly. Standardise your attack to find its z-value weakness.",
+    "emoji": "🔔",
+    "hp": 100,
+    "hpBarColour": "#a855f7"
+  },
+  {
+    "topicId": "hypothesis_testing",
+    "bossName": "The Null Hypothesis Nemesis",
+    "flavourText": "Insists there is no effect, no difference, no hope. Gather sufficient evidence to reject its claim.",
+    "emoji": "⚖️",
+    "hp": 100,
+    "hpBarColour": "#dc2626"
+  },
+  {
+    "topicId": "kinematics",
+    "bossName": "The Suvat Stalker",
+    "flavourText": "Accelerates relentlessly, launching projectiles from every direction. Calculate its trajectory before impact.",
+    "emoji": "🚀",
+    "hp": 100,
+    "hpBarColour": "#f97316"
+  },
+  {
+    "topicId": "forces_newtons_laws",
+    "bossName": "The Friction Fiend",
+    "flavourText": "Drags you down inclined planes and tangles you in pulleys. Resolve every force or be pulled apart.",
+    "emoji": "💪",
+    "hp": 100,
+    "hpBarColour": "#b91c1c"
+  },
+  {
+    "topicId": "moments",
+    "bossName": "The Torque Titan",
+    "flavourText": "Balances on a knife-edge, waiting for you to miscalculate. One wrong pivot and it all comes crashing down.",
+    "emoji": "⚙️",
+    "hp": 100,
+    "hpBarColour": "#854d0e"
   }
 ]

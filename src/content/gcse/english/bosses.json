@@ -1,0 +1,130 @@
+[
+  {
+    "topicId": "reading_fiction",
+    "bossName": "The Inference Sphinx",
+    "flavourText": "She speaks only in riddles and subtext. Read between her lines to defeat her!",
+    "emoji": "🦁",
+    "hp": 100,
+    "hpBarColour": "#6B4C9A"
+  },
+  {
+    "topicId": "reading_non_fiction",
+    "bossName": "Baron Bias",
+    "flavourText": "This slippery aristocrat twists every fact to suit his viewpoint. Can you see through his spin?",
+    "emoji": "🎩",
+    "hp": 100,
+    "hpBarColour": "#2E86AB"
+  },
+  {
+    "topicId": "narrative_descriptive_writing",
+    "bossName": "The Blank Page Phantom",
+    "flavourText": "An empty page that haunts every writer. Fill it with vivid description and she vanishes!",
+    "emoji": "👻",
+    "hp": 100,
+    "hpBarColour": "#E8871E"
+  },
+  {
+    "topicId": "transactional_writing",
+    "bossName": "Commander Counterargument",
+    "flavourText": "He dismantles weak arguments for breakfast. Persuade him with rhetoric and structure!",
+    "emoji": "📣",
+    "hp": 100,
+    "hpBarColour": "#C73E1D"
+  },
+  {
+    "topicId": "language_analysis_techniques",
+    "bossName": "The Feature Spotter",
+    "flavourText": "She can name every technique but never explains the effect. Show her how real analysis is done!",
+    "emoji": "🔍",
+    "hp": 100,
+    "hpBarColour": "#3A7D44"
+  },
+  {
+    "topicId": "structural_analysis",
+    "bossName": "The Architect of Chaos",
+    "flavourText": "His texts are jumbled and fractured. Unpick his structural choices to restore order!",
+    "emoji": "🏗️",
+    "hp": 100,
+    "hpBarColour": "#7B6D8D"
+  },
+  {
+    "topicId": "evaluation_critical_reading",
+    "bossName": "Judge Nuance",
+    "flavourText": "Nothing is black and white in her courtroom. Only balanced, evidenced evaluation will win the verdict!",
+    "emoji": "⚖️",
+    "hp": 100,
+    "hpBarColour": "#4A6FA5"
+  },
+  {
+    "topicId": "spelling_punctuation_grammar",
+    "bossName": "The Comma Splice Serpent",
+    "flavourText": "This sneaky serpent slithers between your sentences, she joins them where she shouldn't. Punctuate her into submission!",
+    "emoji": "🐍",
+    "hp": 100,
+    "hpBarColour": "#D4A017"
+  },
+  {
+    "topicId": "shakespeare",
+    "bossName": "The Bard's Shadow",
+    "flavourText": "A spectral echo of the playwright himself. Prove you understand his craft and he shall rest!",
+    "emoji": "🎭",
+    "hp": 100,
+    "hpBarColour": "#8B0000"
+  },
+  {
+    "topicId": "nineteenth_century_novel",
+    "bossName": "The Victorian Fog",
+    "flavourText": "Dense, swirling and impenetrable. Navigate through archaic prose and contextual murk to find clarity!",
+    "emoji": "🌫️",
+    "hp": 100,
+    "hpBarColour": "#5C4033"
+  },
+  {
+    "topicId": "modern_text_drama",
+    "bossName": "Inspector Stagecraft",
+    "flavourText": "He inspects every performance with a ruthless eye. Show him you understand the drama on and off the page!",
+    "emoji": "🎬",
+    "hp": 100,
+    "hpBarColour": "#1B4332"
+  },
+  {
+    "topicId": "poetry_anthology",
+    "bossName": "The Enjambment Enigma",
+    "flavourText": "Her meaning spills across lines and stanzas. Catch every thread before she runs on without you!",
+    "emoji": "📜",
+    "hp": 100,
+    "hpBarColour": "#9B2335"
+  },
+  {
+    "topicId": "unseen_poetry",
+    "bossName": "The Unknown Verse",
+    "flavourText": "A poem you have never seen before. Stay calm, read closely and trust your skills!",
+    "emoji": "❓",
+    "hp": 100,
+    "hpBarColour": "#6A0572"
+  },
+  {
+    "topicId": "essay_structure_argumentation",
+    "bossName": "The Thesis Titan",
+    "flavourText": "A towering colossus of disorganised paragraphs. Only a clear argument can topple him!",
+    "emoji": "🗿",
+    "hp": 100,
+    "hpBarColour": "#4A4E69"
+  },
+  {
+    "topicId": "quotation_evidence_skills",
+    "bossName": "The Quotation Hoarder",
+    "flavourText": "She memorised the entire book but never analyses a single word. Teach her what evidence really means!",
+    "emoji": "📚",
+    "hp": 100,
+    "hpBarColour": "#B5651D"
+  },
+  {
+    "topicId": "context_critical_interpretation",
+    "bossName": "The Context Phantom",
+    "flavourText": "He lurks in a separate paragraph, disconnected from the text. Weave him into your analysis to defeat him!",
+    "emoji": "🕰️",
+    "hp": 100,
+    "hpBarColour": "#355E3B"
+  }
+]

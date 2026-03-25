@@ -1,0 +1,173 @@
+[
+  {
+    "id": "formal_elements",
+    "name": "Formal Elements",
+    "description": "Line, tone, colour, form, texture, pattern, and composition in visual art",
+    "subskills": [
+      { "id": "line_drawing", "name": "Line & Mark-Making", "critical": true, "keywords": ["contour", "cross-hatching", "gestural", "continuous line", "expressive", "weight"] },
+      { "id": "tone_value", "name": "Tone & Value", "critical": true, "keywords": ["chiaroscuro", "gradient", "highlight", "shadow", "midtone", "contrast", "tonal range"] },
+      { "id": "colour_theory", "name": "Colour Theory", "critical": true, "keywords": ["primary", "secondary", "complementary", "analogous", "warm", "cool", "hue", "saturation"] },
+      { "id": "form_shape", "name": "Form & Shape", "critical": true, "keywords": ["3D", "organic", "geometric", "positive space", "negative space", "volume"] },
+      { "id": "texture_pattern", "name": "Texture & Pattern", "critical": false, "keywords": ["tactile", "visual texture", "repetition", "motif", "relief", "surface quality"] },
+      { "id": "composition", "name": "Composition & Layout", "critical": true, "keywords": ["rule of thirds", "focal point", "balance", "symmetry", "asymmetry", "golden ratio"] }
+    ],
+    "commonMisconceptions": [
+      "Tone and colour are the same thing",
+      "Composition is only about centring the subject",
+      "You must always use the rule of thirds",
+      "Warm colours always advance and cool colours always recede"
+    ],
+    "highYield": true,
+    "aqaRef": "AO1",
+    "edexcelRef": "AO1",
+    "ocrRef": "J171/J172"
+  },
+  {
+    "id": "recording_and_observing",
+    "name": "Recording & Observing",
+    "description": "Observational drawing, photography, sketching from primary and secondary sources",
+    "subskills": [
+      { "id": "observational_drawing", "name": "Observational Drawing", "critical": true, "keywords": ["proportion", "scale", "accuracy", "still life", "life drawing", "perspective"] },
+      { "id": "photography", "name": "Photography as Recording", "critical": false, "keywords": ["primary source", "viewpoint", "framing", "depth of field", "lighting", "digital"] },
+      { "id": "primary_secondary", "name": "Primary & Secondary Sources", "critical": true, "keywords": ["first-hand", "second-hand", "museum visit", "internet", "photograph", "original"] },
+      { "id": "annotation_skills", "name": "Annotation & Written Analysis", "critical": true, "keywords": ["describe", "analyse", "evaluate", "formal elements", "purpose", "meaning"] }
+    ],
+    "commonMisconceptions": [
+      "Photographs from the internet count as primary sources",
+      "Drawing from observation means copying exactly with no interpretation",
+      "Annotations are just labels pointing to parts of the work",
+      "You only need one observational drawing in your portfolio"
+    ],
+    "highYield": true,
+    "aqaRef": "AO3",
+    "edexcelRef": "AO3",
+    "ocrRef": "J171/J172"
+  },
+  {
+    "id": "artist_research_and_analysis",
+    "name": "Artist Research & Analysis",
+    "description": "Studying artists, craftspeople, and designers to inform personal work",
+    "subskills": [
+      { "id": "artist_study", "name": "Artist Study & Biography", "critical": true, "keywords": ["context", "influences", "movement", "style", "medium", "career"] },
+      { "id": "formal_analysis", "name": "Formal Analysis of Artworks", "critical": true, "keywords": ["line", "colour", "tone", "composition", "mood", "meaning", "technique"] },
+      { "id": "comparative_study", "name": "Comparing Artists", "critical": false, "keywords": ["similarities", "differences", "influence", "style", "period", "technique"] },
+      { "id": "critical_vocabulary", "name": "Critical & Specialist Vocabulary", "critical": true, "keywords": ["evaluate", "analyse", "juxtapose", "aesthetic", "conceptual", "contemporary"] }
+    ],
+    "commonMisconceptions": [
+      "Copying an artist's work is the same as analysing it",
+      "You only need to study famous historical artists",
+      "Artist research is just writing a biography",
+      "Contemporary and modern art mean the same thing"
+    ],
+    "highYield": true,
+    "aqaRef": "AO1",
+    "edexcelRef": "AO1",
+    "ocrRef": "J171/J172"
+  },
+  {
+    "id": "developing_ideas",
+    "name": "Developing Ideas",
+    "description": "Refining work through experimentation, iteration, and creative exploration",
+    "subskills": [
+      { "id": "experimentation", "name": "Experimentation with Media", "critical": true, "keywords": ["mixed media", "collage", "printmaking", "digital", "trial", "risk-taking"] },
+      { "id": "refinement", "name": "Refinement & Selection", "critical": true, "keywords": ["edit", "crop", "rework", "improve", "select", "justify"] },
+      { "id": "design_sheets", "name": "Design Sheets & Sketchbook Work", "critical": true, "keywords": ["layout", "annotation", "thumbnails", "mind map", "mood board"] },
+      { "id": "creative_journey", "name": "Documenting the Creative Journey", "critical": false, "keywords": ["process", "progression", "decision-making", "reflection", "intention"] }
+    ],
+    "commonMisconceptions": [
+      "Development means making the same piece bigger",
+      "Your first idea should be your final piece",
+      "Sketchbooks must be neat and perfect",
+      "Experimentation means trying one new material"
+    ],
+    "highYield": true,
+    "aqaRef": "AO2",
+    "edexcelRef": "AO2",
+    "ocrRef": "J171/J172"
+  },
+  {
+    "id": "materials_and_techniques",
+    "name": "Materials & Techniques",
+    "description": "Understanding and applying a range of art materials, processes, and techniques",
+    "subskills": [
+      { "id": "drawing_media", "name": "Drawing Media", "critical": true, "keywords": ["graphite", "charcoal", "ink", "pastel", "pen", "conte crayon"] },
+      { "id": "painting_techniques", "name": "Painting Techniques", "critical": true, "keywords": ["watercolour", "acrylic", "oil", "gouache", "wash", "impasto", "glazing"] },
+      { "id": "printmaking", "name": "Printmaking", "critical": false, "keywords": ["lino", "mono print", "collagraph", "screen print", "etching", "edition"] },
+      { "id": "sculpture_3d", "name": "Sculpture & 3D Work", "critical": false, "keywords": ["clay", "wire", "papier-mache", "assemblage", "carving", "modelling", "casting"] },
+      { "id": "digital_media", "name": "Digital & Mixed Media", "critical": false, "keywords": ["Photoshop", "layering", "collage", "photo manipulation", "digital drawing"] }
+    ],
+    "commonMisconceptions": [
+      "Using more materials automatically gets higher marks",
+      "Digital art is not real art",
+      "You must be skilled in every medium to get a top grade",
+      "Printmaking always produces identical copies"
+    ],
+    "highYield": false,
+    "aqaRef": "AO2",
+    "edexcelRef": "AO2",
+    "ocrRef": "J171/J172"
+  },
+  {
+    "id": "personal_response",
+    "name": "Personal Response",
+    "description": "Creating a final piece that demonstrates personal voice, meaning, and intention",
+    "subskills": [
+      { "id": "final_piece", "name": "Producing a Final Piece", "critical": true, "keywords": ["outcome", "resolution", "sustained", "independent", "personal", "intention"] },
+      { "id": "personal_voice", "name": "Personal Voice & Meaning", "critical": true, "keywords": ["identity", "narrative", "symbolism", "emotion", "concept", "originality"] },
+      { "id": "presentation", "name": "Presentation & Display", "critical": false, "keywords": ["mounting", "framing", "layout", "portfolio", "exhibition", "professional"] },
+      { "id": "evaluation", "name": "Self-Evaluation & Reflection", "critical": true, "keywords": ["strengths", "weaknesses", "improvement", "intention", "success criteria"] }
+    ],
+    "commonMisconceptions": [
+      "The final piece must be a painting",
+      "A personal response cannot reference other artists",
+      "The final piece is the only thing that matters for your grade",
+      "Evaluation is just describing what you did"
+    ],
+    "highYield": true,
+    "aqaRef": "AO4",
+    "edexcelRef": "AO4",
+    "ocrRef": "J171/J172"
+  },
+  {
+    "id": "contextual_understanding",
+    "name": "Contextual Understanding",
+    "description": "Understanding art in its historical, cultural, and social context",
+    "subskills": [
+      { "id": "art_movements", "name": "Art Movements & Periods", "critical": true, "keywords": ["Impressionism", "Pop Art", "Surrealism", "Cubism", "Renaissance", "Abstract Expressionism"] },
+      { "id": "cultural_context", "name": "Cultural & Social Context", "critical": true, "keywords": ["purpose", "audience", "patronage", "politics", "identity", "tradition"] },
+      { "id": "contemporary_practice", "name": "Contemporary Art Practice", "critical": false, "keywords": ["installation", "conceptual", "site-specific", "performance", "digital art"] },
+      { "id": "craft_design", "name": "Craft & Design Context", "critical": false, "keywords": ["William Morris", "Arts and Crafts", "Bauhaus", "function", "decoration", "maker"] }
+    ],
+    "commonMisconceptions": [
+      "Art history is separate from practical art-making",
+      "Modern art and contemporary art are the same period",
+      "Conceptual art requires no skill",
+      "Craft is less valuable than fine art"
+    ],
+    "highYield": false,
+    "aqaRef": "AO1",
+    "edexcelRef": "AO1",
+    "ocrRef": "J171/J172"
+  },
+  {
+    "id": "exam_preparation",
+    "name": "Exam Preparation",
+    "description": "Preparing for the externally set assignment and timed examination",
+    "subskills": [
+      { "id": "esa_response", "name": "Responding to the ESA Brief", "critical": true, "keywords": ["starting points", "theme", "interpretation", "research", "personal response"] },
+      { "id": "preparatory_work", "name": "Preparatory Studies", "critical": true, "keywords": ["development", "experimentation", "annotation", "artist links", "planning"] },
+      { "id": "timed_conditions", "name": "Working Under Timed Conditions", "critical": true, "keywords": ["10 hours", "time management", "focus", "materials prepared", "sustained work"] },
+      { "id": "exam_strategy", "name": "Exam Strategy & Planning", "critical": false, "keywords": ["schedule", "prioritise", "mock exam", "checklist", "contingency"] }
+    ],
+    "commonMisconceptions": [
+      "The exam is only the 10-hour timed session",
+      "Preparatory work does not count towards the final grade",
+      "You must complete an entirely new body of work for the exam",
+      "You cannot bring reference materials into the exam"
+    ],
+    "highYield": true,
+    "aqaRef": "Component 2",
+    "edexcelRef": "Component 2",
+    "ocrRef": "J171/02"
+  }
+]

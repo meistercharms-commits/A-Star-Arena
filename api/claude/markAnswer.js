@@ -6,7 +6,13 @@ const anthropic = new Anthropic({
 
 const MODEL = 'claude-sonnet-4-20250514';
 
-const SUBJECT_NAMES = { biology: 'Biology', chemistry: 'Chemistry', mathematics: 'Mathematics' };
+const SUBJECT_NAMES = {
+  biology: 'Biology', chemistry: 'Chemistry', mathematics: 'Mathematics',
+  art: 'Art', 'design-technology': 'Design & Technology', drama: 'Drama',
+  english: 'English', french: 'French', geography: 'Geography',
+  history: 'History', music: 'Music', pe: 'Physical Education',
+  re: 'Religious Education', science: 'Science',
+};
 
 // ─── Input Validation Helpers ───
 
@@ -14,7 +20,8 @@ const MAX_STRING = 500;
 const MAX_ANSWER = 5000;
 const MAX_ARRAY = 20;
 const VALID_PHASES = ['recall', 'application', 'extended'];
-const VALID_SUBJECTS = ['biology', 'chemistry', 'mathematics'];
+const VALID_SUBJECTS = ['biology', 'chemistry', 'mathematics', 'art', 'design-technology', 'drama', 'english', 'french', 'geography', 'history', 'music', 'pe', 're', 'science'];
+const VALID_LEVELS = ['alevel', 'gcse'];
 const VALID_BOARDS = ['generic', 'aqa', 'ocr', 'edexcel'];
 
 function sanitize(str, maxLen = MAX_STRING) {
@@ -124,7 +131,26 @@ MARKING PRINCIPLES:
 You MUST respond with valid JSON only. No markdown, no explanation outside the JSON.`;
 }
 
-function getSystemPrompt(examBoard, subjectId) {
+function getGCSEMarkingPrompt(examBoard, subjectId) {
+  const subjectName = SUBJECT_NAMES[subjectId] || subjectId;
+  return `You are a supportive, expert GCSE ${subjectName} examiner marking student answers. You mark fairly and encouragingly, aligned to UK GCSE standards.
+
+EXAM BOARD: ${examBoard?.toUpperCase() || 'Generic UK GCSE'}
+
+MARKING PRINCIPLES:
+1. **Be fair and encouraging**: Acknowledge what the student did well before addressing gaps.
+2. **Award method marks**: Correct approach earns marks even if the final answer has errors.
+3. **Keyword-driven**: For recall/application, award marks for correct terminology. Accept reasonable synonyms.
+4. **Extended responses**: Use levels-based marking. Reward clear reasoning and structure.
+5. **Partial credit**: Always award marks for partially correct answers.
+6. **GCSE-appropriate expectations**: Do not expect A-Level depth.
+7. **Constructive feedback**: Give specific, actionable advice. Frame suggestions positively.
+
+You MUST respond with valid JSON only. No markdown, no explanation outside the JSON.`;
+}
+
+function getSystemPrompt(examBoard, subjectId, level = 'alevel') {
+  if (level === 'gcse') return getGCSEMarkingPrompt(examBoard, subjectId);
   if (subjectId === 'chemistry') return getChemistryMarkingPrompt(examBoard);
   if (subjectId === 'mathematics') return getMathematicsMarkingPrompt(examBoard);
   return getBiologyMarkingPrompt(examBoard);
@@ -148,6 +174,7 @@ export default async function handler(req, res) {
     const examBoard = validateEnum(rawBody.examBoard, VALID_BOARDS, 'generic');
     const topicId = sanitize(rawBody.topicId, 100);
     const subjectId = validateEnum(rawBody.subjectId, VALID_SUBJECTS, 'biology');
+    const level = validateEnum(rawBody.level, VALID_LEVELS, 'alevel');
     const rubric = rawBody.rubric || {};
     const maxScore = Math.min(10, Math.max(1, Number(rubric.maxScore) || 6));
     const keywords = sanitizeArray(rubric.keywords, 10, 100);
@@ -160,10 +187,10 @@ export default async function handler(req, res) {
     const message = await anthropic.messages.create({
       model: MODEL,
       max_tokens: 1024,
-      system: getSystemPrompt(examBoard, subjectId),
+      system: getSystemPrompt(examBoard, subjectId, level),
       messages: [{
         role: 'user',
-        content: `Mark this student's answer to an A-level ${SUBJECT_NAMES[subjectId] || 'Biology'} ${phase} question.
+        content: `Mark this student's answer to a ${level === 'gcse' ? 'GCSE' : 'A-level'} ${SUBJECT_NAMES[subjectId] || 'Biology'} ${phase} question.
 
 QUESTION: ${questionPrompt}
 MAX SCORE: ${maxScore}

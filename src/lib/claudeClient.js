@@ -6,7 +6,7 @@
  */
 
 import { mockGenerateQuestion, mockMarkAnswer, mockGenerateStudyGuide } from './mockClaude';
-import { getCurrentSubject } from './storage';
+import { getCurrentSubject, getCurrentLevel } from './storage';
 
 // In production (Vercel), API routes are at /api/* on the same origin.
 // In dev, Vite's proxy forwards /api/* to localhost:3001.
@@ -32,28 +32,37 @@ async function fetchWithTimeout(url, options, timeoutMs = TIMEOUT_MS) {
   }
 }
 
-let _apiAvailable = null; // null = unknown, true/false = cached
+let _apiCache = { available: null, checkedAt: 0 };
+const API_CACHE_TTL = 5 * 60 * 1000; // Re-check every 5 minutes
 
 /**
  * Check if the Claude API is available (key configured, server running).
- * Caches the result for the session.
+ * Caches the result with a TTL so it re-checks periodically.
  */
 export async function isApiAvailable() {
-  if (_apiAvailable !== null) return _apiAvailable;
+  const now = Date.now();
+  if (_apiCache.available !== null && (now - _apiCache.checkedAt) < API_CACHE_TTL) {
+    return _apiCache.available;
+  }
 
   try {
     const res = await fetchWithTimeout(`${API_BASE}/health`, {}, 3000);
     const data = await res.json();
-    _apiAvailable = data.claudeEnabled === true;
+    _apiCache = { available: data.claudeEnabled === true, checkedAt: now };
   } catch {
-    _apiAvailable = false;
+    _apiCache = { available: false, checkedAt: now };
   }
-  return _apiAvailable;
+  return _apiCache.available;
+}
+
+/** Get current API status without re-checking (for UI indicators) */
+export function getApiStatus() {
+  return _apiCache.available;
 }
 
 /** Reset the cached availability (e.g., after changing API key in settings) */
 export function resetApiCache() {
-  _apiAvailable = null;
+  _apiCache = { available: null, checkedAt: 0 };
 }
 
 // ─── Generate Question ───
@@ -74,6 +83,7 @@ export async function generateQuestion({ topicId, phase, difficulty = 3, examBoa
           difficulty,
           examBoard,
           subjectId: getCurrentSubject(),
+          level: getCurrentLevel(),
           subskills: topic?.subskills?.map(s => s.name) || [],
           misconceptions: topic?.commonMisconceptions || [],
           previousPrompts: previousPrompts.slice(-10), // Send last 10 to avoid huge payloads
@@ -115,6 +125,7 @@ export async function markAnswer({ questionId, questionPrompt, studentAnswer, ph
           examBoard,
           topicId,
           subjectId: getCurrentSubject(),
+          level: getCurrentLevel(),
         }),
       });
 
@@ -148,6 +159,7 @@ export async function generateStudyGuide({ topicId, topicName, subskills = [], e
           subskills,
           examBoard,
           subjectId: getCurrentSubject(),
+          level: getCurrentLevel(),
           masteryScore,
           weakSubskills,
           errorPatterns,

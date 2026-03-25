@@ -19,7 +19,10 @@
     ],
     "highYield": true,
     "calculationHeavy": true,
-    "difficultyRating": 2
+    "difficultyRating": 2,
+    "aqaRef": "3.3 B",
+    "ocrRef": "H240 Pure",
+    "edexcelRef": "9MA0 Pure"
   },
   {
     "id": "polynomials",
@@ -39,7 +42,59 @@
     ],
     "highYield": false,
     "calculationHeavy": true,
-    "difficultyRating": 3
+    "difficultyRating": 3,
+    "aqaRef": "3.3 B",
+    "ocrRef": "H240 Pure",
+    "edexcelRef": "9MA0 Pure"
+  },
+  {
+    "id": "coordinate_geometry",
+    "name": "Coordinate Geometry",
+    "description": "Equations of lines and circles, parametric equations, converting between Cartesian and parametric forms",
+    "subskills": [
+      { "id": "straight_lines", "name": "Straight Lines", "critical": true, "keywords": ["gradient", "y = mx + c", "parallel", "perpendicular", "midpoint", "distance formula"] },
+      { "id": "circles", "name": "Circles", "critical": true, "keywords": ["equation of circle", "centre", "radius", "tangent to circle", "completing the square", "(x - a)^2 + (y - b)^2 = r^2"] },
+      { "id": "parametric_equations", "name": "Parametric Equations", "critical": true, "keywords": ["parameter", "parametric curve", "eliminate parameter", "Cartesian conversion", "parametric differentiation"] },
+      { "id": "parametric_modelling", "name": "Parametric Modelling", "critical": false, "keywords": ["real-world modelling", "domain restriction", "sketch parametric curve", "direction of travel"] }
+    ],
+    "commonMisconceptions": [
+      "The gradient of a perpendicular line is just the negative, not the negative reciprocal",
+      "Forgetting to halve the coefficients when completing the square to find the centre of a circle",
+      "Assuming a tangent to a circle passes through the centre",
+      "Confusing dy/dx with dy/dt when differentiating parametric equations (must use chain rule: dy/dx = (dy/dt) / (dx/dt))",
+      "Forgetting that parametric equations can trace only part of a Cartesian curve depending on the domain of the parameter"
+    ],
+    "highYield": true,
+    "calculationHeavy": true,
+    "difficultyRating": 3,
+    "aqaRef": "3.4 C",
+    "ocrRef": "H240 Pure",
+    "edexcelRef": "9MA0 Pure"
+  },
+  {
+    "id": "sequences_series",
+    "name": "Sequences & Series",
+    "description": "Arithmetic and geometric sequences and series, sigma notation, convergence, and the binomial expansion for rational n",
+    "subskills": [
+      { "id": "arithmetic_sequences", "name": "Arithmetic Sequences & Series", "critical": true, "keywords": ["common difference", "nth term", "sum to n terms", "Sn = n/2(2a + (n-1)d)", "arithmetic progression"] },
+      { "id": "geometric_sequences", "name": "Geometric Sequences & Series", "critical": true, "keywords": ["common ratio", "nth term", "sum to n terms", "ar^(n-1)", "geometric progression"] },
+      { "id": "sum_to_infinity", "name": "Sum to Infinity", "critical": true, "keywords": ["convergent", "sum to infinity", "|r| < 1", "S_inf = a/(1-r)", "divergent"] },
+      { "id": "sigma_notation", "name": "Sigma Notation", "critical": false, "keywords": ["sigma", "summation", "series", "sum notation", "limits of summation"] },
+      { "id": "recurrence_relations", "name": "Recurrence Relations", "critical": false, "keywords": ["recurrence relation", "u_(n+1)", "sequence definition", "increasing", "decreasing", "periodic"] }
+    ],
+    "commonMisconceptions": [
+      "Using r instead of d in arithmetic series formulae (or vice versa)",
+      "A geometric series converges for |r| <= 1, forgetting that r = 1 causes divergence",
+      "Confusing the nth term formula with the sum formula",
+      "Assuming all geometric series have a sum to infinity",
+      "Off-by-one errors when counting the number of terms between two values"
+    ],
+    "highYield": true,
+    "calculationHeavy": true,
+    "difficultyRating": 3,
+    "aqaRef": "3.5 D",
+    "ocrRef": "H240 Pure",
+    "edexcelRef": "9MA0 Pure"
   },
   {
     "id": "trigonometry_1",
@@ -60,7 +115,10 @@
     ],
     "highYield": true,
     "calculationHeavy": true,
-    "difficultyRating": 3
+    "difficultyRating": 3,
+    "aqaRef": "3.6 E",
+    "ocrRef": "H240 Pure",
+    "edexcelRef": "9MA0 Pure"
   },
   {
     "id": "exponentials_logarithms",
@@ -81,7 +139,10 @@
     ],
     "highYield": false,
     "calculationHeavy": true,
-    "difficultyRating": 3
+    "difficultyRating": 3,
+    "aqaRef": "3.7 F",
+    "ocrRef": "H240 Pure",
+    "edexcelRef": "9MA0 Pure"
   },
   {
     "id": "differentiation_1",
@@ -103,17 +164,20 @@
     ],
     "highYield": true,
     "calculationHeavy": true,
-    "difficultyRating": 3
+    "difficultyRating": 3,
+    "aqaRef": "3.8 G",
+    "ocrRef": "H240 Pure",
+    "edexcelRef": "9MA0 Pure"
   },
   {
     "id": "integration_1",
     "name": "Integration",
-    "description": "Reverse of differentiation, definite integrals, area under a curve, trapezium rule",
+    "description": "Reverse of differentiation, definite integrals, area under a curve, integration by substitution and by parts",
     "subskills": [
       { "id": "indefinite_integrals", "name": "Indefinite Integration", "critical": true, "keywords": ["integral", "antiderivative", "constant of integration", "power rule reverse", "+ c"] },
       { "id": "definite_integrals", "name": "Definite Integrals", "critical": true, "keywords": ["definite integral", "limits", "evaluate", "upper limit", "lower limit", "F(b) - F(a)"] },
       { "id": "area_under_curve", "name": "Area Under a Curve", "critical": true, "keywords": ["area under curve", "area between curves", "negative area", "absolute value", "x-axis"] },
-      { "id": "trapezium_rule", "name": "Trapezium Rule", "critical": false, "keywords": ["trapezium rule", "approximation", "strip width", "h", "overestimate", "underestimate"] }
+      { "id": "integration_techniques", "name": "Integration by Substitution & Parts", "critical": true, "keywords": ["substitution", "by parts", "integration by parts", "reverse chain rule", "du substitution"] }
     ],
     "commonMisconceptions": [
       "Forgetting the + c constant in indefinite integration",
@@ -122,29 +186,251 @@
       "The trapezium rule gives an exact answer rather than an approximation",
       "Integrating 1/x gives ln|x| but forgetting the absolute value"
     ],
-    "highYield": false,
+    "highYield": true,
     "calculationHeavy": true,
-    "difficultyRating": 4
+    "difficultyRating": 4,
+    "aqaRef": "3.9 H",
+    "ocrRef": "H240 Pure",
+    "edexcelRef": "9MA0 Pure"
   },
   {
-    "id": "statistics_1",
-    "name": "Statistics",
-    "description": "Data presentation, measures of central tendency and spread, probability, binomial distribution, hypothesis testing",
+    "id": "numerical_methods",
+    "name": "Numerical Methods",
+    "description": "Location of roots, iterative methods, Newton-Raphson, numerical integration using the trapezium rule",
     "subskills": [
-      { "id": "data_presentation", "name": "Data Presentation & Interpretation", "critical": false, "keywords": ["histogram", "box plot", "cumulative frequency", "outlier", "skewness", "interquartile range"] },
-      { "id": "probability", "name": "Probability", "critical": true, "keywords": ["independent events", "mutually exclusive", "conditional probability", "tree diagram", "P(A|B)"] },
-      { "id": "binomial_distribution", "name": "Binomial Distribution", "critical": true, "keywords": ["binomial", "n trials", "probability p", "X ~ B(n,p)", "nCr", "cumulative"] },
-      { "id": "hypothesis_testing", "name": "Hypothesis Testing", "critical": true, "keywords": ["null hypothesis", "alternative hypothesis", "significance level", "critical region", "p-value", "reject H0"] }
+      { "id": "change_of_sign", "name": "Location of Roots (Change of Sign)", "critical": true, "keywords": ["change of sign", "interval bisection", "continuous function", "root", "f(a) and f(b) differ in sign"] },
+      { "id": "iteration", "name": "Iterative Methods", "critical": true, "keywords": ["iteration", "fixed point iteration", "convergence", "divergence", "staircase diagram", "cobweb diagram"] },
+      { "id": "newton_raphson", "name": "Newton-Raphson Method", "critical": true, "keywords": ["Newton-Raphson", "x_(n+1) = x_n - f(x_n)/f'(x_n)", "tangent", "approximation", "convergence"] },
+      { "id": "trapezium_rule", "name": "Trapezium Rule", "critical": true, "keywords": ["trapezium rule", "strip width", "h", "overestimate", "underestimate", "approximation", "number of strips"] }
     ],
     "commonMisconceptions": [
-      "P(A and B) = P(A) x P(B) is always true — only for independent events",
-      "The significance level is the probability the null hypothesis is true",
-      "A result in the critical region 'proves' the alternative hypothesis",
-      "The mean of a binomial distribution is n x p + 1",
-      "Confusing one-tailed and two-tailed tests when determining the critical region"
+      "A change of sign always means there is exactly one root in the interval (there could be multiple or a discontinuity)",
+      "An iterative formula will always converge to a root regardless of the starting value",
+      "Newton-Raphson cannot fail (it can diverge or oscillate if the starting point is poor or f'(x) is near zero)",
+      "More trapezium strips always give an overestimate (depends on concavity of the curve)",
+      "Forgetting to state the condition f(a) and f(b) have opposite signs AND f is continuous on the interval"
     ],
     "highYield": false,
     "calculationHeavy": true,
-    "difficultyRating": 2
+    "difficultyRating": 3,
+    "aqaRef": "3.10 I",
+    "ocrRef": "H240 Pure",
+    "edexcelRef": "9MA0 Pure"
+  },
+  {
+    "id": "vectors",
+    "name": "Vectors",
+    "description": "2D and 3D vectors, position vectors, magnitude and direction, geometric proofs using vectors",
+    "subskills": [
+      { "id": "vector_basics", "name": "Vector Notation & Operations", "critical": true, "keywords": ["column vector", "magnitude", "unit vector", "scalar multiplication", "addition", "subtraction"] },
+      { "id": "position_vectors", "name": "Position Vectors", "critical": true, "keywords": ["position vector", "displacement vector", "OA", "AB = b - a", "midpoint"] },
+      { "id": "vectors_3d", "name": "3D Vectors", "critical": false, "keywords": ["3D vector", "i j k", "magnitude in 3D", "distance between points"] },
+      { "id": "geometric_proofs", "name": "Geometric Proofs Using Vectors", "critical": true, "keywords": ["parallel vectors", "collinear", "ratio", "geometric proof", "scalar multiple"] }
+    ],
+    "commonMisconceptions": [
+      "Confusing AB with BA (the direction matters; AB = b - a, not a - b)",
+      "Assuming two vectors are parallel because they have the same magnitude",
+      "Forgetting that collinear points require the vectors to be parallel AND share a common point",
+      "Calculating the magnitude of a 3D vector as sqrt(x^2 + y^2) instead of sqrt(x^2 + y^2 + z^2)"
+    ],
+    "highYield": false,
+    "calculationHeavy": false,
+    "difficultyRating": 3,
+    "aqaRef": "3.11 J",
+    "ocrRef": "H240 Pure",
+    "edexcelRef": "9MA0 Pure"
+  },
+  {
+    "id": "statistical_sampling",
+    "name": "Statistical Sampling",
+    "description": "Sampling methods including random, systematic, stratified, quota and opportunity; understanding bias and generalisability",
+    "subskills": [
+      { "id": "sampling_methods", "name": "Sampling Methods", "critical": true, "keywords": ["simple random sampling", "systematic sampling", "stratified sampling", "quota sampling", "opportunity sampling"] },
+      { "id": "sampling_bias", "name": "Bias & Limitations", "critical": true, "keywords": ["bias", "representative", "sampling frame", "population", "census", "generalisability"] },
+      { "id": "large_data_sets", "name": "Large Data Set", "critical": false, "keywords": ["large data set", "pre-release data", "cleaning data", "anomalies", "context"] }
+    ],
+    "commonMisconceptions": [
+      "A larger sample always eliminates bias (sample size helps precision, not bias)",
+      "Systematic sampling is the same as stratified sampling",
+      "A census is always more accurate than a sample (it can still contain measurement errors)",
+      "Random sampling means haphazard or unplanned selection"
+    ],
+    "highYield": false,
+    "calculationHeavy": false,
+    "difficultyRating": 1,
+    "aqaRef": "3.12 K",
+    "ocrRef": "H240 Stats",
+    "edexcelRef": "9MA0 Stats"
+  },
+  {
+    "id": "data_presentation",
+    "name": "Data Presentation & Interpretation",
+    "description": "Histograms, box plots, cumulative frequency, scatter diagrams, measures of central tendency and spread, correlation and regression",
+    "subskills": [
+      { "id": "statistical_diagrams", "name": "Histograms, Box Plots & Cumulative Frequency", "critical": true, "keywords": ["histogram", "frequency density", "box plot", "cumulative frequency", "interquartile range", "outlier"] },
+      { "id": "measures_location_spread", "name": "Measures of Location & Spread", "critical": true, "keywords": ["mean", "median", "mode", "range", "standard deviation", "variance", "quartiles"] },
+      { "id": "scatter_correlation", "name": "Scatter Diagrams & Correlation", "critical": true, "keywords": ["scatter diagram", "correlation", "positive", "negative", "PMCC", "interpolation", "extrapolation"] },
+      { "id": "regression", "name": "Regression Lines", "critical": false, "keywords": ["regression line", "y on x", "least squares", "prediction", "residual", "line of best fit"] },
+      { "id": "outliers_cleaning", "name": "Outliers & Data Cleaning", "critical": false, "keywords": ["outlier", "anomaly", "1.5 x IQR", "skewness", "comparison"] }
+    ],
+    "commonMisconceptions": [
+      "The y-axis on a histogram shows frequency rather than frequency density",
+      "Standard deviation can be negative",
+      "Correlation implies causation",
+      "Extrapolation from a regression line is as reliable as interpolation",
+      "The mean is always the best measure of central tendency (not for skewed data)"
+    ],
+    "highYield": true,
+    "calculationHeavy": true,
+    "difficultyRating": 2,
+    "aqaRef": "3.13 L",
+    "ocrRef": "H240 Stats",
+    "edexcelRef": "9MA0 Stats"
+  },
+  {
+    "id": "probability",
+    "name": "Probability",
+    "description": "Conditional probability, tree diagrams, Venn diagrams, mutually exclusive and independent events, set notation",
+    "subskills": [
+      { "id": "basic_probability", "name": "Basic Probability & Set Notation", "critical": true, "keywords": ["probability", "sample space", "complement", "union", "intersection", "set notation"] },
+      { "id": "venn_diagrams", "name": "Venn Diagrams", "critical": true, "keywords": ["Venn diagram", "union", "intersection", "complement", "P(A union B)", "addition rule"] },
+      { "id": "tree_diagrams", "name": "Tree Diagrams", "critical": true, "keywords": ["tree diagram", "branches", "multiply along", "add between", "without replacement"] },
+      { "id": "conditional_probability", "name": "Conditional Probability", "critical": true, "keywords": ["conditional probability", "P(A|B)", "P(A and B)/P(B)", "given that", "dependent events"] },
+      { "id": "independence_exclusivity", "name": "Independence & Mutual Exclusivity", "critical": true, "keywords": ["independent events", "mutually exclusive", "P(A and B) = P(A) x P(B)", "P(A and B) = 0", "cannot be both"] }
+    ],
+    "commonMisconceptions": [
+      "P(A and B) = P(A) x P(B) is always true (only valid for independent events)",
+      "Events can be both mutually exclusive and independent (only possible if P(A) or P(B) is 0)",
+      "Confusing P(A|B) with P(B|A)",
+      "Assuming 'without replacement' does not affect probabilities",
+      "P(A or B) = P(A) + P(B) without subtracting P(A and B)"
+    ],
+    "highYield": true,
+    "calculationHeavy": true,
+    "difficultyRating": 3,
+    "aqaRef": "3.14 M",
+    "ocrRef": "H240 Stats",
+    "edexcelRef": "9MA0 Stats"
+  },
+  {
+    "id": "statistical_distributions",
+    "name": "Statistical Distributions",
+    "description": "Binomial distribution, normal distribution, using distribution tables and calculators, approximations",
+    "subskills": [
+      { "id": "binomial_distribution", "name": "Binomial Distribution", "critical": true, "keywords": ["binomial", "X ~ B(n,p)", "n trials", "fixed probability", "nCr p^r (1-p)^(n-r)"] },
+      { "id": "binomial_cumulative", "name": "Cumulative Binomial Probabilities", "critical": true, "keywords": ["cumulative probability", "P(X <= x)", "tables", "complement", "P(X >= x)"] },
+      { "id": "normal_distribution", "name": "Normal Distribution", "critical": true, "keywords": ["normal distribution", "X ~ N(mu, sigma^2)", "bell curve", "symmetric", "continuous"] },
+      { "id": "standard_normal", "name": "Standardisation & Z-values", "critical": true, "keywords": ["z-value", "standardise", "Z = (X - mu)/sigma", "standard normal", "inverse normal"] },
+      { "id": "normal_approximation", "name": "Selecting Distributions & Modelling", "critical": false, "keywords": ["modelling", "assumptions", "context", "binomial conditions", "normal approximation"] }
+    ],
+    "commonMisconceptions": [
+      "The normal distribution can take negative values, so X ~ N(5, 4) can give values less than 0 (students assume it cannot)",
+      "The variance is sigma, not sigma^2 (confusing standard deviation and variance in N(mu, sigma^2))",
+      "Binomial distribution can be used when probability changes between trials",
+      "P(X = a) for a continuous distribution is some positive value (it is always 0)",
+      "Forgetting to use the continuity correction when approximating binomial with normal (when required)"
+    ],
+    "highYield": true,
+    "calculationHeavy": true,
+    "difficultyRating": 4,
+    "aqaRef": "3.15 N",
+    "ocrRef": "H240 Stats",
+    "edexcelRef": "9MA0 Stats"
+  },
+  {
+    "id": "hypothesis_testing",
+    "name": "Statistical Hypothesis Testing",
+    "description": "Hypothesis tests for binomial and normal distributions, critical values, critical regions, p-values, significance levels",
+    "subskills": [
+      { "id": "language_of_testing", "name": "Null & Alternative Hypotheses", "critical": true, "keywords": ["null hypothesis", "alternative hypothesis", "H0", "H1", "significance level", "one-tailed", "two-tailed"] },
+      { "id": "binomial_test", "name": "Binomial Hypothesis Test", "critical": true, "keywords": ["binomial test", "critical region", "critical value", "p-value", "reject H0", "proportion"] },
+      { "id": "normal_test", "name": "Normal Hypothesis Test", "critical": true, "keywords": ["normal test", "sample mean", "test statistic", "z-test", "population mean"] },
+      { "id": "interpreting_results", "name": "Interpreting Results in Context", "critical": true, "keywords": ["sufficient evidence", "reject", "do not reject", "significance", "context", "conclusion"] }
+    ],
+    "commonMisconceptions": [
+      "Rejecting H0 proves the alternative hypothesis is true (it only provides evidence)",
+      "The significance level is the probability that H0 is true",
+      "A result that is not significant means H0 is definitely true",
+      "Confusing one-tailed and two-tailed critical regions (halving the significance level incorrectly)",
+      "Writing 'accept H0' instead of 'do not reject H0' or 'insufficient evidence to reject H0'"
+    ],
+    "highYield": true,
+    "calculationHeavy": true,
+    "difficultyRating": 4,
+    "aqaRef": "3.16 O",
+    "ocrRef": "H240 Stats",
+    "edexcelRef": "9MA0 Stats"
+  },
+  {
+    "id": "kinematics",
+    "name": "Kinematics",
+    "description": "Constant acceleration (suvat), velocity-time and displacement-time graphs, variable acceleration using calculus, projectiles",
+    "subskills": [
+      { "id": "suvat", "name": "Constant Acceleration (suvat)", "critical": true, "keywords": ["suvat", "v = u + at", "s = ut + 0.5at^2", "v^2 = u^2 + 2as", "uniform acceleration"] },
+      { "id": "graphs_motion", "name": "Velocity-Time & Displacement-Time Graphs", "critical": true, "keywords": ["velocity-time graph", "displacement-time graph", "gradient", "area under graph", "acceleration"] },
+      { "id": "variable_acceleration", "name": "Variable Acceleration (Calculus)", "critical": true, "keywords": ["v = ds/dt", "a = dv/dt", "integrate acceleration", "differentiate displacement", "calculus in kinematics"] },
+      { "id": "projectiles", "name": "Projectile Motion", "critical": true, "keywords": ["projectile", "horizontal component", "vertical component", "range", "maximum height", "time of flight"] }
+    ],
+    "commonMisconceptions": [
+      "Using suvat equations when acceleration is not constant",
+      "Forgetting that acceleration due to gravity acts downwards (sign errors with g = 9.8)",
+      "Assuming horizontal and vertical components of a projectile affect each other",
+      "The area under a displacement-time graph gives velocity (it does not; the gradient does)",
+      "Confusing velocity with speed (velocity has direction)"
+    ],
+    "highYield": true,
+    "calculationHeavy": true,
+    "difficultyRating": 3,
+    "aqaRef": "3.18 Q",
+    "ocrRef": "H240 Mechanics",
+    "edexcelRef": "9MA0 Mechanics"
+  },
+  {
+    "id": "forces_newtons_laws",
+    "name": "Forces & Newton's Laws",
+    "description": "Force diagrams, equilibrium, Newton's three laws, F = ma, connected particles, friction, inclined planes",
+    "subskills": [
+      { "id": "force_diagrams", "name": "Force Diagrams & Equilibrium", "critical": true, "keywords": ["force diagram", "free body diagram", "equilibrium", "resultant force", "weight", "normal reaction", "tension"] },
+      { "id": "newtons_laws", "name": "Newton's Laws of Motion", "critical": true, "keywords": ["Newton's first law", "Newton's second law", "Newton's third law", "F = ma", "resultant force", "acceleration"] },
+      { "id": "connected_particles", "name": "Connected Particles & Pulleys", "critical": true, "keywords": ["connected particles", "pulley", "tow bar", "tension", "smooth pulley", "light inextensible string"] },
+      { "id": "friction", "name": "Friction", "critical": true, "keywords": ["friction", "F <= mu R", "coefficient of friction", "rough surface", "limiting friction", "smooth"] },
+      { "id": "inclined_planes", "name": "Motion on an Inclined Plane", "critical": false, "keywords": ["inclined plane", "slope", "resolve forces", "mg sin theta", "mg cos theta", "component"] }
+    ],
+    "commonMisconceptions": [
+      "Confusing mass and weight (weight = mg, not just m)",
+      "Assuming friction always equals mu R (it equals mu R only at the point of sliding; otherwise F <= mu R)",
+      "Forgetting to resolve forces parallel and perpendicular to an inclined plane",
+      "Using the same value of a for both particles in a connected system without considering the string constraint",
+      "Newton's third law pairs act on the same body (they act on different bodies)"
+    ],
+    "highYield": true,
+    "calculationHeavy": true,
+    "difficultyRating": 4,
+    "aqaRef": "3.19 R",
+    "ocrRef": "H240 Mechanics",
+    "edexcelRef": "9MA0 Mechanics"
+  },
+  {
+    "id": "moments",
+    "name": "Moments",
+    "description": "Turning effects, principle of moments, equilibrium of rigid bodies, centre of mass, tilting and toppling",
+    "subskills": [
+      { "id": "moments_basics", "name": "Moments & Torque", "critical": true, "keywords": ["moment", "torque", "force x perpendicular distance", "clockwise", "anticlockwise", "pivot"] },
+      { "id": "equilibrium_rigid", "name": "Equilibrium of Rigid Bodies", "critical": true, "keywords": ["equilibrium", "sum of moments = 0", "resultant force = 0", "beam", "support", "reaction"] },
+      { "id": "centre_of_mass", "name": "Centre of Mass", "critical": false, "keywords": ["centre of mass", "centre of gravity", "uniform rod", "lamina", "composite body"] },
+      { "id": "tilting_toppling", "name": "Tilting & Toppling", "critical": false, "keywords": ["tilting", "toppling", "critical angle", "base", "stability", "about to tilt"] }
+    ],
+    "commonMisconceptions": [
+      "Moment = force x distance (forgetting it must be the perpendicular distance from the line of action to the pivot)",
+      "The weight of a uniform beam acts at the support point rather than at its centre",
+      "Forgetting to include all forces when taking moments (especially the weight of the beam itself)",
+      "Confusing tilting (about a point) with toppling (centre of mass beyond the base)"
+    ],
+    "highYield": false,
+    "calculationHeavy": true,
+    "difficultyRating": 3,
+    "aqaRef": "3.20 S",
+    "ocrRef": "H240 Mechanics",
+    "edexcelRef": "9MA0 Mechanics"
   }
 ]

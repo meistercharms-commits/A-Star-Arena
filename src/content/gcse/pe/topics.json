@@ -1,0 +1,371 @@
+[
+  {
+    "id": "applied_anatomy_and_physiology",
+    "name": "Applied Anatomy & Physiology",
+    "description": "Structure and function of the musculoskeletal, cardiorespiratory and neuromuscular systems during physical activity",
+    "subskills": [
+      {
+        "id": "musculoskeletal_system",
+        "name": "Musculoskeletal System",
+        "critical": true,
+        "keywords": ["bones", "joints", "muscles", "ligaments", "tendons", "synovial joints", "cartilage", "antagonistic pairs"]
+      },
+      {
+        "id": "cardiorespiratory_system",
+        "name": "Cardiorespiratory System",
+        "critical": true,
+        "keywords": ["heart", "blood vessels", "lungs", "gaseous exchange", "cardiac output", "stroke volume", "heart rate", "aerobic"]
+      },
+      {
+        "id": "effects_of_exercise",
+        "name": "Effects of Exercise on Body Systems",
+        "critical": true,
+        "keywords": ["short-term effects", "long-term effects", "cardiac hypertrophy", "increased capillarisation", "muscle hypertrophy"]
+      },
+      {
+        "id": "movement_at_joints",
+        "name": "Movement at Joints",
+        "critical": false,
+        "keywords": ["flexion", "extension", "abduction", "adduction", "rotation", "circumduction", "hinge joint", "ball and socket"]
+      }
+    ],
+    "commonMisconceptions": [
+      "Ligaments connect muscle to bone (ligaments connect bone to bone; tendons connect muscle to bone)",
+      "The heart is one big pump (it has four chambers with separate pulmonary and systemic circuits)",
+      "Muscles can push as well as pull (muscles can only contract and pull; they work in antagonistic pairs)"
+    ],
+    "highYield": true,
+    "aqaRef": "3.1.1",
+    "edexcelRef": "1.1",
+    "ocrRef": "1.1"
+  },
+  {
+    "id": "movement_analysis",
+    "name": "Movement Analysis",
+    "description": "Lever systems, planes and axes of movement, and mechanical advantage in sporting actions",
+    "subskills": [
+      {
+        "id": "lever_systems",
+        "name": "Lever Systems",
+        "critical": true,
+        "keywords": ["first class lever", "second class lever", "third class lever", "fulcrum", "effort", "load", "mechanical advantage"]
+      },
+      {
+        "id": "planes_and_axes",
+        "name": "Planes and Axes of Movement",
+        "critical": false,
+        "keywords": ["sagittal plane", "frontal plane", "transverse plane", "longitudinal axis", "transverse axis", "sagittal axis"]
+      },
+      {
+        "id": "sporting_examples",
+        "name": "Analysis of Sporting Movements",
+        "critical": true,
+        "keywords": ["agonist", "antagonist", "isotonic contraction", "isometric contraction", "concentric", "eccentric"]
+      }
+    ],
+    "commonMisconceptions": [
+      "All levers in the body give mechanical advantage (most are third class levers, which favour speed and range of movement over force)",
+      "Isometric means the muscle shortens (isometric contraction involves no change in muscle length)"
+    ],
+    "highYield": true,
+    "aqaRef": "3.1.2",
+    "edexcelRef": "1.2",
+    "ocrRef": "1.2"
+  },
+  {
+    "id": "physical_training",
+    "name": "Physical Training",
+    "description": "Components of fitness, principles of training, training methods and prevention of injury",
+    "subskills": [
+      {
+        "id": "components_of_fitness",
+        "name": "Components of Fitness",
+        "critical": true,
+        "keywords": ["cardiovascular endurance", "muscular endurance", "strength", "flexibility", "speed", "agility", "power", "reaction time", "coordination", "balance"]
+      },
+      {
+        "id": "principles_of_training",
+        "name": "Principles of Training",
+        "critical": true,
+        "keywords": ["progressive overload", "specificity", "reversibility", "individual differences", "FITT principle", "frequency", "intensity", "time", "type"]
+      },
+      {
+        "id": "training_methods",
+        "name": "Training Methods",
+        "critical": true,
+        "keywords": ["continuous training", "fartlek", "interval training", "circuit training", "plyometrics", "weight training", "flexibility training"]
+      },
+      {
+        "id": "injury_prevention",
+        "name": "Injury Prevention and Management",
+        "critical": false,
+        "keywords": ["warm-up", "cool-down", "overuse injuries", "acute injuries", "RICE", "sprains", "strains", "fractures"]
+      }
+    ],
+    "commonMisconceptions": [
+      "Fitness and health are the same thing (fitness is the ability to meet the demands of the environment; health is a state of complete physical, mental and social well-being)",
+      "Stretching before exercise prevents all injuries (warm-up raises body temperature and heart rate; stretching alone is not sufficient)",
+      "Progressive overload means always lifting heavier weights (it can also involve increasing reps, sets, duration or frequency)"
+    ],
+    "highYield": true,
+    "aqaRef": "3.1.3",
+    "edexcelRef": "1.3",
+    "ocrRef": "1.3"
+  },
+  {
+    "id": "sports_psychology",
+    "name": "Sports Psychology",
+    "description": "Mental preparation, motivation, arousal, personality and aggression in sport",
+    "subskills": [
+      {
+        "id": "skill_classification",
+        "name": "Skill Classification and Goal Setting",
+        "critical": true,
+        "keywords": ["basic skills", "complex skills", "open skills", "closed skills", "SMART targets", "outcome goals", "performance goals"]
+      },
+      {
+        "id": "mental_preparation",
+        "name": "Mental Preparation Techniques",
+        "critical": true,
+        "keywords": ["imagery", "mental rehearsal", "selective attention", "visualisation", "positive self-talk"]
+      },
+      {
+        "id": "arousal_and_anxiety",
+        "name": "Arousal, Anxiety and Motivation",
+        "critical": true,
+        "keywords": ["inverted-U theory", "optimal arousal", "intrinsic motivation", "extrinsic motivation", "drive theory", "zone of optimal functioning"]
+      },
+      {
+        "id": "personality_and_aggression",
+        "name": "Personality and Aggression",
+        "critical": false,
+        "keywords": ["introvert", "extrovert", "direct aggression", "indirect aggression", "assertion", "channelled aggression"]
+      }
+    ],
+    "commonMisconceptions": [
+      "Higher arousal always improves performance (the inverted-U theory shows performance declines when arousal is too high)",
+      "Aggression in sport is always negative (assertion and channelled aggression can be positive and within the rules)",
+      "Intrinsic and extrinsic motivation cannot coexist (performers are often driven by a combination of both)"
+    ],
+    "highYield": true,
+    "aqaRef": "3.2.1",
+    "edexcelRef": "2.1",
+    "ocrRef": "2.1"
+  },
+  {
+    "id": "socio_cultural_influences",
+    "name": "Socio-Cultural Influences",
+    "description": "Social, cultural and ethical factors affecting participation and performance in physical activity and sport",
+    "subskills": [
+      {
+        "id": "participation_factors",
+        "name": "Factors Affecting Participation",
+        "critical": true,
+        "keywords": ["gender", "ethnicity", "age", "disability", "socioeconomic status", "role models", "media", "access"]
+      },
+      {
+        "id": "commercialisation",
+        "name": "Commercialisation and Media",
+        "critical": true,
+        "keywords": ["sponsorship", "media coverage", "golden triangle", "technology in sport", "commercialisation", "advertising"]
+      },
+      {
+        "id": "ethical_issues",
+        "name": "Ethical Issues in Sport",
+        "critical": true,
+        "keywords": ["sportsmanship", "gamesmanship", "performance-enhancing drugs", "doping", "fair play", "violence"]
+      },
+      {
+        "id": "sporting_bodies",
+        "name": "National Governing Bodies and Initiatives",
+        "critical": false,
+        "keywords": ["Sport England", "UK Sport", "grassroots", "elite sport", "legacy", "community programmes"]
+      }
+    ],
+    "commonMisconceptions": [
+      "The media only has positive effects on sport (it can also create negative pressure, bias coverage and promote unhealthy body images)",
+      "Performance-enhancing drugs only affect the individual athlete (they undermine fair competition and influence younger athletes)",
+      "Commercialisation benefits all sports equally (minority and women's sports often receive far less funding and coverage)"
+    ],
+    "highYield": true,
+    "aqaRef": "3.2.2",
+    "edexcelRef": "2.2",
+    "ocrRef": "2.2"
+  },
+  {
+    "id": "health_fitness_wellbeing",
+    "name": "Health, Fitness & Well-being",
+    "description": "The relationship between health, fitness and well-being, including sedentary lifestyles and diet",
+    "subskills": [
+      {
+        "id": "health_and_fitness",
+        "name": "Defining Health, Fitness and Well-being",
+        "critical": true,
+        "keywords": ["physical health", "mental health", "social health", "well-being", "fitness", "sedentary lifestyle"]
+      },
+      {
+        "id": "sedentary_lifestyle",
+        "name": "Consequences of a Sedentary Lifestyle",
+        "critical": true,
+        "keywords": ["obesity", "heart disease", "diabetes", "hypertension", "poor posture", "muscle atrophy", "depression"]
+      },
+      {
+        "id": "balanced_diet_health",
+        "name": "Diet and Its Impact on Health",
+        "critical": false,
+        "keywords": ["balanced diet", "energy balance", "caloric intake", "BMI", "body composition", "hydration"]
+      }
+    ],
+    "commonMisconceptions": [
+      "Being thin means you are fit and healthy (health encompasses physical, mental and social well-being, not just body weight)",
+      "A sedentary lifestyle only affects physical health (it also impacts mental health and social well-being)",
+      "Exercise alone is enough for good health (diet, sleep and mental health are equally important)"
+    ],
+    "highYield": true,
+    "aqaRef": "3.2.3",
+    "edexcelRef": "2.3",
+    "ocrRef": "2.3"
+  },
+  {
+    "id": "use_of_data",
+    "name": "Use of Data",
+    "description": "Collecting, presenting and analysing data to evaluate performance in physical activity and sport",
+    "subskills": [
+      {
+        "id": "data_collection",
+        "name": "Data Collection Methods",
+        "critical": true,
+        "keywords": ["quantitative data", "qualitative data", "fitness testing", "observation", "questionnaires", "heart rate monitors"]
+      },
+      {
+        "id": "data_presentation",
+        "name": "Presenting Data",
+        "critical": false,
+        "keywords": ["bar charts", "line graphs", "pie charts", "tables", "scatter diagrams", "normative data"]
+      },
+      {
+        "id": "data_analysis",
+        "name": "Analysing and Evaluating Data",
+        "critical": true,
+        "keywords": ["mean", "median", "mode", "range", "trends", "reliability", "validity", "comparisons"]
+      }
+    ],
+    "commonMisconceptions": [
+      "Quantitative data is always more useful than qualitative data (both have value; qualitative data provides context that numbers cannot)",
+      "A single fitness test result tells you everything about a performer (multiple tests and repeated measures give a more accurate picture)",
+      "Normative data tables apply equally to everyone regardless of age or sex (tables are specific to population groups)"
+    ],
+    "highYield": false,
+    "aqaRef": "3.2.4",
+    "edexcelRef": "2.4",
+    "ocrRef": "2.4"
+  },
+  {
+    "id": "biomechanics",
+    "name": "Biomechanics",
+    "description": "Forces, motion and the application of Newton's laws to sporting performance",
+    "subskills": [
+      {
+        "id": "forces_in_sport",
+        "name": "Forces in Sport",
+        "critical": true,
+        "keywords": ["gravity", "friction", "air resistance", "net force", "reaction force", "weight", "drag"]
+      },
+      {
+        "id": "newtons_laws",
+        "name": "Newton's Laws of Motion",
+        "critical": true,
+        "keywords": ["inertia", "acceleration", "action-reaction", "force", "mass", "momentum", "impulse"]
+      },
+      {
+        "id": "projectile_motion",
+        "name": "Projectile Motion and Flight Paths",
+        "critical": false,
+        "keywords": ["angle of release", "speed of release", "height of release", "parabolic flight", "spin", "Bernoulli effect"]
+      }
+    ],
+    "commonMisconceptions": [
+      "Heavier objects always fall faster (in the absence of air resistance, all objects accelerate at the same rate due to gravity)",
+      "A ball in flight has a forward force acting on it (once released, only gravity and air resistance act on it; there is no forward propelling force)",
+      "Newton's third law means forces cancel out (the action and reaction act on different objects, so they do not cancel)"
+    ],
+    "highYield": false,
+    "aqaRef": "3.1.2",
+    "edexcelRef": "1.2",
+    "ocrRef": "1.4"
+  },
+  {
+    "id": "nutrition",
+    "name": "Nutrition",
+    "description": "The role of nutrients, hydration and dietary planning for physical activity and sport",
+    "subskills": [
+      {
+        "id": "macronutrients",
+        "name": "Macronutrients",
+        "critical": true,
+        "keywords": ["carbohydrates", "proteins", "fats", "glycogen", "amino acids", "energy", "glucose"]
+      },
+      {
+        "id": "micronutrients_and_water",
+        "name": "Micronutrients and Hydration",
+        "critical": true,
+        "keywords": ["vitamins", "minerals", "calcium", "iron", "hydration", "dehydration", "electrolytes", "water"]
+      },
+      {
+        "id": "diet_and_performance",
+        "name": "Diet and Sporting Performance",
+        "critical": true,
+        "keywords": ["carbohydrate loading", "timing of meals", "protein intake", "energy balance", "pre-event meals", "recovery nutrition"]
+      },
+      {
+        "id": "dietary_manipulation",
+        "name": "Dietary Manipulation and Supplements",
+        "critical": false,
+        "keywords": ["supplements", "creatine", "caffeine", "protein shakes", "ergogenic aids", "energy drinks"]
+      }
+    ],
+    "commonMisconceptions": [
+      "All fats are bad for you (unsaturated fats are essential for insulation, organ protection and energy)",
+      "Protein supplements are necessary to build muscle (a balanced diet usually provides sufficient protein)",
+      "Drinking water only matters during exercise (hydration before, during and after activity is important)"
+    ],
+    "highYield": true,
+    "aqaRef": "3.2.3",
+    "edexcelRef": "2.3",
+    "ocrRef": "2.3"
+  },
+  {
+    "id": "practical_performance",
+    "name": "Practical Performance",
+    "description": "Application of skills, tactics and strategies in physical activity and sport, including analysis and evaluation",
+    "subskills": [
+      {
+        "id": "skills_and_techniques",
+        "name": "Skills and Techniques in Practice",
+        "critical": true,
+        "keywords": ["passing", "shooting", "dribbling", "tackling", "stroke play", "technique", "consistency"]
+      },
+      {
+        "id": "tactics_and_strategies",
+        "name": "Tactics and Strategies",
+        "critical": true,
+        "keywords": ["formations", "set plays", "decision-making", "game plans", "attacking", "defending", "adaptation"]
+      },
+      {
+        "id": "performance_analysis",
+        "name": "Analysing and Evaluating Performance",
+        "critical": true,
+        "keywords": ["strengths", "weaknesses", "feedback", "personal exercise programme", "action plan", "improvement"]
+      }
+    ],
+    "commonMisconceptions": [
+      "Natural talent is more important than practice (deliberate practice and effective training are key to improvement)",
+      "Tactics are only relevant in team sports (individual sports also require strategic thinking and game plans)",
+      "Analysis of performance is only about watching video replays (it includes self-reflection, peer observation and data analysis)"
+    ],
+    "highYield": true,
+    "aqaRef": "3.3",
+    "edexcelRef": "3.1",
+    "ocrRef": "3.1"
+  }
+]

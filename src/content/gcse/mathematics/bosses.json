@@ -1,0 +1,162 @@
+[
+  {
+    "topicId": "fractions_decimals_percentages",
+    "bossName": "The Recurring Nightmare",
+    "flavourText": "This decimal just keeps going and going. Show it who is boss by converting it to a fraction!",
+    "emoji": "🔁",
+    "hp": 100,
+    "hpBarColour": "#E74C3C"
+  },
+  {
+    "topicId": "indices_standard_form",
+    "bossName": "Professor Power-Up",
+    "flavourText": "Armed with exponents and enormous numbers, this boss thinks they are untouchable. Prove that even the biggest numbers have rules!",
+    "emoji": "⚡",
+    "hp": 100,
+    "hpBarColour": "#F39C12"
+  },
+  {
+    "topicId": "surds",
+    "bossName": "The Irrational One",
+    "flavourText": "They cannot be written as a neat fraction and they are proud of it. Simplify them down to size!",
+    "emoji": "🌀",
+    "hp": 100,
+    "hpBarColour": "#8E44AD"
+  },
+  {
+    "topicId": "algebraic_expressions",
+    "bossName": "Baron Brackets",
+    "flavourText": "Hiding behind layers of brackets and like terms. Expand, simplify and factorise your way to victory!",
+    "emoji": "🧩",
+    "hp": 100,
+    "hpBarColour": "#2ECC71"
+  },
+  {
+    "topicId": "linear_equations_inequalities",
+    "bossName": "The Balancing Act",
+    "flavourText": "Everything must stay perfectly balanced. Whatever you do to one side, you had better do to the other!",
+    "emoji": "⚖️",
+    "hp": 100,
+    "hpBarColour": "#3498DB"
+  },
+  {
+    "topicId": "quadratic_equations",
+    "bossName": "The Parabola King",
+    "flavourText": "Rising and falling in a perfect curve, this boss always has two solutions up their sleeve. Can you find them both?",
+    "emoji": "👑",
+    "hp": 100,
+    "hpBarColour": "#E67E22"
+  },
+  {
+    "topicId": "graphs",
+    "bossName": "Captain Coordinates",
+    "flavourText": "Plotting their next move on a grid of infinite possibilities. Track their gradient and intercept their plans!",
+    "emoji": "📈",
+    "hp": 100,
+    "hpBarColour": "#1ABC9C"
+  },
+  {
+    "topicId": "sequences",
+    "bossName": "The Pattern Phantom",
+    "flavourText": "They follow a pattern, but can you crack it? Find the nth term and predict their every move!",
+    "emoji": "👻",
+    "hp": 100,
+    "hpBarColour": "#9B59B6"
+  },
+  {
+    "topicId": "ratio_proportion",
+    "bossName": "The Divider",
+    "flavourText": "Sharing is caring, but only if you share in the right ratio. Get the parts right and this boss crumbles!",
+    "emoji": "🍕",
+    "hp": 100,
+    "hpBarColour": "#E91E63"
+  },
+  {
+    "topicId": "angles_polygons",
+    "bossName": "Angular Apprentice",
+    "flavourText": "Armed with a protractor and a love of parallel lines, this boss demands you give reasons for every answer!",
+    "emoji": "📐",
+    "hp": 100,
+    "hpBarColour": "#FF5722"
+  },
+  {
+    "topicId": "transformations",
+    "bossName": "The Shape Shifter",
+    "flavourText": "Translating, rotating, reflecting and enlarging at will. Describe their transformation fully to defeat them!",
+    "emoji": "🔄",
+    "hp": 100,
+    "hpBarColour": "#00BCD4"
+  },
+  {
+    "topicId": "area_perimeter_volume",
+    "bossName": "Lord of Dimensions",
+    "flavourText": "Ruling over 2D and 3D realms alike. Calculate every surface and fill every volume to bring them down!",
+    "emoji": "📦",
+    "hp": 100,
+    "hpBarColour": "#795548"
+  },
+  {
+    "topicId": "pythagoras_trigonometry",
+    "bossName": "The Hypotenuse Hunter",
+    "flavourText": "Lurking in right-angled triangles, always opposite the right angle. Use SOH CAH TOA to track them down!",
+    "emoji": "📏",
+    "hp": 100,
+    "hpBarColour": "#607D8B"
+  },
+  {
+    "topicId": "circle_theorems",
+    "bossName": "The Theorem Wheel",
+    "flavourText": "Spinning through cyclic quadrilaterals and tangent lines. Master the circle theorems and break the cycle!",
+    "emoji": "🎡",
+    "hp": 100,
+    "hpBarColour": "#FF9800"
+  },
+  {
+    "topicId": "vectors",
+    "bossName": "Vector Vortex",
+    "flavourText": "Moving with both magnitude and direction, this boss can prove any two points are collinear. Can you keep up?",
+    "emoji": "➡️",
+    "hp": 100,
+    "hpBarColour": "#4CAF50"
+  },
+  {
+    "topicId": "probability",
+    "bossName": "Lady Luck",
+    "flavourText": "Nothing is certain except that you will need a tree diagram. Branch out and beat the odds!",
+    "emoji": "🎲",
+    "hp": 100,
+    "hpBarColour": "#9C27B0"
+  },
+  {
+    "topicId": "statistics",
+    "bossName": "The Mean Machine",
+    "flavourText": "Crunching data and plotting graphs at lightning speed. Find the averages and spread to outsmart them!",
+    "emoji": "📊",
+    "hp": 100,
+    "hpBarColour": "#2196F3"
+  },
+  {
+    "topicId": "bounds",
+    "bossName": "The Limit Keeper",
+    "flavourText": "Guarding the upper and lower bounds of every measurement. Get your accuracy right to slip past them!",
+    "emoji": "🔒",
+    "hp": 100,
+    "hpBarColour": "#F44336"
+  },
+  {
+    "topicId": "simultaneous_equations",
+    "bossName": "The Double Agent",
+    "flavourText": "Two equations, two unknowns, one boss to beat. Eliminate or substitute your way to the answer!",
+    "emoji": "🕵️",
+    "hp": 100,
+    "hpBarColour": "#009688"
+  },
+  {
+    "topicId": "iteration_functions",
+    "bossName": "The Infinite Loop",
+    "flavourText": "Feeding outputs back in as inputs, getting closer and closer to the answer. Iterate until you converge on victory!",
+    "emoji": "♾️",
+    "hp": 100,
+    "hpBarColour": "#673AB7"
+  }
+]

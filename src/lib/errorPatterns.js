@@ -2,7 +2,7 @@
 // Tracks recurring error keywords across sessions, detects patterns,
 // and surfaces them for dashboard alerts and feedback warnings.
 
-import { getCurrentSubject } from './storage';
+import { getCurrentSubject, getCurrentLevel } from './storage';
 
 const PREFIX = 'astarena';
 
@@ -17,6 +17,12 @@ function readJSON(key, fallback = null) {
 
 function writeJSON(key, data) {
   localStorage.setItem(`${PREFIX}:${key}`, JSON.stringify(data));
+}
+
+function errorPatternsKey(subject) {
+  const s = subject || getCurrentSubject();
+  const level = getCurrentLevel();
+  return `${level}:${s}:errorPatterns`;
 }
 
 // ─── Severity Thresholds ───
@@ -34,8 +40,7 @@ const STALE_DAYS = 14;         // Patterns older than 14 days are filtered out
  * @param {string} [subject] — defaults to current subject
  */
 export function trackErrorPatterns(attempt, subject) {
-  const s = subject || getCurrentSubject();
-  const patterns = readJSON(`${s}:errorPatterns`, {});
+  const patterns = readJSON(errorPatternsKey(subject), {});
 
   const { topicId, subskillIds = [], errorKeywords = [] } = attempt;
 
@@ -66,7 +71,7 @@ export function trackErrorPatterns(attempt, subject) {
     p.topicBreakdown[topicId].subskillIds = [...existing];
   }
 
-  writeJSON(`${s}:errorPatterns`, patterns);
+  writeJSON(errorPatternsKey(subject), patterns);
 }
 
 // ─── Read Functions ───
@@ -75,8 +80,7 @@ export function trackErrorPatterns(attempt, subject) {
  * Get raw error patterns for a subject.
  */
 export function getErrorPatterns(subject) {
-  const s = subject || getCurrentSubject();
-  return readJSON(`${s}:errorPatterns`, {});
+  return readJSON(errorPatternsKey(subject), {});
 }
 
 /**
@@ -162,17 +166,15 @@ export function getMistakesByTopic(subject) {
  * Dismiss/remove a specific pattern (student marks it as resolved).
  */
 export function dismissPattern(keyword, subject) {
-  const s = subject || getCurrentSubject();
-  const patterns = readJSON(`${s}:errorPatterns`, {});
+  const patterns = readJSON(errorPatternsKey(subject), {});
   const normalised = keyword.toLowerCase().trim();
   delete patterns[normalised];
-  writeJSON(`${s}:errorPatterns`, patterns);
+  writeJSON(errorPatternsKey(subject), patterns);
 }
 
 /**
  * Clear all error patterns for a subject.
  */
 export function clearErrorPatterns(subject) {
-  const s = subject || getCurrentSubject();
-  writeJSON(`${s}:errorPatterns`, {});
+  writeJSON(errorPatternsKey(subject), {});
 }

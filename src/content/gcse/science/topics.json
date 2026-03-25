@@ -1,0 +1,1138 @@
+[
+  {
+    "id": "cell_biology",
+    "name": "Cell Biology",
+    "description": "Structure and function of plant, animal and bacterial cells, including microscopy and cell division",
+    "subskills": [
+      {
+        "id": "cell_structure",
+        "name": "Cell Structure",
+        "critical": true,
+        "keywords": ["nucleus", "mitochondria", "cell membrane", "ribosome", "cytoplasm", "cell wall", "chloroplast", "vacuole"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "microscopy",
+        "name": "Microscopy",
+        "critical": false,
+        "keywords": ["magnification", "resolution", "electron microscope", "light microscope", "eyepiece", "objective lens"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "cell_division_mitosis",
+        "name": "Cell Division (Mitosis)",
+        "critical": true,
+        "keywords": ["mitosis", "cell cycle", "chromosomes", "DNA replication", "growth", "repair"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "stem_cells",
+        "name": "Stem Cells",
+        "critical": false,
+        "keywords": ["embryonic stem cells", "adult stem cells", "differentiation", "meristem", "therapeutic cloning"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "transport_in_cells",
+        "name": "Transport in Cells",
+        "critical": true,
+        "keywords": ["diffusion", "osmosis", "active transport", "concentration gradient", "partially permeable membrane"],
+        "tier": "both",
+        "pathway": "both"
+      }
+    ],
+    "commonMisconceptions": [
+      "Only plant cells have a cell membrane (all cells have one; plants also have a cell wall)",
+      "Mitosis produces four cells (it produces two genetically identical cells)",
+      "Osmosis is the movement of water from high to low concentration (it moves from dilute to concentrated solution)"
+    ],
+    "highYield": true,
+    "aqaRef": "4.1.1",
+    "edexcelRef": "SB1, SB2",
+    "ocrRef": "B1"
+  },
+  {
+    "id": "organisation",
+    "name": "Organisation",
+    "description": "How cells are organised into tissues, organs and organ systems in plants and animals",
+    "subskills": [
+      {
+        "id": "levels_of_organisation",
+        "name": "Levels of Organisation",
+        "critical": true,
+        "keywords": ["cell", "tissue", "organ", "organ system", "organism"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "digestive_system",
+        "name": "The Digestive System",
+        "critical": true,
+        "keywords": ["enzymes", "amylase", "protease", "lipase", "bile", "stomach", "small intestine", "villi"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "circulatory_system",
+        "name": "The Circulatory System",
+        "critical": true,
+        "keywords": ["heart", "arteries", "veins", "capillaries", "plasma", "red blood cells", "white blood cells", "platelets"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "plant_organ_systems",
+        "name": "Plant Organ Systems",
+        "critical": false,
+        "keywords": ["xylem", "phloem", "transpiration", "translocation", "root hair cells", "stomata", "guard cells"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "non_communicable_diseases",
+        "name": "Non-Communicable Diseases",
+        "critical": false,
+        "keywords": ["cancer", "cardiovascular disease", "risk factors", "tumour", "benign", "malignant", "lifestyle"],
+        "tier": "both",
+        "pathway": "both"
+      }
+    ],
+    "commonMisconceptions": [
+      "Arteries always carry oxygenated blood (the pulmonary artery carries deoxygenated blood)",
+      "Enzymes are living organisms (they are biological catalysts made of protein)",
+      "Veins have thick muscular walls (veins have thin walls; arteries have thick walls)"
+    ],
+    "highYield": true,
+    "aqaRef": "4.2.1",
+    "edexcelRef": "SB1, SB6, SB8",
+    "ocrRef": "B2"
+  },
+  {
+    "id": "infection_and_response",
+    "name": "Infection and Response",
+    "description": "Pathogens, the immune system, vaccination and drug development",
+    "subskills": [
+      {
+        "id": "pathogens_and_disease",
+        "name": "Pathogens and Disease",
+        "critical": true,
+        "keywords": ["bacteria", "virus", "fungus", "protist", "pathogen", "communicable disease", "transmission"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "immune_system",
+        "name": "The Immune System",
+        "critical": true,
+        "keywords": ["white blood cells", "phagocytosis", "antibodies", "antitoxins", "lymphocytes", "antigens"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "vaccination",
+        "name": "Vaccination",
+        "critical": true,
+        "keywords": ["vaccine", "dead pathogen", "weakened pathogen", "memory cells", "herd immunity", "antibodies"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "antibiotics_and_drugs",
+        "name": "Antibiotics and Drug Development",
+        "critical": false,
+        "keywords": ["antibiotic", "painkiller", "clinical trial", "placebo", "double blind", "penicillin", "antibiotic resistance"],
+        "tier": "both",
+        "pathway": "both"
+      }
+    ],
+    "commonMisconceptions": [
+      "Antibiotics can treat viral infections (they only work on bacteria)",
+      "Vaccines contain the full-strength pathogen (they contain dead or weakened forms)",
+      "Your body becomes immune after taking antibiotics (antibiotics kill bacteria; your immune system creates immunity)"
+    ],
+    "highYield": true,
+    "aqaRef": "4.3.1",
+    "edexcelRef": "SB5",
+    "ocrRef": "B3"
+  },
+  {
+    "id": "bioenergetics",
+    "name": "Bioenergetics",
+    "description": "Photosynthesis, respiration and how organisms transfer energy",
+    "subskills": [
+      {
+        "id": "photosynthesis",
+        "name": "Photosynthesis",
+        "critical": true,
+        "keywords": ["chlorophyll", "carbon dioxide", "water", "glucose", "oxygen", "light energy", "endothermic", "chloroplast"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "limiting_factors",
+        "name": "Limiting Factors of Photosynthesis",
+        "critical": true,
+        "keywords": ["light intensity", "temperature", "carbon dioxide concentration", "rate of photosynthesis", "inverse square law"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "aerobic_respiration",
+        "name": "Aerobic Respiration",
+        "critical": true,
+        "keywords": ["glucose", "oxygen", "carbon dioxide", "water", "energy", "mitochondria", "exothermic"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "anaerobic_respiration",
+        "name": "Anaerobic Respiration",
+        "critical": false,
+        "keywords": ["lactic acid", "oxygen debt", "fermentation", "ethanol", "muscle fatigue"],
+        "tier": "both",
+        "pathway": "both"
+      }
+    ],
+    "commonMisconceptions": [
+      "Plants only photosynthesise and do not respire (plants respire all the time)",
+      "Respiration is just breathing (respiration is a chemical reaction in cells; breathing is ventilation)",
+      "Photosynthesis happens at night too (it requires light energy)"
+    ],
+    "highYield": true,
+    "aqaRef": "4.4.1",
+    "edexcelRef": "SB1, SB6",
+    "ocrRef": "B3"
+  },
+  {
+    "id": "homeostasis",
+    "name": "Homeostasis and Response",
+    "description": "How the body maintains stable internal conditions, including the nervous and endocrine systems",
+    "subskills": [
+      {
+        "id": "homeostasis_principles",
+        "name": "Principles of Homeostasis",
+        "critical": true,
+        "keywords": ["receptor", "coordination centre", "effector", "stimulus", "response", "negative feedback"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "nervous_system",
+        "name": "The Nervous System",
+        "critical": true,
+        "keywords": ["neurone", "synapse", "reflex arc", "sensory neurone", "relay neurone", "motor neurone", "reaction time"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "hormonal_control",
+        "name": "Hormonal Control",
+        "critical": true,
+        "keywords": ["insulin", "glucagon", "adrenaline", "thyroxine", "pancreas", "diabetes", "blood glucose"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "thermoregulation",
+        "name": "Thermoregulation",
+        "critical": false,
+        "keywords": ["vasoconstriction", "vasodilation", "sweating", "shivering", "hypothalamus", "body temperature"],
+        "tier": "higher",
+        "pathway": "both"
+      }
+    ],
+    "commonMisconceptions": [
+      "Hormonal responses are faster than nervous responses (nervous responses are much faster)",
+      "Insulin raises blood glucose levels (insulin lowers blood glucose; glucagon raises it)",
+      "Reflexes are controlled by the brain (reflex arcs bypass the brain, going through the spinal cord)"
+    ],
+    "highYield": true,
+    "aqaRef": "4.5.1",
+    "edexcelRef": "SB2, SB7",
+    "ocrRef": "B5"
+  },
+  {
+    "id": "inheritance_and_evolution",
+    "name": "Inheritance, Variation and Evolution",
+    "description": "Genetics, natural selection, evolution and classification",
+    "subskills": [
+      {
+        "id": "dna_and_genes",
+        "name": "DNA, Genes and Chromosomes",
+        "critical": true,
+        "keywords": ["DNA", "gene", "chromosome", "genome", "allele", "double helix", "base pairs"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "genetic_inheritance",
+        "name": "Genetic Inheritance",
+        "critical": true,
+        "keywords": ["dominant", "recessive", "homozygous", "heterozygous", "genotype", "phenotype", "Punnett square", "meiosis"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "natural_selection",
+        "name": "Natural Selection and Evolution",
+        "critical": true,
+        "keywords": ["variation", "mutation", "survival of the fittest", "adaptation", "evolution", "Darwin", "speciation"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "classification",
+        "name": "Classification",
+        "critical": false,
+        "keywords": ["kingdom", "phylum", "class", "order", "family", "genus", "species", "Linnaeus", "three-domain system"],
+        "tier": "both",
+        "pathway": "both"
+      }
+    ],
+    "commonMisconceptions": [
+      "Organisms choose to evolve or adapt (evolution happens through random mutations and natural selection over generations)",
+      "Dominant alleles are more common than recessive ones (dominant just means it is expressed in the heterozygous form)",
+      "Meiosis and mitosis produce the same type of cells (meiosis produces four genetically different gametes; mitosis produces two identical cells)"
+    ],
+    "highYield": true,
+    "aqaRef": "4.6.1",
+    "edexcelRef": "SB3, SB4",
+    "ocrRef": "B6"
+  },
+  {
+    "id": "ecology",
+    "name": "Ecology",
+    "description": "Ecosystems, biodiversity, food chains and human impacts on the environment",
+    "subskills": [
+      {
+        "id": "ecosystems",
+        "name": "Ecosystems and Habitats",
+        "critical": true,
+        "keywords": ["community", "population", "ecosystem", "habitat", "abiotic", "biotic", "interdependence"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "food_chains_and_webs",
+        "name": "Food Chains and Webs",
+        "critical": true,
+        "keywords": ["producer", "consumer", "predator", "prey", "trophic level", "biomass", "decomposer"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "carbon_and_water_cycles",
+        "name": "Cycling of Materials",
+        "critical": false,
+        "keywords": ["carbon cycle", "water cycle", "decomposition", "nitrogen cycle", "respiration", "photosynthesis"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "biodiversity_and_human_impact",
+        "name": "Biodiversity and Human Impact",
+        "critical": true,
+        "keywords": ["deforestation", "global warming", "pollution", "land use", "biodiversity", "extinction", "conservation"],
+        "tier": "both",
+        "pathway": "both"
+      }
+    ],
+    "commonMisconceptions": [
+      "Energy is recycled in an ecosystem (energy flows through and is lost as heat; only materials are recycled)",
+      "Decomposers are not important in food chains (they are essential for recycling nutrients)",
+      "All global warming is caused by humans (natural factors contribute, but human activity has dramatically accelerated it)"
+    ],
+    "highYield": true,
+    "aqaRef": "4.7.1",
+    "edexcelRef": "SB9",
+    "ocrRef": "B7"
+  },
+  {
+    "id": "atomic_structure_chemistry",
+    "name": "Atomic Structure and the Periodic Table",
+    "description": "The structure of atoms, electronic configuration and how the periodic table is arranged",
+    "subskills": [
+      {
+        "id": "atoms_elements_compounds",
+        "name": "Atoms, Elements and Compounds",
+        "critical": true,
+        "keywords": ["proton", "neutron", "electron", "element", "compound", "mixture", "atomic number", "mass number"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "electronic_structure",
+        "name": "Electronic Structure",
+        "critical": true,
+        "keywords": ["electron shells", "electron configuration", "energy levels", "2,8,8", "outer shell"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "periodic_table",
+        "name": "The Periodic Table",
+        "critical": true,
+        "keywords": ["groups", "periods", "metals", "non-metals", "alkali metals", "halogens", "noble gases", "Mendeleev"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "isotopes",
+        "name": "Isotopes and Relative Atomic Mass",
+        "critical": false,
+        "keywords": ["isotope", "relative atomic mass", "mass number", "neutron number", "abundance"],
+        "tier": "higher",
+        "pathway": "both"
+      }
+    ],
+    "commonMisconceptions": [
+      "Electrons orbit the nucleus like planets around the sun (they exist in energy levels/shells, not fixed orbits)",
+      "The atomic number is the number of neutrons (it is the number of protons)",
+      "All atoms of the same element are identical (isotopes have different numbers of neutrons)"
+    ],
+    "highYield": true,
+    "aqaRef": "4.8.1",
+    "edexcelRef": "SC1",
+    "ocrRef": "C1"
+  },
+  {
+    "id": "bonding_and_structure",
+    "name": "Bonding, Structure and Properties of Matter",
+    "description": "How atoms bond together and how structure determines properties",
+    "subskills": [
+      {
+        "id": "ionic_bonding",
+        "name": "Ionic Bonding",
+        "critical": true,
+        "keywords": ["ion", "electrostatic attraction", "ionic bond", "lattice", "sodium chloride", "electron transfer", "giant ionic structure"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "covalent_bonding",
+        "name": "Covalent Bonding",
+        "critical": true,
+        "keywords": ["shared pair", "covalent bond", "molecule", "simple molecular", "giant covalent", "polymer", "diamond", "graphite"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "metallic_bonding",
+        "name": "Metallic Bonding",
+        "critical": true,
+        "keywords": ["delocalised electrons", "metallic bond", "sea of electrons", "conductivity", "malleability", "alloy"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "properties_of_structures",
+        "name": "Properties of Different Structures",
+        "critical": false,
+        "keywords": ["melting point", "boiling point", "conductivity", "solubility", "intermolecular forces", "nanoparticles"],
+        "tier": "both",
+        "pathway": "both"
+      }
+    ],
+    "commonMisconceptions": [
+      "Ionic compounds conduct electricity as solids (they only conduct when dissolved or molten because ions must be free to move)",
+      "Covalent bonds are weak (covalent bonds are strong; it is the intermolecular forces between simple molecules that are weak)",
+      "Metals conduct electricity because of ions (it is the delocalised electrons that carry the charge)"
+    ],
+    "highYield": true,
+    "aqaRef": "4.9.1",
+    "edexcelRef": "SC1",
+    "ocrRef": "C2"
+  },
+  {
+    "id": "quantitative_chemistry",
+    "name": "Quantitative Chemistry",
+    "description": "Moles, masses, concentrations and balancing equations",
+    "subskills": [
+      {
+        "id": "relative_formula_mass",
+        "name": "Relative Formula Mass",
+        "critical": true,
+        "keywords": ["relative atomic mass", "relative formula mass", "Mr", "Ar", "periodic table"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "moles_and_amounts",
+        "name": "Moles and Amounts of Substance",
+        "critical": true,
+        "keywords": ["mole", "Avogadro", "molar mass", "number of moles", "mass", "concentration"],
+        "tier": "higher",
+        "pathway": "both"
+      },
+      {
+        "id": "balancing_equations",
+        "name": "Balancing Chemical Equations",
+        "critical": true,
+        "keywords": ["balanced equation", "reactants", "products", "conservation of mass", "state symbols"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "percentage_yield",
+        "name": "Yield and Atom Economy",
+        "critical": false,
+        "keywords": ["percentage yield", "atom economy", "theoretical yield", "actual yield", "sustainability"],
+        "tier": "higher",
+        "pathway": "both"
+      }
+    ],
+    "commonMisconceptions": [
+      "Mass is lost during a chemical reaction (mass is always conserved; gases may escape giving the appearance of mass loss)",
+      "A mole is just a big number (it is specifically 6.02 x 10^23 particles, linked to relative atomic mass in grams)",
+      "You can change the small numbers in a formula to balance an equation (only the big numbers in front can be changed)"
+    ],
+    "highYield": true,
+    "aqaRef": "4.10.1",
+    "edexcelRef": "SC1, SC9",
+    "ocrRef": "C3"
+  },
+  {
+    "id": "chemical_changes",
+    "name": "Chemical Changes",
+    "description": "Reactivity, acids, electrolysis and the extraction of metals",
+    "subskills": [
+      {
+        "id": "reactivity_series",
+        "name": "The Reactivity Series",
+        "critical": true,
+        "keywords": ["reactivity series", "displacement", "oxidation", "reduction", "extraction", "carbon", "electrolysis"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "acids_and_alkalis",
+        "name": "Acids, Alkalis and Neutralisation",
+        "critical": true,
+        "keywords": ["acid", "alkali", "base", "neutralisation", "pH", "indicator", "salt", "hydrogen ions", "hydroxide ions"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "electrolysis",
+        "name": "Electrolysis",
+        "critical": true,
+        "keywords": ["electrolyte", "electrode", "anode", "cathode", "ions", "oxidation", "reduction", "OILRIG"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "making_salts",
+        "name": "Making Salts",
+        "critical": false,
+        "keywords": ["soluble salt", "insoluble salt", "filtration", "crystallisation", "acid plus base", "acid plus metal"],
+        "tier": "both",
+        "pathway": "both"
+      }
+    ],
+    "commonMisconceptions": [
+      "Oxidation is only about oxygen (oxidation is the loss of electrons; OIL RIG)",
+      "All metals react with acids (unreactive metals like gold and platinum do not)",
+      "The anode is negative (the anode is positive in electrolysis; PANIC - Positive Anode Negative Is Cathode)"
+    ],
+    "highYield": true,
+    "aqaRef": "4.11.1",
+    "edexcelRef": "SC3, SC4",
+    "ocrRef": "C4"
+  },
+  {
+    "id": "rates_and_equilibrium",
+    "name": "Rates of Reaction and Equilibrium",
+    "description": "Factors affecting reaction rates, collision theory and reversible reactions",
+    "subskills": [
+      {
+        "id": "rate_of_reaction",
+        "name": "Rate of Reaction",
+        "critical": true,
+        "keywords": ["rate", "collision theory", "activation energy", "frequency of collisions", "successful collisions"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "factors_affecting_rate",
+        "name": "Factors Affecting Rate",
+        "critical": true,
+        "keywords": ["temperature", "concentration", "pressure", "surface area", "catalyst"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "catalysts",
+        "name": "Catalysts",
+        "critical": false,
+        "keywords": ["catalyst", "activation energy", "enzyme", "biological catalyst", "reusable"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "reversible_reactions",
+        "name": "Reversible Reactions and Equilibrium",
+        "critical": false,
+        "keywords": ["reversible", "equilibrium", "Le Chatelier", "forward reaction", "backward reaction", "dynamic equilibrium"],
+        "tier": "higher",
+        "pathway": "both"
+      }
+    ],
+    "commonMisconceptions": [
+      "A catalyst is used up in a reaction (a catalyst is not consumed and can be reused)",
+      "Increasing temperature always increases the amount of product (it increases rate, but for exothermic reversible reactions it shifts equilibrium backwards)",
+      "Particles must simply touch to react (they must collide with sufficient energy, equal to or greater than the activation energy)"
+    ],
+    "highYield": true,
+    "aqaRef": "4.13.1",
+    "edexcelRef": "SC7, SC4",
+    "ocrRef": "C6"
+  },
+  {
+    "id": "energy_changes_chemistry",
+    "name": "Energy Changes (Chemistry)",
+    "description": "Exothermic and endothermic reactions, reaction profiles and bond energy calculations",
+    "subskills": [
+      {
+        "id": "exothermic_endothermic",
+        "name": "Exothermic and Endothermic Reactions",
+        "critical": true,
+        "keywords": ["exothermic", "endothermic", "temperature change", "energy transfer", "surroundings", "combustion", "neutralisation"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "reaction_profiles",
+        "name": "Reaction Profiles",
+        "critical": true,
+        "keywords": ["reaction profile", "activation energy", "energy change", "reactants", "products", "catalyst effect"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "bond_energy_calculations",
+        "name": "Bond Energy Calculations",
+        "critical": true,
+        "keywords": ["bond energy", "bond breaking", "bond making", "energy input", "energy released", "overall energy change"],
+        "tier": "higher",
+        "pathway": "both"
+      }
+    ],
+    "commonMisconceptions": [
+      "Exothermic reactions always involve flames (many exothermic reactions, such as neutralisation, do not produce flames)",
+      "Bond breaking releases energy (bond breaking requires energy; bond making releases energy)",
+      "Endothermic reactions are not useful (they are used in cold packs and thermal decomposition)"
+    ],
+    "highYield": true,
+    "aqaRef": "4.12.1",
+    "edexcelRef": "SC7",
+    "ocrRef": "C6"
+  },
+  {
+    "id": "chemical_analysis",
+    "name": "Chemical Analysis",
+    "description": "Chromatography, identification of ions and gases, and flame tests",
+    "subskills": [
+      {
+        "id": "chromatography",
+        "name": "Chromatography",
+        "critical": true,
+        "keywords": ["chromatography", "Rf value", "mobile phase", "stationary phase", "pure substance", "mixture", "solvent front"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "flame_tests",
+        "name": "Flame Tests",
+        "critical": true,
+        "keywords": ["flame test", "lithium", "sodium", "potassium", "calcium", "copper", "crimson", "yellow", "lilac", "orange-red", "green"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "test_for_gases",
+        "name": "Tests for Gases",
+        "critical": true,
+        "keywords": ["hydrogen", "squeaky pop", "oxygen", "glowing splint", "carbon dioxide", "limewater", "chlorine", "litmus"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "identification_of_ions",
+        "name": "Identification of Ions",
+        "critical": false,
+        "keywords": ["sodium hydroxide", "precipitate", "carbonate", "sulfate", "halide", "barium chloride", "silver nitrate"],
+        "tier": "higher",
+        "pathway": "both"
+      }
+    ],
+    "commonMisconceptions": [
+      "A single spot on a chromatogram always means a pure substance (it could be two substances with the same Rf value)",
+      "Flame tests work for all metal ions (only certain metal ions produce distinctive flame colours)",
+      "The limewater test turns it white (limewater turns cloudy or milky, not white)"
+    ],
+    "highYield": true,
+    "aqaRef": "4.15.1",
+    "edexcelRef": "SC2, SC6",
+    "ocrRef": "C5"
+  },
+  {
+    "id": "using_resources",
+    "name": "Using Resources",
+    "description": "Life cycle assessments, potable water, corrosion, alloys, polymers and ceramics",
+    "subskills": [
+      {
+        "id": "life_cycle_assessment",
+        "name": "Life Cycle Assessment",
+        "critical": true,
+        "keywords": ["life cycle assessment", "raw materials", "manufacture", "use", "disposal", "carbon footprint", "sustainability"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "potable_water",
+        "name": "Potable Water",
+        "critical": true,
+        "keywords": ["potable water", "desalination", "distillation", "filtration", "sterilisation", "chlorine", "freshwater"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "corrosion_and_alloys",
+        "name": "Corrosion and Alloys",
+        "critical": false,
+        "keywords": ["corrosion", "rusting", "iron", "oxygen", "water", "alloy", "steel", "bronze", "brass"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "polymers_ceramics_composites",
+        "name": "Polymers, Ceramics and Composites",
+        "critical": false,
+        "keywords": ["polymer", "thermosoftening", "thermosetting", "ceramic", "composite", "glass", "clay", "concrete"],
+        "tier": "both",
+        "pathway": "both"
+      }
+    ],
+    "commonMisconceptions": [
+      "Potable water is the same as pure water (potable water is safe to drink but still contains dissolved minerals)",
+      "Only iron rusts (rusting specifically refers to the corrosion of iron or steel; other metals corrode differently)",
+      "Life cycle assessments are completely objective (they involve subjective judgements, especially about environmental impact)"
+    ],
+    "highYield": false,
+    "aqaRef": "4.17.1",
+    "edexcelRef": "SC8",
+    "ocrRef": "C7"
+  },
+  {
+    "id": "chemistry_of_atmosphere",
+    "name": "Chemistry of the Atmosphere",
+    "description": "The composition and evolution of the atmosphere, climate change and air pollution",
+    "subskills": [
+      {
+        "id": "atmosphere_composition",
+        "name": "Composition of the Atmosphere",
+        "critical": true,
+        "keywords": ["nitrogen", "oxygen", "argon", "carbon dioxide", "78%", "21%", "0.04%"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "greenhouse_effect",
+        "name": "Greenhouse Gases and Climate Change",
+        "critical": true,
+        "keywords": ["greenhouse gas", "carbon dioxide", "methane", "water vapour", "global warming", "climate change", "infrared radiation"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "atmospheric_pollutants",
+        "name": "Atmospheric Pollutants",
+        "critical": false,
+        "keywords": ["carbon monoxide", "sulfur dioxide", "nitrogen oxides", "particulates", "acid rain", "incomplete combustion"],
+        "tier": "both",
+        "pathway": "both"
+      }
+    ],
+    "commonMisconceptions": [
+      "The ozone hole causes global warming (the ozone hole and the greenhouse effect are separate issues)",
+      "Carbon dioxide is the most abundant gas in the atmosphere (nitrogen makes up about 78%)",
+      "The atmosphere has always had the same composition (early Earth had much more carbon dioxide and almost no oxygen)"
+    ],
+    "highYield": false,
+    "aqaRef": "4.16.1",
+    "edexcelRef": "SC8",
+    "ocrRef": "C7"
+  },
+  {
+    "id": "energy_physics",
+    "name": "Energy",
+    "description": "Energy stores, transfers, conservation and efficiency",
+    "subskills": [
+      {
+        "id": "energy_stores_and_transfers",
+        "name": "Energy Stores and Transfers",
+        "critical": true,
+        "keywords": ["kinetic", "thermal", "gravitational potential", "elastic potential", "chemical", "nuclear", "magnetic", "electrostatic"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "conservation_of_energy",
+        "name": "Conservation of Energy",
+        "critical": true,
+        "keywords": ["conservation", "energy transfer", "dissipation", "closed system", "total energy"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "efficiency",
+        "name": "Efficiency",
+        "critical": true,
+        "keywords": ["efficiency", "useful output", "total input", "wasted energy", "percentage"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "energy_resources",
+        "name": "Energy Resources",
+        "critical": false,
+        "keywords": ["renewable", "non-renewable", "fossil fuels", "nuclear", "solar", "wind", "geothermal", "tidal"],
+        "tier": "both",
+        "pathway": "both"
+      }
+    ],
+    "commonMisconceptions": [
+      "Energy is used up or destroyed (energy is always conserved; it is transferred and dissipated, not lost)",
+      "Renewable means it will never run out (renewable means it can be replenished, but resources like biomass need management)",
+      "Efficiency can be greater than 100% (it is impossible to get more useful energy out than the total energy in)"
+    ],
+    "highYield": true,
+    "aqaRef": "4.18.1",
+    "edexcelRef": "SP1, SP3, SP8",
+    "ocrRef": "P1"
+  },
+  {
+    "id": "electricity",
+    "name": "Electricity",
+    "description": "Circuits, current, voltage, resistance and the mains electricity supply",
+    "subskills": [
+      {
+        "id": "circuit_basics",
+        "name": "Circuit Components and Symbols",
+        "critical": true,
+        "keywords": ["circuit", "current", "voltage", "resistance", "ammeter", "voltmeter", "series", "parallel"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "ohms_law",
+        "name": "Ohm's Law and V = IR",
+        "critical": true,
+        "keywords": ["Ohm's law", "voltage", "current", "resistance", "ohm", "directly proportional", "V = IR"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "series_and_parallel",
+        "name": "Series and Parallel Circuits",
+        "critical": true,
+        "keywords": ["series", "parallel", "total resistance", "current splitting", "voltage sharing"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "mains_electricity",
+        "name": "Mains Electricity and Power",
+        "critical": false,
+        "keywords": ["alternating current", "direct current", "live wire", "neutral wire", "earth wire", "power", "P = IV", "fuse"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "electrical_energy",
+        "name": "Energy Transfers in Circuits",
+        "critical": false,
+        "keywords": ["power", "energy", "kilowatt-hour", "national grid", "transformer", "E = Pt"],
+        "tier": "both",
+        "pathway": "both"
+      }
+    ],
+    "commonMisconceptions": [
+      "Current is used up as it flows through a circuit (current is the same at all points in a series circuit)",
+      "Voltage pushes current through the wire (voltage is the potential difference across a component, not a force)",
+      "A thicker wire has more resistance (thicker wires have less resistance because there is more space for electrons to flow)"
+    ],
+    "highYield": true,
+    "aqaRef": "4.19.1",
+    "edexcelRef": "SP10",
+    "ocrRef": "P2"
+  },
+  {
+    "id": "particle_model",
+    "name": "Particle Model of Matter",
+    "description": "States of matter, density, specific heat capacity and latent heat",
+    "subskills": [
+      {
+        "id": "states_of_matter",
+        "name": "States of Matter",
+        "critical": true,
+        "keywords": ["solid", "liquid", "gas", "particles", "arrangement", "movement", "energy", "state change"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "density",
+        "name": "Density",
+        "critical": true,
+        "keywords": ["density", "mass", "volume", "kg/m3", "floating", "sinking"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "specific_heat_capacity",
+        "name": "Specific Heat Capacity",
+        "critical": true,
+        "keywords": ["specific heat capacity", "energy", "mass", "temperature change", "E = mcT"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "latent_heat",
+        "name": "Specific Latent Heat",
+        "critical": false,
+        "keywords": ["latent heat", "fusion", "vaporisation", "state change", "temperature plateau", "E = mL"],
+        "tier": "higher",
+        "pathway": "both"
+      }
+    ],
+    "commonMisconceptions": [
+      "Particles expand when heated (particles themselves do not change size; they move more and spread further apart)",
+      "Temperature always rises when you heat a substance (during a state change, temperature remains constant)",
+      "Gas particles are bigger than solid particles (the particles are the same size; there are just bigger gaps between them in a gas)"
+    ],
+    "highYield": true,
+    "aqaRef": "4.20.1",
+    "edexcelRef": "SP14",
+    "ocrRef": "P3"
+  },
+  {
+    "id": "atomic_structure_radioactivity",
+    "name": "Atomic Structure and Radioactivity (Physics)",
+    "description": "Development of the atomic model, types of radiation, half-life, nuclear equations, and contamination versus irradiation",
+    "subskills": [
+      {
+        "id": "atomic_model_development",
+        "name": "Development of the Atomic Model",
+        "critical": true,
+        "keywords": ["Dalton", "Thomson", "Rutherford", "Bohr", "Chadwick", "plum pudding", "nuclear model", "alpha scattering"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "alpha_beta_gamma",
+        "name": "Alpha, Beta and Gamma Radiation",
+        "critical": true,
+        "keywords": ["alpha particle", "beta particle", "gamma ray", "ionising", "penetrating power", "range in air", "helium nucleus", "electron"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "half_life",
+        "name": "Half-Life",
+        "critical": true,
+        "keywords": ["half-life", "radioactive decay", "count rate", "activity", "random", "unpredictable", "decay curve"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "nuclear_equations",
+        "name": "Nuclear Equations",
+        "critical": false,
+        "keywords": ["nuclear equation", "mass number", "atomic number", "alpha decay", "beta decay", "conservation"],
+        "tier": "higher",
+        "pathway": "both"
+      },
+      {
+        "id": "contamination_vs_irradiation",
+        "name": "Contamination vs Irradiation",
+        "critical": false,
+        "keywords": ["contamination", "irradiation", "radioactive source", "exposure", "shielding", "safety precautions"],
+        "tier": "both",
+        "pathway": "both"
+      }
+    ],
+    "commonMisconceptions": [
+      "Irradiation makes an object radioactive (irradiation exposes an object to radiation but does not make it radioactive; contamination does)",
+      "All radiation is dangerous (the danger depends on the type, dose and exposure time)",
+      "Half-life means half the atoms disappear (the atoms do not vanish; they decay into a different element or isotope)"
+    ],
+    "highYield": true,
+    "aqaRef": "4.21.1",
+    "edexcelRef": "SP6",
+    "ocrRef": "P4"
+  },
+  {
+    "id": "forces",
+    "name": "Forces",
+    "description": "Contact and non-contact forces, Newton's laws, speed, acceleration and pressure",
+    "subskills": [
+      {
+        "id": "types_of_forces",
+        "name": "Types of Forces",
+        "critical": true,
+        "keywords": ["contact force", "non-contact force", "gravity", "friction", "air resistance", "normal force", "weight", "mass"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "speed_and_acceleration",
+        "name": "Speed, Velocity and Acceleration",
+        "critical": true,
+        "keywords": ["speed", "velocity", "acceleration", "distance-time graph", "velocity-time graph", "s = vt", "a = v-u/t"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "newtons_laws",
+        "name": "Newton's Laws of Motion",
+        "critical": true,
+        "keywords": ["Newton's first law", "Newton's second law", "Newton's third law", "resultant force", "F = ma", "inertia"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "stopping_distances",
+        "name": "Stopping Distances",
+        "critical": false,
+        "keywords": ["thinking distance", "braking distance", "stopping distance", "reaction time", "friction", "speed"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "pressure",
+        "name": "Pressure in Fluids",
+        "critical": false,
+        "keywords": ["pressure", "force", "area", "atmospheric pressure", "liquid pressure", "depth", "P = F/A"],
+        "tier": "both",
+        "pathway": "both"
+      }
+    ],
+    "commonMisconceptions": [
+      "Heavier objects fall faster than lighter ones in a vacuum (all objects accelerate at the same rate due to gravity, 9.8 m/s2)",
+      "An object needs a constant force to keep moving (Newton's first law says a moving object stays moving unless a force acts on it)",
+      "Mass and weight are the same thing (mass is measured in kg and does not change; weight is a force measured in N and depends on gravity)"
+    ],
+    "highYield": true,
+    "aqaRef": "4.22.1",
+    "edexcelRef": "SP1, SP2, SP9, SP15",
+    "ocrRef": "P5"
+  },
+  {
+    "id": "waves",
+    "name": "Waves",
+    "description": "Properties of waves, electromagnetic spectrum, light and sound",
+    "subskills": [
+      {
+        "id": "wave_properties",
+        "name": "Wave Properties",
+        "critical": true,
+        "keywords": ["transverse", "longitudinal", "amplitude", "wavelength", "frequency", "period", "wave speed", "v = f x lambda"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "electromagnetic_spectrum",
+        "name": "The Electromagnetic Spectrum",
+        "critical": true,
+        "keywords": ["radio", "microwave", "infrared", "visible light", "ultraviolet", "X-ray", "gamma ray", "frequency", "wavelength"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "reflection_and_refraction",
+        "name": "Reflection and Refraction",
+        "critical": true,
+        "keywords": ["reflection", "refraction", "normal line", "angle of incidence", "angle of refraction", "total internal reflection"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "sound_waves",
+        "name": "Sound Waves",
+        "critical": false,
+        "keywords": ["sound", "longitudinal", "compression", "rarefaction", "echo", "ultrasound", "hearing range"],
+        "tier": "both",
+        "pathway": "both"
+      }
+    ],
+    "commonMisconceptions": [
+      "Waves transfer matter from one place to another (waves transfer energy, not matter)",
+      "All electromagnetic waves are dangerous (only high-frequency waves like UV, X-rays and gamma rays carry enough energy to be harmful)",
+      "Sound can travel through a vacuum (sound needs a medium; it cannot travel through empty space)"
+    ],
+    "highYield": true,
+    "aqaRef": "4.23.1",
+    "edexcelRef": "SP4, SP5",
+    "ocrRef": "P6"
+  },
+  {
+    "id": "magnetism_and_electromagnetism",
+    "name": "Magnetism and Electromagnetism",
+    "description": "Magnetic fields, electromagnets, Fleming's left-hand rule, motors, generators and transformers",
+    "subskills": [
+      {
+        "id": "magnetic_fields",
+        "name": "Magnetic Fields",
+        "critical": true,
+        "keywords": ["magnetic field", "north pole", "south pole", "field lines", "permanent magnet", "induced magnet", "attraction", "repulsion"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "electromagnets",
+        "name": "Electromagnets",
+        "critical": true,
+        "keywords": ["electromagnet", "solenoid", "current", "iron core", "magnetic field strength", "turns", "relay"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "flemings_left_hand_rule",
+        "name": "Fleming's Left-Hand Rule",
+        "critical": true,
+        "keywords": ["motor effect", "force", "current", "magnetic field", "Fleming's left-hand rule", "thumb", "first finger", "second finger"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "motors",
+        "name": "Electric Motors",
+        "critical": false,
+        "keywords": ["motor", "coil", "split-ring commutator", "rotation", "force on conductor", "direct current"],
+        "tier": "both",
+        "pathway": "both"
+      },
+      {
+        "id": "generators_and_transformers",
+        "name": "Generators and Transformers",
+        "critical": false,
+        "keywords": ["generator", "electromagnetic induction", "alternator", "dynamo", "transformer", "step-up", "step-down", "Vs/Vp = Ns/Np"],
+        "tier": "higher",
+        "pathway": "both"
+      }
+    ],
+    "commonMisconceptions": [
+      "Electromagnets are always on (they only work when current flows through the coil)",
+      "Fleming's left-hand rule gives the direction of current (the second finger gives current; the thumb gives motion/force)",
+      "Transformers work with direct current (transformers only work with alternating current because a changing magnetic field is needed)"
+    ],
+    "highYield": true,
+    "aqaRef": "4.24.1",
+    "edexcelRef": "SP12, SP13",
+    "ocrRef": "P7"
+  }
+]

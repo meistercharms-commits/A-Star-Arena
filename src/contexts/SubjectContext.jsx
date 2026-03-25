@@ -1,13 +1,16 @@
 import { createContext, useContext, useState, useMemo } from 'react';
 import { getSubjectContent } from '../content/subjects';
+import { useLevel } from './LevelContext';
 
 const SubjectContext = createContext(null);
 
 const STORAGE_KEY = 'astarena:currentSubject';
 
 export function SubjectProvider({ children }) {
+  const { level } = useLevel();
+
   const [subjectId, setSubjectIdRaw] = useState(() => {
-    return localStorage.getItem(STORAGE_KEY) || 'biology';
+    return localStorage.getItem(STORAGE_KEY) || (level === 'gcse' ? 'mathematics' : 'biology');
   });
 
   function setSubjectId(id) {
@@ -15,7 +18,7 @@ export function SubjectProvider({ children }) {
     setSubjectIdRaw(id);
   }
 
-  const { topics, bosses } = useMemo(() => getSubjectContent(subjectId), [subjectId]);
+  const { topics, bosses } = useMemo(() => getSubjectContent(subjectId, level), [subjectId, level]);
 
   const value = useMemo(() => ({
     subjectId,

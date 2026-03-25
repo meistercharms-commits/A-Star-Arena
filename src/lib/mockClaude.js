@@ -518,6 +518,230 @@ const questionBank = {
       { prompt: "Explain the process of hypothesis testing for a binomial distribution. Include the concepts of null hypothesis, alternative hypothesis, significance level, and critical region. Give an example. (6 marks)", subskillIds: ["hypothesis_testing"], keywords: ["H₀", "H₁", "significance level", "critical region", "p-value", "reject or fail to reject"], maxScore: 6, rubricPoints: ["State null hypothesis H₀ (the default claim about parameter p) and alternative H₁", "Choose significance level (e.g., 5% or 1%) — probability of incorrectly rejecting H₀", "Under H₀, X follows B(n, p₀); calculate probability of observed or more extreme result", "Critical region: set of values that lead to rejecting H₀", "If observed value falls in critical region (or p-value < significance level), reject H₀", "Example: testing if a coin is biased — H₀: p=0.5, H₁: p≠0.5, observe 18 heads in 20 tosses, likely reject H₀"] },
     ],
   },
+
+  // ─── Art (GCSE) ───
+
+  formal_elements: {
+    recall: [
+      { prompt: "Name the seven formal elements of art.", keywords: ["line", "tone", "colour", "shape", "form", "texture", "pattern"], maxScore: 3 },
+      { prompt: "Define the term 'tone' in art.", keywords: ["lightness", "darkness", "shading", "range of values"], maxScore: 2 },
+      { prompt: "What is the difference between shape and form?", keywords: ["shape is 2D", "form is 3D", "shape is flat", "form has depth"], maxScore: 2 },
+    ],
+    application: [
+      { prompt: "A student is creating a still life drawing of fruit. Explain how they could use tone to make the objects appear three-dimensional.", subskillIds: ["tone_and_shading"], keywords: ["light source", "highlights", "shadows", "gradual shading", "mid-tones", "contrast", "curved surface"], maxScore: 4 },
+      { prompt: "Describe how an artist could use colour theory to create a sense of mood in a landscape painting.", subskillIds: ["colour_theory"], keywords: ["warm colours", "cool colours", "complementary", "harmony", "mood", "atmosphere", "palette"], maxScore: 3 },
+    ],
+    extended: [
+      { prompt: "Analyse how two or more formal elements work together to create visual impact in an artwork. Use specific examples in your answer. (6 marks)", subskillIds: ["tone_and_shading", "colour_theory"], keywords: ["line", "tone", "colour", "texture", "contrast", "composition", "focal point"], maxScore: 6, rubricPoints: ["Identify at least two formal elements and how they are used", "Explain how line can guide the viewer's eye through a composition", "Describe how tone creates depth, form, and a sense of light", "Discuss how colour choices affect mood, atmosphere, and emphasis", "Analyse how elements interact, e.g. bold line with flat colour vs soft tone with muted colour", "Use specific examples or art movements to illustrate points"] },
+    ],
+  },
+  recording_and_observing: {
+    recall: [
+      { prompt: "What does 'observational drawing' mean?", keywords: ["drawing from life", "looking at real objects", "recording what you see", "accuracy"], maxScore: 2 },
+      { prompt: "Name two different drawing media an artist might use for observational work.", keywords: ["pencil", "charcoal", "ink", "pen", "pastel", "conte crayon"], maxScore: 1 },
+      { prompt: "What is meant by 'proportion' in drawing?", keywords: ["relative size", "parts of an object", "compared to each other", "correct relationships"], maxScore: 2 },
+    ],
+    application: [
+      { prompt: "A student wants to record a natural form, such as a shell, in detail. Describe the techniques they should use to achieve an accurate and detailed drawing.", subskillIds: ["observational_drawing"], keywords: ["close observation", "light pencil outlines", "proportion", "measuring", "adding tone", "fine detail", "different grades of pencil"], maxScore: 4 },
+      { prompt: "Explain the purpose of making thumbnail sketches before starting a final piece of artwork.", subskillIds: ["planning_compositions"], keywords: ["explore ideas", "composition", "quick", "experiment with layout", "select best option", "plan"], maxScore: 3 },
+    ],
+    extended: [
+      { prompt: "Discuss the importance of recording from primary sources in the development of an art project. Explain how this differs from using secondary sources. (6 marks)", subskillIds: ["observational_drawing", "planning_compositions"], keywords: ["primary source", "first-hand", "secondary source", "photographs", "books", "personal response", "original", "depth"], maxScore: 6, rubricPoints: ["Primary sources are first-hand observations, e.g. real objects, landscapes, people", "Secondary sources are existing images, e.g. photographs, books, the internet", "Primary sources allow personal, unique responses with original viewpoints", "Working from life develops observational skills and understanding of form, tone, texture", "Secondary sources can supplement primary work but lack personal engagement", "Examiners expect evidence of sustained first-hand investigation in a GCSE portfolio"] },
+    ],
+  },
+  artist_research: {
+    recall: [
+      { prompt: "What should be included when researching an artist for a GCSE art project?", keywords: ["name", "art movement", "techniques", "materials", "themes", "key works", "personal response"], maxScore: 3 },
+      { prompt: "Name one art movement from the 20th century.", keywords: ["Impressionism", "Cubism", "Surrealism", "Pop Art", "Abstract Expressionism", "Expressionism"], maxScore: 1 },
+    ],
+    application: [
+      { prompt: "A student is researching a chosen artist. Explain how they should connect the artist's work to their own project development.", subskillIds: ["artist_analysis"], keywords: ["identify techniques", "analyse style", "create studies", "adapt methods", "develop own ideas", "personal response", "influence"], maxScore: 4 },
+      { prompt: "Describe how understanding an art movement can help a student develop their own artwork.", subskillIds: ["contextual_understanding"], keywords: ["context", "techniques", "philosophy", "historical influence", "informed choices", "style development"], maxScore: 3 },
+    ],
+    extended: [
+      { prompt: "Compare the work of two artists from different movements. Analyse their use of formal elements and discuss how their approaches could influence your own work. (6 marks)", subskillIds: ["artist_analysis", "contextual_understanding"], keywords: ["compare", "contrast", "formal elements", "technique", "style", "movement", "influence", "personal development"], maxScore: 6, rubricPoints: ["Identify two artists from different movements with contrasting approaches", "Analyse how each artist uses formal elements such as colour, line, tone, or texture", "Discuss the context and purpose behind each artist's work", "Compare similarities and differences in technique, subject matter, or intention", "Explain how specific techniques or ideas could influence personal project work", "Provide a personal, critical response showing understanding of both artists"] },
+    ],
+  },
+
+  // ─── Drama (GCSE) ───
+
+  performance_skills: {
+    recall: [
+      { prompt: "Name four vocal skills used by performers on stage.", keywords: ["pitch", "pace", "pause", "tone", "volume", "projection", "accent", "emphasis"], maxScore: 2 },
+      { prompt: "Name four physical skills used by performers on stage.", keywords: ["gesture", "posture", "facial expression", "movement", "gait", "proxemics", "body language", "eye contact"], maxScore: 2 },
+      { prompt: "What is meant by the term 'proxemics' in drama?", keywords: ["use of space", "distance between performers", "stage positioning", "relationships"], maxScore: 2 },
+    ],
+    application: [
+      { prompt: "A performer needs to show that their character is nervous during a scene. Describe how they could use vocal and physical skills to communicate this to the audience.", subskillIds: ["vocal_skills", "physical_skills"], keywords: ["trembling voice", "fast pace", "hesitation", "fidgeting", "avoiding eye contact", "tense posture", "quiet volume", "short sentences"], maxScore: 4 },
+      { prompt: "Explain how a performer could use space and levels on stage to show status between two characters.", subskillIds: ["use_of_space"], keywords: ["higher level", "dominance", "centre stage", "proxemics", "distance", "lower level", "submission", "blocking"], maxScore: 3 },
+    ],
+    extended: [
+      { prompt: "Discuss how a performer could use a combination of vocal skills, physical skills, and stage space to create a convincing character in a scripted performance. (6 marks)", subskillIds: ["vocal_skills", "physical_skills", "use_of_space"], keywords: ["vocal", "physical", "space", "character", "motivation", "audience", "communication", "intention"], maxScore: 6, rubricPoints: ["Vocal skills: vary pitch, pace, and volume to reflect the character's emotional state", "Physical skills: use gesture, posture, and facial expression to convey personality and mood", "Use of space: position on stage and proximity to others to show relationships and status", "All skills should be linked to the character's motivation and the context of the scene", "A convincing performance integrates skills seamlessly rather than using them in isolation", "Consider how the audience receives and interprets the combination of these techniques"] },
+    ],
+  },
+  devising_theatre: {
+    recall: [
+      { prompt: "What does 'devising' mean in drama?", keywords: ["creating original", "performance", "from scratch", "collaborative", "not from a script"], maxScore: 2 },
+      { prompt: "Name three stimuli that could be used to start a devising process.", keywords: ["image", "poem", "piece of music", "news article", "photograph", "object", "theme", "quote"], maxScore: 2 },
+      { prompt: "Name two dramatic techniques used in devised work.", keywords: ["hot-seating", "freeze-frame", "thought-tracking", "narration", "flashback", "split-stage", "physical theatre", "soundscape"], maxScore: 2 },
+    ],
+    application: [
+      { prompt: "A group is devising a piece of theatre from a photograph of an abandoned building. Describe two techniques they could use to explore the stimulus and develop scenes.", subskillIds: ["devising_techniques"], keywords: ["improvisation", "hot-seating", "thought-tracking", "freeze-frame", "explore characters", "develop narrative", "atmosphere", "backstory"], maxScore: 4 },
+      { prompt: "Explain why rehearsal techniques such as improvisation are important in the devising process.", subskillIds: ["rehearsal_process"], keywords: ["explore ideas", "spontaneous", "discover characters", "develop material", "collaborative", "refine", "experiment"], maxScore: 3 },
+    ],
+    extended: [
+      { prompt: "Evaluate how a group could use dramatic techniques and structural choices to shape a devised piece of theatre for a specific audience. (6 marks)", subskillIds: ["devising_techniques", "rehearsal_process"], keywords: ["structure", "techniques", "audience", "purpose", "impact", "genre", "dramatic tension", "climax"], maxScore: 6, rubricPoints: ["Select appropriate techniques such as physical theatre, narration, or multi-role playing", "Use structure effectively, e.g. non-linear narrative, flashbacks, episodic structure", "Consider target audience and the intended impact or message of the piece", "Build dramatic tension through pacing, contrast, and climax", "Ensure transitions between scenes are smooth and purposeful", "Evaluate the overall effectiveness of choices in communicating meaning to the audience"] },
+    ],
+  },
+  live_theatre_analysis: {
+    recall: [
+      { prompt: "Name three design elements that contribute to a live theatre production.", keywords: ["lighting", "sound", "set design", "costume", "props", "make-up", "staging"], maxScore: 2 },
+      { prompt: "What is meant by 'blocking' in a theatre production?", keywords: ["planned movement", "positioning of actors", "on stage", "director's instructions"], maxScore: 2 },
+      { prompt: "Name two types of stage configuration.", keywords: ["proscenium arch", "thrust", "in the round", "traverse", "end-on", "promenade"], maxScore: 1 },
+    ],
+    application: [
+      { prompt: "Describe how lighting could be used to create atmosphere and mood in a specific scene of a production you have seen.", subskillIds: ["lighting_design"], keywords: ["colour", "intensity", "direction", "spotlight", "wash", "mood", "focus", "atmosphere", "gel"], maxScore: 4 },
+      { prompt: "Explain how costume design communicates information about a character's personality or social status to the audience.", subskillIds: ["costume_design"], keywords: ["colour", "fabric", "style", "period", "condition", "status", "personality", "symbolism"], maxScore: 3 },
+    ],
+    extended: [
+      { prompt: "Analyse how the design elements of a live theatre production you have seen worked together to enhance the audience's understanding and experience. (6 marks)", subskillIds: ["lighting_design", "costume_design"], keywords: ["lighting", "sound", "set", "costume", "atmosphere", "meaning", "audience", "impact", "cohesion"], maxScore: 6, rubricPoints: ["Identify at least two design elements used in the production", "Describe specific examples of how each element was used in key moments", "Analyse how lighting created mood, focus, or symbolism", "Discuss how sound or music supported the narrative or emotional impact", "Explain how set and costume choices communicated time, place, or character", "Evaluate how the design elements worked together to create a cohesive theatrical experience"] },
+    ],
+  },
+
+  // ─── Music (GCSE) ───
+
+  elements_of_music: {
+    recall: [
+      { prompt: "Name the eight musical elements.", keywords: ["melody", "harmony", "rhythm", "tempo", "dynamics", "texture", "timbre", "structure"], maxScore: 3 },
+      { prompt: "What is meant by 'texture' in music?", keywords: ["layers of sound", "how parts combine", "monophonic", "homophonic", "polyphonic"], maxScore: 2 },
+      { prompt: "Define the term 'dynamics' in music.", keywords: ["volume", "loud", "soft", "crescendo", "diminuendo", "forte", "piano"], maxScore: 2 },
+    ],
+    application: [
+      { prompt: "Describe how a composer could use changes in tempo and dynamics to create contrast between two sections of a piece.", subskillIds: ["tempo_and_dynamics"], keywords: ["slow to fast", "quiet to loud", "contrast", "mood change", "dramatic effect", "tension", "release", "gradual or sudden"], maxScore: 4 },
+      { prompt: "Explain how texture can change during a piece of music and the effect this has on the listener.", subskillIds: ["texture"], keywords: ["monophonic", "homophonic", "polyphonic", "thin to thick", "layers added", "builds intensity", "variety", "interest"], maxScore: 3 },
+    ],
+    extended: [
+      { prompt: "Discuss how a composer uses the musical elements to create mood and atmosphere in a piece of music you have studied. Refer to specific musical features. (6 marks)", subskillIds: ["tempo_and_dynamics", "texture"], keywords: ["melody", "harmony", "rhythm", "dynamics", "texture", "timbre", "mood", "atmosphere", "specific examples"], maxScore: 6, rubricPoints: ["Identify the piece and its overall mood or atmosphere", "Discuss how melodic features (e.g. stepwise, conjunct, disjunct) contribute to mood", "Explain how harmonic choices (major, minor, dissonance) affect atmosphere", "Analyse the role of dynamics and tempo in building or releasing tension", "Describe how texture and timbre choices create contrast or unity", "Use specific musical terminology and reference particular sections or bars"] },
+    ],
+  },
+  set_works_analysis: {
+    recall: [
+      { prompt: "What is meant by 'binary form' in music?", keywords: ["two sections", "AB", "contrasting", "different musical ideas"], maxScore: 2 },
+      { prompt: "Define 'ostinato'.", keywords: ["repeated", "musical pattern", "same pitch and rhythm", "throughout a section"], maxScore: 2 },
+      { prompt: "What is a 'riff' in popular music?", keywords: ["short repeated", "melodic or rhythmic", "pattern", "often guitar or bass"], maxScore: 2 },
+    ],
+    application: [
+      { prompt: "Describe three musical features that are typical of a genre you have studied, such as blues, jazz, or film music.", subskillIds: ["genre_features"], keywords: ["characteristic features", "instruments", "structure", "harmony", "rhythm", "melody", "performance techniques"], maxScore: 4 },
+      { prompt: "Explain how a composer uses repetition and variation to create structure in a piece you have studied.", subskillIds: ["musical_structure"], keywords: ["theme", "repetition", "development", "variation", "contrast", "recapitulation", "unity", "balance"], maxScore: 3 },
+    ],
+    extended: [
+      { prompt: "Compare two set works you have studied from different traditions or time periods. Analyse how each composer uses the musical elements differently. (6 marks)", subskillIds: ["genre_features", "musical_structure"], keywords: ["compare", "contrast", "melody", "harmony", "rhythm", "structure", "context", "tradition", "instrumentation"], maxScore: 6, rubricPoints: ["Name two set works and their composers or traditions", "Compare melodic features, e.g. scales used, range, ornamentation", "Contrast harmonic language, e.g. major/minor tonality, modality, dissonance", "Analyse differences in rhythm and metre, e.g. syncopation, time signatures", "Discuss contrasting textures, instrumentation, or use of technology", "Place each work in its historical or cultural context and explain how this influences the musical choices"] },
+    ],
+  },
+  listening_skills: {
+    recall: [
+      { prompt: "What does 'crescendo' mean?", keywords: ["gradually getting louder", "increase in volume"], maxScore: 1 },
+      { prompt: "Name three orchestral instrument families.", keywords: ["strings", "woodwind", "brass", "percussion"], maxScore: 2 },
+      { prompt: "What is meant by 'syncopation'?", keywords: ["off-beat", "accent on weak beat", "unexpected rhythm", "displaced accent"], maxScore: 2 },
+    ],
+    application: [
+      { prompt: "When listening to an unfamiliar piece of music, describe the steps you would take to identify the key musical features.", subskillIds: ["aural_analysis"], keywords: ["identify instruments", "tempo", "dynamics", "time signature", "tonality", "texture", "structure", "melody", "rhythm"], maxScore: 4 },
+      { prompt: "Explain how you could identify whether a piece of music is in a major or minor key by listening.", subskillIds: ["tonality_recognition"], keywords: ["major sounds bright", "happy", "minor sounds dark", "sad", "listen to third", "chord quality", "overall mood"], maxScore: 3 },
+    ],
+    extended: [
+      { prompt: "Listen to or recall a piece of music and write a detailed analysis of the musical elements used. Include specific musical vocabulary. (6 marks)", subskillIds: ["aural_analysis", "tonality_recognition"], keywords: ["melody", "harmony", "rhythm", "texture", "dynamics", "timbre", "structure", "tonality", "specific vocabulary"], maxScore: 6, rubricPoints: ["Identify the instrumentation and timbral qualities of the piece", "Describe the melodic features, including range, intervals, and patterns", "Analyse the harmonic content, including key, chords, and modulations", "Discuss rhythmic features such as time signature, syncopation, or polyrhythm", "Comment on changes in dynamics, texture, and tempo throughout the piece", "Use precise musical terminology throughout the response"] },
+    ],
+  },
+
+  // ─── PE (GCSE) ───
+
+  applied_anatomy_physiology: {
+    recall: [
+      { prompt: "Name the three types of muscle found in the human body.", keywords: ["skeletal", "cardiac", "smooth"], maxScore: 2 },
+      { prompt: "State the function of tendons.", keywords: ["connect muscle to bone", "transmit force", "enable movement"], maxScore: 2 },
+      { prompt: "Name the four components of blood.", keywords: ["red blood cells", "white blood cells", "platelets", "plasma"], maxScore: 2 },
+    ],
+    application: [
+      { prompt: "Explain how the cardiovascular system responds to exercise in the short term.", subskillIds: ["cardiovascular_system"], keywords: ["heart rate increases", "stroke volume increases", "cardiac output increases", "blood redirected to muscles", "vasodilation", "vasoconstriction"], maxScore: 4 },
+      { prompt: "Describe the pathway of air from the mouth to the alveoli during inspiration.", subskillIds: ["respiratory_system"], keywords: ["mouth", "trachea", "bronchi", "bronchioles", "alveoli", "diaphragm contracts", "intercostal muscles"], maxScore: 3 },
+    ],
+    extended: [
+      { prompt: "Explain how the respiratory and cardiovascular systems work together during exercise to deliver oxygen to the working muscles. (6 marks)", subskillIds: ["cardiovascular_system", "respiratory_system"], keywords: ["breathing rate", "tidal volume", "heart rate", "cardiac output", "gaseous exchange", "haemoglobin", "oxygen delivery", "carbon dioxide removal"], maxScore: 6, rubricPoints: ["During exercise, breathing rate and tidal volume increase to take in more oxygen", "Gaseous exchange occurs at the alveoli: oxygen diffuses into the blood, CO2 diffuses out", "Oxygen binds to haemoglobin in red blood cells for transport", "Heart rate and stroke volume increase, raising cardiac output", "Blood is redistributed to working muscles via vasodilation", "CO2 is transported back to the lungs and exhaled, maintaining efficient gas exchange"] },
+    ],
+  },
+  movement_analysis: {
+    recall: [
+      { prompt: "Name three types of synovial joint.", keywords: ["hinge", "ball and socket", "pivot", "condyloid", "saddle", "gliding"], maxScore: 2 },
+      { prompt: "Define the term 'flexion'.", keywords: ["decreasing the angle", "at a joint", "bending"], maxScore: 2 },
+      { prompt: "What is an 'agonist' muscle?", keywords: ["prime mover", "muscle that contracts", "to create movement"], maxScore: 2 },
+    ],
+    application: [
+      { prompt: "Analyse the movement at the knee joint when a footballer kicks a ball. Identify the joint type, movement, agonist, and antagonist.", subskillIds: ["lever_systems"], keywords: ["hinge joint", "extension", "quadriceps agonist", "hamstrings antagonist", "knee straightens", "lower leg moves forward"], maxScore: 4 },
+      { prompt: "Explain the difference between a first-class lever and a second-class lever, giving a sporting example for each.", subskillIds: ["lever_systems"], keywords: ["first class: fulcrum between effort and load", "e.g. heading a football", "second class: load between fulcrum and effort", "e.g. calf raise", "mechanical advantage"], maxScore: 3 },
+    ],
+    extended: [
+      { prompt: "Using a sporting example of your choice, analyse the movement at two different joints involved in the action. Include joint type, movement occurring, agonist, and antagonist for each. (6 marks)", subskillIds: ["lever_systems"], keywords: ["joint type", "movement", "agonist", "antagonist", "flexion", "extension", "sporting action", "analysis"], maxScore: 6, rubricPoints: ["Name a specific sporting action and identify two joints involved", "For joint 1: state the joint type and the movement occurring (e.g. flexion, extension)", "For joint 1: identify the agonist (prime mover) and antagonist muscles", "For joint 2: state the joint type and the movement occurring", "For joint 2: identify the agonist and antagonist muscles", "Explain how the muscles work together (antagonistic pairs) to produce the sporting action"] },
+    ],
+  },
+  physical_training: {
+    recall: [
+      { prompt: "Name the five components of health-related fitness.", keywords: ["cardiovascular endurance", "muscular endurance", "muscular strength", "flexibility", "body composition"], maxScore: 3 },
+      { prompt: "State two principles of training.", keywords: ["progressive overload", "specificity", "reversibility", "individual needs", "FITT", "rest and recovery"], maxScore: 2 },
+      { prompt: "Define 'progressive overload'.", keywords: ["gradually increasing", "intensity", "duration", "frequency", "of training", "to improve fitness"], maxScore: 2 },
+    ],
+    application: [
+      { prompt: "A 100m sprinter wants to improve their performance. Design a training programme that applies the principles of training. Justify your choices.", subskillIds: ["training_methods"], keywords: ["interval training", "plyometrics", "specificity to sprinting", "progressive overload", "FITT principle", "power", "speed", "rest periods"], maxScore: 4 },
+      { prompt: "Explain how a warm-up prepares the body for physical activity.", subskillIds: ["injury_prevention"], keywords: ["increases heart rate", "increases blood flow", "raises body temperature", "increases flexibility", "mental preparation", "reduces injury risk", "synovial fluid"], maxScore: 3 },
+    ],
+    extended: [
+      { prompt: "Evaluate the suitability of two different training methods for a games player who needs to improve both cardiovascular endurance and muscular strength. (6 marks)", subskillIds: ["training_methods", "injury_prevention"], keywords: ["continuous training", "fartlek", "circuit training", "weight training", "cardiovascular endurance", "muscular strength", "advantages", "disadvantages", "suitability"], maxScore: 6, rubricPoints: ["Identify two appropriate training methods, e.g. fartlek training and circuit training", "Method 1: describe how it works and explain how it improves the target component", "Method 1: evaluate advantages and limitations for a games player", "Method 2: describe how it works and explain how it improves the target component", "Method 2: evaluate advantages and limitations for a games player", "Compare the two methods and justify which is more suitable overall, considering the demands of games"] },
+    ],
+  },
+
+  // ─── Design and Technology (GCSE) ───
+
+  core_technical_principles: {
+    recall: [
+      { prompt: "Name two renewable energy sources that could power a product.", keywords: ["solar", "wind", "hydroelectric", "biomass", "tidal", "geothermal"], maxScore: 1 },
+      { prompt: "What is meant by 'planned obsolescence'?", keywords: ["designed to become outdated", "limited lifespan", "encourages replacement", "consumer demand"], maxScore: 2 },
+      { prompt: "Define the term 'sustainability' in the context of design.", keywords: ["meeting current needs", "without compromising future generations", "environmental impact", "responsible use of resources"], maxScore: 2 },
+    ],
+    application: [
+      { prompt: "A company wants to make a children's toy more sustainable. Explain three design changes they could make.", subskillIds: ["sustainability_design"], keywords: ["recyclable materials", "reduce material waste", "longer lifespan", "biodegradable", "flat-pack to reduce transport", "renewable energy in production", "modular design"], maxScore: 4 },
+      { prompt: "Explain how electronic systems use input, process, and output to function, giving an example.", subskillIds: ["systems_approach"], keywords: ["input: sensor or switch", "process: microcontroller or circuit", "output: LED, buzzer, motor", "example", "signal flow"], maxScore: 3 },
+    ],
+    extended: [
+      { prompt: "Discuss how designers can balance functionality, aesthetics, and sustainability when developing a new product. Use examples to support your answer. (6 marks)", subskillIds: ["sustainability_design", "systems_approach"], keywords: ["function", "aesthetics", "sustainability", "materials", "manufacture", "lifecycle", "user needs", "compromise"], maxScore: 6, rubricPoints: ["Functionality: the product must work effectively and meet user needs", "Aesthetics: visual appeal, form, colour, and finish attract consumers", "Sustainability: responsible material choices, energy-efficient manufacture, recyclability", "These factors can conflict, e.g. sustainable materials may be less visually appealing or more costly", "Designers use lifecycle analysis to assess environmental impact from manufacture to disposal", "Good design finds a balance, e.g. using recycled materials with attractive finishes, or modular designs that extend product life"] },
+    ],
+  },
+  materials_and_properties: {
+    recall: [
+      { prompt: "Name three categories of material used in design and technology.", keywords: ["wood", "metal", "polymer", "textile", "paper and board", "composite"], maxScore: 2 },
+      { prompt: "Define the term 'hardness' as a material property.", keywords: ["resistance to scratching", "indentation", "abrasion", "surface wear"], maxScore: 2 },
+      { prompt: "What is the difference between a thermoplastic and a thermosetting plastic?", keywords: ["thermoplastic can be reheated", "reshaped", "thermosetting cannot", "permanent shape", "cross-linked polymers"], maxScore: 2 },
+    ],
+    application: [
+      { prompt: "A designer is choosing a material for an outdoor garden bench. Explain why they might choose a specific material and justify their choice.", subskillIds: ["material_selection"], keywords: ["weather resistant", "durable", "strong", "maintenance", "cost", "aesthetics", "hardwood or treated softwood", "recycled plastic", "stainless steel"], maxScore: 4 },
+      { prompt: "Explain how the properties of a material influence the manufacturing process chosen to shape it.", subskillIds: ["material_properties"], keywords: ["melting point", "malleability", "hardness", "casting", "moulding", "cutting", "forming", "material dictates process"], maxScore: 3 },
+    ],
+    extended: [
+      { prompt: "Compare the properties, uses, and environmental impact of natural and manufactured materials. Give named examples. (6 marks)", subskillIds: ["material_selection", "material_properties"], keywords: ["natural", "manufactured", "properties", "uses", "environmental impact", "sustainability", "examples", "lifecycle"], maxScore: 6, rubricPoints: ["Natural materials: e.g. timber, cotton, wool — sourced from nature, often renewable", "Natural materials may biodegrade but sourcing can cause deforestation or land use issues", "Manufactured materials: e.g. MDF, acrylic, polyester — processed or synthetic", "Manufactured materials offer consistency and specific properties but use energy and chemicals to produce", "Compare specific properties: e.g. timber is strong but can warp; acrylic is weather-resistant but from oil", "Evaluate environmental impact across the lifecycle: extraction, processing, use, and disposal/recycling"] },
+    ],
+  },
+  manufacturing_processes: {
+    recall: [
+      { prompt: "Name two methods of joining wood permanently.", keywords: ["glue", "PVA adhesive", "wood screws", "nails", "dowel joints", "biscuit joints"], maxScore: 1 },
+      { prompt: "What is meant by 'injection moulding'?", keywords: ["molten plastic", "injected into a mould", "mass production", "complex shapes", "thermoplastic"], maxScore: 2 },
+      { prompt: "Define the term 'tolerance' in manufacturing.", keywords: ["acceptable range", "variation", "from specified dimension", "accuracy limits"], maxScore: 2 },
+    ],
+    application: [
+      { prompt: "Explain why a manufacturer would choose injection moulding rather than vacuum forming to produce a plastic phone case.", subskillIds: ["shaping_and_forming"], keywords: ["complex 3D shape", "high accuracy", "consistent quality", "mass production", "suitable for thermoplastics", "fine detail", "vacuum forming is simpler but less precise"], maxScore: 4 },
+      { prompt: "Describe the advantages and disadvantages of using CAD/CAM in the design and manufacturing process.", subskillIds: ["cad_cam"], keywords: ["accuracy", "consistency", "speed", "modify designs easily", "expensive equipment", "training required", "repetitive production", "less skilled labour"], maxScore: 3 },
+    ],
+    extended: [
+      { prompt: "Evaluate how modern manufacturing technologies such as CAD/CAM and 3D printing have changed the way products are designed and made. (6 marks)", subskillIds: ["shaping_and_forming", "cad_cam"], keywords: ["CAD", "CAM", "3D printing", "prototyping", "customisation", "accuracy", "waste reduction", "mass production", "one-off production"], maxScore: 6, rubricPoints: ["CAD allows rapid design development, easy modifications, and realistic visualisation", "CAM enables precise, repeatable manufacture directly from digital designs", "3D printing (additive manufacturing) allows rapid prototyping and one-off or small-batch production", "3D printing reduces material waste compared to subtractive methods", "These technologies enable mass customisation, where products are personalised for individual users", "Limitations include high initial costs, the need for skilled operators, and material constraints for 3D printing"] },
+    ],
+  },
 };
 
 // ─── Helpers ───
@@ -541,11 +765,21 @@ function pickRandomUnique(arr, previousPrompts = []) {
 const BIOLOGY_TOPICS = ['biological_molecules', 'enzymes', 'cell_structure', 'transport_membranes', 'dna_protein_synthesis', 'cell_division', 'exchange_surfaces', 'transport_animals', 'respiration', 'photosynthesis', 'homeostasis', 'ecology', 'cell_recognition_immune'];
 const CHEMISTRY_TOPICS = ['elements_of_life', 'developing_fuels', 'elements_from_sea', 'ozone_story', 'whats_in_medicine', 'chemical_industry', 'polymers_and_life', 'oceans', 'developing_metals', 'colour_by_design'];
 const MATHEMATICS_TOPICS = ['algebra_functions', 'polynomials', 'trigonometry_1', 'exponentials_logarithms', 'differentiation_1', 'integration_1', 'statistics_1'];
+const ART_TOPICS = ['formal_elements', 'recording_and_observing', 'artist_research'];
+const DRAMA_TOPICS = ['performance_skills', 'devising_theatre', 'live_theatre_analysis'];
+const MUSIC_TOPICS = ['elements_of_music', 'set_works_analysis', 'listening_skills'];
+const PE_TOPICS = ['applied_anatomy_physiology', 'movement_analysis', 'physical_training'];
+const DESIGN_TECHNOLOGY_TOPICS = ['core_technical_principles', 'materials_and_properties', 'manufacturing_processes'];
 
 function getSubjectForTopic(topicId) {
   if (BIOLOGY_TOPICS.includes(topicId)) return 'biology';
   if (CHEMISTRY_TOPICS.includes(topicId)) return 'chemistry';
   if (MATHEMATICS_TOPICS.includes(topicId)) return 'mathematics';
+  if (ART_TOPICS.includes(topicId)) return 'art';
+  if (DRAMA_TOPICS.includes(topicId)) return 'drama';
+  if (MUSIC_TOPICS.includes(topicId)) return 'music';
+  if (PE_TOPICS.includes(topicId)) return 'pe';
+  if (DESIGN_TECHNOLOGY_TOPICS.includes(topicId)) return 'design-technology';
   return 'biology'; // default
 }
 
@@ -555,9 +789,17 @@ function getTopicQuestions(topicId, phase) {
 
   // Subject-aware fallback: pick a random topic from the same subject
   const subject = getSubjectForTopic(topicId);
-  const sameSubjectTopics = subject === 'chemistry' ? CHEMISTRY_TOPICS
-    : subject === 'mathematics' ? MATHEMATICS_TOPICS
-    : BIOLOGY_TOPICS;
+  const subjectTopicMap = {
+    biology: BIOLOGY_TOPICS,
+    chemistry: CHEMISTRY_TOPICS,
+    mathematics: MATHEMATICS_TOPICS,
+    art: ART_TOPICS,
+    drama: DRAMA_TOPICS,
+    music: MUSIC_TOPICS,
+    pe: PE_TOPICS,
+    'design-technology': DESIGN_TECHNOLOGY_TOPICS,
+  };
+  const sameSubjectTopics = subjectTopicMap[subject] || BIOLOGY_TOPICS;
 
   for (const fallbackId of sameSubjectTopics) {
     if (fallbackId !== topicId && questionBank[fallbackId]?.[phase]?.length > 0) {
@@ -667,9 +909,14 @@ export function mockMarkAnswer({ questionId, studentAnswer, phase, difficulty = 
     score = Math.round(coverage * maxScore);
   }
 
-  // Bonus for longer, more detailed answers
-  if (phase === 'extended' && answer.length > 200 && score < maxScore) {
-    score = Math.min(maxScore, score + 1);
+  // Coherence check: if >50% of words are repeated, cap score at 1
+  const words = answer.split(/\s+/).filter(w => w.length > 0);
+  if (words.length > 0) {
+    const uniqueWords = new Set(words);
+    const repetitionRatio = 1 - (uniqueWords.size / words.length);
+    if (repetitionRatio > 0.5) {
+      score = Math.min(score, 1);
+    }
   }
 
   const correct = score >= maxScore * 0.7;

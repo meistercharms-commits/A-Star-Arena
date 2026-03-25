@@ -76,7 +76,35 @@ function getDifficultyTier(difficultyRating) {
   return 'hard';
 }
 
-function getIntervalTable(subjectId, difficultyRating) {
+// GCSE intervals — shorter than A-Level for more frequent review
+const GCSE_DEFAULT_INTERVALS = {
+  easy: {
+    1: { advance: 1, stay: 1, drop: 1 },
+    2: { advance: 2, stay: 1, drop: 1 },
+    3: { advance: 5, stay: 3, drop: 1 },
+    4: { advance: 14, stay: 10, drop: 3 },
+  },
+  medium: {
+    1: { advance: 1, stay: 1, drop: 1 },
+    2: { advance: 2, stay: 1, drop: 1 },
+    3: { advance: 4, stay: 2, drop: 1 },
+    4: { advance: 10, stay: 7, drop: 2 },
+  },
+  hard: {
+    1: { advance: 1, stay: 1, drop: 1 },
+    2: { advance: 1, stay: 1, drop: 1 },
+    3: { advance: 3, stay: 2, drop: 1 },
+    4: { advance: 7, stay: 5, drop: 2 },
+  },
+};
+
+function getIntervalTable(subjectId, difficultyRating, level = 'alevel') {
+  // GCSE subjects use shorter default intervals
+  if (level === 'gcse') {
+    const tier = getDifficultyTier(difficultyRating);
+    return GCSE_DEFAULT_INTERVALS[tier];
+  }
+
   if (subjectId === 'biology') {
     return BIOLOGY_INTERVALS;
   }
@@ -106,9 +134,9 @@ function getIntervalTable(subjectId, difficultyRating) {
  * @param {number} topicDifficulty — 1-5 difficulty rating from topic data
  * @returns {{ nextReviewDate: string, intervalDays: number, newStage: number, priority: string, outcome: string }}
  */
-export function calculateNextReview(scorePercentage, currentStage = 1, subjectId = 'biology', topicDifficulty = 3) {
+export function calculateNextReview(scorePercentage, currentStage = 1, subjectId = 'biology', topicDifficulty = 3, level = 'alevel') {
   const stage = Math.max(1, Math.min(4, currentStage));
-  const table = getIntervalTable(subjectId, topicDifficulty);
+  const table = getIntervalTable(subjectId, topicDifficulty, level);
   const stageIntervals = table[stage];
 
   let newStage, interval, outcome;

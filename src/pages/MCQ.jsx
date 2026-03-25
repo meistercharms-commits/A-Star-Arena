@@ -1,8 +1,10 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useSubject } from '../contexts/SubjectContext';
-import { getCurrentSubject } from '../lib/storage';
+import { getCurrentSubject, saveAttempt, updateProgress } from '../lib/storage';
+import { updateTopicMastery } from '../lib/mastery';
 import { getMCQQuestions } from '../content/subjects';
+import { generateId } from '../lib/utils';
 
 function shuffle(arr) {
   const a = [...arr];
@@ -12,6 +14,8 @@ function shuffle(arr) {
   }
   return a;
 }
+
+const XP_PER_CORRECT = 10;
 
 export default function MCQ() {
   const { topicId } = useParams();
@@ -23,10 +27,11 @@ export default function MCQ() {
   const questions = useMemo(() => shuffle(allQuestions).slice(0, 10), [topicId]);
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [selected, setSelected] = useState(null); // index of selected option
+  const [selected, setSelected] = useState(null);
   const [answered, setAnswered] = useState(false);
   const [score, setScore] = useState(0);
   const [done, setDone] = useState(false);
+  const attemptsRef = useRef([]);
 
   if (!topic || questions.length === 0) {
     return (
@@ -44,11 +49,31 @@ export default function MCQ() {
     if (answered) return;
     setSelected(idx);
     setAnswered(true);
-    if (idx === q.answer) setScore(s => s + 1);
+    const correct = idx === q.answer;
+    if (correct) setScore(s => s + 1);
+
+    // Build and track attempt
+    attemptsRef.current.push({
+      id: generateId(),
+      topicId,
+      phase: 'recall',
+      difficulty: 2,
+      score: correct ? 1 : 0,
+      maxScore: 1,
+      correct,
+      timestamp: new Date().toISOString(),
+      subskillIds: [],
+      errorKeywords: correct ? [] : [q.options[q.answer]],
+    });
   }
 
   function handleNext() {
     if (currentIndex + 1 >= questions.length) {
+      // Save all attempts and update progress
+      attemptsRef.current.forEach(a => saveAttempt(a));
+      const xpEarned = score * XP_PER_CORRECT;
+      updateProgress(xpEarned);
+      updateTopicMastery(topicId, topics);
       setDone(true);
     } else {
       setCurrentIndex(i => i + 1);
@@ -60,6 +85,7 @@ export default function MCQ() {
   // Summary screen
   if (done) {
     const pct = Math.round((score / questions.length) * 100);
+    const xpEarned = score * XP_PER_CORRECT;
     return (
       <div className="space-y-5 max-w-2xl mx-auto">
         <div className={`rounded-xl p-6 text-center border ${
@@ -74,11 +100,12 @@ export default function MCQ() {
             {score}/{questions.length}
           </div>
           <p className="text-text-muted text-sm mt-1">{pct}%</p>
+          <p className="text-accent text-sm font-semibold mt-2">+{xpEarned} XP earned</p>
         </div>
 
         <div className="flex gap-3">
           <button
-            onClick={() => { setCurrentIndex(0); setSelected(null); setAnswered(false); setScore(0); setDone(false); }}
+            onClick={() => { setCurrentIndex(0); setSelected(null); setAnswered(false); setScore(0); setDone(false); attemptsRef.current = []; }}
             className="flex-1 bg-accent hover:bg-accent-hover text-bg-primary font-semibold py-2.5 rounded-lg transition-colors cursor-pointer"
           >
             Try Again

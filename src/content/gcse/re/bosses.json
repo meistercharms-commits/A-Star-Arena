@@ -1,0 +1,82 @@
+[
+  {
+    "topicId": "beliefs_about_god",
+    "bossName": "The Watchmaker Phantom",
+    "flavourText": "An enigmatic figure forged from every argument for existence. Dismantle its logic to win.",
+    "emoji": "👁️",
+    "hp": 100,
+    "hpBarColour": "#7c3aed"
+  },
+  {
+    "topicId": "life_after_death",
+    "bossName": "The Eternal Gatekeeper",
+    "flavourText": "Guards the threshold between worlds. Only those who understand what lies beyond may pass.",
+    "emoji": "⚰️",
+    "hp": 100,
+    "hpBarColour": "#6366f1"
+  },
+  {
+    "topicId": "good_and_evil",
+    "bossName": "The Moral Paradox",
+    "flavourText": "A creature of contradictions, born from the tension between free will and suffering.",
+    "emoji": "⚖️",
+    "hp": 100,
+    "hpBarColour": "#dc2626"
+  },
+  {
+    "topicId": "human_rights",
+    "bossName": "The Dignity Sentinel",
+    "flavourText": "Stands tall for every person. Show you understand equality and it will yield.",
+    "emoji": "✊",
+    "hp": 100,
+    "hpBarColour": "#f59e0b"
+  },
+  {
+    "topicId": "relationships_and_families",
+    "bossName": "The Covenant Weaver",
+    "flavourText": "Threads of love, commitment, and duty bind this ancient guardian together.",
+    "emoji": "💍",
+    "hp": 100,
+    "hpBarColour": "#ec4899"
+  },
+  {
+    "topicId": "peace_and_conflict",
+    "bossName": "The Iron Dove",
+    "flavourText": "Part warrior, part peacemaker. Only balanced arguments can calm its fury.",
+    "emoji": "🕊️",
+    "hp": 100,
+    "hpBarColour": "#059669"
+  },
+  {
+    "topicId": "crime_and_punishment",
+    "bossName": "The Scales of Reckoning",
+    "flavourText": "Weighs justice against mercy. Tip the scales with your knowledge of punishment aims.",
+    "emoji": "⚖️",
+    "hp": 100,
+    "hpBarColour": "#475569"
+  },
+  {
+    "topicId": "environmental_ethics",
+    "bossName": "The Green Steward",
+    "flavourText": "A towering guardian of the natural world, wrapped in vines of responsibility.",
+    "emoji": "🌍",
+    "hp": 100,
+    "hpBarColour": "#16a34a"
+  },
+  {
+    "topicId": "medical_ethics",
+    "bossName": "The Sacred Flame",
+    "flavourText": "Flickers between life and death. Prove you understand the sanctity of both.",
+    "emoji": "🔥",
+    "hp": 100,
+    "hpBarColour": "#e11d48"
+  },
+  {
+    "topicId": "worship_and_festivals",
+    "bossName": "The Festival Herald",
+    "flavourText": "Rings bells and calls to prayer across every tradition. Name the celebrations to quiet the noise.",
+    "emoji": "🔔",
+    "hp": 100,
+    "hpBarColour": "#d97706"
+  }
+]

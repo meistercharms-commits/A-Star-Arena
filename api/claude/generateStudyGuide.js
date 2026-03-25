@@ -6,13 +6,20 @@ const anthropic = new Anthropic({
 
 const MODEL = 'claude-sonnet-4-20250514';
 
-const SUBJECT_NAMES = { biology: 'Biology', chemistry: 'Chemistry', mathematics: 'Mathematics' };
+const SUBJECT_NAMES = {
+  biology: 'Biology', chemistry: 'Chemistry', mathematics: 'Mathematics',
+  art: 'Art', 'design-technology': 'Design & Technology', drama: 'Drama',
+  english: 'English', french: 'French', geography: 'Geography',
+  history: 'History', music: 'Music', pe: 'Physical Education',
+  re: 'Religious Education', science: 'Science',
+};
 
 // ─── Input Validation Helpers ───
 
 const MAX_STRING = 500;
 const MAX_ARRAY = 20;
-const VALID_SUBJECTS = ['biology', 'chemistry', 'mathematics'];
+const VALID_SUBJECTS = ['biology', 'chemistry', 'mathematics', 'art', 'design-technology', 'drama', 'english', 'french', 'geography', 'history', 'music', 'pe', 're', 'science'];
+const VALID_LEVELS = ['alevel', 'gcse'];
 const VALID_BOARDS = ['generic', 'aqa', 'ocr', 'edexcel'];
 
 function sanitize(str, maxLen = MAX_STRING) {
@@ -45,11 +52,16 @@ function checkOrigin(req, res) {
 
 // ─── Study Guide Prompt ───
 
-function getStudyGuidePrompt(examBoard, subjectId) {
+function getStudyGuidePrompt(examBoard, subjectId, level = 'alevel') {
   const subjectName = SUBJECT_NAMES[subjectId] || 'Biology';
-  return `You are an expert A-level ${subjectName} tutor creating personalised study guides. You create targeted revision material aligned to UK A-level standards.
+  const levelLabel = level === 'gcse' ? 'GCSE' : 'A-level';
+  const toneGuide = level === 'gcse'
+    ? 'Use clear, supportive language suitable for 14-16 year olds. Avoid jargon where possible and explain any technical terms.'
+    : `Keep explanations clear and concise — suitable for A-level students.`;
 
-EXAM BOARD: ${examBoard?.toUpperCase() || 'Generic UK A-level'}
+  return `You are an expert ${levelLabel} ${subjectName} tutor creating personalised study guides. You create targeted revision material aligned to UK ${levelLabel} standards.
+
+EXAM BOARD: ${examBoard?.toUpperCase() || `Generic UK ${levelLabel}`}
 
 Your study guides are personalised based on the student's mastery data, weak subskills, and recurring error patterns. Focus on areas where the student needs the most help.
 
@@ -62,7 +74,7 @@ GUIDE STRUCTURE:
 
 RULES:
 - Use precise ${subjectName} terminology throughout
-- Keep explanations clear and concise — suitable for A-level students
+- ${toneGuide}
 - Exam tips should reference mark scheme conventions
 - Worked examples should show the level of detail expected for full marks
 - Weak spot advice should be actionable and specific
@@ -86,6 +98,7 @@ export default async function handler(req, res) {
     const subskills = sanitizeArray(rawBody.subskills, 20, 100);
     const examBoard = validateEnum(rawBody.examBoard, VALID_BOARDS, 'generic');
     const subjectId = validateEnum(rawBody.subjectId, VALID_SUBJECTS, 'biology');
+    const level = validateEnum(rawBody.level, VALID_LEVELS, 'alevel');
     const masteryScore = rawBody.masteryScore != null ? Math.min(1, Math.max(0, Number(rawBody.masteryScore) || 0)) : null;
     const weakSubskills = sanitizeArray(rawBody.weakSubskills, 10, 100);
     const errorPatterns = sanitizeArray(rawBody.errorPatterns, 10, 200);
@@ -97,7 +110,7 @@ export default async function handler(req, res) {
     const message = await anthropic.messages.create({
       model: MODEL,
       max_tokens: 2048,
-      system: getStudyGuidePrompt(examBoard, subjectId),
+      system: getStudyGuidePrompt(examBoard, subjectId, level),
       messages: [{
         role: 'user',
         content: `Generate a personalised study guide for "${topicName}".

@@ -1,0 +1,66 @@
+[
+  {
+    "topicId": "performance_skills",
+    "bossName": "The Stage Spectre",
+    "flavourText": "A ghostly performer that shifts between voices and forms. Match its skill to dispel it.",
+    "emoji": "🎭",
+    "hp": 100,
+    "hpBarColour": "#dc2626"
+  },
+  {
+    "topicId": "devising_theatre",
+    "bossName": "The Stimulus Serpent",
+    "flavourText": "Coils around every idea and squeezes out the creativity. Structure your response to break free.",
+    "emoji": "🐍",
+    "hp": 100,
+    "hpBarColour": "#7c3aed"
+  },
+  {
+    "topicId": "live_theatre_analysis",
+    "bossName": "The Critic's Shadow",
+    "flavourText": "Lurks in every theatre seat, judging your every word. Write with precision to silence it.",
+    "emoji": "📝",
+    "hp": 100,
+    "hpBarColour": "#0891b2"
+  },
+  {
+    "topicId": "explorative_strategies",
+    "bossName": "The Frozen Guardian",
+    "flavourText": "Locked in a perpetual freeze frame. Only the right technique can bring it to life.",
+    "emoji": "🧊",
+    "hp": 100,
+    "hpBarColour": "#2563eb"
+  },
+  {
+    "topicId": "design_elements",
+    "bossName": "The Lighting Wraith",
+    "flavourText": "Flickers between shadow and spotlight. Name its design elements to trap it in the beam.",
+    "emoji": "💡",
+    "hp": 100,
+    "hpBarColour": "#eab308"
+  },
+  {
+    "topicId": "practitioner_study",
+    "bossName": "The Fourth Wall Breaker",
+    "flavourText": "Smashes through conventions with alienation and cruelty. Know the practitioners to rebuild the wall.",
+    "emoji": "🧱",
+    "hp": 100,
+    "hpBarColour": "#9333ea"
+  },
+  {
+    "topicId": "written_exam_technique",
+    "bossName": "The Command Word Sphinx",
+    "flavourText": "Asks riddles wrapped in exam language. Only precise terminology unlocks its secrets.",
+    "emoji": "🦁",
+    "hp": 100,
+    "hpBarColour": "#b91c1c"
+  },
+  {
+    "topicId": "rehearsal_and_preparation",
+    "bossName": "The Opening Night Ogre",
+    "flavourText": "Feeds on stage fright and missed cues. Prepare thoroughly and it shrinks to nothing.",
+    "emoji": "🎬",
+    "hp": 100,
+    "hpBarColour": "#059669"
+  }
+]

@@ -1,0 +1,186 @@
+[
+  {
+    "topicId": "cell_biology",
+    "bossName": "The Membrane Menace",
+    "flavourText": "A selectively permeable villain who only lets the wrong answers through. Show it your osmosis skills and burst its bubble!",
+    "emoji": "🔬",
+    "hp": 100,
+    "hpBarColour": "#E74C3C"
+  },
+  {
+    "topicId": "organisation",
+    "bossName": "Captain Organ Grinder",
+    "flavourText": "This boss has got guts (literally). Take it apart tissue by tissue and prove you know your organs inside out!",
+    "emoji": "🫀",
+    "hp": 100,
+    "hpBarColour": "#C0392B"
+  },
+  {
+    "topicId": "infection_and_response",
+    "bossName": "Dr Pathogenesis",
+    "flavourText": "A shape-shifting super-pathogen that thinks it is unstoppable. Time to vaccinate yourself with knowledge and wipe it out!",
+    "emoji": "🦠",
+    "hp": 100,
+    "hpBarColour": "#27AE60"
+  },
+  {
+    "topicId": "bioenergetics",
+    "bossName": "Chloro-Phil the Unbreakable",
+    "flavourText": "Powered by sunlight and fuelled by glucose, this photosynthetic powerhouse will not go down without a fight. Cut off its light supply!",
+    "emoji": "🌿",
+    "hp": 100,
+    "hpBarColour": "#2ECC71"
+  },
+  {
+    "topicId": "homeostasis",
+    "bossName": "The Thermoregulator",
+    "flavourText": "Always trying to keep things balanced, but you are about to throw it off. Master the feedback loops and take control!",
+    "emoji": "🌡️",
+    "hp": 100,
+    "hpBarColour": "#E67E22"
+  },
+  {
+    "topicId": "inheritance_and_evolution",
+    "bossName": "The Double Helix Dragon",
+    "flavourText": "Wrapped in strands of DNA and armed with dominant alleles. Crack the genetic code and this beast will unravel!",
+    "emoji": "🧬",
+    "hp": 100,
+    "hpBarColour": "#8E44AD"
+  },
+  {
+    "topicId": "ecology",
+    "bossName": "The Apex Predator",
+    "flavourText": "Top of every food chain and king of the ecosystem. Knock it off its trophic level with your ecological expertise!",
+    "emoji": "🦁",
+    "hp": 100,
+    "hpBarColour": "#F39C12"
+  },
+  {
+    "topicId": "atomic_structure_chemistry",
+    "bossName": "Lord Nucleus",
+    "flavourText": "Dense, positively charged, and surrounded by a cloud of electron minions. Strip away the shells and defeat the core!",
+    "emoji": "⚛️",
+    "hp": 100,
+    "hpBarColour": "#3498DB"
+  },
+  {
+    "topicId": "bonding_and_structure",
+    "bossName": "The Ionic Overlord",
+    "flavourText": "Held together by powerful electrostatic forces and a giant lattice army. Break the bonds and shatter its structure!",
+    "emoji": "💎",
+    "hp": 100,
+    "hpBarColour": "#1ABC9C"
+  },
+  {
+    "topicId": "quantitative_chemistry",
+    "bossName": "Mole-zilla",
+    "flavourText": "6.02 x 10^23 reasons to be afraid. But get your calculations right and this colossal creature crumbles to nothing!",
+    "emoji": "⚖️",
+    "hp": 100,
+    "hpBarColour": "#9B59B6"
+  },
+  {
+    "topicId": "chemical_changes",
+    "bossName": "The Acid King",
+    "flavourText": "Low pH and high danger. Neutralise this corrosive villain with the perfect base and watch it fizz into defeat!",
+    "emoji": "🧪",
+    "hp": 100,
+    "hpBarColour": "#D4AC0D"
+  },
+  {
+    "topicId": "rates_and_equilibrium",
+    "bossName": "The Collision Catalyst",
+    "flavourText": "Faster than you think and always lowering the bar. Outsmart the activation energy and slow this speedster down!",
+    "emoji": "💥",
+    "hp": 100,
+    "hpBarColour": "#E74C3C"
+  },
+  {
+    "topicId": "energy_changes_chemistry",
+    "bossName": "The Exothermic Inferno",
+    "flavourText": "This fiery fiend releases energy with every move and gets hotter by the second. Break its bonds and cool it down!",
+    "emoji": "🔥",
+    "hp": 100,
+    "hpBarColour": "#D35400"
+  },
+  {
+    "topicId": "chemical_analysis",
+    "bossName": "The Phantom Ion",
+    "flavourText": "An invisible imposter hiding in every mixture. Light a flame, run the tests, and expose its true identity!",
+    "emoji": "🕵️",
+    "hp": 100,
+    "hpBarColour": "#7D3C98"
+  },
+  {
+    "topicId": "using_resources",
+    "bossName": "The Rust Golem",
+    "flavourText": "Built from corroded iron and reinforced with alloys. Assess its life cycle, find the weakness, and reduce it to rubble!",
+    "emoji": "🪨",
+    "hp": 100,
+    "hpBarColour": "#A04000"
+  },
+  {
+    "topicId": "chemistry_of_atmosphere",
+    "bossName": "Smog Monster",
+    "flavourText": "Born from greenhouse gases and pollution, this atmospheric abomination is heating up. Cool it down with the facts!",
+    "emoji": "🌫️",
+    "hp": 100,
+    "hpBarColour": "#7F8C8D"
+  },
+  {
+    "topicId": "energy_physics",
+    "bossName": "The Entropy Engine",
+    "flavourText": "It wastes energy everywhere it goes and thinks efficiency is a myth. Prove it wrong and reclaim every lost joule!",
+    "emoji": "⚡",
+    "hp": 100,
+    "hpBarColour": "#F1C40F"
+  },
+  {
+    "topicId": "electricity",
+    "bossName": "Circuit Breaker",
+    "flavourText": "A short-circuiting menace that loves to trip fuses and blow bulbs. Wire up your knowledge and resist its attacks!",
+    "emoji": "🔌",
+    "hp": 100,
+    "hpBarColour": "#2980B9"
+  },
+  {
+    "topicId": "particle_model",
+    "bossName": "The State Shifter",
+    "flavourText": "Solid one moment, gas the next. This shape-shifting fiend changes state at will. Pin it down with particle theory!",
+    "emoji": "🧊",
+    "hp": 100,
+    "hpBarColour": "#5DADE2"
+  },
+  {
+    "topicId": "atomic_structure_radioactivity",
+    "bossName": "The Half-Life Hydra",
+    "flavourText": "It decays but never truly dies, splitting into new forms with every half-life. Write the nuclear equations and finish it off!",
+    "emoji": "☢️",
+    "hp": 100,
+    "hpBarColour": "#F4D03F"
+  },
+  {
+    "topicId": "forces",
+    "bossName": "Newton's Nightmare",
+    "flavourText": "It defies every law of motion and laughs at friction. Apply the right force in the right direction and send it flying!",
+    "emoji": "🍎",
+    "hp": 100,
+    "hpBarColour": "#E74C3C"
+  },
+  {
+    "topicId": "waves",
+    "bossName": "The Spectrum Phantom",
+    "flavourText": "Invisible across most wavelengths and travelling at the speed of light. Tune in to the right frequency and expose it!",
+    "emoji": "🌈",
+    "hp": 100,
+    "hpBarColour": "#AF7AC5"
+  },
+  {
+    "topicId": "magnetism_and_electromagnetism",
+    "bossName": "The Flux Warden",
+    "flavourText": "Surrounded by invisible field lines and armed with the motor effect. Use Fleming's left-hand rule to find its weakness and shut it down!",
+    "emoji": "🧲",
+    "hp": 100,
+    "hpBarColour": "#1F618D"
+  }
+]

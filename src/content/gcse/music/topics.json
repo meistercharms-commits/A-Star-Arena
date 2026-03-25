@@ -1,0 +1,175 @@
+[
+  {
+    "id": "elements_of_music",
+    "name": "Elements of Music",
+    "description": "Pitch, rhythm, dynamics, tempo, timbre, texture, structure, and their terminology",
+    "subskills": [
+      { "id": "pitch_melody", "name": "Pitch & Melody", "critical": true, "keywords": ["conjunct", "disjunct", "sequence", "riff", "ostinato", "pentatonic", "chromatic", "scalic"] },
+      { "id": "rhythm_metre", "name": "Rhythm & Metre", "critical": true, "keywords": ["time signature", "syncopation", "dotted rhythm", "triplet", "polyrhythm", "anacrusis", "hemiola"] },
+      { "id": "harmony_tonality", "name": "Harmony & Tonality", "critical": true, "keywords": ["major", "minor", "dissonance", "consonance", "chord", "modulation", "cadence", "key"] },
+      { "id": "dynamics_tempo", "name": "Dynamics & Tempo", "critical": true, "keywords": ["pianissimo", "fortissimo", "crescendo", "diminuendo", "allegro", "andante", "rubato"] },
+      { "id": "texture", "name": "Texture", "critical": true, "keywords": ["monophonic", "homophonic", "polyphonic", "heterophonic", "unison", "melody and accompaniment"] },
+      { "id": "timbre_sonority", "name": "Timbre & Sonority", "critical": false, "keywords": ["tone colour", "instrumentation", "articulation", "pizzicato", "arco", "muted", "distortion"] },
+      { "id": "structure_form", "name": "Structure & Form", "critical": true, "keywords": ["binary", "ternary", "rondo", "sonata", "strophic", "through-composed", "verse-chorus"] }
+    ],
+    "commonMisconceptions": [
+      "Texture and timbre are the same thing",
+      "Syncopation means playing off-beat all the time",
+      "Homophonic texture means everyone plays the same notes",
+      "A riff and an ostinato are completely different things"
+    ],
+    "highYield": true,
+    "aqaRef": "3.1",
+    "edexcelRef": "Component 3",
+    "ocrRef": "J536/03"
+  },
+  {
+    "id": "set_works_analysis",
+    "name": "Set Works Analysis",
+    "description": "Detailed study of prescribed set works across different musical traditions",
+    "subskills": [
+      { "id": "western_classical", "name": "Western Classical Set Works", "critical": true, "keywords": ["Bach", "Mozart", "Beethoven", "sonata form", "orchestra", "development", "exposition"] },
+      { "id": "popular_music", "name": "Popular Music Set Works", "critical": true, "keywords": ["verse", "chorus", "bridge", "hook", "riff", "production", "technology"] },
+      { "id": "world_music", "name": "World Music Set Works", "critical": true, "keywords": ["gamelan", "Bhangra", "African drumming", "sitar", "raga", "tala", "call and response"] },
+      { "id": "film_music", "name": "Film & Media Music", "critical": false, "keywords": ["leitmotif", "underscore", "diegetic", "non-diegetic", "Mickey-Mousing", "soundtrack"] },
+      { "id": "musical_theatre", "name": "Musical Theatre Set Works", "critical": false, "keywords": ["Sondheim", "Lloyd Webber", "Schwartz", "through-sung", "book musical", "ensemble number"] }
+    ],
+    "commonMisconceptions": [
+      "Set works only need to be recognised, not analysed in detail",
+      "World music is simpler than Western classical music",
+      "Film music does not require the same level of analysis as classical",
+      "You only need to know the set works from your own exam board"
+    ],
+    "highYield": true,
+    "aqaRef": "3.2",
+    "edexcelRef": "Component 3",
+    "ocrRef": "J536/03"
+  },
+  {
+    "id": "listening_skills",
+    "name": "Listening Skills",
+    "description": "Aural identification of instruments, features, and musical devices in unfamiliar music",
+    "subskills": [
+      { "id": "instrument_recognition", "name": "Instrument Recognition", "critical": true, "keywords": ["strings", "woodwind", "brass", "percussion", "keyboard", "voice", "electronic"] },
+      { "id": "feature_identification", "name": "Identifying Musical Features", "critical": true, "keywords": ["cadence", "modulation", "sequence", "pedal", "drone", "ornamentation"] },
+      { "id": "dictation", "name": "Melodic & Rhythmic Dictation", "critical": false, "keywords": ["notation", "pitch", "rhythm", "staff", "clef", "interval", "aural"] },
+      { "id": "comparison", "name": "Comparing Musical Extracts", "critical": true, "keywords": ["similarities", "differences", "style", "period", "genre", "features"] }
+    ],
+    "commonMisconceptions": [
+      "You need perfect pitch to score well on listening questions",
+      "Identifying the genre is enough without specific musical detail",
+      "Listening skills cannot be improved with practice",
+      "All brass instruments sound the same in an ensemble"
+    ],
+    "highYield": true,
+    "aqaRef": "Component 3",
+    "edexcelRef": "Component 3",
+    "ocrRef": "J536/03"
+  },
+  {
+    "id": "composition_techniques",
+    "name": "Composition Techniques",
+    "description": "Creating original music using melody, harmony, structure, and development",
+    "subskills": [
+      { "id": "melody_writing", "name": "Melody Writing", "critical": true, "keywords": ["phrase", "contour", "sequence", "repetition", "variation", "climax", "resolution"] },
+      { "id": "harmony_chords", "name": "Harmony & Chord Progressions", "critical": true, "keywords": ["I IV V", "primary chords", "secondary chords", "inversions", "bass line", "cadence"] },
+      { "id": "development_variation", "name": "Development & Variation", "critical": true, "keywords": ["augmentation", "diminution", "inversion", "retrograde", "fragmentation", "sequencing"] },
+      { "id": "notation_presentation", "name": "Notation & Presentation", "critical": false, "keywords": ["score", "lead sheet", "DAW", "graphic notation", "tab", "dynamics markings"] },
+      { "id": "composing_to_brief", "name": "Composing to a Brief", "critical": true, "keywords": ["stimulus", "brief", "intention", "genre", "audience", "mood", "style"] }
+    ],
+    "commonMisconceptions": [
+      "Compositions must be notated on a traditional score to get top marks",
+      "Using a DAW means the composition is not your own work",
+      "Longer compositions automatically score better",
+      "You must compose in a classical style"
+    ],
+    "highYield": true,
+    "aqaRef": "Component 2",
+    "edexcelRef": "Component 2",
+    "ocrRef": "J536/02"
+  },
+  {
+    "id": "performance_skills_music",
+    "name": "Performance Skills",
+    "description": "Performing music as a soloist or ensemble member with technical control and expression",
+    "subskills": [
+      { "id": "solo_performance", "name": "Solo Performance", "critical": true, "keywords": ["accuracy", "fluency", "expression", "dynamics", "tempo", "phrasing", "technique"] },
+      { "id": "ensemble_performance", "name": "Ensemble Performance", "critical": true, "keywords": ["balance", "blend", "synchronisation", "listening", "part", "accompaniment", "cue"] },
+      { "id": "technical_control", "name": "Technical Control", "critical": true, "keywords": ["intonation", "articulation", "tone quality", "rhythm accuracy", "range", "difficulty"] },
+      { "id": "communication", "name": "Musical Communication", "critical": false, "keywords": ["expression", "interpretation", "audience", "stage presence", "confidence", "engagement"] }
+    ],
+    "commonMisconceptions": [
+      "Playing a difficult piece badly scores higher than a simpler piece played well",
+      "Ensemble performance is easier than solo and worth fewer marks",
+      "Expression and dynamics are optional extras",
+      "You must play a classical instrument to perform well"
+    ],
+    "highYield": true,
+    "aqaRef": "Component 1",
+    "edexcelRef": "Component 1",
+    "ocrRef": "J536/01"
+  },
+  {
+    "id": "music_technology",
+    "name": "Music Technology",
+    "description": "Using technology for composition, recording, and music production",
+    "subskills": [
+      { "id": "daw_skills", "name": "DAW & Sequencing", "critical": true, "keywords": ["GarageBand", "Logic", "Cubase", "MIDI", "sequencer", "track", "loop", "quantise"] },
+      { "id": "recording", "name": "Recording Techniques", "critical": false, "keywords": ["microphone", "mixing", "levels", "EQ", "reverb", "overdub", "multitrack"] },
+      { "id": "sound_manipulation", "name": "Sound Manipulation & Effects", "critical": false, "keywords": ["reverb", "delay", "distortion", "panning", "compression", "filter", "synthesis"] },
+      { "id": "sampling_loops", "name": "Sampling & Loops", "critical": false, "keywords": ["sample", "loop", "tempo sync", "creative use", "copyright", "manipulation"] }
+    ],
+    "commonMisconceptions": [
+      "Using technology is cheating",
+      "MIDI and audio are the same thing",
+      "Quantising always improves a performance",
+      "Sampling someone else's music is always acceptable"
+    ],
+    "highYield": false,
+    "aqaRef": "Component 2",
+    "edexcelRef": "Component 2",
+    "ocrRef": "J536/02"
+  },
+  {
+    "id": "musical_contexts",
+    "name": "Musical Contexts",
+    "description": "Understanding music in historical, social, and cultural contexts",
+    "subskills": [
+      { "id": "historical_periods", "name": "Historical Periods", "critical": true, "keywords": ["Baroque", "Classical", "Romantic", "20th century", "contemporary", "Renaissance"] },
+      { "id": "social_cultural", "name": "Social & Cultural Contexts", "critical": true, "keywords": ["protest", "celebration", "worship", "identity", "tradition", "globalisation"] },
+      { "id": "genre_style", "name": "Genre & Style Recognition", "critical": true, "keywords": ["blues", "jazz", "rock", "pop", "hip-hop", "folk", "classical", "electronic"] },
+      { "id": "music_industry", "name": "Music Industry & Technology Impact", "critical": false, "keywords": ["streaming", "vinyl", "copyright", "royalties", "live performance", "production"] }
+    ],
+    "commonMisconceptions": [
+      "Classical music only refers to the Classical period (1750-1820)",
+      "Pop music has no historical context worth studying",
+      "All Baroque music sounds the same",
+      "World music is a single genre"
+    ],
+    "highYield": false,
+    "aqaRef": "3.3",
+    "edexcelRef": "Component 3",
+    "ocrRef": "J536/03"
+  },
+  {
+    "id": "appraising_and_writing",
+    "name": "Appraising & Writing",
+    "description": "Writing about music using correct terminology and analytical skills for the exam",
+    "subskills": [
+      { "id": "musical_vocabulary", "name": "Musical Vocabulary", "critical": true, "keywords": ["terminology", "Italian terms", "technical language", "precise", "specific", "describe"] },
+      { "id": "analytical_writing", "name": "Analytical Writing", "critical": true, "keywords": ["identify", "describe", "compare", "explain", "evaluate", "justify", "evidence"] },
+      { "id": "exam_technique", "name": "Exam Technique for Appraising", "critical": true, "keywords": ["timing", "mark allocation", "key words", "short answer", "extended answer"] },
+      { "id": "score_reading", "name": "Score Reading & Following", "critical": false, "keywords": ["stave", "bar numbers", "rehearsal marks", "clef", "key signature", "time signature"] }
+    ],
+    "commonMisconceptions": [
+      "You can describe music using everyday language without specialist terms",
+      "Extended writing questions are just about personal opinion",
+      "Score reading is only needed for classical musicians",
+      "Short-answer questions do not require musical terminology"
+    ],
+    "highYield": true,
+    "aqaRef": "Component 3",
+    "edexcelRef": "Component 3",
+    "ocrRef": "J536/03"
+  }
+]

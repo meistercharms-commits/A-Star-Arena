@@ -1,0 +1,725 @@
+[
+  {
+    "id": "reading_fiction",
+    "name": "Reading Fiction",
+    "description": "Analysing fiction extracts for meaning, inference, language and structure",
+    "category": "language",
+    "subskills": [
+      {
+        "id": "inference_and_deduction",
+        "name": "Inference & Deduction",
+        "critical": true,
+        "keywords": ["implicit meaning", "connotation", "suggests", "implies", "infer"]
+      },
+      {
+        "id": "language_analysis_fiction",
+        "name": "Analysing Language in Fiction",
+        "critical": true,
+        "keywords": ["metaphor", "simile", "personification", "imagery", "word choice", "semantic field"]
+      },
+      {
+        "id": "structural_analysis_fiction",
+        "name": "Analysing Structure in Fiction",
+        "critical": true,
+        "keywords": ["narrative perspective", "shift in focus", "foreshadowing", "cyclical structure", "climax"]
+      },
+      {
+        "id": "selecting_evidence_fiction",
+        "name": "Selecting Textual Evidence",
+        "critical": false,
+        "keywords": ["quotation", "embedded quotation", "short quotation", "paraphrase"]
+      },
+      {
+        "id": "commenting_on_effect",
+        "name": "Commenting on Effect",
+        "critical": true,
+        "keywords": ["reader response", "creates tension", "evokes sympathy", "effect on reader"]
+      }
+    ],
+    "commonMisconceptions": [
+      "Confusing inference with retrieval: students often retell what happens rather than interpreting what is implied",
+      "Listing techniques without analysing their effect (feature spotting)",
+      "Assuming the narrator and the author are the same person"
+    ],
+    "highYield": true,
+    "aqaRef": "Paper 1 Q1-Q4",
+    "edexcelRef": "Paper 1 Section A",
+    "ocrRef": "Paper 2 Section A"
+  },
+  {
+    "id": "reading_non_fiction",
+    "name": "Reading Non-Fiction",
+    "description": "Analysing non-fiction texts for viewpoints, bias and comparing perspectives",
+    "category": "language",
+    "subskills": [
+      {
+        "id": "identifying_viewpoints",
+        "name": "Identifying Viewpoints & Perspectives",
+        "critical": true,
+        "keywords": ["bias", "opinion", "perspective", "tone", "attitude"]
+      },
+      {
+        "id": "comparing_texts",
+        "name": "Comparing Writers' Viewpoints",
+        "critical": true,
+        "keywords": ["similarly", "in contrast", "whereas", "both writers", "however"]
+      },
+      {
+        "id": "rhetorical_devices_reading",
+        "name": "Identifying Rhetorical Devices",
+        "critical": false,
+        "keywords": ["rhetorical question", "anecdote", "direct address", "hyperbole", "tricolon"]
+      },
+      {
+        "id": "fact_and_opinion",
+        "name": "Distinguishing Fact & Opinion",
+        "critical": false,
+        "keywords": ["statistics", "emotive language", "assertion", "evidence-based"]
+      },
+      {
+        "id": "synthesising_information",
+        "name": "Synthesising Information from Two Texts",
+        "critical": true,
+        "keywords": ["both sources", "synthesis", "summary", "key similarities"]
+      }
+    ],
+    "commonMisconceptions": [
+      "Writing about the topic rather than the writer's methods and viewpoint",
+      "Treating comparison as two separate analyses instead of integrating points",
+      "Confusing the purpose of synthesis (identifying similarities) with comparison (identifying differences)"
+    ],
+    "highYield": true,
+    "aqaRef": "Paper 2 Q1-Q4",
+    "edexcelRef": "Paper 2 Section A",
+    "ocrRef": "Paper 1 Section A"
+  },
+  {
+    "id": "narrative_descriptive_writing",
+    "name": "Narrative & Descriptive Writing",
+    "description": "Crafting original fiction and descriptive pieces with control of language and structure",
+    "category": "language",
+    "subskills": [
+      {
+        "id": "crafting_openings",
+        "name": "Crafting Effective Openings",
+        "critical": true,
+        "keywords": ["hook", "in medias res", "atmospheric opening", "sensory detail"]
+      },
+      {
+        "id": "descriptive_techniques",
+        "name": "Using Descriptive Techniques",
+        "critical": true,
+        "keywords": ["imagery", "sensory language", "extended metaphor", "pathetic fallacy", "show not tell"]
+      },
+      {
+        "id": "narrative_structure",
+        "name": "Structuring a Narrative",
+        "critical": true,
+        "keywords": ["narrative arc", "flashback", "circular structure", "withholding information", "pacing"]
+      },
+      {
+        "id": "varied_sentence_structures",
+        "name": "Varying Sentence Structures",
+        "critical": false,
+        "keywords": ["short sentence", "complex sentence", "minor sentence", "fronted adverbial", "listing"]
+      },
+      {
+        "id": "ambitious_vocabulary",
+        "name": "Using Ambitious Vocabulary",
+        "critical": false,
+        "keywords": ["precise nouns", "powerful verbs", "connotation", "register"]
+      }
+    ],
+    "commonMisconceptions": [
+      "Overcomplicating the plot instead of focusing on quality of description",
+      "Using overly complex vocabulary incorrectly rather than precise, well-chosen words",
+      "Neglecting to plan, leading to rushed or unresolved endings",
+      "Writing long paragraphs without structural variety"
+    ],
+    "highYield": true,
+    "aqaRef": "Paper 1 Q5",
+    "edexcelRef": "Paper 1 Section B",
+    "ocrRef": "Paper 2 Section B"
+  },
+  {
+    "id": "transactional_writing",
+    "name": "Transactional Writing",
+    "description": "Writing articles, speeches, letters and essays with appropriate form, audience and purpose",
+    "category": "language",
+    "subskills": [
+      {
+        "id": "form_conventions",
+        "name": "Form Conventions",
+        "critical": true,
+        "keywords": ["article", "speech", "letter", "leaflet", "essay", "format features"]
+      },
+      {
+        "id": "audience_and_purpose",
+        "name": "Adapting Audience & Purpose",
+        "critical": true,
+        "keywords": ["formal register", "informal register", "persuade", "argue", "advise", "inform"]
+      },
+      {
+        "id": "rhetorical_devices_writing",
+        "name": "Deploying Rhetorical Devices",
+        "critical": true,
+        "keywords": ["tricolon", "anaphora", "direct address", "rhetorical question", "counterargument"]
+      },
+      {
+        "id": "paragraphing_cohesion",
+        "name": "Paragraphing & Cohesion",
+        "critical": false,
+        "keywords": ["discourse markers", "topic sentence", "connectives", "logical flow"]
+      }
+    ],
+    "commonMisconceptions": [
+      "Forgetting to match form conventions (e.g. writing a letter without addresses or sign-off)",
+      "Using the same register regardless of audience",
+      "Relying on a single persuasive device rather than a range",
+      "Writing an overly one-sided argument without acknowledging counterpoints"
+    ],
+    "highYield": true,
+    "aqaRef": "Paper 2 Q5",
+    "edexcelRef": "Paper 2 Section B",
+    "ocrRef": "Paper 1 Section B"
+  },
+  {
+    "id": "language_analysis_techniques",
+    "name": "Language Analysis Techniques",
+    "description": "Identifying and analysing writers' language choices and their effects on the reader",
+    "category": "language",
+    "subskills": [
+      {
+        "id": "figurative_language",
+        "name": "Figurative Language",
+        "critical": true,
+        "keywords": ["metaphor", "simile", "personification", "oxymoron", "symbolism", "allegory"]
+      },
+      {
+        "id": "word_level_analysis",
+        "name": "Word-Level Analysis",
+        "critical": true,
+        "keywords": ["connotation", "denotation", "semantic field", "register", "lexical choice"]
+      },
+      {
+        "id": "tone_and_mood",
+        "name": "Analysing Tone & Mood",
+        "critical": false,
+        "keywords": ["ominous", "celebratory", "melancholic", "sardonic", "nostalgic"]
+      },
+      {
+        "id": "sound_devices",
+        "name": "Sound & Phonological Devices",
+        "critical": false,
+        "keywords": ["alliteration", "sibilance", "plosive", "onomatopoeia", "assonance"]
+      },
+      {
+        "id": "analytical_paragraph_structure",
+        "name": "Structuring an Analytical Paragraph",
+        "critical": true,
+        "keywords": ["point", "evidence", "analysis", "effect", "link", "PEAL"]
+      }
+    ],
+    "commonMisconceptions": [
+      "Feature spotting: naming a technique without explaining its effect",
+      "Confusing metaphor and simile, or calling all comparisons 'metaphors'",
+      "Writing generic effects such as 'this makes the reader want to read on' instead of specific analysis",
+      "Analysing sound devices without connecting them to meaning"
+    ],
+    "highYield": true,
+    "aqaRef": "Paper 1 Q2, Paper 2 Q3",
+    "edexcelRef": "Paper 1 Q3, Paper 2 Q4",
+    "ocrRef": "Paper 1 Q2-Q3, Paper 2 Q2-Q3"
+  },
+  {
+    "id": "structural_analysis",
+    "name": "Structural Analysis",
+    "description": "Analysing how writers organise and structure whole texts and shifts within them",
+    "category": "language",
+    "subskills": [
+      {
+        "id": "whole_text_structure",
+        "name": "Whole-Text Structure",
+        "critical": true,
+        "keywords": ["opening", "development", "climax", "resolution", "shift in focus"]
+      },
+      {
+        "id": "narrative_perspective_structure",
+        "name": "Narrative Perspective & Voice",
+        "critical": false,
+        "keywords": ["first person", "third person", "omniscient narrator", "unreliable narrator", "free indirect discourse"]
+      },
+      {
+        "id": "paragraphing_and_organisation",
+        "name": "Paragraphing & Organisation",
+        "critical": true,
+        "keywords": ["short paragraph", "single-line paragraph", "dialogue placement", "white space"]
+      },
+      {
+        "id": "openings_and_endings",
+        "name": "Analysing Openings & Endings",
+        "critical": false,
+        "keywords": ["in medias res", "cliffhanger", "circular narrative", "denouement", "juxtaposition"]
+      }
+    ],
+    "commonMisconceptions": [
+      "Confusing language analysis with structural analysis and writing about metaphors instead of structure",
+      "Only discussing the beginning and end without analysing how the middle develops",
+      "Describing what happens in each section rather than explaining why the writer structured it that way"
+    ],
+    "highYield": true,
+    "aqaRef": "Paper 1 Q3",
+    "edexcelRef": "Paper 1 Q4",
+    "ocrRef": "Paper 2 Q3"
+  },
+  {
+    "id": "evaluation_critical_reading",
+    "name": "Evaluation & Critical Reading",
+    "description": "Evaluating texts critically and forming personal judgements supported by evidence",
+    "category": "language",
+    "subskills": [
+      {
+        "id": "forming_judgements",
+        "name": "Forming & Expressing Judgements",
+        "critical": true,
+        "keywords": ["to what extent", "agree", "disagree", "evaluate", "critically", "convincingly"]
+      },
+      {
+        "id": "supporting_evaluation",
+        "name": "Supporting Evaluation with Evidence",
+        "critical": true,
+        "keywords": ["embedded quotation", "textual reference", "judiciously selected", "apt evidence"]
+      },
+      {
+        "id": "evaluating_effectiveness",
+        "name": "Evaluating Writer's Methods",
+        "critical": true,
+        "keywords": ["effective", "successful", "impact", "craft", "deliberate choice"]
+      }
+    ],
+    "commonMisconceptions": [
+      "Simply agreeing with the statement without exploring nuance or alternative readings",
+      "Retelling the story instead of evaluating the writer's craft",
+      "Not using the given statement as a springboard for discussion",
+      "Forgetting to include a personal response alongside textual evidence"
+    ],
+    "highYield": true,
+    "aqaRef": "Paper 1 Q4",
+    "edexcelRef": "Paper 1 Q5",
+    "ocrRef": "Paper 2 Q4"
+  },
+  {
+    "id": "spelling_punctuation_grammar",
+    "name": "Spelling, Punctuation & Grammar",
+    "description": "Accurate SPaG including sentence demarcation, ambitious punctuation and correct spelling",
+    "category": "language",
+    "subskills": [
+      {
+        "id": "sentence_demarcation",
+        "name": "Sentence Demarcation",
+        "critical": true,
+        "keywords": ["full stop", "capital letter", "comma splice", "run-on sentence", "fragment"]
+      },
+      {
+        "id": "ambitious_punctuation",
+        "name": "Ambitious Punctuation",
+        "critical": false,
+        "keywords": ["semicolon", "colon", "dash", "ellipsis", "parenthetical commas"]
+      },
+      {
+        "id": "common_spelling_errors",
+        "name": "Common Spelling Patterns",
+        "critical": true,
+        "keywords": ["homophones", "their/there/they're", "its/it's", "affect/effect", "double consonants"]
+      },
+      {
+        "id": "grammatical_accuracy",
+        "name": "Grammatical Accuracy",
+        "critical": false,
+        "keywords": ["subject-verb agreement", "tense consistency", "pronoun agreement", "apostrophe for possession"]
+      },
+      {
+        "id": "paragraph_construction",
+        "name": "Paragraph Construction",
+        "critical": false,
+        "keywords": ["topic sentence", "supporting detail", "concluding sentence", "cohesive devices"]
+      }
+    ],
+    "commonMisconceptions": [
+      "Thinking a comma can join two independent clauses (comma splicing)",
+      "Confusing its (possessive) and it's (contraction)",
+      "Using apostrophes for plurals",
+      "Assuming longer, more complex sentences are always better"
+    ],
+    "highYield": true,
+    "aqaRef": "Paper 1 Q5, Paper 2 Q5 (SPaG marks)",
+    "edexcelRef": "All writing questions (accuracy strand)",
+    "ocrRef": "All writing questions (accuracy strand)"
+  },
+  {
+    "id": "shakespeare",
+    "name": "Shakespeare",
+    "description": "Analysing Shakespeare's plays including language, themes, characters and context",
+    "category": "literature",
+    "subskills": [
+      {
+        "id": "shakespearean_language",
+        "name": "Understanding Shakespearean Language",
+        "critical": true,
+        "keywords": ["iambic pentameter", "prose vs verse", "soliloquy", "dramatic irony", "aside"]
+      },
+      {
+        "id": "character_analysis_shakespeare",
+        "name": "Character Analysis",
+        "critical": true,
+        "keywords": ["tragic hero", "hamartia", "foil character", "characterisation", "motivation"]
+      },
+      {
+        "id": "themes_shakespeare",
+        "name": "Exploring Themes",
+        "critical": true,
+        "keywords": ["ambition", "power", "love", "fate", "appearance vs reality", "honour"]
+      },
+      {
+        "id": "context_shakespeare",
+        "name": "Jacobean/Elizabethan Context",
+        "critical": false,
+        "keywords": ["divine right of kings", "Great Chain of Being", "patriarchy", "witchcraft", "Reformation"]
+      },
+      {
+        "id": "extract_to_whole_play",
+        "name": "Linking Extract to Whole Play",
+        "critical": true,
+        "keywords": ["elsewhere in the play", "prior to this", "later", "at this point", "wider play"]
+      }
+    ],
+    "commonMisconceptions": [
+      "Retelling the plot instead of analysing Shakespeare's methods and craft",
+      "Treating characters as real people rather than constructs of the playwright",
+      "Bolting on context as a separate paragraph rather than weaving it into analysis",
+      "Focusing only on the given extract without referencing the wider play"
+    ],
+    "highYield": true,
+    "aqaRef": "Paper 1 Section A",
+    "edexcelRef": "Paper 1 Section A",
+    "ocrRef": "Shakespeare component"
+  },
+  {
+    "id": "nineteenth_century_novel",
+    "name": "19th Century Novel",
+    "description": "Analysing 19th century prose texts including their social, historical and literary context",
+    "category": "literature",
+    "subskills": [
+      {
+        "id": "victorian_context",
+        "name": "Victorian & 19th Century Context",
+        "critical": true,
+        "keywords": ["industrialisation", "class system", "gender roles", "empire", "religion", "reform"]
+      },
+      {
+        "id": "character_development_novel",
+        "name": "Character Development",
+        "critical": true,
+        "keywords": ["protagonist", "antagonist", "bildungsroman", "character arc", "social mobility"]
+      },
+      {
+        "id": "narrative_voice_novel",
+        "name": "Narrative Voice & Perspective",
+        "critical": false,
+        "keywords": ["omniscient narrator", "first person", "free indirect discourse", "authorial intrusion"]
+      },
+      {
+        "id": "themes_nineteenth_century",
+        "name": "Themes & Ideas",
+        "critical": true,
+        "keywords": ["social inequality", "morality", "duality", "isolation", "ambition", "redemption"]
+      },
+      {
+        "id": "language_nineteenth_century",
+        "name": "Analysing 19th Century Language",
+        "critical": false,
+        "keywords": ["archaic vocabulary", "formal register", "gothic conventions", "pathetic fallacy"]
+      }
+    ],
+    "commonMisconceptions": [
+      "Applying modern values without acknowledging the historical context",
+      "Writing about context in a separate paragraph instead of integrating it with textual analysis",
+      "Struggling to read 19th century prose and missing subtleties of irony or satire",
+      "Assuming all 19th century novels share the same conventions"
+    ],
+    "highYield": true,
+    "aqaRef": "Paper 1 Section B",
+    "edexcelRef": "Paper 2 Section A",
+    "ocrRef": "19th century prose component"
+  },
+  {
+    "id": "modern_text_drama",
+    "name": "Modern Text & Drama",
+    "description": "Analysing modern prose and drama texts including stagecraft, themes and character",
+    "category": "literature",
+    "subskills": [
+      {
+        "id": "stagecraft",
+        "name": "Analysing Stagecraft & Stage Directions",
+        "critical": true,
+        "keywords": ["stage directions", "lighting", "set design", "dramatic tension", "audience response"]
+      },
+      {
+        "id": "character_analysis_modern",
+        "name": "Character Analysis in Modern Texts",
+        "critical": true,
+        "keywords": ["character arc", "dialogue", "relationships", "motivation", "conflict"]
+      },
+      {
+        "id": "themes_modern_text",
+        "name": "Themes in Modern Texts",
+        "critical": true,
+        "keywords": ["social class", "family", "responsibility", "justice", "identity", "power"]
+      },
+      {
+        "id": "context_modern_text",
+        "name": "Social & Historical Context",
+        "critical": false,
+        "keywords": ["post-war Britain", "class divide", "welfare state", "social responsibility"]
+      },
+      {
+        "id": "dramatic_techniques",
+        "name": "Dramatic Techniques",
+        "critical": false,
+        "keywords": ["dramatic irony", "cliff-hanger", "monologue", "symbolism", "time manipulation"]
+      }
+    ],
+    "commonMisconceptions": [
+      "Forgetting that a play is written to be performed and ignoring stagecraft entirely",
+      "Treating the text as a novel rather than considering audience experience in a theatre",
+      "Not referencing the writer's intentions or purpose",
+      "Ignoring the significance of the ending and its message"
+    ],
+    "highYield": true,
+    "aqaRef": "Paper 2 Section A",
+    "edexcelRef": "Paper 1 Section B",
+    "ocrRef": "Modern prose/drama component"
+  },
+  {
+    "id": "poetry_anthology",
+    "name": "Poetry Anthology",
+    "description": "Analysing anthology poems and comparing them thematically and methodologically",
+    "category": "literature",
+    "subskills": [
+      {
+        "id": "poetic_techniques",
+        "name": "Identifying Poetic Techniques",
+        "critical": true,
+        "keywords": ["enjambment", "caesura", "volta", "stanza", "rhyme scheme", "metre"]
+      },
+      {
+        "id": "comparing_poems",
+        "name": "Comparing Poems",
+        "critical": true,
+        "keywords": ["similarly", "in contrast", "both poets", "whereas", "alternatively"]
+      },
+      {
+        "id": "themes_poetry",
+        "name": "Exploring Themes in Poetry",
+        "critical": true,
+        "keywords": ["power", "conflict", "love", "loss", "identity", "nature", "memory"]
+      },
+      {
+        "id": "form_and_structure_poetry",
+        "name": "Analysing Form & Structure",
+        "critical": false,
+        "keywords": ["sonnet", "free verse", "dramatic monologue", "ballad", "irregular form"]
+      },
+      {
+        "id": "context_poetry",
+        "name": "Contextual Understanding of Poems",
+        "critical": false,
+        "keywords": ["poet's intention", "historical background", "autobiographical", "cultural context"]
+      }
+    ],
+    "commonMisconceptions": [
+      "Writing a comparison as two separate essays rather than an integrated analysis",
+      "Identifying techniques without explaining why the poet used them",
+      "Spending too long on one poem and running out of time for the comparison",
+      "Confusing enjambment (line break mid-sentence) with caesura (mid-line pause)"
+    ],
+    "highYield": true,
+    "aqaRef": "Paper 2 Section B (part 1)",
+    "edexcelRef": "Paper 2 Section B",
+    "ocrRef": "Poetry component"
+  },
+  {
+    "id": "unseen_poetry",
+    "name": "Unseen Poetry",
+    "description": "Analysing and comparing poems not previously studied under timed conditions",
+    "category": "literature",
+    "subskills": [
+      {
+        "id": "first_reading_strategy",
+        "name": "First Reading Strategies",
+        "critical": true,
+        "keywords": ["gist", "subject", "tone", "speaker", "message", "annotation"]
+      },
+      {
+        "id": "unseen_language_analysis",
+        "name": "Analysing Language in Unseen Poetry",
+        "critical": true,
+        "keywords": ["imagery", "diction", "figurative language", "tone shifts", "ambiguity"]
+      },
+      {
+        "id": "unseen_structure_analysis",
+        "name": "Analysing Structure in Unseen Poetry",
+        "critical": false,
+        "keywords": ["form", "line length", "stanza breaks", "enjambment", "rhyme", "volta"]
+      },
+      {
+        "id": "comparing_unseen_poems",
+        "name": "Comparing Two Unseen Poems",
+        "critical": true,
+        "keywords": ["methods", "attitudes", "similarities", "differences", "both poets"]
+      }
+    ],
+    "commonMisconceptions": [
+      "Panicking because the poem is unfamiliar and not applying the same skills used for anthology poems",
+      "Writing about the second unseen poem at the same length as the first (it carries fewer marks)",
+      "Trying to identify the poet or period instead of focusing on what the poem communicates",
+      "Over-reading meaning into every single word rather than identifying key moments"
+    ],
+    "highYield": true,
+    "aqaRef": "Paper 2 Section C",
+    "edexcelRef": "Paper 2 Section C",
+    "ocrRef": "Unseen poetry component"
+  },
+  {
+    "id": "essay_structure_argumentation",
+    "name": "Essay Structure & Argumentation",
+    "description": "Building coherent, well-structured literature essays with a clear argument throughout",
+    "category": "literature",
+    "subskills": [
+      {
+        "id": "thesis_and_argument",
+        "name": "Forming a Thesis & Argument",
+        "critical": true,
+        "keywords": ["thesis statement", "argument", "line of reasoning", "interpretive stance", "conceptual response"]
+      },
+      {
+        "id": "paragraph_structure_lit",
+        "name": "Paragraph Structure",
+        "critical": true,
+        "keywords": ["topic sentence", "evidence", "analysis", "context", "link back to question"]
+      },
+      {
+        "id": "introduction_conclusion",
+        "name": "Writing Introductions & Conclusions",
+        "critical": false,
+        "keywords": ["opening statement", "establish argument", "summative conclusion", "wider significance"]
+      },
+      {
+        "id": "linking_to_question",
+        "name": "Sustaining Focus on the Question",
+        "critical": true,
+        "keywords": ["key words from question", "throughout", "consistently", "refocusing"]
+      }
+    ],
+    "commonMisconceptions": [
+      "Writing a narrative account of the text instead of building an analytical argument",
+      "Including an introduction that wastes time with biography rather than addressing the question",
+      "Losing focus on the question midway through the essay",
+      "Not planning the essay, resulting in repetitive or disorganised points"
+    ],
+    "highYield": true,
+    "aqaRef": "All Literature papers",
+    "edexcelRef": "All Literature papers",
+    "ocrRef": "All Literature components"
+  },
+  {
+    "id": "quotation_evidence_skills",
+    "name": "Quotation & Evidence Skills",
+    "description": "Selecting, embedding and analysing quotations effectively in literature essays",
+    "category": "literature",
+    "subskills": [
+      {
+        "id": "selecting_quotations",
+        "name": "Selecting Apt Quotations",
+        "critical": true,
+        "keywords": ["short quotation", "key word", "judiciously selected", "rich in meaning"]
+      },
+      {
+        "id": "embedding_quotations",
+        "name": "Embedding Quotations in Sentences",
+        "critical": true,
+        "keywords": ["embedded", "woven in", "integrated", "seamless", "within the sentence"]
+      },
+      {
+        "id": "analysing_single_words",
+        "name": "Zooming in on Single Words",
+        "critical": true,
+        "keywords": ["word choice", "connotation", "precision", "zoom in", "micro-analysis"]
+      },
+      {
+        "id": "paraphrasing_and_reference",
+        "name": "Paraphrasing & Textual Reference",
+        "critical": false,
+        "keywords": ["paraphrase", "textual reference", "allusion to", "refers to"]
+      }
+    ],
+    "commonMisconceptions": [
+      "Using overly long quotations that take up space but are not fully analysed",
+      "Dropping quotations into essays without integrating them into the sentence",
+      "Only quoting once per paragraph rather than weaving multiple references throughout",
+      "Memorising quotations but not understanding what to do with them analytically"
+    ],
+    "highYield": true,
+    "aqaRef": "All Literature papers",
+    "edexcelRef": "All Literature papers",
+    "ocrRef": "All Literature components"
+  },
+  {
+    "id": "context_critical_interpretation",
+    "name": "Context & Critical Interpretation",
+    "description": "Using historical, social and literary context to deepen analysis and offer alternative readings",
+    "category": "literature",
+    "subskills": [
+      {
+        "id": "historical_social_context",
+        "name": "Historical & Social Context",
+        "critical": true,
+        "keywords": ["Victorian", "Jacobean", "post-war", "patriarchy", "class system", "colonialism"]
+      },
+      {
+        "id": "literary_context",
+        "name": "Literary & Genre Context",
+        "critical": false,
+        "keywords": ["gothic", "tragedy", "Romanticism", "morality play", "Bildungsroman", "naturalism"]
+      },
+      {
+        "id": "writers_intentions",
+        "name": "Exploring Writers' Intentions",
+        "critical": true,
+        "keywords": ["Priestley's message", "Shakespeare presents", "Shelley explores", "Dickens critiques"]
+      },
+      {
+        "id": "alternative_interpretations",
+        "name": "Offering Alternative Interpretations",
+        "critical": false,
+        "keywords": ["alternatively", "a feminist reading", "on the other hand", "could also suggest", "ambiguity"]
+      },
+      {
+        "id": "integrating_context",
+        "name": "Integrating Context into Analysis",
+        "critical": true,
+        "keywords": ["reflects the", "contemporary audience", "would have understood", "mirrors the societal"]
+      }
+    ],
+    "commonMisconceptions": [
+      "Writing a paragraph of context that is disconnected from the text (the 'context paragraph' trap)",
+      "Using context as a substitute for close textual analysis",
+      "Assuming context means biography of the author rather than the wider social and historical setting",
+      "Over-relying on a single contextual point throughout the entire essay"
+    ],
+    "highYield": true,
+    "aqaRef": "All Literature papers (AO3)",
+    "edexcelRef": "All Literature papers",
+    "ocrRef": "All Literature components"
+  }
+]

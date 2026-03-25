@@ -1,7 +1,18 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSubject } from '../contexts/SubjectContext';
 import { getCurrentSubject } from '../lib/storage';
 import { getPracticals, hasPracticals, getSubjectInfo } from '../content/subjects';
+
+function getCompletedIds(subjectId) {
+  try {
+    return JSON.parse(localStorage.getItem(`astarena:practicalsCompleted:${subjectId}`)) || [];
+  } catch { return []; }
+}
+
+function saveCompletedIds(subjectId, ids) {
+  localStorage.setItem(`astarena:practicalsCompleted:${subjectId}`, JSON.stringify(ids));
+}
 
 export default function Practicals() {
   const { topics } = useSubject();
@@ -9,6 +20,17 @@ export default function Practicals() {
   const subject = getSubjectInfo(subjectId);
   const practicals = getPracticals(subjectId);
   const available = hasPracticals(subjectId);
+  const [completedIds, setCompletedIds] = useState(() => getCompletedIds(subjectId));
+
+  function toggleComplete(practicalId) {
+    setCompletedIds(prev => {
+      const next = prev.includes(practicalId)
+        ? prev.filter(id => id !== practicalId)
+        : [...prev, practicalId];
+      saveCompletedIds(subjectId, next);
+      return next;
+    });
+  }
 
   if (!available) {
     return (
@@ -34,6 +56,9 @@ export default function Practicals() {
         <p className="text-text-secondary text-sm mt-1">
           {subject?.emoji} {subject?.name} — {practicals.length} practical{practicals.length !== 1 ? 's' : ''}
         </p>
+        <p className="text-xs text-text-muted mt-1">
+          {completedIds.length} of {practicals.length} practicals reviewed
+        </p>
       </div>
 
       {practicals.map(p => {
@@ -41,11 +66,20 @@ export default function Practicals() {
         return (
           <details key={p.id} className="bg-bg-secondary border border-border rounded-xl group">
             <summary className="p-5 cursor-pointer select-none list-none flex items-center justify-between gap-3">
-              <div>
-                <h3 className="font-semibold text-sm">{p.title}</h3>
-                <p className="text-xs text-text-muted mt-0.5">
-                  Linked: {linkedTopicName}
-                </p>
+              <div className="flex items-center gap-3">
+                <input
+                  type="checkbox"
+                  checked={completedIds.includes(p.id)}
+                  onChange={(e) => { e.stopPropagation(); toggleComplete(p.id); }}
+                  onClick={(e) => e.stopPropagation()}
+                  className="accent-accent w-4 h-4 shrink-0 cursor-pointer"
+                />
+                <div>
+                  <h3 className="font-semibold text-sm">{p.title}</h3>
+                  <p className="text-xs text-text-muted mt-0.5">
+                    Linked: {linkedTopicName}
+                  </p>
+                </div>
               </div>
               <span className="text-text-muted group-open:rotate-90 transition-transform text-sm shrink-0">▶</span>
             </summary>

@@ -1,14 +1,16 @@
 import { lazy, Suspense } from 'react';
 import { createBrowserRouter, RouterProvider, Navigate, Outlet } from 'react-router-dom';
-import { hasCompletedOnboarding, migrateToSubjectNamespaces } from './lib/storage';
+import { hasCompletedOnboarding, hasSelectedLevel, migrateToSubjectNamespaces } from './lib/storage';
+import { LevelProvider } from './contexts/LevelContext';
 import { SubjectProvider } from './contexts/SubjectContext';
 import ErrorBoundary from './components/ErrorBoundary';
 import Layout from './components/Layout';
 
-// Migrate existing Biology data to subject-namespaced keys on first load
+// Run migrations on first load
 migrateToSubjectNamespaces();
 
 // Lazy-load pages for better initial bundle size
+const LevelSelect = lazy(() => import('./pages/LevelSelect'));
 const Onboarding = lazy(() => import('./pages/Onboarding'));
 const Home = lazy(() => import('./pages/Home'));
 const Topics = lazy(() => import('./pages/Topics'));
@@ -21,6 +23,7 @@ const StudyGuide = lazy(() => import('./pages/StudyGuide'));
 const MistakeJournal = lazy(() => import('./pages/MistakeJournal'));
 const MCQ = lazy(() => import('./pages/MCQ'));
 const Practicals = lazy(() => import('./pages/Practicals'));
+const ExamPlanner = lazy(() => import('./pages/ExamPlanner'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
 function PageLoader() {
@@ -35,6 +38,9 @@ function PageLoader() {
 }
 
 function ProtectedLayout() {
+  if (!hasSelectedLevel()) {
+    return <Navigate to="/level-select" replace />;
+  }
   if (!hasCompletedOnboarding()) {
     return <Navigate to="/onboarding" replace />;
   }
@@ -48,6 +54,10 @@ function ProtectedLayout() {
 }
 
 const router = createBrowserRouter([
+  {
+    path: '/level-select',
+    element: <Suspense fallback={<PageLoader />}><LevelSelect /></Suspense>,
+  },
   {
     path: '/onboarding',
     element: <Suspense fallback={<PageLoader />}><Onboarding /></Suspense>,
@@ -65,6 +75,7 @@ const router = createBrowserRouter([
       { path: '/mistakes', element: <MistakeJournal /> },
       { path: '/mcq/:topicId', element: <MCQ /> },
       { path: '/practicals', element: <Practicals /> },
+      { path: '/exams', element: <ExamPlanner /> },
       { path: '/settings', element: <Settings /> },
       { path: '*', element: <NotFound /> },
     ],
@@ -74,9 +85,11 @@ const router = createBrowserRouter([
 export default function App() {
   return (
     <ErrorBoundary>
-      <SubjectProvider>
-        <RouterProvider router={router} />
-      </SubjectProvider>
+      <LevelProvider>
+        <SubjectProvider>
+          <RouterProvider router={router} />
+        </SubjectProvider>
+      </LevelProvider>
     </ErrorBoundary>
   );
 }

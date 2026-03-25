@@ -237,6 +237,7 @@ export default function Drill() {
           <p className="text-text-secondary text-sm">
             {correctCount}/{totalQuestions} correct ({pct}%)
           </p>
+          <p className="text-xl font-bold text-accent mt-2">+{xpEarned} XP</p>
         </div>
 
         <div className="bg-bg-secondary border border-border rounded-xl p-5 space-y-2">

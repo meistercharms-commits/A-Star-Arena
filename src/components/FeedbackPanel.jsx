@@ -52,8 +52,7 @@ export default function FeedbackPanel({ result, phase, onNext, isStudyMode = fal
         <p className="text-sm text-text-secondary">
           {phase === 'recall' && 'Boss takes 15 damage.'}
           {phase === 'application' && 'Boss takes 20 damage.'}
-          {phase === 'extended' && score >= 5 && 'Critical hit! Boss takes massive damage.'}
-          {phase === 'extended' && score < 5 && `Boss takes ${score * 5} damage.`}
+          {phase === 'extended' && `Boss takes ${Math.round(score * 5)} damage.`}
         </p>
       )}
 
@@ -120,9 +119,9 @@ export default function FeedbackPanel({ result, phase, onNext, isStudyMode = fal
         </div>
       )}
 
-      {/* Model answer */}
+      {/* Model answer — always shown so students learn from the feedback */}
       {feedback?.modelAnswer && (
-        <details open={isStudyMode || undefined} className="group">
+        <details open className="group">
           <summary className="text-xs font-medium text-text-muted uppercase tracking-wide mb-1 cursor-pointer select-none list-none flex items-center gap-1">
             <span className="text-text-muted group-open:rotate-90 transition-transform text-[10px]">▶</span>
             Model answer

@@ -20,7 +20,10 @@
     ],
     "highYield": true,
     "calculationHeavy": true,
-    "difficultyRating": 3
+    "difficultyRating": 3,
+    "aqaRef": "3.1 Physical Chemistry, 3.2 Inorganic Chemistry",
+    "ocrRef": "H433 EL (Elements of Life)",
+    "edexcelRef": "9CH0 Topics 1-2"
   },
   {
     "id": "developing_fuels",
@@ -43,7 +46,10 @@
     ],
     "highYield": true,
     "calculationHeavy": true,
-    "difficultyRating": 3
+    "difficultyRating": 3,
+    "aqaRef": "3.1 Physical Chemistry, 3.3 Organic Chemistry",
+    "ocrRef": "H433 DF (Developing Fuels)",
+    "edexcelRef": "9CH0 Topics 4, 11, 14"
   },
   {
     "id": "elements_from_sea",
@@ -64,7 +70,10 @@
     ],
     "highYield": true,
     "calculationHeavy": false,
-    "difficultyRating": 3
+    "difficultyRating": 3,
+    "aqaRef": "3.1 Physical Chemistry, 3.2 Inorganic Chemistry",
+    "ocrRef": "H433 ES (Elements from the Sea)",
+    "edexcelRef": "9CH0 Topics 3, 12, 15"
   },
   {
     "id": "ozone_story",
@@ -86,7 +95,10 @@
     ],
     "highYield": true,
     "calculationHeavy": false,
-    "difficultyRating": 3
+    "difficultyRating": 3,
+    "aqaRef": "3.1 Physical Chemistry",
+    "ocrRef": "H433 O (The Ozone Story)",
+    "edexcelRef": "9CH0 Topics 1, 10"
   },
   {
     "id": "whats_in_medicine",
@@ -108,7 +120,10 @@
     ],
     "highYield": true,
     "calculationHeavy": false,
-    "difficultyRating": 4
+    "difficultyRating": 4,
+    "aqaRef": "3.3 Organic Chemistry",
+    "ocrRef": "H433 WM (What's in a Medicine?)",
+    "edexcelRef": "9CH0 Topics 6, 14, 16"
   },
   {
     "id": "chemical_industry",
@@ -130,7 +145,10 @@
     ],
     "highYield": true,
     "calculationHeavy": true,
-    "difficultyRating": 4
+    "difficultyRating": 4,
+    "aqaRef": "3.1 Physical Chemistry",
+    "ocrRef": "H433 CI (The Chemical Industry)",
+    "edexcelRef": "9CH0 Topics 9, 10, 16"
   },
   {
     "id": "polymers_and_life",
@@ -152,7 +170,10 @@
     ],
     "highYield": true,
     "calculationHeavy": false,
-    "difficultyRating": 4
+    "difficultyRating": 4,
+    "aqaRef": "3.3 Organic Chemistry",
+    "ocrRef": "H433 PL (Polymers and Life)",
+    "edexcelRef": "9CH0 Topics 6, 14"
   },
   {
     "id": "oceans",
@@ -174,7 +195,10 @@
     ],
     "highYield": true,
     "calculationHeavy": true,
-    "difficultyRating": 5
+    "difficultyRating": 5,
+    "aqaRef": "3.1 Physical Chemistry",
+    "ocrRef": "H433 Oc (Oceans)",
+    "edexcelRef": "9CH0 Topics 8, 13, 15"
   },
   {
     "id": "developing_metals",
@@ -196,7 +220,10 @@
     ],
     "highYield": true,
     "calculationHeavy": true,
-    "difficultyRating": 5
+    "difficultyRating": 5,
+    "aqaRef": "3.2 Inorganic Chemistry",
+    "ocrRef": "H433 DM (Developing Metals)",
+    "edexcelRef": "9CH0 Topics 3, 12, 15"
   },
   {
     "id": "colour_by_design",
@@ -218,6 +245,9 @@
     ],
     "highYield": true,
     "calculationHeavy": false,
-    "difficultyRating": 5
+    "difficultyRating": 5,
+    "aqaRef": "3.3 Organic Chemistry",
+    "ocrRef": "H433 CD (Colour by Design)",
+    "edexcelRef": "9CH0 Topics 6, 7, 14, 16"
   }
 ]

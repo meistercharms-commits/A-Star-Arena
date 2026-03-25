@@ -1,6 +1,7 @@
-import { getMasteryCache, getSessions, getSRSData } from './storage';
+import { getMasteryCache, getSessions, getSRSData, getCurrentLevel, getUpcomingExams, getExamCountdown } from './storage';
 import { detectConfidenceMismatch } from './mastery';
 import { getReviewPriority } from './srs';
+import { getNearestExamForSubject } from './examPlanner';
 
 // ─── Priority Score ───
 // SRS-driven: overdue > due_today > due_soon > high mastery gap > normal
@@ -72,10 +73,19 @@ function getDaysSinceLastPractice(topicId, sessions) {
  * Get ranked list of all topics with priority scores.
  * topics & bosses come from SubjectContext.
  */
-export function getRankedTopics(topics = [], bosses = []) {
+export function getRankedTopics(topics = [], bosses = [], subjectId = null) {
   const masteryCache = getMasteryCache();
   const sessions = getSessions();
   const srsData = getSRSData();
+
+  // Check for upcoming exams in current subject for priority boosting
+  const level = getCurrentLevel();
+  const currentSubject = subjectId || (topics.length > 0 ? undefined : undefined);
+  const upcomingExams = getUpcomingExams();
+  const nearestExam = currentSubject
+    ? getNearestExamForSubject(upcomingExams, currentSubject, level)
+    : null;
+  const examDaysAway = nearestExam ? getExamCountdown(nearestExam.date).days : Infinity;
 
   return topics.map(topic => {
     const mastery = masteryCache[topic.id]?.topicMastery ?? 0;
@@ -88,7 +98,14 @@ export function getRankedTopics(topics = [], bosses = []) {
     const topicSRS = srsData[topic.id];
     const reviewInfo = getReviewPriority(topicSRS?.nextReviewDate || null);
 
-    const priority = computePriorityScore(mastery, daysAgo, topic.highYield, reviewInfo.priority);
+    let priority = computePriorityScore(mastery, daysAgo, topic.highYield, reviewInfo.priority);
+
+    // Exam-aware priority boost: uncovered topics get significant boost when exam is near
+    if (examDaysAway < 42) {
+      const examUrgency = examDaysAway <= 7 ? 3 : examDaysAway <= 14 ? 2 : 1.5;
+      if (mastery < 0.25) priority *= examUrgency; // Not covered: strong boost
+      else if (mastery < 0.55) priority *= (examUrgency * 0.7); // Partial: moderate boost
+    }
 
     return {
       topicId: topic.id,
@@ -156,7 +173,9 @@ export function getTodaysMission(topics = [], bosses = []) {
   } else if (top.mastery < 0.80) {
     action = 'battle';
     difficulty = 4;
-    reason = `At ${pct(top.mastery)}% mastery, there's still room to push ${top.topicName} to A* level.`;
+    reason = getCurrentLevel() === 'gcse'
+      ? `At ${pct(top.mastery)}% mastery, there's still room to push ${top.topicName} towards a Grade 9.`
+      : `At ${pct(top.mastery)}% mastery, there's still room to push ${top.topicName} to A* level.`;
   } else {
     // All topics are strong — pick the one most due for review, or least recently practised
     const sorted = [...ranked].sort((a, b) => {

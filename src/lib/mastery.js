@@ -1,4 +1,4 @@
-import { getAttemptsByTopic, getAttemptsBySubskill, updateMasteryCache, getMasteryCache } from './storage';
+import { getAttemptsByTopic, getAttemptsBySubskill, updateMasteryCache, getMasteryCache, getCurrentLevel } from './storage';
 
 // Phase weights: extended answers count more than recall
 const PHASE_WEIGHTS = {
@@ -103,11 +103,16 @@ export function calculateTopicMastery(topicId, topics = []) {
   // Clamp
   topicMastery = Math.max(0, Math.min(1, topicMastery));
 
-  // Category
+  // Category — GCSE thresholds are slightly more forgiving
+  const level = getCurrentLevel();
+  const thresholds = level === 'gcse'
+    ? { strong: 0.75, developing: 0.50, weak: 0.25 }
+    : { strong: 0.80, developing: 0.55, weak: 0.30 };
+
   let category;
-  if (topicMastery >= 0.80) category = 'strong';
-  else if (topicMastery >= 0.55) category = 'developing';
-  else if (topicMastery >= 0.30) category = 'weak';
+  if (topicMastery >= thresholds.strong) category = 'strong';
+  else if (topicMastery >= thresholds.developing) category = 'developing';
+  else if (topicMastery >= thresholds.weak) category = 'weak';
   else category = 'untested';
 
   return {

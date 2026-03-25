@@ -1,11 +1,14 @@
 import { Link, useLocation } from 'react-router-dom';
 import { useSubject } from '../contexts/SubjectContext';
-import { SUBJECTS, isSubjectAvailable } from '../content/subjects';
+import { useLevel } from '../contexts/LevelContext';
+import { getSubjectsForLevel, isSubjectAvailable } from '../content/subjects';
+import { getLevelMeta } from '../lib/qualificationLevel';
 
 const navItems = [
   { path: '/', label: 'Home', icon: '⚡' },
   { path: '/topics', label: 'Topics', icon: '📚' },
-  { path: '/exam', label: 'Exam', icon: '🎓' },
+  { path: '/exams', label: 'Exams', icon: '📅' },
+  { path: '/exam', label: 'Timed', icon: '🎓' },
   { path: '/history', label: 'History', icon: '📊' },
   { path: '/settings', label: 'Settings', icon: '⚙️' },
 ];
@@ -13,6 +16,10 @@ const navItems = [
 export default function Layout({ children }) {
   const location = useLocation();
   const { subjectId, setSubjectId } = useSubject();
+  const { level } = useLevel();
+
+  const levelMeta = getLevelMeta(level);
+  const subjects = getSubjectsForLevel(level);
 
   // Disable subject switching on active battle/drill/exam pages
   const isInSession = /^\/(battle|drill|exam)/.test(location.pathname);
@@ -25,9 +32,17 @@ export default function Layout({ children }) {
       {/* Header */}
       <header className="border-b border-border px-4 py-3 bg-bg-secondary">
         <div className="flex items-center justify-between">
-          <Link to="/" className="text-xl font-bold tracking-tight no-underline text-text-primary">
-            A<span className="text-accent">*</span> Arena
-          </Link>
+          <div className="flex items-center gap-2">
+            <Link to="/" className="text-xl font-bold tracking-tight no-underline text-text-primary">
+              A<span className="text-accent">*</span> Arena
+            </Link>
+            <Link
+              to="/level-select"
+              className="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-accent/15 text-accent no-underline hover:bg-accent/25 transition-colors"
+            >
+              {levelMeta.shortLabel}
+            </Link>
+          </div>
           <nav className="hidden md:flex gap-1" aria-label="Main navigation">
             {navItems.map(item => (
               <Link
@@ -47,16 +62,16 @@ export default function Layout({ children }) {
         </div>
 
         {/* Subject switcher */}
-        <div className="flex gap-1.5 mt-2">
-          {SUBJECTS.map(subject => {
-            const available = isSubjectAvailable(subject.id);
+        <div className="flex gap-1.5 mt-2 overflow-x-auto">
+          {subjects.map(subject => {
+            const available = isSubjectAvailable(subject.id, level);
             const isActive = subjectId === subject.id;
             return (
               <button
                 key={subject.id}
                 onClick={() => available && !isInSession && setSubjectId(subject.id)}
                 disabled={!available || isInSession}
-                className={`text-xs px-3 py-1.5 rounded-lg transition-colors ${
+                className={`text-xs px-3 py-1.5 rounded-lg transition-colors whitespace-nowrap ${
                   isActive
                     ? 'bg-accent text-bg-primary font-semibold'
                     : available

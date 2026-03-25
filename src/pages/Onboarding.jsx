@@ -1,24 +1,54 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { saveSettings } from '../lib/storage';
-
-const STEPS = ['welcome', 'form'];
+import { useNavigate, Link } from 'react-router-dom';
+import { saveSettings, getSettings, hasSelectedLevel } from '../lib/storage';
+import { useLevel } from '../contexts/LevelContext';
+import { getSubjectsForLevel } from '../content/subjects';
+import { getLevelMeta } from '../lib/qualificationLevel';
 
 export default function Onboarding() {
   const navigate = useNavigate();
+  const { level } = useLevel();
+  const levelMeta = getLevelMeta(level);
+  const subjects = getSubjectsForLevel(level);
+  const isGCSE = level === 'gcse';
+
+  // Redirect to level select if no level chosen
+  if (!hasSelectedLevel()) {
+    navigate('/level-select', { replace: true });
+    return null;
+  }
+
   const [step, setStep] = useState('welcome');
+
+  // Build default exam boards for current level's subjects
+  const defaultBoards = {};
+  subjects.forEach(s => { defaultBoards[s.id] = 'generic'; });
+
+  const existingSettings = getSettings();
   const [form, setForm] = useState({
-    studentName: '',
-    examBoards: { biology: 'generic', chemistry: 'generic', mathematics: 'generic' },
-    targetGrade: 'A*',
-    timePerDayMins: 30,
+    studentName: existingSettings?.studentName || '',
+    examBoards: existingSettings?.examBoards?.[level] || defaultBoards,
+    targetGrade: isGCSE ? '9' : 'A*',
+    timePerDayMins: existingSettings?.timePerDayMins || 30,
   });
 
   function handleSubmit(e) {
     e.preventDefault();
+    const existing = getSettings() || {};
+    const existingOnboarded = existing.onboardedLevels || (existing.createdAt ? ['alevel'] : []);
+
     saveSettings({
-      ...form,
-      createdAt: new Date().toISOString(),
+      ...existing,
+      studentName: form.studentName,
+      examBoards: {
+        ...(existing.examBoards || {}),
+        [level]: form.examBoards,
+      },
+      [`targetGrade_${level}`]: form.targetGrade,
+      targetGrade: form.targetGrade,
+      timePerDayMins: form.timePerDayMins,
+      onboardedLevels: [...new Set([...existingOnboarded, level])],
+      createdAt: existing.createdAt || new Date().toISOString(),
     });
     navigate('/');
   }
@@ -32,32 +62,26 @@ export default function Onboarding() {
               A<span className="text-accent">*</span> Arena
             </h1>
             <p className="text-text-secondary text-lg">
-              Your A-level revision companion
+              {isGCSE
+                ? 'Your GCSE revision companion'
+                : 'Your A-Level revision companion'}
             </p>
           </div>
 
           <div className="bg-bg-secondary border border-border rounded-xl p-6 text-left space-y-4">
-            <div className="flex items-start gap-3">
-              <span className="text-2xl mt-0.5">⚔️</span>
-              <div>
-                <h3 className="font-semibold text-sm">Boss Battles</h3>
-                <p className="text-text-muted text-xs">Three-phase battles: recall, application, and 6-mark extended responses</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-3">
-              <span className="text-2xl mt-0.5">📊</span>
-              <div>
-                <h3 className="font-semibold text-sm">Adaptive Mastery</h3>
-                <p className="text-text-muted text-xs">Tracks your strengths and weaknesses across 12 core topics</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-3">
-              <span className="text-2xl mt-0.5">🎯</span>
-              <div>
-                <h3 className="font-semibold text-sm">Exam-Aligned Marking</h3>
-                <p className="text-text-muted text-xs">Marked against AQA, OCR, and Edexcel rubrics — like a real examiner</p>
-              </div>
-            </div>
+            {isGCSE ? (
+              <>
+                <FeatureItem icon="⚔️" title="Topic Battles" description="Structured practice across recall, application, and longer responses" />
+                <FeatureItem icon="📊" title="Track Your Progress" description="See exactly where you are strong and where to focus next" />
+                <FeatureItem icon="🎯" title="Exam-Style Questions" description="Practise with questions aligned to AQA, Edexcel, and OCR" />
+              </>
+            ) : (
+              <>
+                <FeatureItem icon="⚔️" title="Boss Battles" description="Three-phase battles: recall, application, and 6-mark extended responses" />
+                <FeatureItem icon="📊" title="Adaptive Mastery" description="Tracks your strengths and weaknesses across core topics" />
+                <FeatureItem icon="🎯" title="Exam-Aligned Marking" description="Marked against AQA, OCR, and Edexcel rubrics — like a real examiner" />
+              </>
+            )}
           </div>
 
           <button
@@ -66,6 +90,9 @@ export default function Onboarding() {
           >
             Get Started
           </button>
+          <Link to="/level-select" className="block text-center text-text-muted text-xs mt-3 no-underline hover:text-text-secondary">
+            Change qualification level
+          </Link>
         </div>
       </div>
     );
@@ -78,7 +105,9 @@ export default function Onboarding() {
           <h1 className="text-3xl font-bold">
             A<span className="text-accent">*</span> Arena
           </h1>
-          <p className="text-text-secondary text-sm mt-1">Set up your profile</p>
+          <p className="text-text-secondary text-sm mt-1">
+            Set up your {levelMeta.shortLabel} profile
+          </p>
         </div>
 
         <form onSubmit={handleSubmit} className="bg-bg-secondary border border-border rounded-xl p-6 space-y-5">
@@ -99,14 +128,10 @@ export default function Onboarding() {
           {/* Exam Boards */}
           <div>
             <label className="block text-sm font-medium mb-2">Exam Boards</label>
-            <div className="space-y-3">
-              {[
-                { subject: 'biology', label: 'Biology' },
-                { subject: 'chemistry', label: 'Chemistry' },
-                { subject: 'mathematics', label: 'Mathematics' },
-              ].map(({ subject, label }) => (
-                <div key={subject}>
-                  <span className="block text-xs text-text-muted mb-1">{label}</span>
+            <div className="space-y-3 max-h-64 overflow-y-auto pr-1">
+              {subjects.map(({ id, name }) => (
+                <div key={id}>
+                  <span className="block text-xs text-text-muted mb-1">{name}</span>
                   <div className="grid grid-cols-4 gap-1.5">
                     {[
                       { value: 'generic', label: 'Generic' },
@@ -117,9 +142,9 @@ export default function Onboarding() {
                       <button
                         key={opt.value}
                         type="button"
-                        onClick={() => setForm({ ...form, examBoards: { ...form.examBoards, [subject]: opt.value } })}
+                        onClick={() => setForm({ ...form, examBoards: { ...form.examBoards, [id]: opt.value } })}
                         className={`py-2 px-2 rounded-lg text-xs font-medium transition-colors cursor-pointer border ${
-                          form.examBoards[subject] === opt.value
+                          form.examBoards[id] === opt.value
                             ? 'bg-accent/15 border-accent text-accent'
                             : 'bg-bg-tertiary border-border text-text-secondary hover:border-text-muted'
                         }`}
@@ -137,7 +162,7 @@ export default function Onboarding() {
           <div>
             <label className="block text-sm font-medium mb-1.5">Target Grade</label>
             <div className="flex gap-2">
-              {['A*', 'A'].map(grade => (
+              {levelMeta.topTargetGrades.map(grade => (
                 <button
                   key={grade}
                   type="button"
@@ -148,7 +173,7 @@ export default function Onboarding() {
                       : 'bg-bg-tertiary border-border text-text-secondary hover:border-text-muted'
                   }`}
                 >
-                  {grade}
+                  {isGCSE ? `Grade ${grade}` : grade}
                 </button>
               ))}
             </div>
@@ -199,6 +224,18 @@ export default function Onboarding() {
             </button>
           </div>
         </form>
+      </div>
+    </div>
+  );
+}
+
+function FeatureItem({ icon, title, description }) {
+  return (
+    <div className="flex items-start gap-3">
+      <span className="text-2xl mt-0.5">{icon}</span>
+      <div>
+        <h3 className="font-semibold text-sm">{title}</h3>
+        <p className="text-text-muted text-xs">{description}</p>
       </div>
     </div>
   );

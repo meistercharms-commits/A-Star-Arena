@@ -1,0 +1,494 @@
+[
+  {
+    "id": "source_analysis_skills",
+    "name": "Source Analysis Skills",
+    "description": "How to evaluate, analyse and use historical sources effectively in exam answers",
+    "subskills": [
+      {
+        "id": "utility_of_sources",
+        "name": "Evaluating Source Utility",
+        "critical": true,
+        "keywords": ["utility", "usefulness", "provenance", "nature", "origin", "purpose"]
+      },
+      {
+        "id": "reliability_vs_utility",
+        "name": "Reliability vs Utility",
+        "critical": true,
+        "keywords": ["reliability", "bias", "one-sided", "propaganda", "limitations"]
+      },
+      {
+        "id": "cross_referencing",
+        "name": "Cross-Referencing Sources",
+        "critical": false,
+        "keywords": ["corroborate", "support", "contradict", "consistent", "differ"]
+      },
+      {
+        "id": "contextual_knowledge",
+        "name": "Using Contextual Knowledge",
+        "critical": true,
+        "keywords": ["own knowledge", "context", "at the time", "historically accurate", "typical"]
+      }
+    ],
+    "commonMisconceptions": [
+      "A biased source is not automatically useless - it can still reveal attitudes and intentions of the author",
+      "Primary sources are not automatically more reliable than secondary sources",
+      "Describing what a source says is not the same as analysing it - analysis requires inference and evaluation"
+    ],
+    "highYield": true,
+    "aqaRef": "AQA 8145 All papers: Source-based questions",
+    "edexcelRef": "Edexcel 1HI0 All papers: Source and interpretation questions",
+    "ocrRef": "OCR A (J410) / OCR B SHP (J411): Source evaluation questions"
+  },
+  {
+    "id": "medicine_through_time",
+    "name": "Medicine Through Time",
+    "description": "The development of medicine from ancient times to the present day, including key individuals and breakthroughs",
+    "subskills": [
+      {
+        "id": "medieval_medicine",
+        "name": "Medieval Medicine & the Church",
+        "critical": true,
+        "keywords": ["Galen", "Four Humours", "bloodletting", "Church influence", "Black Death"]
+      },
+      {
+        "id": "renaissance_medicine",
+        "name": "Renaissance & Early Modern Medicine",
+        "critical": true,
+        "keywords": ["Vesalius", "Harvey", "Pare", "anatomy", "circulation", "printing press"]
+      },
+      {
+        "id": "industrial_medicine",
+        "name": "Industrial Revolution Medicine",
+        "critical": true,
+        "keywords": ["Jenner", "vaccination", "Pasteur", "germ theory", "Koch", "anaesthetics"]
+      },
+      {
+        "id": "modern_medicine",
+        "name": "Modern Medicine & the NHS",
+        "critical": true,
+        "keywords": ["penicillin", "Fleming", "NHS", "DNA", "magic bullet", "antibiotics"]
+      },
+      {
+        "id": "factors_of_change",
+        "name": "Factors Driving Change",
+        "critical": false,
+        "keywords": ["war", "government", "individuals", "science", "technology", "chance"]
+      }
+    ],
+    "commonMisconceptions": [
+      "Jenner did not understand why vaccination worked - he observed the effect but germ theory came later",
+      "The Four Humours theory was not just medieval - it persisted well into the early modern period",
+      "Pasteur proved germs cause disease; Koch identified specific germs for specific diseases - they are different contributions",
+      "The NHS was not universally welcomed in 1948 - many doctors initially opposed it"
+    ],
+    "highYield": true,
+    "aqaRef": "AQA 8145 Paper 2 Section A: Medicine through time, c1250-present (Thematic Study)",
+    "edexcelRef": "Edexcel 1HI0 Paper 1: Medicine in Britain, c1250-present (thematic study)",
+    "ocrRef": "OCR B SHP (J411): History of medicine"
+  },
+  {
+    "id": "elizabethan_england",
+    "name": "Elizabethan England",
+    "description": "Life in Elizabethan England 1568-1603, including government, religion, exploration and daily life",
+    "subskills": [
+      {
+        "id": "elizabeth_government",
+        "name": "Elizabeth's Court & Government",
+        "critical": true,
+        "keywords": ["Privy Council", "Parliament", "patronage", "succession", "legitimacy"]
+      },
+      {
+        "id": "religious_settlement",
+        "name": "The Religious Settlement",
+        "critical": true,
+        "keywords": ["Act of Supremacy", "Act of Uniformity", "via media", "Puritans", "recusants", "Catholic threat"]
+      },
+      {
+        "id": "spanish_armada",
+        "name": "The Spanish Armada",
+        "critical": true,
+        "keywords": ["Philip II", "1588", "Drake", "fireships", "weather", "English tactics"]
+      },
+      {
+        "id": "elizabethan_society",
+        "name": "Elizabethan Society & Culture",
+        "critical": false,
+        "keywords": ["poverty", "vagabondage", "Poor Laws", "theatre", "exploration", "Raleigh"]
+      }
+    ],
+    "commonMisconceptions": [
+      "Elizabeth did not have absolute power - she relied on Parliament for taxation and the Privy Council for governance",
+      "The defeat of the Armada was not solely due to English skill - weather and Spanish errors played major roles",
+      "The Religious Settlement was a compromise, not a victory for either Protestants or Catholics",
+      "Not all Elizabethans attended the theatre - it was primarily popular with Londoners"
+    ],
+    "highYield": true,
+    "aqaRef": "AQA 8145 Paper 2 Section B: Elizabethan England, c1568-1603",
+    "edexcelRef": "Edexcel 1HI0 Paper 2: Early Elizabethan England, 1558-88 (British depth study)",
+    "ocrRef": "OCR B SHP (J411): Elizabethan England"
+  },
+  {
+    "id": "weimar_nazi_germany",
+    "name": "Weimar & Nazi Germany",
+    "description": "Germany 1918-1945: the Weimar Republic, rise of the Nazis, life in Nazi Germany and the Holocaust",
+    "subskills": [
+      {
+        "id": "weimar_republic",
+        "name": "The Weimar Republic 1918-1933",
+        "critical": true,
+        "keywords": ["Treaty of Versailles", "hyperinflation", "Stresemann", "Article 48", "Reichstag"]
+      },
+      {
+        "id": "rise_of_nazis",
+        "name": "Hitler's Rise to Power",
+        "critical": true,
+        "keywords": ["Munich Putsch", "Wall Street Crash", "propaganda", "Reichstag Fire", "Enabling Act"]
+      },
+      {
+        "id": "nazi_control",
+        "name": "Nazi Methods of Control",
+        "critical": true,
+        "keywords": ["Gestapo", "SS", "propaganda", "Goebbels", "censorship", "Gleichschaltung"]
+      },
+      {
+        "id": "life_in_nazi_germany",
+        "name": "Life in Nazi Germany",
+        "critical": true,
+        "keywords": ["Hitler Youth", "women", "Kinder Kuche Kirche", "persecution", "Nuremberg Laws"]
+      },
+      {
+        "id": "holocaust",
+        "name": "The Holocaust",
+        "critical": true,
+        "keywords": ["Final Solution", "Kristallnacht", "concentration camps", "Wannsee Conference", "genocide"]
+      }
+    ],
+    "commonMisconceptions": [
+      "Hitler did not seize power by force in 1933 - he was appointed Chancellor legally through democratic processes",
+      "The Treaty of Versailles was not the sole cause of the Weimar Republic's problems - there were many contributing factors",
+      "Not all Germans supported the Nazis - there was significant opposition and resistance throughout the period",
+      "Hyperinflation of 1923 and the Great Depression of 1929 were separate economic crises with different causes"
+    ],
+    "highYield": true,
+    "aqaRef": "AQA 8145 Paper 1 Section A: Germany, 1890-1945",
+    "edexcelRef": "Edexcel 1HI0 Paper 3: Weimar and Nazi Germany, 1918-39 (modern depth study)",
+    "ocrRef": "OCR B SHP (J411): Germany in transition, 1919-39"
+  },
+  {
+    "id": "cold_war",
+    "name": "Cold War",
+    "description": "Superpower relations and the Cold War 1941-1991, including key crises and the collapse of the Soviet Union",
+    "subskills": [
+      {
+        "id": "origins_cold_war",
+        "name": "Origins & Early Cold War",
+        "critical": true,
+        "keywords": ["Yalta", "Potsdam", "Iron Curtain", "Truman Doctrine", "Marshall Plan", "NATO"]
+      },
+      {
+        "id": "cold_war_crises",
+        "name": "Cold War Crises",
+        "critical": true,
+        "keywords": ["Berlin Blockade", "Korean War", "Cuban Missile Crisis", "Berlin Wall", "Hungary 1956"]
+      },
+      {
+        "id": "detente_and_tensions",
+        "name": "Detente & Renewed Tensions",
+        "critical": true,
+        "keywords": ["detente", "SALT treaties", "Afghanistan", "Reagan", "SDI", "arms race"]
+      },
+      {
+        "id": "end_of_cold_war",
+        "name": "The End of the Cold War",
+        "critical": true,
+        "keywords": ["Gorbachev", "glasnost", "perestroika", "fall of Berlin Wall", "collapse of USSR"]
+      }
+    ],
+    "commonMisconceptions": [
+      "The Cold War was not just between the USA and USSR - it involved proxy wars and alliances across the globe",
+      "Detente did not mean the end of rivalry - both sides continued the arms race and competed for influence",
+      "The Berlin Wall fell in 1989, but the Soviet Union did not collapse until 1991 - these are separate events",
+      "The Cuban Missile Crisis was not resolved by one side backing down - it involved mutual compromise"
+    ],
+    "highYield": true,
+    "aqaRef": "AQA 8145 Paper 1 Section B: Conflict and tension between East and West, 1945-1972",
+    "edexcelRef": "Edexcel 1HI0 Paper 2: Superpower relations and the Cold War, 1941-91 (period study)",
+    "ocrRef": "OCR A (J410): The Cold War, 1941-1991",
+    "note": "Date range differs by board: AQA covers 1945-1972, Edexcel covers 1941-91, OCR A covers 1941-1991"
+  },
+  {
+    "id": "norman_conquest",
+    "name": "Norman Conquest",
+    "description": "The Norman Conquest of England 1065-1087, including the Battle of Hastings and Norman control",
+    "subskills": [
+      {
+        "id": "claimants_1066",
+        "name": "The Claimants to the Throne",
+        "critical": true,
+        "keywords": ["Harold Godwinson", "William of Normandy", "Harald Hardrada", "Edward the Confessor", "Witan"]
+      },
+      {
+        "id": "battles_1066",
+        "name": "Battles of 1066",
+        "critical": true,
+        "keywords": ["Stamford Bridge", "Hastings", "shield wall", "feigned retreat", "cavalry", "fyrd"]
+      },
+      {
+        "id": "norman_control",
+        "name": "Establishing Norman Control",
+        "critical": true,
+        "keywords": ["castles", "motte and bailey", "feudal system", "Domesday Book", "Harrying of the North"]
+      },
+      {
+        "id": "norman_society",
+        "name": "Norman England Society & Church",
+        "critical": false,
+        "keywords": ["Lanfranc", "cathedrals", "monasteries", "tenants-in-chief", "villeins"]
+      }
+    ],
+    "commonMisconceptions": [
+      "Harold was not killed by an arrow in the eye - this is likely a myth from the Bayeux Tapestry which may show a different figure",
+      "William did not win at Hastings simply because he was a better leader - luck, timing and Harold's exhaustion all played a part",
+      "The feudal system was not a rigid pyramid - relationships were complex and varied across regions",
+      "The Domesday Book was for taxation purposes, not simply a record of who owned what land"
+    ],
+    "highYield": true,
+    "aqaRef": "AQA 8145 Paper 2 Section B: Norman England, c1066-c1100",
+    "edexcelRef": "Edexcel 1HI0 Paper 2: Anglo-Saxon and Norman England, c1060-88 (British depth study)",
+    "ocrRef": "OCR B SHP (J411): The Norman Conquest, 1065-1087"
+  },
+  {
+    "id": "american_west",
+    "name": "American West",
+    "description": "The American West c1835-c1895, including settlement, conflict and the experience of Native Americans",
+    "subskills": [
+      {
+        "id": "plains_indians",
+        "name": "Plains Indians Way of Life",
+        "critical": true,
+        "keywords": ["nomadic", "buffalo", "tipi", "Sioux", "Lakota", "Great Plains"]
+      },
+      {
+        "id": "migration_settlement",
+        "name": "Migration & Early Settlement",
+        "critical": true,
+        "keywords": ["Manifest Destiny", "Oregon Trail", "Mormons", "gold rush", "Homestead Act"]
+      },
+      {
+        "id": "conflict_plains",
+        "name": "Conflict on the Plains",
+        "critical": true,
+        "keywords": ["Little Bighorn", "reservations", "Wounded Knee", "Sand Creek", "Dawes Act"]
+      },
+      {
+        "id": "law_order",
+        "name": "Law & Order in the West",
+        "critical": false,
+        "keywords": ["vigilantes", "marshals", "cattle ranchers", "cowboys", "range wars", "Dodge City"]
+      }
+    ],
+    "commonMisconceptions": [
+      "Native Americans were not a single group - there were hundreds of distinct nations with different cultures and languages",
+      "Manifest Destiny was not a universally held belief - many Americans opposed westward expansion",
+      "Cowboys were not all white American men - many were Black, Mexican or Native American",
+      "The Battle of Little Bighorn was a Native American victory, but it ultimately led to increased US military action"
+    ],
+    "highYield": true,
+    "aqaRef": "AQA 8145 Paper 1 Section A: The American West, c1835-c1895 (Period Study)",
+    "edexcelRef": "Edexcel 1HI0 Paper 2: The American West, c1835-c1895 (period study)",
+    "ocrRef": "OCR A (J410): The Making of America, 1789-1900"
+  },
+  {
+    "id": "power_and_the_people",
+    "name": "Power & the People",
+    "description": "How people have challenged authority and fought for rights throughout British history",
+    "subskills": [
+      {
+        "id": "medieval_challenges",
+        "name": "Medieval Challenges to Authority",
+        "critical": true,
+        "keywords": ["Magna Carta", "Peasants' Revolt", "Simon de Montfort", "Parliament", "feudalism"]
+      },
+      {
+        "id": "early_modern_challenges",
+        "name": "Early Modern Challenges",
+        "critical": true,
+        "keywords": ["Pilgrimage of Grace", "English Civil War", "Levellers", "Glorious Revolution", "Bill of Rights"]
+      },
+      {
+        "id": "industrial_reform",
+        "name": "Industrial & Reform Movements",
+        "critical": true,
+        "keywords": ["Chartists", "suffragettes", "trade unions", "Tolpuddle Martyrs", "Great Reform Act"]
+      },
+      {
+        "id": "modern_campaigns",
+        "name": "Modern Campaigns for Rights",
+        "critical": false,
+        "keywords": ["general strike", "welfare state", "equal pay", "miners' strike", "poll tax riots"]
+      }
+    ],
+    "commonMisconceptions": [
+      "The Magna Carta did not grant rights to ordinary people - it protected the rights of barons against the king",
+      "The Peasants' Revolt of 1381 was not a complete failure - it contributed to the eventual end of serfdom",
+      "Suffragettes and suffragists were different groups with different methods - not all campaigners used militant tactics",
+      "The Chartists did not achieve their demands immediately, but five of their six points were eventually enacted"
+    ],
+    "highYield": true,
+    "aqaRef": "AQA 8145 Paper 2 Section A: Power and the people, c1170-present (Thematic Study)",
+    "edexcelRef": "Edexcel 1HI0 Paper 1: No direct equivalent (thematic study options differ)",
+    "ocrRef": "OCR A (J410): Power, the People and Democracy in Britain"
+  },
+  {
+    "id": "crime_and_punishment",
+    "name": "Crime & Punishment",
+    "description": "How crime and punishment have changed from medieval times to the present day",
+    "subskills": [
+      {
+        "id": "medieval_crime",
+        "name": "Medieval Crime & Punishment",
+        "critical": true,
+        "keywords": ["trial by ordeal", "hue and cry", "tithings", "stocks", "pillory", "heresy"]
+      },
+      {
+        "id": "early_modern_crime",
+        "name": "Early Modern Crime & Punishment",
+        "critical": true,
+        "keywords": ["witchcraft", "Bloody Code", "smuggling", "highwaymen", "transportation"]
+      },
+      {
+        "id": "industrial_crime",
+        "name": "Industrial Period Crime & Reform",
+        "critical": true,
+        "keywords": ["Peelers", "Metropolitan Police", "prison reform", "Elizabeth Fry", "John Howard"]
+      },
+      {
+        "id": "modern_crime",
+        "name": "Modern Crime & Justice",
+        "critical": false,
+        "keywords": ["conscientious objectors", "Derek Bentley", "abolition of death penalty", "CCTV", "cybercrime"]
+      }
+    ],
+    "commonMisconceptions": [
+      "Trial by ordeal was not random - it was believed to be God's judgement, so it had religious significance",
+      "The Bloody Code did not mean everyone convicted was executed - many sentences were commuted to transportation",
+      "Prisons were not always intended as punishment - before the 19th century they were mainly holding places before trial",
+      "The death penalty was not abolished in the UK until 1969 (for murder) - not during the Victorian era"
+    ],
+    "highYield": true,
+    "aqaRef": "AQA 8145 Paper 2 Section A: Crime and punishment, c1000-present (Thematic Study)",
+    "edexcelRef": "Edexcel 1HI0 Paper 1: Crime and punishment in Britain, c1000-present (thematic study + historic environment)",
+    "ocrRef": "OCR B SHP (J411): Crime and punishment through time"
+  },
+  {
+    "id": "essay_technique",
+    "name": "Essay Technique & Argumentation",
+    "description": "How to write effective GCSE History essays with clear arguments, evidence and balanced evaluation",
+    "subskills": [
+      {
+        "id": "structuring_essays",
+        "name": "Structuring an Essay Answer",
+        "critical": true,
+        "keywords": ["PEE", "PEEL", "introduction", "conclusion", "topic sentence", "paragraph"]
+      },
+      {
+        "id": "using_evidence",
+        "name": "Using Evidence Effectively",
+        "critical": true,
+        "keywords": ["specific evidence", "dates", "statistics", "examples", "key individuals"]
+      },
+      {
+        "id": "balanced_argument",
+        "name": "Constructing a Balanced Argument",
+        "critical": true,
+        "keywords": ["however", "on the other hand", "most importantly", "to a greater extent", "overall"]
+      },
+      {
+        "id": "reaching_judgement",
+        "name": "Reaching a Sustained Judgement",
+        "critical": true,
+        "keywords": ["judgement", "criteria", "extent", "significance", "turning point"]
+      }
+    ],
+    "commonMisconceptions": [
+      "A good conclusion does not simply repeat what you have already written - it must offer a clear overall judgement",
+      "You do not need to agree with the statement in the question - what matters is the quality of your argument",
+      "Listing facts is not the same as analysis - you must explain WHY evidence supports your point",
+      "Balance does not mean giving equal weight to both sides - you should prioritise the stronger argument"
+    ],
+    "highYield": true,
+    "aqaRef": "AQA 8145 All papers: Extended writing questions",
+    "edexcelRef": "Edexcel 1HI0 All papers: Extended response questions",
+    "ocrRef": "OCR A (J410) / OCR B SHP (J411): Structured and essay responses"
+  },
+  {
+    "id": "chronological_knowledge",
+    "name": "Chronological Knowledge",
+    "description": "Understanding timelines, periods and how to place events in their correct historical context",
+    "subskills": [
+      {
+        "id": "key_dates",
+        "name": "Key Dates & Periods",
+        "critical": true,
+        "keywords": ["medieval", "Tudor", "Victorian", "interwar", "century", "decade"]
+      },
+      {
+        "id": "cause_consequence",
+        "name": "Cause & Consequence",
+        "critical": true,
+        "keywords": ["led to", "resulted in", "because of", "short-term", "long-term", "trigger"]
+      },
+      {
+        "id": "change_continuity",
+        "name": "Change & Continuity",
+        "critical": true,
+        "keywords": ["turning point", "continuity", "pace of change", "gradual", "rapid", "revolution"]
+      }
+    ],
+    "commonMisconceptions": [
+      "Events do not happen in isolation - students must link causes and consequences across time periods",
+      "A turning point does not mean everything changed overnight - it means the direction or pace of change shifted",
+      "Short-term causes are not always more important than long-term causes - context determines significance",
+      "The Victorian era and the Industrial Revolution are not the same period - they overlap but are distinct"
+    ],
+    "highYield": true,
+    "aqaRef": "AQA 8145 All papers: Chronological understanding",
+    "edexcelRef": "Edexcel 1HI0 All papers: Chronological reasoning",
+    "ocrRef": "OCR A (J410) / OCR B SHP (J411): Chronological knowledge and understanding"
+  },
+  {
+    "id": "historical_interpretations",
+    "name": "Historical Interpretations",
+    "description": "Understanding why historians disagree and how to evaluate different interpretations of the past",
+    "subskills": [
+      {
+        "id": "why_interpretations_differ",
+        "name": "Why Interpretations Differ",
+        "critical": true,
+        "keywords": ["perspective", "emphasis", "available evidence", "context of historian", "methodology"]
+      },
+      {
+        "id": "evaluating_interpretations",
+        "name": "Evaluating Interpretations",
+        "critical": true,
+        "keywords": ["convincing", "supported by evidence", "limitations", "partial", "selective"]
+      },
+      {
+        "id": "creating_own_interpretation",
+        "name": "Constructing Your Own View",
+        "critical": false,
+        "keywords": ["own knowledge", "weigh up", "more convincing", "to what extent", "agree"]
+      }
+    ],
+    "commonMisconceptions": [
+      "An interpretation is not the same as a source - interpretations are constructed arguments about the past, sources are evidence from the past",
+      "Two different interpretations can both be valid if they are supported by evidence",
+      "Historians do not disagree because one is wrong - they may focus on different evidence or ask different questions",
+      "You should not simply describe what each interpretation says - you must compare and evaluate them"
+    ],
+    "highYield": true,
+    "aqaRef": "AQA 8145 Paper 2 Section B: Historic environment and interpretations",
+    "edexcelRef": "Edexcel 1HI0 Paper 1: Interpretation questions (historic environment)",
+    "ocrRef": "OCR A (J410) / OCR B SHP (J411): Interpretation and analysis questions"
+  }
+]

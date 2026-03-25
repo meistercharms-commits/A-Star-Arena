@@ -1,0 +1,82 @@
+[
+  {
+    "topicId": "applied_anatomy_and_physiology",
+    "bossName": "The Bone Crusher",
+    "flavourText": "A skeletal titan held together by tendons and powered by antagonistic muscle pairs. Name every bone and joint to bring it crumbling down!",
+    "emoji": "🦴",
+    "hp": 100,
+    "hpBarColour": "#C0392B"
+  },
+  {
+    "topicId": "movement_analysis",
+    "bossName": "Lord Lever-Age",
+    "flavourText": "This mechanical menace pivots, rotates and flexes through every plane of movement. Find its fulcrum and tip the balance in your favour!",
+    "emoji": "🔧",
+    "hp": 100,
+    "hpBarColour": "#8E44AD"
+  },
+  {
+    "topicId": "physical_training",
+    "bossName": "Coach Overload",
+    "flavourText": "A relentless taskmaster who never skips a session. Apply the principles of training and push past its progressive resistance!",
+    "emoji": "🏋️",
+    "hp": 100,
+    "hpBarColour": "#E67E22"
+  },
+  {
+    "topicId": "sports_psychology",
+    "bossName": "The Mind Bender",
+    "flavourText": "This psychological predator feeds on anxiety and disrupts your arousal levels. Stay in the zone, visualise victory and shut it down!",
+    "emoji": "🧠",
+    "hp": 100,
+    "hpBarColour": "#2980B9"
+  },
+  {
+    "topicId": "socio_cultural_influences",
+    "bossName": "The Golden Triangle",
+    "flavourText": "A three-headed beast of money, media and sponsorship that controls who plays and who pays. Expose its influence to break the cycle!",
+    "emoji": "📺",
+    "hp": 100,
+    "hpBarColour": "#F1C40F"
+  },
+  {
+    "topicId": "health_fitness_wellbeing",
+    "bossName": "The Sedentary Sloth",
+    "flavourText": "A lethargic creature that thrives on inactivity and junk food. Get it moving and show it what well-being really means!",
+    "emoji": "🦥",
+    "hp": 100,
+    "hpBarColour": "#27AE60"
+  },
+  {
+    "topicId": "use_of_data",
+    "bossName": "The Data Demon",
+    "flavourText": "A number-crunching fiend that hides behind misleading graphs and dodgy averages. Analyse its weak spots and call out the trends!",
+    "emoji": "📊",
+    "hp": 100,
+    "hpBarColour": "#1ABC9C"
+  },
+  {
+    "topicId": "biomechanics",
+    "bossName": "Newton's Nightmare",
+    "flavourText": "A force of nature that launches projectiles and ignores friction. Apply all three laws to stop it in its tracks!",
+    "emoji": "🎯",
+    "hp": 100,
+    "hpBarColour": "#34495E"
+  },
+  {
+    "topicId": "nutrition",
+    "bossName": "The Macro Monster",
+    "flavourText": "Fuelled by carbohydrates, armoured in protein and insulated with fat. Starve it of the wrong nutrients and watch it collapse!",
+    "emoji": "🍎",
+    "hp": 100,
+    "hpBarColour": "#D35400"
+  },
+  {
+    "topicId": "practical_performance",
+    "bossName": "The Tactical Titan",
+    "flavourText": "A sporting mastermind with skills, strategies and an answer for every situation. Outplay, outthink and outperform to claim victory!",
+    "emoji": "⚽",
+    "hp": 100,
+    "hpBarColour": "#16A085"
+  }
+]

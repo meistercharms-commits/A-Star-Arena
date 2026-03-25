@@ -1,0 +1,223 @@
+[
+  {
+    "id": "beliefs_about_god",
+    "name": "Beliefs About God",
+    "description": "Arguments for and against the existence of God, the nature of the divine, revelation",
+    "subskills": [
+      { "id": "design_argument", "name": "Design Argument (Teleological)", "critical": true, "keywords": ["Paley", "watchmaker", "purpose", "complexity", "Aquinas"] },
+      { "id": "cosmological_argument", "name": "Cosmological Argument", "critical": true, "keywords": ["first cause", "Aquinas", "uncaused cause", "Big Bang", "contingency"] },
+      { "id": "problem_of_evil", "name": "Problem of Evil & Suffering", "critical": true, "keywords": ["moral evil", "natural evil", "omnipotent", "omnibenevolent", "theodicy", "free will"] },
+      { "id": "nature_of_god", "name": "Nature of God", "critical": true, "keywords": ["omnipotent", "omniscient", "omnibenevolent", "transcendent", "immanent", "Trinity"] },
+      { "id": "revelation", "name": "General & Special Revelation", "critical": false, "keywords": ["scripture", "miracles", "nature", "visions", "prophecy", "conscience"] },
+      { "id": "science_religion", "name": "Science & Religion", "critical": false, "keywords": ["evolution", "creationism", "Big Bang", "compatibility", "Genesis", "literal", "liberal"] }
+    ],
+    "commonMisconceptions": [
+      "The design argument proves God exists rather than suggesting it",
+      "All Christians reject evolution",
+      "The problem of evil only applies to Christianity",
+      "Transcendent and immanent are opposites that cannot coexist"
+    ],
+    "highYield": true,
+    "aqaRef": "3.1.1",
+    "edexcelRef": "1.1",
+    "ocrRef": "J625/01"
+  },
+  {
+    "id": "life_after_death",
+    "name": "Life After Death",
+    "description": "Beliefs about the soul, resurrection, judgement, heaven, hell, and reincarnation",
+    "subskills": [
+      { "id": "christian_afterlife", "name": "Christian Beliefs About the Afterlife", "critical": true, "keywords": ["resurrection", "heaven", "hell", "purgatory", "judgement", "soul", "immortality"] },
+      { "id": "muslim_afterlife", "name": "Islamic Beliefs About the Afterlife", "critical": true, "keywords": ["Akhirah", "Jannah", "Jahannam", "Day of Judgement", "Barzakh", "angel of death"] },
+      { "id": "body_soul", "name": "Body & Soul Debate", "critical": true, "keywords": ["dualism", "materialism", "Descartes", "soul", "consciousness", "identity"] },
+      { "id": "karma_reincarnation", "name": "Karma & Reincarnation", "critical": false, "keywords": ["samsara", "moksha", "nirvana", "cycle of rebirth", "karma", "dharma"] },
+      { "id": "secular_views", "name": "Non-Religious Views", "critical": false, "keywords": ["atheism", "humanism", "annihilation", "legacy", "no afterlife", "scientific"] }
+    ],
+    "commonMisconceptions": [
+      "All Christians believe in a literal hell with fire and torment",
+      "Purgatory is accepted by all Christian denominations",
+      "Reincarnation is only a Hindu belief",
+      "Heaven is a physical place above the clouds"
+    ],
+    "highYield": true,
+    "aqaRef": "3.1.2",
+    "edexcelRef": "1.2",
+    "ocrRef": "J625/01"
+  },
+  {
+    "id": "good_and_evil",
+    "name": "Good & Evil",
+    "description": "The origins of evil, the Devil, suffering, and the role of free will",
+    "subskills": [
+      { "id": "origins_of_evil", "name": "Origins of Evil", "critical": true, "keywords": ["original sin", "Fall", "Adam", "Eve", "serpent", "Garden of Eden"] },
+      { "id": "devil_satan", "name": "The Devil & Satan", "critical": false, "keywords": ["Iblis", "Shaytan", "tempter", "fallen angel", "personification", "literal"] },
+      { "id": "free_will", "name": "Free Will & Determinism", "critical": true, "keywords": ["free will", "predestination", "moral responsibility", "choice", "conscience"] },
+      { "id": "forgiveness", "name": "Forgiveness & Reconciliation", "critical": true, "keywords": ["repentance", "atonement", "mercy", "justice", "restorative", "parable"] },
+      { "id": "coping_suffering", "name": "Coping with Suffering", "critical": false, "keywords": ["prayer", "community", "faith", "charity", "comfort", "purpose"] }
+    ],
+    "commonMisconceptions": [
+      "All religions teach that evil comes from a single source",
+      "Free will means God has no plan",
+      "Forgiveness means there should be no punishment",
+      "Natural evil is always seen as God's punishment"
+    ],
+    "highYield": true,
+    "aqaRef": "3.1.3",
+    "edexcelRef": "1.3",
+    "ocrRef": "J625/02"
+  },
+  {
+    "id": "human_rights",
+    "name": "Human Rights",
+    "description": "Equality, social justice, prejudice, discrimination, and religious responses",
+    "subskills": [
+      { "id": "equality_justice", "name": "Equality & Social Justice", "critical": true, "keywords": ["human dignity", "imago Dei", "ummah", "equality", "justice", "fairness"] },
+      { "id": "prejudice_discrimination", "name": "Prejudice & Discrimination", "critical": true, "keywords": ["racism", "sexism", "Islamophobia", "antisemitism", "stereotyping", "scapegoating"] },
+      { "id": "religious_freedom", "name": "Religious Freedom", "critical": false, "keywords": ["persecution", "tolerance", "interfaith dialogue", "respect", "UDHR Article 18"] },
+      { "id": "wealth_poverty", "name": "Wealth & Poverty", "critical": true, "keywords": ["charity", "zakat", "tithe", "Fairtrade", "exploitation", "stewardship"] },
+      { "id": "religious_attitudes", "name": "Religious Attitudes to Equality", "critical": false, "keywords": ["Galatians 3:28", "Quran 49:13", "liberation theology", "caste", "gender roles"] }
+    ],
+    "commonMisconceptions": [
+      "All religions have always supported gender equality",
+      "Zakat and charity are the same concept",
+      "Religious freedom means any behaviour is acceptable if religiously motivated",
+      "Human rights are a modern Western invention with no religious roots"
+    ],
+    "highYield": true,
+    "aqaRef": "3.2.1",
+    "edexcelRef": "2.1",
+    "ocrRef": "J625/03"
+  },
+  {
+    "id": "relationships_and_families",
+    "name": "Relationships & Families",
+    "description": "Marriage, divorce, family life, gender roles, contraception, and sexuality",
+    "subskills": [
+      { "id": "marriage", "name": "Marriage & Civil Partnerships", "critical": true, "keywords": ["sacrament", "nikah", "covenant", "civil partnership", "vows", "commitment"] },
+      { "id": "divorce_remarriage", "name": "Divorce & Remarriage", "critical": true, "keywords": ["annulment", "talaq", "khul", "separation", "Catholic teaching", "Protestant view"] },
+      { "id": "family_types", "name": "Family Types & Roles", "critical": false, "keywords": ["nuclear", "extended", "single-parent", "same-sex", "blended", "reconstituted"] },
+      { "id": "sexuality", "name": "Attitudes to Sexuality", "critical": true, "keywords": ["heterosexual", "homosexual", "chastity", "celibacy", "natural law", "liberal"] },
+      { "id": "contraception", "name": "Contraception & Family Planning", "critical": false, "keywords": ["natural methods", "artificial", "Humanae Vitae", "sanctity of life", "responsible parenthood"] }
+    ],
+    "commonMisconceptions": [
+      "All Christians oppose same-sex marriage",
+      "Islam forbids contraception entirely",
+      "A Catholic annulment is the same as a divorce",
+      "All religions require women to be submissive in marriage"
+    ],
+    "highYield": true,
+    "aqaRef": "3.2.2",
+    "edexcelRef": "2.2",
+    "ocrRef": "J625/03"
+  },
+  {
+    "id": "peace_and_conflict",
+    "name": "Peace & Conflict",
+    "description": "Just war, holy war, pacifism, terrorism, nuclear weapons, and peacemaking",
+    "subskills": [
+      { "id": "just_war", "name": "Just War Theory", "critical": true, "keywords": ["Aquinas", "last resort", "proportional", "legitimate authority", "just cause", "civilian protection"] },
+      { "id": "holy_war", "name": "Holy War & Jihad", "critical": true, "keywords": ["lesser jihad", "greater jihad", "crusades", "defence of faith", "religious duty"] },
+      { "id": "pacifism", "name": "Pacifism & Nonviolence", "critical": true, "keywords": ["Quakers", "Martin Luther King", "Gandhi", "conscientious objector", "turn the other cheek"] },
+      { "id": "weapons_mass_destruction", "name": "Weapons of Mass Destruction", "critical": false, "keywords": ["nuclear", "chemical", "biological", "deterrence", "proliferation", "MAD"] },
+      { "id": "peacemaking", "name": "Peacemaking & Reconciliation", "critical": false, "keywords": ["UN", "diplomacy", "conflict resolution", "forgiveness", "interfaith", "mediation"] }
+    ],
+    "commonMisconceptions": [
+      "Jihad always means violent holy war",
+      "Just war theory guarantees a war is morally right",
+      "All Christians are pacifists",
+      "Terrorism is endorsed by mainstream religious teaching"
+    ],
+    "highYield": true,
+    "aqaRef": "3.2.3",
+    "edexcelRef": "2.3",
+    "ocrRef": "J625/04"
+  },
+  {
+    "id": "crime_and_punishment",
+    "name": "Crime & Punishment",
+    "description": "Aims of punishment, capital punishment, forgiveness, treatment of criminals",
+    "subskills": [
+      { "id": "aims_of_punishment", "name": "Aims of Punishment", "critical": true, "keywords": ["retribution", "deterrence", "reformation", "protection", "vindication", "reparation"] },
+      { "id": "capital_punishment", "name": "Capital Punishment", "critical": true, "keywords": ["death penalty", "sanctity of life", "deterrence", "human rights", "Sharia", "miscarriage of justice"] },
+      { "id": "prison_alternatives", "name": "Prison & Alternatives", "critical": false, "keywords": ["community service", "rehabilitation", "tagging", "restorative justice", "probation"] },
+      { "id": "religious_attitudes_crime", "name": "Religious Attitudes to Crime", "critical": true, "keywords": ["sin", "law-breaking", "conscience", "Ten Commandments", "Sharia law", "forgiveness"] },
+      { "id": "corporal_punishment", "name": "Corporal Punishment", "critical": false, "keywords": ["physical punishment", "children", "discipline", "Proverbs", "human dignity"] }
+    ],
+    "commonMisconceptions": [
+      "Retribution and revenge are the same thing",
+      "All Muslims support capital punishment",
+      "Reformation means criminals go unpunished",
+      "Religious teachings always oppose prison"
+    ],
+    "highYield": true,
+    "aqaRef": "3.2.4",
+    "edexcelRef": "2.4",
+    "ocrRef": "J625/04"
+  },
+  {
+    "id": "environmental_ethics",
+    "name": "Environmental Ethics",
+    "description": "Stewardship, dominion, sustainability, animal rights, and religious responsibility",
+    "subskills": [
+      { "id": "stewardship_dominion", "name": "Stewardship & Dominion", "critical": true, "keywords": ["khalifah", "stewardship", "dominion", "Genesis 1:28", "responsibility", "creation"] },
+      { "id": "climate_change", "name": "Climate Change & Sustainability", "critical": true, "keywords": ["global warming", "carbon footprint", "renewable energy", "sustainability", "future generations"] },
+      { "id": "animal_rights", "name": "Animal Rights", "critical": false, "keywords": ["factory farming", "experimentation", "halal", "kosher", "sentience", "dominion"] },
+      { "id": "religious_responses", "name": "Religious Responses to the Environment", "critical": false, "keywords": ["Assisi Declarations", "Laudato Si", "Islamic Declaration on Climate Change", "conservation"] },
+      { "id": "pollution_deforestation", "name": "Pollution & Deforestation", "critical": false, "keywords": ["pollution", "deforestation", "biodiversity", "habitat loss", "waste", "recycling"] }
+    ],
+    "commonMisconceptions": [
+      "Dominion means humans can exploit the Earth without limits",
+      "Only modern religions care about the environment",
+      "Stewardship and dominion mean the same thing",
+      "Religious teachings say nothing about animal welfare"
+    ],
+    "highYield": false,
+    "aqaRef": "3.2.5",
+    "edexcelRef": "2.5",
+    "ocrRef": "J625/05"
+  },
+  {
+    "id": "medical_ethics",
+    "name": "Medical Ethics",
+    "description": "Abortion, euthanasia, fertility treatment, organ donation, and sanctity of life",
+    "subskills": [
+      { "id": "sanctity_of_life", "name": "Sanctity of Life", "critical": true, "keywords": ["sacred", "God-given", "imago Dei", "Quran 5:32", "intrinsic value", "inviolable"] },
+      { "id": "abortion", "name": "Abortion", "critical": true, "keywords": ["pro-life", "pro-choice", "ensoulment", "viability", "Abortion Act 1967", "double effect"] },
+      { "id": "euthanasia", "name": "Euthanasia", "critical": true, "keywords": ["voluntary", "involuntary", "passive", "active", "assisted dying", "hospice", "palliative care"] },
+      { "id": "fertility_treatment", "name": "Fertility Treatment", "critical": false, "keywords": ["IVF", "surrogacy", "embryo", "donor", "natural law", "spare embryos"] },
+      { "id": "organ_donation", "name": "Organ Donation & Transplants", "critical": false, "keywords": ["opt-in", "opt-out", "consent", "brain death", "bodily resurrection", "gift of life"] }
+    ],
+    "commonMisconceptions": [
+      "All religions completely oppose abortion with no exceptions",
+      "Euthanasia and assisted dying are legally the same in the UK",
+      "Sanctity of life only applies to human life",
+      "IVF is opposed by all religious traditions"
+    ],
+    "highYield": true,
+    "aqaRef": "3.2.6",
+    "edexcelRef": "2.6",
+    "ocrRef": "J625/05"
+  },
+  {
+    "id": "worship_and_festivals",
+    "name": "Worship & Festivals",
+    "description": "Prayer, pilgrimage, key festivals, and the role of worship in religious life",
+    "subskills": [
+      { "id": "prayer_worship", "name": "Prayer & Worship", "critical": true, "keywords": ["liturgical", "non-liturgical", "private", "communal", "salah", "du'a", "meditation"] },
+      { "id": "pilgrimage", "name": "Pilgrimage", "critical": true, "keywords": ["Hajj", "Lourdes", "Jerusalem", "Iona", "spiritual journey", "obligation"] },
+      { "id": "christian_festivals", "name": "Christian Festivals", "critical": true, "keywords": ["Christmas", "Easter", "Advent", "Lent", "Pentecost", "Eucharist"] },
+      { "id": "islamic_festivals", "name": "Islamic Festivals & Practices", "critical": true, "keywords": ["Eid ul-Fitr", "Eid ul-Adha", "Ramadan", "Five Pillars", "Shahadah"] },
+      { "id": "places_of_worship", "name": "Places of Worship", "critical": false, "keywords": ["church", "mosque", "synagogue", "temple", "sacred space", "architecture"] }
+    ],
+    "commonMisconceptions": [
+      "Liturgical worship is more important than non-liturgical",
+      "Hajj is optional for all Muslims",
+      "Easter is less important than Christmas in Christianity",
+      "All Christians celebrate the same festivals in the same way"
+    ],
+    "highYield": false,
+    "aqaRef": "3.1.4",
+    "edexcelRef": "1.4",
+    "ocrRef": "J625/02"
+  }
+]

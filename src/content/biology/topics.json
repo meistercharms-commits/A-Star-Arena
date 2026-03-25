@@ -19,8 +19,8 @@
     ],
     "highYield": true,
     "aqaRef": "3.1",
-    "ocrRef": "H567/01",
-    "edexcelRef": "3.1"
+    "ocrRef": "H420 Module 2",
+    "edexcelRef": "9BN0 Topic 1"
   },
   {
     "id": "cell_structure",
@@ -41,8 +41,8 @@
     ],
     "highYield": true,
     "aqaRef": "3.2",
-    "ocrRef": "H567/01",
-    "edexcelRef": "3.2"
+    "ocrRef": "H420 Module 2",
+    "edexcelRef": "9BN0 Topic 2"
   },
   {
     "id": "transport_membranes",
@@ -62,9 +62,9 @@
       "Facilitated diffusion requires ATP"
     ],
     "highYield": true,
-    "aqaRef": "3.3",
-    "ocrRef": "H567/01",
-    "edexcelRef": "3.3"
+    "aqaRef": "3.2",
+    "ocrRef": "H420 Module 2",
+    "edexcelRef": "9BN0 Topic 2"
   },
   {
     "id": "enzymes",
@@ -89,9 +89,9 @@
       "Enzymes work the same at all pH/temperature"
     ],
     "highYield": true,
-    "aqaRef": "3.4",
-    "ocrRef": "H567/01",
-    "edexcelRef": "3.4"
+    "aqaRef": "3.1",
+    "ocrRef": "H420 Module 2",
+    "edexcelRef": "9BN0 Topic 1"
   },
   {
     "id": "dna_protein_synthesis",
@@ -114,9 +114,9 @@
       "Translation is the same as transcription"
     ],
     "highYield": true,
-    "aqaRef": "3.5",
-    "ocrRef": "H567/01",
-    "edexcelRef": "3.5"
+    "aqaRef": "3.4",
+    "ocrRef": "H420 Module 2",
+    "edexcelRef": "9BN0 Topic 2"
   },
   {
     "id": "cell_division",
@@ -136,9 +136,9 @@
       "Chromosome number doubles in meiosis"
     ],
     "highYield": true,
-    "aqaRef": "3.6",
-    "ocrRef": "H567/01",
-    "edexcelRef": "3.6"
+    "aqaRef": "3.4",
+    "ocrRef": "H420 Module 2",
+    "edexcelRef": "9BN0 Topic 2"
   },
   {
     "id": "exchange_surfaces",
@@ -156,9 +156,9 @@
       "Oxygen is actively transported across alveoli"
     ],
     "highYield": false,
-    "aqaRef": "3.7",
-    "ocrRef": "H567/02",
-    "edexcelRef": "3.7"
+    "aqaRef": "3.3",
+    "ocrRef": "H420 Module 3",
+    "edexcelRef": "9BN0 Topic 3"
   },
   {
     "id": "transport_animals",
@@ -178,9 +178,9 @@
       "SAN is controlled by the brain"
     ],
     "highYield": false,
-    "aqaRef": "3.8",
-    "ocrRef": "H567/02",
-    "edexcelRef": "3.8"
+    "aqaRef": "3.3",
+    "ocrRef": "H420 Module 3",
+    "edexcelRef": "9BN0 Topic 3"
   },
   {
     "id": "respiration",
@@ -202,9 +202,9 @@
       "Plants don't respire, they only photosynthesise"
     ],
     "highYield": true,
-    "aqaRef": "3.9",
-    "ocrRef": "H567/02",
-    "edexcelRef": "3.9"
+    "aqaRef": "3.5",
+    "ocrRef": "H420 Module 5",
+    "edexcelRef": "9BN0 Topic 5"
   },
   {
     "id": "photosynthesis",
@@ -225,9 +225,9 @@
       "Oxygen is produced in the Calvin cycle"
     ],
     "highYield": true,
-    "aqaRef": "3.10",
-    "ocrRef": "H567/02",
-    "edexcelRef": "3.10"
+    "aqaRef": "3.5",
+    "ocrRef": "H420 Module 5",
+    "edexcelRef": "9BN0 Topic 5"
   },
   {
     "id": "homeostasis",
@@ -247,9 +247,9 @@
       "ADH makes you produce more urine (opposite: it reduces urine)"
     ],
     "highYield": true,
-    "aqaRef": "3.11",
-    "ocrRef": "H567/03",
-    "edexcelRef": "3.11"
+    "aqaRef": "3.6",
+    "ocrRef": "H420 Module 5",
+    "edexcelRef": "9BN0 Topic 7"
   },
   {
     "id": "ecology",
@@ -269,9 +269,9 @@
       "Energy is recycled in ecosystems (only nutrients are recycled; energy flows)"
     ],
     "highYield": false,
-    "aqaRef": "3.12",
-    "ocrRef": "H567/03",
-    "edexcelRef": "3.12"
+    "aqaRef": "3.7",
+    "ocrRef": "H420 Module 6",
+    "edexcelRef": "9BN0 Topic 4"
   },
   {
     "id": "cell_recognition_immune",
@@ -297,7 +297,7 @@
     ],
     "highYield": true,
     "aqaRef": "3.4",
-    "ocrRef": "H567/02",
-    "edexcelRef": "3.4"
+    "ocrRef": "H420 Module 4",
+    "edexcelRef": "9BN0 Topic 6"
   }
 ]

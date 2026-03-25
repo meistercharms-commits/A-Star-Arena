@@ -1,0 +1,511 @@
+[
+  {
+    "id": "identity_and_culture",
+    "name": "Identity & Culture",
+    "description": "Talking about yourself, relationships, customs and traditions in French-speaking countries",
+    "subskills": [
+      {
+        "id": "describing_yourself",
+        "name": "Describing Yourself & Others",
+        "critical": true,
+        "keywords": ["je suis", "j'ai", "les yeux", "les cheveux", "la personnalite"],
+        "skillType": "vocabulary"
+      },
+      {
+        "id": "cultural_traditions",
+        "name": "Festivals & Traditions",
+        "critical": false,
+        "keywords": ["Noel", "la fete nationale", "le Ramadan", "les coutumes", "celebrer"],
+        "skillType": "reading"
+      },
+      {
+        "id": "daily_routine",
+        "name": "Daily Routine & Lifestyle",
+        "critical": true,
+        "keywords": ["se lever", "se coucher", "la routine quotidienne", "d'habitude", "normalement"],
+        "skillType": "vocabulary"
+      },
+      {
+        "id": "relationships_identity",
+        "name": "Relationships & What Makes You Who You Are",
+        "critical": false,
+        "keywords": ["s'entendre avec", "se disputer", "les rapports", "fier", "l'identite"],
+        "skillType": "writing"
+      }
+    ],
+    "commonMisconceptions": [
+      "Confusing 'je suis' (I am) with 'j'ai' (I have) when describing age - French uses 'j'ai 15 ans' not 'je suis 15 ans'",
+      "Forgetting that adjectives must agree in gender and number with the noun they describe",
+      "Using 'c'est' when 'il est/elle est' is required before an adjective without a noun"
+    ],
+    "highYield": true,
+    "aqaRef": "AQA 8652 Theme 1: People and Lifestyle",
+    "edexcelRef": "Edexcel 1FR0 Theme 1: Identity and culture",
+    "ocrRef": "OCR J730 Topic 1: Home and abroad"
+  },
+  {
+    "id": "school_and_education",
+    "name": "School & Education",
+    "description": "School life, subjects, opinions on education and school rules",
+    "subskills": [
+      {
+        "id": "school_subjects",
+        "name": "School Subjects & Opinions",
+        "critical": true,
+        "keywords": ["les matieres", "l'emploi du temps", "preferer", "car", "parce que"],
+        "skillType": "vocabulary"
+      },
+      {
+        "id": "school_rules_uniform",
+        "name": "School Rules & Uniform",
+        "critical": false,
+        "keywords": ["le reglement", "l'uniforme scolaire", "il faut", "il est interdit de", "avoir le droit de"],
+        "skillType": "writing"
+      },
+      {
+        "id": "comparing_school_systems",
+        "name": "Comparing French & British School Systems",
+        "critical": true,
+        "keywords": ["le college", "le lycee", "le baccalaureat", "la recreation", "la cantine"],
+        "skillType": "reading"
+      },
+      {
+        "id": "school_day_description",
+        "name": "Describing Your School Day",
+        "critical": false,
+        "keywords": ["les cours commencent", "la pause dejeuner", "les heures", "puis", "ensuite"],
+        "skillType": "writing"
+      }
+    ],
+    "commonMisconceptions": [
+      "'College' in French means secondary school (ages 11-15), not university",
+      "Confusing 'cours' (lesson) with 'cour' (playground/courtyard)",
+      "Thinking French schools have the same structure as British ones - they do not have sixth form in the same way"
+    ],
+    "highYield": true,
+    "aqaRef": "AQA 8652 Theme 1: People and Lifestyle - School",
+    "edexcelRef": "Edexcel 1FR0 Theme 3: Current and future study and employment",
+    "ocrRef": "OCR J730 Topic 2: Education and employment"
+  },
+  {
+    "id": "free_time",
+    "name": "Free Time",
+    "description": "Hobbies, sports, music, film and leisure activities",
+    "subskills": [
+      {
+        "id": "hobbies_sports",
+        "name": "Hobbies & Sports Vocabulary",
+        "critical": true,
+        "keywords": ["jouer a", "jouer de", "faire de", "le temps libre", "les loisirs"],
+        "skillType": "vocabulary"
+      },
+      {
+        "id": "music_film_tv",
+        "name": "Music, Film & TV",
+        "critical": false,
+        "keywords": ["un film", "une emission", "une chanson", "regarder", "ecouter"],
+        "skillType": "reading"
+      },
+      {
+        "id": "opinions_free_time",
+        "name": "Giving Opinions on Free Time",
+        "critical": true,
+        "keywords": ["a mon avis", "je trouve que", "passionnant", "ennuyeux", "genial"],
+        "skillType": "writing"
+      }
+    ],
+    "commonMisconceptions": [
+      "'Jouer a' is for sports and games, 'jouer de' is for musical instruments - mixing these up is very common",
+      "'Faire de la natation' not 'jouer a la natation' - some sports use 'faire' rather than 'jouer'",
+      "Forgetting to use the correct article after 'jouer a' and 'jouer de' (au, a la, aux, du, de la, des)"
+    ],
+    "highYield": true,
+    "aqaRef": "AQA 8652 Theme 2: Popular Culture",
+    "edexcelRef": "Edexcel 1FR0 Theme 1: Identity and culture",
+    "ocrRef": "OCR J730 Topic 1: Leisure"
+  },
+  {
+    "id": "holidays_and_travel",
+    "name": "Holidays & Travel",
+    "description": "Holiday experiences, booking accommodation, travel arrangements and transport",
+    "subskills": [
+      {
+        "id": "past_holidays",
+        "name": "Describing Past Holidays",
+        "critical": true,
+        "keywords": ["l'annee derniere", "je suis alle(e)", "nous avons visite", "c'etait", "il faisait"],
+        "skillType": "writing"
+      },
+      {
+        "id": "booking_accommodation",
+        "name": "Booking Accommodation & Transport",
+        "critical": true,
+        "keywords": ["reserver", "une chambre", "l'auberge de jeunesse", "un aller-retour", "le vol"],
+        "skillType": "vocabulary"
+      },
+      {
+        "id": "holiday_activities",
+        "name": "Holiday Activities & Preferences",
+        "critical": false,
+        "keywords": ["la plage", "bronzer", "faire de la randonnee", "decouvrir", "se detendre"],
+        "skillType": "reading"
+      },
+      {
+        "id": "future_holiday_plans",
+        "name": "Future Holiday Plans",
+        "critical": false,
+        "keywords": ["l'annee prochaine", "j'irai", "je voudrais", "j'ai l'intention de", "il fera"],
+        "skillType": "writing"
+      }
+    ],
+    "commonMisconceptions": [
+      "Forgetting that 'aller' uses etre as its auxiliary in the passe compose, not avoir",
+      "Confusing the imperfect tense (descriptions/ongoing) with the passe compose (completed actions) when writing about holidays",
+      "Not knowing that 'vacances' is always plural in French - 'les vacances'"
+    ],
+    "highYield": true,
+    "aqaRef": "AQA 8652 Theme 3: Communication and the World Around Us",
+    "edexcelRef": "Edexcel 1FR0 Theme 2: Local, national, international and global areas of interest",
+    "ocrRef": "OCR J730 Topic 1: Home and abroad"
+  },
+  {
+    "id": "family_and_friends",
+    "name": "Family & Friends",
+    "description": "Family members, describing relationships, friendship and marriage",
+    "subskills": [
+      {
+        "id": "family_members",
+        "name": "Family Members & Descriptions",
+        "critical": true,
+        "keywords": ["la famille", "le frere", "la soeur", "le beau-pere", "la demi-soeur"],
+        "skillType": "vocabulary"
+      },
+      {
+        "id": "describing_relationships",
+        "name": "Describing Relationships",
+        "critical": true,
+        "keywords": ["s'entendre avec", "se disputer", "se facher", "fidele", "comprehensif"],
+        "skillType": "writing"
+      },
+      {
+        "id": "friendship_qualities",
+        "name": "Friendship & Ideal Partner",
+        "critical": false,
+        "keywords": ["un(e) ami(e)", "la confiance", "le mariage", "le partenariat civil", "tomber amoureux"],
+        "skillType": "reading"
+      }
+    ],
+    "commonMisconceptions": [
+      "'Mon amie' vs 'ma copine' - 'copain/copine' can mean boyfriend/girlfriend, not just friend",
+      "Possessive adjectives agree with the noun, not the owner: 'sa mere' means his/her mother",
+      "Reflexive verbs like 's'entendre' need the reflexive pronoun to change with the subject"
+    ],
+    "highYield": true,
+    "aqaRef": "AQA 8652 Theme 1: People and Lifestyle - Relationships",
+    "edexcelRef": "Edexcel 1FR0 Theme 1: Identity and culture",
+    "ocrRef": "OCR J730 Topic 1: Home and abroad"
+  },
+  {
+    "id": "town_and_local_area",
+    "name": "Town & Local Area",
+    "description": "Describing where you live, giving directions, shops and local facilities",
+    "subskills": [
+      {
+        "id": "describing_town",
+        "name": "Describing Your Town or Village",
+        "critical": true,
+        "keywords": ["j'habite a", "une ville", "un village", "il y a", "se trouver"],
+        "skillType": "writing"
+      },
+      {
+        "id": "shops_facilities",
+        "name": "Shops & Local Facilities",
+        "critical": true,
+        "keywords": ["la boulangerie", "la mairie", "le centre commercial", "la bibliotheque", "le marche"],
+        "skillType": "vocabulary"
+      },
+      {
+        "id": "directions",
+        "name": "Asking for & Giving Directions",
+        "critical": false,
+        "keywords": ["tournez a gauche", "allez tout droit", "au bout de", "en face de", "au coin de"],
+        "skillType": "reading"
+      },
+      {
+        "id": "comparing_areas",
+        "name": "Comparing Town & Countryside",
+        "critical": false,
+        "keywords": ["la campagne", "anime", "tranquille", "les transports en commun", "la pollution"],
+        "skillType": "writing"
+      }
+    ],
+    "commonMisconceptions": [
+      "'Bibliotheque' means library, not bookshop - 'librairie' means bookshop (a classic false friend)",
+      "Prepositions with places: 'a' for towns, 'en' for feminine countries, 'au' for masculine countries",
+      "'Il y a' is invariable - it does not change regardless of singular or plural nouns following it"
+    ],
+    "highYield": true,
+    "aqaRef": "AQA 8652 Theme 3: Communication and the World Around Us - Local area",
+    "edexcelRef": "Edexcel 1FR0 Theme 2: Local area",
+    "ocrRef": "OCR J730 Topic 1: Home and abroad"
+  },
+  {
+    "id": "social_issues",
+    "name": "Social Issues",
+    "description": "Homelessness, poverty, charity work, equality and volunteering",
+    "subskills": [
+      {
+        "id": "poverty_homelessness",
+        "name": "Poverty & Homelessness",
+        "critical": true,
+        "keywords": ["les sans-abri", "le chomage", "la pauvrete", "les SDF", "aider"],
+        "skillType": "reading"
+      },
+      {
+        "id": "volunteering_charity",
+        "name": "Volunteering & Charity",
+        "critical": false,
+        "keywords": ["le benevolat", "une association caritative", "faire du benevolat", "donner", "soutenir"],
+        "skillType": "vocabulary"
+      },
+      {
+        "id": "equality_diversity",
+        "name": "Equality & Diversity",
+        "critical": true,
+        "keywords": ["l'egalite", "les droits", "le racisme", "la discrimination", "l'integration"],
+        "skillType": "writing"
+      },
+      {
+        "id": "healthy_unhealthy_living",
+        "name": "Healthy & Unhealthy Living",
+        "critical": true,
+        "keywords": ["la sante", "fumer", "l'alcool", "equilibre", "le regime"],
+        "skillType": "reading"
+      }
+    ],
+    "commonMisconceptions": [
+      "'SDF' stands for 'sans domicile fixe' - students often do not recognise this abbreviation in reading texts",
+      "Confusing 'sain' (healthy) with 'saint' (holy/saint)",
+      "Using informal language for a topic that typically requires formal register in writing tasks"
+    ],
+    "highYield": true,
+    "aqaRef": "AQA 8652 Theme 3: Communication and the World Around Us - Social issues",
+    "edexcelRef": "Edexcel 1FR0 Theme 2: Social issues",
+    "ocrRef": "OCR J730 Topic 3: Current and future study and employment"
+  },
+  {
+    "id": "environment",
+    "name": "Environment",
+    "description": "Environmental problems, sustainability, recycling and protecting the planet",
+    "subskills": [
+      {
+        "id": "environmental_problems",
+        "name": "Environmental Problems",
+        "critical": true,
+        "keywords": ["la pollution", "le rechauffement climatique", "la deforestation", "les dechets", "les gaz a effet de serre"],
+        "skillType": "vocabulary"
+      },
+      {
+        "id": "recycling_sustainability",
+        "name": "Recycling & Sustainability",
+        "critical": true,
+        "keywords": ["recycler", "trier les dechets", "economiser", "les energies renouvelables", "reduire"],
+        "skillType": "reading"
+      },
+      {
+        "id": "what_we_should_do",
+        "name": "Expressing What We Should Do",
+        "critical": false,
+        "keywords": ["il faut", "on devrait", "il est essentiel de", "pour proteger", "chacun"],
+        "skillType": "writing"
+      }
+    ],
+    "commonMisconceptions": [
+      "Using 'il faut' without the infinitive - it must be followed by an infinitive verb",
+      "Confusing the conditional 'on devrait' with the present 'on doit' when making suggestions vs obligations",
+      "'Sauver' means to save (rescue), while 'economiser' means to save (money/resources)"
+    ],
+    "highYield": true,
+    "aqaRef": "AQA 8652 Theme 3: Communication and the World Around Us - Environment",
+    "edexcelRef": "Edexcel 1FR0 Theme 2: Environment",
+    "ocrRef": "OCR J730 Topic 4: Environment and social issues"
+  },
+  {
+    "id": "technology",
+    "name": "Technology",
+    "description": "Social media, mobile phones, internet use, advantages and disadvantages of technology",
+    "subskills": [
+      {
+        "id": "social_media_internet",
+        "name": "Social Media & Internet",
+        "critical": true,
+        "keywords": ["les reseaux sociaux", "en ligne", "telecharger", "un portable", "un site web"],
+        "skillType": "vocabulary"
+      },
+      {
+        "id": "advantages_disadvantages_tech",
+        "name": "Advantages & Disadvantages of Technology",
+        "critical": true,
+        "keywords": ["l'avantage", "l'inconvenient", "d'un cote", "de l'autre cote", "cependant"],
+        "skillType": "writing"
+      },
+      {
+        "id": "dangers_online",
+        "name": "Online Dangers & Safety",
+        "critical": false,
+        "keywords": ["le cyberharcelement", "les donnees personnelles", "le mot de passe", "proteger", "le risque"],
+        "skillType": "reading"
+      }
+    ],
+    "commonMisconceptions": [
+      "'Portable' in French usually means mobile phone, not a laptop (which is 'un ordinateur portable')",
+      "Forgetting to use connectives that show two sides of an argument for higher marks",
+      "'Actuellement' means 'currently' not 'actually' - a very common false friend"
+    ],
+    "highYield": true,
+    "aqaRef": "AQA 8652 Theme 2: Popular Culture - Technology",
+    "edexcelRef": "Edexcel 1FR0 Theme 1: Technology",
+    "ocrRef": "OCR J730 Topic 3: Media and technology"
+  },
+  {
+    "id": "future_plans",
+    "name": "Future Plans",
+    "description": "Career aspirations, further education, work experience and ambitions",
+    "subskills": [
+      {
+        "id": "jobs_careers",
+        "name": "Jobs & Career Vocabulary",
+        "critical": true,
+        "keywords": ["un metier", "un emploi", "un(e) medecin", "un(e) avocat(e)", "travailler"],
+        "skillType": "vocabulary"
+      },
+      {
+        "id": "work_experience",
+        "name": "Describing Work Experience",
+        "critical": true,
+        "keywords": ["un stage", "j'ai fait un stage", "le patron", "les heures de travail", "le salaire"],
+        "skillType": "writing"
+      },
+      {
+        "id": "future_tense_plans",
+        "name": "Expressing Future Aspirations",
+        "critical": true,
+        "keywords": ["je voudrais", "j'espere", "j'ai l'intention de", "apres mes examens", "a l'avenir"],
+        "skillType": "writing"
+      },
+      {
+        "id": "gap_year_university",
+        "name": "Gap Year & University Plans",
+        "critical": false,
+        "keywords": ["une annee sabbatique", "la fac", "les etudes superieures", "un diplome", "la formation"],
+        "skillType": "reading"
+      }
+    ],
+    "commonMisconceptions": [
+      "Many job titles have masculine and feminine forms in French - students often only learn one form",
+      "Confusing 'un stage' (work placement) with 'stage' in English (a platform)",
+      "Using only 'je veux' (I want) instead of the more polite 'je voudrais' (I would like) in formal contexts"
+    ],
+    "highYield": true,
+    "aqaRef": "AQA 8652 Theme 1: People and Lifestyle - Future plans",
+    "edexcelRef": "Edexcel 1FR0 Theme 3: Current and future study and employment",
+    "ocrRef": "OCR J730 Topic 2: Education and employment"
+  },
+  {
+    "id": "grammar_essentials",
+    "name": "Grammar Essentials",
+    "description": "Core grammar structures needed across all topics: tenses, agreements, negatives and pronouns",
+    "subskills": [
+      {
+        "id": "present_tense",
+        "name": "Present Tense (Regular & Irregular)",
+        "critical": true,
+        "keywords": ["je fais", "je vais", "je suis", "les verbes reguliers", "les verbes irreguliers"],
+        "skillType": "grammar"
+      },
+      {
+        "id": "past_tenses",
+        "name": "Past Tenses (Passe Compose & Imperfect)",
+        "critical": true,
+        "keywords": ["j'ai mange", "je suis alle(e)", "c'etait", "il faisait", "quand j'etais"],
+        "skillType": "grammar"
+      },
+      {
+        "id": "future_conditional",
+        "name": "Future & Conditional Tenses",
+        "critical": true,
+        "keywords": ["je serai", "j'irai", "je voudrais", "ce serait", "si j'avais"],
+        "skillType": "grammar"
+      },
+      {
+        "id": "negatives_pronouns",
+        "name": "Negatives, Pronouns & Word Order",
+        "critical": true,
+        "keywords": ["ne...pas", "ne...jamais", "ne...rien", "y", "en", "le/la/les"],
+        "skillType": "grammar"
+      },
+      {
+        "id": "adjectival_agreement",
+        "name": "Adjectival Agreement & Position",
+        "critical": true,
+        "keywords": ["beau/belle", "nouveau/nouvelle", "grand/grande", "BAGS adjectives", "accord"],
+        "skillType": "grammar"
+      }
+    ],
+    "commonMisconceptions": [
+      "Not all past tense uses passe compose - the imperfect is needed for descriptions, habitual actions and ongoing states",
+      "Avoir verbs in passe compose do NOT agree with the subject, but etre verbs DO",
+      "The conditional is not just 'would' - it is essential for polite requests and hypothetical situations",
+      "Negatives wrap around the verb: 'je ne mange pas' - both parts are required"
+    ],
+    "highYield": true,
+    "aqaRef": "AQA 8652 Grammar requirements",
+    "edexcelRef": "Edexcel 1FR0 Grammar",
+    "ocrRef": "OCR J730 Grammar across all topics"
+  },
+  {
+    "id": "translation_skills",
+    "name": "Translation Skills",
+    "description": "Techniques for translating between English and French accurately in both directions",
+    "subskills": [
+      {
+        "id": "french_to_english",
+        "name": "French to English Translation",
+        "critical": true,
+        "keywords": ["faux amis", "le contexte", "le sens", "la traduction", "interpreter"],
+        "skillType": "translation"
+      },
+      {
+        "id": "english_to_french",
+        "name": "English to French Translation",
+        "critical": true,
+        "keywords": ["la structure", "l'accord", "le temps du verbe", "l'orthographe", "verifier"],
+        "skillType": "translation"
+      },
+      {
+        "id": "false_friends",
+        "name": "False Friends & Tricky Vocabulary",
+        "critical": true,
+        "keywords": ["actuellement", "assister a", "la librairie", "rester", "la journee"],
+        "skillType": "vocabulary"
+      },
+      {
+        "id": "idiomatic_expressions",
+        "name": "Idiomatic Expressions",
+        "critical": false,
+        "keywords": ["avoir envie de", "il s'agit de", "en avoir marre", "ca vaut la peine", "du coup"],
+        "skillType": "translation"
+      }
+    ],
+    "commonMisconceptions": [
+      "'Assister a' means to attend, not to assist - 'aider' means to assist",
+      "'Rester' means to stay, not to rest - 'se reposer' means to rest",
+      "Literal word-for-word translation rarely works - French word order and structure differ from English",
+      "'La journee' emphasises the duration of the day, while 'le jour' is the day as a unit of time"
+    ],
+    "highYield": true,
+    "aqaRef": "AQA 8652 Paper 1 & Paper 4: Translation",
+    "edexcelRef": "Edexcel 1FR0 Translation tasks",
+    "ocrRef": "OCR J730 Translation component"
+  }
+]

@@ -48,7 +48,8 @@ const MAX_STRING = 500;
 const MAX_ANSWER = 5000; // Extended answers can be longer
 const MAX_ARRAY = 20;
 const VALID_PHASES = ['recall', 'application', 'extended'];
-const VALID_SUBJECTS = ['biology', 'chemistry', 'mathematics'];
+const VALID_SUBJECTS = ['biology', 'chemistry', 'mathematics', 'art', 'design-technology', 'drama', 'english', 'french', 'geography', 'history', 'music', 'pe', 're', 'science'];
+const VALID_LEVELS = ['alevel', 'gcse'];
 const VALID_BOARDS = ['generic', 'aqa', 'ocr', 'edexcel'];
 
 function sanitize(str, maxLen = MAX_STRING) {
@@ -74,7 +75,13 @@ const MODEL = 'claude-sonnet-4-20250514';
 
 // ─── System Prompts ───
 
-const SUBJECT_NAMES = { biology: 'Biology', chemistry: 'Chemistry', mathematics: 'Mathematics' };
+const SUBJECT_NAMES = {
+  biology: 'Biology', chemistry: 'Chemistry', mathematics: 'Mathematics',
+  art: 'Art', 'design-technology': 'Design & Technology', drama: 'Drama',
+  english: 'English', french: 'French', geography: 'Geography',
+  history: 'History', music: 'Music', pe: 'Physical Education',
+  re: 'Religious Education', science: 'Science',
+};
 
 // ─── Generate Question Prompts ───
 
@@ -164,7 +171,34 @@ WORKING REQUIREMENTS:
 You MUST respond with valid JSON only. No markdown, no explanation outside the JSON.`;
 }
 
-function getGenerateQuestionPrompt(examBoard, subjectId) {
+function getGCSEGeneratePrompt(examBoard, subjectId) {
+  const subjectName = SUBJECT_NAMES[subjectId] || subjectId;
+  return `You are a supportive, expert GCSE ${subjectName} examiner creating exam-style questions. You create questions aligned to UK GCSE ${subjectName} standards (AQA, Edexcel, OCR).
+
+IMPORTANT TONE: You are writing for GCSE students aged 14-16. Be clear, encouraging, and precise. Avoid unnecessary complexity in question wording. Use straightforward language.
+
+EXAM BOARD: ${examBoard?.toUpperCase() || 'Generic UK GCSE'}
+
+GCSE-SPECIFIC RULES:
+1. Questions must be factually accurate and appropriate for GCSE level (grades 4-9 depending on difficulty)
+2. For recall: test definitions, standard results, or single-step calculations (1-2 marks)
+3. For application: multi-step problems requiring understanding and application (3-4 marks)
+4. For extended: 4-6 mark questions requiring reasoning, explanation, or evaluation
+5. Mark schemes must award method marks for correct approach even with errors
+6. Use British English throughout
+7. Difficulty maps to GCSE grades: 1=grade 4-5, 2=grade 5-6, 3=grade 6-7, 4=grade 7-8, 5=grade 8-9
+
+GRADE BOUNDARY GUIDANCE:
+- Grade 9: Exceptional problem-solving, unfamiliar contexts, sophisticated reasoning
+- Grade 7-8: Confident multi-step work, clear reasoning, accurate technique
+- Grade 5-6: Solid standard techniques, some reasoning
+- Grade 4: Core skills, one-step problems, basic recall
+
+You MUST respond with valid JSON only. No markdown, no explanation outside the JSON.`;
+}
+
+function getGenerateQuestionPrompt(examBoard, subjectId, level = 'alevel') {
+  if (level === 'gcse') return getGCSEGeneratePrompt(examBoard, subjectId);
   if (subjectId === 'chemistry') return getChemistryGeneratePrompt(examBoard);
   if (subjectId === 'mathematics') return getMathematicsGeneratePrompt(examBoard);
   return getBiologyGeneratePrompt(examBoard);
@@ -249,7 +283,26 @@ MARKING PRINCIPLES:
 You MUST respond with valid JSON only. No markdown, no explanation outside the JSON.`;
 }
 
-function getMarkAnswerPrompt(examBoard, subjectId) {
+function getGCSEMarkPrompt(examBoard, subjectId) {
+  const subjectName = SUBJECT_NAMES[subjectId] || subjectId;
+  return `You are a supportive, expert GCSE ${subjectName} examiner marking student answers. You mark fairly and encouragingly, aligned to UK GCSE standards.
+
+EXAM BOARD: ${examBoard?.toUpperCase() || 'Generic UK GCSE'}
+
+MARKING PRINCIPLES:
+1. **Be fair and encouraging**: Acknowledge what the student did well before addressing gaps.
+2. **Award method marks**: Correct approach earns marks even if the final answer has errors.
+3. **Keyword-driven**: For recall/application, award marks for correct terminology. Accept reasonable synonyms.
+4. **Extended responses**: Use levels-based marking. Reward clear reasoning and structure.
+5. **Partial credit**: Always award marks for partially correct answers. A student showing understanding deserves credit.
+6. **GCSE-appropriate expectations**: Do not expect A-Level depth. GCSE answers should be clear and accurate but not exhaustive.
+7. **Constructive feedback**: Give specific, actionable advice on how to improve. Frame suggestions positively.
+
+You MUST respond with valid JSON only. No markdown, no explanation outside the JSON.`;
+}
+
+function getMarkAnswerPrompt(examBoard, subjectId, level = 'alevel') {
+  if (level === 'gcse') return getGCSEMarkPrompt(examBoard, subjectId);
   if (subjectId === 'chemistry') return getChemistryMarkPrompt(examBoard);
   if (subjectId === 'mathematics') return getMathematicsMarkPrompt(examBoard);
   return getBiologyMarkPrompt(examBoard);
@@ -282,6 +335,7 @@ app.post('/api/claude/generateQuestion', async (req, res) => {
     const difficulty = Math.min(5, Math.max(1, Number(rawBody.difficulty) || 3));
     const examBoard = validateEnum(rawBody.examBoard, VALID_BOARDS, 'generic');
     const subjectId = validateEnum(rawBody.subjectId, VALID_SUBJECTS, 'biology');
+    const level = validateEnum(rawBody.level, VALID_LEVELS, 'alevel');
     const subskills = sanitizeArray(rawBody.subskills, 10, 100);
     const misconceptions = sanitizeArray(rawBody.misconceptions, 10, 200);
     const previousPrompts = sanitizeArray(rawBody.previousPrompts, 10, 500);
@@ -290,6 +344,7 @@ app.post('/api/claude/generateQuestion', async (req, res) => {
       return res.status(400).json({ success: false, error: 'Missing topicId or phase' });
     }
 
+    const levelLabel = level === 'gcse' ? 'GCSE' : 'A-level';
     const phaseInstructions = {
       recall: `Generate a RECALL question (1-2 marks). Short, precise. Tests definitions, naming, or single-step facts.
 Example: "Define the term 'active site'." or "Name the enzyme that unwinds DNA during replication."`,
@@ -302,7 +357,7 @@ Example: "Describe and explain the relationship between the structure of protein
     const message = await anthropic.messages.create({
       model: MODEL,
       max_tokens: 1024,
-      system: getGenerateQuestionPrompt(examBoard, subjectId),
+      system: getGenerateQuestionPrompt(examBoard, subjectId, level),
       messages: [{
         role: 'user',
         content: `Generate a ${phase} question for the topic "${topicName || topicId}".
@@ -320,7 +375,7 @@ Respond with this exact JSON structure:
   "keywords": ["keyword1", "keyword2", "keyword3"],
   "rubricPoints": ${phase === 'extended' ? '["Point 1 (1 mark)", "Point 2 (1 mark)", ...]' : 'null'},
   "subskillIds": ["relevant_subskill_id"],
-  "hint": "A brief hint for the student",
+  "hint": "A scaffolding hint that breaks the problem into simpler sub-questions (NOT a list of answer keywords)",
   "commonErrors": ["Error students commonly make"]
 }`
       }],
@@ -378,6 +433,7 @@ app.post('/api/claude/markAnswer', async (req, res) => {
     const examBoard = validateEnum(rawBody.examBoard, VALID_BOARDS, 'generic');
     const topicId = sanitize(rawBody.topicId, 100);
     const subjectId = validateEnum(rawBody.subjectId, VALID_SUBJECTS, 'biology');
+    const level = validateEnum(rawBody.level, VALID_LEVELS, 'alevel');
     const rubric = rawBody.rubric || {};
     const maxScore = Math.min(10, Math.max(1, Number(rubric.maxScore) || 6));
     const keywords = sanitizeArray(rubric.keywords, 10, 100);
@@ -390,10 +446,10 @@ app.post('/api/claude/markAnswer', async (req, res) => {
     const message = await anthropic.messages.create({
       model: MODEL,
       max_tokens: 1024,
-      system: getMarkAnswerPrompt(examBoard, subjectId),
+      system: getMarkAnswerPrompt(examBoard, subjectId, level),
       messages: [{
         role: 'user',
-        content: `Mark this student's answer to an A-level ${SUBJECT_NAMES[subjectId] || 'Biology'} ${phase} question.
+        content: `Mark this student's answer to a ${level === 'gcse' ? 'GCSE' : 'A-level'} ${SUBJECT_NAMES[subjectId] || 'Biology'} ${phase} question.
 
 QUESTION: ${questionPrompt}
 MAX SCORE: ${maxScore}
@@ -461,11 +517,16 @@ Mark this answer and respond with this exact JSON structure:
 
 // ─── Generate Study Guide ───
 
-function getStudyGuidePrompt(examBoard, subjectId) {
+function getStudyGuidePrompt(examBoard, subjectId, level = 'alevel') {
   const subjectName = SUBJECT_NAMES[subjectId] || 'Biology';
-  return `You are an expert A-level ${subjectName} tutor creating personalised study guides. You create targeted revision material aligned to UK A-level standards.
+  const levelLabel = level === 'gcse' ? 'GCSE' : 'A-level';
+  const toneGuide = level === 'gcse'
+    ? 'Use clear, supportive language suitable for 14-16 year olds. Avoid jargon where possible and explain any technical terms.'
+    : `Keep explanations clear and concise — suitable for A-level students.`;
 
-EXAM BOARD: ${examBoard?.toUpperCase() || 'Generic UK A-level'}
+  return `You are an expert ${levelLabel} ${subjectName} tutor creating personalised study guides. You create targeted revision material aligned to UK ${levelLabel} standards.
+
+EXAM BOARD: ${examBoard?.toUpperCase() || `Generic UK ${levelLabel}`}
 
 Your study guides are personalised based on the student's mastery data, weak subskills, and recurring error patterns. Focus on areas where the student needs the most help.
 
@@ -478,7 +539,7 @@ GUIDE STRUCTURE:
 
 RULES:
 - Use precise ${subjectName} terminology throughout
-- Keep explanations clear and concise — suitable for A-level students
+- ${toneGuide}
 - Exam tips should reference mark scheme conventions
 - Worked examples should show the level of detail expected for full marks
 - Weak spot advice should be actionable and specific
@@ -496,6 +557,7 @@ app.post('/api/claude/generateStudyGuide', async (req, res) => {
     const subskills = sanitizeArray(rawBody.subskills, 20, 100);
     const examBoard = validateEnum(rawBody.examBoard, VALID_BOARDS, 'generic');
     const subjectId = validateEnum(rawBody.subjectId, VALID_SUBJECTS, 'biology');
+    const level = validateEnum(rawBody.level, VALID_LEVELS, 'alevel');
     const masteryScore = rawBody.masteryScore != null ? Math.min(1, Math.max(0, Number(rawBody.masteryScore) || 0)) : null;
     const weakSubskills = sanitizeArray(rawBody.weakSubskills, 10, 100);
     const errorPatterns = sanitizeArray(rawBody.errorPatterns, 10, 200);
@@ -507,7 +569,7 @@ app.post('/api/claude/generateStudyGuide', async (req, res) => {
     const message = await anthropic.messages.create({
       model: MODEL,
       max_tokens: 2048,
-      system: getStudyGuidePrompt(examBoard, subjectId),
+      system: getStudyGuidePrompt(examBoard, subjectId, level),
       messages: [{
         role: 'user',
         content: `Generate a personalised study guide for "${topicName}".

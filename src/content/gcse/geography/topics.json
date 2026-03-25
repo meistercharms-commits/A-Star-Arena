@@ -1,0 +1,494 @@
+[
+  {
+    "id": "tectonic_hazards",
+    "name": "Tectonic Hazards",
+    "description": "Earthquakes, volcanic eruptions and the structure of the Earth, including plate boundary processes and management",
+    "subskills": [
+      {
+        "id": "plate_tectonics",
+        "name": "Plate Tectonic Theory",
+        "critical": true,
+        "keywords": ["convection currents", "plate boundaries", "constructive", "destructive", "conservative", "mantle"]
+      },
+      {
+        "id": "earthquakes",
+        "name": "Earthquake Processes & Effects",
+        "critical": true,
+        "keywords": ["focus", "epicentre", "seismic waves", "Richter scale", "magnitude", "aftershock"]
+      },
+      {
+        "id": "volcanoes",
+        "name": "Volcanic Eruptions & Landforms",
+        "critical": true,
+        "keywords": ["magma", "lava", "shield volcano", "composite volcano", "pyroclastic flow", "lahar"]
+      },
+      {
+        "id": "tectonic_management",
+        "name": "Managing Tectonic Hazards",
+        "critical": true,
+        "keywords": ["prediction", "protection", "preparation", "monitoring", "aid", "immediate response"]
+      }
+    ],
+    "commonMisconceptions": [
+      "Plates do not float on liquid rock - the mantle is solid but behaves plastically over geological timescales",
+      "The Richter scale is logarithmic, not linear - magnitude 6 is ten times greater than magnitude 5",
+      "Earthquakes cannot be predicted - only monitored. Prediction implies knowing when and where they will occur",
+      "Volcanic eruptions at constructive boundaries are typically less explosive than those at destructive boundaries"
+    ],
+    "highYield": true,
+    "aqaRef": "AQA 8035/1: The challenge of natural hazards - Tectonic hazards",
+    "edexcelRef": "Edexcel 1GA0 Component 1 Topic 2: Weather Hazards and Climate Change (tectonic content via Global Hazards)",
+    "ocrRef": "OCR B (J384): Our natural world - Tectonic hazards"
+  },
+  {
+    "id": "weather_hazards",
+    "name": "Weather Hazards",
+    "description": "Tropical storms, extreme weather events and UK weather hazards",
+    "subskills": [
+      {
+        "id": "global_atmospheric_circulation",
+        "name": "Global Atmospheric Circulation",
+        "critical": true,
+        "keywords": ["Hadley cell", "Ferrel cell", "Polar cell", "trade winds", "pressure belts", "ITCZ"]
+      },
+      {
+        "id": "tropical_storms",
+        "name": "Tropical Storms",
+        "critical": true,
+        "keywords": ["hurricane", "typhoon", "cyclone", "eye", "storm surge", "Coriolis effect"]
+      },
+      {
+        "id": "uk_weather_hazards",
+        "name": "UK Weather Hazards",
+        "critical": true,
+        "keywords": ["flooding", "drought", "heatwave", "Beast from the East", "Somerset Levels", "jet stream"]
+      },
+      {
+        "id": "weather_hazard_management",
+        "name": "Responses to Weather Hazards",
+        "critical": false,
+        "keywords": ["prediction", "warning systems", "evacuation", "flood defences", "preparedness"]
+      }
+    ],
+    "commonMisconceptions": [
+      "Tropical storms form over warm oceans (above 27 degrees Celsius), not over land - they weaken rapidly once they make landfall",
+      "The eye of a tropical storm is calm, not the most dangerous part - the eyewall has the strongest winds",
+      "Climate and weather are different - weather is day-to-day conditions, climate is the average over 30+ years",
+      "The UK does experience extreme weather events - students often underestimate UK weather hazards"
+    ],
+    "highYield": true,
+    "aqaRef": "AQA 8035/1: The challenge of natural hazards - Weather hazards",
+    "edexcelRef": "Edexcel 1GA0 Component 1 Topic 2: Weather Hazards and Climate Change",
+    "ocrRef": "OCR B (J384): Our natural world - Weather hazards"
+  },
+  {
+    "id": "climate_change",
+    "name": "Climate Change",
+    "description": "Evidence for climate change, natural and human causes, and strategies for mitigation and adaptation",
+    "subskills": [
+      {
+        "id": "evidence_climate_change",
+        "name": "Evidence for Climate Change",
+        "critical": true,
+        "keywords": ["ice cores", "tree rings", "sea level rise", "retreating glaciers", "temperature records"]
+      },
+      {
+        "id": "causes_climate_change",
+        "name": "Natural & Human Causes",
+        "critical": true,
+        "keywords": ["greenhouse effect", "carbon dioxide", "methane", "deforestation", "fossil fuels", "Milankovitch cycles"]
+      },
+      {
+        "id": "effects_climate_change",
+        "name": "Effects of Climate Change",
+        "critical": true,
+        "keywords": ["sea level rise", "extreme weather", "food security", "biodiversity loss", "migration", "coral bleaching"]
+      },
+      {
+        "id": "mitigation_adaptation",
+        "name": "Mitigation & Adaptation Strategies",
+        "critical": true,
+        "keywords": ["carbon capture", "renewable energy", "Paris Agreement", "flood barriers", "drought-resistant crops"]
+      }
+    ],
+    "commonMisconceptions": [
+      "The greenhouse effect is not inherently bad - without it, Earth would be too cold to support life. The enhanced greenhouse effect is the problem",
+      "Climate change is not the same as the ozone hole - they are separate environmental issues with different causes",
+      "Natural climate change has occurred throughout Earth's history, but current warming is primarily driven by human activity",
+      "Mitigation means reducing causes, adaptation means adjusting to effects - students often confuse these terms"
+    ],
+    "highYield": true,
+    "aqaRef": "AQA 8035/1: The challenge of natural hazards - Climate change",
+    "edexcelRef": "Edexcel 1GA0 Component 1 Topic 2: Weather Hazards and Climate Change",
+    "ocrRef": "OCR B (J384): Our natural world - Climate change"
+  },
+  {
+    "id": "ecosystems",
+    "name": "Ecosystems",
+    "description": "Small-scale ecosystems, global biomes and the balance between living and non-living components",
+    "subskills": [
+      {
+        "id": "ecosystem_components",
+        "name": "Ecosystem Components & Processes",
+        "critical": true,
+        "keywords": ["biotic", "abiotic", "producer", "consumer", "decomposer", "nutrient cycling"]
+      },
+      {
+        "id": "food_webs",
+        "name": "Food Chains & Food Webs",
+        "critical": true,
+        "keywords": ["trophic levels", "food chain", "food web", "interdependence", "apex predator"]
+      },
+      {
+        "id": "global_biomes",
+        "name": "Global Distribution of Biomes",
+        "critical": true,
+        "keywords": ["biome", "latitude", "tropical", "temperate", "polar", "precipitation"]
+      },
+      {
+        "id": "ecosystem_balance",
+        "name": "Human Impact on Ecosystems",
+        "critical": false,
+        "keywords": ["deforestation", "urbanisation", "conservation", "biodiversity", "sustainability"]
+      }
+    ],
+    "commonMisconceptions": [
+      "Energy is not recycled in an ecosystem - it flows through and is lost as heat at each trophic level. Only nutrients are recycled",
+      "A biome is defined by climate and vegetation, not by country borders",
+      "Removing one species from a food web can have cascading effects on the entire ecosystem, not just the next trophic level",
+      "Ecosystems are not static - they are dynamic and constantly changing in response to natural and human factors"
+    ],
+    "highYield": true,
+    "aqaRef": "AQA 8035/1: The living world - Ecosystems",
+    "edexcelRef": "Edexcel 1GA0 Component 1 Topic 3: Ecosystems, Biodiversity and Management",
+    "ocrRef": "OCR B (J384): Our natural world - Ecosystems"
+  },
+  {
+    "id": "tropical_rainforests",
+    "name": "Tropical Rainforests",
+    "description": "Characteristics, biodiversity, deforestation and sustainable management of tropical rainforests",
+    "subskills": [
+      {
+        "id": "rainforest_characteristics",
+        "name": "Rainforest Characteristics & Layers",
+        "critical": true,
+        "keywords": ["emergent layer", "canopy", "understorey", "forest floor", "buttress roots", "drip tips"]
+      },
+      {
+        "id": "rainforest_biodiversity",
+        "name": "Biodiversity & Interdependence",
+        "critical": true,
+        "keywords": ["biodiversity", "adaptation", "nutrient cycle", "epiphytes", "symbiosis", "species richness"]
+      },
+      {
+        "id": "deforestation_causes",
+        "name": "Causes & Effects of Deforestation",
+        "critical": true,
+        "keywords": ["logging", "cattle ranching", "palm oil", "mining", "soil erosion", "carbon release"]
+      },
+      {
+        "id": "sustainable_management_rf",
+        "name": "Sustainable Management",
+        "critical": true,
+        "keywords": ["ecotourism", "selective logging", "debt-for-nature swaps", "REDD+", "agroforestry"]
+      }
+    ],
+    "commonMisconceptions": [
+      "Rainforest soils are not fertile - nutrients are stored in the biomass, not the soil. Once trees are removed, soil quickly degrades",
+      "Deforestation does not just affect local areas - it has global consequences for climate and biodiversity",
+      "Tropical rainforests are not just found in South America - they also exist in Central Africa, Southeast Asia and Oceania",
+      "Sustainable management does not mean stopping all development - it means balancing economic needs with environmental protection"
+    ],
+    "highYield": true,
+    "aqaRef": "AQA 8035/1: The living world - Tropical rainforests",
+    "edexcelRef": "Edexcel 1GA0 Component 1 Topic 3: Ecosystems, Biodiversity and Management (tropical rainforests)",
+    "ocrRef": "OCR B (J384): Our natural world - Tropical rainforests"
+  },
+  {
+    "id": "hot_deserts_cold_environments",
+    "name": "Hot Deserts & Cold Environments",
+    "description": "Characteristics, opportunities, challenges and management of hot desert and cold environments",
+    "subskills": [
+      {
+        "id": "hot_desert_characteristics",
+        "name": "Hot Desert Characteristics",
+        "critical": true,
+        "keywords": ["arid", "sand dunes", "wadis", "xerophytes", "diurnal range", "evaporation"]
+      },
+      {
+        "id": "desert_opportunities_challenges",
+        "name": "Opportunities & Challenges in Deserts",
+        "critical": true,
+        "keywords": ["solar energy", "irrigation", "tourism", "desertification", "water scarcity", "overgrazing"]
+      },
+      {
+        "id": "cold_environment_characteristics",
+        "name": "Cold Environment Characteristics",
+        "critical": true,
+        "keywords": ["permafrost", "tundra", "polar", "glacial", "periglacial", "freeze-thaw"]
+      },
+      {
+        "id": "cold_environment_management",
+        "name": "Managing Cold Environments",
+        "critical": false,
+        "keywords": ["oil extraction", "wilderness", "conservation", "fragile ecosystem", "global warming", "indigenous peoples"]
+      }
+    ],
+    "commonMisconceptions": [
+      "Hot deserts are not always covered in sand - many are rocky or stony landscapes",
+      "Desertification is not the desert expanding outwards - it is the degradation of land on the margins due to human activity and climate",
+      "Cold environments are not lifeless - tundra supports diverse wildlife adapted to extreme conditions",
+      "Permafrost is not ice - it is permanently frozen ground that may contain soil, rock and ice"
+    ],
+    "highYield": true,
+    "aqaRef": "AQA 8035/1: The living world - Hot deserts / Cold environments",
+    "edexcelRef": "Edexcel 1GA0 Component 1 Topic 3: Ecosystems, Biodiversity and Management (hot deserts and cold environments)",
+    "ocrRef": "OCR B (J384): Our natural world - Arid and cold environments"
+  },
+  {
+    "id": "rivers",
+    "name": "Rivers",
+    "description": "River processes, landforms, flooding and flood management strategies",
+    "subskills": [
+      {
+        "id": "river_processes",
+        "name": "River Processes",
+        "critical": true,
+        "keywords": ["erosion", "transportation", "deposition", "hydraulic action", "attrition", "abrasion"]
+      },
+      {
+        "id": "river_landforms",
+        "name": "River Landforms",
+        "critical": true,
+        "keywords": ["V-shaped valley", "waterfall", "meander", "oxbow lake", "floodplain", "levee"]
+      },
+      {
+        "id": "river_flooding",
+        "name": "Causes & Effects of Flooding",
+        "critical": true,
+        "keywords": ["hydrograph", "discharge", "lag time", "impermeable", "urbanisation", "precipitation"]
+      },
+      {
+        "id": "flood_management",
+        "name": "Flood Management Strategies",
+        "critical": true,
+        "keywords": ["hard engineering", "soft engineering", "flood walls", "afforestation", "flood plain zoning", "dams"]
+      }
+    ],
+    "commonMisconceptions": [
+      "Rivers do not flow faster in mountains just because of gravity - velocity often increases downstream as friction decreases relative to volume",
+      "Meanders do not form because of obstacles - they form due to helicoidal flow within the channel",
+      "Oxbow lakes are not created by one flood event - they form gradually as a meander neck narrows over time",
+      "Hard engineering is not always better than soft engineering - it is more expensive and can cause problems downstream"
+    ],
+    "highYield": true,
+    "aqaRef": "AQA 8035/1: Physical landscapes in the UK - Rivers",
+    "edexcelRef": "Edexcel 1GA0 Component 1 Topic 1: The Changing Landscapes of the UK (river landscapes)",
+    "ocrRef": "OCR B (J384): Our natural world - Rivers"
+  },
+  {
+    "id": "coasts",
+    "name": "Coasts",
+    "description": "Coastal processes, landforms, erosion, deposition and coastal management",
+    "subskills": [
+      {
+        "id": "coastal_processes",
+        "name": "Coastal Processes",
+        "critical": true,
+        "keywords": ["erosion", "longshore drift", "deposition", "weathering", "wave types", "constructive", "destructive"]
+      },
+      {
+        "id": "erosional_landforms",
+        "name": "Erosional Landforms",
+        "critical": true,
+        "keywords": ["headland", "bay", "cave", "arch", "stack", "stump", "wave-cut platform"]
+      },
+      {
+        "id": "depositional_landforms",
+        "name": "Depositional Landforms",
+        "critical": true,
+        "keywords": ["beach", "spit", "bar", "tombolo", "sand dunes"]
+      },
+      {
+        "id": "coastal_management",
+        "name": "Coastal Management Strategies",
+        "critical": true,
+        "keywords": ["sea wall", "groynes", "rock armour", "beach nourishment", "managed retreat", "SMP"]
+      }
+    ],
+    "commonMisconceptions": [
+      "Constructive waves build up a beach and destructive waves erode it - students often get these the wrong way round",
+      "Longshore drift moves material along the coast, not out to sea",
+      "A stack does not form from a single wave - it takes thousands of years of erosion to form headland features",
+      "Managed retreat is not giving up - it is a deliberate strategy to allow natural processes where defences are not cost-effective"
+    ],
+    "highYield": true,
+    "aqaRef": "AQA 8035/1: Physical landscapes in the UK - Coastal landscapes",
+    "edexcelRef": "Edexcel 1GA0 Component 1 Topic 1: The Changing Landscapes of the UK (coastal landscapes)",
+    "ocrRef": "OCR B (J384): Our natural world - Coasts"
+  },
+  {
+    "id": "urban_issues",
+    "name": "Urban Issues",
+    "description": "Urbanisation, challenges of urban growth in LICs and HICs, and sustainable urban living",
+    "subskills": [
+      {
+        "id": "urbanisation_causes",
+        "name": "Causes & Patterns of Urbanisation",
+        "critical": true,
+        "keywords": ["urbanisation", "rural-urban migration", "push factors", "pull factors", "natural increase", "megacity"]
+      },
+      {
+        "id": "urban_challenges_lic",
+        "name": "Urban Challenges in LICs & NEEs",
+        "critical": true,
+        "keywords": ["squatter settlements", "informal economy", "sanitation", "Dharavi", "Rio de Janeiro", "self-help schemes"]
+      },
+      {
+        "id": "urban_challenges_hic",
+        "name": "Urban Challenges in HICs",
+        "critical": true,
+        "keywords": ["inner city", "deprivation", "regeneration", "gentrification", "brownfield", "greenfield"]
+      },
+      {
+        "id": "sustainable_urban",
+        "name": "Sustainable Urban Living",
+        "critical": false,
+        "keywords": ["Freiburg", "BedZED", "green spaces", "public transport", "energy efficiency", "waste reduction"]
+      }
+    ],
+    "commonMisconceptions": [
+      "Urbanisation is not the same as urban growth - urbanisation is the increasing proportion of people living in urban areas",
+      "Squatter settlements are not just problems - they show community resilience and can be improved through self-help schemes",
+      "Not all migration is from rural to urban areas - counter-urbanisation and suburbanisation also occur",
+      "Brownfield sites are previously developed land, greenfield sites are undeveloped - students frequently mix these up"
+    ],
+    "highYield": true,
+    "aqaRef": "AQA 8035/2: Urban issues and challenges",
+    "edexcelRef": "Edexcel 1GA0 Component 2 Topic 4: Changing Cities",
+    "ocrRef": "OCR B (J384): People and society - Urban futures"
+  },
+  {
+    "id": "economic_development",
+    "name": "Economic Development",
+    "description": "Measuring development, causes of the development gap, strategies for reducing it and case studies of NEEs",
+    "subskills": [
+      {
+        "id": "measuring_development",
+        "name": "Measuring Development",
+        "critical": true,
+        "keywords": ["GNI per capita", "HDI", "life expectancy", "literacy rate", "infant mortality", "development indicators"]
+      },
+      {
+        "id": "development_gap",
+        "name": "The Development Gap",
+        "critical": true,
+        "keywords": ["HIC", "LIC", "NEE", "uneven development", "trade", "debt", "colonialism"]
+      },
+      {
+        "id": "reducing_gap",
+        "name": "Strategies for Reducing the Gap",
+        "critical": true,
+        "keywords": ["aid", "fair trade", "microfinance", "debt relief", "intermediate technology", "tourism"]
+      },
+      {
+        "id": "nee_case_study",
+        "name": "NEE Case Study (e.g. Nigeria or India)",
+        "critical": true,
+        "keywords": ["TNCs", "industrialisation", "economic growth", "environmental impact", "quality of life"]
+      }
+    ],
+    "commonMisconceptions": [
+      "GNI per capita alone does not show how wealth is distributed - a country can have high GNI but extreme inequality",
+      "Aid is not always beneficial - it can create dependency and may not reach those who need it most",
+      "LICs are not poor because of a lack of resources - many have abundant natural resources but face barriers to development",
+      "The terms 'developed' and 'developing' are overly simplistic - the Brandt Line is outdated and countries develop at different rates"
+    ],
+    "highYield": true,
+    "aqaRef": "AQA 8035/2: The changing economic world",
+    "edexcelRef": "Edexcel 1GA0 Component 2 Topic 5: Global Development",
+    "ocrRef": "OCR B (J384): People and society - Economic development"
+  },
+  {
+    "id": "resource_management",
+    "name": "Resource Management",
+    "description": "Global distribution and consumption of food, water and energy resources, and strategies for sustainability",
+    "subskills": [
+      {
+        "id": "resource_overview",
+        "name": "Global Resource Distribution",
+        "critical": true,
+        "keywords": ["resource", "surplus", "deficit", "consumption", "demand", "supply"]
+      },
+      {
+        "id": "food_resources",
+        "name": "Food Resources & Security",
+        "critical": true,
+        "keywords": ["food security", "famine", "agribusiness", "organic farming", "food miles", "irrigation"]
+      },
+      {
+        "id": "water_resources",
+        "name": "Water Resources & Management",
+        "critical": true,
+        "keywords": ["water stress", "water deficit", "desalination", "water transfer", "conservation", "aquifer"]
+      },
+      {
+        "id": "energy_resources",
+        "name": "Energy Resources & Mix",
+        "critical": true,
+        "keywords": ["renewable", "non-renewable", "fossil fuels", "nuclear", "wind", "solar", "energy mix"]
+      }
+    ],
+    "commonMisconceptions": [
+      "Water scarcity is not just about rainfall - it is also about access, infrastructure and pollution",
+      "Renewable energy is not completely without environmental impact - wind farms and dams can still affect ecosystems",
+      "Food insecurity is not just about production - distribution, affordability and waste are also critical factors",
+      "The UK is not self-sufficient in energy - it imports a significant proportion of its energy needs"
+    ],
+    "highYield": true,
+    "aqaRef": "AQA 8035/2: Resource management",
+    "edexcelRef": "Edexcel 1GA0 Component 2 Topic 6: Resource Management",
+    "ocrRef": "OCR B (J384): People and society - Resource management"
+  },
+  {
+    "id": "fieldwork_geographical_skills",
+    "name": "Fieldwork & Geographical Skills",
+    "description": "Fieldwork methodology, data collection, presentation and analysis, plus map skills and statistical techniques",
+    "subskills": [
+      {
+        "id": "fieldwork_methodology",
+        "name": "Fieldwork Enquiry Process",
+        "critical": true,
+        "keywords": ["hypothesis", "methodology", "sampling", "systematic", "random", "stratified"]
+      },
+      {
+        "id": "data_presentation",
+        "name": "Data Presentation Techniques",
+        "critical": true,
+        "keywords": ["choropleth map", "proportional symbols", "scatter graph", "bar chart", "pie chart", "GIS"]
+      },
+      {
+        "id": "map_skills",
+        "name": "Ordnance Survey Map Skills",
+        "critical": true,
+        "keywords": ["grid reference", "contour lines", "scale", "cross-section", "relief", "gradient"]
+      },
+      {
+        "id": "statistical_skills",
+        "name": "Statistical & Analytical Skills",
+        "critical": false,
+        "keywords": ["mean", "median", "mode", "range", "interquartile range", "Spearman's rank"]
+      }
+    ],
+    "commonMisconceptions": [
+      "A six-figure grid reference gives a precise location, while a four-figure reference gives a grid square - students often confuse these",
+      "Contour lines close together mean a steep slope, not a high altitude",
+      "Correlation does not prove causation - a scatter graph showing a link between two variables does not mean one causes the other",
+      "Primary data is collected by the student themselves, secondary data comes from other sources - not all pre-existing data is secondary"
+    ],
+    "highYield": true,
+    "aqaRef": "AQA 8035/3: Geographical applications - Fieldwork",
+    "edexcelRef": "Edexcel 1GA0 Component 3: Geographical Investigations (fieldwork)",
+    "ocrRef": "OCR B (J384): Geographical skills and fieldwork"
+  }
+]

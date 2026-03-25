@@ -1,0 +1,66 @@
+[
+  {
+    "topicId": "elements_of_music",
+    "bossName": "The Sonic Architect",
+    "flavourText": "Builds walls of sound from rhythm and pitch. Name every element to tear them down.",
+    "emoji": "🎵",
+    "hp": 100,
+    "hpBarColour": "#7c3aed"
+  },
+  {
+    "topicId": "set_works_analysis",
+    "bossName": "The Score Sentinel",
+    "flavourText": "Guards a library of musical masterworks. Prove your analysis skills to unlock its vault.",
+    "emoji": "📜",
+    "hp": 100,
+    "hpBarColour": "#b91c1c"
+  },
+  {
+    "topicId": "listening_skills",
+    "bossName": "The Aural Phantom",
+    "flavourText": "Invisible but always listening. Identify its instruments and features to reveal its true form.",
+    "emoji": "👂",
+    "hp": 100,
+    "hpBarColour": "#0891b2"
+  },
+  {
+    "topicId": "composition_techniques",
+    "bossName": "The Melody Forge",
+    "flavourText": "A blazing furnace of musical ideas. Shape raw sound into structured compositions to quench its fire.",
+    "emoji": "🔨",
+    "hp": 100,
+    "hpBarColour": "#ea580c"
+  },
+  {
+    "topicId": "performance_skills_music",
+    "bossName": "The Virtuoso Golem",
+    "flavourText": "A stone giant that only moves when the music is perfect. Play with precision and expression.",
+    "emoji": "🎻",
+    "hp": 100,
+    "hpBarColour": "#be185d"
+  },
+  {
+    "topicId": "music_technology",
+    "bossName": "The Digital Djinn",
+    "flavourText": "Conjured from synthesisers and sequencers. Master the technology to send it back into the machine.",
+    "emoji": "🤖",
+    "hp": 100,
+    "hpBarColour": "#4f46e5"
+  },
+  {
+    "topicId": "musical_contexts",
+    "bossName": "The Epoch Conductor",
+    "flavourText": "Waves its baton across centuries of music. Place each era correctly to stop the concert.",
+    "emoji": "🎼",
+    "hp": 100,
+    "hpBarColour": "#15803d"
+  },
+  {
+    "topicId": "appraising_and_writing",
+    "bossName": "The Terminology Titan",
+    "flavourText": "Speaks only in Italian terms and musical jargon. Answer in kind to earn its respect.",
+    "emoji": "✍️",
+    "hp": 100,
+    "hpBarColour": "#9333ea"
+  }
+]

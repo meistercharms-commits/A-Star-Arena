@@ -1,0 +1,98 @@
+[
+  {
+    "topicId": "identity_and_culture",
+    "bossName": "Le Miroir Magique",
+    "flavourText": "A magical mirror that only lets you pass if you can describe yourself perfectly in French. Show it who you really are!",
+    "emoji": "🪞",
+    "hp": 100,
+    "hpBarColour": "#2E86AB"
+  },
+  {
+    "topicId": "school_and_education",
+    "bossName": "Monsieur le Proviseur",
+    "flavourText": "The strictest headteacher in France is testing your knowledge of school life. Impress him and earn your place at the top of the class!",
+    "emoji": "🎓",
+    "hp": 100,
+    "hpBarColour": "#1B4965"
+  },
+  {
+    "topicId": "free_time",
+    "bossName": "Le Champion du Weekend",
+    "flavourText": "This leisure-loving boss has tried every hobby under the sun. Can you match their passion for free time in perfect French?",
+    "emoji": "🎮",
+    "hp": 100,
+    "hpBarColour": "#F77F00"
+  },
+  {
+    "topicId": "holidays_and_travel",
+    "bossName": "Le Globe-Trotteur",
+    "flavourText": "A fearless French traveller who has been everywhere. Beat them by describing the ultimate holiday - past, present and future!",
+    "emoji": "✈️",
+    "hp": 100,
+    "hpBarColour": "#FCBF49"
+  },
+  {
+    "topicId": "family_and_friends",
+    "bossName": "Tante Terrible",
+    "flavourText": "Your fictional French aunt who asks endless questions about the family at every gathering. Answer them all to survive the reunion!",
+    "emoji": "👨‍👩‍👧‍👦",
+    "hp": 100,
+    "hpBarColour": "#D62828"
+  },
+  {
+    "topicId": "town_and_local_area",
+    "bossName": "Le Fantome de la Ville",
+    "flavourText": "A friendly ghost lost in a French town. Guide them to safety using your directions and local knowledge!",
+    "emoji": "🏘️",
+    "hp": 100,
+    "hpBarColour": "#606C38"
+  },
+  {
+    "topicId": "social_issues",
+    "bossName": "La Voix du Peuple",
+    "flavourText": "The voice of the people demands answers! Show your understanding of social issues and prove you can make a difference.",
+    "emoji": "📢",
+    "hp": 100,
+    "hpBarColour": "#9B2226"
+  },
+  {
+    "topicId": "environment",
+    "bossName": "Le Gardien de la Planete",
+    "flavourText": "The guardian of planet Earth needs your help. Use your French to explain how we can save the environment!",
+    "emoji": "🌍",
+    "hp": 100,
+    "hpBarColour": "#2D6A4F"
+  },
+  {
+    "topicId": "technology",
+    "bossName": "L'Intelligence Artificielle",
+    "flavourText": "A rogue AI that only speaks French! Defeat it by proving you understand the digital world better than it does.",
+    "emoji": "🤖",
+    "hp": 100,
+    "hpBarColour": "#7209B7"
+  },
+  {
+    "topicId": "future_plans",
+    "bossName": "Madame Destin",
+    "flavourText": "The fortune teller of futures! She challenges you to describe your plans and ambitions in flawless French.",
+    "emoji": "🔮",
+    "hp": 100,
+    "hpBarColour": "#3A0CA3"
+  },
+  {
+    "topicId": "grammar_essentials",
+    "bossName": "Le Dragon de la Grammaire",
+    "flavourText": "This fearsome grammar dragon guards the gates of fluency. Only perfect tenses, agreements and structures will defeat it!",
+    "emoji": "🐉",
+    "hp": 100,
+    "hpBarColour": "#E63946"
+  },
+  {
+    "topicId": "translation_skills",
+    "bossName": "Le Sphinx Bilingue",
+    "flavourText": "The bilingual sphinx speaks in riddles between English and French. Translate your way to victory!",
+    "emoji": "🦁",
+    "hp": 100,
+    "hpBarColour": "#E9C46A"
+  }
+]

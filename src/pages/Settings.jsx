@@ -1,9 +1,17 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { getSettings, saveSettings, exportAllData, clearAllData, getStorageSize, getProgress, getStorageWarning, getStorageStats } from '../lib/storage';
+import { useNavigate, Link } from 'react-router-dom';
+import { getSettings, saveSettings, exportAllData, clearAllData, getStorageSize, getProgress, getStorageWarning, getStorageStats, getCurrentLevel } from '../lib/storage';
+import { useLevel } from '../contexts/LevelContext';
+import { getSubjectsForLevel } from '../content/subjects';
+import { getLevelMeta } from '../lib/qualificationLevel';
 
 export default function Settings() {
   const navigate = useNavigate();
+  const { level } = useLevel();
+  const levelMeta = getLevelMeta(level);
+  const subjects = getSubjectsForLevel(level);
+  const isGCSE = level === 'gcse';
+
   const progress = getProgress();
   const storageBytes = getStorageSize();
   const storageMB = (storageBytes / 1024 / 1024).toFixed(2);
@@ -11,16 +19,24 @@ export default function Settings() {
   const storageStats = getStorageStats();
 
   const initial = getSettings() || {};
-  const initBoards = initial.examBoards || {};
+
+  // Get level-scoped exam boards, with fallback to old flat structure
+  const levelBoards = initial.examBoards?.[level] || {};
+  const flatBoards = initial.examBoards || {};
   const fallbackBoard = initial.examBoard || 'generic';
+
+  // Build initial board state for current level's subjects
+  const initExamBoards = {};
+  subjects.forEach(s => {
+    initExamBoards[s.id] = levelBoards[s.id]
+      || (typeof flatBoards[s.id] === 'string' ? flatBoards[s.id] : fallbackBoard);
+  });
+
+  const targetGradeKey = `targetGrade_${level}`;
   const [form, setForm] = useState({
     studentName: initial.studentName || '',
-    examBoards: {
-      biology: initBoards.biology || fallbackBoard,
-      chemistry: initBoards.chemistry || fallbackBoard,
-      mathematics: initBoards.mathematics || fallbackBoard,
-    },
-    targetGrade: initial.targetGrade || 'A*',
+    examBoards: initExamBoards,
+    targetGrade: initial[targetGradeKey] || initial.targetGrade || (isGCSE ? '9' : 'A*'),
     timePerDayMins: initial.timePerDayMins || 30,
     bossHp: initial.bossHp || 100,
     extendedThreshold: initial.extendedThreshold || 5,
@@ -35,7 +51,26 @@ export default function Settings() {
 
   function handleSave(e) {
     e.preventDefault();
-    saveSettings({ ...form, createdAt: initial.createdAt || new Date().toISOString() });
+    const existing = getSettings() || {};
+    saveSettings({
+      ...existing,
+      studentName: form.studentName,
+      examBoards: {
+        ...(existing.examBoards || {}),
+        [level]: form.examBoards,
+      },
+      [targetGradeKey]: form.targetGrade,
+      targetGrade: form.targetGrade,
+      timePerDayMins: form.timePerDayMins,
+      bossHp: form.bossHp,
+      extendedThreshold: form.extendedThreshold,
+      showTimer: form.showTimer,
+      showStudentHp: form.showStudentHp,
+      lowPressureMode: form.lowPressureMode,
+      strictness: form.strictness,
+      explanationDepth: form.explanationDepth,
+      createdAt: existing.createdAt || new Date().toISOString(),
+    });
     setSaved(true);
     setTimeout(() => setSaved(false), 2000);
   }
@@ -54,7 +89,7 @@ export default function Settings() {
   function handleClear() {
     clearAllData();
     setConfirmClear(false);
-    navigate('/onboarding');
+    navigate('/level-select');
   }
 
   return (
@@ -62,6 +97,22 @@ export default function Settings() {
       <h1 className="text-2xl font-bold">Settings</h1>
 
       <form onSubmit={handleSave} className="space-y-6">
+        {/* Qualification Level */}
+        <Section title="Qualification Level">
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-sm font-medium">{levelMeta.label}</p>
+              <p className="text-xs text-text-muted">{subjects.length} subjects available</p>
+            </div>
+            <Link
+              to="/level-select"
+              className="text-xs px-3 py-1.5 rounded-lg bg-bg-tertiary border border-border text-text-secondary hover:border-text-muted transition-colors no-underline"
+            >
+              Switch Level
+            </Link>
+          </div>
+        </Section>
+
         {/* Profile */}
         <Section title="Profile">
           <Field label="Name" hint="optional">
@@ -75,14 +126,10 @@ export default function Settings() {
           </Field>
 
           <Field label="Exam Boards">
-            <div className="space-y-3">
-              {[
-                { subject: 'biology', label: 'Biology' },
-                { subject: 'chemistry', label: 'Chemistry' },
-                { subject: 'mathematics', label: 'Mathematics' },
-              ].map(({ subject, label }) => (
-                <div key={subject}>
-                  <span className="block text-xs text-text-muted mb-1">{label}</span>
+            <div className="space-y-3 max-h-64 overflow-y-auto pr-1">
+              {subjects.map(({ id, name }) => (
+                <div key={id}>
+                  <span className="block text-xs text-text-muted mb-1">{name}</span>
                   <div className="grid grid-cols-4 gap-1.5">
                     {[
                       { value: 'generic', label: 'Generic' },
@@ -92,8 +139,8 @@ export default function Settings() {
                     ].map(opt => (
                       <OptionButton
                         key={opt.value}
-                        selected={form.examBoards[subject] === opt.value}
-                        onClick={() => setForm({ ...form, examBoards: { ...form.examBoards, [subject]: opt.value } })}
+                        selected={form.examBoards[id] === opt.value}
+                        onClick={() => setForm({ ...form, examBoards: { ...form.examBoards, [id]: opt.value } })}
                       >
                         {opt.label}
                       </OptionButton>
@@ -106,14 +153,14 @@ export default function Settings() {
 
           <Field label="Target Grade">
             <div className="flex gap-2">
-              {['A*', 'A'].map(grade => (
+              {levelMeta.topTargetGrades.map(grade => (
                 <OptionButton
                   key={grade}
                   selected={form.targetGrade === grade}
                   onClick={() => setForm({ ...form, targetGrade: grade })}
                   className="flex-1"
                 >
-                  {grade}
+                  {isGCSE ? `Grade ${grade}` : grade}
                 </OptionButton>
               ))}
             </div>

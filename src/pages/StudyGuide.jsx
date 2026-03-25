@@ -45,12 +45,29 @@ export default function StudyGuide() {
   const [error, setError] = useState(null);
   const [source, setSource] = useState(null);
   const [copied, setCopied] = useState(false);
+  const [copyFailed, setCopyFailed] = useState(false);
 
-  useEffect(() => {
+  const CACHE_MAX_AGE = 7 * 24 * 60 * 60 * 1000; // 7 days
+  const cacheKey = `astarena:studyGuide:${getCurrentSubject()}:${topicId}`;
+
+  function fetchGuide(bypassCache = false) {
     if (!topic) return;
 
     setLoading(true);
     setError(null);
+
+    // Check cache first
+    if (!bypassCache) {
+      try {
+        const cached = JSON.parse(localStorage.getItem(cacheKey));
+        if (cached && cached.cachedAt && (Date.now() - cached.cachedAt) < CACHE_MAX_AGE) {
+          setGuide(cached.data);
+          setSource(cached.source || 'cache');
+          setLoading(false);
+          return;
+        }
+      } catch { /* ignore corrupt cache */ }
+    }
 
     const mastery = calculateTopicMastery(topicId, topics);
     const mistakes = getRecurringMistakes();
@@ -78,6 +95,14 @@ export default function StudyGuide() {
       if (result.success) {
         setGuide(result.data);
         setSource(result.source);
+        // Cache the result
+        try {
+          localStorage.setItem(cacheKey, JSON.stringify({
+            data: result.data,
+            source: result.source,
+            cachedAt: Date.now(),
+          }));
+        } catch { /* storage full — ignore */ }
       } else {
         setError('Failed to generate study guide.');
       }
@@ -86,6 +111,15 @@ export default function StudyGuide() {
       setError('Failed to generate study guide.');
       setLoading(false);
     });
+  }
+
+  function handleRegenerate() {
+    try { localStorage.removeItem(cacheKey); } catch { /* ignore */ }
+    fetchGuide(true);
+  }
+
+  useEffect(() => {
+    fetchGuide();
   }, [topicId]);
 
   // Copy guide to clipboard as plain text
@@ -139,7 +173,9 @@ export default function StudyGuide() {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch {
-      // Fallback — some browsers block clipboard
+      setCopied(false);
+      setCopyFailed(true);
+      setTimeout(() => setCopyFailed(false), 2000);
     }
   };
 
@@ -304,7 +340,13 @@ export default function StudyGuide() {
               onClick={handleCopy}
               className="bg-bg-secondary border border-border hover:border-accent rounded-lg px-4 py-2.5 text-sm transition-colors cursor-pointer text-text-primary"
             >
-              {copied ? '✓ Copied!' : '📋 Copy to Clipboard'}
+              {copied ? '✓ Copied!' : copyFailed ? '✗ Copy failed' : '📋 Copy to Clipboard'}
+            </button>
+            <button
+              onClick={handleRegenerate}
+              className="bg-bg-secondary border border-border hover:border-accent rounded-lg px-4 py-2.5 text-sm transition-colors cursor-pointer text-text-primary"
+            >
+              🔄 Regenerate
             </button>
             <Link
               to={`/battle/${topicId}`}

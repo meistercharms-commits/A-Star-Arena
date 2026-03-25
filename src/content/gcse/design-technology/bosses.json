@@ -1,0 +1,82 @@
+[
+  {
+    "topicId": "core_technical_principles",
+    "bossName": "The Stress Tester",
+    "flavourText": "A towering construct of tension, compression and torsion that refuses to buckle. Identify every force and make it crack!",
+    "emoji": "🏗️",
+    "hp": 100,
+    "hpBarColour": "#E74C3C"
+  },
+  {
+    "topicId": "specialist_technical_principles",
+    "bossName": "The Stock Monster",
+    "flavourText": "Built from every stock form imaginable and held together with standard components. Know your scales of production to dismantle it piece by piece!",
+    "emoji": "📦",
+    "hp": 100,
+    "hpBarColour": "#8E44AD"
+  },
+  {
+    "topicId": "materials_and_properties",
+    "bossName": "Professor Polymorph",
+    "flavourText": "A shape-shifting beast that changes between woods, metals and polymers at will. Name its properties and pin it down!",
+    "emoji": "🧪",
+    "hp": 100,
+    "hpBarColour": "#2980B9"
+  },
+  {
+    "topicId": "manufacturing_processes",
+    "bossName": "The Mould Maker",
+    "flavourText": "A factory floor fiend that injection moulds minions and vacuum forms shields. Master every process to shut down the production line!",
+    "emoji": "🏭",
+    "hp": 100,
+    "hpBarColour": "#D35400"
+  },
+  {
+    "topicId": "energy_and_systems",
+    "bossName": "Circuit Breaker",
+    "flavourText": "A sparking, gear-grinding machine powered by cams and capacitors. Trace the system from input to output and pull the plug!",
+    "emoji": "⚡",
+    "hp": 100,
+    "hpBarColour": "#F39C12"
+  },
+  {
+    "topicId": "design_strategies",
+    "bossName": "The Fixation Phantom",
+    "flavourText": "A ghost that traps designers in a loop of their first idea. Break free with user-centred thinking and creative research!",
+    "emoji": "👻",
+    "hp": 100,
+    "hpBarColour": "#1ABC9C"
+  },
+  {
+    "topicId": "iterative_design",
+    "bossName": "The Prototype Hydra",
+    "flavourText": "Cut off one design and two more take its place. Only by iterating, testing and refining can you find the final form!",
+    "emoji": "🐉",
+    "hp": 100,
+    "hpBarColour": "#27AE60"
+  },
+  {
+    "topicId": "evaluation_and_testing",
+    "bossName": "The Quality Inspector",
+    "flavourText": "Nothing gets past this obsessive examiner. If your answers fall outside the tolerance, you will not pass its go/no-go gauge!",
+    "emoji": "🔍",
+    "hp": 100,
+    "hpBarColour": "#2C3E50"
+  },
+  {
+    "topicId": "new_technologies",
+    "bossName": "The Obsolescence Engine",
+    "flavourText": "A wasteful machine that devours resources and discards products. Deploy the 6 Rs of sustainability to bring it to a halt!",
+    "emoji": "♻️",
+    "hp": 100,
+    "hpBarColour": "#16A085"
+  },
+  {
+    "topicId": "design_communication",
+    "bossName": "The Vanishing Point",
+    "flavourText": "A dimension-warping villain that distorts every drawing you make. Master your projections and render it powerless!",
+    "emoji": "✏️",
+    "hp": 100,
+    "hpBarColour": "#9B59B6"
+  }
+]

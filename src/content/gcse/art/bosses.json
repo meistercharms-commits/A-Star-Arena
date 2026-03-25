@@ -1,0 +1,66 @@
+[
+  {
+    "topicId": "formal_elements",
+    "bossName": "The Chromatic Colossus",
+    "flavourText": "A shimmering giant built from line, tone, and colour. Master the elements to shatter its form.",
+    "emoji": "🎨",
+    "hp": 100,
+    "hpBarColour": "#e11d48"
+  },
+  {
+    "topicId": "recording_and_observing",
+    "bossName": "The All-Seeing Sketch",
+    "flavourText": "Nothing escapes its gaze. Prove your observational skills to blind its many eyes.",
+    "emoji": "👁️",
+    "hp": 100,
+    "hpBarColour": "#6366f1"
+  },
+  {
+    "topicId": "artist_research_and_analysis",
+    "bossName": "The Gallery Phantom",
+    "flavourText": "Haunts the halls of art history. Name the masters and their methods to banish it.",
+    "emoji": "🖼️",
+    "hp": 100,
+    "hpBarColour": "#8b5cf6"
+  },
+  {
+    "topicId": "developing_ideas",
+    "bossName": "The Iteration Engine",
+    "flavourText": "A whirring machine of endless refinement. Feed it experiments to power it down.",
+    "emoji": "🔄",
+    "hp": 100,
+    "hpBarColour": "#f97316"
+  },
+  {
+    "topicId": "materials_and_techniques",
+    "bossName": "The Mixed-Media Hydra",
+    "flavourText": "Each head wields a different medium. Cut them all with your technical knowledge.",
+    "emoji": "🐉",
+    "hp": 100,
+    "hpBarColour": "#14b8a6"
+  },
+  {
+    "topicId": "personal_response",
+    "bossName": "The Inner Voice",
+    "flavourText": "A mirror of your creative soul. Only authentic personal expression can calm its storm.",
+    "emoji": "🪞",
+    "hp": 100,
+    "hpBarColour": "#ec4899"
+  },
+  {
+    "topicId": "contextual_understanding",
+    "bossName": "The Timekeeper of Movements",
+    "flavourText": "Cycles through art history at dizzying speed. Pin it to the right era to slow it down.",
+    "emoji": "⏳",
+    "hp": 100,
+    "hpBarColour": "#a855f7"
+  },
+  {
+    "topicId": "exam_preparation",
+    "bossName": "The Ten-Hour Titan",
+    "flavourText": "A towering figure counting down the clock. Plan wisely and work with purpose to defeat it.",
+    "emoji": "⏰",
+    "hp": 100,
+    "hpBarColour": "#dc2626"
+  }
+]

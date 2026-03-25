@@ -1,0 +1,384 @@
+[
+  {
+    "id": "core_technical_principles",
+    "name": "Core Technical Principles",
+    "description": "Fundamental technical knowledge including forces, materials categories, and the impact of new and emerging technologies",
+    "subskills": [
+      {
+        "id": "forces_and_stresses",
+        "name": "Forces and Stresses",
+        "critical": true,
+        "keywords": ["tension", "compression", "shear", "bending", "torsion", "load", "structural integrity"]
+      },
+      {
+        "id": "material_categories",
+        "name": "Material Categories",
+        "critical": true,
+        "keywords": ["woods", "metals", "polymers", "textiles", "papers and boards", "composites", "smart materials"]
+      },
+      {
+        "id": "new_and_emerging_technologies",
+        "name": "New and Emerging Technologies",
+        "critical": true,
+        "keywords": ["automation", "robotics", "CAD", "CAM", "CNC", "3D printing", "laser cutting", "Industry 4.0"]
+      },
+      {
+        "id": "energy_sources",
+        "name": "Energy Generation and Storage",
+        "critical": false,
+        "keywords": ["renewable energy", "non-renewable energy", "fossil fuels", "solar", "wind", "nuclear", "batteries"]
+      }
+    ],
+    "commonMisconceptions": [
+      "All plastics are harmful to the environment (some bioplastics are biodegradable and derived from renewable sources)",
+      "Smart materials and composite materials are the same thing (smart materials respond to stimuli; composites combine two or more materials for improved properties)",
+      "CAD and CAM are the same process (CAD is computer-aided design; CAM is computer-aided manufacture)"
+    ],
+    "highYield": true,
+    "aqaRef": "3.1",
+    "edexcelRef": "1.1",
+    "ocrRef": "1.1"
+  },
+  {
+    "id": "specialist_technical_principles",
+    "name": "Specialist Technical Principles",
+    "description": "In-depth knowledge of material-specific properties, selection criteria and standard components",
+    "subskills": [
+      {
+        "id": "material_selection",
+        "name": "Selection of Materials and Components",
+        "critical": true,
+        "keywords": ["fitness for purpose", "cost", "availability", "aesthetics", "functionality", "environmental impact"]
+      },
+      {
+        "id": "stock_forms",
+        "name": "Stock Forms and Standard Components",
+        "critical": true,
+        "keywords": ["sheet", "bar", "tube", "rod", "extrusion", "standard components", "bought-in components", "fixings"]
+      },
+      {
+        "id": "scales_of_production",
+        "name": "Scales of Production",
+        "critical": true,
+        "keywords": ["one-off production", "batch production", "mass production", "continuous production", "just-in-time"]
+      },
+      {
+        "id": "surface_treatments",
+        "name": "Surface Treatments and Finishes",
+        "critical": false,
+        "keywords": ["painting", "varnishing", "anodising", "powder coating", "plating", "tanalising", "dip coating"]
+      }
+    ],
+    "commonMisconceptions": [
+      "One-off production is always more expensive per unit than mass production (while unit cost is higher, tooling costs are much lower)",
+      "Hardwood always comes from deciduous trees and softwood from coniferous trees (the classification is botanical, not about physical hardness)",
+      "All metals rust (only ferrous metals containing iron rust; non-ferrous metals corrode differently)"
+    ],
+    "highYield": true,
+    "aqaRef": "3.2",
+    "edexcelRef": "1.2",
+    "ocrRef": "1.2"
+  },
+  {
+    "id": "materials_and_properties",
+    "name": "Materials & Their Properties",
+    "description": "Physical and working properties of woods, metals, polymers, textiles, papers and boards, and composites",
+    "subskills": [
+      {
+        "id": "physical_properties",
+        "name": "Physical and Mechanical Properties",
+        "critical": true,
+        "keywords": ["hardness", "toughness", "tensile strength", "malleability", "ductility", "elasticity", "conductivity", "density"]
+      },
+      {
+        "id": "working_properties",
+        "name": "Working Properties",
+        "critical": true,
+        "keywords": ["machinability", "weldability", "formability", "grain", "absorbency", "fusibility"]
+      },
+      {
+        "id": "enhancement_of_properties",
+        "name": "Enhancing Material Properties",
+        "critical": false,
+        "keywords": ["seasoning", "laminating", "tempering", "annealing", "hardening", "blending", "work hardening"]
+      },
+      {
+        "id": "smart_and_modern_materials",
+        "name": "Smart and Modern Materials",
+        "critical": true,
+        "keywords": ["shape memory alloy", "thermochromic pigments", "photochromic pigments", "self-healing materials", "graphene", "Kevlar"]
+      }
+    ],
+    "commonMisconceptions": [
+      "Hardness and toughness are the same property (a hard material resists scratching; a tough material resists fracture under impact)",
+      "Thermoplastics and thermosetting plastics can both be reheated and reshaped (only thermoplastics can; thermosets undergo permanent chemical change)",
+      "All composites are modern inventions (concrete and plywood are traditional composite materials)"
+    ],
+    "highYield": true,
+    "aqaRef": "3.1",
+    "edexcelRef": "1.3",
+    "ocrRef": "1.3"
+  },
+  {
+    "id": "manufacturing_processes",
+    "name": "Manufacturing Processes",
+    "description": "Techniques for shaping, joining, cutting and forming materials including both traditional and modern methods",
+    "subskills": [
+      {
+        "id": "cutting_and_shaping",
+        "name": "Cutting and Shaping Processes",
+        "critical": true,
+        "keywords": ["sawing", "drilling", "turning", "milling", "routing", "laser cutting", "die cutting", "shearing"]
+      },
+      {
+        "id": "joining_methods",
+        "name": "Joining and Assembly Methods",
+        "critical": true,
+        "keywords": ["adhesives", "welding", "brazing", "soldering", "riveting", "screws", "knock-down fittings", "wood joints"]
+      },
+      {
+        "id": "forming_and_moulding",
+        "name": "Forming and Moulding",
+        "critical": true,
+        "keywords": ["vacuum forming", "injection moulding", "blow moulding", "casting", "bending", "laminating", "press forming"]
+      },
+      {
+        "id": "additive_manufacturing",
+        "name": "Additive Manufacturing",
+        "critical": false,
+        "keywords": ["3D printing", "FDM", "SLA", "rapid prototyping", "CAM", "layered manufacturing"]
+      }
+    ],
+    "commonMisconceptions": [
+      "3D printing is suitable for all scales of production (it is mainly used for prototyping and one-off production; it is too slow for mass production)",
+      "Welding and soldering are the same process (welding fuses base materials together; soldering uses a filler metal with a lower melting point)",
+      "All wood joints require adhesive to be strong (mechanical joints like dovetails can hold firmly without glue)"
+    ],
+    "highYield": true,
+    "aqaRef": "3.2",
+    "edexcelRef": "2.1",
+    "ocrRef": "2.1"
+  },
+  {
+    "id": "energy_and_systems",
+    "name": "Energy & Systems",
+    "description": "Mechanical, electrical and electronic systems, including inputs, processes and outputs",
+    "subskills": [
+      {
+        "id": "mechanical_systems",
+        "name": "Mechanical Systems and Devices",
+        "critical": true,
+        "keywords": ["gears", "pulleys", "cams", "levers", "linkages", "mechanical advantage", "velocity ratio"]
+      },
+      {
+        "id": "electrical_systems",
+        "name": "Electrical and Electronic Systems",
+        "critical": true,
+        "keywords": ["circuits", "resistors", "capacitors", "transistors", "LEDs", "microcontrollers", "sensors", "programmable components"]
+      },
+      {
+        "id": "systems_approach",
+        "name": "Systems Approach (Input-Process-Output)",
+        "critical": true,
+        "keywords": ["input", "process", "output", "feedback", "open loop", "closed loop", "control systems"]
+      }
+    ],
+    "commonMisconceptions": [
+      "A closed-loop system and an open-loop system are equally accurate (closed-loop systems use feedback to self-correct, making them more accurate)",
+      "Gears only change speed (they can also change direction of rotation and increase or decrease torque)",
+      "Electronic components and electrical components are the same (electronic components use semiconductors and signal processing; electrical components use mains current)"
+    ],
+    "highYield": true,
+    "aqaRef": "3.1",
+    "edexcelRef": "1.4",
+    "ocrRef": "1.4"
+  },
+  {
+    "id": "design_strategies",
+    "name": "Design Strategies",
+    "description": "Approaches to solving design problems including user-centred design, systems thinking and collaboration",
+    "subskills": [
+      {
+        "id": "design_approaches",
+        "name": "Design Approaches and Strategies",
+        "critical": true,
+        "keywords": ["user-centred design", "systems thinking", "design fixation", "collaboration", "avoiding design fixation"]
+      },
+      {
+        "id": "investigation_and_research",
+        "name": "Investigation and Research",
+        "critical": true,
+        "keywords": ["primary research", "secondary research", "client interviews", "product analysis", "market research", "surveys"]
+      },
+      {
+        "id": "design_briefs_and_specifications",
+        "name": "Design Briefs and Specifications",
+        "critical": true,
+        "keywords": ["design brief", "specification", "access FM", "constraints", "criteria", "client needs", "user requirements"]
+      }
+    ],
+    "commonMisconceptions": [
+      "The design brief and the specification are the same thing (the brief outlines the problem; the specification details measurable criteria the solution must meet)",
+      "Primary research is always better than secondary research (both have value; secondary research can provide broader context more efficiently)",
+      "Design fixation only affects inexperienced designers (even experienced designers can become fixated on initial ideas)"
+    ],
+    "highYield": true,
+    "aqaRef": "3.3",
+    "edexcelRef": "3.1",
+    "ocrRef": "3.1"
+  },
+  {
+    "id": "iterative_design",
+    "name": "Iterative Design",
+    "description": "The cyclical process of designing, prototyping, testing and refining products",
+    "subskills": [
+      {
+        "id": "generating_ideas",
+        "name": "Generating and Developing Ideas",
+        "critical": true,
+        "keywords": ["sketching", "annotation", "modelling", "CAD rendering", "mood boards", "morphological analysis", "brainstorming"]
+      },
+      {
+        "id": "prototyping",
+        "name": "Prototyping and Modelling",
+        "critical": true,
+        "keywords": ["prototype", "mock-up", "scale model", "3D printing", "card modelling", "virtual modelling", "toile"]
+      },
+      {
+        "id": "refining_and_developing",
+        "name": "Refining and Developing Designs",
+        "critical": true,
+        "keywords": ["iteration", "feedback", "modification", "improvement", "user testing", "design development"]
+      },
+      {
+        "id": "technical_drawing",
+        "name": "Technical Drawing and Working Drawings",
+        "critical": false,
+        "keywords": ["orthographic projection", "isometric drawing", "exploded drawing", "dimensions", "tolerances", "scale"]
+      }
+    ],
+    "commonMisconceptions": [
+      "The design process is always linear (it is iterative, meaning designers regularly revisit and refine earlier stages)",
+      "Prototyping is only done once near the end of a project (prototypes should be made and tested throughout the design process)",
+      "CAD replaces the need for hand sketching (initial ideas are often fastest to explore with quick hand sketches)"
+    ],
+    "highYield": true,
+    "aqaRef": "3.3",
+    "edexcelRef": "3.2",
+    "ocrRef": "3.2"
+  },
+  {
+    "id": "evaluation_and_testing",
+    "name": "Evaluation & Testing",
+    "description": "Methods of testing materials and products against specifications, including quality control",
+    "subskills": [
+      {
+        "id": "testing_methods",
+        "name": "Testing Methods",
+        "critical": true,
+        "keywords": ["destructive testing", "non-destructive testing", "tensile testing", "hardness testing", "user trials", "functionality testing"]
+      },
+      {
+        "id": "quality_control",
+        "name": "Quality Assurance and Quality Control",
+        "critical": true,
+        "keywords": ["quality control", "quality assurance", "tolerances", "go/no-go gauges", "templates", "jigs", "consistency"]
+      },
+      {
+        "id": "evaluation_against_specification",
+        "name": "Evaluating Against the Specification",
+        "critical": true,
+        "keywords": ["specification criteria", "fitness for purpose", "client feedback", "third-party testing", "modifications", "improvements"]
+      }
+    ],
+    "commonMisconceptions": [
+      "Quality control and quality assurance are the same thing (QC checks individual products; QA is the overall system that ensures consistent quality)",
+      "Evaluation only happens at the end of a project (ongoing evaluation throughout the design process leads to better outcomes)",
+      "If a product works, it has met the specification (it must also meet aesthetic, cost, safety and environmental criteria)"
+    ],
+    "highYield": true,
+    "aqaRef": "3.3",
+    "edexcelRef": "3.3",
+    "ocrRef": "3.3"
+  },
+  {
+    "id": "new_technologies",
+    "name": "New Technologies",
+    "description": "The impact of modern technologies, sustainability and environmental considerations on product design",
+    "subskills": [
+      {
+        "id": "modern_manufacturing",
+        "name": "Modern Manufacturing Technologies",
+        "critical": true,
+        "keywords": ["CNC machining", "laser cutting", "3D printing", "robotics", "automation", "flexible manufacturing systems"]
+      },
+      {
+        "id": "sustainability",
+        "name": "Sustainability and Environmental Impact",
+        "critical": true,
+        "keywords": ["life cycle assessment", "carbon footprint", "recycling", "reuse", "reduce", "planned obsolescence", "sustainability", "6 Rs"]
+      },
+      {
+        "id": "people_and_society",
+        "name": "Impact of Technology on People and Society",
+        "critical": true,
+        "keywords": ["job displacement", "deskilling", "globalisation", "ethical sourcing", "fair trade", "cultural influences"]
+      },
+      {
+        "id": "product_lifecycle",
+        "name": "Product Life Cycle and Disposal",
+        "critical": false,
+        "keywords": ["cradle to grave", "cradle to cradle", "landfill", "incineration", "biodegradable", "end of life", "disassembly"]
+      }
+    ],
+    "commonMisconceptions": [
+      "Recycling solves all environmental problems (reducing consumption and reusing products are more effective strategies)",
+      "Automation always leads to job losses (it can also create new roles in programming, maintenance and design)",
+      "Planned obsolescence is always unethical (sometimes updated products offer genuine safety or efficiency improvements)"
+    ],
+    "highYield": true,
+    "aqaRef": "3.1",
+    "edexcelRef": "1.5",
+    "ocrRef": "1.5"
+  },
+  {
+    "id": "design_communication",
+    "name": "Design Communication",
+    "description": "Methods of communicating design ideas through drawing, modelling, annotation and digital tools",
+    "subskills": [
+      {
+        "id": "freehand_sketching",
+        "name": "Freehand Sketching and Rendering",
+        "critical": true,
+        "keywords": ["sketching", "rendering", "shading", "tone", "texture", "crating", "perspective", "proportion"]
+      },
+      {
+        "id": "formal_drawing",
+        "name": "Formal Drawing Techniques",
+        "critical": true,
+        "keywords": ["orthographic projection", "isometric projection", "exploded views", "sectional views", "first angle", "third angle"]
+      },
+      {
+        "id": "digital_communication",
+        "name": "Digital Design Communication",
+        "critical": true,
+        "keywords": ["CAD", "2D drawing software", "3D modelling", "rendering software", "animation", "virtual reality"]
+      },
+      {
+        "id": "annotation_and_presentation",
+        "name": "Annotation and Presentation",
+        "critical": false,
+        "keywords": ["annotation", "labelling", "dimensions", "materials specification", "manufacturing notes", "presentation boards"]
+      }
+    ],
+    "commonMisconceptions": [
+      "Isometric and perspective drawing are the same thing (isometric uses parallel lines at 30 degrees; perspective uses vanishing points)",
+      "CAD drawings do not need annotation (all design drawings should include notes on materials, dimensions and manufacturing)",
+      "First angle and third angle projection show different views of an object (they show the same views arranged differently on the page)"
+    ],
+    "highYield": false,
+    "aqaRef": "3.3",
+    "edexcelRef": "3.4",
+    "ocrRef": "3.4"
+  }
+]

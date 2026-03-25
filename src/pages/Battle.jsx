@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback } from 'react';
+import { useState, useRef, useCallback, useMemo } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useSubject } from '../contexts/SubjectContext';
 import { generateQuestion, markAnswer } from '../lib/claudeClient';
@@ -59,6 +59,7 @@ export default function Battle() {
   const previousPromptsRef = useRef([]);
   const sessionIdRef = useRef(generateId());
   const startTimeRef = useRef(null);
+  const isSubmittingRef = useRef(false); // Guard against timer/submit race condition
 
   const currentPhase = PHASE_ORDER[phaseIndex];
   const phaseConfig = PHASE_CONFIG[currentPhase];
@@ -108,7 +109,8 @@ export default function Battle() {
   }
 
   async function handleSubmit(answer) {
-    if (!currentQuestion || loading) return;
+    if (!currentQuestion || loading || isSubmittingRef.current) return;
+    isSubmittingRef.current = true;
     setTimerRunning(false);
     setLoading(true);
 
@@ -133,7 +135,7 @@ export default function Battle() {
           if (currentPhase === 'recall') damage = PHASE_CONFIG.recall.damage;
           else if (currentPhase === 'application') damage = PHASE_CONFIG.application.damage;
           else if (currentPhase === 'extended') {
-            damage = result.score >= 5 ? 30 : result.score * 5;
+            damage = Math.round(result.score * 5);
           }
         }
 
@@ -141,6 +143,7 @@ export default function Battle() {
         setCurrentResult(result);
         setStage('feedback');
         setApiSource(markResult.source || null);
+        isSubmittingRef.current = false;
 
         // Track streak
         if (result.correct) {
@@ -185,7 +188,7 @@ export default function Battle() {
   }
 
   function handleSkip() {
-    if (loading || stage === 'feedback') return;
+    if (loading || stage === 'feedback' || isSubmittingRef.current) return;
     setTimerRunning(false);
 
     const skipResult = {

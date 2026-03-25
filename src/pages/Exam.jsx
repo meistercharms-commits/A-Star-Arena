@@ -80,6 +80,7 @@ export default function Exam() {
   const settings = getSettings() || {};
 
   const [stage, setStage] = useState('setup'); // setup | loading | exam | marking | review | results
+  const [examError, setExamError] = useState(null);
   const [examTopics, setExamTopics] = useState([]);
   const [questions, setQuestions] = useState([]);
   const [currentIdx, setCurrentIdx] = useState(0);
@@ -88,6 +89,7 @@ export default function Exam() {
   const [timeLeft, setTimeLeft] = useState(EXAM_DURATION);
   const [timerRunning, setTimerRunning] = useState(false);
   const [reviewIdx, setReviewIdx] = useState(0);
+  const [showSubmitConfirm, setShowSubmitConfirm] = useState(false);
 
   const sessionIdRef = useRef(null);
   const startTimeRef = useRef(null);
@@ -254,9 +256,11 @@ export default function Exam() {
 
   // ─── Start Exam ───
   async function startExam() {
-    setStage('loading'); // show loading screen while generating questions
+    setStage('loading');
+    setExamError(null);
     try {
       const qs = await generateExamQuestions(examTopics, getExamBoard(getCurrentSubject()), topics);
+      if (qs.length === 0) throw new Error('No questions generated');
       setQuestions(qs);
       setCurrentIdx(0);
       setAnswers({});
@@ -269,6 +273,7 @@ export default function Exam() {
       setStage('exam');
     } catch (err) {
       console.error('Failed to generate exam questions:', err);
+      setExamError('Could not generate exam questions. Check your connection and try again.');
       setStage('setup');
     }
   }
@@ -381,11 +386,18 @@ export default function Exam() {
           </ul>
         </div>
 
+        {examError && (
+          <div className="bg-weak/10 border border-weak/30 rounded-xl p-4 text-sm">
+            <p className="text-weak font-medium mb-2">{examError}</p>
+            <p className="text-text-muted text-xs">If this keeps happening, try switching to a different subject or checking your internet connection.</p>
+          </div>
+        )}
+
         <button
           onClick={startExam}
           className="w-full bg-accent hover:bg-accent-hover text-bg-primary font-bold py-3 rounded-xl text-lg transition-colors cursor-pointer"
         >
-          Start Exam
+          {examError ? 'Try Again' : 'Start Exam'}
         </button>
       </div>
     );
@@ -498,13 +510,34 @@ export default function Exam() {
         </div>
 
         {/* Early Submit */}
-        {currentIdx < questions.length - 1 && (
+        {currentIdx < questions.length - 1 && !showSubmitConfirm && (
           <button
-            onClick={submitExam}
+            onClick={() => setShowSubmitConfirm(true)}
             className="w-full text-xs text-text-muted hover:text-weak py-2 transition-colors cursor-pointer bg-transparent border-0"
           >
             Submit early →
           </button>
+        )}
+        {showSubmitConfirm && (
+          <div className="bg-developing/10 border border-developing/30 rounded-lg p-3 flex items-center justify-between animate-slide-up">
+            <p className="text-xs text-text-secondary">
+              Submit now? You've answered {Object.keys(answers).length} of {questions.length} questions.
+            </p>
+            <div className="flex gap-2 shrink-0 ml-3">
+              <button
+                onClick={() => setShowSubmitConfirm(false)}
+                className="text-xs px-3 py-1.5 bg-bg-tertiary border border-border rounded-lg cursor-pointer text-text-secondary"
+              >
+                Keep going
+              </button>
+              <button
+                onClick={() => { setShowSubmitConfirm(false); submitExam(); }}
+                className="text-xs px-3 py-1.5 bg-weak text-white rounded-lg cursor-pointer font-semibold"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
         )}
       </div>
     );

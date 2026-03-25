@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { useSubject } from '../contexts/SubjectContext';
 import { getTopicMastery, getMasteryCache, getSessions } from '../lib/storage';
@@ -32,14 +32,14 @@ export default function Topics() {
   const [filter, setFilter] = useState('all');
   const [sort, setSort] = useState('default');
 
-  const enrichedTopics = topics.map(topic => {
+  const enrichedTopics = useMemo(() => topics.map(topic => {
     const mastery = getTopicMastery(topic.id);
     const cat = getMasteryCategory(mastery);
     const boss = bosses.find(b => b.topicId === topic.id);
     const lastPractised = getLastPractised(topic.id);
     const daysSince = getDaysSince(lastPractised);
     return { ...topic, mastery, cat, boss, lastPractised, daysSince };
-  });
+  }), [topics, bosses]);
 
   // Filter
   const filtered = enrichedTopics.filter(t => {

@@ -1,0 +1,98 @@
+[
+  {
+    "topicId": "source_analysis_skills",
+    "bossName": "The Archivist",
+    "flavourText": "A shadowy figure guarding the archives of history. Only those who can truly analyse a source will earn passage through!",
+    "emoji": "🔍",
+    "hp": 100,
+    "hpBarColour": "#4A4E69"
+  },
+  {
+    "topicId": "medicine_through_time",
+    "bossName": "Dr Chronos",
+    "flavourText": "A time-travelling physician who has treated patients across the centuries. Can you trace the story of medicine from leeches to penicillin?",
+    "emoji": "💊",
+    "hp": 100,
+    "hpBarColour": "#22577A"
+  },
+  {
+    "topicId": "elizabethan_england",
+    "bossName": "The Virgin Queen",
+    "flavourText": "Gloriana herself demands your knowledge of her reign. Impress her court or face the Tower!",
+    "emoji": "👑",
+    "hp": 100,
+    "hpBarColour": "#7B2D8E"
+  },
+  {
+    "topicId": "weimar_nazi_germany",
+    "bossName": "The Shadow of the Eagle",
+    "flavourText": "A dark chapter of history guards this gate. Show your understanding of how democracy was destroyed - and why it matters.",
+    "emoji": "🦅",
+    "hp": 100,
+    "hpBarColour": "#6C0E23"
+  },
+  {
+    "topicId": "cold_war",
+    "bossName": "General Frostbite",
+    "flavourText": "The Cold War general tests your knowledge of superpower rivalry. Navigate the crises without triggering mutually assured destruction!",
+    "emoji": "🧊",
+    "hp": 100,
+    "hpBarColour": "#1D3557"
+  },
+  {
+    "topicId": "norman_conquest",
+    "bossName": "William the Conqueror",
+    "flavourText": "The Duke of Normandy challenges you to prove you understand how he seized and held England. Show no weakness!",
+    "emoji": "⚔️",
+    "hp": 100,
+    "hpBarColour": "#8B4513"
+  },
+  {
+    "topicId": "american_west",
+    "bossName": "The Frontier Marshal",
+    "flavourText": "Law and order on the Great Plains! The Marshal wants to know if you can handle the wild truth of the American West.",
+    "emoji": "🤠",
+    "hp": 100,
+    "hpBarColour": "#BC6C25"
+  },
+  {
+    "topicId": "power_and_the_people",
+    "bossName": "The People's Champion",
+    "flavourText": "From Magna Carta to the miners' strike, this champion of rights tests whether you know how ordinary people changed history.",
+    "emoji": "✊",
+    "hp": 100,
+    "hpBarColour": "#D62828"
+  },
+  {
+    "topicId": "crime_and_punishment",
+    "bossName": "The Hanging Judge",
+    "flavourText": "Order in the court! The Hanging Judge will test your knowledge of crime, punishment and justice through the ages.",
+    "emoji": "⚖️",
+    "hp": 100,
+    "hpBarColour": "#2D2D2D"
+  },
+  {
+    "topicId": "essay_technique",
+    "bossName": "The Grand Examiner",
+    "flavourText": "The toughest marker in the land! Defeat them with perfectly structured arguments, sharp evidence and a killer conclusion.",
+    "emoji": "📝",
+    "hp": 100,
+    "hpBarColour": "#264653"
+  },
+  {
+    "topicId": "chronological_knowledge",
+    "bossName": "The Timekeeper",
+    "flavourText": "Master of the timeline! The Timekeeper will not let you pass unless you can place every event in its proper place.",
+    "emoji": "⏳",
+    "hp": 100,
+    "hpBarColour": "#E9C46A"
+  },
+  {
+    "topicId": "historical_interpretations",
+    "bossName": "The Debating Historian",
+    "flavourText": "Two historians walk into a room and disagree about everything. Can you weigh up their arguments and reach your own judgement?",
+    "emoji": "🎭",
+    "hp": 100,
+    "hpBarColour": "#457B9D"
+  }
+]

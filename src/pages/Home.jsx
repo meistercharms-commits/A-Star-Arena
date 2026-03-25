@@ -1,19 +1,28 @@
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { getSettings, getProgress, getLevelProgress, getRecentSessions, getStorageWarning, getExamBoard } from '../lib/storage';
+import { getSettings, getProgress, getLevelProgress, getRecentSessions, getStorageWarning, getExamBoard, getCurrentLevel, getUpcomingExams, getExamCountdown } from '../lib/storage';
 import { getMasteryCategory, formatDate } from '../lib/utils';
 import { getTodaysMission, getReviewSummary } from '../lib/recommend';
 import { getRecurringMistakes } from '../lib/errorPatterns';
 import { useSubject } from '../contexts/SubjectContext';
+import { useLevel } from '../contexts/LevelContext';
+import { getLevelMeta } from '../lib/qualificationLevel';
+import { getNearestExamForSubject, getExamCoverage } from '../lib/examPlanner';
 import TopicRadar from '../components/RadarChart';
 
 export default function Home() {
   const navigate = useNavigate();
   const { subjectId, topics, bosses } = useSubject();
+  const { level } = useLevel();
+  const levelMeta = getLevelMeta(level);
   const settings = getSettings() || {};
   const progress = getProgress();
   const levelInfo = getLevelProgress();
   const recentSessions = getRecentSessions(5);
   const storageWarning = getStorageWarning();
+  const [exportReminderDismissed, setExportReminderDismissed] = useState(false);
+
+  const targetGrade = settings[`targetGrade_${level}`] || settings.targetGrade || levelMeta.defaultTargetGrade;
 
   const greeting = settings.studentName
     ? `Welcome back, ${settings.studentName}`
@@ -32,15 +41,50 @@ export default function Home() {
   // Recurring mistake patterns
   const recurringMistakes = getRecurringMistakes();
 
+  // Exam countdown
+  const upcomingExams = getUpcomingExams();
+  const nearestExam = getNearestExamForSubject(upcomingExams, subjectId, level);
+  const nearestCountdown = nearestExam ? getExamCountdown(nearestExam.date) : null;
+  const examCoverage = nearestExam ? getExamCoverage(topics) : null;
+
   return (
     <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-bold">{greeting}</h1>
         <p className="text-text-muted text-sm">
           {getExamBoard(subjectId) !== 'generic' ? getExamBoard(subjectId).toUpperCase() + ' · ' : ''}
-          Target: {settings.targetGrade}
+          {levelMeta.shortLabel} · Target: {level === 'gcse' ? `Grade ${targetGrade}` : targetGrade}
         </p>
       </div>
+
+      {/* Exam Countdown */}
+      {nearestExam && nearestCountdown && (
+        <Link to="/exams" className="block no-underline">
+          <div className={`rounded-xl p-4 border flex items-center gap-4 transition-colors hover:bg-bg-secondary/80 ${
+            nearestCountdown.urgent ? 'bg-weak/5 border-weak/30' : nearestCountdown.days <= 28 ? 'bg-developing/5 border-developing/30' : 'bg-accent/5 border-accent/30'
+          }`}>
+            <div className={`text-3xl font-bold font-mono ${
+              nearestCountdown.urgent ? 'text-weak' : nearestCountdown.days <= 28 ? 'text-developing' : 'text-accent'
+            }`}>
+              {nearestCountdown.days}d
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="text-sm font-semibold truncate">{nearestExam.title}</p>
+              <p className="text-xs text-text-muted">
+                {examCoverage.notCovered > 0
+                  ? `${examCoverage.notCovered} topic${examCoverage.notCovered !== 1 ? 's' : ''} not yet covered`
+                  : examCoverage.partial > 0
+                    ? `${examCoverage.partial} topic${examCoverage.partial !== 1 ? 's' : ''} need more work`
+                    : 'All topics covered'}
+              </p>
+            </div>
+            <div className="text-right shrink-0">
+              <div className="text-sm font-bold text-accent">{examCoverage.percentage}%</div>
+              <div className="text-[10px] text-text-muted">ready</div>
+            </div>
+          </div>
+        </Link>
+      )}
 
       {/* Today's Mission */}
       <div className="bg-bg-secondary border border-accent/30 rounded-xl p-5">
@@ -264,6 +308,35 @@ export default function Home() {
           </div>
         </div>
       )}
+
+      {/* Export Reminder */}
+      {!exportReminderDismissed && (() => {
+        const lastExport = settings?.lastExportDate;
+        const daysSinceExport = lastExport
+          ? Math.floor((Date.now() - new Date(lastExport).getTime()) / 86400000)
+          : Infinity;
+        if (daysSinceExport <= 30) return null;
+        return (
+          <div className="bg-accent/5 border border-accent/30 rounded-xl p-4 flex items-center gap-3">
+            <span className="text-lg">💾</span>
+            <div className="flex-1">
+              <p className="text-sm text-text-secondary">
+                It's been a while since you backed up your data.
+              </p>
+              <Link to="/settings" className="text-xs text-accent hover:underline no-underline mt-1 inline-block">
+                Export backup
+              </Link>
+            </div>
+            <button
+              onClick={() => setExportReminderDismissed(true)}
+              className="text-text-muted hover:text-text-primary text-lg cursor-pointer bg-transparent border-none"
+              aria-label="Dismiss reminder"
+            >
+              ×
+            </button>
+          </div>
+        );
+      })()}
 
       {/* Quick Actions */}
       <div className="flex gap-3 flex-wrap">

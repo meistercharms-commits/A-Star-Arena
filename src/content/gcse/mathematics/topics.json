@@ -1,0 +1,1045 @@
+[
+  {
+    "id": "fractions_decimals_percentages",
+    "name": "Fractions, Decimals & Percentages",
+    "description": "Converting between and calculating with fractions, decimals and percentages including compound interest and reverse percentages",
+    "subskills": [
+      {
+        "id": "fraction_arithmetic",
+        "name": "Adding, Subtracting, Multiplying & Dividing Fractions",
+        "critical": true,
+        "keywords": ["improper fraction", "mixed number", "reciprocal", "common denominator", "simplify"],
+        "calculator": "either",
+        "tier": "both"
+      },
+      {
+        "id": "fdp_conversions",
+        "name": "Converting Between Fractions, Decimals & Percentages",
+        "critical": true,
+        "keywords": ["recurring decimal", "terminating decimal", "equivalent fraction", "place value"],
+        "calculator": "either",
+        "tier": "both"
+      },
+      {
+        "id": "percentage_change",
+        "name": "Percentage Increase, Decrease & Multipliers",
+        "critical": true,
+        "keywords": ["multiplier", "percentage change", "percentage profit", "percentage loss", "VAT"],
+        "calculator": true,
+        "tier": "both"
+      },
+      {
+        "id": "reverse_percentage",
+        "name": "Reverse Percentages",
+        "critical": false,
+        "keywords": ["original amount", "reverse", "before increase", "before decrease"],
+        "calculator": true,
+        "tier": "both"
+      },
+      {
+        "id": "compound_interest",
+        "name": "Compound Interest & Repeated Percentage Change",
+        "critical": true,
+        "keywords": ["compound interest", "depreciation", "growth", "decay", "repeated multiplier"],
+        "calculator": true,
+        "tier": "both"
+      },
+      {
+        "id": "recurring_decimal_proof",
+        "name": "Proving Recurring Decimals as Fractions",
+        "critical": false,
+        "keywords": ["algebraic proof", "recurring decimal", "geometric series"],
+        "calculator": false,
+        "tier": "higher"
+      }
+    ],
+    "commonMisconceptions": [
+      "Adding fractions by adding numerators and denominators separately (e.g. 1/3 + 1/4 = 2/7)",
+      "Thinking 0.3 recurring equals 0.33 or 1/3 approximately rather than exactly 1/3",
+      "Using the multiplier 0.25 for a 25% increase instead of 1.25",
+      "Dividing by the percentage to find the original in reverse percentage problems"
+    ],
+    "highYield": true,
+    "aqaRef": "N2, N10, N12, R9",
+    "edexcelRef": "N2, N10, R9",
+    "ocrRef": "N2, N10, R9"
+  },
+  {
+    "id": "indices_standard_form",
+    "name": "Indices & Standard Form",
+    "description": "Laws of indices including negative and fractional powers, and using standard form for very large and small numbers",
+    "subskills": [
+      {
+        "id": "index_laws",
+        "name": "Laws of Indices",
+        "critical": true,
+        "keywords": ["power", "exponent", "multiply", "divide", "power of a power", "base"],
+        "calculator": false,
+        "tier": "both"
+      },
+      {
+        "id": "negative_indices",
+        "name": "Negative & Zero Indices",
+        "critical": true,
+        "keywords": ["reciprocal", "negative power", "zero power", "inverse"],
+        "calculator": false,
+        "tier": "both"
+      },
+      {
+        "id": "fractional_indices",
+        "name": "Fractional Indices",
+        "critical": true,
+        "keywords": ["square root", "cube root", "nth root", "fractional power"],
+        "calculator": "either",
+        "tier": "higher"
+      },
+      {
+        "id": "standard_form",
+        "name": "Standard Form Calculations",
+        "critical": true,
+        "keywords": ["standard form", "scientific notation", "powers of ten", "ordinary number"],
+        "calculator": "either",
+        "tier": "both"
+      }
+    ],
+    "commonMisconceptions": [
+      "Thinking x^0 = 0 instead of x^0 = 1",
+      "Multiplying indices when they should be added (e.g. x^2 times x^3 = x^6)",
+      "Writing 35000 as 35 x 10^3 instead of 3.5 x 10^4",
+      "Thinking a negative index makes the answer negative rather than a reciprocal"
+    ],
+    "highYield": true,
+    "aqaRef": "N6, N7, N8, N9",
+    "edexcelRef": "N6, N7, N8, N9",
+    "ocrRef": "N6, N7, N8, N9"
+  },
+  {
+    "id": "surds",
+    "name": "Surds",
+    "description": "Simplifying surds, rationalising denominators and performing exact calculations with irrational numbers",
+    "subskills": [
+      {
+        "id": "simplifying_surds",
+        "name": "Simplifying Surds",
+        "critical": true,
+        "keywords": ["square root", "factor", "simplify", "radical", "surd form"],
+        "calculator": false,
+        "tier": "higher"
+      },
+      {
+        "id": "surd_arithmetic",
+        "name": "Adding, Subtracting & Multiplying Surds",
+        "critical": true,
+        "keywords": ["like surds", "expand brackets", "collect terms"],
+        "calculator": false,
+        "tier": "higher"
+      },
+      {
+        "id": "rationalising_denominators",
+        "name": "Rationalising Denominators",
+        "critical": true,
+        "keywords": ["conjugate", "rationalise", "difference of two squares", "denominator"],
+        "calculator": false,
+        "tier": "higher"
+      }
+    ],
+    "commonMisconceptions": [
+      "Thinking sqrt(12) simplifies to 2sqrt(6) instead of 2sqrt(3)",
+      "Adding sqrt(2) + sqrt(3) and getting sqrt(5)",
+      "Forgetting to multiply both numerator and denominator when rationalising"
+    ],
+    "highYield": false,
+    "aqaRef": "N8",
+    "edexcelRef": "N8",
+    "ocrRef": "N8"
+  },
+  {
+    "id": "algebraic_expressions",
+    "name": "Algebraic Expressions",
+    "description": "Simplifying, expanding, factorising and manipulating algebraic expressions including quadratics",
+    "subskills": [
+      {
+        "id": "simplifying_expressions",
+        "name": "Collecting Like Terms & Simplifying",
+        "critical": true,
+        "keywords": ["like terms", "simplify", "coefficient", "variable", "expression"],
+        "calculator": false,
+        "tier": "both"
+      },
+      {
+        "id": "expanding_brackets",
+        "name": "Expanding Single & Double Brackets",
+        "critical": true,
+        "keywords": ["expand", "distribute", "multiply out", "FOIL", "double brackets"],
+        "calculator": false,
+        "tier": "both"
+      },
+      {
+        "id": "factorising",
+        "name": "Factorising Expressions",
+        "critical": true,
+        "keywords": ["common factor", "HCF", "factorise", "brackets", "quadratic factorisation"],
+        "calculator": false,
+        "tier": "both"
+      },
+      {
+        "id": "algebraic_fractions",
+        "name": "Algebraic Fractions",
+        "critical": false,
+        "keywords": ["simplify", "common denominator", "cancel", "factorise first"],
+        "calculator": false,
+        "tier": "higher"
+      },
+      {
+        "id": "substitution",
+        "name": "Substitution into Formulae",
+        "critical": true,
+        "keywords": ["substitute", "replace", "evaluate", "formula"],
+        "calculator": "either",
+        "tier": "both"
+      }
+    ],
+    "commonMisconceptions": [
+      "Thinking 2a + 3b = 5ab",
+      "Squaring a bracket: (x + 3)^2 = x^2 + 9 instead of x^2 + 6x + 9",
+      "Forgetting to multiply every term inside the bracket when expanding",
+      "Confusing expressions and equations (trying to solve an expression)"
+    ],
+    "highYield": true,
+    "aqaRef": "A1, A3, A4",
+    "edexcelRef": "A1, A3, A4",
+    "ocrRef": "A1, A3, A4"
+  },
+  {
+    "id": "linear_equations_inequalities",
+    "name": "Linear Equations & Inequalities",
+    "description": "Solving linear equations with unknowns on both sides, forming equations from contexts, and solving and representing inequalities",
+    "subskills": [
+      {
+        "id": "solving_linear_equations",
+        "name": "Solving Linear Equations",
+        "critical": true,
+        "keywords": ["solve", "unknown", "balance", "inverse operations", "both sides"],
+        "calculator": false,
+        "tier": "both"
+      },
+      {
+        "id": "equations_with_brackets",
+        "name": "Equations with Brackets & Unknowns on Both Sides",
+        "critical": true,
+        "keywords": ["expand", "collect terms", "unknowns both sides", "brackets"],
+        "calculator": false,
+        "tier": "both"
+      },
+      {
+        "id": "forming_equations",
+        "name": "Forming & Solving Equations from Context",
+        "critical": true,
+        "keywords": ["form equation", "set up", "word problem", "context", "perimeter", "angles"],
+        "calculator": false,
+        "tier": "both"
+      },
+      {
+        "id": "solving_inequalities",
+        "name": "Solving & Representing Inequalities",
+        "critical": true,
+        "keywords": ["number line", "inequality", "less than", "greater than", "open circle", "closed circle"],
+        "calculator": false,
+        "tier": "both"
+      },
+      {
+        "id": "set_notation_inequalities",
+        "name": "Set Notation for Inequalities",
+        "critical": false,
+        "keywords": ["set notation", "integer values", "list", "n is an integer"],
+        "calculator": false,
+        "tier": "higher"
+      }
+    ],
+    "commonMisconceptions": [
+      "Forgetting to flip the inequality sign when multiplying or dividing by a negative",
+      "Treating an open circle as including the value on a number line",
+      "Not applying the same operation to both sides of the equation",
+      "Writing the inequality the wrong way round after rearranging"
+    ],
+    "highYield": true,
+    "aqaRef": "A17, A22",
+    "edexcelRef": "A17, A22",
+    "ocrRef": "A17, A22"
+  },
+  {
+    "id": "quadratic_equations",
+    "name": "Quadratic Equations",
+    "description": "Solving quadratics by factorising, using the formula and completing the square",
+    "subskills": [
+      {
+        "id": "factorising_quadratics",
+        "name": "Solving by Factorising",
+        "critical": true,
+        "keywords": ["factorise", "x-intercepts", "roots", "product", "sum", "zero product"],
+        "calculator": false,
+        "tier": "both"
+      },
+      {
+        "id": "quadratic_formula",
+        "name": "Using the Quadratic Formula",
+        "critical": true,
+        "keywords": ["quadratic formula", "discriminant", "b squared minus 4ac", "exact answer", "surd"],
+        "calculator": "either",
+        "tier": "higher"
+      },
+      {
+        "id": "completing_the_square",
+        "name": "Completing the Square",
+        "critical": true,
+        "keywords": ["turning point", "minimum", "maximum", "vertex", "(x + p)^2 + q"],
+        "calculator": false,
+        "tier": "higher"
+      },
+      {
+        "id": "quadratic_problems",
+        "name": "Forming & Solving Quadratics from Context",
+        "critical": false,
+        "keywords": ["area problem", "consecutive integers", "projectile", "form equation"],
+        "calculator": "either",
+        "tier": "both"
+      }
+    ],
+    "commonMisconceptions": [
+      "Forgetting to set the equation equal to zero before factorising",
+      "Losing the negative root (e.g. x^2 = 25 gives only x = 5, not x = -5)",
+      "Sign errors in the quadratic formula, especially with -b",
+      "Completing the square: halving b but forgetting to subtract the square of half b"
+    ],
+    "highYield": true,
+    "aqaRef": "A18",
+    "edexcelRef": "A18",
+    "ocrRef": "A18"
+  },
+  {
+    "id": "graphs",
+    "name": "Graphs",
+    "description": "Plotting and interpreting linear, quadratic and other graphs including gradients, y-intercepts and real-life graphs",
+    "subskills": [
+      {
+        "id": "straight_line_graphs",
+        "name": "Straight Line Graphs (y = mx + c)",
+        "critical": true,
+        "keywords": ["gradient", "y-intercept", "slope", "parallel", "perpendicular", "linear"],
+        "calculator": false,
+        "tier": "both"
+      },
+      {
+        "id": "quadratic_graphs",
+        "name": "Plotting & Interpreting Quadratic Graphs",
+        "critical": true,
+        "keywords": ["parabola", "turning point", "roots", "symmetry", "minimum", "maximum"],
+        "calculator": false,
+        "tier": "both"
+      },
+      {
+        "id": "real_life_graphs",
+        "name": "Real-Life & Distance-Time Graphs",
+        "critical": true,
+        "keywords": ["speed", "distance", "time", "conversion graph", "rate of change"],
+        "calculator": false,
+        "tier": "both"
+      },
+      {
+        "id": "gradient_area_under_curve",
+        "name": "Estimating Gradients & Area Under Curves",
+        "critical": false,
+        "keywords": ["tangent", "estimate gradient", "trapezium rule", "area under curve", "velocity-time"],
+        "calculator": true,
+        "tier": "higher"
+      },
+      {
+        "id": "equation_of_a_line",
+        "name": "Finding the Equation of a Line",
+        "critical": true,
+        "keywords": ["two points", "gradient", "y = mx + c", "perpendicular gradient", "negative reciprocal"],
+        "calculator": false,
+        "tier": "both"
+      }
+    ],
+    "commonMisconceptions": [
+      "Confusing gradient and y-intercept in y = mx + c",
+      "Thinking parallel lines have negative reciprocal gradients (that is perpendicular)",
+      "Reading distance-time graphs: thinking a steeper line means further distance rather than faster speed",
+      "Plotting points incorrectly when x and y scales are different"
+    ],
+    "highYield": true,
+    "aqaRef": "A9, A10, A12, A14, A15",
+    "edexcelRef": "A9, A10, A12, A14, A15",
+    "ocrRef": "A9, A10, A12, A14, A15"
+  },
+  {
+    "id": "sequences",
+    "name": "Sequences",
+    "description": "Generating, describing and finding nth term rules for arithmetic and geometric sequences",
+    "subskills": [
+      {
+        "id": "nth_term_linear",
+        "name": "Finding the nth Term of a Linear Sequence",
+        "critical": true,
+        "keywords": ["common difference", "nth term", "arithmetic sequence", "general term"],
+        "calculator": false,
+        "tier": "both"
+      },
+      {
+        "id": "nth_term_quadratic",
+        "name": "Finding the nth Term of a Quadratic Sequence",
+        "critical": true,
+        "keywords": ["second difference", "an^2 + bn + c", "quadratic sequence"],
+        "calculator": false,
+        "tier": "higher"
+      },
+      {
+        "id": "special_sequences",
+        "name": "Recognising Special Sequences",
+        "critical": false,
+        "keywords": ["triangular numbers", "Fibonacci", "geometric", "cube numbers", "square numbers"],
+        "calculator": false,
+        "tier": "both"
+      },
+      {
+        "id": "geometric_sequences",
+        "name": "Geometric Sequences & Common Ratio",
+        "critical": false,
+        "keywords": ["common ratio", "multiply", "geometric", "exponential growth"],
+        "calculator": true,
+        "tier": "higher"
+      }
+    ],
+    "commonMisconceptions": [
+      "Confusing the term number with the term value (e.g. the 5th term vs the value 5)",
+      "For nth term: using the first term as the constant instead of working out the zero term",
+      "Assuming all sequences with a pattern are arithmetic",
+      "Forgetting that the second difference in a quadratic sequence gives 2a, not a"
+    ],
+    "highYield": true,
+    "aqaRef": "A23, A24, A25",
+    "edexcelRef": "A23, A24, A25",
+    "ocrRef": "A23, A24, A25"
+  },
+  {
+    "id": "ratio_proportion",
+    "name": "Ratio & Proportion",
+    "description": "Simplifying and using ratios, dividing in a given ratio, direct and inverse proportion",
+    "subskills": [
+      {
+        "id": "simplifying_ratio",
+        "name": "Simplifying & Sharing in a Ratio",
+        "critical": true,
+        "keywords": ["simplify", "divide", "share", "parts", "total parts", "unitary method"],
+        "calculator": "either",
+        "tier": "both"
+      },
+      {
+        "id": "ratio_problems",
+        "name": "Ratio Problem Solving",
+        "critical": true,
+        "keywords": ["best buy", "recipe", "scaling", "exchange rate", "unit cost"],
+        "calculator": true,
+        "tier": "both"
+      },
+      {
+        "id": "direct_proportion",
+        "name": "Direct Proportion",
+        "critical": true,
+        "keywords": ["y = kx", "proportional", "constant of proportionality", "linear relationship"],
+        "calculator": "either",
+        "tier": "both"
+      },
+      {
+        "id": "inverse_proportion",
+        "name": "Inverse Proportion",
+        "critical": true,
+        "keywords": ["y = k/x", "inversely proportional", "hyperbola", "as one increases"],
+        "calculator": "either",
+        "tier": "both"
+      },
+      {
+        "id": "proportion_graphs_equations",
+        "name": "Proportion with Graphs & Equations",
+        "critical": false,
+        "keywords": ["y proportional to x squared", "y = kx^2", "y = k/x^2", "graph shape"],
+        "calculator": "either",
+        "tier": "higher"
+      }
+    ],
+    "commonMisconceptions": [
+      "Adding the difference to each part instead of multiplying when sharing in a ratio",
+      "Mixing up direct and inverse proportion (thinking inverse means negative)",
+      "Forgetting to find the value of one part first when dividing in a ratio",
+      "In best-buy problems, comparing total prices instead of unit prices"
+    ],
+    "highYield": true,
+    "aqaRef": "R4, R5, R7, R10, R13",
+    "edexcelRef": "R4, R5, R7, R10, R13",
+    "ocrRef": "R4, R5, R7, R10, R13"
+  },
+  {
+    "id": "angles_polygons",
+    "name": "Angles & Polygons",
+    "description": "Angle facts, angles in parallel lines, interior and exterior angles of polygons",
+    "subskills": [
+      {
+        "id": "basic_angle_facts",
+        "name": "Angles on Lines, at Points & Vertically Opposite",
+        "critical": true,
+        "keywords": ["straight line", "full turn", "vertically opposite", "supplementary", "complementary"],
+        "calculator": false,
+        "tier": "both"
+      },
+      {
+        "id": "parallel_line_angles",
+        "name": "Angles in Parallel Lines",
+        "critical": true,
+        "keywords": ["alternate", "corresponding", "co-interior", "allied", "transversal", "Z-angles", "F-angles"],
+        "calculator": false,
+        "tier": "both"
+      },
+      {
+        "id": "polygon_angles",
+        "name": "Interior & Exterior Angles of Polygons",
+        "critical": true,
+        "keywords": ["interior angle", "exterior angle", "angle sum", "regular polygon", "360 degrees"],
+        "calculator": true,
+        "tier": "both"
+      },
+      {
+        "id": "angle_proofs",
+        "name": "Angle Proofs with Reasons",
+        "critical": false,
+        "keywords": ["prove", "because", "reason", "therefore", "angle proof", "geometric reasoning"],
+        "calculator": false,
+        "tier": "both"
+      }
+    ],
+    "commonMisconceptions": [
+      "Confusing alternate and corresponding angles in parallel lines",
+      "Using 360 / n for interior angles instead of exterior angles of a regular polygon",
+      "Assuming angles look equal on a diagram without proof",
+      "Forgetting to give geometric reasons in proof questions (just writing the number)"
+    ],
+    "highYield": true,
+    "aqaRef": "G1, G3, G4",
+    "edexcelRef": "G1, G3, G4",
+    "ocrRef": "G1, G3, G4"
+  },
+  {
+    "id": "transformations",
+    "name": "Transformations",
+    "description": "Translating, reflecting, rotating and enlarging shapes on a coordinate grid, and describing transformations fully",
+    "subskills": [
+      {
+        "id": "translation",
+        "name": "Translations Using Vectors",
+        "critical": true,
+        "keywords": ["vector", "column vector", "translate", "slide", "displacement"],
+        "calculator": false,
+        "tier": "both"
+      },
+      {
+        "id": "reflection",
+        "name": "Reflections in Given Lines",
+        "critical": true,
+        "keywords": ["mirror line", "y = x", "x-axis", "y-axis", "equidistant", "perpendicular"],
+        "calculator": false,
+        "tier": "both"
+      },
+      {
+        "id": "rotation",
+        "name": "Rotations About a Point",
+        "critical": true,
+        "keywords": ["centre of rotation", "clockwise", "anticlockwise", "90 degrees", "180 degrees"],
+        "calculator": false,
+        "tier": "both"
+      },
+      {
+        "id": "enlargement",
+        "name": "Enlargements with Scale Factors",
+        "critical": true,
+        "keywords": ["scale factor", "centre of enlargement", "fractional", "negative scale factor", "similar"],
+        "calculator": false,
+        "tier": "both"
+      },
+      {
+        "id": "describing_transformations",
+        "name": "Describing Transformations Fully",
+        "critical": true,
+        "keywords": ["fully describe", "type", "centre", "direction", "scale factor", "mirror line"],
+        "calculator": false,
+        "tier": "both"
+      }
+    ],
+    "commonMisconceptions": [
+      "Describing a transformation without all required details (e.g. rotation without centre and direction)",
+      "Using the wrong sign in a column vector for translation",
+      "Thinking enlargement with scale factor 1/2 makes the shape bigger",
+      "Confusing centre of rotation with centre of the shape"
+    ],
+    "highYield": true,
+    "aqaRef": "G7, G8",
+    "edexcelRef": "G7, G8",
+    "ocrRef": "G7, G8"
+  },
+  {
+    "id": "area_perimeter_volume",
+    "name": "Area, Perimeter & Volume",
+    "description": "Calculating areas of 2D shapes, surface areas and volumes of 3D solids including prisms, cones, spheres and pyramids",
+    "subskills": [
+      {
+        "id": "area_2d_shapes",
+        "name": "Area of Triangles, Parallelograms, Trapeziums & Compound Shapes",
+        "critical": true,
+        "keywords": ["base", "height", "perpendicular height", "trapezium", "compound shape", "decompose"],
+        "calculator": "either",
+        "tier": "both"
+      },
+      {
+        "id": "circles_area_circumference",
+        "name": "Circumference & Area of Circles",
+        "critical": true,
+        "keywords": ["pi", "radius", "diameter", "circumference", "sector", "arc length"],
+        "calculator": true,
+        "tier": "both"
+      },
+      {
+        "id": "volume_prisms",
+        "name": "Volume of Prisms & Cylinders",
+        "critical": true,
+        "keywords": ["cross-section", "prism", "cylinder", "uniform", "area times length"],
+        "calculator": true,
+        "tier": "both"
+      },
+      {
+        "id": "volume_cones_spheres_pyramids",
+        "name": "Volume of Cones, Spheres & Pyramids",
+        "critical": true,
+        "keywords": ["cone", "sphere", "pyramid", "one-third", "four-thirds pi r cubed"],
+        "calculator": true,
+        "tier": "higher"
+      },
+      {
+        "id": "surface_area",
+        "name": "Surface Area of 3D Solids",
+        "critical": false,
+        "keywords": ["net", "surface area", "curved surface", "lateral face", "total surface area"],
+        "calculator": true,
+        "tier": "both"
+      }
+    ],
+    "commonMisconceptions": [
+      "Using slant height instead of perpendicular height for triangles and cones",
+      "Confusing radius and diameter in circle calculations",
+      "Forgetting to halve when finding the area of a triangle",
+      "Using the wrong formula for volume of a sphere (forgetting 4/3)"
+    ],
+    "highYield": true,
+    "aqaRef": "G14, G16, G17",
+    "edexcelRef": "G14, G16, G17",
+    "ocrRef": "G14, G16, G17"
+  },
+  {
+    "id": "pythagoras_trigonometry",
+    "name": "Pythagoras & Trigonometry",
+    "description": "Using Pythagoras' theorem and trigonometric ratios to find sides and angles in right-angled and non-right-angled triangles",
+    "subskills": [
+      {
+        "id": "pythagoras_theorem",
+        "name": "Pythagoras' Theorem in 2D",
+        "critical": true,
+        "keywords": ["hypotenuse", "a squared plus b squared", "right angle", "shortest side"],
+        "calculator": true,
+        "tier": "both"
+      },
+      {
+        "id": "sohcahtoa",
+        "name": "Trigonometry (SOHCAHTOA) in Right-Angled Triangles",
+        "critical": true,
+        "keywords": ["sine", "cosine", "tangent", "opposite", "adjacent", "hypotenuse", "angle"],
+        "calculator": true,
+        "tier": "both"
+      },
+      {
+        "id": "exact_trig_values",
+        "name": "Exact Trigonometric Values",
+        "critical": true,
+        "keywords": ["sin 30", "cos 45", "tan 60", "exact value", "special angles"],
+        "calculator": false,
+        "tier": "both"
+      },
+      {
+        "id": "pythagoras_3d",
+        "name": "Pythagoras in 3D",
+        "critical": false,
+        "keywords": ["space diagonal", "cuboid", "3D", "two-step Pythagoras"],
+        "calculator": true,
+        "tier": "higher"
+      },
+      {
+        "id": "sine_cosine_rules",
+        "name": "Sine Rule, Cosine Rule & Area of a Triangle",
+        "critical": true,
+        "keywords": ["sine rule", "cosine rule", "0.5ab sin C", "non-right-angled", "ambiguous case"],
+        "calculator": true,
+        "tier": "higher"
+      }
+    ],
+    "commonMisconceptions": [
+      "Using Pythagoras' theorem on non-right-angled triangles",
+      "Labelling opposite and adjacent sides incorrectly (they depend on which angle you use)",
+      "Forgetting to square root at the end of a Pythagoras calculation",
+      "Using the wrong version of the cosine rule when finding an angle vs a side"
+    ],
+    "highYield": true,
+    "aqaRef": "G20, G21, G22",
+    "edexcelRef": "G20, G21, G22",
+    "ocrRef": "G20, G21, G22"
+  },
+  {
+    "id": "circle_theorems",
+    "name": "Circle Theorems",
+    "description": "Applying and proving circle theorems including angles in semicircles, cyclic quadrilaterals and tangent properties",
+    "subskills": [
+      {
+        "id": "circle_theorem_application",
+        "name": "Applying Circle Theorems to Find Angles",
+        "critical": true,
+        "keywords": ["angle at centre", "angle in semicircle", "cyclic quadrilateral", "tangent", "chord"],
+        "calculator": false,
+        "tier": "higher"
+      },
+      {
+        "id": "tangent_properties",
+        "name": "Tangent & Chord Properties",
+        "critical": true,
+        "keywords": ["tangent perpendicular", "radius", "two tangents equal", "alternate segment"],
+        "calculator": false,
+        "tier": "higher"
+      },
+      {
+        "id": "circle_theorem_proofs",
+        "name": "Proving Circle Theorems",
+        "critical": false,
+        "keywords": ["prove", "isosceles triangle", "base angles", "angle at centre twice"],
+        "calculator": false,
+        "tier": "higher"
+      }
+    ],
+    "commonMisconceptions": [
+      "Confusing 'angle at the centre is twice the angle at the circumference' with doubling any angle",
+      "Forgetting that opposite angles in a cyclic quadrilateral sum to 180 degrees",
+      "Mixing up the alternate segment theorem with alternate angles in parallel lines",
+      "Assuming a tangent property without checking that the line actually touches the circle at one point"
+    ],
+    "highYield": false,
+    "aqaRef": "G9, G10",
+    "edexcelRef": "G9, G10",
+    "ocrRef": "G9, G10"
+  },
+  {
+    "id": "vectors",
+    "name": "Vectors",
+    "description": "Understanding and using vectors for geometric proof including addition, subtraction and scalar multiples",
+    "subskills": [
+      {
+        "id": "vector_arithmetic",
+        "name": "Adding, Subtracting & Multiplying Vectors",
+        "critical": true,
+        "keywords": ["column vector", "scalar multiple", "resultant", "magnitude", "direction"],
+        "calculator": false,
+        "tier": "higher"
+      },
+      {
+        "id": "vector_geometry",
+        "name": "Using Vectors for Geometric Proof",
+        "critical": true,
+        "keywords": ["parallel", "midpoint", "ratio", "route", "return journey", "collinear"],
+        "calculator": false,
+        "tier": "higher"
+      },
+      {
+        "id": "vector_diagrams",
+        "name": "Drawing & Interpreting Vector Diagrams",
+        "critical": false,
+        "keywords": ["tail to tip", "parallelogram", "resultant vector", "diagram"],
+        "calculator": false,
+        "tier": "higher"
+      }
+    ],
+    "commonMisconceptions": [
+      "Getting the direction wrong: writing BA instead of AB (forgetting to negate)",
+      "Not understanding that parallel vectors are scalar multiples of each other",
+      "Confusing position vectors with displacement vectors",
+      "Forgetting that to go from A to B you need -a + b, not a + b"
+    ],
+    "highYield": false,
+    "aqaRef": "G25",
+    "edexcelRef": "G25",
+    "ocrRef": "G25"
+  },
+  {
+    "id": "probability",
+    "name": "Probability",
+    "description": "Calculating probabilities using tree diagrams, Venn diagrams, sample spaces and conditional probability",
+    "subskills": [
+      {
+        "id": "basic_probability",
+        "name": "Single Event & Sample Space Probability",
+        "critical": true,
+        "keywords": ["equally likely", "sample space", "favourable outcomes", "total outcomes", "complement"],
+        "calculator": false,
+        "tier": "both"
+      },
+      {
+        "id": "tree_diagrams",
+        "name": "Tree Diagrams (With & Without Replacement)",
+        "critical": true,
+        "keywords": ["tree diagram", "independent", "dependent", "and rule", "or rule", "replacement"],
+        "calculator": true,
+        "tier": "both"
+      },
+      {
+        "id": "venn_diagrams",
+        "name": "Venn Diagrams & Set Notation",
+        "critical": true,
+        "keywords": ["union", "intersection", "complement", "Venn diagram", "mutually exclusive"],
+        "calculator": false,
+        "tier": "both"
+      },
+      {
+        "id": "conditional_probability",
+        "name": "Conditional Probability",
+        "critical": false,
+        "keywords": ["given that", "P(A|B)", "dependent events", "two-way table", "conditional"],
+        "calculator": true,
+        "tier": "higher"
+      },
+      {
+        "id": "relative_frequency",
+        "name": "Relative Frequency & Expected Outcomes",
+        "critical": true,
+        "keywords": ["experimental probability", "relative frequency", "expected number", "trials", "bias"],
+        "calculator": true,
+        "tier": "both"
+      }
+    ],
+    "commonMisconceptions": [
+      "Multiplying probabilities for 'or' events instead of adding them",
+      "Forgetting to adjust probabilities for without-replacement problems",
+      "Thinking probability of 0.5 means something definitely happens half the time in small samples",
+      "Confusing mutually exclusive with independent events"
+    ],
+    "highYield": true,
+    "aqaRef": "P1, P2, P3, P4, P6, P8, P9",
+    "edexcelRef": "P1, P2, P3, P4, P6, P8, P9",
+    "ocrRef": "P1, P2, P3, P4, P6, P8, P9"
+  },
+  {
+    "id": "statistics",
+    "name": "Statistics",
+    "description": "Collecting, representing and analysing data using averages, charts, scatter graphs and cumulative frequency",
+    "subskills": [
+      {
+        "id": "averages_range",
+        "name": "Mean, Median, Mode & Range",
+        "critical": true,
+        "keywords": ["mean", "median", "mode", "range", "average", "central tendency"],
+        "calculator": true,
+        "tier": "both"
+      },
+      {
+        "id": "averages_from_tables",
+        "name": "Averages from Frequency & Grouped Frequency Tables",
+        "critical": true,
+        "keywords": ["frequency table", "midpoint", "estimated mean", "modal class", "median class"],
+        "calculator": true,
+        "tier": "both"
+      },
+      {
+        "id": "scatter_graphs",
+        "name": "Scatter Graphs & Correlation",
+        "critical": true,
+        "keywords": ["positive correlation", "negative correlation", "line of best fit", "outlier", "interpolation", "extrapolation"],
+        "calculator": false,
+        "tier": "both"
+      },
+      {
+        "id": "cumulative_frequency_box_plots",
+        "name": "Cumulative Frequency Diagrams & Box Plots",
+        "critical": true,
+        "keywords": ["cumulative frequency", "box plot", "median", "quartile", "interquartile range", "whisker"],
+        "calculator": true,
+        "tier": "both"
+      },
+      {
+        "id": "histograms",
+        "name": "Histograms with Unequal Class Widths",
+        "critical": false,
+        "keywords": ["frequency density", "class width", "area", "unequal intervals", "continuous data"],
+        "calculator": true,
+        "tier": "higher"
+      }
+    ],
+    "commonMisconceptions": [
+      "Using the data values as frequencies when calculating the mean from a table",
+      "Plotting cumulative frequency at the start of the class interval instead of the end",
+      "Thinking correlation means causation",
+      "Drawing histogram bars with heights as frequencies instead of frequency density"
+    ],
+    "highYield": true,
+    "aqaRef": "S1, S2, S3, S4, S5, S6",
+    "edexcelRef": "S1, S2, S3, S4, S5, S6",
+    "ocrRef": "S1, S2, S3, S4, S5, S6"
+  },
+  {
+    "id": "bounds",
+    "name": "Bounds",
+    "description": "Understanding error intervals and using upper and lower bounds in calculations to find limits of accuracy",
+    "subskills": [
+      {
+        "id": "error_intervals",
+        "name": "Error Intervals & Truncation",
+        "critical": true,
+        "keywords": ["error interval", "upper bound", "lower bound", "truncation", "rounding", "continuous"],
+        "calculator": true,
+        "tier": "higher"
+      },
+      {
+        "id": "bounds_calculations",
+        "name": "Calculations with Upper & Lower Bounds",
+        "critical": true,
+        "keywords": ["maximum value", "minimum value", "upper bound", "lower bound", "speed", "density"],
+        "calculator": true,
+        "tier": "higher"
+      },
+      {
+        "id": "bounds_appropriate_accuracy",
+        "name": "Giving Answers to an Appropriate Degree of Accuracy",
+        "critical": false,
+        "keywords": ["significant figures", "suitable degree", "accuracy", "both bounds agree"],
+        "calculator": true,
+        "tier": "higher"
+      }
+    ],
+    "commonMisconceptions": [
+      "Using the upper bound for both values when trying to find the minimum of a division",
+      "Confusing truncation with rounding (truncation always rounds down)",
+      "Writing the error interval with the wrong inequality signs",
+      "Not realising that to minimise a division you use lower/upper, not lower/lower"
+    ],
+    "highYield": false,
+    "aqaRef": "N16",
+    "edexcelRef": "N16",
+    "ocrRef": "N16"
+  },
+  {
+    "id": "simultaneous_equations",
+    "name": "Simultaneous Equations",
+    "description": "Solving pairs of simultaneous equations algebraically and graphically, including linear and non-linear systems",
+    "subskills": [
+      {
+        "id": "linear_simultaneous",
+        "name": "Solving Linear Simultaneous Equations",
+        "critical": true,
+        "keywords": ["elimination", "substitution", "simultaneous", "two unknowns", "coefficients"],
+        "calculator": false,
+        "tier": "both"
+      },
+      {
+        "id": "simultaneous_graphically",
+        "name": "Solving Simultaneous Equations Graphically",
+        "critical": false,
+        "keywords": ["intersection", "point of intersection", "graph", "read off"],
+        "calculator": false,
+        "tier": "both"
+      },
+      {
+        "id": "nonlinear_simultaneous",
+        "name": "Solving Non-Linear Simultaneous Equations",
+        "critical": true,
+        "keywords": ["quadratic", "circle", "substitution", "line meets curve", "two solutions"],
+        "calculator": false,
+        "tier": "higher"
+      },
+      {
+        "id": "forming_simultaneous",
+        "name": "Forming Simultaneous Equations from Context",
+        "critical": true,
+        "keywords": ["word problem", "form equations", "two unknowns", "cost", "tickets"],
+        "calculator": "either",
+        "tier": "both"
+      }
+    ],
+    "commonMisconceptions": [
+      "Adding when they should subtract (or vice versa) during elimination",
+      "Forgetting to multiply ALL terms in an equation when scaling up for elimination",
+      "Only finding one variable and forgetting to substitute back to find the other",
+      "In non-linear problems, forgetting there are usually two pairs of solutions"
+    ],
+    "highYield": true,
+    "aqaRef": "A19, A21",
+    "edexcelRef": "A19, A21",
+    "ocrRef": "A19, A21"
+  },
+  {
+    "id": "iteration_functions",
+    "name": "Iteration & Functions",
+    "description": "Using iterative methods to find approximate solutions, understanding and using function notation including composite and inverse functions",
+    "subskills": [
+      {
+        "id": "iteration",
+        "name": "Iterative Methods for Solving Equations",
+        "critical": true,
+        "keywords": ["iteration", "rearrange", "converge", "x(n+1)", "approximate solution", "starting value"],
+        "calculator": true,
+        "tier": "higher"
+      },
+      {
+        "id": "function_notation",
+        "name": "Function Notation & Evaluation",
+        "critical": true,
+        "keywords": ["f(x)", "input", "output", "domain", "range", "evaluate"],
+        "calculator": "either",
+        "tier": "higher"
+      },
+      {
+        "id": "composite_functions",
+        "name": "Composite Functions",
+        "critical": true,
+        "keywords": ["fg(x)", "gf(x)", "composition", "order matters", "substitute"],
+        "calculator": false,
+        "tier": "higher"
+      },
+      {
+        "id": "inverse_functions",
+        "name": "Inverse Functions",
+        "critical": true,
+        "keywords": ["f inverse", "reverse", "swap x and y", "rearrange", "reflection y = x"],
+        "calculator": false,
+        "tier": "higher"
+      },
+      {
+        "id": "proof_of_solution",
+        "name": "Showing a Solution Lies in a Given Interval",
+        "critical": false,
+        "keywords": ["change of sign", "interval", "decimal search", "continuous function"],
+        "calculator": true,
+        "tier": "higher"
+      }
+    ],
+    "commonMisconceptions": [
+      "Applying composite functions in the wrong order: fg(x) means do g first, then f",
+      "Not using enough iterations to reach the required degree of accuracy",
+      "Forgetting to swap x and y when finding the inverse function",
+      "Assuming the iterative formula always converges (it depends on the rearrangement)"
+    ],
+    "highYield": false,
+    "aqaRef": "A7, A20",
+    "edexcelRef": "A7, A20",
+    "ocrRef": "A7, A20"
+  }
+]

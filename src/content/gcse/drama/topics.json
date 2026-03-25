@@ -1,0 +1,175 @@
+[
+  {
+    "id": "performance_skills",
+    "name": "Performance Skills",
+    "description": "Vocal and physical skills used to create and communicate character on stage",
+    "subskills": [
+      { "id": "vocal_skills", "name": "Vocal Skills", "critical": true, "keywords": ["pitch", "pace", "pause", "tone", "volume", "projection", "accent", "emphasis", "intonation"] },
+      { "id": "physical_skills", "name": "Physical Skills", "critical": true, "keywords": ["gesture", "posture", "gait", "facial expression", "body language", "proxemics", "stillness"] },
+      { "id": "characterisation", "name": "Characterisation", "critical": true, "keywords": ["motivation", "hot-seating", "given circumstances", "objectives", "status", "role"] },
+      { "id": "spatial_awareness", "name": "Use of Space & Proxemics", "critical": true, "keywords": ["staging", "levels", "blocking", "spatial relationships", "audience proximity", "movement"] },
+      { "id": "interaction", "name": "Interaction with Others", "critical": false, "keywords": ["eye contact", "ensemble", "timing", "reaction", "listening", "rapport", "cue"] }
+    ],
+    "commonMisconceptions": [
+      "Speaking loudly is the same as projecting",
+      "Good acting means always moving around the stage",
+      "Facial expression is less important than vocal delivery",
+      "Naturalistic acting is the only valid performance style"
+    ],
+    "highYield": true,
+    "aqaRef": "3.1",
+    "edexcelRef": "Component 2",
+    "ocrRef": "J316/01"
+  },
+  {
+    "id": "devising_theatre",
+    "name": "Devising Theatre",
+    "description": "Creating original drama from stimuli using theatrical techniques and collaboration",
+    "subskills": [
+      { "id": "responding_stimuli", "name": "Responding to a Stimulus", "critical": true, "keywords": ["image", "text", "music", "theme", "brainstorm", "interpretation", "starting point"] },
+      { "id": "structuring_drama", "name": "Structuring Devised Work", "critical": true, "keywords": ["beginning", "middle", "end", "climax", "transition", "scene", "montage", "episodic"] },
+      { "id": "devising_log", "name": "Devising Log & Portfolio", "critical": true, "keywords": ["process", "reflection", "intention", "evaluation", "research", "decisions", "justification"] },
+      { "id": "collaboration", "name": "Collaboration & Rehearsal", "critical": false, "keywords": ["ensemble", "compromise", "feedback", "improvisation", "consensus", "direction"] },
+      { "id": "theatrical_conventions", "name": "Theatrical Conventions in Devising", "critical": true, "keywords": ["narration", "multi-role", "flashback", "physical theatre", "chorus", "direct address"] }
+    ],
+    "commonMisconceptions": [
+      "Devising means improvising the whole performance",
+      "The devising log is just a diary of what happened each lesson",
+      "You do not need to reference practitioners in devised work",
+      "Devised pieces cannot have a script"
+    ],
+    "highYield": true,
+    "aqaRef": "Component 1",
+    "edexcelRef": "Component 1",
+    "ocrRef": "J316/02"
+  },
+  {
+    "id": "live_theatre_analysis",
+    "name": "Live Theatre Analysis",
+    "description": "Analysing and evaluating a live theatre performance for the written exam",
+    "subskills": [
+      { "id": "describing_performance", "name": "Describing Performance Elements", "critical": true, "keywords": ["acting", "vocal", "physical", "staging", "set", "costume", "lighting"] },
+      { "id": "evaluating_effectiveness", "name": "Evaluating Effectiveness", "critical": true, "keywords": ["impact", "audience response", "atmosphere", "tension", "mood", "successful"] },
+      { "id": "design_analysis", "name": "Analysing Design Elements", "critical": true, "keywords": ["set design", "lighting design", "sound design", "costume", "props", "makeup"] },
+      { "id": "writing_structure", "name": "Structuring Written Responses", "critical": true, "keywords": ["PEE", "point", "evidence", "explain", "specific examples", "theatrical terminology"] }
+    ],
+    "commonMisconceptions": [
+      "You can write about a filmed version instead of a live performance",
+      "Describing what happened on stage is the same as analysing it",
+      "You only need to write about acting, not design",
+      "Personal opinion alone is enough without supporting evidence"
+    ],
+    "highYield": true,
+    "aqaRef": "Section B",
+    "edexcelRef": "Component 3",
+    "ocrRef": "J316/03"
+  },
+  {
+    "id": "explorative_strategies",
+    "name": "Explorative Strategies",
+    "description": "Drama techniques used to explore text, character, and theme in depth",
+    "subskills": [
+      { "id": "hot_seating", "name": "Hot-Seating", "critical": true, "keywords": ["character", "questioning", "motivation", "backstory", "in-role", "improvisation"] },
+      { "id": "thought_tracking", "name": "Thought-Tracking & Conscience Alley", "critical": true, "keywords": ["inner thoughts", "dilemma", "conscience", "decision", "monologue", "aside"] },
+      { "id": "freeze_frames", "name": "Freeze Frames & Tableaux", "critical": true, "keywords": ["still image", "frozen moment", "levels", "spatial awareness", "symbolism"] },
+      { "id": "role_play_forum", "name": "Role Play & Forum Theatre", "critical": false, "keywords": ["Boal", "audience intervention", "spect-actor", "power", "oppression", "social change"] },
+      { "id": "marking_moment", "name": "Marking the Moment", "critical": false, "keywords": ["slow motion", "spotlight", "narration", "sound effect", "repetition", "emphasis"] }
+    ],
+    "commonMisconceptions": [
+      "Freeze frames are just standing still",
+      "Forum theatre is the same as audience participation",
+      "Explorative strategies are only for rehearsal, not performance",
+      "Hot-seating requires a script"
+    ],
+    "highYield": false,
+    "aqaRef": "Component 1",
+    "edexcelRef": "Component 1",
+    "ocrRef": "J316/02"
+  },
+  {
+    "id": "design_elements",
+    "name": "Design Elements",
+    "description": "Lighting, sound, set, costume, and makeup design for theatrical performance",
+    "subskills": [
+      { "id": "lighting_design", "name": "Lighting Design", "critical": true, "keywords": ["spotlight", "wash", "gel", "gobo", "blackout", "fade", "lantern", "atmosphere", "colour"] },
+      { "id": "sound_design", "name": "Sound Design", "critical": true, "keywords": ["sound effect", "underscoring", "live", "recorded", "ambient", "volume", "timing", "microphone"] },
+      { "id": "set_design", "name": "Set & Staging Design", "critical": true, "keywords": ["proscenium", "thrust", "in-the-round", "traverse", "minimalist", "naturalistic", "levels", "flats"] },
+      { "id": "costume_makeup", "name": "Costume, Hair & Makeup", "critical": false, "keywords": ["period", "symbolic", "character status", "colour symbolism", "ageing", "transformation"] },
+      { "id": "props", "name": "Props & Stage Furniture", "critical": false, "keywords": ["symbolic prop", "practical prop", "personal prop", "stage furniture", "hand prop"] }
+    ],
+    "commonMisconceptions": [
+      "Design elements are less important than acting",
+      "In-the-round and theatre-in-the-round are different things",
+      "Sound design only means playing music",
+      "Proscenium arch is the only professional staging configuration"
+    ],
+    "highYield": true,
+    "aqaRef": "3.2",
+    "edexcelRef": "Component 2",
+    "ocrRef": "J316/01"
+  },
+  {
+    "id": "practitioner_study",
+    "name": "Practitioner Study",
+    "description": "Understanding the methods and theories of key theatre practitioners",
+    "subskills": [
+      { "id": "stanislavski", "name": "Stanislavski & Naturalism", "critical": true, "keywords": ["emotion memory", "magic if", "given circumstances", "objectives", "super-objective", "method"] },
+      { "id": "brecht", "name": "Brecht & Epic Theatre", "critical": true, "keywords": ["Verfremdungseffekt", "alienation", "placards", "direct address", "gestus", "political theatre"] },
+      { "id": "artaud", "name": "Artaud & Theatre of Cruelty", "critical": false, "keywords": ["sensory", "visceral", "ritual", "audience assault", "total theatre", "primal"] },
+      { "id": "berkoff", "name": "Berkoff & Total Theatre", "critical": false, "keywords": ["physical theatre", "exaggeration", "ensemble", "mime", "stylised movement", "expressionism"] },
+      { "id": "frantic_assembly", "name": "Frantic Assembly & Physical Theatre", "critical": false, "keywords": ["contact work", "lifts", "trust", "choreography", "physicality", "devising"] }
+    ],
+    "commonMisconceptions": [
+      "Brecht wanted audiences to feel no emotion at all",
+      "Stanislavski's method means actors must suffer for their roles",
+      "Artaud's Theatre of Cruelty involves being cruel to the audience",
+      "Physical theatre means no spoken dialogue"
+    ],
+    "highYield": true,
+    "aqaRef": "Section A",
+    "edexcelRef": "Component 3",
+    "ocrRef": "J316/03"
+  },
+  {
+    "id": "written_exam_technique",
+    "name": "Written Exam Technique",
+    "description": "Skills and strategies for answering the GCSE Drama written paper",
+    "subskills": [
+      { "id": "set_text_knowledge", "name": "Set Text Knowledge", "critical": true, "keywords": ["plot", "characters", "themes", "context", "stage directions", "key scenes", "quotation"] },
+      { "id": "exam_question_types", "name": "Exam Question Types", "critical": true, "keywords": ["describe", "explain", "evaluate", "analyse", "justify", "command words"] },
+      { "id": "using_terminology", "name": "Using Subject Terminology", "critical": true, "keywords": ["theatrical", "technical", "specific", "precise", "vocabulary", "conventions"] },
+      { "id": "time_management_exam", "name": "Time Management in the Exam", "critical": false, "keywords": ["marks per minute", "planning", "prioritise", "check", "allocate"] }
+    ],
+    "commonMisconceptions": [
+      "You can retell the plot instead of analysing the text",
+      "Design questions are worth fewer marks than acting questions",
+      "You only need to revise one section of the set text",
+      "Personal opinions do not need to be justified with evidence"
+    ],
+    "highYield": true,
+    "aqaRef": "Component 3",
+    "edexcelRef": "Component 3",
+    "ocrRef": "J316/03"
+  },
+  {
+    "id": "rehearsal_and_preparation",
+    "name": "Rehearsal & Preparation",
+    "description": "Rehearsal techniques, blocking, and preparing for performance assessment",
+    "subskills": [
+      { "id": "rehearsal_techniques", "name": "Rehearsal Techniques", "critical": true, "keywords": ["run-through", "blocking", "speed run", "off-book", "notes", "warm-up", "cool-down"] },
+      { "id": "directorial_skills", "name": "Directorial Skills", "critical": false, "keywords": ["vision", "staging", "pace", "rhythm", "feedback", "communication", "concept"] },
+      { "id": "performance_preparation", "name": "Performance Preparation", "critical": true, "keywords": ["nerves", "focus", "line learning", "cue", "technical rehearsal", "dress rehearsal"] },
+      { "id": "peer_feedback", "name": "Peer Feedback & Improvement", "critical": false, "keywords": ["constructive", "specific", "actionable", "target", "strength", "development"] }
+    ],
+    "commonMisconceptions": [
+      "Rehearsal is just practising lines",
+      "Blocking should be decided entirely by the director",
+      "A dress rehearsal is optional",
+      "Nerves always harm your performance"
+    ],
+    "highYield": false,
+    "aqaRef": "Component 2",
+    "edexcelRef": "Component 2",
+    "ocrRef": "J316/01"
+  }
+]

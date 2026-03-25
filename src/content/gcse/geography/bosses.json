@@ -1,0 +1,98 @@
+[
+  {
+    "topicId": "tectonic_hazards",
+    "bossName": "The Plate Shifter",
+    "flavourText": "Deep beneath the Earth's crust, the Plate Shifter rumbles with tectonic fury. Only your knowledge of plate boundaries can stop the shaking!",
+    "emoji": "🌋",
+    "hp": 100,
+    "hpBarColour": "#D62828"
+  },
+  {
+    "topicId": "weather_hazards",
+    "bossName": "Hurricane Hex",
+    "flavourText": "A swirling storm boss with winds of wrongness! Navigate the eye of confusion and prove you understand atmospheric circulation.",
+    "emoji": "🌀",
+    "hp": 100,
+    "hpBarColour": "#457B9D"
+  },
+  {
+    "topicId": "climate_change",
+    "bossName": "The Carbon Colossus",
+    "flavourText": "A towering giant fuelled by greenhouse gases. Shrink it down with your knowledge of mitigation and adaptation!",
+    "emoji": "🏭",
+    "hp": 100,
+    "hpBarColour": "#6B705C"
+  },
+  {
+    "topicId": "ecosystems",
+    "bossName": "The Web Weaver",
+    "flavourText": "Every strand of the food web connects to this boss. Break one link and the whole ecosystem wobbles. Show you understand the balance!",
+    "emoji": "🕸️",
+    "hp": 100,
+    "hpBarColour": "#2D6A4F"
+  },
+  {
+    "topicId": "tropical_rainforests",
+    "bossName": "The Canopy King",
+    "flavourText": "Ruler of the emergent layer, the Canopy King guards the world's richest biome. Prove your rainforest knowledge to earn safe passage!",
+    "emoji": "🌴",
+    "hp": 100,
+    "hpBarColour": "#40916C"
+  },
+  {
+    "topicId": "hot_deserts_cold_environments",
+    "bossName": "The Extremes Guardian",
+    "flavourText": "From scorching sand dunes to frozen tundra, this boss rules Earth's harshest landscapes. Can you handle both extremes?",
+    "emoji": "🏜️",
+    "hp": 100,
+    "hpBarColour": "#E9C46A"
+  },
+  {
+    "topicId": "rivers",
+    "bossName": "The Meander Monster",
+    "flavourText": "This serpentine beast twists and turns through river valleys. Follow its course from source to mouth and you will triumph!",
+    "emoji": "🌊",
+    "hp": 100,
+    "hpBarColour": "#219EBC"
+  },
+  {
+    "topicId": "coasts",
+    "bossName": "Captain Longshore",
+    "flavourText": "The captain of coastal chaos drifts along the shoreline causing erosion wherever they go. Build your defences and fight back!",
+    "emoji": "🏖️",
+    "hp": 100,
+    "hpBarColour": "#0077B6"
+  },
+  {
+    "topicId": "urban_issues",
+    "bossName": "The Megacity Mayor",
+    "flavourText": "Ruling a city of millions is no easy task. The Megacity Mayor challenges you to solve urbanisation's biggest problems!",
+    "emoji": "🏙️",
+    "hp": 100,
+    "hpBarColour": "#4A4E69"
+  },
+  {
+    "topicId": "economic_development",
+    "bossName": "The Development Divide",
+    "flavourText": "This boss grows stronger wherever inequality exists. Close the development gap with smart strategies and solid knowledge!",
+    "emoji": "📊",
+    "hp": 100,
+    "hpBarColour": "#F4A261"
+  },
+  {
+    "topicId": "resource_management",
+    "bossName": "The Resource Raider",
+    "flavourText": "Hoarding the world's food, water and energy, the Resource Raider will not share unless you prove you understand sustainability!",
+    "emoji": "⚡",
+    "hp": 100,
+    "hpBarColour": "#BC6C25"
+  },
+  {
+    "topicId": "fieldwork_geographical_skills",
+    "bossName": "The Grid Reference Guardian",
+    "flavourText": "Lost without a map? The Grid Reference Guardian tests your OS skills, data presentation and fieldwork know-how. Plot your way to victory!",
+    "emoji": "🗺️",
+    "hp": 100,
+    "hpBarColour": "#264653"
+  }
+]
