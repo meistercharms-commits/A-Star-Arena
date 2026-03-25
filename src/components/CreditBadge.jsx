@@ -20,15 +20,21 @@ export default function CreditBadge() {
   const freeRemaining = Math.max(0, 5 - (userProfile.freeAiBattlesUsedThisWeek || 0));
   const paidCredits = userProfile.credits || 0;
 
-  // Show tier badge with credits
-  if (paidCredits > 0) {
-    const tierName = paidCredits > 50 ? 'A* Elite' : 'Scholar';
-    const tierColour = paidCredits > 50 ? 'var(--color-accent-sand)' : 'var(--color-accent)';
+  // Tier based on current credit balance — drops to Foundation at zero
+  const tier = paidCredits >= 80
+    ? { name: 'A* Elite',    colour: 'var(--color-accent-sand)' }
+    : paidCredits >= 30
+    ? { name: 'Distinction', colour: 'var(--color-strong)' }
+    : paidCredits > 0
+    ? { name: 'Scholar',     colour: 'var(--color-accent)' }
+    : null;
+
+  if (tier) {
     return (
       <Link to="/credits" className="no-underline">
         <span className="text-xs px-2 py-1 rounded-md font-medium"
-          style={{ background: `color-mix(in srgb, ${tierColour} 15%, transparent)`, color: tierColour }}>
-          {paidCredits} · <span className="font-display italic">{tierName}</span>
+          style={{ background: `color-mix(in srgb, ${tier.colour} 15%, transparent)`, color: tier.colour }}>
+          {paidCredits} · <span className="font-display italic">{tier.name}</span>
         </span>
       </Link>
     );

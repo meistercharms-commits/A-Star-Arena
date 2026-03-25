@@ -30,11 +30,21 @@ export default function Credits() {
       <div className="bg-bg-secondary border border-border rounded-xl p-6 shadow-card">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-label">Your Balance</h2>
-          {!isGuest && (
-            <span className="text-xs font-medium px-2.5 py-1 rounded-full bg-accent/15 text-accent font-display italic">
-              {paidCredits > 50 ? 'A* Elite' : paidCredits > 0 ? 'Scholar' : 'Foundation'}
-            </span>
-          )}
+          {!isGuest && (() => {
+            const tier = paidCredits >= 80
+              ? { name: 'A* Elite', colour: 'var(--color-accent-sand)' }
+              : paidCredits >= 30
+              ? { name: 'Distinction', colour: 'var(--color-strong)' }
+              : paidCredits > 0
+              ? { name: 'Scholar', colour: 'var(--color-accent)' }
+              : { name: 'Foundation', colour: 'var(--color-text-secondary)' };
+            return (
+              <span className="text-xs font-medium px-2.5 py-1 rounded-full font-display italic"
+                style={{ background: `color-mix(in srgb, ${tier.colour} 15%, transparent)`, color: tier.colour }}>
+                {tier.name}
+              </span>
+            );
+          })()}
         </div>
 
         {isGuest ? (
