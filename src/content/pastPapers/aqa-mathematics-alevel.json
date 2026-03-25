@@ -1,0 +1,174 @@
+{
+  "board": "aqa",
+  "subject": "mathematics",
+  "level": "alevel",
+  "spec": "7357",
+  "papers": [
+    {
+      "id": "aqa-maths-2023-p1",
+      "year": 2023,
+      "paper": 1,
+      "title": "AQA A-Level Mathematics Paper 1 Pure 2023",
+      "sourceUrl": "https://www.aqa.org.uk/subjects/mathematics/as-and-a-level/mathematics-7357/assessment-resources",
+      "totalMarks": 40,
+      "duration": "2 hours",
+      "questions": [
+        {
+          "number": "01",
+          "text": "Express (2x + 3)/(x² - 4) in partial fractions.",
+          "marks": 4,
+          "topicId": "algebra_functions",
+          "markScheme": "1. Factorise denominator: x² - 4 = (x - 2)(x + 2) (M1)\n2. Set up: (2x + 3)/((x - 2)(x + 2)) = A/(x - 2) + B/(x + 2) (M1)\n3. 2x + 3 = A(x + 2) + B(x - 2); substituting x = 2 gives 7 = 4A so A = 7/4; substituting x = -2 gives -1 = -4B so B = 1/4 (A1)\n4. Answer: 7/(4(x - 2)) + 1/(4(x + 2)) (A1)",
+          "commandWord": "Express"
+        },
+        {
+          "number": "02",
+          "text": "The polynomial f(x) = 2x³ - 5x² - 4x + 3.\n\n(a) Show that (x - 3) is a factor of f(x).\n(b) Hence factorise f(x) completely.",
+          "marks": 4,
+          "topicId": "polynomials",
+          "markScheme": "(a)\n1. f(3) = 2(27) - 5(9) - 4(3) + 3 = 54 - 45 - 12 + 3 = 0 (M1A1)\n\n(b)\n2. Dividing by (x - 3): f(x) = (x - 3)(2x² + x - 1) (M1)\n3. Factorising the quadratic: (x - 3)(2x - 1)(x + 1) (A1)",
+          "commandWord": "Show"
+        },
+        {
+          "number": "03",
+          "text": "Solve the equation 2 sin²θ + sin θ - 1 = 0 for 0° ≤ θ ≤ 360°.",
+          "marks": 5,
+          "topicId": "trigonometry_1",
+          "markScheme": "1. Let u = sin θ: 2u² + u - 1 = 0 (M1)\n2. Factorise: (2u - 1)(u + 1) = 0 (M1)\n3. u = 1/2 or u = -1 (A1)\n4. sin θ = 1/2 gives θ = 30°, 150° (A1)\n5. sin θ = -1 gives θ = 270° (A1)",
+          "commandWord": "Solve"
+        },
+        {
+          "number": "04",
+          "text": "The curve C has equation y = 3eˣ - 2x.\n\n(a) Find dy/dx.\n(b) Find the exact coordinates of the stationary point on C.\n(c) Determine whether this stationary point is a maximum or a minimum. Justify your answer.",
+          "marks": 6,
+          "topicId": "differentiation_1",
+          "markScheme": "(a)\n1. dy/dx = 3eˣ - 2 (M1A1)\n\n(b)\n2. At stationary point: 3eˣ - 2 = 0, so eˣ = 2/3 (M1)\n3. x = ln(2/3), y = 3(2/3) - 2ln(2/3) = 2 - 2ln(2/3) (A1)\n\n(c)\n4. d²y/dx² = 3eˣ (M1)\n5. At x = ln(2/3), d²y/dx² = 3 × (2/3) = 2 > 0, so the stationary point is a minimum (A1)",
+          "commandWord": "Find"
+        },
+        {
+          "number": "05",
+          "text": "Find the exact value of ∫₁⁴ (3/√x + 2x) dx.",
+          "marks": 4,
+          "topicId": "integration_1",
+          "markScheme": "1. Rewrite as ∫₁⁴ (3x⁻¹/² + 2x) dx (M1)\n2. Integrate: [6x¹/² + x²]₁⁴ (M1A1)\n3. = (6(2) + 16) - (6(1) + 1) = (12 + 16) - (6 + 1) = 28 - 7 = 21 (A1)",
+          "commandWord": "Find"
+        },
+        {
+          "number": "06",
+          "text": "The line L passes through the points A(1, 3) and B(5, 11).\n\n(a) Find the equation of L in the form y = mx + c.\n(b) The line M is perpendicular to L and passes through the midpoint of AB. Find the equation of M.",
+          "marks": 5,
+          "topicId": "coordinate_geometry",
+          "markScheme": "(a)\n1. Gradient of L = (11 - 3)/(5 - 1) = 8/4 = 2 (M1)\n2. y - 3 = 2(x - 1), so y = 2x + 1 (A1)\n\n(b)\n3. Midpoint of AB = ((1 + 5)/2, (3 + 11)/2) = (3, 7) (M1)\n4. Gradient of M = -1/2 (perpendicular gradient) (M1)\n5. y - 7 = -1/2(x - 3), so y = -x/2 + 17/2 (A1)",
+          "commandWord": "Find"
+        },
+        {
+          "number": "07",
+          "text": "A geometric series has first term a = 6 and common ratio r = 0.8.\n\n(a) Find the sum of the first 10 terms. Give your answer to 3 significant figures.\n(b) Explain why this geometric series has a sum to infinity, and find the value of S∞.",
+          "marks": 4,
+          "topicId": "sequences_series",
+          "markScheme": "(a)\n1. S₁₀ = a(1 - r¹⁰)/(1 - r) = 6(1 - 0.8¹⁰)/(1 - 0.8) (M1)\n2. = 6(1 - 0.10737...)/0.2 = 6 × 0.89263.../0.2 = 26.8 (3 s.f.) (A1)\n\n(b)\n3. The series converges because |r| = 0.8 < 1 (M1)\n4. S∞ = a/(1 - r) = 6/0.2 = 30 (A1)",
+          "commandWord": "Find"
+        },
+        {
+          "number": "08",
+          "text": "Solve the equation 5²ˣ⁺¹ = 3ˣ⁺², giving your answer in the form x = (a ln b + c ln d)/(e ln f + g ln h), where a, b, c, d, e, f, g, h are integers.",
+          "marks": 4,
+          "topicId": "exponentials_logarithms",
+          "markScheme": "1. Take natural logarithms of both sides: (2x + 1)ln 5 = (x + 2)ln 3 (M1)\n2. Expand: 2x ln 5 + ln 5 = x ln 3 + 2 ln 3 (M1)\n3. Collect x terms: 2x ln 5 - x ln 3 = 2 ln 3 - ln 5 (M1)\n4. x(2 ln 5 - ln 3) = 2 ln 3 - ln 5, so x = (2 ln 3 - ln 5)/(2 ln 5 - ln 3) (A1)",
+          "commandWord": "Solve"
+        },
+        {
+          "number": "09",
+          "text": "Use the Newton-Raphson method with x₀ = 2 to find the root of f(x) = x³ - 3x - 5, correct to 3 decimal places. Show two iterations of the method.",
+          "marks": 4,
+          "topicId": "numerical_methods",
+          "markScheme": "1. f(x) = x³ - 3x - 5, f'(x) = 3x² - 3 (M1)\n2. x₁ = x₀ - f(x₀)/f'(x₀) = 2 - (8 - 6 - 5)/(12 - 3) = 2 - (-3)/9 = 2 + 1/3 = 2.333... (M1A1)\n3. x₂ = 2.333... - f(2.333...)/f'(2.333...) = 2.333... - (12.704... - 7.0 - 5)/(16.333... - 3) = 2.333... - 0.704.../13.333... = 2.333... - 0.0528 = 2.280 (to 3 d.p.) (A1)\nAccept 2.280 or 2.2806 or further iteration giving 2.279.",
+          "commandWord": "Use"
+        }
+      ]
+    },
+    {
+      "id": "aqa-maths-2023-p2",
+      "year": 2023,
+      "paper": 2,
+      "title": "AQA A-Level Mathematics Paper 2 Statistics and Mechanics 2023",
+      "sourceUrl": "https://www.aqa.org.uk/subjects/mathematics/as-and-a-level/mathematics-7357/assessment-resources",
+      "totalMarks": 35,
+      "duration": "2 hours",
+      "questions": [
+        {
+          "number": "01",
+          "text": "A factory produces light bulbs. The lifetimes of the bulbs are normally distributed with a mean of 1200 hours and a standard deviation of 80 hours.\n\nFind the probability that a randomly selected light bulb has a lifetime of more than 1350 hours.",
+          "marks": 3,
+          "topicId": "statistical_distributions",
+          "markScheme": "1. Standardise: z = (1350 - 1200)/80 = 150/80 = 1.875 (M1)\n2. P(Z > 1.875) = 1 - P(Z ≤ 1.875) (M1)\n3. = 1 - 0.9696 = 0.0304 (accept 0.030 to 0.031) (A1)",
+          "commandWord": "Find"
+        },
+        {
+          "number": "02",
+          "text": "A researcher wants to investigate the number of hours students spend on homework per week.\n\n(a) Explain what is meant by a sampling frame.\n(b) Describe one advantage of using a stratified sample rather than a simple random sample for this investigation.",
+          "marks": 3,
+          "topicId": "statistical_sampling",
+          "markScheme": "(a)\n1. A sampling frame is a list of all members of the population from which the sample is drawn (1)\n\n(b)\n2. A stratified sample ensures proportional representation of different subgroups / strata, such as different year groups (1)\n3. This reduces sampling bias / gives a more representative sample than a simple random sample where some groups might be over- or under-represented (1)",
+          "commandWord": "Explain"
+        },
+        {
+          "number": "03",
+          "text": "The heights, in cm, of 50 plants were recorded. The data is summarised in the table below.\n\nΣx = 1250, Σx² = 32,150, n = 50\n\n(a) Calculate the mean height.\n(b) Calculate the standard deviation of the heights.",
+          "marks": 4,
+          "topicId": "data_presentation",
+          "markScheme": "(a)\n1. Mean = Σx/n = 1250/50 = 25 cm (M1A1)\n\n(b)\n2. Variance = Σx²/n - (Σx/n)² = 32150/50 - 25² = 643 - 625 = 18 (M1)\n3. Standard deviation = √18 = 4.24 cm (3 s.f.) (A1)",
+          "commandWord": "Calculate"
+        },
+        {
+          "number": "04",
+          "text": "A bag contains 5 red balls and 3 blue balls. Two balls are drawn at random without replacement.\n\n(a) Draw a tree diagram to show all possible outcomes.\n(b) Find the probability that both balls are the same colour.",
+          "marks": 4,
+          "topicId": "probability",
+          "markScheme": "(a) Tree diagram with correct probabilities (M1):\nFirst draw: P(R) = 5/8, P(B) = 3/8\nSecond draw given R first: P(R) = 4/7, P(B) = 3/7\nSecond draw given B first: P(R) = 5/7, P(B) = 2/7\n\n(b)\n2. P(both same) = P(RR) + P(BB) (M1)\n3. = (5/8 × 4/7) + (3/8 × 2/7) (M1)\n4. = 20/56 + 6/56 = 26/56 = 13/28 (A1)",
+          "commandWord": "Find"
+        },
+        {
+          "number": "05",
+          "text": "A manufacturer claims that the mean weight of bags of sugar is 1.00 kg. A quality control inspector tests a random sample of 25 bags and finds the sample mean is 0.985 kg and the sample standard deviation is 0.03 kg.\n\nTest, at the 5% significance level, whether there is evidence that the mean weight is less than 1.00 kg. State your hypotheses and conclusion clearly.",
+          "marks": 5,
+          "topicId": "hypothesis_testing",
+          "markScheme": "1. H₀: μ = 1.00, H₁: μ < 1.00 (one-tailed test) (M1)\n2. Test statistic: t = (0.985 - 1.00)/(0.03/√25) = -0.015/0.006 = -2.5 (M1A1)\n3. Critical value at 5% one-tailed with 24 degrees of freedom: t₂₄ = -1.711 (M1)\n4. Since -2.5 < -1.711, the test statistic is in the critical region (A1)\n5. Reject H₀. There is sufficient evidence at the 5% significance level to conclude that the mean weight is less than 1.00 kg.",
+          "commandWord": "Test"
+        },
+        {
+          "number": "06",
+          "text": "A car accelerates uniformly from rest to a speed of 20 m s⁻¹ in 8 seconds, then travels at a constant speed of 20 m s⁻¹ for 12 seconds, before decelerating uniformly to rest in 5 seconds.\n\n(a) Sketch a velocity-time graph for this journey.\n(b) Calculate the total distance travelled.",
+          "marks": 4,
+          "topicId": "kinematics",
+          "markScheme": "(a) Correct v-t graph with three phases: triangle from (0,0) to (8,20), rectangle from (8,20) to (20,20), triangle from (20,20) to (25,0) (M1)\n\n(b)\n2. Distance = area under graph (M1)\n3. = ½(8)(20) + (12)(20) + ½(5)(20) (M1)\n4. = 80 + 240 + 50 = 370 m (A1)",
+          "commandWord": "Calculate"
+        },
+        {
+          "number": "07",
+          "text": "A particle of mass 4 kg is on a smooth inclined plane angled at 30° to the horizontal. A force P acts on the particle along the plane, directed up the slope.\n\nThe particle is in equilibrium.\n\nCalculate the magnitude of P. Take g = 9.8 m s⁻².",
+          "marks": 3,
+          "topicId": "forces_newtons_laws",
+          "markScheme": "1. Resolve parallel to the plane: P = mg sin 30° (M1)\n2. P = 4 × 9.8 × sin 30° (M1)\n3. P = 4 × 9.8 × 0.5 = 19.6 N (A1)",
+          "commandWord": "Calculate"
+        },
+        {
+          "number": "08",
+          "text": "A ball is projected vertically upwards from ground level with an initial speed of 24.5 m s⁻¹. Take g = 9.8 m s⁻².\n\n(a) Find the maximum height reached by the ball.\n(b) Find the total time the ball is in the air before it returns to ground level.",
+          "marks": 4,
+          "topicId": "kinematics",
+          "markScheme": "(a)\n1. Using v² = u² + 2as, where v = 0, u = 24.5, a = -9.8: 0 = 24.5² + 2(-9.8)s (M1)\n2. s = 600.25/19.6 = 30.625 m (accept 30.6 m) (A1)\n\n(b)\n3. Using s = ut + ½at², where s = 0: 0 = 24.5t - 4.9t² (M1)\n4. t(24.5 - 4.9t) = 0, so t = 0 or t = 24.5/4.9 = 5.0 s (A1)",
+          "commandWord": "Find"
+        },
+        {
+          "number": "09",
+          "text": "A uniform beam AB of length 6 m and mass 20 kg is supported by two vertical ropes attached at points C and D, where AC = 1 m and AD = 5 m. A box of mass 10 kg is placed on the beam at point A.\n\nFind the tension in each rope. Take g = 9.8 m s⁻².",
+          "marks": 5,
+          "topicId": "moments",
+          "markScheme": "1. Let Tc = tension at C and Td = tension at D. Take moments about C. (M1)\n2. Weight of beam acts at centre (3 m from A, so 2 m from C): 20 × 9.8 × 2 = 392 N m (M1)\n3. Weight of box acts at A (1 m from C, on opposite side): 10 × 9.8 × 1 = 98 N m (anticlockwise) (M1)\n4. Td × 4 = 392 - 98 = 294, so Td = 73.5 N (A1)\n5. Resolving vertically: Tc + Td = (20 + 10) × 9.8 = 294, so Tc = 294 - 73.5 = 220.5 N (A1)\nAlternative moment methods accepted.",
+          "commandWord": "Find"
+        }
+      ]
+    }
+  ]
+}

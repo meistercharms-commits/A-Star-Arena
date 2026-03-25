@@ -1,0 +1,60 @@
+{
+  "board": "aqa",
+  "subject": "english_language",
+  "level": "gcse",
+  "spec": "8700",
+  "papers": [
+    {
+      "id": "aqa-english-gcse-2023-p1",
+      "year": 2023,
+      "paper": 1,
+      "title": "AQA GCSE English Language Paper 1 Explorations in Creative Reading and Writing 2023",
+      "sourceUrl": "https://www.aqa.org.uk/subjects/english/gcse/english-language-8700",
+      "totalMarks": 80,
+      "duration": "1 hour 45 minutes",
+      "sourceText": "The house had stood empty for eleven years. That was what the neighbours said, though none of them could remember precisely when the last occupant had left. Mrs Adler, who lived three doors down and kept a careful eye on comings and goings, claimed she had seen a removal van one Tuesday morning in October, but she could not say which October, and nobody pressed her further.\n\nThe garden had long since surrendered to brambles. They crept across the path, wound themselves through the iron gate and, in summer, produced berries that the local children would dare each other to eat. The windows on the ground floor were boarded with plywood that had warped and darkened in the rain, and the front door, once painted a cheerful blue, now showed bare wood in long pale strips where the colour had peeled away.\n\nIt was Thomas who first noticed the light. He was walking home from his shift at the depot, his boots heavy on the wet pavement, when a faint glow caught his eye from the upstairs window on the left. He stopped. The glow was steady, not the flickering of a candle but something more deliberate, more electrical. He stood there for perhaps a minute, the rain collecting on his collar, before he told himself it was a reflection from the streetlamp and carried on.\n\nBut the following evening, he looked again. The light was there. This time he crossed the road and stood at the gate, one hand resting on the cold iron. Up close, the house seemed larger than he remembered. The roof tiles were slicked with rain and the guttering hung loose on one side, swaying gently. The light in the window did not move.",
+      "questions": [
+        {
+          "number": "01",
+          "text": "Read again the first part of the source, from lines 1 to 6.\nList four things about the house from this part of the source.",
+          "marks": 4,
+          "topicId": "reading_fiction",
+          "markScheme": "A1 for each valid point clearly identified from lines 1-6, up to 4 marks.\nAcceptable responses include:\n- The house had stood empty for eleven years\n- None of the neighbours could remember when the last occupant left\n- Mrs Adler lived three doors down\n- Mrs Adler kept a careful eye on comings and goings\n- Mrs Adler claimed she saw a removal van\n- The removal van was seen on a Tuesday morning in October\n- Nobody pressed Mrs Adler further about the date\nDo not accept responses that are inferences rather than direct statements.",
+          "commandWord": "List"
+        },
+        {
+          "number": "02",
+          "text": "Look in detail at this extract from lines 7 to 14 of the source:\n\n'The garden had long since surrendered to brambles. They crept across the path, wound themselves through the iron gate and, in summer, produced berries that the local children would dare each other to eat. The windows on the ground floor were boarded with plywood that had warped and darkened in the rain, and the front door, once painted a cheerful blue, now showed bare wood in long pale strips where the colour had peeled away.'\n\nHow does the writer use language here to describe the neglected house?\nYou could include the writer's choice of:\n- words and phrases\n- language features and techniques\n- sentence forms.",
+          "marks": 8,
+          "topicId": "language_analysis_techniques",
+          "markScheme": "Level 4 (7-8 marks): Detailed, perceptive analysis of language. Judicious use of subject terminology. Selects judicious textual detail. Perceptive understanding of effects.\n\nLevel 3 (5-6 marks): Clear, relevant explanation of language. Appropriate use of subject terminology. Selects relevant textual detail. Clear understanding of effects.\n\nLevel 2 (3-4 marks): Some understanding of language. Some use of subject terminology. Selects some appropriate detail. Attempts to explain effects.\n\nLevel 1 (1-2 marks): Simple awareness of language. Simple use of subject terminology. Simple reference to detail.\n\nIndicative content:\n- Personification in 'surrendered' suggests the garden has been defeated by nature\n- Verb choices 'crept', 'wound' suggest slow, insidious growth\n- Contrast between past ('cheerful blue') and present ('bare wood') emphasises deterioration\n- 'long pale strips' is a visual detail conveying gradual decay\n- 'warped and darkened' suggests prolonged exposure and neglect",
+          "commandWord": "How"
+        },
+        {
+          "number": "03",
+          "text": "You now need to think about the whole of the source.\nThis text is from the opening of a short story.\n\nHow has the writer structured the text to interest you as a reader?\nYou could write about:\n- what the writer focuses your attention on at the beginning\n- how and why the writer changes this focus as the source develops\n- any other structural features that interest you.",
+          "marks": 8,
+          "topicId": "structural_analysis",
+          "markScheme": "Level 4 (7-8 marks): Detailed, perceptive understanding of structural features. Analysis of the effects of the writer's choices. Sophisticated and accurate use of subject terminology. Selects judicious examples.\n\nLevel 3 (5-6 marks): Clear understanding of structural features. Clear explanation of the effects. Appropriate use of subject terminology. Selects relevant examples.\n\nLevel 2 (3-4 marks): Some understanding of structural features. Attempts to comment on the effect. Some use of subject terminology.\n\nLevel 1 (1-2 marks): Simple awareness of structural features. Simple reference to content.\n\nIndicative content:\n- Opening establishes setting through neighbourhood hearsay, creating mystery\n- Shift from communal knowledge to physical description narrows focus\n- Introduction of Thomas provides a specific viewpoint character\n- Structural shift from day to evening creates a sense of repetition and growing unease\n- The ending zooms in on the unmoving light, creating a cliffhanger effect\n- Movement from external (neighbourhood) to internal (Thomas's thoughts) to physical proximity (standing at the gate)",
+          "commandWord": "How"
+        },
+        {
+          "number": "04",
+          "text": "Focus this part of your answer on the second half of the source, from line 15 to the end.\n\nA student, having read this section of the text, said: 'The writer creates a growing sense of unease. I felt increasingly tense as I read on.'\n\nTo what extent do you agree?\nIn your response, you could:\n- consider your own impressions of the text\n- evaluate how the writer has created these impressions\n- support your opinions with references to the text.",
+          "marks": 20,
+          "topicId": "evaluation_critical_reading",
+          "markScheme": "Level 4 (16-20 marks): Convincing, critical evaluation. Detailed, perceptive analysis of writer's methods. Judicious, embedded references. Convincing response to the statement.\n\nLevel 3 (11-15 marks): Clear, relevant evaluation. Clear understanding of writer's methods. Relevant references to support. Clear response to the statement.\n\nLevel 2 (6-10 marks): Some evaluative comment. Some understanding of writer's methods. Some references. Responds to the statement.\n\nLevel 1 (1-5 marks): Simple, limited comment. Limited understanding. Limited references.\n\nIndicative content:\n- The steady glow being 'not the flickering of a candle but something more deliberate, more electrical' implies an unknown presence\n- Thomas's pause and rationalisation ('told himself it was a reflection') shows internal conflict\n- Physical details ('rain collecting on his collar') ground the tension in sensory experience\n- Return the following evening shows compulsion, not simply curiosity\n- 'The house seemed larger than he remembered' creates a subtle sense of the uncanny\n- Final sentence 'The light in the window did not move' is deliberately ambiguous and unsettling",
+          "commandWord": "To what extent"
+        },
+        {
+          "number": "05",
+          "text": "You are going to enter a creative writing competition.\nYour entry will be judged by a panel of published authors.\n\nWrite a description suggested by this picture: [An image of an abandoned railway station at dusk, with overgrown tracks and a single bench on the platform.]\n\nOR\n\nWrite the opening part of a story about someone who returns to a place they have not visited for a long time.\n\n(24 marks for content and organisation, 16 marks for technical accuracy)",
+          "marks": 40,
+          "topicId": "narrative_descriptive_writing",
+          "markScheme": "Content and Organisation (24 marks):\n\nLevel 4 (19-24 marks): Compelling, convincing communication. Extensive and ambitious vocabulary. Sustained crafting of linguistic devices. Varied and inventive structural features. Writing is compelling, incorporating a range of convincing, complex ideas. Fluently linked paragraphs.\n\nLevel 3 (13-18 marks): Consistent, clear communication. Increasingly sophisticated vocabulary. Conscious crafting of linguistic devices. Effective structural features. Writing is engaging with a range of connected ideas. Coherent paragraphs with integrated connectives.\n\nLevel 2 (7-12 marks): Some successful communication. Varied vocabulary. Some use of linguistic devices. Some structural features. Writing includes some connected ideas. Some use of paragraphs.\n\nLevel 1 (1-6 marks): Simple, limited communication. Simple vocabulary. Limited or no use of linguistic devices. Minimal structural features.\n\nTechnical Accuracy (16 marks):\n\nLevel 4 (13-16 marks): Sentence demarcation is consistently secure and accurate. Wide range of punctuation used with a high level of accuracy. Uses a full range of sentence forms for effect. Spelling is consistently accurate, including ambitious vocabulary. Extensive and ambitious use of vocabulary.\n\nLevel 3 (9-12 marks): Sentence demarcation is mostly secure and accurate. Range of punctuation mostly used accurately. Uses a variety of sentence forms. Spelling is mostly accurate, including complex words. Increasingly sophisticated vocabulary.\n\nLevel 2 (5-8 marks): Sentence demarcation is sometimes accurate. Some punctuation used. Attempts some variety of sentence forms. Some accurate spelling of more complex words.\n\nLevel 1 (1-4 marks): Occasional sentence demarcation. Limited punctuation. Simple sentence forms. Spelling of simple words mostly accurate.",
+          "commandWord": "Write"
+        }
+      ]
+    }
+  ]
+}

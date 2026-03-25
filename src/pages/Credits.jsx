@@ -107,7 +107,7 @@ export default function Credits() {
           {userProfile?.tier === 'fellow' ? (
             <div className="text-center py-4 w-full">
               <div className="font-display text-[38px] font-semibold text-text-primary">∞</div>
-              <div className="text-[9px] tracking-[0.1em] uppercase mt-1 text-text-muted">Fellow · Unlimited</div>
+              <div className="text-[9px] tracking-[0.1em] uppercase mt-1 text-text-muted">Unlimited Access</div>
               <p className="text-xs text-text-muted mt-2">You have unlimited access to all features.</p>
             </div>
           ) : (
@@ -220,7 +220,7 @@ export default function Credits() {
                 className="absolute -top-px left-1/2 -translate-x-1/2 text-[8px] font-medium tracking-[0.1em] uppercase px-2.5 py-0.5 whitespace-nowrap"
                 style={{
                   background: packColour(pack),
-                  color: '#181f2c',
+                  color: mode === 'light' ? '#ffffff' : '#181f2c',
                   borderRadius: '0 0 6px 6px',
                 }}
               >
@@ -277,7 +277,7 @@ export default function Credits() {
                       color: packColour(pack),
                       border: `0.5px solid color-mix(in srgb, ${packColour(pack)} 15%, transparent)`,
                     }
-                  : { background: packColour(pack), color: '#181f2c' }
+                  : { background: packColour(pack), color: mode === 'light' ? '#ffffff' : '#181f2c' }
               }
               onClick={() => alert('Stripe payments coming soon!')}
             >

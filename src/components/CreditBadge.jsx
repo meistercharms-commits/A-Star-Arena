@@ -18,12 +18,13 @@ export default function CreditBadge() {
     );
   }
 
-  // Fellow tier: highest tier, unlimited access
+  // Fellow tier: unlimited access, no badge shown (discreet)
   if (userProfile?.tier === 'fellow') {
     return (
-      <Link to="/credits" className="text-xs px-2 py-1 rounded-md font-medium font-display italic no-underline"
-        style={{ background: 'rgba(228,237,224,0.12)', color: '#e4ede0', border: '0.5px solid rgba(228,237,224,0.2)' }}>
-        ✦ Fellow
+      <Link to="/credits" className="no-underline">
+        <span className="text-xs px-2 py-1 rounded-md text-text-secondary" style={{ background: 'var(--color-bg-tertiary)' }}>
+          Unlimited
+        </span>
       </Link>
     );
   }

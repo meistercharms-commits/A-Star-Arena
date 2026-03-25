@@ -1,0 +1,158 @@
+{
+  "board": "aqa",
+  "subject": "combined_science",
+  "level": "gcse",
+  "spec": "8464",
+  "papers": [
+    {
+      "id": "aqa-science-gcse-2023-biology",
+      "year": 2023,
+      "paper": 1,
+      "title": "AQA GCSE Combined Science Trilogy Biology Paper 2023",
+      "sourceUrl": "https://www.aqa.org.uk/subjects/science/gcse/combined-science-trilogy-8464",
+      "totalMarks": 35,
+      "duration": "1 hour 15 minutes",
+      "questions": [
+        {
+          "number": "01",
+          "text": "Figure 1 shows an animal cell.\n(a) Name structure X, which controls the activities of the cell. (1 mark)\n(b) Describe the function of mitochondria. (2 marks)\n(c) A student observes a cell under a microscope using a ×10 eyepiece lens and a ×40 objective lens. The image of the cell measures 8 mm across.\nCalculate the real size of the cell.\nGive your answer in micrometres (μm). (3 marks)",
+          "marks": 6,
+          "topicId": "cell_biology",
+          "markScheme": "(a) A1 for nucleus\n(b) M1 for site of aerobic respiration\nA1 for where energy is released/transferred (from glucose)\n(c) M1 for total magnification = 10 × 40 = ×400\nM1 for real size = image size ÷ magnification = 8 ÷ 400 = 0.02 mm\nA1 for 20 μm",
+          "commandWord": "Name, Describe, Calculate"
+        },
+        {
+          "number": "02",
+          "text": "The human digestive system breaks down food so that it can be absorbed into the blood.\n(a) Name the enzyme that breaks down starch in the mouth. (1 mark)\n(b) Explain why the stomach produces hydrochloric acid. (2 marks)\n(c) Describe how the small intestine is adapted for absorption. (3 marks)",
+          "marks": 6,
+          "topicId": "organisation",
+          "markScheme": "(a) A1 for amylase\n(b) M1 for kills bacteria/pathogens in food\nA1 for provides the optimum pH for protease enzymes/pepsin to work\n(c) M1 for has villi which increase the surface area\nM1 for villi have a good blood supply/network of capillaries\nA1 for villi have a thin wall/one cell thick for short diffusion distance",
+          "commandWord": "Name, Explain, Describe"
+        },
+        {
+          "number": "03",
+          "text": "A student investigated the effect of antiseptics on bacterial growth using agar plates.\nThe student placed paper discs soaked in different concentrations of antiseptic onto a lawn of bacteria.\n(a) Explain why the student used aseptic technique during the investigation. (2 marks)\n(b) After 48 hours at 25°C, the student measured the diameter of the clear zone around disc A as 14 mm.\nCalculate the area of the clear zone.\nUse the formula: area = πr²\nGive your answer to 2 significant figures. (2 marks)",
+          "marks": 4,
+          "topicId": "infection_response",
+          "markScheme": "(a) M1 for to prevent contamination of the culture\nA1 for by unwanted/other microorganisms which could affect results or could be harmful/pathogenic\n(b) M1 for r = 7 mm, area = π × 7² = 153.93...\nA1 for 150 mm² (accept 154 mm² if they round differently, but 2sf required)",
+          "commandWord": "Explain, Calculate"
+        },
+        {
+          "number": "04",
+          "text": "A student investigated the rate of photosynthesis in pondweed at different light intensities.\n(a) State the word equation for photosynthesis. (2 marks)\n(b) Explain why increasing light intensity increases the rate of photosynthesis, up to a certain point. (3 marks)",
+          "marks": 5,
+          "topicId": "bioenergetics",
+          "markScheme": "(a) A1 for correct reactants: carbon dioxide + water\nA1 for correct products: glucose + oxygen\n(b) M1 for light provides energy for photosynthesis\nM1 for more light means more energy available so the reaction happens faster\nA1 for at a certain point, another factor becomes limiting (e.g. carbon dioxide concentration or temperature) so increasing light has no further effect",
+          "commandWord": "State, Explain"
+        },
+        {
+          "number": "05",
+          "text": "The nervous system allows humans to react to their surroundings.\n(a) Put the following in the correct order to describe a reflex arc:\neffector, receptor, relay neurone, motor neurone, sensory neurone (2 marks)\n(b) Explain the advantage of reflex actions being automatic. (2 marks)",
+          "marks": 4,
+          "topicId": "homeostasis_response",
+          "markScheme": "(a) A1 for receptor → sensory neurone → relay neurone → motor neurone\nA1 for → effector (all five must be in correct order for full marks)\n(b) M1 for the response is faster/does not require conscious thought\nA1 for this protects the body from harm/damage (accept a relevant example such as pulling hand away from a hot object)",
+          "commandWord": "Put, Explain"
+        },
+        {
+          "number": "06",
+          "text": "Cystic fibrosis is a genetic disorder caused by a recessive allele.\nA couple are both carriers of cystic fibrosis.\n(a) Draw a Punnett square to show the possible genotypes of their children.\nUse F for the dominant allele and f for the recessive allele. (2 marks)\n(b) What is the probability that their child will have cystic fibrosis? (1 mark)\n(c) Explain why the actual ratio of children with and without cystic fibrosis in a family of four may differ from the expected ratio. (2 marks)",
+          "marks": 5,
+          "topicId": "inheritance_variation_evolution",
+          "markScheme": "(a) M1 for correct parental gametes (F and f from each parent)\nA1 for correct offspring genotypes: FF, Ff, Ff, ff\n(b) A1 for 1 in 4 or 25% or 0.25 or ¼\n(c) M1 for fertilisation is a random process / alleles are passed on randomly\nA1 for with a small number of offspring, the actual ratio is unlikely to match the predicted ratio exactly / the predicted ratio is a probability not a certainty",
+          "commandWord": "Draw, What, Explain"
+        },
+        {
+          "number": "07",
+          "text": "Describe how water and mineral ions are transported through a plant from the roots to the leaves. (3 marks)",
+          "marks": 3,
+          "topicId": "organisation",
+          "markScheme": "M1 for water is absorbed by root hair cells by osmosis\nM1 for water moves through xylem vessels\nA1 for the transpiration stream pulls water up the plant / water evaporates from leaves creating a pull",
+          "commandWord": "Describe"
+        },
+        {
+          "number": "08",
+          "text": "A field was surveyed using quadrats to estimate the population of dandelions.\nThe field measured 50 m × 30 m. Ten quadrats of 1 m² were placed randomly. The number of dandelions in each quadrat was: 3, 5, 2, 4, 6, 3, 5, 4, 2, 6.\n(a) Calculate the mean number of dandelions per quadrat. (1 mark)\n(b) Estimate the total population of dandelions in the field. (2 marks)",
+          "marks": 3,
+          "topicId": "ecology",
+          "markScheme": "(a) A1 for 40 ÷ 10 = 4\n(b) M1 for area of field = 50 × 30 = 1500 m²\nA1 for 4 × 1500 = 6000 dandelions",
+          "commandWord": "Calculate, Estimate"
+        }
+      ]
+    },
+    {
+      "id": "aqa-science-gcse-2023-chemistry",
+      "year": 2023,
+      "paper": 2,
+      "title": "AQA GCSE Combined Science Trilogy Chemistry Paper 2023",
+      "sourceUrl": "https://www.aqa.org.uk/subjects/science/gcse/combined-science-trilogy-8464",
+      "totalMarks": 35,
+      "duration": "1 hour 15 minutes",
+      "questions": [
+        {
+          "number": "01",
+          "text": "Lithium, sodium and potassium are elements in Group 1 of the periodic table.\n(a) State the number of electrons in the outer shell of a sodium atom. (1 mark)\n(b) Explain why potassium is more reactive than sodium. (3 marks)\n(c) Lithium has two isotopes: ⁶Li and ⁷Li.\nExplain what is meant by the term isotope. (2 marks)",
+          "marks": 6,
+          "topicId": "atomic_structure_periodic_table",
+          "markScheme": "(a) A1 for 1\n(b) M1 for potassium has more electron shells than sodium\nM1 for the outer electron is further from the nucleus\nA1 for there is less electrostatic attraction so the outer electron is lost more easily\n(c) M1 for atoms of the same element with the same number of protons\nA1 for but different numbers of neutrons",
+          "commandWord": "State, Explain"
+        },
+        {
+          "number": "02",
+          "text": "Sodium chloride is an ionic compound.\n(a) Describe how ionic bonding occurs between a sodium atom and a chlorine atom. (3 marks)\n(b) Explain why sodium chloride has a high melting point. (2 marks)\n(c) Explain why sodium chloride conducts electricity when dissolved in water but not when solid. (2 marks)",
+          "marks": 7,
+          "topicId": "bonding_structure_properties",
+          "markScheme": "(a) M1 for sodium loses one electron / chlorine gains one electron\nM1 for sodium becomes a positive ion (Na⁺) and chlorine becomes a negative ion (Cl⁻)\nA1 for there is an electrostatic attraction between the oppositely charged ions\n(b) M1 for sodium chloride has a giant ionic lattice structure\nA1 for strong electrostatic forces between ions require a lot of energy to overcome\n(c) M1 for when dissolved, the ions are free to move and carry charge\nA1 for when solid, the ions are held in fixed positions and cannot move",
+          "commandWord": "Describe, Explain"
+        },
+        {
+          "number": "03",
+          "text": "Magnesium reacts with hydrochloric acid to produce magnesium chloride and hydrogen.\n(a) Write a balanced symbol equation for this reaction. (2 marks)\n(b) In an experiment, 2.4 g of magnesium reacted completely with excess hydrochloric acid.\nCalculate the mass of magnesium chloride produced.\nRelative atomic masses: Mg = 24, Cl = 35.5 (3 marks)",
+          "marks": 5,
+          "topicId": "quantitative_chemistry",
+          "markScheme": "(a) M1 for correct formulae: Mg + HCl → MgCl₂ + H₂\nA1 for balanced: Mg + 2HCl → MgCl₂ + H₂\n(b) M1 for moles of Mg = 2.4 ÷ 24 = 0.1\nM1 for 1:1 ratio so moles of MgCl₂ = 0.1\nA1 for mass = 0.1 × (24 + 71) = 0.1 × 95 = 9.5 g",
+          "commandWord": "Write, Calculate"
+        },
+        {
+          "number": "04",
+          "text": "A student investigated the reactivity of four metals: copper, iron, magnesium and zinc.\nThe student placed each metal into solutions of the other metals' sulfates.\n(a) State what would be observed when magnesium is placed into copper sulfate solution. (2 marks)\n(b) Write a word equation for this reaction. (1 mark)\n(c) Explain this reaction in terms of electron transfer. (2 marks)",
+          "marks": 5,
+          "topicId": "chemical_changes",
+          "markScheme": "(a) M1 for a brown/orange coating forms on the magnesium\nA1 for the blue solution becomes colourless/paler\n(b) A1 for magnesium + copper sulfate → magnesium sulfate + copper\n(c) M1 for magnesium loses electrons (is oxidised)\nA1 for copper ions gain electrons (are reduced)",
+          "commandWord": "State, Write, Explain"
+        },
+        {
+          "number": "05",
+          "text": "A student investigated how the concentration of hydrochloric acid affects the rate of reaction with calcium carbonate chips.\n(a) Describe how the student could measure the rate of this reaction. (2 marks)\n(b) Sketch a graph to show how the volume of gas produced changes over time for a reaction at low concentration and at high concentration.\nLabel both lines. (3 marks)\n(c) Explain, using collision theory, why increasing concentration increases the rate of reaction. (2 marks)",
+          "marks": 7,
+          "topicId": "rates_equilibrium",
+          "markScheme": "(a) M1 for collect the gas produced (carbon dioxide) using a gas syringe or inverted measuring cylinder over water\nA1 for measure the volume of gas at regular time intervals\n(b) A1 for both curves starting at origin and levelling off\nA1 for high concentration curve being steeper\nA1 for both curves reaching the same final volume (same total amount of gas)\n(c) M1 for more particles in the same volume / particles are closer together\nA1 for more frequent collisions so more successful collisions per second",
+          "commandWord": "Describe, Sketch, Explain"
+        },
+        {
+          "number": "06",
+          "text": "The early atmosphere of the Earth was very different from today's atmosphere.\n(a) Name two gases thought to have been present in the Earth's early atmosphere. (2 marks)\n(b) Explain how the level of carbon dioxide in the atmosphere decreased over time. (3 marks)",
+          "marks": 5,
+          "topicId": "chemistry_atmosphere",
+          "markScheme": "(a) A1 for carbon dioxide\nA1 for any one of: water vapour, nitrogen, methane, ammonia\n(b) M1 for plants/algae evolved and used carbon dioxide for photosynthesis\nM1 for carbon dioxide dissolved in the oceans\nA1 for carbon dioxide was locked up in sedimentary rocks (e.g. limestone) and fossil fuels",
+          "commandWord": "Name, Explain"
+        },
+        {
+          "number": "07",
+          "text": "Electrolysis can be used to extract aluminium from aluminium oxide.\n(a) Explain why aluminium oxide must be molten or dissolved for electrolysis to work. (1 mark)\n(b) Aluminium oxide is dissolved in molten cryolite before electrolysis.\nSuggest why. (1 mark)\n(c) Write the half equation for the reaction at the cathode. (2 marks)",
+          "marks": 4,
+          "topicId": "chemical_changes",
+          "markScheme": "(a) A1 for the ions must be free to move to carry the current\n(b) A1 for to lower the melting point (of aluminium oxide) which reduces energy costs\n(c) M1 for Al³⁺ + 3e⁻\nA1 for → Al (correct balanced half equation)",
+          "commandWord": "Explain, Suggest, Write"
+        },
+        {
+          "number": "08",
+          "text": "Describe the structure of a metallic bond and use it to explain why metals are good conductors of electricity. (3 marks)",
+          "marks": 3,
+          "topicId": "bonding_structure_properties",
+          "markScheme": "M1 for metals consist of a regular arrangement of positive ions\nM1 for surrounded by a sea of delocalised electrons\nA1 for the delocalised electrons are free to move through the structure and carry charge/current",
+          "commandWord": "Describe"
+        }
+      ]
+    }
+  ]
+}

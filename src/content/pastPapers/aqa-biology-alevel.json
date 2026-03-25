@@ -10,56 +10,294 @@
       "paper": 1,
       "title": "AQA A-Level Biology Paper 1 2023",
       "sourceUrl": "https://www.aqa.org.uk/subjects/science/as-and-a-level/biology-7401-7402/assessment-resources",
-      "totalMarks": 91,
+      "totalMarks": 36,
       "duration": "2 hours",
       "questions": [
         {
           "number": "01.1",
-          "text": "Name the type of bond that forms between amino acids during protein synthesis.",
+          "text": "A student investigated the effect of temperature on the rate of an enzyme-controlled reaction. The enzyme used was catalase, which breaks down hydrogen peroxide into water and oxygen.\n\nState the name of the model used to explain how enzymes interact with their substrates.",
           "marks": 1,
-          "topicId": "biological_molecules",
-          "markScheme": "Peptide bond (1)",
-          "commandWord": "Name"
+          "topicId": "enzymes",
+          "markScheme": "Lock and key / induced fit model (1)",
+          "commandWord": "State"
         },
         {
           "number": "01.2",
-          "text": "Explain how the structure of haemoglobin is related to its function as an oxygen transport molecule.",
+          "text": "The student measured the volume of oxygen produced in 60 seconds at different temperatures. At 25°C the rate was 4.2 cm³ per minute. At 65°C the rate was 0.3 cm³ per minute.\n\nExplain why the rate of reaction was much lower at 65°C than at 25°C.",
           "marks": 3,
-          "topicId": "biological_molecules",
-          "markScheme": "1. Quaternary structure with four polypeptide subunits (1)\n2. Each subunit contains a haem group with an iron ion that binds to oxygen (1)\n3. Cooperative binding means binding of first O2 changes shape making it easier for subsequent O2 molecules to bind (1)",
+          "topicId": "enzymes",
+          "markScheme": "1. At 65°C the enzyme is denatured (1)\n2. The tertiary structure / 3D shape of the enzyme has changed (1)\n3. The active site is no longer complementary to the substrate so enzyme-substrate complexes cannot form (1)",
+          "commandWord": "Explain"
+        },
+        {
+          "number": "01.3",
+          "text": "The student repeated the experiment using a non-competitive inhibitor added to the hydrogen peroxide solution.\n\nExplain how a non-competitive inhibitor reduces the rate of an enzyme-controlled reaction.",
+          "marks": 3,
+          "topicId": "enzymes",
+          "markScheme": "1. The inhibitor binds to a site other than the active site / allosteric site (1)\n2. This causes a conformational change in the enzyme / changes the shape of the active site (1)\n3. The substrate can no longer bind to the active site / fewer enzyme-substrate complexes form per unit time (1)",
           "commandWord": "Explain"
         },
         {
           "number": "02.1",
-          "text": "Describe and explain the effect of increasing temperature on the rate of an enzyme-catalysed reaction.",
-          "marks": 4,
-          "topicId": "enzymes",
-          "markScheme": "1. Rate increases as temperature increases up to the optimum (1)\n2. Because kinetic energy increases so more frequent enzyme-substrate collisions (1)\n3. Above the optimum temperature, rate decreases rapidly (1)\n4. Because hydrogen bonds break, the active site changes shape and substrate can no longer bind (denaturation) (1)",
-          "commandWord": "Describe and explain"
+          "text": "Figure 1 shows the fluid mosaic model of a cell surface membrane.\n\nDescribe two functions of the proteins found in cell surface membranes.",
+          "marks": 2,
+          "topicId": "transport_membranes",
+          "markScheme": "Any two from:\n1. Channel proteins / carrier proteins allow transport of substances across the membrane (1)\n2. Glycoproteins act as receptor sites for hormones or drugs (1)\n3. Enzymes catalyse reactions at the membrane surface (1)\n4. Glycoproteins are involved in cell recognition / cell signalling (1)\n5. Structural proteins provide mechanical support (1)",
+          "commandWord": "Describe"
+        },
+        {
+          "number": "02.2",
+          "text": "A student placed pieces of potato tissue into sucrose solutions of different concentrations and measured the change in mass after 30 minutes.\n\nAt a sucrose concentration of 0.4 mol dm⁻³, the potato tissue showed no change in mass.\n\nExplain what this result indicates about the water potential of the potato cells.",
+          "marks": 3,
+          "topicId": "transport_membranes",
+          "markScheme": "1. The water potential of the potato cells is equal to the water potential of the 0.4 mol dm⁻³ sucrose solution (1)\n2. There is no net movement of water (1)\n3. The rate of osmosis into the cells equals the rate of osmosis out of the cells / the system is at equilibrium (1)",
+          "commandWord": "Explain"
         },
         {
           "number": "03.1",
-          "text": "Explain the role of carrier proteins and ATP in the transport of sodium ions across a cell membrane against a concentration gradient.",
-          "marks": 3,
-          "topicId": "transport_membranes",
-          "markScheme": "1. Active transport / against concentration gradient requires energy (1)\n2. ATP is hydrolysed by ATPase on the carrier protein (1)\n3. This causes the carrier protein to change shape, moving sodium ions from low to high concentration (1)",
+          "text": "A ribosome translates a section of mRNA with the following base sequence:\n\nAUG GCU UAC GAA UGA\n\nState the number of amino acids in the polypeptide chain produced from this mRNA sequence. Explain your answer.",
+          "marks": 2,
+          "topicId": "dna_protein_synthesis",
+          "markScheme": "1. Three / 3 amino acids (1)\n2. AUG is the start codon and codes for methionine, three further codons code for amino acids, and UGA is a stop codon which does not code for an amino acid (1)",
+          "commandWord": "State"
+        },
+        {
+          "number": "03.2",
+          "text": "During translation, tRNA molecules carry amino acids to the ribosome.\n\nExplain how the structure of a tRNA molecule is related to its function in translation.",
+          "marks": 4,
+          "topicId": "dna_protein_synthesis",
+          "markScheme": "1. The anticodon is a sequence of three bases that is complementary to a codon on mRNA (1)\n2. This ensures the correct amino acid is added to the growing polypeptide chain (1)\n3. The amino acid attachment site / CCA sequence at the 3' end binds to a specific amino acid (1)\n4. The cloverleaf / L-shaped structure allows the tRNA to fit into the ribosome (1)",
           "commandWord": "Explain"
         },
         {
           "number": "04.1",
-          "text": "Describe the sequence of events during the cell cycle that ensures each daughter cell receives an exact copy of the DNA.",
+          "text": "Cystic fibrosis is caused by a mutation in the gene that codes for the CFTR protein, a chloride ion channel.\n\nThe most common mutation is a deletion of three bases coding for the amino acid phenylalanine at position 508.\n\nExplain why the deletion of three bases results in a non-functional CFTR protein, even though the reading frame is not shifted.",
+          "marks": 3,
+          "topicId": "dna_protein_synthesis",
+          "markScheme": "1. The primary structure / amino acid sequence of the protein is altered (1)\n2. This changes the folding / tertiary structure of the protein (1)\n3. The protein cannot form the correct 3D shape to function as a chloride ion channel / the protein is targeted for degradation (1)",
+          "commandWord": "Explain"
+        },
+        {
+          "number": "05.1",
+          "text": "Fish have a countercurrent exchange system in their gills.\n\nExplain how the countercurrent system increases the efficiency of gas exchange compared to a parallel flow system.",
+          "marks": 3,
+          "topicId": "exchange_surfaces",
+          "markScheme": "1. Blood flows in the opposite direction to water over the gill lamellae (1)\n2. This maintains a concentration gradient / diffusion gradient for oxygen along the entire length of the lamella (1)\n3. In a parallel system the gradient would decrease along the length and equilibrium would be reached, so less oxygen would be absorbed overall (1)",
+          "commandWord": "Explain"
+        },
+        {
+          "number": "06.1",
+          "text": "Haemoglobin is an oxygen-carrying protein found in red blood cells. The oxygen dissociation curve for adult haemoglobin is S-shaped (sigmoidal).\n\nExplain why the oxygen dissociation curve for haemoglobin is S-shaped.",
           "marks": 4,
+          "topicId": "transport_animals",
+          "markScheme": "1. Haemoglobin has four subunits / binding sites for oxygen (1)\n2. When the first oxygen molecule binds, it is difficult because the haemoglobin is in a tense / T state (1)\n3. Binding of the first oxygen causes a conformational change that makes it easier for subsequent oxygen molecules to bind / cooperative binding / positive cooperativity (1)\n4. The curve levels off at high partial pressures because haemoglobin becomes saturated / all four binding sites are occupied (1)",
+          "commandWord": "Explain"
+        },
+        {
+          "number": "07.1",
+          "text": "During mitosis, the cell cycle is carefully controlled by checkpoints.\n\nDescribe the role of the G₁ checkpoint in controlling the cell cycle.",
+          "marks": 2,
           "topicId": "cell_division",
-          "markScheme": "1. During S phase / interphase, DNA replicates by semi-conservative replication (1)\n2. Each chromosome consists of two identical sister chromatids joined at the centromere (1)\n3. During mitosis, spindle fibres attach to centromeres and pull chromatids to opposite poles (1)\n4. Cytokinesis divides the cytoplasm producing two genetically identical daughter cells (1)",
+          "markScheme": "1. The G₁ checkpoint checks whether the cell is large enough to divide / whether there are sufficient nutrients and growth factors (1)\n2. If conditions are not met, the cell enters G₀ phase and does not proceed to S phase / DNA replication (1)",
+          "commandWord": "Describe"
+        },
+        {
+          "number": "08.1",
+          "text": "Evaluate the use of monoclonal antibodies in the treatment of cancer.\n\nIn your answer, consider both the advantages and limitations of this approach.",
+          "marks": 6,
+          "topicId": "cell_recognition_immune",
+          "markScheme": "Advantages (max 3):\n1. Monoclonal antibodies can be designed to target specific antigens on the surface of cancer cells (1)\n2. They can carry drugs / radioactive substances / toxins directly to cancer cells, reducing damage to healthy tissue (1)\n3. They can stimulate the patient's own immune system to attack the cancer cells (1)\n4. They can block growth factor receptors on cancer cells, preventing cell division (1)\n\nLimitations (max 3):\n5. Cancer cells may not have unique antigens, making targeting difficult (1)\n6. Cancer cells can mutate and lose the target antigen, leading to resistance (1)\n7. Monoclonal antibodies can cause allergic reactions / side effects such as fever and nausea (1)\n8. Treatment is expensive and may need to be repeated (1)\n\nQuality of written communication:\nClear, logical structure with both sides considered for full marks.",
+          "commandWord": "Evaluate"
+        }
+      ]
+    },
+    {
+      "id": "aqa-bio-2023-p2",
+      "year": 2023,
+      "paper": 2,
+      "title": "AQA A-Level Biology Paper 2 2023",
+      "sourceUrl": "https://www.aqa.org.uk/subjects/science/as-and-a-level/biology-7401-7402/assessment-resources",
+      "totalMarks": 35,
+      "duration": "2 hours",
+      "questions": [
+        {
+          "number": "01.1",
+          "text": "In aerobic respiration, the link reaction converts pyruvate into acetyl coenzyme A.\n\nState the location of the link reaction in a eukaryotic cell.",
+          "marks": 1,
+          "topicId": "respiration",
+          "markScheme": "Matrix of the mitochondria / mitochondrial matrix (1)",
+          "commandWord": "State"
+        },
+        {
+          "number": "01.2",
+          "text": "During the link reaction, a molecule of carbon dioxide is released and NAD is reduced.\n\nExplain the role of NAD in aerobic respiration.",
+          "marks": 3,
+          "topicId": "respiration",
+          "markScheme": "1. NAD is a coenzyme / hydrogen carrier (1)\n2. NAD accepts hydrogen atoms / electrons from substrates during glycolysis, the link reaction and the Krebs cycle (1)\n3. Reduced NAD donates electrons to the electron transport chain on the inner mitochondrial membrane, which is used to generate ATP by oxidative phosphorylation (1)",
+          "commandWord": "Explain"
+        },
+        {
+          "number": "01.3",
+          "text": "A scientist investigated the rate of respiration in germinating seeds using a respirometer. The scientist found that the respiratory quotient (RQ) of the seeds was 0.7.\n\nCalculate the ratio of carbon dioxide produced to oxygen consumed when the RQ is 0.7.\n\nSuggest what respiratory substrate the seeds were most likely using. Give a reason for your answer.",
+          "marks": 3,
+          "topicId": "respiration",
+          "markScheme": "1. For every 10 molecules of oxygen consumed, 7 molecules of carbon dioxide are produced / ratio is 0.7:1 (1)\n2. Lipids / fats (1)\n3. Lipids have a higher proportion of hydrogen relative to oxygen than carbohydrates, so more oxygen is needed for their oxidation / RQ values below 1.0 are characteristic of lipid respiration (1)",
+          "commandWord": "Calculate"
+        },
+        {
+          "number": "02.1",
+          "text": "The light-dependent reactions of photosynthesis take place on the thylakoid membranes of chloroplasts.\n\nDescribe how ATP is produced during the light-dependent reactions.",
+          "marks": 4,
+          "topicId": "photosynthesis",
+          "markScheme": "1. Light energy excites electrons in chlorophyll in photosystem II (1)\n2. Excited electrons pass along a chain of electron carriers / electron transport chain (1)\n3. Energy released from the electrons is used to pump protons / H⁺ ions from the stroma into the thylakoid space, creating a proton gradient / chemiosmotic gradient (1)\n4. Protons flow back through ATP synthase, which catalyses the synthesis of ATP from ADP and inorganic phosphate / chemiosmosis (1)",
+          "commandWord": "Describe"
+        },
+        {
+          "number": "02.2",
+          "text": "A student grew plants at different light intensities and measured the rate of carbon dioxide uptake.\n\nAt a light intensity of 0 arbitrary units, the plant released 2.5 mg of CO₂ per hour. At a light intensity of 8 arbitrary units, the plant absorbed 6.0 mg of CO₂ per hour.\n\nCalculate the gross rate of photosynthesis at a light intensity of 8 arbitrary units. Show your working.",
+          "marks": 2,
+          "topicId": "photosynthesis",
+          "markScheme": "1. Gross photosynthesis = net photosynthesis + respiration (1)\n2. 6.0 + 2.5 = 8.5 mg CO₂ per hour (1)",
+          "commandWord": "Calculate"
+        },
+        {
+          "number": "03.1",
+          "text": "Homeostasis involves the maintenance of a constant internal environment.\n\nExplain how negative feedback is involved in the control of blood glucose concentration when it rises above the set point.",
+          "marks": 4,
+          "topicId": "homeostasis",
+          "markScheme": "1. Beta cells of the islets of Langerhans in the pancreas detect the rise in blood glucose concentration (1)\n2. Beta cells secrete insulin into the blood (1)\n3. Insulin binds to receptors on liver and muscle cells, stimulating uptake of glucose and conversion to glycogen / glycogenesis (1)\n4. Blood glucose concentration falls back towards the set point, which reduces the stimulus for insulin secretion / negative feedback reduces the response (1)",
+          "commandWord": "Explain"
+        },
+        {
+          "number": "03.2",
+          "text": "Type 1 diabetes is an autoimmune condition in which the immune system destroys the beta cells of the pancreas.\n\nA patient with Type 1 diabetes measures their blood glucose concentration before and after a meal. Before the meal, their blood glucose is 5.2 mmol dm⁻³. Two hours after the meal, their blood glucose is 14.8 mmol dm⁻³.\n\nExplain why the blood glucose concentration of this patient remains high after the meal.",
+          "marks": 2,
+          "topicId": "homeostasis",
+          "markScheme": "1. The beta cells have been destroyed so the patient cannot produce / secrete insulin (1)\n2. Without insulin, liver and muscle cells cannot take up glucose from the blood / glucose is not converted to glycogen (1)",
+          "commandWord": "Explain"
+        },
+        {
+          "number": "04.1",
+          "text": "Natural selection can lead to changes in allele frequency within a population.\n\nExplain how directional selection could lead to an increase in antibiotic resistance in a bacterial population.",
+          "marks": 4,
+          "topicId": "ecology",
+          "markScheme": "1. Random mutation produces a new allele that gives resistance to the antibiotic (1)\n2. When the antibiotic is applied, bacteria without the resistance allele are killed / selected against (1)\n3. Resistant bacteria survive and reproduce, passing the resistance allele to their offspring (1)\n4. Over many generations, the frequency of the resistance allele increases in the population / the population evolves (1)",
+          "commandWord": "Explain"
+        },
+        {
+          "number": "05.1",
+          "text": "Scientists studied a population of woodland birds over 10 years. They found that the population size fluctuated between 200 and 350 breeding pairs.\n\nDescribe two biotic factors that could limit the size of this bird population.",
+          "marks": 2,
+          "topicId": "ecology",
+          "markScheme": "Any two from:\n1. Interspecific competition for food or nesting sites (1)\n2. Intraspecific competition for territory or mates (1)\n3. Predation by birds of prey or mammals (1)\n4. Disease or parasitism (1)\n5. Availability of food supply / prey organisms (1)",
+          "commandWord": "Describe"
+        },
+        {
+          "number": "06.1",
+          "text": "Evaluate the use of the Hardy-Weinberg principle to predict allele frequencies in natural populations.\n\nIn your answer, consider both the usefulness and the limitations of this model.",
+          "marks": 6,
+          "topicId": "ecology",
+          "markScheme": "Usefulness (max 3):\n1. Provides a mathematical model to predict expected allele and genotype frequencies (1)\n2. Allows estimation of carrier frequency for genetic conditions in a population (1)\n3. Can be used to determine whether evolution / natural selection is occurring by comparing observed and expected frequencies (1)\n\nLimitations (max 3):\n4. Assumes no mutation, which does not reflect real populations (1)\n5. Assumes random mating, but many organisms show mate choice / assortative mating (1)\n6. Assumes no migration / gene flow, which is unrealistic for most natural populations (1)\n7. Assumes no natural selection, but selection pressures are always present in nature (1)\n8. Assumes a very large population size, but genetic drift can alter allele frequencies in small populations (1)\n\nQuality of written communication:\nClear, balanced evaluation with both sides addressed for full marks.",
+          "commandWord": "Evaluate"
+        },
+        {
+          "number": "07.1",
+          "text": "Gene expression can be controlled at the transcriptional level.\n\nDescribe the role of transcription factors in the control of gene expression.",
+          "marks": 4,
+          "topicId": "dna_protein_synthesis",
+          "markScheme": "1. Transcription factors are proteins that bind to specific DNA sequences / promoter regions (1)\n2. They can act as activators, stimulating RNA polymerase to bind and begin transcription (1)\n3. They can act as repressors, preventing RNA polymerase from binding to the promoter (1)\n4. Different combinations of transcription factors in different cell types determine which genes are expressed / cell differentiation (1)",
+          "commandWord": "Describe"
+        }
+      ]
+    },
+    {
+      "id": "aqa-bio-2024-p1",
+      "year": 2024,
+      "paper": 1,
+      "title": "AQA A-Level Biology Paper 1 2024",
+      "sourceUrl": "https://www.aqa.org.uk/subjects/science/as-and-a-level/biology-7401-7402/assessment-resources",
+      "totalMarks": 36,
+      "duration": "2 hours",
+      "questions": [
+        {
+          "number": "01.1",
+          "text": "Starch and cellulose are both polysaccharides made from glucose monomers.\n\nCompare the structures of starch and cellulose and explain how these differences relate to their functions.",
+          "marks": 6,
+          "topicId": "biological_molecules",
+          "markScheme": "Starch structure and function (max 3):\n1. Starch is made of alpha-glucose monomers joined by 1,4 glycosidic bonds (1)\n2. Amylose is an unbranched helix; amylopectin has 1,6 glycosidic bonds creating branches (1)\n3. Compact / helical shape makes it suitable for storage; branches allow rapid hydrolysis when glucose is needed (1)\n\nCellulose structure and function (max 3):\n4. Cellulose is made of beta-glucose monomers, with alternate monomers rotated 180° (1)\n5. Straight chains form hydrogen bonds between adjacent chains, creating microfibrils (1)\n6. Microfibrils provide tensile strength to plant cell walls, preventing the cell from bursting when turgid (1)",
+          "commandWord": "Compare"
+        },
+        {
+          "number": "02.1",
+          "text": "A scientist used a light microscope to observe onion epidermal cells. The image of one cell measured 32 mm from end to end. The actual size of the cell was 0.16 mm.\n\nCalculate the magnification of the microscope. Show your working.",
+          "marks": 2,
+          "topicId": "cell_structure",
+          "markScheme": "1. Magnification = image size / actual size (1)\n2. 32 / 0.16 = ×200 (1)",
+          "commandWord": "Calculate"
+        },
+        {
+          "number": "02.2",
+          "text": "The scientist wanted to observe the ultrastructure of the cells in greater detail.\n\nExplain why a transmission electron microscope (TEM) would be more suitable than a light microscope for observing cell ultrastructure.",
+          "marks": 3,
+          "topicId": "cell_structure",
+          "markScheme": "1. A TEM has a higher resolution than a light microscope (1)\n2. A TEM uses electrons which have a shorter wavelength than light (1)\n3. This allows the TEM to distinguish between objects that are closer together / can resolve structures such as ribosomes, endoplasmic reticulum and cristae (1)",
+          "commandWord": "Explain"
+        },
+        {
+          "number": "03.1",
+          "text": "Figure 2 shows a triglyceride molecule.\n\nDescribe how a triglyceride is formed from glycerol and fatty acids.",
+          "marks": 3,
+          "topicId": "biological_molecules",
+          "markScheme": "1. Three fatty acids join to one glycerol molecule (1)\n2. Each fatty acid joins by a condensation reaction / removal of a water molecule (1)\n3. An ester bond forms between the carboxyl group of the fatty acid and a hydroxyl group of glycerol (1)",
+          "commandWord": "Describe"
+        },
+        {
+          "number": "03.2",
+          "text": "Phospholipids have a similar structure to triglycerides but with one fatty acid replaced by a phosphate group.\n\nExplain how the structure of phospholipids makes them suitable for forming cell membranes.",
+          "marks": 3,
+          "topicId": "transport_membranes",
+          "markScheme": "1. The phosphate head is hydrophilic and the fatty acid tails are hydrophobic / phospholipids are amphipathic (1)\n2. In water, phospholipids arrange into a bilayer with hydrophobic tails facing inwards, away from water (1)\n3. This creates a barrier that is permeable to small non-polar molecules but prevents the passage of polar molecules and ions (1)",
+          "commandWord": "Explain"
+        },
+        {
+          "number": "04.1",
+          "text": "DNA replication is described as semi-conservative.\n\nDescribe the process of semi-conservative DNA replication.",
+          "marks": 4,
+          "topicId": "dna_protein_synthesis",
+          "markScheme": "1. DNA helicase unwinds the double helix and breaks the hydrogen bonds between complementary base pairs (1)\n2. Each strand acts as a template for a new strand (1)\n3. Free DNA nucleotides align with their complementary bases on the template strand by complementary base pairing (A-T, C-G) (1)\n4. DNA polymerase joins the nucleotides together by forming phosphodiester bonds between adjacent nucleotides, producing two identical DNA molecules, each containing one original and one new strand (1)",
           "commandWord": "Describe"
         },
         {
           "number": "05.1",
-          "text": "Evaluate the evidence for the role of carbon dioxide concentration as a limiting factor in photosynthesis. Include in your answer how this knowledge can be applied in commercial glasshouse production.",
-          "marks": 6,
-          "topicId": "photosynthesis",
-          "markScheme": "1. CO2 is required as a substrate in the Calvin cycle / light-independent reaction (1)\n2. At low CO2, increasing concentration increases the rate of carbon fixation by RuBisCO (1)\n3. Above a certain concentration, another factor becomes limiting (e.g. light intensity, temperature) so rate plateaus (1)\n4. In glasshouses, CO2 enrichment (to ~0.1%) increases crop yield (1)\n5. Must be balanced against cost of CO2 supply and other limiting factors (1)\n6. Evidence from controlled experiments shows clear correlation but commercial application must consider economic viability (1)",
-          "commandWord": "Evaluate"
+          "text": "Insects have a gas exchange system that uses tracheae and tracheoles.\n\nExplain how the structure of the insect gas exchange system is adapted for efficient gas exchange.",
+          "marks": 3,
+          "topicId": "exchange_surfaces",
+          "markScheme": "1. Tracheae branch into tracheoles which penetrate between / into cells, providing a short diffusion pathway (1)\n2. The ends of the tracheoles contain fluid; during exercise this fluid is withdrawn, bringing air closer to respiring cells (1)\n3. Spiracles can be opened and closed to control water loss, and ventilation movements of the abdomen move air through the tracheal system (1)",
+          "commandWord": "Explain"
+        },
+        {
+          "number": "05.2",
+          "text": "Mammals have lungs as their gas exchange surface.\n\nA student measured the breathing rate and tidal volume of a person at rest and during exercise.\n\nAt rest: breathing rate = 14 breaths per minute, tidal volume = 0.5 dm³\nDuring exercise: breathing rate = 28 breaths per minute, tidal volume = 2.1 dm³\n\nCalculate the percentage increase in pulmonary ventilation rate from rest to exercise. Show your working.",
+          "marks": 3,
+          "topicId": "exchange_surfaces",
+          "markScheme": "1. Pulmonary ventilation at rest = 14 × 0.5 = 7.0 dm³ min⁻¹ (1)\n2. Pulmonary ventilation during exercise = 28 × 2.1 = 58.8 dm³ min⁻¹ (1)\n3. Percentage increase = ((58.8 - 7.0) / 7.0) × 100 = 740% (1)",
+          "commandWord": "Calculate"
+        },
+        {
+          "number": "06.1",
+          "text": "T lymphocytes play an important role in the immune response.\n\nDescribe the roles of T helper cells and T killer cells in the cell-mediated immune response.",
+          "marks": 4,
+          "topicId": "cell_recognition_immune",
+          "markScheme": "T helper cells (max 2):\n1. T helper cells have receptors that bind to antigens presented on the surface of antigen-presenting cells / macrophages (1)\n2. T helper cells release cytokines / interleukins that stimulate B cells to divide and differentiate / stimulate phagocytes (1)\n\nT killer cells (max 2):\n3. T killer cells / cytotoxic T cells recognise and bind to antigens on the surface of infected body cells (1)\n4. T killer cells release perforin which creates pores in the cell membrane, causing the infected cell to lyse / undergo apoptosis (1)",
+          "commandWord": "Describe"
+        },
+        {
+          "number": "07.1",
+          "text": "Scientists used differential centrifugation to isolate mitochondria from liver cells.\n\nDescribe the steps involved in cell fractionation and differential centrifugation to obtain a pure sample of mitochondria.",
+          "marks": 5,
+          "topicId": "cell_structure",
+          "markScheme": "Cell fractionation:\n1. Tissue is placed in a cold, isotonic, buffered solution (1)\n2. The tissue is homogenised / blended to break open the cells (1)\n3. The homogenate is filtered to remove debris / cell wall fragments (1)\n\nDifferential centrifugation:\n4. The filtrate is centrifuged at low speed first; the pellet contains nuclei and the supernatant is transferred to a new tube (1)\n5. The supernatant is centrifuged at a higher speed; the pellet now contains mitochondria (1)",
+          "commandWord": "Describe"
         }
       ]
     }

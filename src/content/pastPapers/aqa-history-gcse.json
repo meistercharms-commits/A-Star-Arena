@@ -1,0 +1,67 @@
+{
+  "board": "aqa",
+  "subject": "history",
+  "level": "gcse",
+  "spec": "8145",
+  "papers": [
+    {
+      "id": "aqa-history-gcse-2023-p2",
+      "year": 2023,
+      "paper": 2,
+      "title": "AQA GCSE History Paper 2 Thematic/British Depth 2023",
+      "sourceUrl": "https://www.aqa.org.uk/subjects/history/gcse/history-8145",
+      "totalMarks": 30,
+      "duration": "1 hour 45 minutes",
+      "questions": [
+        {
+          "number": "01",
+          "text": "Study Source A.\nSource A: A woodcut from 1532 showing a physician treating a patient using bloodletting.\n\nHow useful is Source A to a historian studying medical treatment in the medieval period?\nExplain your answer using Source A and your contextual knowledge. (8 marks)",
+          "marks": 8,
+          "topicId": "source_analysis_skills",
+          "markScheme": "Level 4 (7-8 marks): Complex evaluation of source with sustained judgement about utility. Detailed analysis of provenance and content. Precise and wide-ranging contextual knowledge deployed.\n\nLevel 3 (5-6 marks): Developed evaluation of source. Analysis of content and/or provenance. Relevant contextual knowledge used to support evaluation.\n\nLevel 2 (3-4 marks): Simple evaluation of source. Limited analysis. Some contextual knowledge.\n\nLevel 1 (1-2 marks): Basic use of source. Minimal analysis.\n\nIndicative content:\n- Useful for showing that bloodletting was a common treatment, based on the Theory of the Four Humours\n- The woodcut shows a physician, suggesting treatment was available from trained practitioners, but many people relied on barber-surgeons\n- Limitation: a single woodcut may not represent typical treatment; it may be idealised\n- Contextual knowledge: Galen's ideas dominated medieval medicine; bloodletting was used to rebalance humours\n- Provenance: being from 1532, it is from a period when traditional methods were still dominant but the Renaissance was beginning to challenge old ideas",
+          "commandWord": "How useful"
+        },
+        {
+          "number": "02",
+          "text": "Explain the significance of the discovery of the germ theory for the development of medicine. (8 marks)",
+          "marks": 8,
+          "topicId": "medicine_through_time",
+          "markScheme": "Level 4 (7-8 marks): Complex explanation demonstrating a range of accurate and detailed knowledge. Shows clear understanding of significance, with analysis of impact across different areas of medicine.\n\nLevel 3 (5-6 marks): Developed explanation with accurate knowledge. Clear understanding of significance.\n\nLevel 2 (3-4 marks): Simple explanation with some knowledge. Some understanding of significance.\n\nLevel 1 (1-2 marks): Basic or general statements.\n\nIndicative content:\n- Pasteur published germ theory in 1861, proving that microorganisms caused decay and disease\n- This disproved the long-held miasma theory (that disease was caused by bad air)\n- Koch built on this by identifying specific bacteria causing specific diseases (e.g. tuberculosis, cholera)\n- Led directly to the development of vaccines (e.g. Pasteur's anthrax and rabies vaccines)\n- Inspired Lister to develop antiseptic surgery using carbolic acid\n- Led to improvements in public health (clean water, sewage systems) as the link between germs and disease was understood\n- Significance: it was a turning point that transformed prevention, treatment and surgery",
+          "commandWord": "Explain"
+        },
+        {
+          "number": "03",
+          "text": "Describe two features of life at the court of Elizabeth I. (4 marks)",
+          "marks": 4,
+          "topicId": "elizabethan_england",
+          "markScheme": "Award 2 marks for each feature identified and supported (up to 2 features).\nFor each feature:\nM1 for identifying a valid feature\nA1 for supporting detail\n\nAcceptable features include:\n- The court was the centre of political power, where courtiers competed for the queen's favour and patronage\n- Elaborate entertainments such as plays, music and masques were performed to demonstrate wealth and culture\n- The court moved between royal palaces (e.g. Whitehall, Hampton Court, Greenwich)\n- The Privy Council met at court to advise Elizabeth on matters of state\n- Fashion and display were extremely important; courtiers dressed lavishly to show their status",
+          "commandWord": "Describe"
+        },
+        {
+          "number": "04",
+          "text": "'The main reason for the defeat of the Spanish Armada in 1588 was English naval tactics.'\n\nHow far do you agree? Explain your answer.\nYou may use the following in your answer:\n- English fire ships\n- the weather\nYou must also use information of your own. (16 marks + 4 marks SPaG)",
+          "marks": 4,
+          "topicId": "essay_technique_argumentation",
+          "markScheme": "This question is marked for SPaG only (4 marks). The 16-mark essay component is assessed separately.\n\nSPaG Level 4 (4 marks): Spelling and punctuation are consistently accurate. Meaning is very clear. A wide range of specialist terms used appropriately.\n\nSPaG Level 3 (3 marks): Spelling and punctuation are considerably accurate. Meaning is clear. A good range of specialist terms used.\n\nSPaG Level 2 (2 marks): Spelling and punctuation are reasonably accurate. Meaning is generally clear. Some specialist terms used.\n\nSPaG Level 1 (1 mark): Spelling and punctuation allow meaning to be derived. Limited specialist terms.\n\nEssay indicative content (16 marks):\nFor: English fire ships were sent into the Spanish fleet at Calais, causing panic and breaking the crescent formation. English ships were smaller, faster and more manoeuvrable, allowing them to outgun the Spanish. Drake, Hawkins and Howard used hit-and-run tactics effectively.\nAgainst: Severe storms scattered the Armada as it sailed around Scotland and Ireland. Spanish communication problems and the Duke of Parma's failure to join the fleet were significant. Spanish strategy was flawed from the outset.\nConclusion should offer a balanced judgement weighing multiple factors.",
+          "commandWord": "How far do you agree"
+        },
+        {
+          "number": "05",
+          "text": "Study Interpretation 1 and Interpretation 2 about the role of the Church in medieval medicine.\n\nInterpretation 1: 'The Church was a major obstacle to medical progress in the medieval period. It discouraged dissection and promoted Galen's ideas without question.'\n\nInterpretation 2: 'The Church played an important role in preserving and spreading medical knowledge during the medieval period, through monasteries and the training of physicians.'\n\nWhich interpretation do you find more convincing about the role of the Church in medieval medicine?\nExplain your answer using both interpretations and your contextual knowledge. (4 marks)",
+          "marks": 4,
+          "topicId": "historical_interpretations",
+          "markScheme": "M1 for analysing Interpretation 1 with contextual support (e.g. the Church did ban dissection and insisted on following Galen's teachings, which limited new discoveries)\nM1 for analysing Interpretation 2 with contextual support (e.g. monasteries preserved Greek and Roman medical texts; the Church funded hospitals and trained physicians at universities)\nM1 for a comparative judgement about which is more convincing\nA1 for supporting the judgement with well-selected contextual knowledge",
+          "commandWord": "Which interpretation"
+        },
+        {
+          "number": "06",
+          "text": "Explain two consequences of the Voyages of Discovery for Elizabethan England. (4 marks)",
+          "marks": 4,
+          "topicId": "chronological_knowledge",
+          "markScheme": "Award 2 marks for each consequence identified and explained (up to 2 consequences).\nFor each consequence:\nM1 for identifying a valid consequence\nA1 for explaining its impact\n\nAcceptable consequences include:\n- Increased trade and wealth: Drake's circumnavigation brought back valuable Spanish treasure, enriching the Crown and boosting England's confidence\n- Growth of the slave trade: Hawkins's voyages established English involvement in the transatlantic slave trade, creating new economic links\n- Colonisation attempts: Raleigh's expedition to Virginia attempted to establish an English colony, laying foundations for future colonial expansion\n- Rivalry with Spain: English exploration and privateering increased tensions with Spain, contributing to the conflict that led to the Armada",
+          "commandWord": "Explain"
+        }
+      ]
+    }
+  ]
+}

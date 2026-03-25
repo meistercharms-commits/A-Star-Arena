@@ -1,0 +1,83 @@
+{
+  "board": "aqa",
+  "subject": "geography",
+  "level": "gcse",
+  "spec": "8035",
+  "papers": [
+    {
+      "id": "aqa-geography-gcse-2023-p1",
+      "year": 2023,
+      "paper": 1,
+      "title": "AQA GCSE Geography Paper 1 Living with the Physical Environment 2023",
+      "sourceUrl": "https://www.aqa.org.uk/subjects/geography/gcse/geography-8035",
+      "totalMarks": 35,
+      "duration": "1 hour 30 minutes",
+      "questions": [
+        {
+          "number": "01",
+          "text": "Study Figure 1, a map showing the distribution of earthquakes and volcanoes around the Pacific Ocean.\n(a) Using Figure 1, describe the distribution of earthquakes around the Pacific Ocean. (2 marks)\n(b) Explain why earthquakes occur at destructive plate margins. (4 marks)",
+          "marks": 6,
+          "topicId": "tectonic_hazards",
+          "markScheme": "(a) M1 for earthquakes are concentrated along the edges/margins of the Pacific plate\nA1 for they form a ring/belt around the Pacific (accept 'Ring of Fire') or they follow plate boundaries\n(b) M1 for at destructive margins, two plates move towards each other\nM1 for the denser oceanic plate is subducted beneath the continental plate\nM1 for friction builds up between the two plates as they move past each other\nA1 for pressure builds up and is released suddenly as seismic waves, causing an earthquake",
+          "commandWord": "Describe, Explain"
+        },
+        {
+          "number": "02",
+          "text": "Explain how tropical storms form. (4 marks)",
+          "marks": 4,
+          "topicId": "weather_hazards",
+          "markScheme": "M1 for tropical storms form over warm ocean water (above 27°C)\nM1 for warm, moist air rises and condenses, releasing latent heat/energy\nM1 for the Coriolis effect causes the rising air to spin\nA1 for as the storm intensifies, an eye forms at the centre with low pressure, surrounded by strong winds and heavy rainfall",
+          "commandWord": "Explain"
+        },
+        {
+          "number": "03",
+          "text": "Outline one piece of evidence that the climate is changing. (2 marks)",
+          "marks": 2,
+          "topicId": "climate_change",
+          "markScheme": "M1 for identifying a valid piece of evidence (e.g. ice cores, rising sea levels, retreating glaciers, temperature records)\nA1 for developing the point with specific detail (e.g. Arctic sea ice has decreased significantly over the past 40 years / global average temperatures have risen by approximately 1°C since the pre-industrial era)",
+          "commandWord": "Outline"
+        },
+        {
+          "number": "04",
+          "text": "Figure 2 shows a food web from a deciduous woodland ecosystem.\n(a) Define the term ecosystem. (2 marks)\n(b) Explain how a change in one species can affect other organisms in the food web. Use an example. (4 marks)",
+          "marks": 6,
+          "topicId": "ecosystems",
+          "markScheme": "(a) M1 for a community of living organisms\nA1 for interacting with each other and their physical/non-living environment\n(b) M1 for identifying a specific change (e.g. if the population of caterpillars decreased)\nM1 for explaining the direct effect on predators (e.g. birds that feed on caterpillars would have less food, so their population may decrease)\nM1 for explaining a knock-on effect (e.g. plants that caterpillars feed on may increase in number)\nA1 for this shows how organisms are interdependent within the ecosystem",
+          "commandWord": "Define, Explain"
+        },
+        {
+          "number": "05",
+          "text": "Tropical rainforests have a distinctive climate.\n(a) Describe the climate of a tropical rainforest. (2 marks)\n(b) Explain how the vegetation of the tropical rainforest is adapted to the climate. (4 marks)",
+          "marks": 6,
+          "topicId": "tropical_rainforests",
+          "markScheme": "(a) M1 for hot throughout the year (average temperature around 26-28°C)\nA1 for high rainfall throughout the year (over 2000 mm annually) / no dry season\n(b) M1 for trees have buttress roots to support them in the thin soil\nM1 for leaves have drip tips to shed heavy rainfall quickly\nM1 for plants in the understory have large leaves to capture light in shaded conditions\nA1 for lianas climb up trees to reach sunlight in the canopy / epiphytes grow on branches to access light above the forest floor",
+          "commandWord": "Describe, Explain"
+        },
+        {
+          "number": "06",
+          "text": "Explain how hot desert plants and animals are adapted to survive in extreme conditions. (4 marks)",
+          "marks": 4,
+          "topicId": "hot_deserts_cold_environments",
+          "markScheme": "M1 for plants have long tap roots to reach deep water sources\nM1 for plants have small or waxy leaves to reduce water loss through transpiration\nM1 for animals are nocturnal to avoid the heat of the day\nA1 for animals may have large ears (e.g. fennec fox) to increase surface area for heat loss / animals have concentrated urine to conserve water",
+          "commandWord": "Explain"
+        },
+        {
+          "number": "07",
+          "text": "Study Figure 3, a photograph of a river meander.\n(a) Explain how a meander is formed. (3 marks)\n(b) Explain how an ox-bow lake forms from a meander. (2 marks)",
+          "marks": 5,
+          "topicId": "rivers",
+          "markScheme": "(a) M1 for water flows faster on the outside of a bend (due to greater velocity)\nM1 for erosion (lateral/hydraulic action/abrasion) occurs on the outer bank, forming a river cliff\nA1 for deposition occurs on the inner bank where the flow is slower, forming a slip-off slope\n(b) M1 for erosion narrows the neck of the meander until the river breaks through during a flood\nA1 for deposition seals off the old meander loop, leaving a crescent-shaped ox-bow lake",
+          "commandWord": "Explain"
+        },
+        {
+          "number": "08",
+          "text": "Explain how wave-cut platforms are formed at the coast. (4 marks)",
+          "marks": 4,
+          "topicId": "coasts",
+          "markScheme": "M1 for waves attack the base of a cliff through erosion processes such as hydraulic action and abrasion\nM1 for a wave-cut notch is eroded at the base of the cliff\nM1 for the cliff above is left unsupported and eventually collapses\nA1 for this process repeats, and the cliff retreats, leaving a gently sloping wave-cut platform at the base",
+          "commandWord": "Explain"
+        }
+      ]
+    }
+  ]
+}

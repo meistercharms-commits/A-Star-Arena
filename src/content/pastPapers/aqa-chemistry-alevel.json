@@ -1,0 +1,214 @@
+{
+  "board": "ocr",
+  "subject": "chemistry",
+  "level": "alevel",
+  "spec": "H433",
+  "papers": [
+    {
+      "id": "ocr-chem-2023-p1",
+      "year": 2023,
+      "paper": 1,
+      "title": "OCR B (Salters) A-Level Chemistry Paper 1 2023",
+      "sourceUrl": "https://www.ocr.org.uk/qualifications/as-and-a-level/chemistry-b-salters-h033-h433/assessment/",
+      "totalMarks": 37,
+      "duration": "2 hours 15 minutes",
+      "questions": [
+        {
+          "number": "01.1",
+          "text": "Lithium, sodium and potassium are elements in Group 1 of the periodic table.\n\nState how the atomic radius changes going down Group 1 from lithium to potassium. Explain your answer in terms of electron configuration.",
+          "marks": 3,
+          "topicId": "elements_of_life",
+          "markScheme": "1. Atomic radius increases (1)\n2. Each successive element has an additional electron shell / energy level (1)\n3. The outer electron is further from the nucleus and experiences greater shielding from inner electrons (1)",
+          "commandWord": "State"
+        },
+        {
+          "number": "01.2",
+          "text": "Magnesium is an essential element found in chlorophyll. A sample of magnesium was analysed by mass spectrometry and found to contain three isotopes: ²⁴Mg (78.99%), ²⁵Mg (10.00%) and ²⁶Mg (11.01%).\n\nCalculate the relative atomic mass of magnesium in this sample. Give your answer to two decimal places.",
+          "marks": 2,
+          "topicId": "elements_of_life",
+          "markScheme": "1. Ar = (24 × 78.99 + 25 × 10.00 + 26 × 11.01) / 100 (1)\n2. Ar = (1895.76 + 250.00 + 286.26) / 100 = 2432.02 / 100 = 24.32 (1)",
+          "commandWord": "Calculate"
+        },
+        {
+          "number": "02.1",
+          "text": "Alkanes are used as fuels. When propane burns completely in an excess of oxygen, carbon dioxide and water are produced.\n\nWrite a balanced equation for the complete combustion of propane, C₃H₈.",
+          "marks": 1,
+          "topicId": "developing_fuels",
+          "markScheme": "C₃H₈ + 5O₂ → 3CO₂ + 4H₂O (1)\nAccept multiples.",
+          "commandWord": "Write"
+        },
+        {
+          "number": "02.2",
+          "text": "A student carried out an experiment to determine the enthalpy of combustion of propan-1-ol using a simple calorimeter. The student burned 0.85 g of propan-1-ol and heated 150 cm³ of water. The temperature of the water increased by 18.5°C.\n\nThe specific heat capacity of water is 4.18 J g⁻¹ K⁻¹. The molar mass of propan-1-ol is 60.1 g mol⁻¹.\n\nCalculate the enthalpy of combustion of propan-1-ol from these experimental results. Give your answer in kJ mol⁻¹.",
+          "marks": 3,
+          "topicId": "developing_fuels",
+          "markScheme": "1. q = mcΔT = 150 × 4.18 × 18.5 = 11,599.5 J (1)\n2. Moles of propan-1-ol = 0.85 / 60.1 = 0.01414 mol (1)\n3. ΔH = -11,599.5 / 0.01414 = -820.3 kJ mol⁻¹ (accept -820 to -821) (1)\nNegative sign required for final mark.",
+          "commandWord": "Calculate"
+        },
+        {
+          "number": "02.3",
+          "text": "The data book value for the enthalpy of combustion of propan-1-ol is -2021 kJ mol⁻¹.\n\nSuggest two reasons why the student's experimental value is less exothermic than the data book value.",
+          "marks": 2,
+          "topicId": "developing_fuels",
+          "markScheme": "Any two from:\n1. Heat is lost to the surroundings / not all heat is transferred to the water (1)\n2. Incomplete combustion of the propan-1-ol (1)\n3. Some of the propan-1-ol may have evaporated before combustion (1)\n4. Heat absorbed by the calorimeter / container is not accounted for (1)",
+          "commandWord": "Suggest"
+        },
+        {
+          "number": "03.1",
+          "text": "Chlorine is extracted from seawater by the electrolysis of brine.\n\nWrite the half-equation for the reaction occurring at the anode during the electrolysis of brine.",
+          "marks": 1,
+          "topicId": "elements_from_sea",
+          "markScheme": "2Cl⁻ → Cl₂ + 2e⁻ (1)",
+          "commandWord": "Write"
+        },
+        {
+          "number": "03.2",
+          "text": "Chlorine reacts with water in a disproportionation reaction.\n\nExplain what is meant by a disproportionation reaction, using the reaction of chlorine with water as an example. Include the relevant equation and oxidation states in your answer.",
+          "marks": 4,
+          "topicId": "elements_from_sea",
+          "markScheme": "1. Disproportionation is when the same element is simultaneously oxidised and reduced / an element in a single species is converted to two different oxidation states (1)\n2. Cl₂ + H₂O → HClO + HCl (1)\n3. Chlorine in Cl₂ has an oxidation state of 0 (1)\n4. In HClO, chlorine is +1 (oxidised) and in HCl, chlorine is -1 (reduced) (1)",
+          "commandWord": "Explain"
+        },
+        {
+          "number": "04.1",
+          "text": "Ozone in the stratosphere absorbs ultraviolet radiation, protecting life on Earth.\n\nDescribe how ozone is formed and broken down in the stratosphere under natural conditions. Include relevant equations in your answer.",
+          "marks": 4,
+          "topicId": "ozone_story",
+          "markScheme": "Formation:\n1. UV radiation causes photodissociation of O₂: O₂ → 2O• (1)\n2. Oxygen radicals react with O₂ in the presence of a third body: O• + O₂ → O₃ (1)\n\nBreakdown:\n3. UV radiation causes photodissociation of O₃: O₃ → O₂ + O• (1)\n4. Ozone reacts with oxygen radicals: O₃ + O• → 2O₂ (1)",
+          "commandWord": "Describe"
+        },
+        {
+          "number": "04.2",
+          "text": "Chlorofluorocarbons (CFCs) have contributed to the depletion of the ozone layer.\n\nExplain how chlorine radicals from CFCs catalyse the decomposition of ozone. Include equations in your answer and explain why chlorine acts as a catalyst.",
+          "marks": 4,
+          "topicId": "ozone_story",
+          "markScheme": "1. UV radiation breaks the C-Cl bond in the CFC, producing a chlorine radical: CFCl₃ → CFCl₂• + Cl• (1)\n2. The chlorine radical reacts with ozone: Cl• + O₃ → ClO• + O₂ (1)\n3. The chlorine monoxide radical reacts with another ozone molecule or oxygen radical: ClO• + O• → Cl• + O₂ (1)\n4. Chlorine is a catalyst because it is regenerated at the end of the reaction and is not used up / it provides an alternative reaction pathway with a lower activation energy (1)",
+          "commandWord": "Explain"
+        },
+        {
+          "number": "05.1",
+          "text": "Aspirin (2-acetoxybenzoic acid) is a widely used medicine.\n\nDescribe a chemical test that could be used to confirm the presence of a carboxylic acid functional group in aspirin. State the reagent used, the procedure and the expected observation.",
+          "marks": 3,
+          "topicId": "whats_in_medicine",
+          "markScheme": "1. Add sodium carbonate solution / Na₂CO₃ (aq) to a sample of aspirin (1)\n2. Effervescence / bubbling is observed (1)\n3. The gas produced turns limewater milky, confirming CO₂ is produced / confirming the presence of a carboxylic acid (1)\nAccept sodium hydrogen carbonate as alternative reagent.",
+          "commandWord": "Describe"
+        },
+        {
+          "number": "06.1",
+          "text": "In the chemical industry, the Haber process is used to manufacture ammonia.\n\nN₂(g) + 3H₂(g) ⇌ 2NH₃(g)  ΔH = -92 kJ mol⁻¹\n\nThe industrial conditions used are a temperature of 450°C, a pressure of 200 atm and an iron catalyst.\n\nExplain why a compromise temperature of 450°C is used rather than a lower temperature, even though a lower temperature would give a higher equilibrium yield.",
+          "marks": 4,
+          "topicId": "chemical_industry",
+          "markScheme": "1. The forward reaction is exothermic, so a lower temperature would shift the equilibrium to the right and increase the yield of ammonia (1)\n2. However, at a lower temperature the rate of reaction would be too slow (1)\n3. Because fewer molecules have energy greater than or equal to the activation energy (1)\n4. The compromise of 450°C gives a reasonable yield at an acceptable rate, making the process economically viable (1)",
+          "commandWord": "Explain"
+        },
+        {
+          "number": "07.1",
+          "text": "Evaluate the environmental impact of using hydrogen as a fuel compared with using petrol.\n\nIn your answer consider the production, storage and combustion of each fuel.",
+          "marks": 6,
+          "topicId": "developing_fuels",
+          "markScheme": "Hydrogen advantages (max 3):\n1. Combustion of hydrogen produces only water, so no CO₂ emissions at point of use (1)\n2. No particulates or SO₂ produced during combustion (1)\n3. Can be produced from renewable sources by electrolysis of water using solar/wind energy (1)\n\nHydrogen disadvantages / petrol comparison (max 3):\n4. Most hydrogen is currently produced from fossil fuels by steam reforming of methane, which produces CO₂ (1)\n5. Hydrogen is difficult to store safely as it is a very low-density gas and requires high-pressure tanks or cryogenic storage (1)\n6. Producing hydrogen by electrolysis is energy-intensive and the overall carbon footprint depends on the electricity source (1)\n\nPetrol comparison:\n7. Petrol has higher energy density by volume, making it easier to store and transport (1)\n8. Petrol combustion produces CO₂, contributing to climate change, and may produce CO, NOx and particulates (1)\n\nQuality of written communication:\nClear, balanced evaluation covering both fuels for full marks.",
+          "commandWord": "Evaluate"
+        }
+      ]
+    },
+    {
+      "id": "ocr-chem-2023-p2",
+      "year": 2023,
+      "paper": 2,
+      "title": "OCR B (Salters) A-Level Chemistry Paper 2 2023",
+      "sourceUrl": "https://www.ocr.org.uk/qualifications/as-and-a-level/chemistry-b-salters-h033-h433/assessment/",
+      "totalMarks": 31,
+      "duration": "2 hours 15 minutes",
+      "questions": [
+        {
+          "number": "01.1",
+          "text": "Amino acids are the monomers of proteins. Glycine has the molecular formula C₂H₅NO₂.\n\nDraw the structure of glycine as it would exist at pH 7 (as a zwitterion).",
+          "marks": 1,
+          "topicId": "polymers_and_life",
+          "markScheme": "Correct zwitterion structure showing NH₃⁺ and COO⁻ groups with -H as the R group (1)",
+          "commandWord": "Draw"
+        },
+        {
+          "number": "01.2",
+          "text": "Proteins can be broken down into their constituent amino acids by hydrolysis.\n\nDescribe the conditions needed for the acid hydrolysis of a protein in the laboratory.",
+          "marks": 2,
+          "topicId": "polymers_and_life",
+          "markScheme": "1. Heat / reflux with concentrated hydrochloric acid / 6 mol dm⁻³ HCl (1)\n2. For approximately 24 hours / prolonged heating (1)",
+          "commandWord": "Describe"
+        },
+        {
+          "number": "01.3",
+          "text": "A tripeptide is formed from three amino acid molecules.\n\nExplain why the formation of a tripeptide from three amino acids produces two molecules of water.",
+          "marks": 2,
+          "topicId": "polymers_and_life",
+          "markScheme": "1. A peptide bond forms between the amine group of one amino acid and the carboxyl group of another (1)\n2. Two peptide bonds are formed to join three amino acids, and each condensation reaction releases one molecule of water (1)",
+          "commandWord": "Explain"
+        },
+        {
+          "number": "02.1",
+          "text": "The concentration of dissolved carbon dioxide in the oceans affects the pH of seawater.\n\nWrite an equation to show how carbon dioxide reacts with water to form carbonic acid.",
+          "marks": 1,
+          "topicId": "oceans",
+          "markScheme": "CO₂(g) + H₂O(l) → H₂CO₃(aq) (1)\nAccept equilibrium arrow.",
+          "commandWord": "Write"
+        },
+        {
+          "number": "02.2",
+          "text": "Increasing levels of atmospheric CO₂ are causing ocean acidification. The current average ocean pH has decreased from approximately 8.2 to 8.1 over the past century.\n\nCalculate the factor by which the hydrogen ion concentration has changed. Show your working.",
+          "marks": 3,
+          "topicId": "oceans",
+          "markScheme": "1. [H⁺] at pH 8.2 = 10⁻⁸·² = 6.31 × 10⁻⁹ mol dm⁻³ (1)\n2. [H⁺] at pH 8.1 = 10⁻⁸·¹ = 7.94 × 10⁻⁹ mol dm⁻³ (1)\n3. Factor = 7.94 × 10⁻⁹ / 6.31 × 10⁻⁹ = 1.26 (accept 1.25 to 1.26) / hydrogen ion concentration has increased by a factor of approximately 1.26 (1)",
+          "commandWord": "Calculate"
+        },
+        {
+          "number": "02.3",
+          "text": "Explain how ocean acidification affects organisms that have shells made of calcium carbonate.",
+          "marks": 3,
+          "topicId": "oceans",
+          "markScheme": "1. Calcium carbonate reacts with / dissolves in the more acidic water: CaCO₃ + 2H⁺ → Ca²⁺ + H₂O + CO₂ (1)\n2. The shells become thinner / weaker / dissolve (1)\n3. Organisms cannot build or maintain their shells as the concentration of carbonate ions decreases / the equilibrium shifts to dissolve more CaCO₃ (1)",
+          "commandWord": "Explain"
+        },
+        {
+          "number": "03.1",
+          "text": "Transition metals and their compounds are used as catalysts in many industrial processes.\n\nExplain, in terms of electronic structure, why transition metals can act as effective catalysts.",
+          "marks": 3,
+          "topicId": "developing_metals",
+          "markScheme": "1. Transition metals have partially filled d orbitals / can use d electrons (1)\n2. They can change oxidation state, allowing them to form intermediates with reactants (1)\n3. They can provide a surface on which reactants can adsorb and be brought into close proximity / lower the activation energy by providing an alternative reaction pathway (1)",
+          "commandWord": "Explain"
+        },
+        {
+          "number": "03.2",
+          "text": "Iron exists as Fe²⁺ and Fe³⁺ ions in aqueous solution.\n\nWrite the electron configuration of Fe²⁺ and Fe³⁺. State which ion is more stable and explain why.",
+          "marks": 3,
+          "topicId": "developing_metals",
+          "markScheme": "1. Fe²⁺: [Ar] 3d⁶ and Fe³⁺: [Ar] 3d⁵ (1)\n2. Fe³⁺ is more stable (1)\n3. Fe³⁺ has a half-filled 3d subshell, which has extra stability due to the symmetrical distribution of electrons / exchange energy stabilisation (1)",
+          "commandWord": "Write"
+        },
+        {
+          "number": "04.1",
+          "text": "Azo dyes are coloured compounds used in the textile industry. They are synthesised in two steps: diazotisation followed by a coupling reaction.\n\nDescribe the conditions needed for the diazotisation of phenylamine (aniline) and write the equation for this reaction.",
+          "marks": 4,
+          "topicId": "colour_by_design",
+          "markScheme": "1. Phenylamine is dissolved in hydrochloric acid (1)\n2. Sodium nitrite solution / NaNO₂(aq) is added at a temperature below 10°C / in an ice bath (1)\n3. The temperature must be kept below 10°C to prevent decomposition of the diazonium salt (1)\n4. C₆H₅NH₂ + HNO₂ + HCl → C₆H₅N₂⁺Cl⁻ + 2H₂O (1)",
+          "commandWord": "Describe"
+        },
+        {
+          "number": "04.2",
+          "text": "Explain why azo dyes are coloured, with reference to their molecular structure and the interaction with visible light.",
+          "marks": 3,
+          "topicId": "colour_by_design",
+          "markScheme": "1. Azo dyes contain an extended system of conjugated double bonds / delocalised electrons including the -N=N- azo group (1)\n2. The delocalised electrons can absorb specific wavelengths / frequencies of visible light, promoting electrons to higher energy levels (1)\n3. The colour observed is the complementary colour to the wavelength absorbed (1)",
+          "commandWord": "Explain"
+        },
+        {
+          "number": "05.1",
+          "text": "Evaluate the use of biodegradable polymers as a replacement for traditional plastics derived from crude oil.\n\nIn your answer, consider environmental, economic and practical factors.",
+          "marks": 6,
+          "topicId": "polymers_and_life",
+          "markScheme": "Advantages (max 3):\n1. Biodegradable polymers can be broken down by microorganisms, reducing landfill waste (1)\n2. They can be made from renewable plant-based sources, reducing dependence on crude oil / fossil fuels (1)\n3. Their production may have a lower carbon footprint if made from crops that absorb CO₂ during growth (1)\n4. They reduce the problem of persistent plastic pollution in oceans and ecosystems (1)\n\nDisadvantages / limitations (max 3):\n5. Currently more expensive to produce than traditional plastics (1)\n6. May require specific conditions (industrial composting facilities) to biodegrade effectively; they may not degrade in landfill or ocean environments (1)\n7. Growing crops for bioplastics competes with food production for land and water (1)\n8. Mechanical properties may not match traditional plastics for all applications / may have shorter shelf life (1)\n\nQuality of written communication:\nBalanced evaluation with clear reasoning for full marks.",
+          "commandWord": "Evaluate"
+        }
+      ]
+    }
+  ]
+}

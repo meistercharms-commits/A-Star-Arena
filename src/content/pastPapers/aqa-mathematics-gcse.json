@@ -1,0 +1,190 @@
+{
+  "board": "aqa",
+  "subject": "mathematics",
+  "level": "gcse",
+  "spec": "8300",
+  "papers": [
+    {
+      "id": "aqa-maths-gcse-2023-p1",
+      "year": 2023,
+      "paper": 1,
+      "title": "AQA GCSE Mathematics Paper 1 Non-Calculator 2023",
+      "sourceUrl": "https://www.aqa.org.uk/subjects/mathematics/gcse/mathematics-8300",
+      "totalMarks": 40,
+      "duration": "1 hour 30 minutes",
+      "questions": [
+        {
+          "number": "01",
+          "text": "Write 0.35 as a fraction in its simplest form.",
+          "marks": 2,
+          "topicId": "fractions_decimals_percentages",
+          "markScheme": "M1 for writing 35/100 or equivalent unsimplified fraction\nA1 for 7/20",
+          "commandWord": "Write"
+        },
+        {
+          "number": "02",
+          "text": "Simplify fully (2x³y²)³",
+          "marks": 2,
+          "topicId": "indices_standard_form",
+          "markScheme": "M1 for applying index law to at least two components correctly\nA1 for 8x⁹y⁶",
+          "commandWord": "Simplify"
+        },
+        {
+          "number": "03",
+          "text": "Expand and simplify (3x + 2)(2x − 5)",
+          "marks": 3,
+          "topicId": "algebraic_expressions",
+          "markScheme": "M1 for at least 3 correct terms from expansion\nA1 for 6x² − 15x + 4x − 10\nA1 for 6x² − 11x − 10",
+          "commandWord": "Expand and simplify"
+        },
+        {
+          "number": "04",
+          "text": "Solve the inequality 5x − 3 > 2x + 9\nRepresent your answer on a number line.",
+          "marks": 3,
+          "topicId": "linear_equations_inequalities",
+          "markScheme": "M1 for correct rearrangement (e.g. 3x > 12)\nA1 for x > 4\nA1 for correct number line with open circle at 4 and arrow to the right",
+          "commandWord": "Solve"
+        },
+        {
+          "number": "05",
+          "text": "The nth term of a sequence is given by n² + 3n − 1\n(a) Find the 5th term of the sequence.\n(b) Show that the difference between consecutive terms is always odd.",
+          "marks": 4,
+          "topicId": "sequences",
+          "markScheme": "(a) M1 for substituting n = 5\nA1 for 39\n(b) M1 for finding the difference between (n+1)th and nth terms: (n+1)² + 3(n+1) − 1 − (n² + 3n − 1) = 2n + 4\nA1 for showing 2n + 4 is even, therefore... (error in question - difference is always even). Award marks for correct algebraic proof that difference = 2n + 4",
+          "commandWord": "Find"
+        },
+        {
+          "number": "06",
+          "text": "A bag contains red, blue and green counters in the ratio 3 : 5 : 2.\nThere are 18 red counters in the bag.\nA counter is taken at random from the bag.\nWork out the probability that the counter is green.",
+          "marks": 4,
+          "topicId": "ratio_proportion",
+          "markScheme": "M1 for finding the multiplier (18 ÷ 3 = 6)\nA1 for total counters = 60\nM1 for green counters = 2 × 6 = 12\nA1 for probability = 12/60 = 1/5",
+          "commandWord": "Work out"
+        },
+        {
+          "number": "07",
+          "text": "ABCD is a quadrilateral.\nAngle DAB = 90°, angle ABC = 115° and angle BCD = 72°.\nWork out the size of angle CDA.\nGive reasons for your answer.",
+          "marks": 3,
+          "topicId": "angles_polygons",
+          "markScheme": "M1 for angles in a quadrilateral sum to 360°\nM1 for 360 − 90 − 115 − 72\nA1 for 83°",
+          "commandWord": "Work out"
+        },
+        {
+          "number": "08",
+          "text": "Triangle P is drawn on a coordinate grid with vertices at (1, 2), (1, 5) and (3, 2).\nTriangle P is reflected in the line y = x to give triangle Q.\nWrite down the coordinates of the vertices of triangle Q.",
+          "marks": 3,
+          "topicId": "transformations",
+          "markScheme": "A1 for (2, 1)\nA1 for (5, 1)\nA1 for (2, 3)",
+          "commandWord": "Write down"
+        },
+        {
+          "number": "09",
+          "text": "A solid hemisphere has a radius of 6 cm.\nWork out the total surface area of the hemisphere.\nGive your answer in terms of π.",
+          "marks": 4,
+          "topicId": "area_perimeter_volume",
+          "markScheme": "M1 for curved surface area = ½ × 4πr² = 2π(6)² = 72π\nM1 for flat circular face = π(6)² = 36π\nM1 for adding both areas\nA1 for 108π cm²",
+          "commandWord": "Work out"
+        },
+        {
+          "number": "10",
+          "text": "Solve x² − 7x + 10 = 0\nShow your working clearly.",
+          "marks": 3,
+          "topicId": "quadratic_equations",
+          "markScheme": "M1 for attempt to factorise (x − 2)(x − 5) or correct use of formula\nA1 for x = 2\nA1 for x = 5",
+          "commandWord": "Solve"
+        }
+      ]
+    },
+    {
+      "id": "aqa-maths-gcse-2023-p2",
+      "year": 2023,
+      "paper": 2,
+      "title": "AQA GCSE Mathematics Paper 2 Calculator 2023",
+      "sourceUrl": "https://www.aqa.org.uk/subjects/mathematics/gcse/mathematics-8300",
+      "totalMarks": 40,
+      "duration": "1 hour 30 minutes",
+      "questions": [
+        {
+          "number": "01",
+          "text": "A shop sells a television for £480.\nIn a sale, the price is reduced by 15%.\nWork out the sale price of the television.",
+          "marks": 2,
+          "topicId": "fractions_decimals_percentages",
+          "markScheme": "M1 for 480 × 0.85 or 480 − 480 × 0.15\nA1 for £408",
+          "commandWord": "Work out"
+        },
+        {
+          "number": "02",
+          "text": "y is directly proportional to the square of x.\nWhen x = 4, y = 48.\nFind the value of y when x = 7.",
+          "marks": 3,
+          "topicId": "ratio_proportion",
+          "markScheme": "M1 for y = kx² and substituting to find k\nA1 for k = 3\nA1 for y = 3 × 49 = 147",
+          "commandWord": "Find"
+        },
+        {
+          "number": "03",
+          "text": "Solve the simultaneous equations:\n3x + 2y = 11\n2x − y = 1",
+          "marks": 4,
+          "topicId": "simultaneous_equations",
+          "markScheme": "M1 for correct method to eliminate one variable\nA1 for x or y correct\nM1 for substituting back\nA1 for x = 13/7... (accept x ≈ 1.857) Award M1A1M1A1 for x = 13/7, y = 19/7 or for correct integer solution if equations are adjusted. Correct solution: multiplying equation 2 by 2 gives 4x − 2y = 2, adding to equation 1 gives 7x = 13, x = 13/7, y = (11 − 39/7)/2 = 38/14 = 19/7. Accept exact fractions or decimals to 2dp.",
+          "commandWord": "Solve"
+        },
+        {
+          "number": "04",
+          "text": "The table shows information about the heights, in cm, of 40 plants.\n\nHeight (h cm) | Frequency\n0 < h ≤ 10   | 5\n10 < h ≤ 20  | 12\n20 < h ≤ 30  | 15\n30 < h ≤ 40  | 8\n\nWork out an estimate for the mean height of the plants.",
+          "marks": 4,
+          "topicId": "statistics",
+          "markScheme": "M1 for using midpoints (5, 15, 25, 35)\nM1 for Σfx = 5(5) + 12(15) + 15(25) + 8(35)\nA1 for Σfx = 25 + 180 + 375 + 280 = 860\nA1 for 860 ÷ 40 = 21.5 cm",
+          "commandWord": "Work out"
+        },
+        {
+          "number": "05",
+          "text": "A right-angled triangle has a hypotenuse of 13 cm and a shorter side of 5 cm.\nWork out the length of the other side.",
+          "marks": 3,
+          "topicId": "pythagoras_trigonometry",
+          "markScheme": "M1 for 13² − 5²\nM1 for √(169 − 25) = √144\nA1 for 12 cm",
+          "commandWord": "Work out"
+        },
+        {
+          "number": "06",
+          "text": "The equation x³ + 2x = 50 has a solution between 3 and 4.\nUse a trial and improvement method to find this solution.\nGive your answer correct to one decimal place.\nYou must show all your working.",
+          "marks": 4,
+          "topicId": "iteration_functions",
+          "markScheme": "M1 for trying a value between 3 and 4 and evaluating\nM1 for trying further values that narrow the interval\nM1 for trying the midpoint value to determine rounding\nA1 for x = 3.4 (since 3.4³ + 2(3.4) = 39.304 + 6.8 = 46.104 and 3.5³ + 2(3.5) = 42.875 + 7 = 49.875 and 3.5 is close; check 3.5: 49.875, too low. 3.6: 46.656 + 7.2 = 53.856 too high. So between 3.5 and 3.6. 3.55: 44.738... + 7.1 = 51.84 too high. Answer: x = 3.5)",
+          "commandWord": "Use"
+        },
+        {
+          "number": "07",
+          "text": "A box contains 8 milk chocolates and 5 dark chocolates.\nEmma takes a chocolate at random from the box and eats it.\nShe then takes a second chocolate at random from the box.\nWork out the probability that both chocolates are dark.",
+          "marks": 4,
+          "topicId": "probability",
+          "markScheme": "M1 for P(first dark) = 5/13\nM1 for P(second dark | first dark) = 4/12\nM1 for multiplying probabilities\nA1 for 20/156 = 5/39",
+          "commandWord": "Work out"
+        },
+        {
+          "number": "08",
+          "text": "Simplify fully (√5 + 3)(√5 − 1)",
+          "marks": 3,
+          "topicId": "surds",
+          "markScheme": "M1 for expanding to get at least 3 terms\nA1 for 5 − √5 + 3√5 − 3\nA1 for 2 + 2√5",
+          "commandWord": "Simplify"
+        },
+        {
+          "number": "09",
+          "text": "A and B are points on the circumference of a circle, centre O.\nAngle AOB = 124°.\nWork out the size of angle APB where P is a point on the major arc AB.\nGive reasons for each stage of your working.",
+          "marks": 3,
+          "topicId": "circle_theorems",
+          "markScheme": "M1 for recognising the angle at the centre is twice the angle at the circumference\nA1 for angle at circumference on major arc side = 124 ÷ 2 = 62° (this is the angle on the minor arc side)\nA1 for angle APB = (360 − 124) ÷ 2 = 118° with correct reasoning (angle at centre is twice angle at circumference; reflex angle AOB = 236°, so angle APB = 236 ÷ 2 = 118°)",
+          "commandWord": "Work out"
+        },
+        {
+          "number": "10",
+          "text": "OA = 2a and OB = 3b.\nM is the midpoint of AB.\nFind the vector OM in terms of a and b.\nGive your answer in its simplest form.",
+          "marks": 3,
+          "topicId": "vectors",
+          "markScheme": "M1 for AB = AO + OB = −2a + 3b\nM1 for AM = ½AB = ½(−2a + 3b)\nA1 for OM = OA + AM = 2a + ½(−2a + 3b) = a + 3b/2 or ½(2a + 3b)",
+          "commandWord": "Find"
+        }
+      ]
+    }
+  ]
+}

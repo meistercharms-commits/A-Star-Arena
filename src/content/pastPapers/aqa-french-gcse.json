@@ -1,0 +1,83 @@
+{
+  "board": "aqa",
+  "subject": "french",
+  "level": "gcse",
+  "spec": "8652",
+  "papers": [
+    {
+      "id": "aqa-french-gcse-2023-reading",
+      "year": 2023,
+      "paper": 3,
+      "title": "AQA GCSE French Reading Paper 2023",
+      "sourceUrl": "https://www.aqa.org.uk/subjects/languages/gcse/french-8652",
+      "totalMarks": 30,
+      "duration": "45 minutes",
+      "questions": [
+        {
+          "number": "01",
+          "text": "Read the following text about school life.\n\n'Mon collège est assez grand. Il y a environ huit cents élèves. Ma matière préférée, c'est les sciences parce que le professeur est très amusant. Cependant, je n'aime pas les maths car c'est trop difficile.'\n\nAnswer the following questions in English.\n(a) How many pupils are there approximately at the school? (1 mark)\n(b) Why does the student like science? (1 mark)\n(c) What is the student's opinion of maths? (1 mark)",
+          "marks": 3,
+          "topicId": "school_education",
+          "markScheme": "(a) A1 for 800 / eight hundred\n(b) A1 for the teacher is very funny/amusing\n(c) A1 for they don't like it because it is too difficult/hard",
+          "commandWord": "Answer"
+        },
+        {
+          "number": "02",
+          "text": "Read what these young people say about their families.\n\nPerson A: 'Je suis fils unique. Parfois c'est ennuyeux parce que je n'ai personne avec qui jouer à la maison.'\n\nPerson B: 'J'ai deux sœurs aînées. Elles m'aident toujours avec mes devoirs.'\n\nPerson C: 'Mes parents sont divorcés. J'habite avec ma mère pendant la semaine et avec mon père le week-end.'\n\nWho says the following? Write A, B or C.\n(a) My sisters help me with my homework. (1 mark)\n(b) I live with my mother during the week. (1 mark)\n(c) Being an only child can be boring. (1 mark)",
+          "marks": 3,
+          "topicId": "family_friends",
+          "markScheme": "(a) A1 for B\n(b) A1 for C\n(c) A1 for A",
+          "commandWord": "Write"
+        },
+        {
+          "number": "03",
+          "text": "Read the following passage about a town.\n\n'J'habite dans une petite ville dans le sud de la France. Il y a beaucoup de choses à faire pour les jeunes. Le week-end, on peut aller au cinéma ou visiter le centre sportif. Le seul problème, c'est qu'il n'y a pas assez de transports en commun. Pour aller au centre-ville, il faut prendre la voiture.'\n\n(a) Where does the person live? (1 mark)\n(b) Name two activities available at the weekend. (2 marks)\n(c) What is the one problem mentioned? (1 mark)\n(d) How do they get to the town centre? (1 mark)",
+          "marks": 5,
+          "topicId": "town_local_area",
+          "markScheme": "(a) A1 for a small town in the south of France\n(b) A1 for go to the cinema\nA1 for visit the sports centre\n(c) A1 for there is not enough public transport\n(d) A1 for by car",
+          "commandWord": "Answer"
+        },
+        {
+          "number": "04",
+          "text": "Read the following extract about a holiday.\n\n'L'été dernier, je suis allé en Espagne avec ma famille. Nous avons pris l'avion de Paris à Barcelone. L'hôtel était magnifique et la piscine était énorme. Le premier jour, nous avons visité la plage. Il faisait très chaud, donc nous avons mangé des glaces. Le soir, on a mangé dans un restaurant espagnol. J'ai goûté la paella pour la première fois. C'était délicieux! L'année prochaine, j'aimerais retourner en Espagne.'\n\nAnswer the following questions in English.\n(a) How did the family travel to Barcelona? (1 mark)\n(b) Give two positive things about the hotel. (2 marks)\n(c) Why did they eat ice cream? (1 mark)\n(d) What did the writer try for the first time? (1 mark)\n(e) What does the writer want to do next year? (1 mark)",
+          "marks": 6,
+          "topicId": "holidays_travel",
+          "markScheme": "(a) A1 for by plane/they flew\n(b) A1 for the hotel was magnificent/wonderful\nA1 for the pool was enormous/huge\n(c) A1 for it was very hot\n(d) A1 for paella\n(e) A1 for return to Spain / go back to Spain",
+          "commandWord": "Answer"
+        },
+        {
+          "number": "05",
+          "text": "Read the following text about free time.\n\n'Pendant mon temps libre, j'adore lire des bandes dessinées et écouter de la musique. Le samedi, je joue au football avec mes amis au parc. Après le match, on va souvent au café pour boire un chocolat chaud. Quand il pleut, je reste à la maison et je joue aux jeux vidéo. Mes parents pensent que je passe trop de temps devant l'écran, mais moi, je ne suis pas d'accord.'\n\nComplete the following sentences.\n(a) In their free time, the writer loves reading _______ and listening to _______. (2 marks)\n(b) After football, they often go to a _______ to drink _______. (2 marks)\n(c) The writer's parents think _______. (1 mark)",
+          "marks": 5,
+          "topicId": "free_time",
+          "markScheme": "(a) A1 for comic books / comics / graphic novels\nA1 for music\n(b) A1 for café\nA1 for hot chocolate\n(c) A1 for they spend too much time in front of the screen",
+          "commandWord": "Complete"
+        },
+        {
+          "number": "06",
+          "text": "Read the following text about cultural traditions.\n\n'En France, le 14 juillet est un jour très important. C'est la fête nationale. Dans toutes les villes, il y a des feux d'artifice et des défilés militaires. Les gens dansent dans les rues et les familles se réunissent pour un grand repas. Pour beaucoup de Français, c'est aussi le début des grandes vacances.'\n\n(a) What date is described in the text? (1 mark)\n(b) Name two things that happen in towns on this day. (2 marks)\n(c) What does this day mark the beginning of for many French people? (1 mark)",
+          "marks": 4,
+          "topicId": "identity_culture",
+          "markScheme": "(a) A1 for 14th July / Bastille Day / the national holiday\n(b) A1 for fireworks\nA1 for military parades (also accept: people dance in the streets / families gather for a big meal)\n(c) A1 for the summer holidays / the big holidays",
+          "commandWord": "Answer"
+        },
+        {
+          "number": "07",
+          "text": "Translate the following passage into English.\n\n'Le mois dernier, ma sœur a commencé un nouveau travail dans un bureau au centre-ville. Elle se lève à six heures et demie chaque matin. Elle dit que ses collègues sont très gentils, mais le trajet est un peu long.'",
+          "marks": 4,
+          "topicId": "translation_skills",
+          "markScheme": "M1 for 'Last month, my sister started a new job in an office in the town centre.'\nA1 for 'She gets up at half past six every morning.'\nA1 for 'She says her colleagues are very kind/nice'\nA1 for 'but the journey/commute is a bit long.'",
+          "commandWord": "Translate"
+        },
+        {
+          "number": "08",
+          "text": "Read the text and answer the question.\n\n'Si je pouvais changer une chose dans mon collège, j'installerais une meilleure cantine. La nourriture n'est pas très bonne et il n'y a pas assez de choix pour les végétariens. De plus, il faudrait avoir plus de clubs après les cours, surtout un club de théâtre.'\n\nWhat two improvements would the writer make to their school? Give details. (3 marks)",
+          "marks": 3,
+          "topicId": "grammar_essentials",
+          "markScheme": "M1 for a better canteen: the food is not very good and there is not enough choice for vegetarians\nA1 for more after-school clubs\nA1 for specifically a drama/theatre club",
+          "commandWord": "Answer"
+        }
+      ]
+    }
+  ]
+}
