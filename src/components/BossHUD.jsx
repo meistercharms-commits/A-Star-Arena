@@ -37,7 +37,7 @@ export default function BossHUD({ boss, hp, maxHp, currentPhase, questionNum, to
         </span>
         <div className="flex-1 min-w-0">
           <h2 className="font-display text-xl truncate">{boss?.bossName || 'Unknown Boss'}</h2>
-          <p className="text-text-muted text-xs italic truncate">{boss?.flavourText}</p>
+          <p className="text-text-muted text-xs italic line-clamp-2">{boss?.flavourText}</p>
         </div>
         {isStudyMode && (
           <span className="text-xs bg-developing/10 text-developing border border-developing/30 px-2 py-0.5 rounded-lg font-medium shrink-0">
