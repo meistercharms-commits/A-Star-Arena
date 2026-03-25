@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link, Navigate } from 'react-router-dom';
 import { saveSettings, getSettings, hasSelectedLevel } from '../lib/storage';
 import { useLevel } from '../contexts/LevelContext';
 import { getSubjectsForLevel } from '../content/subjects';
@@ -12,13 +12,12 @@ export default function Onboarding() {
   const subjects = getSubjectsForLevel(level);
   const isGCSE = level === 'gcse';
 
+  const [step, setStep] = useState('welcome');
+
   // Redirect to level select if no level chosen
   if (!hasSelectedLevel()) {
-    navigate('/level-select', { replace: true });
-    return null;
+    return <Navigate to="/level-select" replace />;
   }
-
-  const [step, setStep] = useState('welcome');
 
   // Build default exam boards for current level's subjects
   const defaultBoards = {};
