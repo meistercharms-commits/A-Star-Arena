@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useSubject } from '../contexts/SubjectContext';
 import { useLevel } from '../contexts/LevelContext';
@@ -8,13 +9,17 @@ import { getLevelMeta } from '../lib/qualificationLevel';
 import { LogoLockup, ShieldIcon } from './Logo';
 import CreditBadge from './CreditBadge';
 
-const navItems = [
+const primaryNavItems = [
   { path: '/', label: 'Home', icon: '⚡' },
   { path: '/topics', label: 'Topics', icon: '📚' },
-  { path: '/exams', label: 'Exams', icon: '📅' },
+  { path: '/history', label: 'Progress', icon: '📊' },
+];
+
+const moreNavItems = [
+  { path: '/exam-planner', label: 'Exams', icon: '📅' },
   { path: '/video-lesson', label: 'Video', icon: '🎬' },
   { path: '/exam', label: 'Timed', icon: '🎓' },
-  { path: '/history', label: 'History', icon: '📊' },
+  { path: '/mistakes', label: 'Mistakes', icon: '📝' },
   { path: '/credits', label: 'Credits', icon: '💎' },
   { path: '/settings', label: 'Settings', icon: '⚙️' },
 ];
@@ -25,12 +30,15 @@ export default function Layout({ children }) {
   const { level } = useLevel();
   const { theme, toggleTheme } = useTheme();
   const { user, isGuest, signOut: handleSignOut } = useAuth();
+  const [moreOpen, setMoreOpen] = useState(false);
 
   const levelMeta = getLevelMeta(level);
   const subjects = getSubjectsForLevel(level);
 
   // Disable subject switching on active battle/drill/exam pages
   const isInSession = /^\/(battle|drill|exam)/.test(location.pathname);
+
+  const allNavItems = [...primaryNavItems, ...moreNavItems];
 
   return (
     <div className="min-h-screen flex flex-col bg-bg-primary text-text-primary">
@@ -53,7 +61,7 @@ export default function Layout({ children }) {
           </div>
           <div className="flex items-center gap-2">
             <nav className="hidden md:flex gap-1" aria-label="Main navigation">
-              {navItems.map(item => (
+              {allNavItems.map(item => (
                 <Link
                   key={item.path}
                   to={item.path}
@@ -141,23 +149,51 @@ export default function Layout({ children }) {
       </main>
 
       {/* Mobile nav */}
-      <nav className="md:hidden border-t border-border bg-bg-secondary flex justify-around py-2 safe-area-bottom shadow-subtle" aria-label="Mobile navigation">
-        {navItems.map(item => (
-          <Link
-            key={item.path}
-            to={item.path}
-            aria-current={location.pathname === item.path ? 'page' : undefined}
-            className={`flex flex-col items-center gap-0.5 no-underline transition-colors ${
-              location.pathname === item.path
-                ? 'text-accent'
-                : 'text-text-secondary'
-            }`}
-          >
-            <span className="text-lg">{item.icon}</span>
-            <span className="text-label">{item.label}</span>
-          </Link>
-        ))}
+      <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-bg-secondary border-t border-border z-40" style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
+        <div className="flex justify-around py-2">
+          {primaryNavItems.map(item => (
+            <Link
+              key={item.path}
+              to={item.path}
+              className={`flex flex-col items-center gap-0.5 px-3 py-1 ${location.pathname === item.path ? 'text-accent' : 'text-text-muted'}`}
+            >
+              <span>{item.icon}</span>
+              <span className="text-label">{item.label}</span>
+            </Link>
+          ))}
+          <button onClick={() => setMoreOpen(true)} className="flex flex-col items-center gap-0.5 px-3 py-1 text-text-muted bg-transparent border-0 cursor-pointer">
+            <span>•••</span>
+            <span className="text-label">More</span>
+          </button>
+        </div>
       </nav>
+
+      {/* More drawer */}
+      {moreOpen && (
+        <>
+          <div className="fixed inset-0 bg-black/40 z-50" onClick={() => setMoreOpen(false)} />
+          <div className="fixed bottom-0 left-0 right-0 bg-bg-secondary border-t border-border rounded-t-2xl z-50 animate-slide-up" style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
+            <div className="flex justify-center py-2">
+              <div className="w-10 h-1 rounded-full bg-border" />
+            </div>
+            <nav className="grid grid-cols-3 gap-1 p-4 pt-0">
+              {moreNavItems.map(item => (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  onClick={() => setMoreOpen(false)}
+                  className={`flex flex-col items-center gap-1.5 py-3 rounded-xl no-underline transition-colors ${
+                    location.pathname === item.path ? 'bg-accent/10 text-accent' : 'text-text-secondary hover:bg-bg-tertiary'
+                  }`}
+                >
+                  <span className="text-xl">{item.icon}</span>
+                  <span className="text-xs">{item.label}</span>
+                </Link>
+              ))}
+            </nav>
+          </div>
+        </>
+      )}
     </div>
   );
 }

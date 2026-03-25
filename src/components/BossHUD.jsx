@@ -6,7 +6,7 @@ const PHASES = [
   { key: 'extended', label: 'Phase 3: Exam Brain' },
 ];
 
-export default function BossHUD({ boss, hp, maxHp, currentPhase, questionNum, totalQuestions, isStudyMode = false, streak = 0 }) {
+export default function BossHUD({ boss, hp, maxHp, currentPhase, questionNum, totalQuestions, isStudyMode = false, streak = 0, apiSource }) {
   const hpPercent = Math.max(0, (hp / maxHp) * 100);
   const hpColour = hpPercent > 50 ? boss?.hpBarColour || '#06b6d4' : hpPercent > 25 ? '#eab308' : '#ef4444';
   const prevHpRef = useRef(hp);
@@ -42,6 +42,11 @@ export default function BossHUD({ boss, hp, maxHp, currentPhase, questionNum, to
         {isStudyMode && (
           <span className="text-xs bg-developing/10 text-developing border border-developing/30 px-2 py-0.5 rounded-lg font-medium shrink-0">
             Study Mode
+          </span>
+        )}
+        {apiSource === 'mock' && (
+          <span className="text-xs px-2 py-0.5 rounded-lg" style={{ background: 'rgba(212,184,150,0.1)', color: 'var(--color-developing)', border: '0.5px solid rgba(212,184,150,0.3)' }}>
+            Offline Mode
           </span>
         )}
         {/* Floating damage number */}

@@ -224,6 +224,10 @@ export function getProgress() {
   });
 }
 
+export function isNewUser() {
+  return getProgress().totalSessions < 3;
+}
+
 export function updateProgress(xpEarned) {
   const progress = getProgress();
   const today = new Date().toISOString().split('T')[0];

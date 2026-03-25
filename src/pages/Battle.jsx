@@ -444,6 +444,7 @@ export default function Battle() {
         totalQuestions={totalQuestionsInPhase}
         isStudyMode={isStudyMode}
         streak={streak}
+        apiSource={apiSource}
       />
 
       {/* Perfect toast */}
@@ -500,6 +501,7 @@ export default function Battle() {
           phase={currentPhase}
           onNext={handleNext}
           isStudyMode={isStudyMode}
+          apiSource={apiSource}
           patternWarnings={
             currentResult && !currentResult.correct && currentResult.tags?.errorKeywords
               ? getPatternWarningsForAttempt(currentResult.tags.errorKeywords)

@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
+import { isNewUser } from '../lib/storage';
 
 export default function CreditBadge() {
   const { isGuest, userProfile, hasFirebase } = useAuth();
+
+  if (isNewUser()) return null;
 
   // Show Foundation badge for guests (with or without Firebase)
   if (isGuest || !userProfile) {
@@ -38,11 +41,6 @@ export default function CreditBadge() {
     );
   }
 
-  return (
-    <Link to="/credits" className="no-underline">
-      <span className="text-xs px-2 py-1 rounded-md bg-bg-tertiary text-text-secondary">
-        {freeRemaining}/5 · <span className="font-display italic">Foundation</span>
-      </span>
-    </Link>
-  );
+  // Foundation tier (no paid credits) — hide badge entirely
+  return null;
 }

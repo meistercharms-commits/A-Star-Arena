@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-export default function FeedbackPanel({ result, phase, onNext, isStudyMode = false, patternWarnings = [] }) {
+export default function FeedbackPanel({ result, phase, onNext, isStudyMode = false, apiSource, patternWarnings = [] }) {
   if (!result) return null;
   const nextBtnRef = useRef(null);
 
@@ -130,6 +130,12 @@ export default function FeedbackPanel({ result, phase, onNext, isStudyMode = fal
             {feedback.modelAnswer}
           </div>
         </details>
+      )}
+
+      {apiSource === 'mock' && (
+        <p className="text-xs text-text-muted italic mt-2">
+          Marked using keyword matching (offline mode). AI marking provides more detailed feedback.
+        </p>
       )}
 
       {/* Next button */}

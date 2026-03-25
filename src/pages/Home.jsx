@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { getSettings, getProgress, getLevelProgress, getRecentSessions, getStorageWarning, getExamBoard, getCurrentLevel, getUpcomingExams, getExamCountdown } from '../lib/storage';
+import { getSettings, getProgress, getLevelProgress, getRecentSessions, getExamBoard, getCurrentLevel, getUpcomingExams, getExamCountdown, isNewUser } from '../lib/storage';
 import { getMasteryCategory, formatDate } from '../lib/utils';
 import { getTodaysMission, getReviewSummary } from '../lib/recommend';
 import { getRecurringMistakes } from '../lib/errorPatterns';
@@ -19,8 +19,7 @@ export default function Home() {
   const progress = getProgress();
   const levelInfo = getLevelProgress();
   const recentSessions = getRecentSessions(5);
-  const storageWarning = getStorageWarning();
-  const [exportReminderDismissed, setExportReminderDismissed] = useState(false);
+  const newUser = isNewUser();
 
   const targetGrade = settings[`targetGrade_${level}`] || settings.targetGrade || levelMeta.defaultTargetGrade;
 
@@ -46,6 +45,56 @@ export default function Home() {
   const nearestExam = getNearestExamForSubject(upcomingExams, subjectId, level);
   const nearestCountdown = nearestExam ? getExamCountdown(nearestExam.date) : null;
   const examCoverage = nearestExam ? getExamCoverage(topics) : null;
+
+  if (newUser) {
+    return (
+      <div className="space-y-6">
+        <div>
+          <h1 className="font-display text-display">{greeting}</h1>
+          <p className="text-text-muted text-sm">
+            {getExamBoard(subjectId) !== 'generic' ? getExamBoard(subjectId).toUpperCase() + ' · ' : ''}
+            {levelMeta.shortLabel} · Target: {level === 'gcse' ? `Grade ${targetGrade}` : targetGrade}
+          </p>
+        </div>
+
+        {/* Today's Mission — prominent for new users */}
+        <div className="bg-bg-secondary border border-accent/30 rounded-xl p-8 shadow-card">
+          <div className="flex items-center gap-2 mb-3">
+            <span className="text-lg">🎯</span>
+            <h2 className="font-display text-title">Today's Mission</h2>
+          </div>
+          <div className="flex items-start gap-4">
+            <div className="flex-1">
+              <div className="flex items-center gap-2 mb-1">
+                <span className="text-xl">{mission.emoji}</span>
+                <h3 className="font-display text-lg">{mission.topicName}</h3>
+                <span className={`text-xs font-mono text-${mission.category.colour}`}>
+                  {mission.category.emoji} {mission.mastery.toFixed(2)}
+                </span>
+              </div>
+              <p className="text-text-secondary text-sm mb-3">{mission.reason}</p>
+              <div className="flex gap-2">
+                <Link
+                  to={`/battle/${mission.topicId}`}
+                  className="bg-accent hover:bg-accent-hover text-bg-primary font-ui text-button py-2 px-4 rounded-lg transition-colors no-underline shadow-button"
+                >
+                  Start Battle
+                </Link>
+                <Link
+                  to="/topics"
+                  className="bg-bg-tertiary hover:bg-border text-text-secondary py-2 px-4 rounded-lg text-sm transition-colors no-underline"
+                >
+                  Choose another
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <Link to="/topics" className="text-button bg-bg-tertiary text-text-secondary px-4 py-2.5 rounded-lg no-underline inline-block mt-2">Browse All Topics</Link>
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-6">
@@ -120,93 +169,44 @@ export default function Home() {
         </div>
       </div>
 
-      {/* SRS Review Summary — only show when there are topics due */}
+      {/* SRS Review Summary — collapsible */}
       {reviewSummary.total > 0 && (
-        <div className={`border rounded-xl p-4 flex items-start gap-3 shadow-card ${
-          reviewSummary.overdue > 0
-            ? 'bg-weak/5 border-weak/30'
-            : reviewSummary.dueToday > 0
-              ? 'bg-developing/5 border-developing/30'
-              : 'bg-accent/5 border-accent/30'
-        }`}>
-          <span className="text-lg">
-            {reviewSummary.overdue > 0 ? '🔴' : reviewSummary.dueToday > 0 ? '🟡' : '📅'}
-          </span>
-          <div className="flex-1">
-            <p className="text-sm font-medium">
-              {reviewSummary.overdue > 0 && (
-                <span className="text-weak">{reviewSummary.overdue} overdue</span>
-              )}
-              {reviewSummary.overdue > 0 && reviewSummary.dueToday > 0 && <span className="text-text-muted"> · </span>}
-              {reviewSummary.dueToday > 0 && (
-                <span className="text-developing">{reviewSummary.dueToday} due today</span>
-              )}
-              {(reviewSummary.overdue > 0 || reviewSummary.dueToday > 0) && reviewSummary.dueSoon > 0 && <span className="text-text-muted"> · </span>}
-              {reviewSummary.dueSoon > 0 && (
-                <span className="text-accent">{reviewSummary.dueSoon} due soon</span>
-              )}
-            </p>
-            <p className="text-xs text-text-muted mt-0.5">
-              {reviewSummary.overdue > 0
-                ? 'Review overdue topics to prevent knowledge decay.'
-                : reviewSummary.dueToday > 0
-                  ? 'Stay on schedule — complete your reviews today.'
-                  : 'Upcoming reviews in the next 2 days.'}
-            </p>
+        <details open={reviewSummary?.overdue > 0}>
+          <summary className="text-label cursor-pointer select-none py-2">Review Schedule</summary>
+          <div className={`border rounded-xl p-4 flex items-start gap-3 shadow-card ${
+            reviewSummary.overdue > 0
+              ? 'bg-weak/5 border-weak/30'
+              : reviewSummary.dueToday > 0
+                ? 'bg-developing/5 border-developing/30'
+                : 'bg-accent/5 border-accent/30'
+          }`}>
+            <span className="text-lg">
+              {reviewSummary.overdue > 0 ? '🔴' : reviewSummary.dueToday > 0 ? '🟡' : '📅'}
+            </span>
+            <div className="flex-1">
+              <p className="text-sm font-medium">
+                {reviewSummary.overdue > 0 && (
+                  <span className="text-weak">{reviewSummary.overdue} overdue</span>
+                )}
+                {reviewSummary.overdue > 0 && reviewSummary.dueToday > 0 && <span className="text-text-muted"> · </span>}
+                {reviewSummary.dueToday > 0 && (
+                  <span className="text-developing">{reviewSummary.dueToday} due today</span>
+                )}
+                {(reviewSummary.overdue > 0 || reviewSummary.dueToday > 0) && reviewSummary.dueSoon > 0 && <span className="text-text-muted"> · </span>}
+                {reviewSummary.dueSoon > 0 && (
+                  <span className="text-accent">{reviewSummary.dueSoon} due soon</span>
+                )}
+              </p>
+              <p className="text-xs text-text-muted mt-0.5">
+                {reviewSummary.overdue > 0
+                  ? 'Review overdue topics to prevent knowledge decay.'
+                  : reviewSummary.dueToday > 0
+                    ? 'Stay on schedule — complete your reviews today.'
+                    : 'Upcoming reviews in the next 2 days.'}
+              </p>
+            </div>
           </div>
-        </div>
-      )}
-
-      {/* Recurring Mistakes */}
-      {recurringMistakes.length > 0 && (
-        <div className="bg-bg-secondary border border-developing/30 rounded-xl p-5 shadow-card">
-          <div className="flex items-center gap-2 mb-3">
-            <span className="text-lg">🔄</span>
-            <h2 className="font-display text-title">Recurring Mistakes</h2>
-            {recurringMistakes.filter(m => m.severity === 'critical').length > 0 && (
-              <span className="text-xs bg-weak/10 text-weak px-2 py-0.5 rounded-full ml-auto">
-                {recurringMistakes.filter(m => m.severity === 'critical').length} critical
-              </span>
-            )}
-          </div>
-          <div className="space-y-2">
-            {recurringMistakes.slice(0, 5).map((mistake, i) => {
-              const topicNames = mistake.topicIds
-                .map(id => topics.find(t => t.id === id)?.name || id)
-                .join(', ');
-              const drillTopicId = mistake.topicIds[0];
-              const drillSkills = mistake.topicBreakdown[drillTopicId]?.subskillIds?.join(',') || '';
-              return (
-                <div key={i} className="flex items-start gap-3 py-2 border-b border-border last:border-0">
-                  <span className={`text-xs font-mono mt-0.5 ${
-                    mistake.severity === 'critical' ? 'text-weak' : 'text-developing'
-                  }`}>
-                    {mistake.severity === 'critical' ? '!!' : '!'}
-                  </span>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium truncate">
-                      Missing: {mistake.keyword}
-                    </p>
-                    <p className="text-xs text-text-muted">
-                      {mistake.occurrences}x in {topicNames}
-                    </p>
-                  </div>
-                  <Link
-                    to={`/drill/${drillTopicId}${drillSkills ? `?skills=${drillSkills}` : ''}`}
-                    className="text-xs text-accent hover:underline no-underline shrink-0"
-                  >
-                    Drill →
-                  </Link>
-                </div>
-              );
-            })}
-          </div>
-          {recurringMistakes.length > 3 && (
-            <Link to="/mistakes" className="text-xs text-accent hover:text-accent-hover no-underline font-medium mt-3 inline-block">
-              View All →
-            </Link>
-          )}
-        </div>
+        </details>
       )}
 
       {/* Progress + Streak row */}
@@ -232,111 +232,124 @@ export default function Home() {
         />
       </div>
 
-      {/* Weak Spot Radar */}
-      <div className="bg-bg-secondary border border-border rounded-xl p-5 shadow-card">
-        <h2 className="font-display text-title mb-3">Weak Spot Radar</h2>
-        <TopicRadar
-          onTopicClick={(topicId) => navigate(`/battle/${topicId}`)}
-        />
-        <p className="text-xs text-text-muted mt-2 text-center">
-          Click a topic below to start a battle.
-        </p>
-      </div>
-
-      {/* Recent Sessions */}
-      <div className="bg-bg-secondary border border-border rounded-xl p-5 shadow-card">
-        <h2 className="font-display text-title mb-3">Recent Sessions</h2>
-        {recentSessions.length === 0 ? (
-          <div className="text-center py-6">
-            <span className="text-3xl block mb-2">📝</span>
-            <p className="text-text-secondary text-sm">
-              No sessions yet. Complete your first battle to see your history.
-            </p>
-          </div>
-        ) : (
-          <div className="space-y-2">
-            {recentSessions.map((session, i) => {
-              const topic = topics.find(t => t.id === session.topicId);
-              const boss = bosses.find(b => b.topicId === session.topicId);
-              const phases = session.phases;
-              const phaseDetail = phases
-                ? `${phases.recall?.correct ?? 0}/${phases.recall?.total ?? 5} recall · ${phases.application?.correct ?? 0}/${phases.application?.total ?? 3} app · ${phases.extended?.score ?? 0}/${phases.extended?.maxScore ?? 6} ext`
-                : 'No details';
-              return (
-                <div
-                  key={session.id || i}
-                  className="flex items-center gap-3 py-2 border-b border-border last:border-0"
-                >
-                  <span className="text-lg">{boss?.emoji || '📘'}</span>
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2">
-                      <span className="text-sm font-medium truncate">
-                        {topic?.name || session.topicId}
-                      </span>
-                      {session.bossDefeated && (
-                        <span className="text-xs text-strong">✓</span>
-                      )}
+      {/* Recurring Mistakes — collapsible */}
+      {recurringMistakes.length > 0 && (
+        <details open={false}>
+          <summary className="text-label cursor-pointer select-none py-2">Recurring Mistakes</summary>
+          <div className="bg-bg-secondary border border-developing/30 rounded-xl p-5 shadow-card">
+            <div className="flex items-center gap-2 mb-3">
+              <span className="text-lg">🔄</span>
+              <h2 className="font-display text-title">Recurring Mistakes</h2>
+              {recurringMistakes.filter(m => m.severity === 'critical').length > 0 && (
+                <span className="text-xs bg-weak/10 text-weak px-2 py-0.5 rounded-full ml-auto">
+                  {recurringMistakes.filter(m => m.severity === 'critical').length} critical
+                </span>
+              )}
+            </div>
+            <div className="space-y-2">
+              {recurringMistakes.slice(0, 5).map((mistake, i) => {
+                const topicNames = mistake.topicIds
+                  .map(id => topics.find(t => t.id === id)?.name || id)
+                  .join(', ');
+                const drillTopicId = mistake.topicIds[0];
+                const drillSkills = mistake.topicBreakdown[drillTopicId]?.subskillIds?.join(',') || '';
+                return (
+                  <div key={i} className="flex items-start gap-3 py-2 border-b border-border last:border-0">
+                    <span className={`text-xs font-mono mt-0.5 ${
+                      mistake.severity === 'critical' ? 'text-weak' : 'text-developing'
+                    }`}>
+                      {mistake.severity === 'critical' ? '!!' : '!'}
+                    </span>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-sm font-medium truncate">
+                        Missing: {mistake.keyword}
+                      </p>
+                      <p className="text-xs text-text-muted">
+                        {mistake.occurrences}x in {topicNames}
+                      </p>
                     </div>
-                    <div className="text-xs text-text-muted">{phaseDetail}</div>
+                    <Link
+                      to={`/drill/${drillTopicId}${drillSkills ? `?skills=${drillSkills}` : ''}`}
+                      className="text-xs text-accent hover:underline no-underline shrink-0"
+                    >
+                      Drill →
+                    </Link>
                   </div>
-                  <div className="text-right">
-                    <div className="text-xs text-accent font-mono">+{session.xpEarned || 0} XP</div>
-                    <div className="text-xs text-text-muted">{formatDate(session.startedAt)}</div>
-                  </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
+            {recurringMistakes.length > 3 && (
+              <Link to="/mistakes" className="text-xs text-accent hover:text-accent-hover no-underline font-medium mt-3 inline-block">
+                View All →
+              </Link>
+            )}
           </div>
-        )}
-      </div>
-
-      {/* Storage Warning */}
-      {storageWarning && storageWarning.level !== 'info' && (
-        <div className={`border rounded-xl p-4 flex items-start gap-3 ${
-          storageWarning.level === 'critical'
-            ? 'bg-weak/5 border-weak/30'
-            : 'bg-developing/5 border-developing/30'
-        }`}>
-          <span className="text-lg">{storageWarning.level === 'critical' ? '⚠️' : '💾'}</span>
-          <div className="flex-1">
-            <p className={`text-sm ${storageWarning.level === 'critical' ? 'text-weak' : 'text-developing'}`}>
-              {storageWarning.message}
-            </p>
-            <Link to="/settings" className="text-xs text-accent hover:underline no-underline mt-1 inline-block">
-              Manage storage →
-            </Link>
-          </div>
-        </div>
+        </details>
       )}
 
-      {/* Export Reminder */}
-      {!exportReminderDismissed && (() => {
-        const lastExport = settings?.lastExportDate;
-        const daysSinceExport = lastExport
-          ? Math.floor((Date.now() - new Date(lastExport).getTime()) / 86400000)
-          : Infinity;
-        if (daysSinceExport <= 30) return null;
-        return (
-          <div className="bg-accent/5 border border-accent/30 rounded-xl p-4 flex items-center gap-3">
-            <span className="text-lg">💾</span>
-            <div className="flex-1">
-              <p className="text-sm text-text-secondary">
-                It's been a while since you backed up your data.
+      {/* Weak Spot Radar — collapsible */}
+      <details open={false}>
+        <summary className="text-label cursor-pointer select-none py-2">Weak Spot Radar</summary>
+        <div className="bg-bg-secondary border border-border rounded-xl p-5 shadow-card">
+          <h2 className="font-display text-title mb-3">Weak Spot Radar</h2>
+          <TopicRadar
+            onTopicClick={(topicId) => navigate(`/battle/${topicId}`)}
+          />
+          <p className="text-xs text-text-muted mt-2 text-center">
+            Click a topic below to start a battle.
+          </p>
+        </div>
+      </details>
+
+      {/* Recent Sessions — collapsible */}
+      <details open={false}>
+        <summary className="text-label cursor-pointer select-none py-2">Recent Sessions</summary>
+        <div className="bg-bg-secondary border border-border rounded-xl p-5 shadow-card">
+          <h2 className="font-display text-title mb-3">Recent Sessions</h2>
+          {recentSessions.length === 0 ? (
+            <div className="text-center py-6">
+              <span className="text-3xl block mb-2">📝</span>
+              <p className="text-text-secondary text-sm">
+                No sessions yet. Complete your first battle to see your history.
               </p>
-              <Link to="/settings" className="text-xs text-accent hover:underline no-underline mt-1 inline-block">
-                Export backup
-              </Link>
             </div>
-            <button
-              onClick={() => setExportReminderDismissed(true)}
-              className="text-text-muted hover:text-text-primary text-lg cursor-pointer bg-transparent border-none"
-              aria-label="Dismiss reminder"
-            >
-              ×
-            </button>
-          </div>
-        );
-      })()}
+          ) : (
+            <div className="space-y-2">
+              {recentSessions.map((session, i) => {
+                const topic = topics.find(t => t.id === session.topicId);
+                const boss = bosses.find(b => b.topicId === session.topicId);
+                const phases = session.phases;
+                const phaseDetail = phases
+                  ? `${phases.recall?.correct ?? 0}/${phases.recall?.total ?? 5} recall · ${phases.application?.correct ?? 0}/${phases.application?.total ?? 3} app · ${phases.extended?.score ?? 0}/${phases.extended?.maxScore ?? 6} ext`
+                  : 'No details';
+                return (
+                  <div
+                    key={session.id || i}
+                    className="flex items-center gap-3 py-2 border-b border-border last:border-0"
+                  >
+                    <span className="text-lg">{boss?.emoji || '📘'}</span>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2">
+                        <span className="text-sm font-medium truncate">
+                          {topic?.name || session.topicId}
+                        </span>
+                        {session.bossDefeated && (
+                          <span className="text-xs text-strong">✓</span>
+                        )}
+                      </div>
+                      <div className="text-xs text-text-muted">{phaseDetail}</div>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-xs text-accent font-mono">+{session.xpEarned || 0} XP</div>
+                      <div className="text-xs text-text-muted">{formatDate(session.startedAt)}</div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </div>
+      </details>
 
       {/* Quick Actions */}
       <div className="flex gap-3 flex-wrap">
@@ -391,4 +404,3 @@ function StatCard({ icon, label, value, sub, bar }) {
     </div>
   );
 }
-
