@@ -6,6 +6,7 @@ import { useAuth } from '../contexts/AuthContext';
 import { getSubjectsForLevel, isSubjectAvailable } from '../content/subjects';
 import { getLevelMeta } from '../lib/qualificationLevel';
 import { LogoLockup, ShieldIcon } from './Logo';
+import CreditBadge from './CreditBadge';
 
 const navItems = [
   { path: '/', label: 'Home', icon: '⚡' },
@@ -90,6 +91,7 @@ export default function Layout({ children }) {
                 </svg>
               )}
             </button>
+            <CreditBadge />
             {isGuest ? (
               <Link to="/signin" className="text-button px-3 py-1.5 rounded-lg bg-accent text-bg-primary no-underline transition-colors hover:opacity-90">
                 Sign In

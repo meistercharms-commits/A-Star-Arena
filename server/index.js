@@ -3,6 +3,8 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import Anthropic from '@anthropic-ai/sdk';
 import rateLimit from 'express-rate-limit';
+import { verifyToken } from './middleware/auth.js';
+import { checkCredits } from './middleware/credits.js';
 
 dotenv.config({ path: '.env.local', override: true });
 
@@ -322,9 +324,38 @@ app.get('/api/health', (req, res) => {
   });
 });
 
+// ─── Credit Balance ───
+app.get('/api/credits/balance', verifyToken, async (req, res) => {
+  if (req.isGuest) {
+    const ip = req.ip || req.connection?.remoteAddress || 'unknown';
+    return res.json({
+      success: true,
+      data: { type: 'guest', used: 0, limit: 3 },
+    });
+  }
+
+  if (!req.userProfile) {
+    return res.json({
+      success: true,
+      data: { type: 'free', credits: 0, freeUsed: 0, freeLimit: 5 },
+    });
+  }
+
+  res.json({
+    success: true,
+    data: {
+      type: req.userProfile.credits > 0 ? 'premium' : 'free',
+      credits: req.userProfile.credits || 0,
+      freeUsed: req.userProfile.freeAiBattlesUsedThisWeek || 0,
+      freeLimit: 5,
+      freeResetDate: req.userProfile.freeWeekResetDate || null,
+    },
+  });
+});
+
 // ─── Generate Question ───
 
-app.post('/api/claude/generateQuestion', async (req, res) => {
+app.post('/api/claude/generateQuestion', verifyToken, checkCredits(1), async (req, res) => {
   try {
     const rawBody = req.body;
 
@@ -421,7 +452,7 @@ Respond with this exact JSON structure:
 
 // ─── Mark Answer ───
 
-app.post('/api/claude/markAnswer', async (req, res) => {
+app.post('/api/claude/markAnswer', verifyToken, async (req, res) => {
   try {
     const rawBody = req.body;
 
@@ -547,7 +578,7 @@ RULES:
 You MUST respond with valid JSON only. No markdown, no explanation outside the JSON.`;
 }
 
-app.post('/api/claude/generateStudyGuide', async (req, res) => {
+app.post('/api/claude/generateStudyGuide', verifyToken, checkCredits(1), async (req, res) => {
   try {
     const rawBody = req.body;
 

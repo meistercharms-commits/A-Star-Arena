@@ -7,6 +7,7 @@
 
 import { mockGenerateQuestion, mockMarkAnswer, mockGenerateStudyGuide } from './mockClaude';
 import { getCurrentSubject, getCurrentLevel } from './storage';
+import { auth, hasConfig } from './firebase';
 
 // In production (Vercel), API routes are at /api/* on the same origin.
 // In dev, Vite's proxy forwards /api/* to localhost:3001.
@@ -14,6 +15,16 @@ const API_BASE = '/api';
 const TIMEOUT_MS = 15000; // 15 second timeout
 
 // ─── Helpers ───
+
+async function getAuthHeaders() {
+  if (!hasConfig || !auth?.currentUser) return {};
+  try {
+    const token = await auth.currentUser.getIdToken();
+    return { Authorization: `Bearer ${token}` };
+  } catch {
+    return {};
+  }
+}
 
 async function fetchWithTimeout(url, options, timeoutMs = TIMEOUT_MS) {
   const controller = new AbortController();
@@ -75,7 +86,10 @@ export async function generateQuestion({ topicId, phase, difficulty = 3, examBoa
       const topic = topics.find(t => t.id === topicId);
       const res = await fetchWithTimeout(`${API_BASE}/claude/generateQuestion`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          ...(await getAuthHeaders()),
+        },
         body: JSON.stringify({
           topicId,
           topicName: topic?.name || topicId,
@@ -89,6 +103,16 @@ export async function generateQuestion({ topicId, phase, difficulty = 3, examBoa
           previousPrompts: previousPrompts.slice(-10), // Send last 10 to avoid huge payloads
         }),
       });
+
+      if (res.status === 402) {
+        const errorData = await res.json();
+        throw {
+          type: 'credit_error',
+          code: errorData.error,
+          message: errorData.message,
+          credits: errorData.credits,
+        };
+      }
 
       const data = await res.json();
       if (data.success) {
@@ -114,7 +138,10 @@ export async function markAnswer({ questionId, questionPrompt, studentAnswer, ph
     try {
       const res = await fetchWithTimeout(`${API_BASE}/claude/markAnswer`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          ...(await getAuthHeaders()),
+        },
         body: JSON.stringify({
           questionId,
           questionPrompt,
@@ -128,6 +155,16 @@ export async function markAnswer({ questionId, questionPrompt, studentAnswer, ph
           level: getCurrentLevel(),
         }),
       });
+
+      if (res.status === 402) {
+        const errorData = await res.json();
+        throw {
+          type: 'credit_error',
+          code: errorData.error,
+          message: errorData.message,
+          credits: errorData.credits,
+        };
+      }
 
       const data = await res.json();
       if (data.success) {
@@ -152,7 +189,10 @@ export async function generateStudyGuide({ topicId, topicName, subskills = [], e
     try {
       const res = await fetchWithTimeout(`${API_BASE}/claude/generateStudyGuide`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          ...(await getAuthHeaders()),
+        },
         body: JSON.stringify({
           topicId,
           topicName,
@@ -165,6 +205,16 @@ export async function generateStudyGuide({ topicId, topicName, subskills = [], e
           errorPatterns,
         }),
       }, 25000); // Higher timeout — study guides take longer
+
+      if (res.status === 402) {
+        const errorData = await res.json();
+        throw {
+          type: 'credit_error',
+          code: errorData.error,
+          message: errorData.message,
+          credits: errorData.credits,
+        };
+      }
 
       const data = await res.json();
       if (data.success) {
