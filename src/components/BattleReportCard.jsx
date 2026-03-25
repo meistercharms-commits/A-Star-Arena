@@ -24,7 +24,7 @@ export default function BattleReportCard({ results, bossName, bossEmoji, topicNa
     ctx.strokeRect(0.5, 0.5, w - 1, h - 1);
 
     // Logo text
-    ctx.font = '600 18px "Cormorant Garamond", serif';
+    ctx.font = '600 18px "Space Grotesk", serif';
     ctx.fillStyle = '#e4ede0';
     ctx.fillText('A', 24, 36);
     ctx.fillStyle = '#a3c094';
@@ -47,7 +47,7 @@ export default function BattleReportCard({ results, bossName, bossEmoji, topicNa
     ctx.stroke();
 
     // Boss name + topic
-    ctx.font = '500 24px "Cormorant Garamond", serif';
+    ctx.font = '500 24px "Space Grotesk", serif';
     ctx.fillStyle = '#e4ede0';
     ctx.fillText(`${bossEmoji || '\u2694\uFE0F'} ${bossName || 'Boss'}`, 24, 86);
 
@@ -97,7 +97,7 @@ export default function BattleReportCard({ results, bossName, bossEmoji, topicNa
       ctx.globalAlpha = 1;
 
       // Score text
-      ctx.font = '500 12px "Cormorant Garamond", serif';
+      ctx.font = '500 12px "Space Grotesk", serif';
       ctx.fillStyle = p.colour;
       ctx.fillText(`${p.score}/${p.max}`, barW + 36, y + 14);
 
@@ -126,7 +126,7 @@ export default function BattleReportCard({ results, bossName, bossEmoji, topicNa
       ctx.font = '500 9px "Space Grotesk", sans-serif';
       ctx.fillStyle = 'rgba(228,237,224,0.3)';
       ctx.fillText(s.label, x, y);
-      ctx.font = '600 16px "Cormorant Garamond", serif';
+      ctx.font = '600 16px "Space Grotesk", serif';
       ctx.fillStyle = s.colour;
       ctx.fillText(s.value, x, y + 20);
     });

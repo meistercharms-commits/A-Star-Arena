@@ -17,8 +17,8 @@
   --color-weak: #c4856a;
   --color-untested: rgba(228,237,224,0.25);
   --color-border: rgba(255,255,255,0.07);
-  --font-display: 'Cormorant Garamond', Georgia, serif;
-  --font-ui: 'Space Grotesk', system-ui, sans-serif;
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-ui: 'Inter', system-ui, sans-serif;
   --font-mono: "Fira Code", ui-monospace, monospace;
   --color-border-accent: rgba(163,192,148,0.22);
   --color-bg-hero: rgba(163,192,148,0.09);
@@ -98,7 +98,7 @@
 
 /* ─── Accessibility: Dyslexia font ─── */
 [data-dyslexia="true"] {
-  --font-ui: 'OpenDyslexic', 'Space Grotesk', system-ui, sans-serif;
+  --font-ui: 'OpenDyslexic', 'Inter', system-ui, sans-serif;
 }
 
 /* ─── Base Styles ─── */
