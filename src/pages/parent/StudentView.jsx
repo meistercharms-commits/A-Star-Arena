@@ -2,7 +2,13 @@ import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { db } from '../../lib/firebase';
-import { doc, getDoc, collection, getDocs } from 'firebase/firestore';
+import { doc, getDoc, updateDoc, increment, collection, getDocs, serverTimestamp } from 'firebase/firestore';
+
+const CREDIT_PACKS = [
+  { id: '20', amount: 20, price: '£1.99', perCredit: '10p each' },
+  { id: '50', amount: 50, price: '£3.99', perCredit: '8p each', popular: true },
+  { id: '100', amount: 100, price: '£6.99', perCredit: '7p each' },
+];
 
 export default function StudentView() {
   const { uid } = useParams();
@@ -184,6 +190,45 @@ export default function StudentView() {
           </div>
         </div>
       )}
+
+      {/* Buy credits for student */}
+      <div className="bg-bg-secondary border border-border rounded-xl p-5 shadow-card">
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="text-label">Revision Credits</h2>
+          <div className="flex items-center gap-2">
+            <span className="text-text-muted text-sm">Balance:</span>
+            <span className="font-display text-xl font-medium text-accent">{student?.credits || 0}</span>
+          </div>
+        </div>
+        <p className="text-sm text-text-secondary mb-4">
+          Credits let {student?.displayName || 'your child'} use AI-powered revision battles and video lessons.
+          They get 5 free AI battles each week — credits are for when they want to do more.
+        </p>
+        <div className="grid grid-cols-3 gap-3">
+          {CREDIT_PACKS.map(pack => (
+            <button
+              key={pack.id}
+              onClick={() => {
+                // Stripe checkout will be wired in Phase 4, targeting the student's UID
+                alert('Stripe payments coming soon!');
+              }}
+              className={`relative text-center p-4 rounded-xl cursor-pointer border transition-colors hover:border-accent/50 ${
+                pack.popular ? 'border-accent bg-accent/5' : 'border-border bg-bg-tertiary'
+              }`}
+            >
+              {pack.popular && (
+                <span className="absolute -top-2 left-1/2 -translate-x-1/2 text-[10px] bg-accent text-bg-primary px-2 py-0.5 rounded-full font-medium">
+                  Best Value
+                </span>
+              )}
+              <div className="font-display text-2xl font-medium text-text-primary">{pack.amount}</div>
+              <div className="text-label text-text-muted">Credits</div>
+              <div className="font-display text-base text-text-primary mt-1">{pack.price}</div>
+              <div className="text-xs text-text-muted">{pack.perCredit}</div>
+            </button>
+          ))}
+        </div>
+      </div>
 
       {/* Last active */}
       {progress?.lastSessionDate && (
