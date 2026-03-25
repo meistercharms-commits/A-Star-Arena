@@ -1,0 +1,72 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ── Users ──
+    match /users/{uid} {
+      // Users can read their own document
+      allow read: if request.auth != null && request.auth.uid == uid;
+      // Users can update their own document EXCEPT credits fields (server-only)
+      allow update: if request.auth != null && request.auth.uid == uid
+        && !request.resource.data.diff(resource.data).affectedKeys()
+            .hasAny(['credits', 'freeAiBattlesUsedThisWeek', 'freeWeekResetDate']);
+      // Only allow create during sign-up (handled by client)
+      allow create: if request.auth != null && request.auth.uid == uid;
+      // No client-side delete
+      allow delete: if false;
+
+      // ── User subcollections ──
+      match /settings/{doc} {
+        allow read, write: if request.auth != null && request.auth.uid == uid;
+      }
+
+      match /progress/{doc} {
+        allow read, write: if request.auth != null && request.auth.uid == uid;
+        // Parents can read linked student progress
+        allow read: if request.auth != null
+          && request.auth.uid in get(/databases/$(database)/documents/users/$(uid)).data.linkedParentUids;
+      }
+
+      match /subjects/{subjectDoc} {
+        allow read, write: if request.auth != null && request.auth.uid == uid;
+        // Parents can read linked student subjects
+        allow read: if request.auth != null
+          && request.auth.uid in get(/databases/$(database)/documents/users/$(uid)).data.linkedParentUids;
+      }
+
+      match /exams/{examDoc} {
+        allow read, write: if request.auth != null && request.auth.uid == uid;
+      }
+
+      match /videoLessons/{lessonDoc} {
+        allow read, write: if request.auth != null && request.auth.uid == uid;
+      }
+    }
+
+    // ── Invite Codes ──
+    match /inviteCodes/{code} {
+      // Any authenticated user can read (for code lookup)
+      allow read: if request.auth != null;
+      // Only the student who owns it can create
+      allow create: if request.auth != null
+        && request.resource.data.studentUid == request.auth.uid;
+      // Allow updates (adding parent to usedBy array)
+      allow update: if request.auth != null;
+      // Only the owning student can delete
+      allow delete: if request.auth != null
+        && resource.data.studentUid == request.auth.uid;
+    }
+
+    // ── Credit Transactions (server-only, read by owner) ──
+    match /creditTransactions/{txId} {
+      allow read: if request.auth != null && resource.data.uid == request.auth.uid;
+      // Only server (Admin SDK) can write
+      allow write: if false;
+    }
+
+    // ── Deny everything else ──
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
